@@ -29,6 +29,7 @@ import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProce
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorRenameMetricTags;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorSample;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScanner;
+import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtection;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorSplitArray;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimit;
 import com.pulumi.datadog.outputs.ObservabilityPipelineConfigProcessorGroupProcessorThrottle;
@@ -185,6 +186,11 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
      * 
      */
     private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScanner sensitiveDataScanner;
+    /**
+     * @return The `spikeProtection` processor learns the normal log volume and detects spikes, optionally dropping or rerouting the excess events.
+     * 
+     */
+    private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtection spikeProtection;
     /**
      * @return The `splitArray` processor splits array fields into separate events based on configured rules.
      * 
@@ -405,6 +411,13 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
         return Optional.ofNullable(this.sensitiveDataScanner);
     }
     /**
+     * @return The `spikeProtection` processor learns the normal log volume and detects spikes, optionally dropping or rerouting the excess events.
+     * 
+     */
+    public Optional<ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtection> spikeProtection() {
+        return Optional.ofNullable(this.spikeProtection);
+    }
+    /**
      * @return The `splitArray` processor splits array fields into separate events based on configured rules.
      * 
      */
@@ -464,6 +477,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorRenameMetricTags renameMetricTags;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorSample sample;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScanner sensitiveDataScanner;
+        private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtection spikeProtection;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorSplitArray splitArray;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimit tagCardinalityLimit;
         private @Nullable ObservabilityPipelineConfigProcessorGroupProcessorThrottle throttle;
@@ -499,6 +513,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
     	      this.renameMetricTags = defaults.renameMetricTags;
     	      this.sample = defaults.sample;
     	      this.sensitiveDataScanner = defaults.sensitiveDataScanner;
+    	      this.spikeProtection = defaults.spikeProtection;
     	      this.splitArray = defaults.splitArray;
     	      this.tagCardinalityLimit = defaults.tagCardinalityLimit;
     	      this.throttle = defaults.throttle;
@@ -685,6 +700,12 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
             return this;
         }
         @CustomType.Setter
+        public Builder spikeProtection(@Nullable ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtection spikeProtection) {
+
+            this.spikeProtection = spikeProtection;
+            return this;
+        }
+        @CustomType.Setter
         public Builder splitArray(@Nullable ObservabilityPipelineConfigProcessorGroupProcessorSplitArray splitArray) {
 
             this.splitArray = splitArray;
@@ -733,6 +754,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessor {
             _resultValue.renameMetricTags = renameMetricTags;
             _resultValue.sample = sample;
             _resultValue.sensitiveDataScanner = sensitiveDataScanner;
+            _resultValue.spikeProtection = spikeProtection;
             _resultValue.splitArray = splitArray;
             _resultValue.tagCardinalityLimit = tagCardinalityLimit;
             _resultValue.throttle = throttle;

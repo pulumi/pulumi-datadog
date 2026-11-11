@@ -4,9 +4,12 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.GetActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetActionConnectionCloudflareApiToken {
@@ -15,6 +18,11 @@ public final class GetActionConnectionCloudflareApiToken {
      * 
      */
     private String apiToken;
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    private @Nullable GetActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager apiTokenAwsSecretsManager;
 
     private GetActionConnectionCloudflareApiToken() {}
     /**
@@ -23,6 +31,13 @@ public final class GetActionConnectionCloudflareApiToken {
      */
     public String apiToken() {
         return this.apiToken;
+    }
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager> apiTokenAwsSecretsManager() {
+        return Optional.ofNullable(this.apiTokenAwsSecretsManager);
     }
 
     public static Builder builder() {
@@ -35,10 +50,12 @@ public final class GetActionConnectionCloudflareApiToken {
     @CustomType.Builder
     public static final class Builder {
         private String apiToken;
+        private @Nullable GetActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager apiTokenAwsSecretsManager;
         public Builder() {}
         public Builder(GetActionConnectionCloudflareApiToken defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiToken = defaults.apiToken;
+    	      this.apiTokenAwsSecretsManager = defaults.apiTokenAwsSecretsManager;
         }
 
         @CustomType.Setter
@@ -49,9 +66,16 @@ public final class GetActionConnectionCloudflareApiToken {
             this.apiToken = apiToken;
             return this;
         }
+        @CustomType.Setter
+        public Builder apiTokenAwsSecretsManager(@Nullable GetActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager apiTokenAwsSecretsManager) {
+
+            this.apiTokenAwsSecretsManager = apiTokenAwsSecretsManager;
+            return this;
+        }
         public GetActionConnectionCloudflareApiToken build() {
             final var _resultValue = new GetActionConnectionCloudflareApiToken();
             _resultValue.apiToken = apiToken;
+            _resultValue.apiTokenAwsSecretsManager = apiTokenAwsSecretsManager;
             return _resultValue;
         }
     }

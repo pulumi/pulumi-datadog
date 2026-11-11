@@ -29,7 +29,7 @@ class TeamSyncArgs:
         """
         The set of arguments for constructing a TeamSync resource.
 
-        :param pulumi.Input[_builtins.str] source: The external source platform for team synchronization. Valid values are `github`.
+        :param pulumi.Input[_builtins.str] source: The external source platform for team synchronization. Valid values are `github`, `servicenow`.
         :param pulumi.Input[_builtins.str] type: The type of synchronization operation. `link` connects teams by matching names. `provision` creates new teams when no match is found. Valid values are `link`, `provision`.
         :param pulumi.Input[_builtins.str] frequency: How often the sync process should run. Valid values are `once`, `continuously`, `paused`. Defaults to `"once"`.
         :param pulumi.Input[Sequence[pulumi.Input['TeamSyncSelectionStateArgs']]] selection_states: Specifies which teams or organizations to sync. When provided, synchronization is limited to the specified items and their subtrees.
@@ -48,7 +48,7 @@ class TeamSyncArgs:
     @pulumi.getter
     def source(self) -> pulumi.Input[_builtins.str]:
         """
-        The external source platform for team synchronization. Valid values are `github`.
+        The external source platform for team synchronization. Valid values are `github`, `servicenow`.
         """
         return pulumi.get(self, "source")
 
@@ -118,7 +118,7 @@ class _TeamSyncState:
 
         :param pulumi.Input[_builtins.str] frequency: How often the sync process should run. Valid values are `once`, `continuously`, `paused`. Defaults to `"once"`.
         :param pulumi.Input[Sequence[pulumi.Input['TeamSyncSelectionStateArgs']]] selection_states: Specifies which teams or organizations to sync. When provided, synchronization is limited to the specified items and their subtrees.
-        :param pulumi.Input[_builtins.str] source: The external source platform for team synchronization. Valid values are `github`.
+        :param pulumi.Input[_builtins.str] source: The external source platform for team synchronization. Valid values are `github`, `servicenow`.
         :param pulumi.Input[_builtins.bool] sync_membership: Whether to sync members from the external team to the Datadog team. Defaults to `false`.
         :param pulumi.Input[_builtins.str] type: The type of synchronization operation. `link` connects teams by matching names. `provision` creates new teams when no match is found. Valid values are `link`, `provision`.
         """
@@ -161,7 +161,7 @@ class _TeamSyncState:
     @pulumi.getter
     def source(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The external source platform for team synchronization. Valid values are `github`.
+        The external source platform for team synchronization. Valid values are `github`, `servicenow`.
         """
         return pulumi.get(self, "source")
 
@@ -207,7 +207,7 @@ class TeamSync(pulumi.CustomResource):
                  type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
-        Provides a Datadog Team Sync resource. This can be used to configure team synchronization from external sources (e.g. GitHub) into Datadog.
+        Provides a Datadog Team Sync resource. This can be used to configure team synchronization from external sources (e.g. GitHub or ServiceNow) into Datadog.
 
         ## Example Usage
 
@@ -229,6 +229,17 @@ class TeamSync(pulumi.CustomResource):
                     "value": "12345",
                 }],
             }])
+        # Configure team synchronization from ServiceNow
+        servicenow = datadog.TeamSync("servicenow",
+            source="servicenow",
+            type="link",
+            frequency="continuously",
+            selection_states=[{
+                "external_id": [{
+                    "type": "organization",
+                    "value": "my-instance",
+                }],
+            }])
         ```
 
         ## Import
@@ -237,6 +248,7 @@ class TeamSync(pulumi.CustomResource):
 
         ```sh
         $ pulumi import datadog:index/teamSync:TeamSync example "github"
+        $ pulumi import datadog:index/teamSync:TeamSync servicenow "servicenow"
         ```
 
 
@@ -244,7 +256,7 @@ class TeamSync(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] frequency: How often the sync process should run. Valid values are `once`, `continuously`, `paused`. Defaults to `"once"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TeamSyncSelectionStateArgs', 'TeamSyncSelectionStateArgsDict', 'outputs.TeamSyncSelectionState']]]] selection_states: Specifies which teams or organizations to sync. When provided, synchronization is limited to the specified items and their subtrees.
-        :param pulumi.Input[_builtins.str] source: The external source platform for team synchronization. Valid values are `github`.
+        :param pulumi.Input[_builtins.str] source: The external source platform for team synchronization. Valid values are `github`, `servicenow`.
         :param pulumi.Input[_builtins.bool] sync_membership: Whether to sync members from the external team to the Datadog team. Defaults to `false`.
         :param pulumi.Input[_builtins.str] type: The type of synchronization operation. `link` connects teams by matching names. `provision` creates new teams when no match is found. Valid values are `link`, `provision`.
         """
@@ -255,7 +267,7 @@ class TeamSync(pulumi.CustomResource):
                  args: TeamSyncArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Datadog Team Sync resource. This can be used to configure team synchronization from external sources (e.g. GitHub) into Datadog.
+        Provides a Datadog Team Sync resource. This can be used to configure team synchronization from external sources (e.g. GitHub or ServiceNow) into Datadog.
 
         ## Example Usage
 
@@ -277,6 +289,17 @@ class TeamSync(pulumi.CustomResource):
                     "value": "12345",
                 }],
             }])
+        # Configure team synchronization from ServiceNow
+        servicenow = datadog.TeamSync("servicenow",
+            source="servicenow",
+            type="link",
+            frequency="continuously",
+            selection_states=[{
+                "external_id": [{
+                    "type": "organization",
+                    "value": "my-instance",
+                }],
+            }])
         ```
 
         ## Import
@@ -285,6 +308,7 @@ class TeamSync(pulumi.CustomResource):
 
         ```sh
         $ pulumi import datadog:index/teamSync:TeamSync example "github"
+        $ pulumi import datadog:index/teamSync:TeamSync servicenow "servicenow"
         ```
 
 
@@ -350,7 +374,7 @@ class TeamSync(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] frequency: How often the sync process should run. Valid values are `once`, `continuously`, `paused`. Defaults to `"once"`.
         :param pulumi.Input[Sequence[pulumi.Input[Union['TeamSyncSelectionStateArgs', 'TeamSyncSelectionStateArgsDict', 'outputs.TeamSyncSelectionState']]]] selection_states: Specifies which teams or organizations to sync. When provided, synchronization is limited to the specified items and their subtrees.
-        :param pulumi.Input[_builtins.str] source: The external source platform for team synchronization. Valid values are `github`.
+        :param pulumi.Input[_builtins.str] source: The external source platform for team synchronization. Valid values are `github`, `servicenow`.
         :param pulumi.Input[_builtins.bool] sync_membership: Whether to sync members from the external team to the Datadog team. Defaults to `false`.
         :param pulumi.Input[_builtins.str] type: The type of synchronization operation. `link` connects teams by matching names. `provision` creates new teams when no match is found. Valid values are `link`, `provision`.
         """
@@ -401,7 +425,7 @@ class TeamSync(pulumi.CustomResource):
     @pulumi.getter
     def source(self) -> pulumi.Output[_builtins.str]:
         """
-        The external source platform for team synchronization. Valid values are `github`.
+        The external source platform for team synchronization. Valid values are `github`, `servicenow`.
         """
         return pulumi.get(self, "source")
 

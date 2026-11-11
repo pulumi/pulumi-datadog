@@ -4,9 +4,12 @@
 package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.GetActionConnectionHttpTokenAuthTokenValueAwsSecretsManager;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetActionConnectionHttpTokenAuthToken extends com.pulumi.resources.InvokeArgs {
@@ -58,12 +61,28 @@ public final class GetActionConnectionHttpTokenAuthToken extends com.pulumi.reso
         return this.value;
     }
 
+    /**
+     * AWS Secrets Manager reference for this field.
+     * 
+     */
+    @Import(name="valueAwsSecretsManager")
+    private @Nullable GetActionConnectionHttpTokenAuthTokenValueAwsSecretsManager valueAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionHttpTokenAuthTokenValueAwsSecretsManager> valueAwsSecretsManager() {
+        return Optional.ofNullable(this.valueAwsSecretsManager);
+    }
+
     private GetActionConnectionHttpTokenAuthToken() {}
 
     private GetActionConnectionHttpTokenAuthToken(GetActionConnectionHttpTokenAuthToken $) {
         this.name = $.name;
         this.type = $.type;
         this.value = $.value;
+        this.valueAwsSecretsManager = $.valueAwsSecretsManager;
     }
 
     public static Builder builder() {
@@ -114,6 +133,17 @@ public final class GetActionConnectionHttpTokenAuthToken extends com.pulumi.reso
          */
         public Builder value(String value) {
             $.value = value;
+            return this;
+        }
+
+        /**
+         * @param valueAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder valueAwsSecretsManager(@Nullable GetActionConnectionHttpTokenAuthTokenValueAwsSecretsManager valueAwsSecretsManager) {
+            $.valueAwsSecretsManager = valueAwsSecretsManager;
             return this;
         }
 

@@ -198,6 +198,10 @@ export interface GetActionConnectionResult {
      */
     readonly datadog?: outputs.GetActionConnectionDatadog;
     /**
+     * AWS Secrets Manager settings shared by credential references.
+     */
+    readonly externalSecretsManager: outputs.GetActionConnectionExternalSecretsManager;
+    /**
      * Configuration for a Fastly connection
      */
     readonly fastly?: outputs.GetActionConnectionFastly;

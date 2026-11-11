@@ -17,6 +17,29 @@ export interface ActionConnectionAnthropicApiKey {
      * Anthropic API token. String length must be at least 1.
      */
     apiToken?: string;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiTokenAwsSecretsManager?: outputs.ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManager;
+}
+
+export interface ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
 }
 
 export interface ActionConnectionAsana {
@@ -31,6 +54,29 @@ export interface ActionConnectionAsanaAccessToken {
      * Asana access token. String length must be at least 1.
      */
     accessToken?: string;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    accessTokenAwsSecretsManager?: outputs.ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager;
+}
+
+export interface ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
 }
 
 export interface ActionConnectionAws {
@@ -97,6 +143,29 @@ export interface ActionConnectionCircleCiApiKey {
      * CircleCI API token. String length must be at least 1.
      */
     apiToken?: string;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiTokenAwsSecretsManager?: outputs.ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManager;
+}
+
+export interface ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
 }
 
 export interface ActionConnectionClickup {
@@ -111,6 +180,29 @@ export interface ActionConnectionClickupApiKey {
      * ClickUp API token. String length must be at least 1.
      */
     apiToken?: string;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiTokenAwsSecretsManager?: outputs.ActionConnectionClickupApiKeyApiTokenAwsSecretsManager;
+}
+
+export interface ActionConnectionClickupApiKeyApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
 }
 
 export interface ActionConnectionCloudflare {
@@ -129,6 +221,29 @@ export interface ActionConnectionCloudflareApiToken {
      * Cloudflare API token. String length must be at least 1.
      */
     apiToken?: string;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiTokenAwsSecretsManager?: outputs.ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager;
+}
+
+export interface ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
 }
 
 export interface ActionConnectionCloudflareGlobalApiToken {
@@ -137,9 +252,55 @@ export interface ActionConnectionCloudflareGlobalApiToken {
      */
     authEmail?: string;
     /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    authEmailAwsSecretsManager?: outputs.ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager;
+    /**
      * Cloudflare global API key. String length must be at least 1.
      */
     globalApiKey?: string;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    globalApiKeyAwsSecretsManager?: outputs.ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager;
+}
+
+export interface ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
 }
 
 export interface ActionConnectionConfigCat {
@@ -155,13 +316,82 @@ export interface ActionConnectionConfigCatSdkKey {
      */
     apiPassword?: string;
     /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiPasswordAwsSecretsManager?: outputs.ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager;
+    /**
      * ConfigCat Public Management API username. String length must be at least 1.
      */
     apiUsername?: string;
     /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiUsernameAwsSecretsManager?: outputs.ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager;
+    /**
      * ConfigCat SDK key. String length must be at least 1.
      */
     sdkKey?: string;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    sdkKeyAwsSecretsManager?: outputs.ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager;
+}
+
+export interface ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
 }
 
 export interface ActionConnectionDatadog {
@@ -177,17 +407,120 @@ export interface ActionConnectionDatadogApiKey {
      */
     apiKey?: string;
     /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiKeyAwsSecretsManager?: outputs.ActionConnectionDatadogApiKeyApiKeyAwsSecretsManager;
+    /**
      * Datadog application key. String length must be at least 1.
      */
     appKey?: string;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    appKeyAwsSecretsManager?: outputs.ActionConnectionDatadogApiKeyAppKeyAwsSecretsManager;
     /**
      * Datadog site data center. String length must be at least 1.
      */
     datacenter?: string;
     /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    datacenterAwsSecretsManager?: outputs.ActionConnectionDatadogApiKeyDatacenterAwsSecretsManager;
+    /**
      * Custom subdomain used for URLs generated with this connection. String length must be at least 1.
      */
     subdomain?: string;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    subdomainAwsSecretsManager?: outputs.ActionConnectionDatadogApiKeySubdomainAwsSecretsManager;
+}
+
+export interface ActionConnectionDatadogApiKeyApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface ActionConnectionDatadogApiKeyAppKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface ActionConnectionDatadogApiKeyDatacenterAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface ActionConnectionDatadogApiKeySubdomainAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface ActionConnectionExternalSecretsManager {
+    /**
+     * ID of an AWS connection in the same organization used to retrieve secrets. String length must be at least 1.
+     */
+    connectionId: string;
+    /**
+     * AWS region containing the secrets. String length must be at least 1.
+     */
+    region: string;
 }
 
 export interface ActionConnectionFastly {
@@ -202,6 +535,29 @@ export interface ActionConnectionFastlyApiKey {
      * Fastly API key. String length must be at least 1.
      */
     apiKey?: string;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiKeyAwsSecretsManager?: outputs.ActionConnectionFastlyApiKeyApiKeyAwsSecretsManager;
+}
+
+export interface ActionConnectionFastlyApiKeyApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
 }
 
 export interface ActionConnectionFreshservice {
@@ -217,9 +573,55 @@ export interface ActionConnectionFreshserviceApiKey {
      */
     apiKey?: string;
     /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiKeyAwsSecretsManager?: outputs.ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager;
+    /**
      * Freshservice domain. String length must be at least 1.
      */
     domain?: string;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    domainAwsSecretsManager?: outputs.ActionConnectionFreshserviceApiKeyDomainAwsSecretsManager;
+}
+
+export interface ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface ActionConnectionFreshserviceApiKeyDomainAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
 }
 
 export interface ActionConnectionGcp {
@@ -235,9 +637,55 @@ export interface ActionConnectionGcpServiceAccount {
      */
     privateKey?: string;
     /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    privateKeyAwsSecretsManager?: outputs.ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager;
+    /**
      * Google Cloud service account email. String length must be at least 1.
      */
     serviceAccountEmail?: string;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    serviceAccountEmailAwsSecretsManager?: outputs.ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager;
+}
+
+export interface ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
 }
 
 export interface ActionConnectionGemini {
@@ -252,6 +700,29 @@ export interface ActionConnectionGeminiApiKey {
      * Gemini API key. String length must be at least 1.
      */
     apiKey?: string;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiKeyAwsSecretsManager?: outputs.ActionConnectionGeminiApiKeyApiKeyAwsSecretsManager;
+}
+
+export interface ActionConnectionGeminiApiKeyApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
 }
 
 export interface ActionConnectionGitlab {
@@ -266,6 +737,29 @@ export interface ActionConnectionGitlabApiKey {
      * GitLab API token. String length must be at least 1.
      */
     apiToken?: string;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiTokenAwsSecretsManager?: outputs.ActionConnectionGitlabApiKeyApiTokenAwsSecretsManager;
+}
+
+export interface ActionConnectionGitlabApiKeyApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
 }
 
 export interface ActionConnectionGreyNoise {
@@ -280,6 +774,29 @@ export interface ActionConnectionGreyNoiseApiKey {
      * GreyNoise API key. String length must be at least 1.
      */
     apiKey?: string;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiKeyAwsSecretsManager?: outputs.ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManager;
+}
+
+export interface ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
 }
 
 export interface ActionConnectionHttp {
@@ -347,6 +864,29 @@ export interface ActionConnectionHttpTokenAuthToken {
      * Token value. String length must be at least 1.
      */
     value?: string;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    valueAwsSecretsManager?: outputs.ActionConnectionHttpTokenAuthTokenValueAwsSecretsManager;
+}
+
+export interface ActionConnectionHttpTokenAuthTokenValueAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
 }
 
 export interface ActionConnectionHttpTokenAuthUrlParameter {
@@ -372,6 +912,29 @@ export interface ActionConnectionLaunchDarklyApiKey {
      * LaunchDarkly API token. String length must be at least 1.
      */
     apiToken?: string;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiTokenAwsSecretsManager?: outputs.ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManager;
+}
+
+export interface ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
 }
 
 export interface ActionConnectionNotion {
@@ -386,6 +949,29 @@ export interface ActionConnectionNotionApiKey {
      * Notion API token. String length must be at least 1.
      */
     apiToken?: string;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiTokenAwsSecretsManager?: outputs.ActionConnectionNotionApiKeyApiTokenAwsSecretsManager;
+}
+
+export interface ActionConnectionNotionApiKeyApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
 }
 
 export interface ActionConnectionOkta {
@@ -401,9 +987,55 @@ export interface ActionConnectionOktaApiToken {
      */
     apiToken?: string;
     /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiTokenAwsSecretsManager?: outputs.ActionConnectionOktaApiTokenApiTokenAwsSecretsManager;
+    /**
      * Okta domain. String length must be at least 1.
      */
     domain?: string;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    domainAwsSecretsManager?: outputs.ActionConnectionOktaApiTokenDomainAwsSecretsManager;
+}
+
+export interface ActionConnectionOktaApiTokenApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface ActionConnectionOktaApiTokenDomainAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
 }
 
 export interface ActionConnectionOpenai {
@@ -418,6 +1050,29 @@ export interface ActionConnectionOpenaiApiKey {
      * OpenAI API token. String length must be at least 1.
      */
     apiToken?: string;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiTokenAwsSecretsManager?: outputs.ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager;
+}
+
+export interface ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
 }
 
 export interface ActionConnectionServiceNow {
@@ -433,13 +1088,82 @@ export interface ActionConnectionServiceNowBasicAuth {
      */
     instance?: string;
     /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    instanceAwsSecretsManager?: outputs.ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager;
+    /**
      * ServiceNow password. String length must be at least 1.
      */
     password?: string;
     /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    passwordAwsSecretsManager?: outputs.ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager;
+    /**
      * ServiceNow username. String length must be at least 1.
      */
     username?: string;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    usernameAwsSecretsManager?: outputs.ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager;
+}
+
+export interface ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
+}
+
+export interface ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
 }
 
 export interface ActionConnectionSplit {
@@ -454,6 +1178,29 @@ export interface ActionConnectionSplitApiKey {
      * Split API key. String length must be at least 1.
      */
     apiKey?: string;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiKeyAwsSecretsManager?: outputs.ActionConnectionSplitApiKeyApiKeyAwsSecretsManager;
+}
+
+export interface ActionConnectionSplitApiKeyApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
 }
 
 export interface ActionConnectionStatsig {
@@ -468,6 +1215,29 @@ export interface ActionConnectionStatsigApiKey {
      * Statsig API key. String length must be at least 1.
      */
     apiKey?: string;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiKeyAwsSecretsManager?: outputs.ActionConnectionStatsigApiKeyApiKeyAwsSecretsManager;
+}
+
+export interface ActionConnectionStatsigApiKeyApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
 }
 
 export interface ActionConnectionVirusTotal {
@@ -482,6 +1252,29 @@ export interface ActionConnectionVirusTotalApiKey {
      * VirusTotal API key. String length must be at least 1.
      */
     apiKey?: string;
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+     */
+    apiKeyAwsSecretsManager?: outputs.ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManager;
+}
+
+export interface ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key?: string;
+    /**
+     * Name or ARN of the secret. String length must be at least 1.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId?: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage?: string;
 }
 
 export interface ActionExecutionPolicyActionPattern {
@@ -490,7 +1283,7 @@ export interface ActionExecutionPolicyActionPattern {
      */
     actionFqns: string[];
     /**
-     * The integration the actions belong to. Valid values are `INTEGRATION_KUBERNETES`, `INTEGRATION_SCRIPT`, `INTEGRATION_REMOTE_ACTION`.
+     * The integration the actions belong to. Valid values are `INTEGRATION_KUBERNETES`, `INTEGRATION_SCRIPT`, `INTEGRATION_REMOTE_ACTION`, `INTEGRATION_SLACK`.
      */
     integration: string;
 }
@@ -508,6 +1301,10 @@ export interface ActionExecutionPolicyScope {
      * Restricts the policy to specific scripts. Requires `action_pattern.integration` to be `INTEGRATION_SCRIPT`.
      */
     scripts?: outputs.ActionExecutionPolicyScopeScripts;
+    /**
+     * Restricts the policy to specific Slack channel names. Requires `action_pattern.integration` to be `INTEGRATION_SLACK`.
+     */
+    slack?: outputs.ActionExecutionPolicyScopeSlack;
 }
 
 export interface ActionExecutionPolicyScopeKubernetes {
@@ -556,9 +1353,23 @@ export interface ActionExecutionPolicyScopeScriptsRule {
     targetScriptNames: string[];
 }
 
+export interface ActionExecutionPolicyScopeSlack {
+    /**
+     * A rule restricting the Slack scope to specific channel names.
+     */
+    rules?: outputs.ActionExecutionPolicyScopeSlackRule[];
+}
+
+export interface ActionExecutionPolicyScopeSlackRule {
+    /**
+     * The channel name selectors this rule applies to, for example `incident-*`. Use `*` to match any channel name.
+     */
+    channelNameSelectors: string[];
+}
+
 export interface ActionExecutionPolicyTarget {
     /**
-     * The Agent tags identifying the target, for example `env:prod`.
+     * The tags identifying the target, for example `env:prod` for Agents or `slack_workspace_id:T0123456789` for a Slack workspace.
      */
     agentTags: string[];
     /**
@@ -55430,6 +56241,29 @@ export interface GetActionConnectionAnthropicApiKey {
      * Anthropic API token
      */
     apiToken: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiTokenAwsSecretsManager?: outputs.GetActionConnectionAnthropicApiKeyApiTokenAwsSecretsManager;
+}
+
+export interface GetActionConnectionAnthropicApiKeyApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage: string;
 }
 
 export interface GetActionConnectionAsana {
@@ -55444,6 +56278,29 @@ export interface GetActionConnectionAsanaAccessToken {
      * Asana access token
      */
     accessToken: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    accessTokenAwsSecretsManager?: outputs.GetActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager;
+}
+
+export interface GetActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage: string;
 }
 
 export interface GetActionConnectionAws {
@@ -55510,6 +56367,29 @@ export interface GetActionConnectionCircleCiApiKey {
      * CircleCI API token
      */
     apiToken: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiTokenAwsSecretsManager?: outputs.GetActionConnectionCircleCiApiKeyApiTokenAwsSecretsManager;
+}
+
+export interface GetActionConnectionCircleCiApiKeyApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage: string;
 }
 
 export interface GetActionConnectionClickup {
@@ -55524,6 +56404,29 @@ export interface GetActionConnectionClickupApiKey {
      * ClickUp API token
      */
     apiToken: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiTokenAwsSecretsManager?: outputs.GetActionConnectionClickupApiKeyApiTokenAwsSecretsManager;
+}
+
+export interface GetActionConnectionClickupApiKeyApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage: string;
 }
 
 export interface GetActionConnectionCloudflare {
@@ -55542,6 +56445,29 @@ export interface GetActionConnectionCloudflareApiToken {
      * Cloudflare API token
      */
     apiToken: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiTokenAwsSecretsManager?: outputs.GetActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager;
+}
+
+export interface GetActionConnectionCloudflareApiTokenApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage: string;
 }
 
 export interface GetActionConnectionCloudflareGlobalApiToken {
@@ -55550,9 +56476,55 @@ export interface GetActionConnectionCloudflareGlobalApiToken {
      */
     authEmail: string;
     /**
+     * AWS Secrets Manager reference for this field.
+     */
+    authEmailAwsSecretsManager?: outputs.GetActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager;
+    /**
      * Cloudflare global API key
      */
     globalApiKey: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    globalApiKeyAwsSecretsManager?: outputs.GetActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager;
+}
+
+export interface GetActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage: string;
+}
+
+export interface GetActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage: string;
 }
 
 export interface GetActionConnectionConfigCat {
@@ -55568,13 +56540,82 @@ export interface GetActionConnectionConfigCatSdkKey {
      */
     apiPassword: string;
     /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiPasswordAwsSecretsManager?: outputs.GetActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager;
+    /**
      * ConfigCat Public Management API username
      */
     apiUsername: string;
     /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiUsernameAwsSecretsManager?: outputs.GetActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager;
+    /**
      * ConfigCat SDK key
      */
     sdkKey: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    sdkKeyAwsSecretsManager?: outputs.GetActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager;
+}
+
+export interface GetActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage: string;
+}
+
+export interface GetActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage: string;
+}
+
+export interface GetActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage: string;
 }
 
 export interface GetActionConnectionDatadog {
@@ -55590,17 +56631,120 @@ export interface GetActionConnectionDatadogApiKey {
      */
     apiKey: string;
     /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiKeyAwsSecretsManager?: outputs.GetActionConnectionDatadogApiKeyApiKeyAwsSecretsManager;
+    /**
      * Datadog application key
      */
     appKey: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    appKeyAwsSecretsManager?: outputs.GetActionConnectionDatadogApiKeyAppKeyAwsSecretsManager;
     /**
      * Datadog site data center
      */
     datacenter: string;
     /**
+     * AWS Secrets Manager reference for this field.
+     */
+    datacenterAwsSecretsManager?: outputs.GetActionConnectionDatadogApiKeyDatacenterAwsSecretsManager;
+    /**
      * Custom subdomain used for URLs generated with this connection
      */
     subdomain: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    subdomainAwsSecretsManager?: outputs.GetActionConnectionDatadogApiKeySubdomainAwsSecretsManager;
+}
+
+export interface GetActionConnectionDatadogApiKeyApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage: string;
+}
+
+export interface GetActionConnectionDatadogApiKeyAppKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage: string;
+}
+
+export interface GetActionConnectionDatadogApiKeyDatacenterAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage: string;
+}
+
+export interface GetActionConnectionDatadogApiKeySubdomainAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage: string;
+}
+
+export interface GetActionConnectionExternalSecretsManager {
+    /**
+     * ID of the AWS connection used to retrieve secrets.
+     */
+    connectionId: string;
+    /**
+     * AWS region containing the secrets.
+     */
+    region: string;
 }
 
 export interface GetActionConnectionFastly {
@@ -55615,6 +56759,29 @@ export interface GetActionConnectionFastlyApiKey {
      * Fastly API key
      */
     apiKey: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiKeyAwsSecretsManager?: outputs.GetActionConnectionFastlyApiKeyApiKeyAwsSecretsManager;
+}
+
+export interface GetActionConnectionFastlyApiKeyApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage: string;
 }
 
 export interface GetActionConnectionFreshservice {
@@ -55630,9 +56797,55 @@ export interface GetActionConnectionFreshserviceApiKey {
      */
     apiKey: string;
     /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiKeyAwsSecretsManager?: outputs.GetActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager;
+    /**
      * Freshservice domain
      */
     domain: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    domainAwsSecretsManager?: outputs.GetActionConnectionFreshserviceApiKeyDomainAwsSecretsManager;
+}
+
+export interface GetActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage: string;
+}
+
+export interface GetActionConnectionFreshserviceApiKeyDomainAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage: string;
 }
 
 export interface GetActionConnectionGcp {
@@ -55648,9 +56861,55 @@ export interface GetActionConnectionGcpServiceAccount {
      */
     privateKey: string;
     /**
+     * AWS Secrets Manager reference for this field.
+     */
+    privateKeyAwsSecretsManager?: outputs.GetActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager;
+    /**
      * Google Cloud service account email
      */
     serviceAccountEmail: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    serviceAccountEmailAwsSecretsManager?: outputs.GetActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager;
+}
+
+export interface GetActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage: string;
+}
+
+export interface GetActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage: string;
 }
 
 export interface GetActionConnectionGemini {
@@ -55665,6 +56924,29 @@ export interface GetActionConnectionGeminiApiKey {
      * Gemini API key
      */
     apiKey: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiKeyAwsSecretsManager?: outputs.GetActionConnectionGeminiApiKeyApiKeyAwsSecretsManager;
+}
+
+export interface GetActionConnectionGeminiApiKeyApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage: string;
 }
 
 export interface GetActionConnectionGitlab {
@@ -55679,6 +56961,29 @@ export interface GetActionConnectionGitlabApiKey {
      * GitLab API token
      */
     apiToken: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiTokenAwsSecretsManager?: outputs.GetActionConnectionGitlabApiKeyApiTokenAwsSecretsManager;
+}
+
+export interface GetActionConnectionGitlabApiKeyApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage: string;
 }
 
 export interface GetActionConnectionGreyNoise {
@@ -55693,6 +56998,29 @@ export interface GetActionConnectionGreyNoiseApiKey {
      * GreyNoise API key
      */
     apiKey: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiKeyAwsSecretsManager?: outputs.GetActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManager;
+}
+
+export interface GetActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage: string;
 }
 
 export interface GetActionConnectionHttp {
@@ -55757,6 +57085,29 @@ export interface GetActionConnectionHttpTokenAuthToken {
      * Token value
      */
     value: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    valueAwsSecretsManager?: outputs.GetActionConnectionHttpTokenAuthTokenValueAwsSecretsManager;
+}
+
+export interface GetActionConnectionHttpTokenAuthTokenValueAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage: string;
 }
 
 export interface GetActionConnectionHttpTokenAuthUrlParameter {
@@ -55782,6 +57133,29 @@ export interface GetActionConnectionLaunchDarklyApiKey {
      * LaunchDarkly API token
      */
     apiToken: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiTokenAwsSecretsManager?: outputs.GetActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManager;
+}
+
+export interface GetActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage: string;
 }
 
 export interface GetActionConnectionNotion {
@@ -55796,6 +57170,29 @@ export interface GetActionConnectionNotionApiKey {
      * Notion API token
      */
     apiToken: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiTokenAwsSecretsManager?: outputs.GetActionConnectionNotionApiKeyApiTokenAwsSecretsManager;
+}
+
+export interface GetActionConnectionNotionApiKeyApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage: string;
 }
 
 export interface GetActionConnectionOkta {
@@ -55811,9 +57208,55 @@ export interface GetActionConnectionOktaApiToken {
      */
     apiToken: string;
     /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiTokenAwsSecretsManager?: outputs.GetActionConnectionOktaApiTokenApiTokenAwsSecretsManager;
+    /**
      * Okta domain
      */
     domain: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    domainAwsSecretsManager?: outputs.GetActionConnectionOktaApiTokenDomainAwsSecretsManager;
+}
+
+export interface GetActionConnectionOktaApiTokenApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage: string;
+}
+
+export interface GetActionConnectionOktaApiTokenDomainAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage: string;
 }
 
 export interface GetActionConnectionOpenai {
@@ -55828,6 +57271,29 @@ export interface GetActionConnectionOpenaiApiKey {
      * OpenAI API token
      */
     apiToken: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiTokenAwsSecretsManager?: outputs.GetActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager;
+}
+
+export interface GetActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage: string;
 }
 
 export interface GetActionConnectionServiceNow {
@@ -55843,13 +57309,82 @@ export interface GetActionConnectionServiceNowBasicAuth {
      */
     instance: string;
     /**
+     * AWS Secrets Manager reference for this field.
+     */
+    instanceAwsSecretsManager?: outputs.GetActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager;
+    /**
      * ServiceNow password
      */
     password: string;
     /**
+     * AWS Secrets Manager reference for this field.
+     */
+    passwordAwsSecretsManager?: outputs.GetActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager;
+    /**
      * ServiceNow username
      */
     username: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    usernameAwsSecretsManager?: outputs.GetActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager;
+}
+
+export interface GetActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage: string;
+}
+
+export interface GetActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage: string;
+}
+
+export interface GetActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage: string;
 }
 
 export interface GetActionConnectionSplit {
@@ -55864,6 +57399,29 @@ export interface GetActionConnectionSplitApiKey {
      * Split API key
      */
     apiKey: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiKeyAwsSecretsManager?: outputs.GetActionConnectionSplitApiKeyApiKeyAwsSecretsManager;
+}
+
+export interface GetActionConnectionSplitApiKeyApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage: string;
 }
 
 export interface GetActionConnectionStatsig {
@@ -55878,6 +57436,29 @@ export interface GetActionConnectionStatsigApiKey {
      * Statsig API key
      */
     apiKey: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiKeyAwsSecretsManager?: outputs.GetActionConnectionStatsigApiKeyApiKeyAwsSecretsManager;
+}
+
+export interface GetActionConnectionStatsigApiKeyApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage: string;
 }
 
 export interface GetActionConnectionVirusTotal {
@@ -55892,6 +57473,29 @@ export interface GetActionConnectionVirusTotalApiKey {
      * VirusTotal API key
      */
     apiKey: string;
+    /**
+     * AWS Secrets Manager reference for this field.
+     */
+    apiKeyAwsSecretsManager?: outputs.GetActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManager;
+}
+
+export interface GetActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManager {
+    /**
+     * Top-level JSON key to extract. Omit to use the entire secret string.
+     */
+    key: string;
+    /**
+     * Name or ARN of the secret.
+     */
+    secretId: string;
+    /**
+     * Secret version ID. Can't be used with `versionStage`. If neither is set, the current version is used.
+     */
+    versionId: string;
+    /**
+     * Secret version staging label. Can't be used with `versionId`. If neither is set, the current version is used.
+     */
+    versionStage: string;
 }
 
 export interface GetAwsCurConfigAccountFilters {
@@ -60688,6 +62292,13 @@ export interface MonitorNotificationRuleFilter {
     tags?: string[];
 }
 
+export interface MonitorNotificationRuleRuleOptions {
+    /**
+     * Whether notifications from this rule are threaded. When `true`, follow-up notifications for the same monitor alert are posted in Slack as replies to the first notification. Cannot be `true` when `bundleConfig` is set.
+     */
+    isThreaded: boolean;
+}
+
 export interface MonitorSchedulingOptions {
     /**
      * Configuration options for the custom schedules. If `start` is omitted, the monitor creation time will be used.
@@ -63059,6 +64670,47 @@ export interface ObservabilityPipelineConfigDestinationDatadogLogRouteBufferMemo
 }
 
 export interface ObservabilityPipelineConfigDestinationDatadogMetric {
+    /**
+     * Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+     */
+    buffer?: outputs.ObservabilityPipelineConfigDestinationDatadogMetricBuffer;
+}
+
+export interface ObservabilityPipelineConfigDestinationDatadogMetricBuffer {
+    /**
+     * Options for configuring a disk buffer. Cannot be used with `memory`.
+     */
+    disk?: outputs.ObservabilityPipelineConfigDestinationDatadogMetricBufferDisk;
+    /**
+     * Options for configuring a memory buffer. Cannot be used with `disk`.
+     */
+    memory?: outputs.ObservabilityPipelineConfigDestinationDatadogMetricBufferMemory;
+}
+
+export interface ObservabilityPipelineConfigDestinationDatadogMetricBufferDisk {
+    /**
+     * Maximum size of the disk buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
+}
+
+export interface ObservabilityPipelineConfigDestinationDatadogMetricBufferMemory {
+    /**
+     * Maximum events for the memory buffer.
+     */
+    maxEvents?: number;
+    /**
+     * Maximum size of the memory buffer (in bytes).
+     */
+    maxSize?: number;
+    /**
+     * Behavior when the buffer is full. Valid values are `block` or `dropNewest`. Defaults to `"block"`.
+     */
+    whenFull: string;
 }
 
 export interface ObservabilityPipelineConfigDestinationDatadogTraces {
@@ -64867,6 +66519,10 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessor {
      */
     sensitiveDataScanner?: outputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScanner;
     /**
+     * The `spikeProtection` processor learns the normal log volume and detects spikes, optionally dropping or rerouting the excess events.
+     */
+    spikeProtection?: outputs.ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtection;
+    /**
      * The `splitArray` processor splits array fields into separate events based on configured rules.
      */
     splitArray?: outputs.ObservabilityPipelineConfigProcessorGroupProcessorSplitArray;
@@ -65899,6 +67555,70 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorSensitiveData
      * The fields to include in scanning.
      */
     fields?: string[];
+}
+
+export interface ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtection {
+    /**
+     * The action to take when an event is missing one of the `partitionFields`. One of `ignore`, `defaultBucket`. Valid values are `ignore`, `defaultBucket`. Defaults to `"ignore"`.
+     */
+    actionWhenMissingPartitions: string;
+    /**
+     * The minimum volume, in bytes, that must be observed within 24 hours before spike protection can activate. Defaults to 100 GiB.
+     */
+    minimalThreshold?: number;
+    /**
+     * A list of per-partition overrides for the minimal threshold, identified by matching field values. Requires `partitionFields` to be set.
+     */
+    minimalThresholdOverrides?: outputs.ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverride[];
+    /**
+     * Name of the spike protection rule.
+     */
+    name: string;
+    /**
+     * A list of fields used to segment log traffic. Volume is learned and evaluated independently for each unique combination of these field values. A maximum of five fields is supported.
+     */
+    partitionFields?: string[];
+    /**
+     * The action to take when a spike is detected. One of `drop`, `noAction`, `overflowRouting`. When `overflowRouting` is used, there must be a destination whose `inputs` reference this processor with the `<processor-id>.overflow_events` suffix to route the overflowing events. Valid values are `drop`, `noAction`, `overflowRouting`.
+     */
+    spikeAction: string;
+    /**
+     * The number of standard deviations above the learned mean volume that must be exceeded before a spike is detected. Defaults to `5`.
+     */
+    spikeThreshold?: number;
+}
+
+export interface ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverride {
+    /**
+     * The set of field matchers that identifies the partition this override applies to. Every field name listed must also appear in `partitionFields`.
+     */
+    fields: outputs.ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverrideField[];
+    /**
+     * The minimal threshold to apply to the matching partition.
+     */
+    minimalThreshold: outputs.ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverrideMinimalThreshold;
+}
+
+export interface ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverrideField {
+    /**
+     * The field name.
+     */
+    name: string;
+    /**
+     * The field value.
+     */
+    value: string;
+}
+
+export interface ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverrideMinimalThreshold {
+    /**
+     * The minimum volume, in bytes, that must be observed within 24 hours before spike protection can activate for the matching partition. Used only when `type` is `threshold`.
+     */
+    bytes?: number;
+    /**
+     * The minimal threshold type. One of `threshold`, `alwaysKeep`. `alwaysKeep` exempts the matching partition from spike protection. Valid values are `threshold`, `alwaysKeep`.
+     */
+    type: string;
 }
 
 export interface ObservabilityPipelineConfigProcessorGroupProcessorSplitArray {
@@ -101085,11 +102805,11 @@ export interface TagPipelineRulesetRuleReferenceTableFieldPair {
 
 export interface TeamConnectionConnectedTeam {
     /**
-     * The ID of the external connected team.
+     * The ID of the external connected team. For GitHub teams, this is `@<organization>/<team-slug>`. For ServiceNow groups, this is `<instance_name>/<sys_id>`.
      */
     id: string;
     /**
-     * The resource type of the external connected team. Valid values are `githubTeam`.
+     * The resource type of the external connected team. Valid values are `githubTeam`, `servicenowTeam`.
      */
     type: string;
 }
@@ -101165,11 +102885,11 @@ export interface TeamSyncSelectionState {
 
 export interface TeamSyncSelectionStateExternalId {
     /**
-     * The type of external identifier. Valid values are `team`, `organization`.
+     * The type of external identifier. For GitHub, `team` refers to a GitHub team and `organization` refers to a GitHub organization. For ServiceNow, `team` refers to a ServiceNow group and `organization` refers to a ServiceNow instance. Valid values are `team`, `organization`.
      */
     type: string;
     /**
-     * The external identifier value from the source platform (e.g. a GitHub organization ID or team ID).
+     * The external identifier value from the source platform. For GitHub, this is the string representation of a GitHub organization ID or team ID. For ServiceNow, this is the instance name for `organization`, or `<instance_name>/<sys_id>` of the group for `team`.
      */
     value: string;
 }
@@ -101335,7 +103055,13 @@ export namespace aws {
          */
         namespaceFilters?: outputs.aws.IntegrationAccountMetricsConfigNamespaceFilters;
         /**
+         * AWS Metrics Collection resource type tag filters list. Each entry defines a tag filter expression applied when collecting metrics for a specific AWS resource type. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For example, `env:production AND !region:us-east-1`.
+         */
+        resourceTypeTagFilters?: outputs.aws.IntegrationAccountMetricsConfigResourceTypeTagFilter[];
+        /**
          * AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
+         *
+         * @deprecated Deprecated in favor of `resourceTypeTagFilters`. The two fields are mutually exclusive on an account.
          */
         tagFilters?: outputs.aws.IntegrationAccountMetricsConfigTagFilter[];
     }
@@ -101364,6 +103090,25 @@ export namespace aws {
          * Include only these namespaces for metrics collection. Use `datadog.aws.getIntegrationAvailableNamespaces` data source to get allowed values.
          */
         includeOnlies?: string[];
+    }
+
+    export interface IntegrationAccountMetricsConfigResourceTypeTagFilter {
+        /**
+         * Whether this filter applies to custom resources.
+         */
+        custom?: boolean;
+        /**
+         * The tag filter expression used when collecting metrics for the specified resource types.
+         */
+        expression: string;
+        /**
+         * The AWS resource types within `service` for which the tag filter expression is applied.
+         */
+        resourceTypes?: string[];
+        /**
+         * The AWS service for which the tag filter expression is applied.
+         */
+        service?: string;
     }
 
     export interface IntegrationAccountMetricsConfigTagFilter {

@@ -17,11 +17,19 @@ namespace Pulumi.Datadog.Outputs
         /// Asana access token. String length must be at least 1.
         /// </summary>
         public readonly string? AccessToken;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        public readonly Outputs.ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager? AccessTokenAwsSecretsManager;
 
         [OutputConstructor]
-        private ActionConnectionAsanaAccessToken(string? accessToken)
+        private ActionConnectionAsanaAccessToken(
+            string? accessToken,
+
+            Outputs.ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager? accessTokenAwsSecretsManager)
         {
             AccessToken = accessToken;
+            AccessTokenAwsSecretsManager = accessTokenAwsSecretsManager;
         }
     }
 }

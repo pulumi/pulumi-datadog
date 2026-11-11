@@ -104,6 +104,8 @@ type MonitorNotificationRule struct {
 	Name pulumi.StringOutput `pulumi:"name"`
 	// List of recipients to notify. Cannot be used with `conditionalRecipients`.
 	Recipients pulumi.StringArrayOutput `pulumi:"recipients"`
+	// Additional options for the monitor notification rule. If omitted, the value stored in Datadog is kept.
+	RuleOptions MonitorNotificationRuleRuleOptionsOutput `pulumi:"ruleOptions"`
 }
 
 // NewMonitorNotificationRule registers a new resource with the given unique name, arguments, and options.
@@ -152,6 +154,8 @@ type monitorNotificationRuleState struct {
 	Name *string `pulumi:"name"`
 	// List of recipients to notify. Cannot be used with `conditionalRecipients`.
 	Recipients []string `pulumi:"recipients"`
+	// Additional options for the monitor notification rule. If omitted, the value stored in Datadog is kept.
+	RuleOptions *MonitorNotificationRuleRuleOptions `pulumi:"ruleOptions"`
 }
 
 type MonitorNotificationRuleState struct {
@@ -165,6 +169,8 @@ type MonitorNotificationRuleState struct {
 	Name pulumi.StringPtrInput
 	// List of recipients to notify. Cannot be used with `conditionalRecipients`.
 	Recipients pulumi.StringArrayInput
+	// Additional options for the monitor notification rule. If omitted, the value stored in Datadog is kept.
+	RuleOptions MonitorNotificationRuleRuleOptionsPtrInput
 }
 
 func (MonitorNotificationRuleState) ElementType() reflect.Type {
@@ -188,6 +194,8 @@ type monitorNotificationRuleArgs struct {
 	Name string `pulumi:"name"`
 	// List of recipients to notify. Cannot be used with `conditionalRecipients`.
 	Recipients []string `pulumi:"recipients"`
+	// Additional options for the monitor notification rule. If omitted, the value stored in Datadog is kept.
+	RuleOptions *MonitorNotificationRuleRuleOptions `pulumi:"ruleOptions"`
 }
 
 // The set of arguments for constructing a MonitorNotificationRule resource.
@@ -202,6 +210,8 @@ type MonitorNotificationRuleArgs struct {
 	Name pulumi.StringInput
 	// List of recipients to notify. Cannot be used with `conditionalRecipients`.
 	Recipients pulumi.StringArrayInput
+	// Additional options for the monitor notification rule. If omitted, the value stored in Datadog is kept.
+	RuleOptions MonitorNotificationRuleRuleOptionsPtrInput
 }
 
 func (MonitorNotificationRuleArgs) ElementType() reflect.Type {
@@ -316,6 +326,11 @@ func (o MonitorNotificationRuleOutput) Name() pulumi.StringOutput {
 // List of recipients to notify. Cannot be used with `conditionalRecipients`.
 func (o MonitorNotificationRuleOutput) Recipients() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *MonitorNotificationRule) pulumi.StringArrayOutput { return v.Recipients }).(pulumi.StringArrayOutput)
+}
+
+// Additional options for the monitor notification rule. If omitted, the value stored in Datadog is kept.
+func (o MonitorNotificationRuleOutput) RuleOptions() MonitorNotificationRuleRuleOptionsOutput {
+	return o.ApplyT(func(v *MonitorNotificationRule) MonitorNotificationRuleRuleOptionsOutput { return v.RuleOptions }).(MonitorNotificationRuleRuleOptionsOutput)
 }
 
 type MonitorNotificationRuleArrayOutput struct{ *pulumi.OutputState }

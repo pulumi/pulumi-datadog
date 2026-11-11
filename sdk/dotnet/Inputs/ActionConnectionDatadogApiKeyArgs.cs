@@ -28,6 +28,12 @@ namespace Pulumi.Datadog.Inputs
             }
         }
 
+        /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        [Input("apiKeyAwsSecretsManager")]
+        public Input<Inputs.ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgs>? ApiKeyAwsSecretsManager { get; set; }
+
         [Input("appKey")]
         private Input<string>? _appKey;
 
@@ -45,16 +51,34 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        [Input("appKeyAwsSecretsManager")]
+        public Input<Inputs.ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgs>? AppKeyAwsSecretsManager { get; set; }
+
+        /// <summary>
         /// Datadog site data center. String length must be at least 1.
         /// </summary>
         [Input("datacenter")]
         public Input<string>? Datacenter { get; set; }
 
         /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        [Input("datacenterAwsSecretsManager")]
+        public Input<Inputs.ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgs>? DatacenterAwsSecretsManager { get; set; }
+
+        /// <summary>
         /// Custom subdomain used for URLs generated with this connection. String length must be at least 1.
         /// </summary>
         [Input("subdomain")]
         public Input<string>? Subdomain { get; set; }
+
+        /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        [Input("subdomainAwsSecretsManager")]
+        public Input<Inputs.ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgs>? SubdomainAwsSecretsManager { get; set; }
 
         public ActionConnectionDatadogApiKeyArgs()
         {

@@ -18,25 +18,46 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Instance;
         /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        public readonly Outputs.GetActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerResult? InstanceAwsSecretsManager;
+        /// <summary>
         /// ServiceNow password
         /// </summary>
         public readonly string Password;
         /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        public readonly Outputs.GetActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerResult? PasswordAwsSecretsManager;
+        /// <summary>
         /// ServiceNow username
         /// </summary>
         public readonly string Username;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        public readonly Outputs.GetActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerResult? UsernameAwsSecretsManager;
 
         [OutputConstructor]
         private GetActionConnectionServiceNowBasicAuthResult(
             string instance,
 
+            Outputs.GetActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerResult? instanceAwsSecretsManager,
+
             string password,
 
-            string username)
+            Outputs.GetActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerResult? passwordAwsSecretsManager,
+
+            string username,
+
+            Outputs.GetActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerResult? usernameAwsSecretsManager)
         {
             Instance = instance;
+            InstanceAwsSecretsManager = instanceAwsSecretsManager;
             Password = password;
+            PasswordAwsSecretsManager = passwordAwsSecretsManager;
             Username = username;
+            UsernameAwsSecretsManager = usernameAwsSecretsManager;
         }
     }
 }

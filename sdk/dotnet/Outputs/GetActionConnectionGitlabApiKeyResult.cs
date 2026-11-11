@@ -17,11 +17,19 @@ namespace Pulumi.Datadog.Outputs
         /// GitLab API token
         /// </summary>
         public readonly string ApiToken;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        public readonly Outputs.GetActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerResult? ApiTokenAwsSecretsManager;
 
         [OutputConstructor]
-        private GetActionConnectionGitlabApiKeyResult(string apiToken)
+        private GetActionConnectionGitlabApiKeyResult(
+            string apiToken,
+
+            Outputs.GetActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerResult? apiTokenAwsSecretsManager)
         {
             ApiToken = apiToken;
+            ApiTokenAwsSecretsManager = apiTokenAwsSecretsManager;
         }
     }
 }

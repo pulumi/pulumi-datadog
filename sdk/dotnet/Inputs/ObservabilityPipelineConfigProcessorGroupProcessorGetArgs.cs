@@ -184,6 +184,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerGetArgs>? SensitiveDataScanner { get; set; }
 
         /// <summary>
+        /// The `SpikeProtection` processor learns the normal log volume and detects spikes, optionally dropping or rerouting the excess events.
+        /// </summary>
+        [Input("spikeProtection")]
+        public Input<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionGetArgs>? SpikeProtection { get; set; }
+
+        /// <summary>
         /// The `SplitArray` processor splits array fields into separate events based on configured rules.
         /// </summary>
         [Input("splitArray")]

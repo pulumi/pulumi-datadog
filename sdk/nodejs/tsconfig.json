@@ -49,6 +49,7 @@
         "aws/integrationExternalId.ts",
         "awsCurConfig.ts",
         "awsWifIdentityMapping.ts",
+        "awsWifIntakeMapping.ts",
         "azure/index.ts",
         "azure/integration.ts",
         "azureUcConfig.ts",

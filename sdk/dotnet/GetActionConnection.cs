@@ -442,6 +442,10 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly Outputs.GetActionConnectionDatadogResult? Datadog;
         /// <summary>
+        /// AWS Secrets Manager settings shared by credential references.
+        /// </summary>
+        public readonly Outputs.GetActionConnectionExternalSecretsManagerResult ExternalSecretsManager;
+        /// <summary>
         /// Configuration for a Fastly connection
         /// </summary>
         public readonly Outputs.GetActionConnectionFastlyResult? Fastly;
@@ -534,6 +538,8 @@ namespace Pulumi.Datadog
 
             Outputs.GetActionConnectionDatadogResult? datadog,
 
+            Outputs.GetActionConnectionExternalSecretsManagerResult externalSecretsManager,
+
             Outputs.GetActionConnectionFastlyResult? fastly,
 
             Outputs.GetActionConnectionFreshserviceResult? freshservice,
@@ -579,6 +585,7 @@ namespace Pulumi.Datadog
             Cloudflare = cloudflare;
             ConfigCat = configCat;
             Datadog = datadog;
+            ExternalSecretsManager = externalSecretsManager;
             Fastly = fastly;
             Freshservice = freshservice;
             Gcp = gcp;

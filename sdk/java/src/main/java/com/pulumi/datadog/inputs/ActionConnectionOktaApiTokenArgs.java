@@ -5,6 +5,8 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs;
+import com.pulumi.datadog.inputs.ActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -31,6 +33,21 @@ public final class ActionConnectionOktaApiTokenArgs extends com.pulumi.resources
     }
 
     /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    @Import(name="apiTokenAwsSecretsManager")
+    private @Nullable Output<ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs> apiTokenAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<Output<ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs>> apiTokenAwsSecretsManager() {
+        return Optional.ofNullable(this.apiTokenAwsSecretsManager);
+    }
+
+    /**
      * Okta domain. String length must be at least 1.
      * 
      */
@@ -45,11 +62,28 @@ public final class ActionConnectionOktaApiTokenArgs extends com.pulumi.resources
         return Optional.ofNullable(this.domain);
     }
 
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    @Import(name="domainAwsSecretsManager")
+    private @Nullable Output<ActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs> domainAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<Output<ActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs>> domainAwsSecretsManager() {
+        return Optional.ofNullable(this.domainAwsSecretsManager);
+    }
+
     private ActionConnectionOktaApiTokenArgs() {}
 
     private ActionConnectionOktaApiTokenArgs(ActionConnectionOktaApiTokenArgs $) {
         this.apiToken = $.apiToken;
+        this.apiTokenAwsSecretsManager = $.apiTokenAwsSecretsManager;
         this.domain = $.domain;
+        this.domainAwsSecretsManager = $.domainAwsSecretsManager;
     }
 
     public static Builder builder() {
@@ -92,6 +126,27 @@ public final class ActionConnectionOktaApiTokenArgs extends com.pulumi.resources
         }
 
         /**
+         * @param apiTokenAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiTokenAwsSecretsManager(@Nullable Output<ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs> apiTokenAwsSecretsManager) {
+            $.apiTokenAwsSecretsManager = apiTokenAwsSecretsManager;
+            return this;
+        }
+
+        /**
+         * @param apiTokenAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiTokenAwsSecretsManager(ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs apiTokenAwsSecretsManager) {
+            return apiTokenAwsSecretsManager(Output.of(apiTokenAwsSecretsManager));
+        }
+
+        /**
          * @param domain Okta domain. String length must be at least 1.
          * 
          * @return builder
@@ -110,6 +165,27 @@ public final class ActionConnectionOktaApiTokenArgs extends com.pulumi.resources
          */
         public Builder domain(String domain) {
             return domain(Output.of(domain));
+        }
+
+        /**
+         * @param domainAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainAwsSecretsManager(@Nullable Output<ActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs> domainAwsSecretsManager) {
+            $.domainAwsSecretsManager = domainAwsSecretsManager;
+            return this;
+        }
+
+        /**
+         * @param domainAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder domainAwsSecretsManager(ActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs domainAwsSecretsManager) {
+            return domainAwsSecretsManager(Output.of(domainAwsSecretsManager));
         }
 
         public ActionConnectionOktaApiTokenArgs build() {

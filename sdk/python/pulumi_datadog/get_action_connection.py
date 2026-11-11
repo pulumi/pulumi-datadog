@@ -28,7 +28,7 @@ class GetActionConnectionResult:
     """
     A collection of values returned by getActionConnection.
     """
-    def __init__(__self__, anthropic=None, asana=None, aws=None, azure=None, circle_ci=None, clickup=None, cloudflare=None, config_cat=None, datadog=None, fastly=None, freshservice=None, gcp=None, gemini=None, gitlab=None, grey_noise=None, http=None, id=None, launch_darkly=None, name=None, notion=None, okta=None, openai=None, service_now=None, split=None, statsig=None, tags=None, virus_total=None):
+    def __init__(__self__, anthropic=None, asana=None, aws=None, azure=None, circle_ci=None, clickup=None, cloudflare=None, config_cat=None, datadog=None, external_secrets_manager=None, fastly=None, freshservice=None, gcp=None, gemini=None, gitlab=None, grey_noise=None, http=None, id=None, launch_darkly=None, name=None, notion=None, okta=None, openai=None, service_now=None, split=None, statsig=None, tags=None, virus_total=None):
         if anthropic and not isinstance(anthropic, dict):
             raise TypeError("Expected argument 'anthropic' to be a dict")
         pulumi.set(__self__, "anthropic", anthropic)
@@ -56,6 +56,9 @@ class GetActionConnectionResult:
         if datadog and not isinstance(datadog, dict):
             raise TypeError("Expected argument 'datadog' to be a dict")
         pulumi.set(__self__, "datadog", datadog)
+        if external_secrets_manager and not isinstance(external_secrets_manager, dict):
+            raise TypeError("Expected argument 'external_secrets_manager' to be a dict")
+        pulumi.set(__self__, "external_secrets_manager", external_secrets_manager)
         if fastly and not isinstance(fastly, dict):
             raise TypeError("Expected argument 'fastly' to be a dict")
         pulumi.set(__self__, "fastly", fastly)
@@ -182,6 +185,14 @@ class GetActionConnectionResult:
         Configuration for a Datadog connection
         """
         return pulumi.get(self, "datadog")
+
+    @_builtins.property
+    @pulumi.getter(name="externalSecretsManager")
+    def external_secrets_manager(self) -> 'outputs.GetActionConnectionExternalSecretsManagerResult':
+        """
+        AWS Secrets Manager settings shared by credential references.
+        """
+        return pulumi.get(self, "external_secrets_manager")
 
     @_builtins.property
     @pulumi.getter
@@ -343,6 +354,7 @@ class AwaitableGetActionConnectionResult(GetActionConnectionResult):
             cloudflare=self.cloudflare,
             config_cat=self.config_cat,
             datadog=self.datadog,
+            external_secrets_manager=self.external_secrets_manager,
             fastly=self.fastly,
             freshservice=self.freshservice,
             gcp=self.gcp,
@@ -467,6 +479,7 @@ def get_action_connection(anthropic: Optional[Union['GetActionConnectionAnthropi
         cloudflare=pulumi.get(__ret__, 'cloudflare'),
         config_cat=pulumi.get(__ret__, 'config_cat'),
         datadog=pulumi.get(__ret__, 'datadog'),
+        external_secrets_manager=pulumi.get(__ret__, 'external_secrets_manager'),
         fastly=pulumi.get(__ret__, 'fastly'),
         freshservice=pulumi.get(__ret__, 'freshservice'),
         gcp=pulumi.get(__ret__, 'gcp'),
@@ -588,6 +601,7 @@ def get_action_connection_output(anthropic: pulumi.Input[Optional[Optional[Union
         cloudflare=pulumi.get(__response__, 'cloudflare'),
         config_cat=pulumi.get(__response__, 'config_cat'),
         datadog=pulumi.get(__response__, 'datadog'),
+        external_secrets_manager=pulumi.get(__response__, 'external_secrets_manager'),
         fastly=pulumi.get(__response__, 'fastly'),
         freshservice=pulumi.get(__response__, 'freshservice'),
         gcp=pulumi.get(__response__, 'gcp'),

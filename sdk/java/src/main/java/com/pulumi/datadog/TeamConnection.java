@@ -16,7 +16,7 @@ import java.lang.String;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Datadog Team Connection resource. This can be used to create and manage connections between a Datadog team and an external team (e.g. GitHub).
+ * Provides a Datadog Team Connection resource. This can be used to create and manage connections between a Datadog team and an external team (e.g. a GitHub team or a ServiceNow group).
  * 
  * ## Example Usage
  * 
@@ -62,6 +62,19 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // Create a connection between a Datadog team and a ServiceNow group
+ *         var servicenow = new TeamConnection("servicenow", TeamConnectionArgs.builder()
+ *             .team(com.pulumi.datadog.inputs.TeamConnectionTeamArgs.builder()
+ *                 .id(example.id())
+ *                 .type("team")
+ *                 .build())
+ *             .connectedTeam(com.pulumi.datadog.inputs.TeamConnectionConnectedTeamArgs.builder()
+ *                 .id("my-instance/0123456789abcdef0123456789abcdef")
+ *                 .type("servicenow_team")
+ *                 .build())
+ *             .source("servicenow")
+ *             .build());
+ * 
  *     }}{@code
  * }}{@code
  * }
@@ -79,28 +92,28 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:index/teamConnection:TeamConnection")
 public class TeamConnection extends com.pulumi.resources.CustomResource {
     /**
-     * The external connected team reference (e.g. a GitHub team).
+     * The external connected team reference (e.g. a GitHub team or a ServiceNow group).
      * 
      */
     @Export(name="connectedTeam", refs={TeamConnectionConnectedTeam.class}, tree="[0]")
     private Output<TeamConnectionConnectedTeam> connectedTeam;
 
     /**
-     * @return The external connected team reference (e.g. a GitHub team).
+     * @return The external connected team reference (e.g. a GitHub team or a ServiceNow group).
      * 
      */
     public Output<TeamConnectionConnectedTeam> connectedTeam() {
         return this.connectedTeam;
     }
     /**
-     * The source of the connection (e.g. github).
+     * The name of the external source, such as `github` or `servicenow`.
      * 
      */
     @Export(name="source", refs={String.class}, tree="[0]")
     private Output<String> source;
 
     /**
-     * @return The source of the connection (e.g. github).
+     * @return The name of the external source, such as `github` or `servicenow`.
      * 
      */
     public Output<String> source() {

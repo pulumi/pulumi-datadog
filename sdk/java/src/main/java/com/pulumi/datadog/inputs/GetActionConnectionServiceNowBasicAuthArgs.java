@@ -5,9 +5,14 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.GetActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs;
+import com.pulumi.datadog.inputs.GetActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs;
+import com.pulumi.datadog.inputs.GetActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetActionConnectionServiceNowBasicAuthArgs extends com.pulumi.resources.ResourceArgs {
@@ -30,6 +35,21 @@ public final class GetActionConnectionServiceNowBasicAuthArgs extends com.pulumi
     }
 
     /**
+     * AWS Secrets Manager reference for this field.
+     * 
+     */
+    @Import(name="instanceAwsSecretsManager")
+    private @Nullable Output<GetActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs> instanceAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<Output<GetActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs>> instanceAwsSecretsManager() {
+        return Optional.ofNullable(this.instanceAwsSecretsManager);
+    }
+
+    /**
      * ServiceNow password
      * 
      */
@@ -42,6 +62,21 @@ public final class GetActionConnectionServiceNowBasicAuthArgs extends com.pulumi
      */
     public Output<String> password() {
         return this.password;
+    }
+
+    /**
+     * AWS Secrets Manager reference for this field.
+     * 
+     */
+    @Import(name="passwordAwsSecretsManager")
+    private @Nullable Output<GetActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs> passwordAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<Output<GetActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs>> passwordAwsSecretsManager() {
+        return Optional.ofNullable(this.passwordAwsSecretsManager);
     }
 
     /**
@@ -59,12 +94,30 @@ public final class GetActionConnectionServiceNowBasicAuthArgs extends com.pulumi
         return this.username;
     }
 
+    /**
+     * AWS Secrets Manager reference for this field.
+     * 
+     */
+    @Import(name="usernameAwsSecretsManager")
+    private @Nullable Output<GetActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs> usernameAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<Output<GetActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs>> usernameAwsSecretsManager() {
+        return Optional.ofNullable(this.usernameAwsSecretsManager);
+    }
+
     private GetActionConnectionServiceNowBasicAuthArgs() {}
 
     private GetActionConnectionServiceNowBasicAuthArgs(GetActionConnectionServiceNowBasicAuthArgs $) {
         this.instance = $.instance;
+        this.instanceAwsSecretsManager = $.instanceAwsSecretsManager;
         this.password = $.password;
+        this.passwordAwsSecretsManager = $.passwordAwsSecretsManager;
         this.username = $.username;
+        this.usernameAwsSecretsManager = $.usernameAwsSecretsManager;
     }
 
     public static Builder builder() {
@@ -107,6 +160,27 @@ public final class GetActionConnectionServiceNowBasicAuthArgs extends com.pulumi
         }
 
         /**
+         * @param instanceAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder instanceAwsSecretsManager(@Nullable Output<GetActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs> instanceAwsSecretsManager) {
+            $.instanceAwsSecretsManager = instanceAwsSecretsManager;
+            return this;
+        }
+
+        /**
+         * @param instanceAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder instanceAwsSecretsManager(GetActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs instanceAwsSecretsManager) {
+            return instanceAwsSecretsManager(Output.of(instanceAwsSecretsManager));
+        }
+
+        /**
          * @param password ServiceNow password
          * 
          * @return builder
@@ -128,6 +202,27 @@ public final class GetActionConnectionServiceNowBasicAuthArgs extends com.pulumi
         }
 
         /**
+         * @param passwordAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordAwsSecretsManager(@Nullable Output<GetActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs> passwordAwsSecretsManager) {
+            $.passwordAwsSecretsManager = passwordAwsSecretsManager;
+            return this;
+        }
+
+        /**
+         * @param passwordAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordAwsSecretsManager(GetActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs passwordAwsSecretsManager) {
+            return passwordAwsSecretsManager(Output.of(passwordAwsSecretsManager));
+        }
+
+        /**
          * @param username ServiceNow username
          * 
          * @return builder
@@ -146,6 +241,27 @@ public final class GetActionConnectionServiceNowBasicAuthArgs extends com.pulumi
          */
         public Builder username(String username) {
             return username(Output.of(username));
+        }
+
+        /**
+         * @param usernameAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder usernameAwsSecretsManager(@Nullable Output<GetActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs> usernameAwsSecretsManager) {
+            $.usernameAwsSecretsManager = usernameAwsSecretsManager;
+            return this;
+        }
+
+        /**
+         * @param usernameAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder usernameAwsSecretsManager(GetActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs usernameAwsSecretsManager) {
+            return usernameAwsSecretsManager(Output.of(usernameAwsSecretsManager));
         }
 
         public GetActionConnectionServiceNowBasicAuthArgs build() {

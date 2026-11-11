@@ -1481,7 +1481,11 @@ type IntegrationAccountMetricsConfig struct {
 	MetricNameFilters []IntegrationAccountMetricsConfigMetricNameFilter `pulumi:"metricNameFilters"`
 	// AWS metrics namespace filters. Defaults to a pre-set `excludeOnly` list if block is empty.
 	NamespaceFilters *IntegrationAccountMetricsConfigNamespaceFilters `pulumi:"namespaceFilters"`
+	// AWS Metrics Collection resource type tag filters list. Each entry defines a tag filter expression applied when collecting metrics for a specific AWS resource type. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For example, `env:production AND !region:us-east-1`.
+	ResourceTypeTagFilters []IntegrationAccountMetricsConfigResourceTypeTagFilter `pulumi:"resourceTypeTagFilters"`
 	// AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
+	//
+	// Deprecated: Deprecated in favor of `resourceTypeTagFilters`. The two fields are mutually exclusive on an account.
 	TagFilters []IntegrationAccountMetricsConfigTagFilter `pulumi:"tagFilters"`
 }
 
@@ -1511,7 +1515,11 @@ type IntegrationAccountMetricsConfigArgs struct {
 	MetricNameFilters IntegrationAccountMetricsConfigMetricNameFilterArrayInput `pulumi:"metricNameFilters"`
 	// AWS metrics namespace filters. Defaults to a pre-set `excludeOnly` list if block is empty.
 	NamespaceFilters IntegrationAccountMetricsConfigNamespaceFiltersPtrInput `pulumi:"namespaceFilters"`
+	// AWS Metrics Collection resource type tag filters list. Each entry defines a tag filter expression applied when collecting metrics for a specific AWS resource type. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For example, `env:production AND !region:us-east-1`.
+	ResourceTypeTagFilters IntegrationAccountMetricsConfigResourceTypeTagFilterArrayInput `pulumi:"resourceTypeTagFilters"`
 	// AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
+	//
+	// Deprecated: Deprecated in favor of `resourceTypeTagFilters`. The two fields are mutually exclusive on an account.
 	TagFilters IntegrationAccountMetricsConfigTagFilterArrayInput `pulumi:"tagFilters"`
 }
 
@@ -1631,7 +1639,16 @@ func (o IntegrationAccountMetricsConfigOutput) NamespaceFilters() IntegrationAcc
 	}).(IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput)
 }
 
+// AWS Metrics Collection resource type tag filters list. Each entry defines a tag filter expression applied when collecting metrics for a specific AWS resource type. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For example, `env:production AND !region:us-east-1`.
+func (o IntegrationAccountMetricsConfigOutput) ResourceTypeTagFilters() IntegrationAccountMetricsConfigResourceTypeTagFilterArrayOutput {
+	return o.ApplyT(func(v IntegrationAccountMetricsConfig) []IntegrationAccountMetricsConfigResourceTypeTagFilter {
+		return v.ResourceTypeTagFilters
+	}).(IntegrationAccountMetricsConfigResourceTypeTagFilterArrayOutput)
+}
+
 // AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
+//
+// Deprecated: Deprecated in favor of `resourceTypeTagFilters`. The two fields are mutually exclusive on an account.
 func (o IntegrationAccountMetricsConfigOutput) TagFilters() IntegrationAccountMetricsConfigTagFilterArrayOutput {
 	return o.ApplyT(func(v IntegrationAccountMetricsConfig) []IntegrationAccountMetricsConfigTagFilter {
 		return v.TagFilters
@@ -1732,7 +1749,19 @@ func (o IntegrationAccountMetricsConfigPtrOutput) NamespaceFilters() Integration
 	}).(IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput)
 }
 
+// AWS Metrics Collection resource type tag filters list. Each entry defines a tag filter expression applied when collecting metrics for a specific AWS resource type. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For example, `env:production AND !region:us-east-1`.
+func (o IntegrationAccountMetricsConfigPtrOutput) ResourceTypeTagFilters() IntegrationAccountMetricsConfigResourceTypeTagFilterArrayOutput {
+	return o.ApplyT(func(v *IntegrationAccountMetricsConfig) []IntegrationAccountMetricsConfigResourceTypeTagFilter {
+		if v == nil {
+			return nil
+		}
+		return v.ResourceTypeTagFilters
+	}).(IntegrationAccountMetricsConfigResourceTypeTagFilterArrayOutput)
+}
+
 // AWS Metrics Collection tag filters list. The array of custom AWS resource tags (in the form `key:value`) defines a filter that Datadog uses when collecting metrics from a specified service. Wildcards, such as `?` (match a single character) and `*` (match multiple characters), and exclusion using `!` before the tag are supported. For EC2, only hosts that match one of the defined tags will be imported into Datadog. The rest will be ignored. For example, `env:production,instance-type:c?.*,!region:us-east-1`.
+//
+// Deprecated: Deprecated in favor of `resourceTypeTagFilters`. The two fields are mutually exclusive on an account.
 func (o IntegrationAccountMetricsConfigPtrOutput) TagFilters() IntegrationAccountMetricsConfigTagFilterArrayOutput {
 	return o.ApplyT(func(v *IntegrationAccountMetricsConfig) []IntegrationAccountMetricsConfigTagFilter {
 		if v == nil {
@@ -2011,6 +2040,130 @@ func (o IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput) IncludeOnlies(
 		}
 		return v.IncludeOnlies
 	}).(pulumi.StringArrayOutput)
+}
+
+type IntegrationAccountMetricsConfigResourceTypeTagFilter struct {
+	// Whether this filter applies to custom resources.
+	Custom *bool `pulumi:"custom"`
+	// The tag filter expression used when collecting metrics for the specified resource types.
+	Expression string `pulumi:"expression"`
+	// The AWS resource types within `service` for which the tag filter expression is applied.
+	ResourceTypes []string `pulumi:"resourceTypes"`
+	// The AWS service for which the tag filter expression is applied.
+	Service *string `pulumi:"service"`
+}
+
+// IntegrationAccountMetricsConfigResourceTypeTagFilterInput is an input type that accepts IntegrationAccountMetricsConfigResourceTypeTagFilterArgs and IntegrationAccountMetricsConfigResourceTypeTagFilterOutput values.
+// You can construct a concrete instance of `IntegrationAccountMetricsConfigResourceTypeTagFilterInput` via:
+//
+//	IntegrationAccountMetricsConfigResourceTypeTagFilterArgs{...}
+type IntegrationAccountMetricsConfigResourceTypeTagFilterInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountMetricsConfigResourceTypeTagFilterOutput() IntegrationAccountMetricsConfigResourceTypeTagFilterOutput
+	ToIntegrationAccountMetricsConfigResourceTypeTagFilterOutputWithContext(context.Context) IntegrationAccountMetricsConfigResourceTypeTagFilterOutput
+}
+
+type IntegrationAccountMetricsConfigResourceTypeTagFilterArgs struct {
+	// Whether this filter applies to custom resources.
+	Custom pulumi.BoolPtrInput `pulumi:"custom"`
+	// The tag filter expression used when collecting metrics for the specified resource types.
+	Expression pulumi.StringInput `pulumi:"expression"`
+	// The AWS resource types within `service` for which the tag filter expression is applied.
+	ResourceTypes pulumi.StringArrayInput `pulumi:"resourceTypes"`
+	// The AWS service for which the tag filter expression is applied.
+	Service pulumi.StringPtrInput `pulumi:"service"`
+}
+
+func (IntegrationAccountMetricsConfigResourceTypeTagFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountMetricsConfigResourceTypeTagFilter)(nil)).Elem()
+}
+
+func (i IntegrationAccountMetricsConfigResourceTypeTagFilterArgs) ToIntegrationAccountMetricsConfigResourceTypeTagFilterOutput() IntegrationAccountMetricsConfigResourceTypeTagFilterOutput {
+	return i.ToIntegrationAccountMetricsConfigResourceTypeTagFilterOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountMetricsConfigResourceTypeTagFilterArgs) ToIntegrationAccountMetricsConfigResourceTypeTagFilterOutputWithContext(ctx context.Context) IntegrationAccountMetricsConfigResourceTypeTagFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMetricsConfigResourceTypeTagFilterOutput)
+}
+
+// IntegrationAccountMetricsConfigResourceTypeTagFilterArrayInput is an input type that accepts IntegrationAccountMetricsConfigResourceTypeTagFilterArray and IntegrationAccountMetricsConfigResourceTypeTagFilterArrayOutput values.
+// You can construct a concrete instance of `IntegrationAccountMetricsConfigResourceTypeTagFilterArrayInput` via:
+//
+//	IntegrationAccountMetricsConfigResourceTypeTagFilterArray{ IntegrationAccountMetricsConfigResourceTypeTagFilterArgs{...} }
+type IntegrationAccountMetricsConfigResourceTypeTagFilterArrayInput interface {
+	pulumi.Input
+
+	ToIntegrationAccountMetricsConfigResourceTypeTagFilterArrayOutput() IntegrationAccountMetricsConfigResourceTypeTagFilterArrayOutput
+	ToIntegrationAccountMetricsConfigResourceTypeTagFilterArrayOutputWithContext(context.Context) IntegrationAccountMetricsConfigResourceTypeTagFilterArrayOutput
+}
+
+type IntegrationAccountMetricsConfigResourceTypeTagFilterArray []IntegrationAccountMetricsConfigResourceTypeTagFilterInput
+
+func (IntegrationAccountMetricsConfigResourceTypeTagFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationAccountMetricsConfigResourceTypeTagFilter)(nil)).Elem()
+}
+
+func (i IntegrationAccountMetricsConfigResourceTypeTagFilterArray) ToIntegrationAccountMetricsConfigResourceTypeTagFilterArrayOutput() IntegrationAccountMetricsConfigResourceTypeTagFilterArrayOutput {
+	return i.ToIntegrationAccountMetricsConfigResourceTypeTagFilterArrayOutputWithContext(context.Background())
+}
+
+func (i IntegrationAccountMetricsConfigResourceTypeTagFilterArray) ToIntegrationAccountMetricsConfigResourceTypeTagFilterArrayOutputWithContext(ctx context.Context) IntegrationAccountMetricsConfigResourceTypeTagFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(IntegrationAccountMetricsConfigResourceTypeTagFilterArrayOutput)
+}
+
+type IntegrationAccountMetricsConfigResourceTypeTagFilterOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountMetricsConfigResourceTypeTagFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*IntegrationAccountMetricsConfigResourceTypeTagFilter)(nil)).Elem()
+}
+
+func (o IntegrationAccountMetricsConfigResourceTypeTagFilterOutput) ToIntegrationAccountMetricsConfigResourceTypeTagFilterOutput() IntegrationAccountMetricsConfigResourceTypeTagFilterOutput {
+	return o
+}
+
+func (o IntegrationAccountMetricsConfigResourceTypeTagFilterOutput) ToIntegrationAccountMetricsConfigResourceTypeTagFilterOutputWithContext(ctx context.Context) IntegrationAccountMetricsConfigResourceTypeTagFilterOutput {
+	return o
+}
+
+// Whether this filter applies to custom resources.
+func (o IntegrationAccountMetricsConfigResourceTypeTagFilterOutput) Custom() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountMetricsConfigResourceTypeTagFilter) *bool { return v.Custom }).(pulumi.BoolPtrOutput)
+}
+
+// The tag filter expression used when collecting metrics for the specified resource types.
+func (o IntegrationAccountMetricsConfigResourceTypeTagFilterOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v IntegrationAccountMetricsConfigResourceTypeTagFilter) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+// The AWS resource types within `service` for which the tag filter expression is applied.
+func (o IntegrationAccountMetricsConfigResourceTypeTagFilterOutput) ResourceTypes() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v IntegrationAccountMetricsConfigResourceTypeTagFilter) []string { return v.ResourceTypes }).(pulumi.StringArrayOutput)
+}
+
+// The AWS service for which the tag filter expression is applied.
+func (o IntegrationAccountMetricsConfigResourceTypeTagFilterOutput) Service() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v IntegrationAccountMetricsConfigResourceTypeTagFilter) *string { return v.Service }).(pulumi.StringPtrOutput)
+}
+
+type IntegrationAccountMetricsConfigResourceTypeTagFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (IntegrationAccountMetricsConfigResourceTypeTagFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]IntegrationAccountMetricsConfigResourceTypeTagFilter)(nil)).Elem()
+}
+
+func (o IntegrationAccountMetricsConfigResourceTypeTagFilterArrayOutput) ToIntegrationAccountMetricsConfigResourceTypeTagFilterArrayOutput() IntegrationAccountMetricsConfigResourceTypeTagFilterArrayOutput {
+	return o
+}
+
+func (o IntegrationAccountMetricsConfigResourceTypeTagFilterArrayOutput) ToIntegrationAccountMetricsConfigResourceTypeTagFilterArrayOutputWithContext(ctx context.Context) IntegrationAccountMetricsConfigResourceTypeTagFilterArrayOutput {
+	return o
+}
+
+func (o IntegrationAccountMetricsConfigResourceTypeTagFilterArrayOutput) Index(i pulumi.IntInput) IntegrationAccountMetricsConfigResourceTypeTagFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) IntegrationAccountMetricsConfigResourceTypeTagFilter {
+		return vs[0].([]IntegrationAccountMetricsConfigResourceTypeTagFilter)[vs[1].(int)]
+	}).(IntegrationAccountMetricsConfigResourceTypeTagFilterOutput)
 }
 
 type IntegrationAccountMetricsConfigTagFilter struct {
@@ -2703,6 +2856,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMetricsConfigMetricNameFilterArrayInput)(nil)).Elem(), IntegrationAccountMetricsConfigMetricNameFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMetricsConfigNamespaceFiltersInput)(nil)).Elem(), IntegrationAccountMetricsConfigNamespaceFiltersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMetricsConfigNamespaceFiltersPtrInput)(nil)).Elem(), IntegrationAccountMetricsConfigNamespaceFiltersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMetricsConfigResourceTypeTagFilterInput)(nil)).Elem(), IntegrationAccountMetricsConfigResourceTypeTagFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMetricsConfigResourceTypeTagFilterArrayInput)(nil)).Elem(), IntegrationAccountMetricsConfigResourceTypeTagFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMetricsConfigTagFilterInput)(nil)).Elem(), IntegrationAccountMetricsConfigTagFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountMetricsConfigTagFilterArrayInput)(nil)).Elem(), IntegrationAccountMetricsConfigTagFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*IntegrationAccountResourcesConfigInput)(nil)).Elem(), IntegrationAccountResourcesConfigArgs{})
@@ -2739,6 +2894,8 @@ func init() {
 	pulumi.RegisterOutputType(IntegrationAccountMetricsConfigMetricNameFilterArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountMetricsConfigNamespaceFiltersOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountMetricsConfigNamespaceFiltersPtrOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountMetricsConfigResourceTypeTagFilterOutput{})
+	pulumi.RegisterOutputType(IntegrationAccountMetricsConfigResourceTypeTagFilterArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountMetricsConfigTagFilterOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountMetricsConfigTagFilterArrayOutput{})
 	pulumi.RegisterOutputType(IntegrationAccountResourcesConfigOutput{})

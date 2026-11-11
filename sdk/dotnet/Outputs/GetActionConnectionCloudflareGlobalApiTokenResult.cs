@@ -18,18 +18,32 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string AuthEmail;
         /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        public readonly Outputs.GetActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerResult? AuthEmailAwsSecretsManager;
+        /// <summary>
         /// Cloudflare global API key
         /// </summary>
         public readonly string GlobalApiKey;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        public readonly Outputs.GetActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerResult? GlobalApiKeyAwsSecretsManager;
 
         [OutputConstructor]
         private GetActionConnectionCloudflareGlobalApiTokenResult(
             string authEmail,
 
-            string globalApiKey)
+            Outputs.GetActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerResult? authEmailAwsSecretsManager,
+
+            string globalApiKey,
+
+            Outputs.GetActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerResult? globalApiKeyAwsSecretsManager)
         {
             AuthEmail = authEmail;
+            AuthEmailAwsSecretsManager = authEmailAwsSecretsManager;
             GlobalApiKey = globalApiKey;
+            GlobalApiKeyAwsSecretsManager = globalApiKeyAwsSecretsManager;
         }
     }
 }

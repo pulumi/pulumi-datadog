@@ -5,6 +5,8 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgs;
+import com.pulumi.datadog.inputs.ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgs;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -31,6 +33,21 @@ public final class ActionConnectionGcpServiceAccountArgs extends com.pulumi.reso
     }
 
     /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    @Import(name="privateKeyAwsSecretsManager")
+    private @Nullable Output<ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgs> privateKeyAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<Output<ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgs>> privateKeyAwsSecretsManager() {
+        return Optional.ofNullable(this.privateKeyAwsSecretsManager);
+    }
+
+    /**
      * Google Cloud service account email. String length must be at least 1.
      * 
      */
@@ -45,11 +62,28 @@ public final class ActionConnectionGcpServiceAccountArgs extends com.pulumi.reso
         return Optional.ofNullable(this.serviceAccountEmail);
     }
 
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    @Import(name="serviceAccountEmailAwsSecretsManager")
+    private @Nullable Output<ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgs> serviceAccountEmailAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<Output<ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgs>> serviceAccountEmailAwsSecretsManager() {
+        return Optional.ofNullable(this.serviceAccountEmailAwsSecretsManager);
+    }
+
     private ActionConnectionGcpServiceAccountArgs() {}
 
     private ActionConnectionGcpServiceAccountArgs(ActionConnectionGcpServiceAccountArgs $) {
         this.privateKey = $.privateKey;
+        this.privateKeyAwsSecretsManager = $.privateKeyAwsSecretsManager;
         this.serviceAccountEmail = $.serviceAccountEmail;
+        this.serviceAccountEmailAwsSecretsManager = $.serviceAccountEmailAwsSecretsManager;
     }
 
     public static Builder builder() {
@@ -92,6 +126,27 @@ public final class ActionConnectionGcpServiceAccountArgs extends com.pulumi.reso
         }
 
         /**
+         * @param privateKeyAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateKeyAwsSecretsManager(@Nullable Output<ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgs> privateKeyAwsSecretsManager) {
+            $.privateKeyAwsSecretsManager = privateKeyAwsSecretsManager;
+            return this;
+        }
+
+        /**
+         * @param privateKeyAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateKeyAwsSecretsManager(ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgs privateKeyAwsSecretsManager) {
+            return privateKeyAwsSecretsManager(Output.of(privateKeyAwsSecretsManager));
+        }
+
+        /**
          * @param serviceAccountEmail Google Cloud service account email. String length must be at least 1.
          * 
          * @return builder
@@ -110,6 +165,27 @@ public final class ActionConnectionGcpServiceAccountArgs extends com.pulumi.reso
          */
         public Builder serviceAccountEmail(String serviceAccountEmail) {
             return serviceAccountEmail(Output.of(serviceAccountEmail));
+        }
+
+        /**
+         * @param serviceAccountEmailAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceAccountEmailAwsSecretsManager(@Nullable Output<ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgs> serviceAccountEmailAwsSecretsManager) {
+            $.serviceAccountEmailAwsSecretsManager = serviceAccountEmailAwsSecretsManager;
+            return this;
+        }
+
+        /**
+         * @param serviceAccountEmailAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceAccountEmailAwsSecretsManager(ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgs serviceAccountEmailAwsSecretsManager) {
+            return serviceAccountEmailAwsSecretsManager(Output.of(serviceAccountEmailAwsSecretsManager));
         }
 
         public ActionConnectionGcpServiceAccountArgs build() {

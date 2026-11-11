@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class TeamConnectionConnectedTeam
     {
         /// <summary>
-        /// The ID of the external connected team.
+        /// The ID of the external connected team. For GitHub teams, this is `@&lt;organization&gt;/&lt;team-slug&gt;`. For ServiceNow groups, this is `&lt;instance_name&gt;/&lt;sys_id&gt;`.
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// The resource type of the external connected team. Valid values are `GithubTeam`.
+        /// The resource type of the external connected team. Valid values are `GithubTeam`, `ServicenowTeam`.
         /// </summary>
         public readonly string Type;
 

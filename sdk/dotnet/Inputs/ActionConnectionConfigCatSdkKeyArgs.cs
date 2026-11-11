@@ -29,10 +29,22 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        [Input("apiPasswordAwsSecretsManager")]
+        public Input<Inputs.ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgs>? ApiPasswordAwsSecretsManager { get; set; }
+
+        /// <summary>
         /// ConfigCat Public Management API username. String length must be at least 1.
         /// </summary>
         [Input("apiUsername")]
         public Input<string>? ApiUsername { get; set; }
+
+        /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        [Input("apiUsernameAwsSecretsManager")]
+        public Input<Inputs.ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgs>? ApiUsernameAwsSecretsManager { get; set; }
 
         [Input("sdkKey")]
         private Input<string>? _sdkKey;
@@ -49,6 +61,12 @@ namespace Pulumi.Datadog.Inputs
                 _sdkKey = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
             }
         }
+
+        /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        [Input("sdkKeyAwsSecretsManager")]
+        public Input<Inputs.ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgs>? SdkKeyAwsSecretsManager { get; set; }
 
         public ActionConnectionConfigCatSdkKeyArgs()
         {

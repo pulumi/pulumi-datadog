@@ -4,9 +4,12 @@
 package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.GetActionConnectionCircleCiApiKeyApiTokenAwsSecretsManager;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetActionConnectionCircleCiApiKey extends com.pulumi.resources.InvokeArgs {
@@ -28,10 +31,26 @@ public final class GetActionConnectionCircleCiApiKey extends com.pulumi.resource
         return this.apiToken;
     }
 
+    /**
+     * AWS Secrets Manager reference for this field.
+     * 
+     */
+    @Import(name="apiTokenAwsSecretsManager")
+    private @Nullable GetActionConnectionCircleCiApiKeyApiTokenAwsSecretsManager apiTokenAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionCircleCiApiKeyApiTokenAwsSecretsManager> apiTokenAwsSecretsManager() {
+        return Optional.ofNullable(this.apiTokenAwsSecretsManager);
+    }
+
     private GetActionConnectionCircleCiApiKey() {}
 
     private GetActionConnectionCircleCiApiKey(GetActionConnectionCircleCiApiKey $) {
         this.apiToken = $.apiToken;
+        this.apiTokenAwsSecretsManager = $.apiTokenAwsSecretsManager;
     }
 
     public static Builder builder() {
@@ -60,6 +79,17 @@ public final class GetActionConnectionCircleCiApiKey extends com.pulumi.resource
          */
         public Builder apiToken(String apiToken) {
             $.apiToken = apiToken;
+            return this;
+        }
+
+        /**
+         * @param apiTokenAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiTokenAwsSecretsManager(@Nullable GetActionConnectionCircleCiApiKeyApiTokenAwsSecretsManager apiTokenAwsSecretsManager) {
+            $.apiTokenAwsSecretsManager = apiTokenAwsSecretsManager;
             return this;
         }
 

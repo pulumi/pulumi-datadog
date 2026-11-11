@@ -4,6 +4,7 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManager;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,6 +17,11 @@ public final class ActionConnectionAnthropicApiKey {
      * 
      */
     private @Nullable String apiToken;
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    private @Nullable ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManager apiTokenAwsSecretsManager;
 
     private ActionConnectionAnthropicApiKey() {}
     /**
@@ -24,6 +30,13 @@ public final class ActionConnectionAnthropicApiKey {
      */
     public Optional<String> apiToken() {
         return Optional.ofNullable(this.apiToken);
+    }
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManager> apiTokenAwsSecretsManager() {
+        return Optional.ofNullable(this.apiTokenAwsSecretsManager);
     }
 
     public static Builder builder() {
@@ -36,10 +49,12 @@ public final class ActionConnectionAnthropicApiKey {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String apiToken;
+        private @Nullable ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManager apiTokenAwsSecretsManager;
         public Builder() {}
         public Builder(ActionConnectionAnthropicApiKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiToken = defaults.apiToken;
+    	      this.apiTokenAwsSecretsManager = defaults.apiTokenAwsSecretsManager;
         }
 
         @CustomType.Setter
@@ -48,9 +63,16 @@ public final class ActionConnectionAnthropicApiKey {
             this.apiToken = apiToken;
             return this;
         }
+        @CustomType.Setter
+        public Builder apiTokenAwsSecretsManager(@Nullable ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManager apiTokenAwsSecretsManager) {
+
+            this.apiTokenAwsSecretsManager = apiTokenAwsSecretsManager;
+            return this;
+        }
         public ActionConnectionAnthropicApiKey build() {
             final var _resultValue = new ActionConnectionAnthropicApiKey();
             _resultValue.apiToken = apiToken;
+            _resultValue.apiTokenAwsSecretsManager = apiTokenAwsSecretsManager;
             return _resultValue;
         }
     }

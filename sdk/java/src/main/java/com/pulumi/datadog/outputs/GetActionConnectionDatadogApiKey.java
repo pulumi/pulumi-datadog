@@ -4,9 +4,15 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.GetActionConnectionDatadogApiKeyApiKeyAwsSecretsManager;
+import com.pulumi.datadog.outputs.GetActionConnectionDatadogApiKeyAppKeyAwsSecretsManager;
+import com.pulumi.datadog.outputs.GetActionConnectionDatadogApiKeyDatacenterAwsSecretsManager;
+import com.pulumi.datadog.outputs.GetActionConnectionDatadogApiKeySubdomainAwsSecretsManager;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetActionConnectionDatadogApiKey {
@@ -16,20 +22,40 @@ public final class GetActionConnectionDatadogApiKey {
      */
     private String apiKey;
     /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    private @Nullable GetActionConnectionDatadogApiKeyApiKeyAwsSecretsManager apiKeyAwsSecretsManager;
+    /**
      * @return Datadog application key
      * 
      */
     private String appKey;
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    private @Nullable GetActionConnectionDatadogApiKeyAppKeyAwsSecretsManager appKeyAwsSecretsManager;
     /**
      * @return Datadog site data center
      * 
      */
     private String datacenter;
     /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    private @Nullable GetActionConnectionDatadogApiKeyDatacenterAwsSecretsManager datacenterAwsSecretsManager;
+    /**
      * @return Custom subdomain used for URLs generated with this connection
      * 
      */
     private String subdomain;
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    private @Nullable GetActionConnectionDatadogApiKeySubdomainAwsSecretsManager subdomainAwsSecretsManager;
 
     private GetActionConnectionDatadogApiKey() {}
     /**
@@ -40,11 +66,25 @@ public final class GetActionConnectionDatadogApiKey {
         return this.apiKey;
     }
     /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionDatadogApiKeyApiKeyAwsSecretsManager> apiKeyAwsSecretsManager() {
+        return Optional.ofNullable(this.apiKeyAwsSecretsManager);
+    }
+    /**
      * @return Datadog application key
      * 
      */
     public String appKey() {
         return this.appKey;
+    }
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionDatadogApiKeyAppKeyAwsSecretsManager> appKeyAwsSecretsManager() {
+        return Optional.ofNullable(this.appKeyAwsSecretsManager);
     }
     /**
      * @return Datadog site data center
@@ -54,11 +94,25 @@ public final class GetActionConnectionDatadogApiKey {
         return this.datacenter;
     }
     /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionDatadogApiKeyDatacenterAwsSecretsManager> datacenterAwsSecretsManager() {
+        return Optional.ofNullable(this.datacenterAwsSecretsManager);
+    }
+    /**
      * @return Custom subdomain used for URLs generated with this connection
      * 
      */
     public String subdomain() {
         return this.subdomain;
+    }
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionDatadogApiKeySubdomainAwsSecretsManager> subdomainAwsSecretsManager() {
+        return Optional.ofNullable(this.subdomainAwsSecretsManager);
     }
 
     public static Builder builder() {
@@ -71,16 +125,24 @@ public final class GetActionConnectionDatadogApiKey {
     @CustomType.Builder
     public static final class Builder {
         private String apiKey;
+        private @Nullable GetActionConnectionDatadogApiKeyApiKeyAwsSecretsManager apiKeyAwsSecretsManager;
         private String appKey;
+        private @Nullable GetActionConnectionDatadogApiKeyAppKeyAwsSecretsManager appKeyAwsSecretsManager;
         private String datacenter;
+        private @Nullable GetActionConnectionDatadogApiKeyDatacenterAwsSecretsManager datacenterAwsSecretsManager;
         private String subdomain;
+        private @Nullable GetActionConnectionDatadogApiKeySubdomainAwsSecretsManager subdomainAwsSecretsManager;
         public Builder() {}
         public Builder(GetActionConnectionDatadogApiKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiKey = defaults.apiKey;
+    	      this.apiKeyAwsSecretsManager = defaults.apiKeyAwsSecretsManager;
     	      this.appKey = defaults.appKey;
+    	      this.appKeyAwsSecretsManager = defaults.appKeyAwsSecretsManager;
     	      this.datacenter = defaults.datacenter;
+    	      this.datacenterAwsSecretsManager = defaults.datacenterAwsSecretsManager;
     	      this.subdomain = defaults.subdomain;
+    	      this.subdomainAwsSecretsManager = defaults.subdomainAwsSecretsManager;
         }
 
         @CustomType.Setter
@@ -92,11 +154,23 @@ public final class GetActionConnectionDatadogApiKey {
             return this;
         }
         @CustomType.Setter
+        public Builder apiKeyAwsSecretsManager(@Nullable GetActionConnectionDatadogApiKeyApiKeyAwsSecretsManager apiKeyAwsSecretsManager) {
+
+            this.apiKeyAwsSecretsManager = apiKeyAwsSecretsManager;
+            return this;
+        }
+        @CustomType.Setter
         public Builder appKey(String appKey) {
             if (appKey == null) {
               throw new MissingRequiredPropertyException("GetActionConnectionDatadogApiKey", "appKey");
             }
             this.appKey = appKey;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder appKeyAwsSecretsManager(@Nullable GetActionConnectionDatadogApiKeyAppKeyAwsSecretsManager appKeyAwsSecretsManager) {
+
+            this.appKeyAwsSecretsManager = appKeyAwsSecretsManager;
             return this;
         }
         @CustomType.Setter
@@ -108,6 +182,12 @@ public final class GetActionConnectionDatadogApiKey {
             return this;
         }
         @CustomType.Setter
+        public Builder datacenterAwsSecretsManager(@Nullable GetActionConnectionDatadogApiKeyDatacenterAwsSecretsManager datacenterAwsSecretsManager) {
+
+            this.datacenterAwsSecretsManager = datacenterAwsSecretsManager;
+            return this;
+        }
+        @CustomType.Setter
         public Builder subdomain(String subdomain) {
             if (subdomain == null) {
               throw new MissingRequiredPropertyException("GetActionConnectionDatadogApiKey", "subdomain");
@@ -115,12 +195,22 @@ public final class GetActionConnectionDatadogApiKey {
             this.subdomain = subdomain;
             return this;
         }
+        @CustomType.Setter
+        public Builder subdomainAwsSecretsManager(@Nullable GetActionConnectionDatadogApiKeySubdomainAwsSecretsManager subdomainAwsSecretsManager) {
+
+            this.subdomainAwsSecretsManager = subdomainAwsSecretsManager;
+            return this;
+        }
         public GetActionConnectionDatadogApiKey build() {
             final var _resultValue = new GetActionConnectionDatadogApiKey();
             _resultValue.apiKey = apiKey;
+            _resultValue.apiKeyAwsSecretsManager = apiKeyAwsSecretsManager;
             _resultValue.appKey = appKey;
+            _resultValue.appKeyAwsSecretsManager = appKeyAwsSecretsManager;
             _resultValue.datacenter = datacenter;
+            _resultValue.datacenterAwsSecretsManager = datacenterAwsSecretsManager;
             _resultValue.subdomain = subdomain;
+            _resultValue.subdomainAwsSecretsManager = subdomainAwsSecretsManager;
             return _resultValue;
         }
     }

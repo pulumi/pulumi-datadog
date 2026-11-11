@@ -13,9 +13,15 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class ObservabilityPipelineConfigDestinationDatadogMetric
     {
+        /// <summary>
+        /// Configuration for buffer settings on destination components. Exactly one of `Disk` or `Memory` must be specified.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigDestinationDatadogMetricBuffer? Buffer;
+
         [OutputConstructor]
-        private ObservabilityPipelineConfigDestinationDatadogMetric()
+        private ObservabilityPipelineConfigDestinationDatadogMetric(Outputs.ObservabilityPipelineConfigDestinationDatadogMetricBuffer? buffer)
         {
+            Buffer = buffer;
         }
     }
 }

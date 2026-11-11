@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog
 {
     /// <summary>
-    /// Provides a Datadog Team Connection resource. This can be used to create and manage connections between a Datadog team and an external team (e.g. GitHub).
+    /// Provides a Datadog Team Connection resource. This can be used to create and manage connections between a Datadog team and an external team (e.g. a GitHub team or a ServiceNow group).
     /// 
     /// ## Example Usage
     /// 
@@ -50,6 +50,28 @@ namespace Pulumi.Datadog
     ///         },
     ///     });
     /// 
+    ///     // Create a connection between a Datadog team and a ServiceNow group
+    ///     var servicenow = new Datadog.TeamConnection("servicenow", new()
+    ///     {
+    ///         Team = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "id", example.Id },
+    ///                 { "type", "team" },
+    ///             },
+    ///         },
+    ///         ConnectedTeam = new[]
+    ///         {
+    ///             
+    ///             {
+    ///                 { "id", "my-instance/0123456789abcdef0123456789abcdef" },
+    ///                 { "type", "servicenow_team" },
+    ///             },
+    ///         },
+    ///         Source = "servicenow",
+    ///     });
+    /// 
     /// });
     /// ```
     /// 
@@ -65,13 +87,13 @@ namespace Pulumi.Datadog
     public partial class TeamConnection : global::Pulumi.CustomResource
     {
         /// <summary>
-        /// The external connected team reference (e.g. a GitHub team).
+        /// The external connected team reference (e.g. a GitHub team or a ServiceNow group).
         /// </summary>
         [Output("connectedTeam")]
         public Output<Outputs.TeamConnectionConnectedTeam> ConnectedTeam { get; private set; } = null!;
 
         /// <summary>
-        /// The source of the connection (e.g. github).
+        /// The name of the external source, such as `Github` or `Servicenow`.
         /// </summary>
         [Output("source")]
         public Output<string> Source { get; private set; } = null!;
@@ -129,13 +151,13 @@ namespace Pulumi.Datadog
     public sealed class TeamConnectionArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The external connected team reference (e.g. a GitHub team).
+        /// The external connected team reference (e.g. a GitHub team or a ServiceNow group).
         /// </summary>
         [Input("connectedTeam", required: true)]
         public Input<Inputs.TeamConnectionConnectedTeamArgs> ConnectedTeam { get; set; } = null!;
 
         /// <summary>
-        /// The source of the connection (e.g. github).
+        /// The name of the external source, such as `Github` or `Servicenow`.
         /// </summary>
         [Input("source")]
         public Input<string>? Source { get; set; }
@@ -155,13 +177,13 @@ namespace Pulumi.Datadog
     public sealed class TeamConnectionState : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The external connected team reference (e.g. a GitHub team).
+        /// The external connected team reference (e.g. a GitHub team or a ServiceNow group).
         /// </summary>
         [Input("connectedTeam")]
         public Input<Inputs.TeamConnectionConnectedTeamGetArgs>? ConnectedTeam { get; set; }
 
         /// <summary>
-        /// The source of the connection (e.g. github).
+        /// The name of the external source, such as `Github` or `Servicenow`.
         /// </summary>
         [Input("source")]
         public Input<string>? Source { get; set; }

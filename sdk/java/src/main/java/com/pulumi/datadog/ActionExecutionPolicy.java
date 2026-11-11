@@ -20,7 +20,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Datadog Execution Policy resource. Execution policies control which Action Platform actions may run against your infrastructure, and where. Each policy pairs an effect (`allow` or `deny`) with a pattern of actions, optionally narrowed to specific Kubernetes namespaces, scripts or remote shell paths, and optionally scoped to agents matching a set of Fleet Automation tags.
+ * Provides a Datadog Execution Policy resource. Execution policies control which Action Platform actions may run, and where. Each policy pairs an effect (`allow` or `deny`) with a pattern of actions, optionally narrowed to specific Kubernetes namespaces, scripts, remote shell paths or Slack channel names, and optionally scoped to targets matching a set of tags, such as agents matching Fleet Automation tags or a Slack workspace.
  * 
  * ## Example Usage
  * 
@@ -125,6 +125,27 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // Slack: allow posting messages to incident channels in one Slack workspace.
+ *         var slackIncidentChannels = new ActionExecutionPolicy("slackIncidentChannels", ActionExecutionPolicyArgs.builder()
+ *             .name("slack-incident-channels")
+ *             .effect("allow")
+ *             .actionPattern(com.pulumi.datadog.inputs.ActionExecutionPolicyActionPatternArgs.builder()
+ *                 .integration("INTEGRATION_SLACK")
+ *                 .actionFqns("com.datadoghq.slack.send_simple_message")
+ *                 .build())
+ *             .scope(com.pulumi.datadog.inputs.ActionExecutionPolicyScopeArgs.builder()
+ *                 .slack(com.pulumi.datadog.inputs.ActionExecutionPolicyScopeSlackArgs.builder()
+ *                     .rules(com.pulumi.datadog.inputs.ActionExecutionPolicyScopeSlackRuleArgs.builder()
+ *                         .channelNameSelectors("incident-*")
+ *                         .build())
+ *                     .build())
+ *                 .build())
+ *             .targets(ActionExecutionPolicyTargetArgs.builder()
+ *                 .name("main-workspace")
+ *                 .agentTags("slack_workspace_id:T0123456789")
+ *                 .build())
+ *             .build());
+ * 
  *         // Access to a policy is managed separately via datadog_restriction_policy,
  *         // keyed by "execution-policy:<id>".
  *         var kubernetesProdPerms = new RestrictionPolicy("kubernetesProdPerms", RestrictionPolicyArgs.builder()
@@ -222,28 +243,28 @@ public class ActionExecutionPolicy extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * Restricts where the policy applies, beyond `actionPattern`. When configured, exactly one of `kubernetes`, `scripts` or `remoteActionRshell` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
+     * Restricts where the policy applies, beyond `actionPattern`. When configured, exactly one of `kubernetes`, `scripts`, `remoteActionRshell` or `slack` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
      * 
      */
     @Export(name="scope", refs={ActionExecutionPolicyScope.class}, tree="[0]")
     private Output</* @Nullable */ ActionExecutionPolicyScope> scope;
 
     /**
-     * @return Restricts where the policy applies, beyond `actionPattern`. When configured, exactly one of `kubernetes`, `scripts` or `remoteActionRshell` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
+     * @return Restricts where the policy applies, beyond `actionPattern`. When configured, exactly one of `kubernetes`, `scripts`, `remoteActionRshell` or `slack` must be set, and it must match `action_pattern.integration`. Omitting this block means the policy has no scope restriction.
      * 
      */
     public Output<Optional<ActionExecutionPolicyScope>> scope() {
         return Codegen.optional(this.scope);
     }
     /**
-     * A target this policy is scoped to, expressed as a set of Agent tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
+     * A target this policy is scoped to, expressed as a set of tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
      * 
      */
     @Export(name="targets", refs={List.class,ActionExecutionPolicyTarget.class}, tree="[0,1]")
     private Output</* @Nullable */ List<ActionExecutionPolicyTarget>> targets;
 
     /**
-     * @return A target this policy is scoped to, expressed as a set of Agent tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
+     * @return A target this policy is scoped to, expressed as a set of tags. Each target is matched independently; omitting all `target` blocks applies the policy fleet-wide.
      * 
      */
     public Output<Optional<List<ActionExecutionPolicyTarget>>> targets() {

@@ -5,6 +5,9 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgs;
+import com.pulumi.datadog.inputs.ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgs;
+import com.pulumi.datadog.inputs.ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgs;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -31,6 +34,21 @@ public final class ActionConnectionConfigCatSdkKeyArgs extends com.pulumi.resour
     }
 
     /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    @Import(name="apiPasswordAwsSecretsManager")
+    private @Nullable Output<ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgs> apiPasswordAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<Output<ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgs>> apiPasswordAwsSecretsManager() {
+        return Optional.ofNullable(this.apiPasswordAwsSecretsManager);
+    }
+
+    /**
      * ConfigCat Public Management API username. String length must be at least 1.
      * 
      */
@@ -43,6 +61,21 @@ public final class ActionConnectionConfigCatSdkKeyArgs extends com.pulumi.resour
      */
     public Optional<Output<String>> apiUsername() {
         return Optional.ofNullable(this.apiUsername);
+    }
+
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    @Import(name="apiUsernameAwsSecretsManager")
+    private @Nullable Output<ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgs> apiUsernameAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<Output<ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgs>> apiUsernameAwsSecretsManager() {
+        return Optional.ofNullable(this.apiUsernameAwsSecretsManager);
     }
 
     /**
@@ -60,12 +93,30 @@ public final class ActionConnectionConfigCatSdkKeyArgs extends com.pulumi.resour
         return Optional.ofNullable(this.sdkKey);
     }
 
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    @Import(name="sdkKeyAwsSecretsManager")
+    private @Nullable Output<ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgs> sdkKeyAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<Output<ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgs>> sdkKeyAwsSecretsManager() {
+        return Optional.ofNullable(this.sdkKeyAwsSecretsManager);
+    }
+
     private ActionConnectionConfigCatSdkKeyArgs() {}
 
     private ActionConnectionConfigCatSdkKeyArgs(ActionConnectionConfigCatSdkKeyArgs $) {
         this.apiPassword = $.apiPassword;
+        this.apiPasswordAwsSecretsManager = $.apiPasswordAwsSecretsManager;
         this.apiUsername = $.apiUsername;
+        this.apiUsernameAwsSecretsManager = $.apiUsernameAwsSecretsManager;
         this.sdkKey = $.sdkKey;
+        this.sdkKeyAwsSecretsManager = $.sdkKeyAwsSecretsManager;
     }
 
     public static Builder builder() {
@@ -108,6 +159,27 @@ public final class ActionConnectionConfigCatSdkKeyArgs extends com.pulumi.resour
         }
 
         /**
+         * @param apiPasswordAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiPasswordAwsSecretsManager(@Nullable Output<ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgs> apiPasswordAwsSecretsManager) {
+            $.apiPasswordAwsSecretsManager = apiPasswordAwsSecretsManager;
+            return this;
+        }
+
+        /**
+         * @param apiPasswordAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiPasswordAwsSecretsManager(ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgs apiPasswordAwsSecretsManager) {
+            return apiPasswordAwsSecretsManager(Output.of(apiPasswordAwsSecretsManager));
+        }
+
+        /**
          * @param apiUsername ConfigCat Public Management API username. String length must be at least 1.
          * 
          * @return builder
@@ -129,6 +201,27 @@ public final class ActionConnectionConfigCatSdkKeyArgs extends com.pulumi.resour
         }
 
         /**
+         * @param apiUsernameAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiUsernameAwsSecretsManager(@Nullable Output<ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgs> apiUsernameAwsSecretsManager) {
+            $.apiUsernameAwsSecretsManager = apiUsernameAwsSecretsManager;
+            return this;
+        }
+
+        /**
+         * @param apiUsernameAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiUsernameAwsSecretsManager(ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgs apiUsernameAwsSecretsManager) {
+            return apiUsernameAwsSecretsManager(Output.of(apiUsernameAwsSecretsManager));
+        }
+
+        /**
          * @param sdkKey ConfigCat SDK key. String length must be at least 1.
          * 
          * @return builder
@@ -147,6 +240,27 @@ public final class ActionConnectionConfigCatSdkKeyArgs extends com.pulumi.resour
          */
         public Builder sdkKey(String sdkKey) {
             return sdkKey(Output.of(sdkKey));
+        }
+
+        /**
+         * @param sdkKeyAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sdkKeyAwsSecretsManager(@Nullable Output<ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgs> sdkKeyAwsSecretsManager) {
+            $.sdkKeyAwsSecretsManager = sdkKeyAwsSecretsManager;
+            return this;
+        }
+
+        /**
+         * @param sdkKeyAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sdkKeyAwsSecretsManager(ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgs sdkKeyAwsSecretsManager) {
+            return sdkKeyAwsSecretsManager(Output.of(sdkKeyAwsSecretsManager));
         }
 
         public ActionConnectionConfigCatSdkKeyArgs build() {

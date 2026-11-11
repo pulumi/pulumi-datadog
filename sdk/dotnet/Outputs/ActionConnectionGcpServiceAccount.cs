@@ -18,18 +18,32 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? PrivateKey;
         /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        public readonly Outputs.ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager? PrivateKeyAwsSecretsManager;
+        /// <summary>
         /// Google Cloud service account email. String length must be at least 1.
         /// </summary>
         public readonly string? ServiceAccountEmail;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        public readonly Outputs.ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager? ServiceAccountEmailAwsSecretsManager;
 
         [OutputConstructor]
         private ActionConnectionGcpServiceAccount(
             string? privateKey,
 
-            string? serviceAccountEmail)
+            Outputs.ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager? privateKeyAwsSecretsManager,
+
+            string? serviceAccountEmail,
+
+            Outputs.ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager? serviceAccountEmailAwsSecretsManager)
         {
             PrivateKey = privateKey;
+            PrivateKeyAwsSecretsManager = privateKeyAwsSecretsManager;
             ServiceAccountEmail = serviceAccountEmail;
+            ServiceAccountEmailAwsSecretsManager = serviceAccountEmailAwsSecretsManager;
         }
     }
 }

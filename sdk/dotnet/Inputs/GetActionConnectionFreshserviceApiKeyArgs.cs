@@ -29,10 +29,22 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        [Input("apiKeyAwsSecretsManager")]
+        public Input<Inputs.GetActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerInputArgs>? ApiKeyAwsSecretsManager { get; set; }
+
+        /// <summary>
         /// Freshservice domain
         /// </summary>
         [Input("domain", required: true)]
         public Input<string> Domain { get; set; } = null!;
+
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        [Input("domainAwsSecretsManager")]
+        public Input<Inputs.GetActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerInputArgs>? DomainAwsSecretsManager { get; set; }
 
         public GetActionConnectionFreshserviceApiKeyInputArgs()
         {

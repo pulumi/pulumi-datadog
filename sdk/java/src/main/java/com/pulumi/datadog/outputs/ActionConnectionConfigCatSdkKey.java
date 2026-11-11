@@ -4,6 +4,9 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager;
+import com.pulumi.datadog.outputs.ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager;
+import com.pulumi.datadog.outputs.ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -17,15 +20,30 @@ public final class ActionConnectionConfigCatSdkKey {
      */
     private @Nullable String apiPassword;
     /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    private @Nullable ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager apiPasswordAwsSecretsManager;
+    /**
      * @return ConfigCat Public Management API username. String length must be at least 1.
      * 
      */
     private @Nullable String apiUsername;
     /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    private @Nullable ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager apiUsernameAwsSecretsManager;
+    /**
      * @return ConfigCat SDK key. String length must be at least 1.
      * 
      */
     private @Nullable String sdkKey;
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    private @Nullable ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager sdkKeyAwsSecretsManager;
 
     private ActionConnectionConfigCatSdkKey() {}
     /**
@@ -36,6 +54,13 @@ public final class ActionConnectionConfigCatSdkKey {
         return Optional.ofNullable(this.apiPassword);
     }
     /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager> apiPasswordAwsSecretsManager() {
+        return Optional.ofNullable(this.apiPasswordAwsSecretsManager);
+    }
+    /**
      * @return ConfigCat Public Management API username. String length must be at least 1.
      * 
      */
@@ -43,11 +68,25 @@ public final class ActionConnectionConfigCatSdkKey {
         return Optional.ofNullable(this.apiUsername);
     }
     /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager> apiUsernameAwsSecretsManager() {
+        return Optional.ofNullable(this.apiUsernameAwsSecretsManager);
+    }
+    /**
      * @return ConfigCat SDK key. String length must be at least 1.
      * 
      */
     public Optional<String> sdkKey() {
         return Optional.ofNullable(this.sdkKey);
+    }
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager> sdkKeyAwsSecretsManager() {
+        return Optional.ofNullable(this.sdkKeyAwsSecretsManager);
     }
 
     public static Builder builder() {
@@ -60,14 +99,20 @@ public final class ActionConnectionConfigCatSdkKey {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String apiPassword;
+        private @Nullable ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager apiPasswordAwsSecretsManager;
         private @Nullable String apiUsername;
+        private @Nullable ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager apiUsernameAwsSecretsManager;
         private @Nullable String sdkKey;
+        private @Nullable ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager sdkKeyAwsSecretsManager;
         public Builder() {}
         public Builder(ActionConnectionConfigCatSdkKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiPassword = defaults.apiPassword;
+    	      this.apiPasswordAwsSecretsManager = defaults.apiPasswordAwsSecretsManager;
     	      this.apiUsername = defaults.apiUsername;
+    	      this.apiUsernameAwsSecretsManager = defaults.apiUsernameAwsSecretsManager;
     	      this.sdkKey = defaults.sdkKey;
+    	      this.sdkKeyAwsSecretsManager = defaults.sdkKeyAwsSecretsManager;
         }
 
         @CustomType.Setter
@@ -77,9 +122,21 @@ public final class ActionConnectionConfigCatSdkKey {
             return this;
         }
         @CustomType.Setter
+        public Builder apiPasswordAwsSecretsManager(@Nullable ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager apiPasswordAwsSecretsManager) {
+
+            this.apiPasswordAwsSecretsManager = apiPasswordAwsSecretsManager;
+            return this;
+        }
+        @CustomType.Setter
         public Builder apiUsername(@Nullable String apiUsername) {
 
             this.apiUsername = apiUsername;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder apiUsernameAwsSecretsManager(@Nullable ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager apiUsernameAwsSecretsManager) {
+
+            this.apiUsernameAwsSecretsManager = apiUsernameAwsSecretsManager;
             return this;
         }
         @CustomType.Setter
@@ -88,11 +145,20 @@ public final class ActionConnectionConfigCatSdkKey {
             this.sdkKey = sdkKey;
             return this;
         }
+        @CustomType.Setter
+        public Builder sdkKeyAwsSecretsManager(@Nullable ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager sdkKeyAwsSecretsManager) {
+
+            this.sdkKeyAwsSecretsManager = sdkKeyAwsSecretsManager;
+            return this;
+        }
         public ActionConnectionConfigCatSdkKey build() {
             final var _resultValue = new ActionConnectionConfigCatSdkKey();
             _resultValue.apiPassword = apiPassword;
+            _resultValue.apiPasswordAwsSecretsManager = apiPasswordAwsSecretsManager;
             _resultValue.apiUsername = apiUsername;
+            _resultValue.apiUsernameAwsSecretsManager = apiUsernameAwsSecretsManager;
             _resultValue.sdkKey = sdkKey;
+            _resultValue.sdkKeyAwsSecretsManager = sdkKeyAwsSecretsManager;
             return _resultValue;
         }
     }

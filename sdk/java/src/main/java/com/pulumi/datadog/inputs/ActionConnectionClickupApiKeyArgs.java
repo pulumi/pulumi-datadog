@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgs;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -30,10 +31,26 @@ public final class ActionConnectionClickupApiKeyArgs extends com.pulumi.resource
         return Optional.ofNullable(this.apiToken);
     }
 
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    @Import(name="apiTokenAwsSecretsManager")
+    private @Nullable Output<ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgs> apiTokenAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<Output<ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgs>> apiTokenAwsSecretsManager() {
+        return Optional.ofNullable(this.apiTokenAwsSecretsManager);
+    }
+
     private ActionConnectionClickupApiKeyArgs() {}
 
     private ActionConnectionClickupApiKeyArgs(ActionConnectionClickupApiKeyArgs $) {
         this.apiToken = $.apiToken;
+        this.apiTokenAwsSecretsManager = $.apiTokenAwsSecretsManager;
     }
 
     public static Builder builder() {
@@ -73,6 +90,27 @@ public final class ActionConnectionClickupApiKeyArgs extends com.pulumi.resource
          */
         public Builder apiToken(String apiToken) {
             return apiToken(Output.of(apiToken));
+        }
+
+        /**
+         * @param apiTokenAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiTokenAwsSecretsManager(@Nullable Output<ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgs> apiTokenAwsSecretsManager) {
+            $.apiTokenAwsSecretsManager = apiTokenAwsSecretsManager;
+            return this;
+        }
+
+        /**
+         * @param apiTokenAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiTokenAwsSecretsManager(ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgs apiTokenAwsSecretsManager) {
+            return apiTokenAwsSecretsManager(Output.of(apiTokenAwsSecretsManager));
         }
 
         public ActionConnectionClickupApiKeyArgs build() {

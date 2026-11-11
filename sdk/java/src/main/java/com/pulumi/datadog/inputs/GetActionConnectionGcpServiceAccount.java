@@ -4,9 +4,13 @@
 package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.GetActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager;
+import com.pulumi.datadog.inputs.GetActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetActionConnectionGcpServiceAccount extends com.pulumi.resources.InvokeArgs {
@@ -29,6 +33,21 @@ public final class GetActionConnectionGcpServiceAccount extends com.pulumi.resou
     }
 
     /**
+     * AWS Secrets Manager reference for this field.
+     * 
+     */
+    @Import(name="privateKeyAwsSecretsManager")
+    private @Nullable GetActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager privateKeyAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager> privateKeyAwsSecretsManager() {
+        return Optional.ofNullable(this.privateKeyAwsSecretsManager);
+    }
+
+    /**
      * Google Cloud service account email
      * 
      */
@@ -43,11 +62,28 @@ public final class GetActionConnectionGcpServiceAccount extends com.pulumi.resou
         return this.serviceAccountEmail;
     }
 
+    /**
+     * AWS Secrets Manager reference for this field.
+     * 
+     */
+    @Import(name="serviceAccountEmailAwsSecretsManager")
+    private @Nullable GetActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager serviceAccountEmailAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager> serviceAccountEmailAwsSecretsManager() {
+        return Optional.ofNullable(this.serviceAccountEmailAwsSecretsManager);
+    }
+
     private GetActionConnectionGcpServiceAccount() {}
 
     private GetActionConnectionGcpServiceAccount(GetActionConnectionGcpServiceAccount $) {
         this.privateKey = $.privateKey;
+        this.privateKeyAwsSecretsManager = $.privateKeyAwsSecretsManager;
         this.serviceAccountEmail = $.serviceAccountEmail;
+        this.serviceAccountEmailAwsSecretsManager = $.serviceAccountEmailAwsSecretsManager;
     }
 
     public static Builder builder() {
@@ -80,6 +116,17 @@ public final class GetActionConnectionGcpServiceAccount extends com.pulumi.resou
         }
 
         /**
+         * @param privateKeyAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder privateKeyAwsSecretsManager(@Nullable GetActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager privateKeyAwsSecretsManager) {
+            $.privateKeyAwsSecretsManager = privateKeyAwsSecretsManager;
+            return this;
+        }
+
+        /**
          * @param serviceAccountEmail Google Cloud service account email
          * 
          * @return builder
@@ -87,6 +134,17 @@ public final class GetActionConnectionGcpServiceAccount extends com.pulumi.resou
          */
         public Builder serviceAccountEmail(String serviceAccountEmail) {
             $.serviceAccountEmail = serviceAccountEmail;
+            return this;
+        }
+
+        /**
+         * @param serviceAccountEmailAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder serviceAccountEmailAwsSecretsManager(@Nullable GetActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager serviceAccountEmailAwsSecretsManager) {
+            $.serviceAccountEmailAwsSecretsManager = serviceAccountEmailAwsSecretsManager;
             return this;
         }
 

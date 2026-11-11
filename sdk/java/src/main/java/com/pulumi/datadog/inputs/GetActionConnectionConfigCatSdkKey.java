@@ -4,9 +4,14 @@
 package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.GetActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager;
+import com.pulumi.datadog.inputs.GetActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager;
+import com.pulumi.datadog.inputs.GetActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetActionConnectionConfigCatSdkKey extends com.pulumi.resources.InvokeArgs {
@@ -29,6 +34,21 @@ public final class GetActionConnectionConfigCatSdkKey extends com.pulumi.resourc
     }
 
     /**
+     * AWS Secrets Manager reference for this field.
+     * 
+     */
+    @Import(name="apiPasswordAwsSecretsManager")
+    private @Nullable GetActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager apiPasswordAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager> apiPasswordAwsSecretsManager() {
+        return Optional.ofNullable(this.apiPasswordAwsSecretsManager);
+    }
+
+    /**
      * ConfigCat Public Management API username
      * 
      */
@@ -41,6 +61,21 @@ public final class GetActionConnectionConfigCatSdkKey extends com.pulumi.resourc
      */
     public String apiUsername() {
         return this.apiUsername;
+    }
+
+    /**
+     * AWS Secrets Manager reference for this field.
+     * 
+     */
+    @Import(name="apiUsernameAwsSecretsManager")
+    private @Nullable GetActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager apiUsernameAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager> apiUsernameAwsSecretsManager() {
+        return Optional.ofNullable(this.apiUsernameAwsSecretsManager);
     }
 
     /**
@@ -58,12 +93,30 @@ public final class GetActionConnectionConfigCatSdkKey extends com.pulumi.resourc
         return this.sdkKey;
     }
 
+    /**
+     * AWS Secrets Manager reference for this field.
+     * 
+     */
+    @Import(name="sdkKeyAwsSecretsManager")
+    private @Nullable GetActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager sdkKeyAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager> sdkKeyAwsSecretsManager() {
+        return Optional.ofNullable(this.sdkKeyAwsSecretsManager);
+    }
+
     private GetActionConnectionConfigCatSdkKey() {}
 
     private GetActionConnectionConfigCatSdkKey(GetActionConnectionConfigCatSdkKey $) {
         this.apiPassword = $.apiPassword;
+        this.apiPasswordAwsSecretsManager = $.apiPasswordAwsSecretsManager;
         this.apiUsername = $.apiUsername;
+        this.apiUsernameAwsSecretsManager = $.apiUsernameAwsSecretsManager;
         this.sdkKey = $.sdkKey;
+        this.sdkKeyAwsSecretsManager = $.sdkKeyAwsSecretsManager;
     }
 
     public static Builder builder() {
@@ -96,6 +149,17 @@ public final class GetActionConnectionConfigCatSdkKey extends com.pulumi.resourc
         }
 
         /**
+         * @param apiPasswordAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiPasswordAwsSecretsManager(@Nullable GetActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager apiPasswordAwsSecretsManager) {
+            $.apiPasswordAwsSecretsManager = apiPasswordAwsSecretsManager;
+            return this;
+        }
+
+        /**
          * @param apiUsername ConfigCat Public Management API username
          * 
          * @return builder
@@ -107,6 +171,17 @@ public final class GetActionConnectionConfigCatSdkKey extends com.pulumi.resourc
         }
 
         /**
+         * @param apiUsernameAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiUsernameAwsSecretsManager(@Nullable GetActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager apiUsernameAwsSecretsManager) {
+            $.apiUsernameAwsSecretsManager = apiUsernameAwsSecretsManager;
+            return this;
+        }
+
+        /**
          * @param sdkKey ConfigCat SDK key
          * 
          * @return builder
@@ -114,6 +189,17 @@ public final class GetActionConnectionConfigCatSdkKey extends com.pulumi.resourc
          */
         public Builder sdkKey(String sdkKey) {
             $.sdkKey = sdkKey;
+            return this;
+        }
+
+        /**
+         * @param sdkKeyAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sdkKeyAwsSecretsManager(@Nullable GetActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager sdkKeyAwsSecretsManager) {
+            $.sdkKeyAwsSecretsManager = sdkKeyAwsSecretsManager;
             return this;
         }
 

@@ -17,11 +17,19 @@ namespace Pulumi.Datadog.Outputs
         /// Statsig API key. String length must be at least 1.
         /// </summary>
         public readonly string? ApiKey;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        public readonly Outputs.ActionConnectionStatsigApiKeyApiKeyAwsSecretsManager? ApiKeyAwsSecretsManager;
 
         [OutputConstructor]
-        private ActionConnectionStatsigApiKey(string? apiKey)
+        private ActionConnectionStatsigApiKey(
+            string? apiKey,
+
+            Outputs.ActionConnectionStatsigApiKeyApiKeyAwsSecretsManager? apiKeyAwsSecretsManager)
         {
             ApiKey = apiKey;
+            ApiKeyAwsSecretsManager = apiKeyAwsSecretsManager;
         }
     }
 }

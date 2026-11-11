@@ -5,9 +5,12 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.GetActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetActionConnectionLaunchDarklyApiKeyArgs extends com.pulumi.resources.ResourceArgs {
@@ -29,10 +32,26 @@ public final class GetActionConnectionLaunchDarklyApiKeyArgs extends com.pulumi.
         return this.apiToken;
     }
 
+    /**
+     * AWS Secrets Manager reference for this field.
+     * 
+     */
+    @Import(name="apiTokenAwsSecretsManager")
+    private @Nullable Output<GetActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgs> apiTokenAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<Output<GetActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgs>> apiTokenAwsSecretsManager() {
+        return Optional.ofNullable(this.apiTokenAwsSecretsManager);
+    }
+
     private GetActionConnectionLaunchDarklyApiKeyArgs() {}
 
     private GetActionConnectionLaunchDarklyApiKeyArgs(GetActionConnectionLaunchDarklyApiKeyArgs $) {
         this.apiToken = $.apiToken;
+        this.apiTokenAwsSecretsManager = $.apiTokenAwsSecretsManager;
     }
 
     public static Builder builder() {
@@ -72,6 +91,27 @@ public final class GetActionConnectionLaunchDarklyApiKeyArgs extends com.pulumi.
          */
         public Builder apiToken(String apiToken) {
             return apiToken(Output.of(apiToken));
+        }
+
+        /**
+         * @param apiTokenAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiTokenAwsSecretsManager(@Nullable Output<GetActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgs> apiTokenAwsSecretsManager) {
+            $.apiTokenAwsSecretsManager = apiTokenAwsSecretsManager;
+            return this;
+        }
+
+        /**
+         * @param apiTokenAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiTokenAwsSecretsManager(GetActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgs apiTokenAwsSecretsManager) {
+            return apiTokenAwsSecretsManager(Output.of(apiTokenAwsSecretsManager));
         }
 
         public GetActionConnectionLaunchDarklyApiKeyArgs build() {

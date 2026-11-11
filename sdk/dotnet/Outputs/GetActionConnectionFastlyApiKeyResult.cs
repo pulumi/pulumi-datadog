@@ -17,11 +17,19 @@ namespace Pulumi.Datadog.Outputs
         /// Fastly API key
         /// </summary>
         public readonly string ApiKey;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        public readonly Outputs.GetActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerResult? ApiKeyAwsSecretsManager;
 
         [OutputConstructor]
-        private GetActionConnectionFastlyApiKeyResult(string apiKey)
+        private GetActionConnectionFastlyApiKeyResult(
+            string apiKey,
+
+            Outputs.GetActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerResult? apiKeyAwsSecretsManager)
         {
             ApiKey = apiKey;
+            ApiKeyAwsSecretsManager = apiKeyAwsSecretsManager;
         }
     }
 }

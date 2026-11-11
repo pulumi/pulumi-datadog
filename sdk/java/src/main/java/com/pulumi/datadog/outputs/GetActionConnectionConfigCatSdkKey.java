@@ -4,9 +4,14 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.GetActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager;
+import com.pulumi.datadog.outputs.GetActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager;
+import com.pulumi.datadog.outputs.GetActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetActionConnectionConfigCatSdkKey {
@@ -16,15 +21,30 @@ public final class GetActionConnectionConfigCatSdkKey {
      */
     private String apiPassword;
     /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    private @Nullable GetActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager apiPasswordAwsSecretsManager;
+    /**
      * @return ConfigCat Public Management API username
      * 
      */
     private String apiUsername;
     /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    private @Nullable GetActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager apiUsernameAwsSecretsManager;
+    /**
      * @return ConfigCat SDK key
      * 
      */
     private String sdkKey;
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    private @Nullable GetActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager sdkKeyAwsSecretsManager;
 
     private GetActionConnectionConfigCatSdkKey() {}
     /**
@@ -35,6 +55,13 @@ public final class GetActionConnectionConfigCatSdkKey {
         return this.apiPassword;
     }
     /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager> apiPasswordAwsSecretsManager() {
+        return Optional.ofNullable(this.apiPasswordAwsSecretsManager);
+    }
+    /**
      * @return ConfigCat Public Management API username
      * 
      */
@@ -42,11 +69,25 @@ public final class GetActionConnectionConfigCatSdkKey {
         return this.apiUsername;
     }
     /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager> apiUsernameAwsSecretsManager() {
+        return Optional.ofNullable(this.apiUsernameAwsSecretsManager);
+    }
+    /**
      * @return ConfigCat SDK key
      * 
      */
     public String sdkKey() {
         return this.sdkKey;
+    }
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager> sdkKeyAwsSecretsManager() {
+        return Optional.ofNullable(this.sdkKeyAwsSecretsManager);
     }
 
     public static Builder builder() {
@@ -59,14 +100,20 @@ public final class GetActionConnectionConfigCatSdkKey {
     @CustomType.Builder
     public static final class Builder {
         private String apiPassword;
+        private @Nullable GetActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager apiPasswordAwsSecretsManager;
         private String apiUsername;
+        private @Nullable GetActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager apiUsernameAwsSecretsManager;
         private String sdkKey;
+        private @Nullable GetActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager sdkKeyAwsSecretsManager;
         public Builder() {}
         public Builder(GetActionConnectionConfigCatSdkKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiPassword = defaults.apiPassword;
+    	      this.apiPasswordAwsSecretsManager = defaults.apiPasswordAwsSecretsManager;
     	      this.apiUsername = defaults.apiUsername;
+    	      this.apiUsernameAwsSecretsManager = defaults.apiUsernameAwsSecretsManager;
     	      this.sdkKey = defaults.sdkKey;
+    	      this.sdkKeyAwsSecretsManager = defaults.sdkKeyAwsSecretsManager;
         }
 
         @CustomType.Setter
@@ -78,11 +125,23 @@ public final class GetActionConnectionConfigCatSdkKey {
             return this;
         }
         @CustomType.Setter
+        public Builder apiPasswordAwsSecretsManager(@Nullable GetActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager apiPasswordAwsSecretsManager) {
+
+            this.apiPasswordAwsSecretsManager = apiPasswordAwsSecretsManager;
+            return this;
+        }
+        @CustomType.Setter
         public Builder apiUsername(String apiUsername) {
             if (apiUsername == null) {
               throw new MissingRequiredPropertyException("GetActionConnectionConfigCatSdkKey", "apiUsername");
             }
             this.apiUsername = apiUsername;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder apiUsernameAwsSecretsManager(@Nullable GetActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager apiUsernameAwsSecretsManager) {
+
+            this.apiUsernameAwsSecretsManager = apiUsernameAwsSecretsManager;
             return this;
         }
         @CustomType.Setter
@@ -93,11 +152,20 @@ public final class GetActionConnectionConfigCatSdkKey {
             this.sdkKey = sdkKey;
             return this;
         }
+        @CustomType.Setter
+        public Builder sdkKeyAwsSecretsManager(@Nullable GetActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager sdkKeyAwsSecretsManager) {
+
+            this.sdkKeyAwsSecretsManager = sdkKeyAwsSecretsManager;
+            return this;
+        }
         public GetActionConnectionConfigCatSdkKey build() {
             final var _resultValue = new GetActionConnectionConfigCatSdkKey();
             _resultValue.apiPassword = apiPassword;
+            _resultValue.apiPasswordAwsSecretsManager = apiPasswordAwsSecretsManager;
             _resultValue.apiUsername = apiUsername;
+            _resultValue.apiUsernameAwsSecretsManager = apiUsernameAwsSecretsManager;
             _resultValue.sdkKey = sdkKey;
+            _resultValue.sdkKeyAwsSecretsManager = sdkKeyAwsSecretsManager;
             return _resultValue;
         }
     }

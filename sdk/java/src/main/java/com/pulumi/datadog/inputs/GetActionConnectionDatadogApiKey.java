@@ -4,9 +4,15 @@
 package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.GetActionConnectionDatadogApiKeyApiKeyAwsSecretsManager;
+import com.pulumi.datadog.inputs.GetActionConnectionDatadogApiKeyAppKeyAwsSecretsManager;
+import com.pulumi.datadog.inputs.GetActionConnectionDatadogApiKeyDatacenterAwsSecretsManager;
+import com.pulumi.datadog.inputs.GetActionConnectionDatadogApiKeySubdomainAwsSecretsManager;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetActionConnectionDatadogApiKey extends com.pulumi.resources.InvokeArgs {
@@ -29,6 +35,21 @@ public final class GetActionConnectionDatadogApiKey extends com.pulumi.resources
     }
 
     /**
+     * AWS Secrets Manager reference for this field.
+     * 
+     */
+    @Import(name="apiKeyAwsSecretsManager")
+    private @Nullable GetActionConnectionDatadogApiKeyApiKeyAwsSecretsManager apiKeyAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionDatadogApiKeyApiKeyAwsSecretsManager> apiKeyAwsSecretsManager() {
+        return Optional.ofNullable(this.apiKeyAwsSecretsManager);
+    }
+
+    /**
      * Datadog application key
      * 
      */
@@ -41,6 +62,21 @@ public final class GetActionConnectionDatadogApiKey extends com.pulumi.resources
      */
     public String appKey() {
         return this.appKey;
+    }
+
+    /**
+     * AWS Secrets Manager reference for this field.
+     * 
+     */
+    @Import(name="appKeyAwsSecretsManager")
+    private @Nullable GetActionConnectionDatadogApiKeyAppKeyAwsSecretsManager appKeyAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionDatadogApiKeyAppKeyAwsSecretsManager> appKeyAwsSecretsManager() {
+        return Optional.ofNullable(this.appKeyAwsSecretsManager);
     }
 
     /**
@@ -59,6 +95,21 @@ public final class GetActionConnectionDatadogApiKey extends com.pulumi.resources
     }
 
     /**
+     * AWS Secrets Manager reference for this field.
+     * 
+     */
+    @Import(name="datacenterAwsSecretsManager")
+    private @Nullable GetActionConnectionDatadogApiKeyDatacenterAwsSecretsManager datacenterAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionDatadogApiKeyDatacenterAwsSecretsManager> datacenterAwsSecretsManager() {
+        return Optional.ofNullable(this.datacenterAwsSecretsManager);
+    }
+
+    /**
      * Custom subdomain used for URLs generated with this connection
      * 
      */
@@ -73,13 +124,32 @@ public final class GetActionConnectionDatadogApiKey extends com.pulumi.resources
         return this.subdomain;
     }
 
+    /**
+     * AWS Secrets Manager reference for this field.
+     * 
+     */
+    @Import(name="subdomainAwsSecretsManager")
+    private @Nullable GetActionConnectionDatadogApiKeySubdomainAwsSecretsManager subdomainAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionDatadogApiKeySubdomainAwsSecretsManager> subdomainAwsSecretsManager() {
+        return Optional.ofNullable(this.subdomainAwsSecretsManager);
+    }
+
     private GetActionConnectionDatadogApiKey() {}
 
     private GetActionConnectionDatadogApiKey(GetActionConnectionDatadogApiKey $) {
         this.apiKey = $.apiKey;
+        this.apiKeyAwsSecretsManager = $.apiKeyAwsSecretsManager;
         this.appKey = $.appKey;
+        this.appKeyAwsSecretsManager = $.appKeyAwsSecretsManager;
         this.datacenter = $.datacenter;
+        this.datacenterAwsSecretsManager = $.datacenterAwsSecretsManager;
         this.subdomain = $.subdomain;
+        this.subdomainAwsSecretsManager = $.subdomainAwsSecretsManager;
     }
 
     public static Builder builder() {
@@ -112,6 +182,17 @@ public final class GetActionConnectionDatadogApiKey extends com.pulumi.resources
         }
 
         /**
+         * @param apiKeyAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKeyAwsSecretsManager(@Nullable GetActionConnectionDatadogApiKeyApiKeyAwsSecretsManager apiKeyAwsSecretsManager) {
+            $.apiKeyAwsSecretsManager = apiKeyAwsSecretsManager;
+            return this;
+        }
+
+        /**
          * @param appKey Datadog application key
          * 
          * @return builder
@@ -119,6 +200,17 @@ public final class GetActionConnectionDatadogApiKey extends com.pulumi.resources
          */
         public Builder appKey(String appKey) {
             $.appKey = appKey;
+            return this;
+        }
+
+        /**
+         * @param appKeyAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder appKeyAwsSecretsManager(@Nullable GetActionConnectionDatadogApiKeyAppKeyAwsSecretsManager appKeyAwsSecretsManager) {
+            $.appKeyAwsSecretsManager = appKeyAwsSecretsManager;
             return this;
         }
 
@@ -134,6 +226,17 @@ public final class GetActionConnectionDatadogApiKey extends com.pulumi.resources
         }
 
         /**
+         * @param datacenterAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder datacenterAwsSecretsManager(@Nullable GetActionConnectionDatadogApiKeyDatacenterAwsSecretsManager datacenterAwsSecretsManager) {
+            $.datacenterAwsSecretsManager = datacenterAwsSecretsManager;
+            return this;
+        }
+
+        /**
          * @param subdomain Custom subdomain used for URLs generated with this connection
          * 
          * @return builder
@@ -141,6 +244,17 @@ public final class GetActionConnectionDatadogApiKey extends com.pulumi.resources
          */
         public Builder subdomain(String subdomain) {
             $.subdomain = subdomain;
+            return this;
+        }
+
+        /**
+         * @param subdomainAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subdomainAwsSecretsManager(@Nullable GetActionConnectionDatadogApiKeySubdomainAwsSecretsManager subdomainAwsSecretsManager) {
+            $.subdomainAwsSecretsManager = subdomainAwsSecretsManager;
             return this;
         }
 

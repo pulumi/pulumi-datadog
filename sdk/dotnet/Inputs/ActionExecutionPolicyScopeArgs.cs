@@ -30,6 +30,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("scripts")]
         public Input<Inputs.ActionExecutionPolicyScopeScriptsArgs>? Scripts { get; set; }
 
+        /// <summary>
+        /// Restricts the policy to specific Slack channel names. Requires `action_pattern.integration` to be `INTEGRATION_SLACK`.
+        /// </summary>
+        [Input("slack")]
+        public Input<Inputs.ActionExecutionPolicyScopeSlackArgs>? Slack { get; set; }
+
         public ActionExecutionPolicyScopeArgs()
         {
         }

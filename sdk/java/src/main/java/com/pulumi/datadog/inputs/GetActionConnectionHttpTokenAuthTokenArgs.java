@@ -5,9 +5,12 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.GetActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetActionConnectionHttpTokenAuthTokenArgs extends com.pulumi.resources.ResourceArgs {
@@ -59,12 +62,28 @@ public final class GetActionConnectionHttpTokenAuthTokenArgs extends com.pulumi.
         return this.value;
     }
 
+    /**
+     * AWS Secrets Manager reference for this field.
+     * 
+     */
+    @Import(name="valueAwsSecretsManager")
+    private @Nullable Output<GetActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgs> valueAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<Output<GetActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgs>> valueAwsSecretsManager() {
+        return Optional.ofNullable(this.valueAwsSecretsManager);
+    }
+
     private GetActionConnectionHttpTokenAuthTokenArgs() {}
 
     private GetActionConnectionHttpTokenAuthTokenArgs(GetActionConnectionHttpTokenAuthTokenArgs $) {
         this.name = $.name;
         this.type = $.type;
         this.value = $.value;
+        this.valueAwsSecretsManager = $.valueAwsSecretsManager;
     }
 
     public static Builder builder() {
@@ -146,6 +165,27 @@ public final class GetActionConnectionHttpTokenAuthTokenArgs extends com.pulumi.
          */
         public Builder value(String value) {
             return value(Output.of(value));
+        }
+
+        /**
+         * @param valueAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder valueAwsSecretsManager(@Nullable Output<GetActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgs> valueAwsSecretsManager) {
+            $.valueAwsSecretsManager = valueAwsSecretsManager;
+            return this;
+        }
+
+        /**
+         * @param valueAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder valueAwsSecretsManager(GetActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgs valueAwsSecretsManager) {
+            return valueAwsSecretsManager(Output.of(valueAwsSecretsManager));
         }
 
         public GetActionConnectionHttpTokenAuthTokenArgs build() {

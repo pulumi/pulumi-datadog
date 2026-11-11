@@ -19,10 +19,14 @@ __all__ = [
     'ActionConnectionAnthropicArgsDict',
     'ActionConnectionAnthropicApiKeyArgs',
     'ActionConnectionAnthropicApiKeyArgsDict',
+    'ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerArgs',
+    'ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerArgsDict',
     'ActionConnectionAsanaArgs',
     'ActionConnectionAsanaArgsDict',
     'ActionConnectionAsanaAccessTokenArgs',
     'ActionConnectionAsanaAccessTokenArgsDict',
+    'ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs',
+    'ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgsDict',
     'ActionConnectionAwsArgs',
     'ActionConnectionAwsArgsDict',
     'ActionConnectionAwsAssumeRoleArgs',
@@ -35,48 +39,90 @@ __all__ = [
     'ActionConnectionCircleCiArgsDict',
     'ActionConnectionCircleCiApiKeyArgs',
     'ActionConnectionCircleCiApiKeyArgsDict',
+    'ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerArgs',
+    'ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerArgsDict',
     'ActionConnectionClickupArgs',
     'ActionConnectionClickupArgsDict',
     'ActionConnectionClickupApiKeyArgs',
     'ActionConnectionClickupApiKeyArgsDict',
+    'ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgs',
+    'ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgsDict',
     'ActionConnectionCloudflareArgs',
     'ActionConnectionCloudflareArgsDict',
     'ActionConnectionCloudflareApiTokenArgs',
     'ActionConnectionCloudflareApiTokenArgsDict',
+    'ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerArgs',
+    'ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerArgsDict',
     'ActionConnectionCloudflareGlobalApiTokenArgs',
     'ActionConnectionCloudflareGlobalApiTokenArgsDict',
+    'ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgs',
+    'ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgsDict',
+    'ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgs',
+    'ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgsDict',
     'ActionConnectionConfigCatArgs',
     'ActionConnectionConfigCatArgsDict',
     'ActionConnectionConfigCatSdkKeyArgs',
     'ActionConnectionConfigCatSdkKeyArgsDict',
+    'ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgs',
+    'ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgsDict',
+    'ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgs',
+    'ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgsDict',
+    'ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgs',
+    'ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgsDict',
     'ActionConnectionDatadogArgs',
     'ActionConnectionDatadogArgsDict',
     'ActionConnectionDatadogApiKeyArgs',
     'ActionConnectionDatadogApiKeyArgsDict',
+    'ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgs',
+    'ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgsDict',
+    'ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgs',
+    'ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgsDict',
+    'ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgs',
+    'ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgsDict',
+    'ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgs',
+    'ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgsDict',
+    'ActionConnectionExternalSecretsManagerArgs',
+    'ActionConnectionExternalSecretsManagerArgsDict',
     'ActionConnectionFastlyArgs',
     'ActionConnectionFastlyArgsDict',
     'ActionConnectionFastlyApiKeyArgs',
     'ActionConnectionFastlyApiKeyArgsDict',
+    'ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerArgs',
+    'ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerArgsDict',
     'ActionConnectionFreshserviceArgs',
     'ActionConnectionFreshserviceArgsDict',
     'ActionConnectionFreshserviceApiKeyArgs',
     'ActionConnectionFreshserviceApiKeyArgsDict',
+    'ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs',
+    'ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgsDict',
+    'ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs',
+    'ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgsDict',
     'ActionConnectionGcpArgs',
     'ActionConnectionGcpArgsDict',
     'ActionConnectionGcpServiceAccountArgs',
     'ActionConnectionGcpServiceAccountArgsDict',
+    'ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgs',
+    'ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgsDict',
+    'ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgs',
+    'ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgsDict',
     'ActionConnectionGeminiArgs',
     'ActionConnectionGeminiArgsDict',
     'ActionConnectionGeminiApiKeyArgs',
     'ActionConnectionGeminiApiKeyArgsDict',
+    'ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgs',
+    'ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgsDict',
     'ActionConnectionGitlabArgs',
     'ActionConnectionGitlabArgsDict',
     'ActionConnectionGitlabApiKeyArgs',
     'ActionConnectionGitlabApiKeyArgsDict',
+    'ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerArgs',
+    'ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerArgsDict',
     'ActionConnectionGreyNoiseArgs',
     'ActionConnectionGreyNoiseArgsDict',
     'ActionConnectionGreyNoiseApiKeyArgs',
     'ActionConnectionGreyNoiseApiKeyArgsDict',
+    'ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerArgs',
+    'ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerArgsDict',
     'ActionConnectionHttpArgs',
     'ActionConnectionHttpArgsDict',
     'ActionConnectionHttpTokenAuthArgs',
@@ -87,40 +133,64 @@ __all__ = [
     'ActionConnectionHttpTokenAuthHeaderArgsDict',
     'ActionConnectionHttpTokenAuthTokenArgs',
     'ActionConnectionHttpTokenAuthTokenArgsDict',
+    'ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgs',
+    'ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgsDict',
     'ActionConnectionHttpTokenAuthUrlParameterArgs',
     'ActionConnectionHttpTokenAuthUrlParameterArgsDict',
     'ActionConnectionLaunchDarklyArgs',
     'ActionConnectionLaunchDarklyArgsDict',
     'ActionConnectionLaunchDarklyApiKeyArgs',
     'ActionConnectionLaunchDarklyApiKeyArgsDict',
+    'ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgs',
+    'ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgsDict',
     'ActionConnectionNotionArgs',
     'ActionConnectionNotionArgsDict',
     'ActionConnectionNotionApiKeyArgs',
     'ActionConnectionNotionApiKeyArgsDict',
+    'ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerArgs',
+    'ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerArgsDict',
     'ActionConnectionOktaArgs',
     'ActionConnectionOktaArgsDict',
     'ActionConnectionOktaApiTokenArgs',
     'ActionConnectionOktaApiTokenArgsDict',
+    'ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs',
+    'ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgsDict',
+    'ActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs',
+    'ActionConnectionOktaApiTokenDomainAwsSecretsManagerArgsDict',
     'ActionConnectionOpenaiArgs',
     'ActionConnectionOpenaiArgsDict',
     'ActionConnectionOpenaiApiKeyArgs',
     'ActionConnectionOpenaiApiKeyArgsDict',
+    'ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerArgs',
+    'ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerArgsDict',
     'ActionConnectionServiceNowArgs',
     'ActionConnectionServiceNowArgsDict',
     'ActionConnectionServiceNowBasicAuthArgs',
     'ActionConnectionServiceNowBasicAuthArgsDict',
+    'ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs',
+    'ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgsDict',
+    'ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs',
+    'ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgsDict',
+    'ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs',
+    'ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgsDict',
     'ActionConnectionSplitArgs',
     'ActionConnectionSplitArgsDict',
     'ActionConnectionSplitApiKeyArgs',
     'ActionConnectionSplitApiKeyArgsDict',
+    'ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgs',
+    'ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgsDict',
     'ActionConnectionStatsigArgs',
     'ActionConnectionStatsigArgsDict',
     'ActionConnectionStatsigApiKeyArgs',
     'ActionConnectionStatsigApiKeyArgsDict',
+    'ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerArgs',
+    'ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerArgsDict',
     'ActionConnectionVirusTotalArgs',
     'ActionConnectionVirusTotalArgsDict',
     'ActionConnectionVirusTotalApiKeyArgs',
     'ActionConnectionVirusTotalApiKeyArgsDict',
+    'ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerArgs',
+    'ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerArgsDict',
     'ActionExecutionPolicyActionPatternArgs',
     'ActionExecutionPolicyActionPatternArgsDict',
     'ActionExecutionPolicyScopeArgs',
@@ -137,6 +207,10 @@ __all__ = [
     'ActionExecutionPolicyScopeScriptsArgsDict',
     'ActionExecutionPolicyScopeScriptsRuleArgs',
     'ActionExecutionPolicyScopeScriptsRuleArgsDict',
+    'ActionExecutionPolicyScopeSlackArgs',
+    'ActionExecutionPolicyScopeSlackArgsDict',
+    'ActionExecutionPolicyScopeSlackRuleArgs',
+    'ActionExecutionPolicyScopeSlackRuleArgsDict',
     'ActionExecutionPolicyTargetArgs',
     'ActionExecutionPolicyTargetArgsDict',
     'ApmRetentionFilterFilterArgs',
@@ -6257,6 +6331,8 @@ __all__ = [
     'MonitorNotificationRuleConditionalRecipientsConditionArgsDict',
     'MonitorNotificationRuleFilterArgs',
     'MonitorNotificationRuleFilterArgsDict',
+    'MonitorNotificationRuleRuleOptionsArgs',
+    'MonitorNotificationRuleRuleOptionsArgsDict',
     'MonitorSchedulingOptionsArgs',
     'MonitorSchedulingOptionsArgsDict',
     'MonitorSchedulingOptionsCustomScheduleArgs',
@@ -6519,6 +6595,12 @@ __all__ = [
     'ObservabilityPipelineConfigDestinationDatadogLogRouteBufferMemoryArgsDict',
     'ObservabilityPipelineConfigDestinationDatadogMetricArgs',
     'ObservabilityPipelineConfigDestinationDatadogMetricArgsDict',
+    'ObservabilityPipelineConfigDestinationDatadogMetricBufferArgs',
+    'ObservabilityPipelineConfigDestinationDatadogMetricBufferArgsDict',
+    'ObservabilityPipelineConfigDestinationDatadogMetricBufferDiskArgs',
+    'ObservabilityPipelineConfigDestinationDatadogMetricBufferDiskArgsDict',
+    'ObservabilityPipelineConfigDestinationDatadogMetricBufferMemoryArgs',
+    'ObservabilityPipelineConfigDestinationDatadogMetricBufferMemoryArgsDict',
     'ObservabilityPipelineConfigDestinationDatadogTracesArgs',
     'ObservabilityPipelineConfigDestinationDatadogTracesArgsDict',
     'ObservabilityPipelineConfigDestinationDatadogTracesBufferArgs',
@@ -6885,6 +6967,14 @@ __all__ = [
     'ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleScopeExcludeArgsDict',
     'ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleScopeIncludeArgs',
     'ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRuleScopeIncludeArgsDict',
+    'ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionArgs',
+    'ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionArgsDict',
+    'ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverrideArgs',
+    'ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverrideArgsDict',
+    'ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverrideFieldArgs',
+    'ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverrideFieldArgsDict',
+    'ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverrideMinimalThresholdArgs',
+    'ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverrideMinimalThresholdArgsDict',
     'ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArgs',
     'ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArgsDict',
     'ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArrayArgs',
@@ -10503,10 +10593,14 @@ __all__ = [
     'GetActionConnectionAnthropicArgsDict',
     'GetActionConnectionAnthropicApiKeyArgs',
     'GetActionConnectionAnthropicApiKeyArgsDict',
+    'GetActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerArgs',
+    'GetActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerArgsDict',
     'GetActionConnectionAsanaArgs',
     'GetActionConnectionAsanaArgsDict',
     'GetActionConnectionAsanaAccessTokenArgs',
     'GetActionConnectionAsanaAccessTokenArgsDict',
+    'GetActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs',
+    'GetActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgsDict',
     'GetActionConnectionAwsArgs',
     'GetActionConnectionAwsArgsDict',
     'GetActionConnectionAwsAssumeRoleArgs',
@@ -10519,48 +10613,88 @@ __all__ = [
     'GetActionConnectionCircleCiArgsDict',
     'GetActionConnectionCircleCiApiKeyArgs',
     'GetActionConnectionCircleCiApiKeyArgsDict',
+    'GetActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerArgs',
+    'GetActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerArgsDict',
     'GetActionConnectionClickupArgs',
     'GetActionConnectionClickupArgsDict',
     'GetActionConnectionClickupApiKeyArgs',
     'GetActionConnectionClickupApiKeyArgsDict',
+    'GetActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgs',
+    'GetActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgsDict',
     'GetActionConnectionCloudflareArgs',
     'GetActionConnectionCloudflareArgsDict',
     'GetActionConnectionCloudflareApiTokenArgs',
     'GetActionConnectionCloudflareApiTokenArgsDict',
+    'GetActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerArgs',
+    'GetActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerArgsDict',
     'GetActionConnectionCloudflareGlobalApiTokenArgs',
     'GetActionConnectionCloudflareGlobalApiTokenArgsDict',
+    'GetActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgs',
+    'GetActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgsDict',
+    'GetActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgs',
+    'GetActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgsDict',
     'GetActionConnectionConfigCatArgs',
     'GetActionConnectionConfigCatArgsDict',
     'GetActionConnectionConfigCatSdkKeyArgs',
     'GetActionConnectionConfigCatSdkKeyArgsDict',
+    'GetActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgs',
+    'GetActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgsDict',
+    'GetActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgs',
+    'GetActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgsDict',
+    'GetActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgs',
+    'GetActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgsDict',
     'GetActionConnectionDatadogArgs',
     'GetActionConnectionDatadogArgsDict',
     'GetActionConnectionDatadogApiKeyArgs',
     'GetActionConnectionDatadogApiKeyArgsDict',
+    'GetActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgs',
+    'GetActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgsDict',
+    'GetActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgs',
+    'GetActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgsDict',
+    'GetActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgs',
+    'GetActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgsDict',
+    'GetActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgs',
+    'GetActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgsDict',
     'GetActionConnectionFastlyArgs',
     'GetActionConnectionFastlyArgsDict',
     'GetActionConnectionFastlyApiKeyArgs',
     'GetActionConnectionFastlyApiKeyArgsDict',
+    'GetActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerArgs',
+    'GetActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerArgsDict',
     'GetActionConnectionFreshserviceArgs',
     'GetActionConnectionFreshserviceArgsDict',
     'GetActionConnectionFreshserviceApiKeyArgs',
     'GetActionConnectionFreshserviceApiKeyArgsDict',
+    'GetActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs',
+    'GetActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgsDict',
+    'GetActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs',
+    'GetActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgsDict',
     'GetActionConnectionGcpArgs',
     'GetActionConnectionGcpArgsDict',
     'GetActionConnectionGcpServiceAccountArgs',
     'GetActionConnectionGcpServiceAccountArgsDict',
+    'GetActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgs',
+    'GetActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgsDict',
+    'GetActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgs',
+    'GetActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgsDict',
     'GetActionConnectionGeminiArgs',
     'GetActionConnectionGeminiArgsDict',
     'GetActionConnectionGeminiApiKeyArgs',
     'GetActionConnectionGeminiApiKeyArgsDict',
+    'GetActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgs',
+    'GetActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgsDict',
     'GetActionConnectionGitlabArgs',
     'GetActionConnectionGitlabArgsDict',
     'GetActionConnectionGitlabApiKeyArgs',
     'GetActionConnectionGitlabApiKeyArgsDict',
+    'GetActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerArgs',
+    'GetActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerArgsDict',
     'GetActionConnectionGreyNoiseArgs',
     'GetActionConnectionGreyNoiseArgsDict',
     'GetActionConnectionGreyNoiseApiKeyArgs',
     'GetActionConnectionGreyNoiseApiKeyArgsDict',
+    'GetActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerArgs',
+    'GetActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerArgsDict',
     'GetActionConnectionHttpArgs',
     'GetActionConnectionHttpArgsDict',
     'GetActionConnectionHttpTokenAuthArgs',
@@ -10571,40 +10705,64 @@ __all__ = [
     'GetActionConnectionHttpTokenAuthHeaderArgsDict',
     'GetActionConnectionHttpTokenAuthTokenArgs',
     'GetActionConnectionHttpTokenAuthTokenArgsDict',
+    'GetActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgs',
+    'GetActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgsDict',
     'GetActionConnectionHttpTokenAuthUrlParameterArgs',
     'GetActionConnectionHttpTokenAuthUrlParameterArgsDict',
     'GetActionConnectionLaunchDarklyArgs',
     'GetActionConnectionLaunchDarklyArgsDict',
     'GetActionConnectionLaunchDarklyApiKeyArgs',
     'GetActionConnectionLaunchDarklyApiKeyArgsDict',
+    'GetActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgs',
+    'GetActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgsDict',
     'GetActionConnectionNotionArgs',
     'GetActionConnectionNotionArgsDict',
     'GetActionConnectionNotionApiKeyArgs',
     'GetActionConnectionNotionApiKeyArgsDict',
+    'GetActionConnectionNotionApiKeyApiTokenAwsSecretsManagerArgs',
+    'GetActionConnectionNotionApiKeyApiTokenAwsSecretsManagerArgsDict',
     'GetActionConnectionOktaArgs',
     'GetActionConnectionOktaArgsDict',
     'GetActionConnectionOktaApiTokenArgs',
     'GetActionConnectionOktaApiTokenArgsDict',
+    'GetActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs',
+    'GetActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgsDict',
+    'GetActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs',
+    'GetActionConnectionOktaApiTokenDomainAwsSecretsManagerArgsDict',
     'GetActionConnectionOpenaiArgs',
     'GetActionConnectionOpenaiArgsDict',
     'GetActionConnectionOpenaiApiKeyArgs',
     'GetActionConnectionOpenaiApiKeyArgsDict',
+    'GetActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerArgs',
+    'GetActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerArgsDict',
     'GetActionConnectionServiceNowArgs',
     'GetActionConnectionServiceNowArgsDict',
     'GetActionConnectionServiceNowBasicAuthArgs',
     'GetActionConnectionServiceNowBasicAuthArgsDict',
+    'GetActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs',
+    'GetActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgsDict',
+    'GetActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs',
+    'GetActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgsDict',
+    'GetActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs',
+    'GetActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgsDict',
     'GetActionConnectionSplitArgs',
     'GetActionConnectionSplitArgsDict',
     'GetActionConnectionSplitApiKeyArgs',
     'GetActionConnectionSplitApiKeyArgsDict',
+    'GetActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgs',
+    'GetActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgsDict',
     'GetActionConnectionStatsigArgs',
     'GetActionConnectionStatsigArgsDict',
     'GetActionConnectionStatsigApiKeyArgs',
     'GetActionConnectionStatsigApiKeyArgsDict',
+    'GetActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerArgs',
+    'GetActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerArgsDict',
     'GetActionConnectionVirusTotalArgs',
     'GetActionConnectionVirusTotalArgsDict',
     'GetActionConnectionVirusTotalApiKeyArgs',
     'GetActionConnectionVirusTotalApiKeyArgsDict',
+    'GetActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerArgs',
+    'GetActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerArgsDict',
     'GetAwsCurConfigAccountFiltersArgs',
     'GetAwsCurConfigAccountFiltersArgsDict',
     'GetAzureUcConfigActualBillConfigArgs',
@@ -10743,16 +10901,24 @@ class ActionConnectionAnthropicApiKeyArgsDict(TypedDict):
     """
     Anthropic API token. String length must be at least 1.
     """
+    api_token_aws_secrets_manager: NotRequired[pulumi.Input[Optional['ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+    """
 
 @pulumi.input_type
 class ActionConnectionAnthropicApiKeyArgs:
     def __init__(__self__, *,
-                 api_token: pulumi.Input[Optional[_builtins.str]] = None):
+                 api_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_token_aws_secrets_manager: pulumi.Input[Optional['ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] api_token: Anthropic API token. String length must be at least 1.
+        :param pulumi.Input['ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerArgs'] api_token_aws_secrets_manager: AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
         """
         if api_token is not None:
             pulumi.set(__self__, "api_token", api_token)
+        if api_token_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_token_aws_secrets_manager", api_token_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiToken")
@@ -10765,6 +10931,106 @@ class ActionConnectionAnthropicApiKeyArgs:
     @api_token.setter
     def api_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_token", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiTokenAwsSecretsManager")
+    def api_token_aws_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "api_token_aws_secrets_manager")
+
+    @api_token_aws_secrets_manager.setter
+    def api_token_aws_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerArgs']]):
+        pulumi.set(self, "api_token_aws_secrets_manager", value)
+
+
+class ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    Name or ARN of the secret. String length must be at least 1.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class ActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_stage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: Name or ARN of the secret. String length must be at least 1.
+        :param pulumi.Input[_builtins.str] key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param pulumi.Input[_builtins.str] version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param pulumi.Input[_builtins.str] version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+        if version_stage is not None:
+            pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name or ARN of the secret. String length must be at least 1.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_stage", value)
 
 
 class ActionConnectionAsanaArgsDict(TypedDict):
@@ -10801,16 +11067,24 @@ class ActionConnectionAsanaAccessTokenArgsDict(TypedDict):
     """
     Asana access token. String length must be at least 1.
     """
+    access_token_aws_secrets_manager: NotRequired[pulumi.Input[Optional['ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+    """
 
 @pulumi.input_type
 class ActionConnectionAsanaAccessTokenArgs:
     def __init__(__self__, *,
-                 access_token: pulumi.Input[Optional[_builtins.str]] = None):
+                 access_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 access_token_aws_secrets_manager: pulumi.Input[Optional['ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] access_token: Asana access token. String length must be at least 1.
+        :param pulumi.Input['ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs'] access_token_aws_secrets_manager: AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
         """
         if access_token is not None:
             pulumi.set(__self__, "access_token", access_token)
+        if access_token_aws_secrets_manager is not None:
+            pulumi.set(__self__, "access_token_aws_secrets_manager", access_token_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="accessToken")
@@ -10823,6 +11097,106 @@ class ActionConnectionAsanaAccessTokenArgs:
     @access_token.setter
     def access_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "access_token", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accessTokenAwsSecretsManager")
+    def access_token_aws_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "access_token_aws_secrets_manager")
+
+    @access_token_aws_secrets_manager.setter
+    def access_token_aws_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs']]):
+        pulumi.set(self, "access_token_aws_secrets_manager", value)
+
+
+class ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    Name or ARN of the secret. String length must be at least 1.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_stage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: Name or ARN of the secret. String length must be at least 1.
+        :param pulumi.Input[_builtins.str] key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param pulumi.Input[_builtins.str] version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param pulumi.Input[_builtins.str] version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+        if version_stage is not None:
+            pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name or ARN of the secret. String length must be at least 1.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_stage", value)
 
 
 class ActionConnectionAwsArgsDict(TypedDict):
@@ -11095,16 +11469,24 @@ class ActionConnectionCircleCiApiKeyArgsDict(TypedDict):
     """
     CircleCI API token. String length must be at least 1.
     """
+    api_token_aws_secrets_manager: NotRequired[pulumi.Input[Optional['ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+    """
 
 @pulumi.input_type
 class ActionConnectionCircleCiApiKeyArgs:
     def __init__(__self__, *,
-                 api_token: pulumi.Input[Optional[_builtins.str]] = None):
+                 api_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_token_aws_secrets_manager: pulumi.Input[Optional['ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] api_token: CircleCI API token. String length must be at least 1.
+        :param pulumi.Input['ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerArgs'] api_token_aws_secrets_manager: AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
         """
         if api_token is not None:
             pulumi.set(__self__, "api_token", api_token)
+        if api_token_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_token_aws_secrets_manager", api_token_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiToken")
@@ -11117,6 +11499,106 @@ class ActionConnectionCircleCiApiKeyArgs:
     @api_token.setter
     def api_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_token", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiTokenAwsSecretsManager")
+    def api_token_aws_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "api_token_aws_secrets_manager")
+
+    @api_token_aws_secrets_manager.setter
+    def api_token_aws_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerArgs']]):
+        pulumi.set(self, "api_token_aws_secrets_manager", value)
+
+
+class ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    Name or ARN of the secret. String length must be at least 1.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class ActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_stage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: Name or ARN of the secret. String length must be at least 1.
+        :param pulumi.Input[_builtins.str] key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param pulumi.Input[_builtins.str] version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param pulumi.Input[_builtins.str] version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+        if version_stage is not None:
+            pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name or ARN of the secret. String length must be at least 1.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_stage", value)
 
 
 class ActionConnectionClickupArgsDict(TypedDict):
@@ -11153,16 +11635,24 @@ class ActionConnectionClickupApiKeyArgsDict(TypedDict):
     """
     ClickUp API token. String length must be at least 1.
     """
+    api_token_aws_secrets_manager: NotRequired[pulumi.Input[Optional['ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+    """
 
 @pulumi.input_type
 class ActionConnectionClickupApiKeyArgs:
     def __init__(__self__, *,
-                 api_token: pulumi.Input[Optional[_builtins.str]] = None):
+                 api_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_token_aws_secrets_manager: pulumi.Input[Optional['ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] api_token: ClickUp API token. String length must be at least 1.
+        :param pulumi.Input['ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgs'] api_token_aws_secrets_manager: AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
         """
         if api_token is not None:
             pulumi.set(__self__, "api_token", api_token)
+        if api_token_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_token_aws_secrets_manager", api_token_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiToken")
@@ -11175,6 +11665,106 @@ class ActionConnectionClickupApiKeyArgs:
     @api_token.setter
     def api_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_token", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiTokenAwsSecretsManager")
+    def api_token_aws_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "api_token_aws_secrets_manager")
+
+    @api_token_aws_secrets_manager.setter
+    def api_token_aws_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgs']]):
+        pulumi.set(self, "api_token_aws_secrets_manager", value)
+
+
+class ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    Name or ARN of the secret. String length must be at least 1.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class ActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_stage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: Name or ARN of the secret. String length must be at least 1.
+        :param pulumi.Input[_builtins.str] key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param pulumi.Input[_builtins.str] version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param pulumi.Input[_builtins.str] version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+        if version_stage is not None:
+            pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name or ARN of the secret. String length must be at least 1.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_stage", value)
 
 
 class ActionConnectionCloudflareArgsDict(TypedDict):
@@ -11231,16 +11821,24 @@ class ActionConnectionCloudflareApiTokenArgsDict(TypedDict):
     """
     Cloudflare API token. String length must be at least 1.
     """
+    api_token_aws_secrets_manager: NotRequired[pulumi.Input[Optional['ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+    """
 
 @pulumi.input_type
 class ActionConnectionCloudflareApiTokenArgs:
     def __init__(__self__, *,
-                 api_token: pulumi.Input[Optional[_builtins.str]] = None):
+                 api_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_token_aws_secrets_manager: pulumi.Input[Optional['ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] api_token: Cloudflare API token. String length must be at least 1.
+        :param pulumi.Input['ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerArgs'] api_token_aws_secrets_manager: AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
         """
         if api_token is not None:
             pulumi.set(__self__, "api_token", api_token)
+        if api_token_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_token_aws_secrets_manager", api_token_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiToken")
@@ -11254,30 +11852,146 @@ class ActionConnectionCloudflareApiTokenArgs:
     def api_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_token", value)
 
+    @_builtins.property
+    @pulumi.getter(name="apiTokenAwsSecretsManager")
+    def api_token_aws_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "api_token_aws_secrets_manager")
+
+    @api_token_aws_secrets_manager.setter
+    def api_token_aws_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerArgs']]):
+        pulumi.set(self, "api_token_aws_secrets_manager", value)
+
+
+class ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    Name or ARN of the secret. String length must be at least 1.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class ActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_stage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: Name or ARN of the secret. String length must be at least 1.
+        :param pulumi.Input[_builtins.str] key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param pulumi.Input[_builtins.str] version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param pulumi.Input[_builtins.str] version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+        if version_stage is not None:
+            pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name or ARN of the secret. String length must be at least 1.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_stage", value)
+
 
 class ActionConnectionCloudflareGlobalApiTokenArgsDict(TypedDict):
     auth_email: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Email address associated with the Cloudflare account. String length must be at least 1.
     """
+    auth_email_aws_secrets_manager: NotRequired[pulumi.Input[Optional['ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+    """
     global_api_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Cloudflare global API key. String length must be at least 1.
+    """
+    global_api_key_aws_secrets_manager: NotRequired[pulumi.Input[Optional['ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
     """
 
 @pulumi.input_type
 class ActionConnectionCloudflareGlobalApiTokenArgs:
     def __init__(__self__, *,
                  auth_email: pulumi.Input[Optional[_builtins.str]] = None,
-                 global_api_key: pulumi.Input[Optional[_builtins.str]] = None):
+                 auth_email_aws_secrets_manager: pulumi.Input[Optional['ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgs']] = None,
+                 global_api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 global_api_key_aws_secrets_manager: pulumi.Input[Optional['ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] auth_email: Email address associated with the Cloudflare account. String length must be at least 1.
+        :param pulumi.Input['ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgs'] auth_email_aws_secrets_manager: AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
         :param pulumi.Input[_builtins.str] global_api_key: Cloudflare global API key. String length must be at least 1.
+        :param pulumi.Input['ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgs'] global_api_key_aws_secrets_manager: AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
         """
         if auth_email is not None:
             pulumi.set(__self__, "auth_email", auth_email)
+        if auth_email_aws_secrets_manager is not None:
+            pulumi.set(__self__, "auth_email_aws_secrets_manager", auth_email_aws_secrets_manager)
         if global_api_key is not None:
             pulumi.set(__self__, "global_api_key", global_api_key)
+        if global_api_key_aws_secrets_manager is not None:
+            pulumi.set(__self__, "global_api_key_aws_secrets_manager", global_api_key_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="authEmail")
@@ -11292,6 +12006,18 @@ class ActionConnectionCloudflareGlobalApiTokenArgs:
         pulumi.set(self, "auth_email", value)
 
     @_builtins.property
+    @pulumi.getter(name="authEmailAwsSecretsManager")
+    def auth_email_aws_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "auth_email_aws_secrets_manager")
+
+    @auth_email_aws_secrets_manager.setter
+    def auth_email_aws_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgs']]):
+        pulumi.set(self, "auth_email_aws_secrets_manager", value)
+
+    @_builtins.property
     @pulumi.getter(name="globalApiKey")
     def global_api_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -11302,6 +12028,194 @@ class ActionConnectionCloudflareGlobalApiTokenArgs:
     @global_api_key.setter
     def global_api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "global_api_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="globalApiKeyAwsSecretsManager")
+    def global_api_key_aws_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "global_api_key_aws_secrets_manager")
+
+    @global_api_key_aws_secrets_manager.setter
+    def global_api_key_aws_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgs']]):
+        pulumi.set(self, "global_api_key_aws_secrets_manager", value)
+
+
+class ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    Name or ARN of the secret. String length must be at least 1.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_stage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: Name or ARN of the secret. String length must be at least 1.
+        :param pulumi.Input[_builtins.str] key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param pulumi.Input[_builtins.str] version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param pulumi.Input[_builtins.str] version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+        if version_stage is not None:
+            pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name or ARN of the secret. String length must be at least 1.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_stage", value)
+
+
+class ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    Name or ARN of the secret. String length must be at least 1.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_stage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: Name or ARN of the secret. String length must be at least 1.
+        :param pulumi.Input[_builtins.str] key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param pulumi.Input[_builtins.str] version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param pulumi.Input[_builtins.str] version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+        if version_stage is not None:
+            pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name or ARN of the secret. String length must be at least 1.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_stage", value)
 
 
 class ActionConnectionConfigCatArgsDict(TypedDict):
@@ -11338,32 +12252,56 @@ class ActionConnectionConfigCatSdkKeyArgsDict(TypedDict):
     """
     ConfigCat Public Management API password. String length must be at least 1.
     """
+    api_password_aws_secrets_manager: NotRequired[pulumi.Input[Optional['ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+    """
     api_username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ConfigCat Public Management API username. String length must be at least 1.
     """
+    api_username_aws_secrets_manager: NotRequired[pulumi.Input[Optional['ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+    """
     sdk_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ConfigCat SDK key. String length must be at least 1.
+    """
+    sdk_key_aws_secrets_manager: NotRequired[pulumi.Input[Optional['ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
     """
 
 @pulumi.input_type
 class ActionConnectionConfigCatSdkKeyArgs:
     def __init__(__self__, *,
                  api_password: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_password_aws_secrets_manager: pulumi.Input[Optional['ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgs']] = None,
                  api_username: pulumi.Input[Optional[_builtins.str]] = None,
-                 sdk_key: pulumi.Input[Optional[_builtins.str]] = None):
+                 api_username_aws_secrets_manager: pulumi.Input[Optional['ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgs']] = None,
+                 sdk_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 sdk_key_aws_secrets_manager: pulumi.Input[Optional['ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] api_password: ConfigCat Public Management API password. String length must be at least 1.
+        :param pulumi.Input['ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgs'] api_password_aws_secrets_manager: AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
         :param pulumi.Input[_builtins.str] api_username: ConfigCat Public Management API username. String length must be at least 1.
+        :param pulumi.Input['ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgs'] api_username_aws_secrets_manager: AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
         :param pulumi.Input[_builtins.str] sdk_key: ConfigCat SDK key. String length must be at least 1.
+        :param pulumi.Input['ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgs'] sdk_key_aws_secrets_manager: AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
         """
         if api_password is not None:
             pulumi.set(__self__, "api_password", api_password)
+        if api_password_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_password_aws_secrets_manager", api_password_aws_secrets_manager)
         if api_username is not None:
             pulumi.set(__self__, "api_username", api_username)
+        if api_username_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_username_aws_secrets_manager", api_username_aws_secrets_manager)
         if sdk_key is not None:
             pulumi.set(__self__, "sdk_key", sdk_key)
+        if sdk_key_aws_secrets_manager is not None:
+            pulumi.set(__self__, "sdk_key_aws_secrets_manager", sdk_key_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiPassword")
@@ -11378,6 +12316,18 @@ class ActionConnectionConfigCatSdkKeyArgs:
         pulumi.set(self, "api_password", value)
 
     @_builtins.property
+    @pulumi.getter(name="apiPasswordAwsSecretsManager")
+    def api_password_aws_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "api_password_aws_secrets_manager")
+
+    @api_password_aws_secrets_manager.setter
+    def api_password_aws_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgs']]):
+        pulumi.set(self, "api_password_aws_secrets_manager", value)
+
+    @_builtins.property
     @pulumi.getter(name="apiUsername")
     def api_username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -11390,6 +12340,18 @@ class ActionConnectionConfigCatSdkKeyArgs:
         pulumi.set(self, "api_username", value)
 
     @_builtins.property
+    @pulumi.getter(name="apiUsernameAwsSecretsManager")
+    def api_username_aws_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "api_username_aws_secrets_manager")
+
+    @api_username_aws_secrets_manager.setter
+    def api_username_aws_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgs']]):
+        pulumi.set(self, "api_username_aws_secrets_manager", value)
+
+    @_builtins.property
     @pulumi.getter(name="sdkKey")
     def sdk_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -11400,6 +12362,282 @@ class ActionConnectionConfigCatSdkKeyArgs:
     @sdk_key.setter
     def sdk_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "sdk_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sdkKeyAwsSecretsManager")
+    def sdk_key_aws_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "sdk_key_aws_secrets_manager")
+
+    @sdk_key_aws_secrets_manager.setter
+    def sdk_key_aws_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgs']]):
+        pulumi.set(self, "sdk_key_aws_secrets_manager", value)
+
+
+class ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    Name or ARN of the secret. String length must be at least 1.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_stage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: Name or ARN of the secret. String length must be at least 1.
+        :param pulumi.Input[_builtins.str] key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param pulumi.Input[_builtins.str] version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param pulumi.Input[_builtins.str] version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+        if version_stage is not None:
+            pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name or ARN of the secret. String length must be at least 1.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_stage", value)
+
+
+class ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    Name or ARN of the secret. String length must be at least 1.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_stage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: Name or ARN of the secret. String length must be at least 1.
+        :param pulumi.Input[_builtins.str] key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param pulumi.Input[_builtins.str] version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param pulumi.Input[_builtins.str] version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+        if version_stage is not None:
+            pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name or ARN of the secret. String length must be at least 1.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_stage", value)
+
+
+class ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    Name or ARN of the secret. String length must be at least 1.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_stage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: Name or ARN of the secret. String length must be at least 1.
+        :param pulumi.Input[_builtins.str] key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param pulumi.Input[_builtins.str] version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param pulumi.Input[_builtins.str] version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+        if version_stage is not None:
+            pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name or ARN of the secret. String length must be at least 1.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_stage", value)
 
 
 class ActionConnectionDatadogArgsDict(TypedDict):
@@ -11436,40 +12674,72 @@ class ActionConnectionDatadogApiKeyArgsDict(TypedDict):
     """
     Datadog API key. String length must be at least 1.
     """
+    api_key_aws_secrets_manager: NotRequired[pulumi.Input[Optional['ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+    """
     app_key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Datadog application key. String length must be at least 1.
+    """
+    app_key_aws_secrets_manager: NotRequired[pulumi.Input[Optional['ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
     """
     datacenter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Datadog site data center. String length must be at least 1.
     """
+    datacenter_aws_secrets_manager: NotRequired[pulumi.Input[Optional['ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+    """
     subdomain: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Custom subdomain used for URLs generated with this connection. String length must be at least 1.
+    """
+    subdomain_aws_secrets_manager: NotRequired[pulumi.Input[Optional['ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
     """
 
 @pulumi.input_type
 class ActionConnectionDatadogApiKeyArgs:
     def __init__(__self__, *,
                  api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key_aws_secrets_manager: pulumi.Input[Optional['ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgs']] = None,
                  app_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 app_key_aws_secrets_manager: pulumi.Input[Optional['ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgs']] = None,
                  datacenter: pulumi.Input[Optional[_builtins.str]] = None,
-                 subdomain: pulumi.Input[Optional[_builtins.str]] = None):
+                 datacenter_aws_secrets_manager: pulumi.Input[Optional['ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgs']] = None,
+                 subdomain: pulumi.Input[Optional[_builtins.str]] = None,
+                 subdomain_aws_secrets_manager: pulumi.Input[Optional['ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] api_key: Datadog API key. String length must be at least 1.
+        :param pulumi.Input['ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgs'] api_key_aws_secrets_manager: AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
         :param pulumi.Input[_builtins.str] app_key: Datadog application key. String length must be at least 1.
+        :param pulumi.Input['ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgs'] app_key_aws_secrets_manager: AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
         :param pulumi.Input[_builtins.str] datacenter: Datadog site data center. String length must be at least 1.
+        :param pulumi.Input['ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgs'] datacenter_aws_secrets_manager: AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
         :param pulumi.Input[_builtins.str] subdomain: Custom subdomain used for URLs generated with this connection. String length must be at least 1.
+        :param pulumi.Input['ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgs'] subdomain_aws_secrets_manager: AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
+        if api_key_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_key_aws_secrets_manager", api_key_aws_secrets_manager)
         if app_key is not None:
             pulumi.set(__self__, "app_key", app_key)
+        if app_key_aws_secrets_manager is not None:
+            pulumi.set(__self__, "app_key_aws_secrets_manager", app_key_aws_secrets_manager)
         if datacenter is not None:
             pulumi.set(__self__, "datacenter", datacenter)
+        if datacenter_aws_secrets_manager is not None:
+            pulumi.set(__self__, "datacenter_aws_secrets_manager", datacenter_aws_secrets_manager)
         if subdomain is not None:
             pulumi.set(__self__, "subdomain", subdomain)
+        if subdomain_aws_secrets_manager is not None:
+            pulumi.set(__self__, "subdomain_aws_secrets_manager", subdomain_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiKey")
@@ -11484,6 +12754,18 @@ class ActionConnectionDatadogApiKeyArgs:
         pulumi.set(self, "api_key", value)
 
     @_builtins.property
+    @pulumi.getter(name="apiKeyAwsSecretsManager")
+    def api_key_aws_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "api_key_aws_secrets_manager")
+
+    @api_key_aws_secrets_manager.setter
+    def api_key_aws_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgs']]):
+        pulumi.set(self, "api_key_aws_secrets_manager", value)
+
+    @_builtins.property
     @pulumi.getter(name="appKey")
     def app_key(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -11494,6 +12776,18 @@ class ActionConnectionDatadogApiKeyArgs:
     @app_key.setter
     def app_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "app_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="appKeyAwsSecretsManager")
+    def app_key_aws_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "app_key_aws_secrets_manager")
+
+    @app_key_aws_secrets_manager.setter
+    def app_key_aws_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgs']]):
+        pulumi.set(self, "app_key_aws_secrets_manager", value)
 
     @_builtins.property
     @pulumi.getter
@@ -11508,6 +12802,18 @@ class ActionConnectionDatadogApiKeyArgs:
         pulumi.set(self, "datacenter", value)
 
     @_builtins.property
+    @pulumi.getter(name="datacenterAwsSecretsManager")
+    def datacenter_aws_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "datacenter_aws_secrets_manager")
+
+    @datacenter_aws_secrets_manager.setter
+    def datacenter_aws_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgs']]):
+        pulumi.set(self, "datacenter_aws_secrets_manager", value)
+
+    @_builtins.property
     @pulumi.getter
     def subdomain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -11518,6 +12824,417 @@ class ActionConnectionDatadogApiKeyArgs:
     @subdomain.setter
     def subdomain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "subdomain", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subdomainAwsSecretsManager")
+    def subdomain_aws_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "subdomain_aws_secrets_manager")
+
+    @subdomain_aws_secrets_manager.setter
+    def subdomain_aws_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgs']]):
+        pulumi.set(self, "subdomain_aws_secrets_manager", value)
+
+
+class ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    Name or ARN of the secret. String length must be at least 1.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_stage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: Name or ARN of the secret. String length must be at least 1.
+        :param pulumi.Input[_builtins.str] key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param pulumi.Input[_builtins.str] version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param pulumi.Input[_builtins.str] version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+        if version_stage is not None:
+            pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name or ARN of the secret. String length must be at least 1.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_stage", value)
+
+
+class ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    Name or ARN of the secret. String length must be at least 1.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_stage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: Name or ARN of the secret. String length must be at least 1.
+        :param pulumi.Input[_builtins.str] key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param pulumi.Input[_builtins.str] version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param pulumi.Input[_builtins.str] version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+        if version_stage is not None:
+            pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name or ARN of the secret. String length must be at least 1.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_stage", value)
+
+
+class ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    Name or ARN of the secret. String length must be at least 1.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_stage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: Name or ARN of the secret. String length must be at least 1.
+        :param pulumi.Input[_builtins.str] key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param pulumi.Input[_builtins.str] version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param pulumi.Input[_builtins.str] version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+        if version_stage is not None:
+            pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name or ARN of the secret. String length must be at least 1.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_stage", value)
+
+
+class ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    Name or ARN of the secret. String length must be at least 1.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_stage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: Name or ARN of the secret. String length must be at least 1.
+        :param pulumi.Input[_builtins.str] key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param pulumi.Input[_builtins.str] version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param pulumi.Input[_builtins.str] version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+        if version_stage is not None:
+            pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name or ARN of the secret. String length must be at least 1.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_stage", value)
+
+
+class ActionConnectionExternalSecretsManagerArgsDict(TypedDict):
+    connection_id: pulumi.Input[_builtins.str]
+    """
+    ID of an AWS connection in the same organization used to retrieve secrets. String length must be at least 1.
+    """
+    region: pulumi.Input[_builtins.str]
+    """
+    AWS region containing the secrets. String length must be at least 1.
+    """
+
+@pulumi.input_type
+class ActionConnectionExternalSecretsManagerArgs:
+    def __init__(__self__, *,
+                 connection_id: pulumi.Input[_builtins.str],
+                 region: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] connection_id: ID of an AWS connection in the same organization used to retrieve secrets. String length must be at least 1.
+        :param pulumi.Input[_builtins.str] region: AWS region containing the secrets. String length must be at least 1.
+        """
+        pulumi.set(__self__, "connection_id", connection_id)
+        pulumi.set(__self__, "region", region)
+
+    @_builtins.property
+    @pulumi.getter(name="connectionId")
+    def connection_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        ID of an AWS connection in the same organization used to retrieve secrets. String length must be at least 1.
+        """
+        return pulumi.get(self, "connection_id")
+
+    @connection_id.setter
+    def connection_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "connection_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def region(self) -> pulumi.Input[_builtins.str]:
+        """
+        AWS region containing the secrets. String length must be at least 1.
+        """
+        return pulumi.get(self, "region")
+
+    @region.setter
+    def region(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "region", value)
 
 
 class ActionConnectionFastlyArgsDict(TypedDict):
@@ -11554,16 +13271,24 @@ class ActionConnectionFastlyApiKeyArgsDict(TypedDict):
     """
     Fastly API key. String length must be at least 1.
     """
+    api_key_aws_secrets_manager: NotRequired[pulumi.Input[Optional['ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+    """
 
 @pulumi.input_type
 class ActionConnectionFastlyApiKeyArgs:
     def __init__(__self__, *,
-                 api_key: pulumi.Input[Optional[_builtins.str]] = None):
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key_aws_secrets_manager: pulumi.Input[Optional['ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] api_key: Fastly API key. String length must be at least 1.
+        :param pulumi.Input['ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerArgs'] api_key_aws_secrets_manager: AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
+        if api_key_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_key_aws_secrets_manager", api_key_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiKey")
@@ -11576,6 +13301,106 @@ class ActionConnectionFastlyApiKeyArgs:
     @api_key.setter
     def api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyAwsSecretsManager")
+    def api_key_aws_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "api_key_aws_secrets_manager")
+
+    @api_key_aws_secrets_manager.setter
+    def api_key_aws_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerArgs']]):
+        pulumi.set(self, "api_key_aws_secrets_manager", value)
+
+
+class ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    Name or ARN of the secret. String length must be at least 1.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class ActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_stage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: Name or ARN of the secret. String length must be at least 1.
+        :param pulumi.Input[_builtins.str] key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param pulumi.Input[_builtins.str] version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param pulumi.Input[_builtins.str] version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+        if version_stage is not None:
+            pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name or ARN of the secret. String length must be at least 1.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_stage", value)
 
 
 class ActionConnectionFreshserviceArgsDict(TypedDict):
@@ -11612,24 +13437,40 @@ class ActionConnectionFreshserviceApiKeyArgsDict(TypedDict):
     """
     Freshservice API key. String length must be at least 1.
     """
+    api_key_aws_secrets_manager: NotRequired[pulumi.Input[Optional['ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+    """
     domain: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Freshservice domain. String length must be at least 1.
+    """
+    domain_aws_secrets_manager: NotRequired[pulumi.Input[Optional['ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
     """
 
 @pulumi.input_type
 class ActionConnectionFreshserviceApiKeyArgs:
     def __init__(__self__, *,
                  api_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 domain: pulumi.Input[Optional[_builtins.str]] = None):
+                 api_key_aws_secrets_manager: pulumi.Input[Optional['ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs']] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_aws_secrets_manager: pulumi.Input[Optional['ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] api_key: Freshservice API key. String length must be at least 1.
+        :param pulumi.Input['ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs'] api_key_aws_secrets_manager: AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
         :param pulumi.Input[_builtins.str] domain: Freshservice domain. String length must be at least 1.
+        :param pulumi.Input['ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs'] domain_aws_secrets_manager: AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
+        if api_key_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_key_aws_secrets_manager", api_key_aws_secrets_manager)
         if domain is not None:
             pulumi.set(__self__, "domain", domain)
+        if domain_aws_secrets_manager is not None:
+            pulumi.set(__self__, "domain_aws_secrets_manager", domain_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiKey")
@@ -11644,6 +13485,18 @@ class ActionConnectionFreshserviceApiKeyArgs:
         pulumi.set(self, "api_key", value)
 
     @_builtins.property
+    @pulumi.getter(name="apiKeyAwsSecretsManager")
+    def api_key_aws_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "api_key_aws_secrets_manager")
+
+    @api_key_aws_secrets_manager.setter
+    def api_key_aws_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs']]):
+        pulumi.set(self, "api_key_aws_secrets_manager", value)
+
+    @_builtins.property
     @pulumi.getter
     def domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -11654,6 +13507,194 @@ class ActionConnectionFreshserviceApiKeyArgs:
     @domain.setter
     def domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain", value)
+
+    @_builtins.property
+    @pulumi.getter(name="domainAwsSecretsManager")
+    def domain_aws_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "domain_aws_secrets_manager")
+
+    @domain_aws_secrets_manager.setter
+    def domain_aws_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs']]):
+        pulumi.set(self, "domain_aws_secrets_manager", value)
+
+
+class ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    Name or ARN of the secret. String length must be at least 1.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_stage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: Name or ARN of the secret. String length must be at least 1.
+        :param pulumi.Input[_builtins.str] key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param pulumi.Input[_builtins.str] version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param pulumi.Input[_builtins.str] version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+        if version_stage is not None:
+            pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name or ARN of the secret. String length must be at least 1.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_stage", value)
+
+
+class ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    Name or ARN of the secret. String length must be at least 1.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class ActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_stage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: Name or ARN of the secret. String length must be at least 1.
+        :param pulumi.Input[_builtins.str] key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param pulumi.Input[_builtins.str] version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param pulumi.Input[_builtins.str] version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+        if version_stage is not None:
+            pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name or ARN of the secret. String length must be at least 1.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_stage", value)
 
 
 class ActionConnectionGcpArgsDict(TypedDict):
@@ -11690,24 +13731,40 @@ class ActionConnectionGcpServiceAccountArgsDict(TypedDict):
     """
     Google Cloud service account private key. String length must be at least 1.
     """
+    private_key_aws_secrets_manager: NotRequired[pulumi.Input[Optional['ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+    """
     service_account_email: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Google Cloud service account email. String length must be at least 1.
+    """
+    service_account_email_aws_secrets_manager: NotRequired[pulumi.Input[Optional['ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
     """
 
 @pulumi.input_type
 class ActionConnectionGcpServiceAccountArgs:
     def __init__(__self__, *,
                  private_key: pulumi.Input[Optional[_builtins.str]] = None,
-                 service_account_email: pulumi.Input[Optional[_builtins.str]] = None):
+                 private_key_aws_secrets_manager: pulumi.Input[Optional['ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgs']] = None,
+                 service_account_email: pulumi.Input[Optional[_builtins.str]] = None,
+                 service_account_email_aws_secrets_manager: pulumi.Input[Optional['ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] private_key: Google Cloud service account private key. String length must be at least 1.
+        :param pulumi.Input['ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgs'] private_key_aws_secrets_manager: AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
         :param pulumi.Input[_builtins.str] service_account_email: Google Cloud service account email. String length must be at least 1.
+        :param pulumi.Input['ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgs'] service_account_email_aws_secrets_manager: AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
         """
         if private_key is not None:
             pulumi.set(__self__, "private_key", private_key)
+        if private_key_aws_secrets_manager is not None:
+            pulumi.set(__self__, "private_key_aws_secrets_manager", private_key_aws_secrets_manager)
         if service_account_email is not None:
             pulumi.set(__self__, "service_account_email", service_account_email)
+        if service_account_email_aws_secrets_manager is not None:
+            pulumi.set(__self__, "service_account_email_aws_secrets_manager", service_account_email_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="privateKey")
@@ -11722,6 +13779,18 @@ class ActionConnectionGcpServiceAccountArgs:
         pulumi.set(self, "private_key", value)
 
     @_builtins.property
+    @pulumi.getter(name="privateKeyAwsSecretsManager")
+    def private_key_aws_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "private_key_aws_secrets_manager")
+
+    @private_key_aws_secrets_manager.setter
+    def private_key_aws_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgs']]):
+        pulumi.set(self, "private_key_aws_secrets_manager", value)
+
+    @_builtins.property
     @pulumi.getter(name="serviceAccountEmail")
     def service_account_email(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -11732,6 +13801,194 @@ class ActionConnectionGcpServiceAccountArgs:
     @service_account_email.setter
     def service_account_email(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "service_account_email", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceAccountEmailAwsSecretsManager")
+    def service_account_email_aws_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "service_account_email_aws_secrets_manager")
+
+    @service_account_email_aws_secrets_manager.setter
+    def service_account_email_aws_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgs']]):
+        pulumi.set(self, "service_account_email_aws_secrets_manager", value)
+
+
+class ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    Name or ARN of the secret. String length must be at least 1.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_stage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: Name or ARN of the secret. String length must be at least 1.
+        :param pulumi.Input[_builtins.str] key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param pulumi.Input[_builtins.str] version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param pulumi.Input[_builtins.str] version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+        if version_stage is not None:
+            pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name or ARN of the secret. String length must be at least 1.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_stage", value)
+
+
+class ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    Name or ARN of the secret. String length must be at least 1.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_stage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: Name or ARN of the secret. String length must be at least 1.
+        :param pulumi.Input[_builtins.str] key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param pulumi.Input[_builtins.str] version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param pulumi.Input[_builtins.str] version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+        if version_stage is not None:
+            pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name or ARN of the secret. String length must be at least 1.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_stage", value)
 
 
 class ActionConnectionGeminiArgsDict(TypedDict):
@@ -11768,16 +14025,24 @@ class ActionConnectionGeminiApiKeyArgsDict(TypedDict):
     """
     Gemini API key. String length must be at least 1.
     """
+    api_key_aws_secrets_manager: NotRequired[pulumi.Input[Optional['ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+    """
 
 @pulumi.input_type
 class ActionConnectionGeminiApiKeyArgs:
     def __init__(__self__, *,
-                 api_key: pulumi.Input[Optional[_builtins.str]] = None):
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key_aws_secrets_manager: pulumi.Input[Optional['ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] api_key: Gemini API key. String length must be at least 1.
+        :param pulumi.Input['ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgs'] api_key_aws_secrets_manager: AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
+        if api_key_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_key_aws_secrets_manager", api_key_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiKey")
@@ -11790,6 +14055,106 @@ class ActionConnectionGeminiApiKeyArgs:
     @api_key.setter
     def api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyAwsSecretsManager")
+    def api_key_aws_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "api_key_aws_secrets_manager")
+
+    @api_key_aws_secrets_manager.setter
+    def api_key_aws_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgs']]):
+        pulumi.set(self, "api_key_aws_secrets_manager", value)
+
+
+class ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    Name or ARN of the secret. String length must be at least 1.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_stage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: Name or ARN of the secret. String length must be at least 1.
+        :param pulumi.Input[_builtins.str] key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param pulumi.Input[_builtins.str] version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param pulumi.Input[_builtins.str] version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+        if version_stage is not None:
+            pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name or ARN of the secret. String length must be at least 1.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_stage", value)
 
 
 class ActionConnectionGitlabArgsDict(TypedDict):
@@ -11826,16 +14191,24 @@ class ActionConnectionGitlabApiKeyArgsDict(TypedDict):
     """
     GitLab API token. String length must be at least 1.
     """
+    api_token_aws_secrets_manager: NotRequired[pulumi.Input[Optional['ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+    """
 
 @pulumi.input_type
 class ActionConnectionGitlabApiKeyArgs:
     def __init__(__self__, *,
-                 api_token: pulumi.Input[Optional[_builtins.str]] = None):
+                 api_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_token_aws_secrets_manager: pulumi.Input[Optional['ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] api_token: GitLab API token. String length must be at least 1.
+        :param pulumi.Input['ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerArgs'] api_token_aws_secrets_manager: AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
         """
         if api_token is not None:
             pulumi.set(__self__, "api_token", api_token)
+        if api_token_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_token_aws_secrets_manager", api_token_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiToken")
@@ -11848,6 +14221,106 @@ class ActionConnectionGitlabApiKeyArgs:
     @api_token.setter
     def api_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_token", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiTokenAwsSecretsManager")
+    def api_token_aws_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "api_token_aws_secrets_manager")
+
+    @api_token_aws_secrets_manager.setter
+    def api_token_aws_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerArgs']]):
+        pulumi.set(self, "api_token_aws_secrets_manager", value)
+
+
+class ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    Name or ARN of the secret. String length must be at least 1.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class ActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_stage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: Name or ARN of the secret. String length must be at least 1.
+        :param pulumi.Input[_builtins.str] key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param pulumi.Input[_builtins.str] version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param pulumi.Input[_builtins.str] version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+        if version_stage is not None:
+            pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name or ARN of the secret. String length must be at least 1.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_stage", value)
 
 
 class ActionConnectionGreyNoiseArgsDict(TypedDict):
@@ -11884,16 +14357,24 @@ class ActionConnectionGreyNoiseApiKeyArgsDict(TypedDict):
     """
     GreyNoise API key. String length must be at least 1.
     """
+    api_key_aws_secrets_manager: NotRequired[pulumi.Input[Optional['ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+    """
 
 @pulumi.input_type
 class ActionConnectionGreyNoiseApiKeyArgs:
     def __init__(__self__, *,
-                 api_key: pulumi.Input[Optional[_builtins.str]] = None):
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key_aws_secrets_manager: pulumi.Input[Optional['ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] api_key: GreyNoise API key. String length must be at least 1.
+        :param pulumi.Input['ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerArgs'] api_key_aws_secrets_manager: AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
+        if api_key_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_key_aws_secrets_manager", api_key_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiKey")
@@ -11906,6 +14387,106 @@ class ActionConnectionGreyNoiseApiKeyArgs:
     @api_key.setter
     def api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyAwsSecretsManager")
+    def api_key_aws_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "api_key_aws_secrets_manager")
+
+    @api_key_aws_secrets_manager.setter
+    def api_key_aws_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerArgs']]):
+        pulumi.set(self, "api_key_aws_secrets_manager", value)
+
+
+class ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    Name or ARN of the secret. String length must be at least 1.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class ActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_stage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: Name or ARN of the secret. String length must be at least 1.
+        :param pulumi.Input[_builtins.str] key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param pulumi.Input[_builtins.str] version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param pulumi.Input[_builtins.str] version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+        if version_stage is not None:
+            pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name or ARN of the secret. String length must be at least 1.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_stage", value)
 
 
 class ActionConnectionHttpArgsDict(TypedDict):
@@ -12157,17 +14738,23 @@ class ActionConnectionHttpTokenAuthTokenArgsDict(TypedDict):
     """
     Token value. String length must be at least 1.
     """
+    value_aws_secrets_manager: NotRequired[pulumi.Input[Optional['ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+    """
 
 @pulumi.input_type
 class ActionConnectionHttpTokenAuthTokenArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
-                 value: pulumi.Input[Optional[_builtins.str]] = None):
+                 value: pulumi.Input[Optional[_builtins.str]] = None,
+                 value_aws_secrets_manager: pulumi.Input[Optional['ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] name: Token name. String length must be at least 1.
         :param pulumi.Input[_builtins.str] type: Token type Valid values are `SECRET`.
         :param pulumi.Input[_builtins.str] value: Token value. String length must be at least 1.
+        :param pulumi.Input['ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgs'] value_aws_secrets_manager: AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
         """
         if name is not None:
             pulumi.set(__self__, "name", name)
@@ -12175,6 +14762,8 @@ class ActionConnectionHttpTokenAuthTokenArgs:
             pulumi.set(__self__, "type", type)
         if value is not None:
             pulumi.set(__self__, "value", value)
+        if value_aws_secrets_manager is not None:
+            pulumi.set(__self__, "value_aws_secrets_manager", value_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter
@@ -12211,6 +14800,106 @@ class ActionConnectionHttpTokenAuthTokenArgs:
     @value.setter
     def value(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueAwsSecretsManager")
+    def value_aws_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "value_aws_secrets_manager")
+
+    @value_aws_secrets_manager.setter
+    def value_aws_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgs']]):
+        pulumi.set(self, "value_aws_secrets_manager", value)
+
+
+class ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    Name or ARN of the secret. String length must be at least 1.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class ActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_stage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: Name or ARN of the secret. String length must be at least 1.
+        :param pulumi.Input[_builtins.str] key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param pulumi.Input[_builtins.str] version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param pulumi.Input[_builtins.str] version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+        if version_stage is not None:
+            pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name or ARN of the secret. String length must be at least 1.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_stage", value)
 
 
 class ActionConnectionHttpTokenAuthUrlParameterArgsDict(TypedDict):
@@ -12296,16 +14985,24 @@ class ActionConnectionLaunchDarklyApiKeyArgsDict(TypedDict):
     """
     LaunchDarkly API token. String length must be at least 1.
     """
+    api_token_aws_secrets_manager: NotRequired[pulumi.Input[Optional['ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+    """
 
 @pulumi.input_type
 class ActionConnectionLaunchDarklyApiKeyArgs:
     def __init__(__self__, *,
-                 api_token: pulumi.Input[Optional[_builtins.str]] = None):
+                 api_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_token_aws_secrets_manager: pulumi.Input[Optional['ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] api_token: LaunchDarkly API token. String length must be at least 1.
+        :param pulumi.Input['ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgs'] api_token_aws_secrets_manager: AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
         """
         if api_token is not None:
             pulumi.set(__self__, "api_token", api_token)
+        if api_token_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_token_aws_secrets_manager", api_token_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiToken")
@@ -12318,6 +15015,106 @@ class ActionConnectionLaunchDarklyApiKeyArgs:
     @api_token.setter
     def api_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_token", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiTokenAwsSecretsManager")
+    def api_token_aws_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "api_token_aws_secrets_manager")
+
+    @api_token_aws_secrets_manager.setter
+    def api_token_aws_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgs']]):
+        pulumi.set(self, "api_token_aws_secrets_manager", value)
+
+
+class ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    Name or ARN of the secret. String length must be at least 1.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class ActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_stage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: Name or ARN of the secret. String length must be at least 1.
+        :param pulumi.Input[_builtins.str] key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param pulumi.Input[_builtins.str] version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param pulumi.Input[_builtins.str] version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+        if version_stage is not None:
+            pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name or ARN of the secret. String length must be at least 1.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_stage", value)
 
 
 class ActionConnectionNotionArgsDict(TypedDict):
@@ -12354,16 +15151,24 @@ class ActionConnectionNotionApiKeyArgsDict(TypedDict):
     """
     Notion API token. String length must be at least 1.
     """
+    api_token_aws_secrets_manager: NotRequired[pulumi.Input[Optional['ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+    """
 
 @pulumi.input_type
 class ActionConnectionNotionApiKeyArgs:
     def __init__(__self__, *,
-                 api_token: pulumi.Input[Optional[_builtins.str]] = None):
+                 api_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_token_aws_secrets_manager: pulumi.Input[Optional['ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] api_token: Notion API token. String length must be at least 1.
+        :param pulumi.Input['ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerArgs'] api_token_aws_secrets_manager: AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
         """
         if api_token is not None:
             pulumi.set(__self__, "api_token", api_token)
+        if api_token_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_token_aws_secrets_manager", api_token_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiToken")
@@ -12376,6 +15181,106 @@ class ActionConnectionNotionApiKeyArgs:
     @api_token.setter
     def api_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_token", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiTokenAwsSecretsManager")
+    def api_token_aws_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "api_token_aws_secrets_manager")
+
+    @api_token_aws_secrets_manager.setter
+    def api_token_aws_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerArgs']]):
+        pulumi.set(self, "api_token_aws_secrets_manager", value)
+
+
+class ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    Name or ARN of the secret. String length must be at least 1.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class ActionConnectionNotionApiKeyApiTokenAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_stage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: Name or ARN of the secret. String length must be at least 1.
+        :param pulumi.Input[_builtins.str] key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param pulumi.Input[_builtins.str] version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param pulumi.Input[_builtins.str] version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+        if version_stage is not None:
+            pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name or ARN of the secret. String length must be at least 1.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_stage", value)
 
 
 class ActionConnectionOktaArgsDict(TypedDict):
@@ -12412,24 +15317,40 @@ class ActionConnectionOktaApiTokenArgsDict(TypedDict):
     """
     Okta API token. String length must be at least 1.
     """
+    api_token_aws_secrets_manager: NotRequired[pulumi.Input[Optional['ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+    """
     domain: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Okta domain. String length must be at least 1.
+    """
+    domain_aws_secrets_manager: NotRequired[pulumi.Input[Optional['ActionConnectionOktaApiTokenDomainAwsSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
     """
 
 @pulumi.input_type
 class ActionConnectionOktaApiTokenArgs:
     def __init__(__self__, *,
                  api_token: pulumi.Input[Optional[_builtins.str]] = None,
-                 domain: pulumi.Input[Optional[_builtins.str]] = None):
+                 api_token_aws_secrets_manager: pulumi.Input[Optional['ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs']] = None,
+                 domain: pulumi.Input[Optional[_builtins.str]] = None,
+                 domain_aws_secrets_manager: pulumi.Input[Optional['ActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] api_token: Okta API token. String length must be at least 1.
+        :param pulumi.Input['ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs'] api_token_aws_secrets_manager: AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
         :param pulumi.Input[_builtins.str] domain: Okta domain. String length must be at least 1.
+        :param pulumi.Input['ActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs'] domain_aws_secrets_manager: AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
         """
         if api_token is not None:
             pulumi.set(__self__, "api_token", api_token)
+        if api_token_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_token_aws_secrets_manager", api_token_aws_secrets_manager)
         if domain is not None:
             pulumi.set(__self__, "domain", domain)
+        if domain_aws_secrets_manager is not None:
+            pulumi.set(__self__, "domain_aws_secrets_manager", domain_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiToken")
@@ -12444,6 +15365,18 @@ class ActionConnectionOktaApiTokenArgs:
         pulumi.set(self, "api_token", value)
 
     @_builtins.property
+    @pulumi.getter(name="apiTokenAwsSecretsManager")
+    def api_token_aws_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "api_token_aws_secrets_manager")
+
+    @api_token_aws_secrets_manager.setter
+    def api_token_aws_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs']]):
+        pulumi.set(self, "api_token_aws_secrets_manager", value)
+
+    @_builtins.property
     @pulumi.getter
     def domain(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -12454,6 +15387,194 @@ class ActionConnectionOktaApiTokenArgs:
     @domain.setter
     def domain(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "domain", value)
+
+    @_builtins.property
+    @pulumi.getter(name="domainAwsSecretsManager")
+    def domain_aws_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "domain_aws_secrets_manager")
+
+    @domain_aws_secrets_manager.setter
+    def domain_aws_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs']]):
+        pulumi.set(self, "domain_aws_secrets_manager", value)
+
+
+class ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    Name or ARN of the secret. String length must be at least 1.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class ActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_stage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: Name or ARN of the secret. String length must be at least 1.
+        :param pulumi.Input[_builtins.str] key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param pulumi.Input[_builtins.str] version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param pulumi.Input[_builtins.str] version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+        if version_stage is not None:
+            pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name or ARN of the secret. String length must be at least 1.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_stage", value)
+
+
+class ActionConnectionOktaApiTokenDomainAwsSecretsManagerArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    Name or ARN of the secret. String length must be at least 1.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class ActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_stage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: Name or ARN of the secret. String length must be at least 1.
+        :param pulumi.Input[_builtins.str] key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param pulumi.Input[_builtins.str] version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param pulumi.Input[_builtins.str] version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+        if version_stage is not None:
+            pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name or ARN of the secret. String length must be at least 1.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_stage", value)
 
 
 class ActionConnectionOpenaiArgsDict(TypedDict):
@@ -12490,16 +15611,24 @@ class ActionConnectionOpenaiApiKeyArgsDict(TypedDict):
     """
     OpenAI API token. String length must be at least 1.
     """
+    api_token_aws_secrets_manager: NotRequired[pulumi.Input[Optional['ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+    """
 
 @pulumi.input_type
 class ActionConnectionOpenaiApiKeyArgs:
     def __init__(__self__, *,
-                 api_token: pulumi.Input[Optional[_builtins.str]] = None):
+                 api_token: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_token_aws_secrets_manager: pulumi.Input[Optional['ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] api_token: OpenAI API token. String length must be at least 1.
+        :param pulumi.Input['ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerArgs'] api_token_aws_secrets_manager: AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
         """
         if api_token is not None:
             pulumi.set(__self__, "api_token", api_token)
+        if api_token_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_token_aws_secrets_manager", api_token_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiToken")
@@ -12512,6 +15641,106 @@ class ActionConnectionOpenaiApiKeyArgs:
     @api_token.setter
     def api_token(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_token", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiTokenAwsSecretsManager")
+    def api_token_aws_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "api_token_aws_secrets_manager")
+
+    @api_token_aws_secrets_manager.setter
+    def api_token_aws_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerArgs']]):
+        pulumi.set(self, "api_token_aws_secrets_manager", value)
+
+
+class ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    Name or ARN of the secret. String length must be at least 1.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class ActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_stage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: Name or ARN of the secret. String length must be at least 1.
+        :param pulumi.Input[_builtins.str] key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param pulumi.Input[_builtins.str] version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param pulumi.Input[_builtins.str] version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+        if version_stage is not None:
+            pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name or ARN of the secret. String length must be at least 1.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_stage", value)
 
 
 class ActionConnectionServiceNowArgsDict(TypedDict):
@@ -12548,32 +15777,56 @@ class ActionConnectionServiceNowBasicAuthArgsDict(TypedDict):
     """
     ServiceNow instance. String length must be at least 1.
     """
+    instance_aws_secrets_manager: NotRequired[pulumi.Input[Optional['ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+    """
     password: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ServiceNow password. String length must be at least 1.
     """
+    password_aws_secrets_manager: NotRequired[pulumi.Input[Optional['ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+    """
     username: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     ServiceNow username. String length must be at least 1.
+    """
+    username_aws_secrets_manager: NotRequired[pulumi.Input[Optional['ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
     """
 
 @pulumi.input_type
 class ActionConnectionServiceNowBasicAuthArgs:
     def __init__(__self__, *,
                  instance: pulumi.Input[Optional[_builtins.str]] = None,
+                 instance_aws_secrets_manager: pulumi.Input[Optional['ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs']] = None,
                  password: pulumi.Input[Optional[_builtins.str]] = None,
-                 username: pulumi.Input[Optional[_builtins.str]] = None):
+                 password_aws_secrets_manager: pulumi.Input[Optional['ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs']] = None,
+                 username: pulumi.Input[Optional[_builtins.str]] = None,
+                 username_aws_secrets_manager: pulumi.Input[Optional['ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] instance: ServiceNow instance. String length must be at least 1.
+        :param pulumi.Input['ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs'] instance_aws_secrets_manager: AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
         :param pulumi.Input[_builtins.str] password: ServiceNow password. String length must be at least 1.
+        :param pulumi.Input['ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs'] password_aws_secrets_manager: AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
         :param pulumi.Input[_builtins.str] username: ServiceNow username. String length must be at least 1.
+        :param pulumi.Input['ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs'] username_aws_secrets_manager: AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
         """
         if instance is not None:
             pulumi.set(__self__, "instance", instance)
+        if instance_aws_secrets_manager is not None:
+            pulumi.set(__self__, "instance_aws_secrets_manager", instance_aws_secrets_manager)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if password_aws_secrets_manager is not None:
+            pulumi.set(__self__, "password_aws_secrets_manager", password_aws_secrets_manager)
         if username is not None:
             pulumi.set(__self__, "username", username)
+        if username_aws_secrets_manager is not None:
+            pulumi.set(__self__, "username_aws_secrets_manager", username_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter
@@ -12588,6 +15841,18 @@ class ActionConnectionServiceNowBasicAuthArgs:
         pulumi.set(self, "instance", value)
 
     @_builtins.property
+    @pulumi.getter(name="instanceAwsSecretsManager")
+    def instance_aws_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "instance_aws_secrets_manager")
+
+    @instance_aws_secrets_manager.setter
+    def instance_aws_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs']]):
+        pulumi.set(self, "instance_aws_secrets_manager", value)
+
+    @_builtins.property
     @pulumi.getter
     def password(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -12600,6 +15865,18 @@ class ActionConnectionServiceNowBasicAuthArgs:
         pulumi.set(self, "password", value)
 
     @_builtins.property
+    @pulumi.getter(name="passwordAwsSecretsManager")
+    def password_aws_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "password_aws_secrets_manager")
+
+    @password_aws_secrets_manager.setter
+    def password_aws_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs']]):
+        pulumi.set(self, "password_aws_secrets_manager", value)
+
+    @_builtins.property
     @pulumi.getter
     def username(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -12610,6 +15887,282 @@ class ActionConnectionServiceNowBasicAuthArgs:
     @username.setter
     def username(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "username", value)
+
+    @_builtins.property
+    @pulumi.getter(name="usernameAwsSecretsManager")
+    def username_aws_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "username_aws_secrets_manager")
+
+    @username_aws_secrets_manager.setter
+    def username_aws_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs']]):
+        pulumi.set(self, "username_aws_secrets_manager", value)
+
+
+class ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    Name or ARN of the secret. String length must be at least 1.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_stage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: Name or ARN of the secret. String length must be at least 1.
+        :param pulumi.Input[_builtins.str] key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param pulumi.Input[_builtins.str] version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param pulumi.Input[_builtins.str] version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+        if version_stage is not None:
+            pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name or ARN of the secret. String length must be at least 1.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_stage", value)
+
+
+class ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    Name or ARN of the secret. String length must be at least 1.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_stage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: Name or ARN of the secret. String length must be at least 1.
+        :param pulumi.Input[_builtins.str] key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param pulumi.Input[_builtins.str] version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param pulumi.Input[_builtins.str] version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+        if version_stage is not None:
+            pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name or ARN of the secret. String length must be at least 1.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_stage", value)
+
+
+class ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    Name or ARN of the secret. String length must be at least 1.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_stage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: Name or ARN of the secret. String length must be at least 1.
+        :param pulumi.Input[_builtins.str] key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param pulumi.Input[_builtins.str] version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param pulumi.Input[_builtins.str] version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+        if version_stage is not None:
+            pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name or ARN of the secret. String length must be at least 1.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_stage", value)
 
 
 class ActionConnectionSplitArgsDict(TypedDict):
@@ -12646,16 +16199,24 @@ class ActionConnectionSplitApiKeyArgsDict(TypedDict):
     """
     Split API key. String length must be at least 1.
     """
+    api_key_aws_secrets_manager: NotRequired[pulumi.Input[Optional['ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+    """
 
 @pulumi.input_type
 class ActionConnectionSplitApiKeyArgs:
     def __init__(__self__, *,
-                 api_key: pulumi.Input[Optional[_builtins.str]] = None):
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key_aws_secrets_manager: pulumi.Input[Optional['ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] api_key: Split API key. String length must be at least 1.
+        :param pulumi.Input['ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgs'] api_key_aws_secrets_manager: AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
+        if api_key_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_key_aws_secrets_manager", api_key_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiKey")
@@ -12668,6 +16229,106 @@ class ActionConnectionSplitApiKeyArgs:
     @api_key.setter
     def api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyAwsSecretsManager")
+    def api_key_aws_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "api_key_aws_secrets_manager")
+
+    @api_key_aws_secrets_manager.setter
+    def api_key_aws_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgs']]):
+        pulumi.set(self, "api_key_aws_secrets_manager", value)
+
+
+class ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    Name or ARN of the secret. String length must be at least 1.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class ActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_stage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: Name or ARN of the secret. String length must be at least 1.
+        :param pulumi.Input[_builtins.str] key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param pulumi.Input[_builtins.str] version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param pulumi.Input[_builtins.str] version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+        if version_stage is not None:
+            pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name or ARN of the secret. String length must be at least 1.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_stage", value)
 
 
 class ActionConnectionStatsigArgsDict(TypedDict):
@@ -12704,16 +16365,24 @@ class ActionConnectionStatsigApiKeyArgsDict(TypedDict):
     """
     Statsig API key. String length must be at least 1.
     """
+    api_key_aws_secrets_manager: NotRequired[pulumi.Input[Optional['ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+    """
 
 @pulumi.input_type
 class ActionConnectionStatsigApiKeyArgs:
     def __init__(__self__, *,
-                 api_key: pulumi.Input[Optional[_builtins.str]] = None):
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key_aws_secrets_manager: pulumi.Input[Optional['ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] api_key: Statsig API key. String length must be at least 1.
+        :param pulumi.Input['ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerArgs'] api_key_aws_secrets_manager: AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
+        if api_key_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_key_aws_secrets_manager", api_key_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiKey")
@@ -12726,6 +16395,106 @@ class ActionConnectionStatsigApiKeyArgs:
     @api_key.setter
     def api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyAwsSecretsManager")
+    def api_key_aws_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "api_key_aws_secrets_manager")
+
+    @api_key_aws_secrets_manager.setter
+    def api_key_aws_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerArgs']]):
+        pulumi.set(self, "api_key_aws_secrets_manager", value)
+
+
+class ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    Name or ARN of the secret. String length must be at least 1.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class ActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_stage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: Name or ARN of the secret. String length must be at least 1.
+        :param pulumi.Input[_builtins.str] key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param pulumi.Input[_builtins.str] version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param pulumi.Input[_builtins.str] version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+        if version_stage is not None:
+            pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name or ARN of the secret. String length must be at least 1.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_stage", value)
 
 
 class ActionConnectionVirusTotalArgsDict(TypedDict):
@@ -12762,16 +16531,24 @@ class ActionConnectionVirusTotalApiKeyArgsDict(TypedDict):
     """
     VirusTotal API key. String length must be at least 1.
     """
+    api_key_aws_secrets_manager: NotRequired[pulumi.Input[Optional['ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerArgsDict']]]
+    """
+    AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+    """
 
 @pulumi.input_type
 class ActionConnectionVirusTotalApiKeyArgs:
     def __init__(__self__, *,
-                 api_key: pulumi.Input[Optional[_builtins.str]] = None):
+                 api_key: pulumi.Input[Optional[_builtins.str]] = None,
+                 api_key_aws_secrets_manager: pulumi.Input[Optional['ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerArgs']] = None):
         """
         :param pulumi.Input[_builtins.str] api_key: VirusTotal API key. String length must be at least 1.
+        :param pulumi.Input['ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerArgs'] api_key_aws_secrets_manager: AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
         """
         if api_key is not None:
             pulumi.set(__self__, "api_key", api_key)
+        if api_key_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_key_aws_secrets_manager", api_key_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiKey")
@@ -12785,6 +16562,106 @@ class ActionConnectionVirusTotalApiKeyArgs:
     def api_key(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "api_key", value)
 
+    @_builtins.property
+    @pulumi.getter(name="apiKeyAwsSecretsManager")
+    def api_key_aws_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager reference for this field. To use it, set `external_secrets_manager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "api_key_aws_secrets_manager")
+
+    @api_key_aws_secrets_manager.setter
+    def api_key_aws_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerArgs']]):
+        pulumi.set(self, "api_key_aws_secrets_manager", value)
+
+
+class ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerArgsDict(TypedDict):
+    secret_id: pulumi.Input[_builtins.str]
+    """
+    Name or ARN of the secret. String length must be at least 1.
+    """
+    key: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    version_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class ActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 secret_id: pulumi.Input[_builtins.str],
+                 key: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 version_stage: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] secret_id: Name or ARN of the secret. String length must be at least 1.
+        :param pulumi.Input[_builtins.str] key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param pulumi.Input[_builtins.str] version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param pulumi.Input[_builtins.str] version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "secret_id", secret_id)
+        if key is not None:
+            pulumi.set(__self__, "key", key)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+        if version_stage is not None:
+            pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name or ARN of the secret. String length must be at least 1.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "version_stage", value)
+
 
 class ActionExecutionPolicyActionPatternArgsDict(TypedDict):
     action_fqns: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
@@ -12793,7 +16670,7 @@ class ActionExecutionPolicyActionPatternArgsDict(TypedDict):
     """
     integration: pulumi.Input[_builtins.str]
     """
-    The integration the actions belong to. Valid values are `INTEGRATION_KUBERNETES`, `INTEGRATION_SCRIPT`, `INTEGRATION_REMOTE_ACTION`.
+    The integration the actions belong to. Valid values are `INTEGRATION_KUBERNETES`, `INTEGRATION_SCRIPT`, `INTEGRATION_REMOTE_ACTION`, `INTEGRATION_SLACK`.
     """
 
 @pulumi.input_type
@@ -12803,7 +16680,7 @@ class ActionExecutionPolicyActionPatternArgs:
                  integration: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] action_fqns: The fully qualified action names this policy matches. Use `*` to match all actions of the integration, or a fully qualified name prefixed with the integration's action namespace (for example `com.datadoghq.script.*` for the Script integration).
-        :param pulumi.Input[_builtins.str] integration: The integration the actions belong to. Valid values are `INTEGRATION_KUBERNETES`, `INTEGRATION_SCRIPT`, `INTEGRATION_REMOTE_ACTION`.
+        :param pulumi.Input[_builtins.str] integration: The integration the actions belong to. Valid values are `INTEGRATION_KUBERNETES`, `INTEGRATION_SCRIPT`, `INTEGRATION_REMOTE_ACTION`, `INTEGRATION_SLACK`.
         """
         pulumi.set(__self__, "action_fqns", action_fqns)
         pulumi.set(__self__, "integration", integration)
@@ -12824,7 +16701,7 @@ class ActionExecutionPolicyActionPatternArgs:
     @pulumi.getter
     def integration(self) -> pulumi.Input[_builtins.str]:
         """
-        The integration the actions belong to. Valid values are `INTEGRATION_KUBERNETES`, `INTEGRATION_SCRIPT`, `INTEGRATION_REMOTE_ACTION`.
+        The integration the actions belong to. Valid values are `INTEGRATION_KUBERNETES`, `INTEGRATION_SCRIPT`, `INTEGRATION_REMOTE_ACTION`, `INTEGRATION_SLACK`.
         """
         return pulumi.get(self, "integration")
 
@@ -12846,17 +16723,23 @@ class ActionExecutionPolicyScopeArgsDict(TypedDict):
     """
     Restricts the policy to specific scripts. Requires `action_pattern.integration` to be `INTEGRATION_SCRIPT`.
     """
+    slack: NotRequired[pulumi.Input[Optional['ActionExecutionPolicyScopeSlackArgsDict']]]
+    """
+    Restricts the policy to specific Slack channel names. Requires `action_pattern.integration` to be `INTEGRATION_SLACK`.
+    """
 
 @pulumi.input_type
 class ActionExecutionPolicyScopeArgs:
     def __init__(__self__, *,
                  kubernetes: pulumi.Input[Optional['ActionExecutionPolicyScopeKubernetesArgs']] = None,
                  remote_action_rshell: pulumi.Input[Optional['ActionExecutionPolicyScopeRemoteActionRshellArgs']] = None,
-                 scripts: pulumi.Input[Optional['ActionExecutionPolicyScopeScriptsArgs']] = None):
+                 scripts: pulumi.Input[Optional['ActionExecutionPolicyScopeScriptsArgs']] = None,
+                 slack: pulumi.Input[Optional['ActionExecutionPolicyScopeSlackArgs']] = None):
         """
         :param pulumi.Input['ActionExecutionPolicyScopeKubernetesArgs'] kubernetes: Restricts the policy to specific Kubernetes namespaces. Requires `action_pattern.integration` to be `INTEGRATION_KUBERNETES`.
         :param pulumi.Input['ActionExecutionPolicyScopeRemoteActionRshellArgs'] remote_action_rshell: Restricts the policy to specific remote shell paths. Requires `action_pattern.integration` to be `INTEGRATION_REMOTE_ACTION`.
         :param pulumi.Input['ActionExecutionPolicyScopeScriptsArgs'] scripts: Restricts the policy to specific scripts. Requires `action_pattern.integration` to be `INTEGRATION_SCRIPT`.
+        :param pulumi.Input['ActionExecutionPolicyScopeSlackArgs'] slack: Restricts the policy to specific Slack channel names. Requires `action_pattern.integration` to be `INTEGRATION_SLACK`.
         """
         if kubernetes is not None:
             pulumi.set(__self__, "kubernetes", kubernetes)
@@ -12864,6 +16747,8 @@ class ActionExecutionPolicyScopeArgs:
             pulumi.set(__self__, "remote_action_rshell", remote_action_rshell)
         if scripts is not None:
             pulumi.set(__self__, "scripts", scripts)
+        if slack is not None:
+            pulumi.set(__self__, "slack", slack)
 
     @_builtins.property
     @pulumi.getter
@@ -12900,6 +16785,18 @@ class ActionExecutionPolicyScopeArgs:
     @scripts.setter
     def scripts(self, value: pulumi.Input[Optional['ActionExecutionPolicyScopeScriptsArgs']]):
         pulumi.set(self, "scripts", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def slack(self) -> pulumi.Input[Optional['ActionExecutionPolicyScopeSlackArgs']]:
+        """
+        Restricts the policy to specific Slack channel names. Requires `action_pattern.integration` to be `INTEGRATION_SLACK`.
+        """
+        return pulumi.get(self, "slack")
+
+    @slack.setter
+    def slack(self, value: pulumi.Input[Optional['ActionExecutionPolicyScopeSlackArgs']]):
+        pulumi.set(self, "slack", value)
 
 
 class ActionExecutionPolicyScopeKubernetesArgsDict(TypedDict):
@@ -13092,10 +16989,67 @@ class ActionExecutionPolicyScopeScriptsRuleArgs:
         pulumi.set(self, "target_script_names", value)
 
 
+class ActionExecutionPolicyScopeSlackArgsDict(TypedDict):
+    rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ActionExecutionPolicyScopeSlackRuleArgsDict']]]]]
+    """
+    A rule restricting the Slack scope to specific channel names.
+    """
+
+@pulumi.input_type
+class ActionExecutionPolicyScopeSlackArgs:
+    def __init__(__self__, *,
+                 rules: pulumi.Input[Optional[Sequence[pulumi.Input['ActionExecutionPolicyScopeSlackRuleArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ActionExecutionPolicyScopeSlackRuleArgs']]] rules: A rule restricting the Slack scope to specific channel names.
+        """
+        if rules is not None:
+            pulumi.set(__self__, "rules", rules)
+
+    @_builtins.property
+    @pulumi.getter
+    def rules(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ActionExecutionPolicyScopeSlackRuleArgs']]]]:
+        """
+        A rule restricting the Slack scope to specific channel names.
+        """
+        return pulumi.get(self, "rules")
+
+    @rules.setter
+    def rules(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ActionExecutionPolicyScopeSlackRuleArgs']]]]):
+        pulumi.set(self, "rules", value)
+
+
+class ActionExecutionPolicyScopeSlackRuleArgsDict(TypedDict):
+    channel_name_selectors: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
+    """
+    The channel name selectors this rule applies to, for example `incident-*`. Use `*` to match any channel name.
+    """
+
+@pulumi.input_type
+class ActionExecutionPolicyScopeSlackRuleArgs:
+    def __init__(__self__, *,
+                 channel_name_selectors: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] channel_name_selectors: The channel name selectors this rule applies to, for example `incident-*`. Use `*` to match any channel name.
+        """
+        pulumi.set(__self__, "channel_name_selectors", channel_name_selectors)
+
+    @_builtins.property
+    @pulumi.getter(name="channelNameSelectors")
+    def channel_name_selectors(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
+        """
+        The channel name selectors this rule applies to, for example `incident-*`. Use `*` to match any channel name.
+        """
+        return pulumi.get(self, "channel_name_selectors")
+
+    @channel_name_selectors.setter
+    def channel_name_selectors(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+        pulumi.set(self, "channel_name_selectors", value)
+
+
 class ActionExecutionPolicyTargetArgsDict(TypedDict):
     agent_tags: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]
     """
-    The Agent tags identifying the target, for example `env:prod`.
+    The tags identifying the target, for example `env:prod` for Agents or `slack_workspace_id:T0123456789` for a Slack workspace.
     """
     name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -13108,7 +17062,7 @@ class ActionExecutionPolicyTargetArgs:
                  agent_tags: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
                  name: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_tags: The Agent tags identifying the target, for example `env:prod`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] agent_tags: The tags identifying the target, for example `env:prod` for Agents or `slack_workspace_id:T0123456789` for a Slack workspace.
         :param pulumi.Input[_builtins.str] name: A human-readable name for the target.
         """
         pulumi.set(__self__, "agent_tags", agent_tags)
@@ -13119,7 +17073,7 @@ class ActionExecutionPolicyTargetArgs:
     @pulumi.getter(name="agentTags")
     def agent_tags(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        The Agent tags identifying the target, for example `env:prod`.
+        The tags identifying the target, for example `env:prod` for Agents or `slack_workspace_id:T0123456789` for a Slack workspace.
         """
         return pulumi.get(self, "agent_tags")
 
@@ -276815,6 +280769,34 @@ class MonitorNotificationRuleFilterArgs:
         pulumi.set(self, "tags", value)
 
 
+class MonitorNotificationRuleRuleOptionsArgsDict(TypedDict):
+    is_threaded: pulumi.Input[_builtins.bool]
+    """
+    Whether notifications from this rule are threaded. When `true`, follow-up notifications for the same monitor alert are posted in Slack as replies to the first notification. Cannot be `true` when `bundle_config` is set.
+    """
+
+@pulumi.input_type
+class MonitorNotificationRuleRuleOptionsArgs:
+    def __init__(__self__, *,
+                 is_threaded: pulumi.Input[_builtins.bool]):
+        """
+        :param pulumi.Input[_builtins.bool] is_threaded: Whether notifications from this rule are threaded. When `true`, follow-up notifications for the same monitor alert are posted in Slack as replies to the first notification. Cannot be `true` when `bundle_config` is set.
+        """
+        pulumi.set(__self__, "is_threaded", is_threaded)
+
+    @_builtins.property
+    @pulumi.getter(name="isThreaded")
+    def is_threaded(self) -> pulumi.Input[_builtins.bool]:
+        """
+        Whether notifications from this rule are threaded. When `true`, follow-up notifications for the same monitor alert are posted in Slack as replies to the first notification. Cannot be `true` when `bundle_config` is set.
+        """
+        return pulumi.get(self, "is_threaded")
+
+    @is_threaded.setter
+    def is_threaded(self, value: pulumi.Input[_builtins.bool]):
+        pulumi.set(self, "is_threaded", value)
+
+
 class MonitorSchedulingOptionsArgsDict(TypedDict):
     custom_schedule: NotRequired[pulumi.Input[Optional['MonitorSchedulingOptionsCustomScheduleArgsDict']]]
     """
@@ -287745,12 +291727,199 @@ class ObservabilityPipelineConfigDestinationDatadogLogRouteBufferMemoryArgs:
 
 
 class ObservabilityPipelineConfigDestinationDatadogMetricArgsDict(TypedDict):
-    pass
+    buffer: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigDestinationDatadogMetricBufferArgsDict']]]
+    """
+    Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+    """
 
 @pulumi.input_type
 class ObservabilityPipelineConfigDestinationDatadogMetricArgs:
-    def __init__(__self__):
-        pass
+    def __init__(__self__, *,
+                 buffer: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationDatadogMetricBufferArgs']] = None):
+        """
+        :param pulumi.Input['ObservabilityPipelineConfigDestinationDatadogMetricBufferArgs'] buffer: Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+        """
+        if buffer is not None:
+            pulumi.set(__self__, "buffer", buffer)
+
+    @_builtins.property
+    @pulumi.getter
+    def buffer(self) -> pulumi.Input[Optional['ObservabilityPipelineConfigDestinationDatadogMetricBufferArgs']]:
+        """
+        Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+        """
+        return pulumi.get(self, "buffer")
+
+    @buffer.setter
+    def buffer(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationDatadogMetricBufferArgs']]):
+        pulumi.set(self, "buffer", value)
+
+
+class ObservabilityPipelineConfigDestinationDatadogMetricBufferArgsDict(TypedDict):
+    disk: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigDestinationDatadogMetricBufferDiskArgsDict']]]
+    """
+    Options for configuring a disk buffer. Cannot be used with `memory`.
+    """
+    memory: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigDestinationDatadogMetricBufferMemoryArgsDict']]]
+    """
+    Options for configuring a memory buffer. Cannot be used with `disk`.
+    """
+
+@pulumi.input_type
+class ObservabilityPipelineConfigDestinationDatadogMetricBufferArgs:
+    def __init__(__self__, *,
+                 disk: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationDatadogMetricBufferDiskArgs']] = None,
+                 memory: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationDatadogMetricBufferMemoryArgs']] = None):
+        """
+        :param pulumi.Input['ObservabilityPipelineConfigDestinationDatadogMetricBufferDiskArgs'] disk: Options for configuring a disk buffer. Cannot be used with `memory`.
+        :param pulumi.Input['ObservabilityPipelineConfigDestinationDatadogMetricBufferMemoryArgs'] memory: Options for configuring a memory buffer. Cannot be used with `disk`.
+        """
+        if disk is not None:
+            pulumi.set(__self__, "disk", disk)
+        if memory is not None:
+            pulumi.set(__self__, "memory", memory)
+
+    @_builtins.property
+    @pulumi.getter
+    def disk(self) -> pulumi.Input[Optional['ObservabilityPipelineConfigDestinationDatadogMetricBufferDiskArgs']]:
+        """
+        Options for configuring a disk buffer. Cannot be used with `memory`.
+        """
+        return pulumi.get(self, "disk")
+
+    @disk.setter
+    def disk(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationDatadogMetricBufferDiskArgs']]):
+        pulumi.set(self, "disk", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def memory(self) -> pulumi.Input[Optional['ObservabilityPipelineConfigDestinationDatadogMetricBufferMemoryArgs']]:
+        """
+        Options for configuring a memory buffer. Cannot be used with `disk`.
+        """
+        return pulumi.get(self, "memory")
+
+    @memory.setter
+    def memory(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationDatadogMetricBufferMemoryArgs']]):
+        pulumi.set(self, "memory", value)
+
+
+class ObservabilityPipelineConfigDestinationDatadogMetricBufferDiskArgsDict(TypedDict):
+    max_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Maximum size of the disk buffer (in bytes).
+    """
+    when_full: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Behavior when the buffer is full. Valid values are `block` or `drop_newest`. Defaults to `"block"`.
+    """
+
+@pulumi.input_type
+class ObservabilityPipelineConfigDestinationDatadogMetricBufferDiskArgs:
+    def __init__(__self__, *,
+                 max_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 when_full: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.int] max_size: Maximum size of the disk buffer (in bytes).
+        :param pulumi.Input[_builtins.str] when_full: Behavior when the buffer is full. Valid values are `block` or `drop_newest`. Defaults to `"block"`.
+        """
+        if max_size is not None:
+            pulumi.set(__self__, "max_size", max_size)
+        if when_full is not None:
+            pulumi.set(__self__, "when_full", when_full)
+
+    @_builtins.property
+    @pulumi.getter(name="maxSize")
+    def max_size(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Maximum size of the disk buffer (in bytes).
+        """
+        return pulumi.get(self, "max_size")
+
+    @max_size.setter
+    def max_size(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="whenFull")
+    def when_full(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Behavior when the buffer is full. Valid values are `block` or `drop_newest`. Defaults to `"block"`.
+        """
+        return pulumi.get(self, "when_full")
+
+    @when_full.setter
+    def when_full(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "when_full", value)
+
+
+class ObservabilityPipelineConfigDestinationDatadogMetricBufferMemoryArgsDict(TypedDict):
+    max_events: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Maximum events for the memory buffer.
+    """
+    max_size: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Maximum size of the memory buffer (in bytes).
+    """
+    when_full: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Behavior when the buffer is full. Valid values are `block` or `drop_newest`. Defaults to `"block"`.
+    """
+
+@pulumi.input_type
+class ObservabilityPipelineConfigDestinationDatadogMetricBufferMemoryArgs:
+    def __init__(__self__, *,
+                 max_events: pulumi.Input[Optional[_builtins.int]] = None,
+                 max_size: pulumi.Input[Optional[_builtins.int]] = None,
+                 when_full: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.int] max_events: Maximum events for the memory buffer.
+        :param pulumi.Input[_builtins.int] max_size: Maximum size of the memory buffer (in bytes).
+        :param pulumi.Input[_builtins.str] when_full: Behavior when the buffer is full. Valid values are `block` or `drop_newest`. Defaults to `"block"`.
+        """
+        if max_events is not None:
+            pulumi.set(__self__, "max_events", max_events)
+        if max_size is not None:
+            pulumi.set(__self__, "max_size", max_size)
+        if when_full is not None:
+            pulumi.set(__self__, "when_full", when_full)
+
+    @_builtins.property
+    @pulumi.getter(name="maxEvents")
+    def max_events(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Maximum events for the memory buffer.
+        """
+        return pulumi.get(self, "max_events")
+
+    @max_events.setter
+    def max_events(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_events", value)
+
+    @_builtins.property
+    @pulumi.getter(name="maxSize")
+    def max_size(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Maximum size of the memory buffer (in bytes).
+        """
+        return pulumi.get(self, "max_size")
+
+    @max_size.setter
+    def max_size(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "max_size", value)
+
+    @_builtins.property
+    @pulumi.getter(name="whenFull")
+    def when_full(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Behavior when the buffer is full. Valid values are `block` or `drop_newest`. Defaults to `"block"`.
+        """
+        return pulumi.get(self, "when_full")
+
+    @when_full.setter
+    def when_full(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "when_full", value)
 
 
 class ObservabilityPipelineConfigDestinationDatadogTracesArgsDict(TypedDict):
@@ -295643,6 +299812,10 @@ class ObservabilityPipelineConfigProcessorGroupProcessorArgsDict(TypedDict):
     """
     The `sensitive_data_scanner` processor detects and optionally redacts sensitive data in log events.
     """
+    spike_protection: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionArgsDict']]]
+    """
+    The `spike_protection` processor learns the normal log volume and detects spikes, optionally dropping or rerouting the excess events.
+    """
     split_array: NotRequired[pulumi.Input[Optional['ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArgsDict']]]
     """
     The `split_array` processor splits array fields into separate events based on configured rules.
@@ -295688,6 +299861,7 @@ class ObservabilityPipelineConfigProcessorGroupProcessorArgs:
                  rename_metric_tags: pulumi.Input[Optional['ObservabilityPipelineConfigProcessorGroupProcessorRenameMetricTagsArgs']] = None,
                  sample: pulumi.Input[Optional['ObservabilityPipelineConfigProcessorGroupProcessorSampleArgs']] = None,
                  sensitive_data_scanner: pulumi.Input[Optional['ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerArgs']] = None,
+                 spike_protection: pulumi.Input[Optional['ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionArgs']] = None,
                  split_array: pulumi.Input[Optional['ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArgs']] = None,
                  tag_cardinality_limit: pulumi.Input[Optional['ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitArgs']] = None,
                  throttle: pulumi.Input[Optional['ObservabilityPipelineConfigProcessorGroupProcessorThrottleArgs']] = None):
@@ -295720,6 +299894,7 @@ class ObservabilityPipelineConfigProcessorGroupProcessorArgs:
         :param pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorRenameMetricTagsArgs'] rename_metric_tags: The `rename_metric_tags` processor changes the keys of tags on metrics.
         :param pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorSampleArgs'] sample: The `sample` processor allows probabilistic sampling of logs at a fixed rate.
         :param pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerArgs'] sensitive_data_scanner: The `sensitive_data_scanner` processor detects and optionally redacts sensitive data in log events.
+        :param pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionArgs'] spike_protection: The `spike_protection` processor learns the normal log volume and detects spikes, optionally dropping or rerouting the excess events.
         :param pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArgs'] split_array: The `split_array` processor splits array fields into separate events based on configured rules.
         :param pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitArgs'] tag_cardinality_limit: The `tag_cardinality_limit` processor caps the number of distinct tag value combinations on metrics, dropping tags or events once the limit is exceeded.
         :param pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorThrottleArgs'] throttle: The `throttle` processor limits the number of events that pass through over a given time window.
@@ -295782,6 +299957,8 @@ class ObservabilityPipelineConfigProcessorGroupProcessorArgs:
             pulumi.set(__self__, "sample", sample)
         if sensitive_data_scanner is not None:
             pulumi.set(__self__, "sensitive_data_scanner", sensitive_data_scanner)
+        if spike_protection is not None:
+            pulumi.set(__self__, "spike_protection", spike_protection)
         if split_array is not None:
             pulumi.set(__self__, "split_array", split_array)
         if tag_cardinality_limit is not None:
@@ -296134,6 +300311,18 @@ class ObservabilityPipelineConfigProcessorGroupProcessorArgs:
     @sensitive_data_scanner.setter
     def sensitive_data_scanner(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerArgs']]):
         pulumi.set(self, "sensitive_data_scanner", value)
+
+    @_builtins.property
+    @pulumi.getter(name="spikeProtection")
+    def spike_protection(self) -> pulumi.Input[Optional['ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionArgs']]:
+        """
+        The `spike_protection` processor learns the normal log volume and detects spikes, optionally dropping or rerouting the excess events.
+        """
+        return pulumi.get(self, "spike_protection")
+
+    @spike_protection.setter
+    def spike_protection(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionArgs']]):
+        pulumi.set(self, "spike_protection", value)
 
     @_builtins.property
     @pulumi.getter(name="splitArray")
@@ -300731,6 +304920,295 @@ class ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerRule
     @fields.setter
     def fields(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "fields", value)
+
+
+class ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    Name of the spike protection rule.
+    """
+    spike_action: pulumi.Input[_builtins.str]
+    """
+    The action to take when a spike is detected. One of `drop`, `no_action`, `overflow_routing`. When `overflow_routing` is used, there must be a destination whose `inputs` reference this processor with the `<processor-id>.overflow_events` suffix to route the overflowing events. Valid values are `drop`, `no_action`, `overflow_routing`.
+    """
+    action_when_missing_partitions: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    The action to take when an event is missing one of the `partition_fields`. One of `ignore`, `default_bucket`. Valid values are `ignore`, `default_bucket`. Defaults to `"ignore"`.
+    """
+    minimal_threshold: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The minimum volume, in bytes, that must be observed within 24 hours before spike protection can activate. Defaults to 100 GiB.
+    """
+    minimal_threshold_overrides: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverrideArgsDict']]]]]
+    """
+    A list of per-partition overrides for the minimal threshold, identified by matching field values. Requires `partition_fields` to be set.
+    """
+    partition_fields: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    A list of fields used to segment log traffic. Volume is learned and evaluated independently for each unique combination of these field values. A maximum of five fields is supported.
+    """
+    spike_threshold: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    The number of standard deviations above the learned mean volume that must be exceeded before a spike is detected. Defaults to `5`.
+    """
+
+@pulumi.input_type
+class ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 spike_action: pulumi.Input[_builtins.str],
+                 action_when_missing_partitions: pulumi.Input[Optional[_builtins.str]] = None,
+                 minimal_threshold: pulumi.Input[Optional[_builtins.int]] = None,
+                 minimal_threshold_overrides: pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverrideArgs']]]] = None,
+                 partition_fields: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 spike_threshold: pulumi.Input[Optional[_builtins.float]] = None):
+        """
+        :param pulumi.Input[_builtins.str] name: Name of the spike protection rule.
+        :param pulumi.Input[_builtins.str] spike_action: The action to take when a spike is detected. One of `drop`, `no_action`, `overflow_routing`. When `overflow_routing` is used, there must be a destination whose `inputs` reference this processor with the `<processor-id>.overflow_events` suffix to route the overflowing events. Valid values are `drop`, `no_action`, `overflow_routing`.
+        :param pulumi.Input[_builtins.str] action_when_missing_partitions: The action to take when an event is missing one of the `partition_fields`. One of `ignore`, `default_bucket`. Valid values are `ignore`, `default_bucket`. Defaults to `"ignore"`.
+        :param pulumi.Input[_builtins.int] minimal_threshold: The minimum volume, in bytes, that must be observed within 24 hours before spike protection can activate. Defaults to 100 GiB.
+        :param pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverrideArgs']]] minimal_threshold_overrides: A list of per-partition overrides for the minimal threshold, identified by matching field values. Requires `partition_fields` to be set.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] partition_fields: A list of fields used to segment log traffic. Volume is learned and evaluated independently for each unique combination of these field values. A maximum of five fields is supported.
+        :param pulumi.Input[_builtins.float] spike_threshold: The number of standard deviations above the learned mean volume that must be exceeded before a spike is detected. Defaults to `5`.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "spike_action", spike_action)
+        if action_when_missing_partitions is not None:
+            pulumi.set(__self__, "action_when_missing_partitions", action_when_missing_partitions)
+        if minimal_threshold is not None:
+            pulumi.set(__self__, "minimal_threshold", minimal_threshold)
+        if minimal_threshold_overrides is not None:
+            pulumi.set(__self__, "minimal_threshold_overrides", minimal_threshold_overrides)
+        if partition_fields is not None:
+            pulumi.set(__self__, "partition_fields", partition_fields)
+        if spike_threshold is not None:
+            pulumi.set(__self__, "spike_threshold", spike_threshold)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        Name of the spike protection rule.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter(name="spikeAction")
+    def spike_action(self) -> pulumi.Input[_builtins.str]:
+        """
+        The action to take when a spike is detected. One of `drop`, `no_action`, `overflow_routing`. When `overflow_routing` is used, there must be a destination whose `inputs` reference this processor with the `<processor-id>.overflow_events` suffix to route the overflowing events. Valid values are `drop`, `no_action`, `overflow_routing`.
+        """
+        return pulumi.get(self, "spike_action")
+
+    @spike_action.setter
+    def spike_action(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "spike_action", value)
+
+    @_builtins.property
+    @pulumi.getter(name="actionWhenMissingPartitions")
+    def action_when_missing_partitions(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The action to take when an event is missing one of the `partition_fields`. One of `ignore`, `default_bucket`. Valid values are `ignore`, `default_bucket`. Defaults to `"ignore"`.
+        """
+        return pulumi.get(self, "action_when_missing_partitions")
+
+    @action_when_missing_partitions.setter
+    def action_when_missing_partitions(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "action_when_missing_partitions", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minimalThreshold")
+    def minimal_threshold(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The minimum volume, in bytes, that must be observed within 24 hours before spike protection can activate. Defaults to 100 GiB.
+        """
+        return pulumi.get(self, "minimal_threshold")
+
+    @minimal_threshold.setter
+    def minimal_threshold(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "minimal_threshold", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minimalThresholdOverrides")
+    def minimal_threshold_overrides(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverrideArgs']]]]:
+        """
+        A list of per-partition overrides for the minimal threshold, identified by matching field values. Requires `partition_fields` to be set.
+        """
+        return pulumi.get(self, "minimal_threshold_overrides")
+
+    @minimal_threshold_overrides.setter
+    def minimal_threshold_overrides(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverrideArgs']]]]):
+        pulumi.set(self, "minimal_threshold_overrides", value)
+
+    @_builtins.property
+    @pulumi.getter(name="partitionFields")
+    def partition_fields(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        A list of fields used to segment log traffic. Volume is learned and evaluated independently for each unique combination of these field values. A maximum of five fields is supported.
+        """
+        return pulumi.get(self, "partition_fields")
+
+    @partition_fields.setter
+    def partition_fields(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "partition_fields", value)
+
+    @_builtins.property
+    @pulumi.getter(name="spikeThreshold")
+    def spike_threshold(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        The number of standard deviations above the learned mean volume that must be exceeded before a spike is detected. Defaults to `5`.
+        """
+        return pulumi.get(self, "spike_threshold")
+
+    @spike_threshold.setter
+    def spike_threshold(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "spike_threshold", value)
+
+
+class ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverrideArgsDict(TypedDict):
+    fields: pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverrideFieldArgsDict']]]
+    """
+    The set of field matchers that identifies the partition this override applies to. Every field name listed must also appear in `partition_fields`.
+    """
+    minimal_threshold: pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverrideMinimalThresholdArgsDict']
+    """
+    The minimal threshold to apply to the matching partition.
+    """
+
+@pulumi.input_type
+class ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverrideArgs:
+    def __init__(__self__, *,
+                 fields: pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverrideFieldArgs']]],
+                 minimal_threshold: pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverrideMinimalThresholdArgs']):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverrideFieldArgs']]] fields: The set of field matchers that identifies the partition this override applies to. Every field name listed must also appear in `partition_fields`.
+        :param pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverrideMinimalThresholdArgs'] minimal_threshold: The minimal threshold to apply to the matching partition.
+        """
+        pulumi.set(__self__, "fields", fields)
+        pulumi.set(__self__, "minimal_threshold", minimal_threshold)
+
+    @_builtins.property
+    @pulumi.getter
+    def fields(self) -> pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverrideFieldArgs']]]:
+        """
+        The set of field matchers that identifies the partition this override applies to. Every field name listed must also appear in `partition_fields`.
+        """
+        return pulumi.get(self, "fields")
+
+    @fields.setter
+    def fields(self, value: pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverrideFieldArgs']]]):
+        pulumi.set(self, "fields", value)
+
+    @_builtins.property
+    @pulumi.getter(name="minimalThreshold")
+    def minimal_threshold(self) -> pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverrideMinimalThresholdArgs']:
+        """
+        The minimal threshold to apply to the matching partition.
+        """
+        return pulumi.get(self, "minimal_threshold")
+
+    @minimal_threshold.setter
+    def minimal_threshold(self, value: pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverrideMinimalThresholdArgs']):
+        pulumi.set(self, "minimal_threshold", value)
+
+
+class ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverrideFieldArgsDict(TypedDict):
+    name: pulumi.Input[_builtins.str]
+    """
+    The field name.
+    """
+    value: pulumi.Input[_builtins.str]
+    """
+    The field value.
+    """
+
+@pulumi.input_type
+class ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverrideFieldArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] name: The field name.
+        :param pulumi.Input[_builtins.str] value: The field value.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The field name.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.str]:
+        """
+        The field value.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "value", value)
+
+
+class ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverrideMinimalThresholdArgsDict(TypedDict):
+    type: pulumi.Input[_builtins.str]
+    """
+    The minimal threshold type. One of `threshold`, `always_keep`. `always_keep` exempts the matching partition from spike protection. Valid values are `threshold`, `always_keep`.
+    """
+    bytes: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    The minimum volume, in bytes, that must be observed within 24 hours before spike protection can activate for the matching partition. Used only when `type` is `threshold`.
+    """
+
+@pulumi.input_type
+class ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionMinimalThresholdOverrideMinimalThresholdArgs:
+    def __init__(__self__, *,
+                 type: pulumi.Input[_builtins.str],
+                 bytes: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.str] type: The minimal threshold type. One of `threshold`, `always_keep`. `always_keep` exempts the matching partition from spike protection. Valid values are `threshold`, `always_keep`.
+        :param pulumi.Input[_builtins.int] bytes: The minimum volume, in bytes, that must be observed within 24 hours before spike protection can activate for the matching partition. Used only when `type` is `threshold`.
+        """
+        pulumi.set(__self__, "type", type)
+        if bytes is not None:
+            pulumi.set(__self__, "bytes", bytes)
+
+    @_builtins.property
+    @pulumi.getter
+    def type(self) -> pulumi.Input[_builtins.str]:
+        """
+        The minimal threshold type. One of `threshold`, `always_keep`. `always_keep` exempts the matching partition from spike protection. Valid values are `threshold`, `always_keep`.
+        """
+        return pulumi.get(self, "type")
+
+    @type.setter
+    def type(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def bytes(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        The minimum volume, in bytes, that must be observed within 24 hours before spike protection can activate for the matching partition. Used only when `type` is `threshold`.
+        """
+        return pulumi.get(self, "bytes")
+
+    @bytes.setter
+    def bytes(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "bytes", value)
 
 
 class ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArgsDict(TypedDict):
@@ -463857,11 +468335,11 @@ class TagPipelineRulesetRuleReferenceTableFieldPairArgs:
 class TeamConnectionConnectedTeamArgsDict(TypedDict):
     id: pulumi.Input[_builtins.str]
     """
-    The ID of the external connected team.
+    The ID of the external connected team. For GitHub teams, this is `@<organization>/<team-slug>`. For ServiceNow groups, this is `<instance_name>/<sys_id>`.
     """
     type: pulumi.Input[_builtins.str]
     """
-    The resource type of the external connected team. Valid values are `github_team`.
+    The resource type of the external connected team. Valid values are `github_team`, `servicenow_team`.
     """
 
 @pulumi.input_type
@@ -463870,8 +468348,8 @@ class TeamConnectionConnectedTeamArgs:
                  id: pulumi.Input[_builtins.str],
                  type: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] id: The ID of the external connected team.
-        :param pulumi.Input[_builtins.str] type: The resource type of the external connected team. Valid values are `github_team`.
+        :param pulumi.Input[_builtins.str] id: The ID of the external connected team. For GitHub teams, this is `@<organization>/<team-slug>`. For ServiceNow groups, this is `<instance_name>/<sys_id>`.
+        :param pulumi.Input[_builtins.str] type: The resource type of the external connected team. Valid values are `github_team`, `servicenow_team`.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "type", type)
@@ -463880,7 +468358,7 @@ class TeamConnectionConnectedTeamArgs:
     @pulumi.getter
     def id(self) -> pulumi.Input[_builtins.str]:
         """
-        The ID of the external connected team.
+        The ID of the external connected team. For GitHub teams, this is `@<organization>/<team-slug>`. For ServiceNow groups, this is `<instance_name>/<sys_id>`.
         """
         return pulumi.get(self, "id")
 
@@ -463892,7 +468370,7 @@ class TeamConnectionConnectedTeamArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        The resource type of the external connected team. Valid values are `github_team`.
+        The resource type of the external connected team. Valid values are `github_team`, `servicenow_team`.
         """
         return pulumi.get(self, "type")
 
@@ -464204,11 +468682,11 @@ class TeamSyncSelectionStateArgs:
 class TeamSyncSelectionStateExternalIdArgsDict(TypedDict):
     type: pulumi.Input[_builtins.str]
     """
-    The type of external identifier. Valid values are `team`, `organization`.
+    The type of external identifier. For GitHub, `team` refers to a GitHub team and `organization` refers to a GitHub organization. For ServiceNow, `team` refers to a ServiceNow group and `organization` refers to a ServiceNow instance. Valid values are `team`, `organization`.
     """
     value: pulumi.Input[_builtins.str]
     """
-    The external identifier value from the source platform (e.g. a GitHub organization ID or team ID).
+    The external identifier value from the source platform. For GitHub, this is the string representation of a GitHub organization ID or team ID. For ServiceNow, this is the instance name for `organization`, or `<instance_name>/<sys_id>` of the group for `team`.
     """
 
 @pulumi.input_type
@@ -464217,8 +468695,8 @@ class TeamSyncSelectionStateExternalIdArgs:
                  type: pulumi.Input[_builtins.str],
                  value: pulumi.Input[_builtins.str]):
         """
-        :param pulumi.Input[_builtins.str] type: The type of external identifier. Valid values are `team`, `organization`.
-        :param pulumi.Input[_builtins.str] value: The external identifier value from the source platform (e.g. a GitHub organization ID or team ID).
+        :param pulumi.Input[_builtins.str] type: The type of external identifier. For GitHub, `team` refers to a GitHub team and `organization` refers to a GitHub organization. For ServiceNow, `team` refers to a ServiceNow group and `organization` refers to a ServiceNow instance. Valid values are `team`, `organization`.
+        :param pulumi.Input[_builtins.str] value: The external identifier value from the source platform. For GitHub, this is the string representation of a GitHub organization ID or team ID. For ServiceNow, this is the instance name for `organization`, or `<instance_name>/<sys_id>` of the group for `team`.
         """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
@@ -464227,7 +468705,7 @@ class TeamSyncSelectionStateExternalIdArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of external identifier. Valid values are `team`, `organization`.
+        The type of external identifier. For GitHub, `team` refers to a GitHub team and `organization` refers to a GitHub organization. For ServiceNow, `team` refers to a ServiceNow group and `organization` refers to a ServiceNow instance. Valid values are `team`, `organization`.
         """
         return pulumi.get(self, "type")
 
@@ -464239,7 +468717,7 @@ class TeamSyncSelectionStateExternalIdArgs:
     @pulumi.getter
     def value(self) -> pulumi.Input[_builtins.str]:
         """
-        The external identifier value from the source platform (e.g. a GitHub organization ID or team ID).
+        The external identifier value from the source platform. For GitHub, this is the string representation of a GitHub organization ID or team ID. For ServiceNow, this is the instance name for `organization`, or `<instance_name>/<sys_id>` of the group for `team`.
         """
         return pulumi.get(self, "value")
 
@@ -464331,15 +468809,23 @@ class GetActionConnectionAnthropicApiKeyArgsDict(TypedDict):
     """
     Anthropic API token
     """
+    api_token_aws_secrets_manager: NotRequired['GetActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerArgsDict']
+    """
+    AWS Secrets Manager reference for this field.
+    """
 
 @pulumi.input_type
 class GetActionConnectionAnthropicApiKeyArgs:
     def __init__(__self__, *,
-                 api_token: _builtins.str):
+                 api_token: _builtins.str,
+                 api_token_aws_secrets_manager: Optional['GetActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerArgs'] = None):
         """
         :param _builtins.str api_token: Anthropic API token
+        :param 'GetActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerArgs' api_token_aws_secrets_manager: AWS Secrets Manager reference for this field.
         """
         pulumi.set(__self__, "api_token", api_token)
+        if api_token_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_token_aws_secrets_manager", api_token_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiToken")
@@ -464352,6 +468838,103 @@ class GetActionConnectionAnthropicApiKeyArgs:
     @api_token.setter
     def api_token(self, value: _builtins.str):
         pulumi.set(self, "api_token", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiTokenAwsSecretsManager")
+    def api_token_aws_secrets_manager(self) -> Optional['GetActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerArgs']:
+        """
+        AWS Secrets Manager reference for this field.
+        """
+        return pulumi.get(self, "api_token_aws_secrets_manager")
+
+    @api_token_aws_secrets_manager.setter
+    def api_token_aws_secrets_manager(self, value: Optional['GetActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerArgs']):
+        pulumi.set(self, "api_token_aws_secrets_manager", value)
+
+
+class GetActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    secret_id: _builtins.str
+    """
+    Name or ARN of the secret.
+    """
+    version_id: _builtins.str
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: _builtins.str
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class GetActionConnectionAnthropicApiKeyApiTokenAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret_id: _builtins.str,
+                 version_id: _builtins.str,
+                 version_stage: _builtins.str):
+        """
+        :param _builtins.str key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param _builtins.str secret_id: Name or ARN of the secret.
+        :param _builtins.str version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param _builtins.str version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "version_id", version_id)
+        pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: _builtins.str):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        Name or ARN of the secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: _builtins.str):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> _builtins.str:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: _builtins.str):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> _builtins.str:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: _builtins.str):
+        pulumi.set(self, "version_stage", value)
 
 
 class GetActionConnectionAsanaArgsDict(TypedDict):
@@ -464388,15 +468971,23 @@ class GetActionConnectionAsanaAccessTokenArgsDict(TypedDict):
     """
     Asana access token
     """
+    access_token_aws_secrets_manager: NotRequired['GetActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgsDict']
+    """
+    AWS Secrets Manager reference for this field.
+    """
 
 @pulumi.input_type
 class GetActionConnectionAsanaAccessTokenArgs:
     def __init__(__self__, *,
-                 access_token: _builtins.str):
+                 access_token: _builtins.str,
+                 access_token_aws_secrets_manager: Optional['GetActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs'] = None):
         """
         :param _builtins.str access_token: Asana access token
+        :param 'GetActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs' access_token_aws_secrets_manager: AWS Secrets Manager reference for this field.
         """
         pulumi.set(__self__, "access_token", access_token)
+        if access_token_aws_secrets_manager is not None:
+            pulumi.set(__self__, "access_token_aws_secrets_manager", access_token_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="accessToken")
@@ -464409,6 +469000,103 @@ class GetActionConnectionAsanaAccessTokenArgs:
     @access_token.setter
     def access_token(self, value: _builtins.str):
         pulumi.set(self, "access_token", value)
+
+    @_builtins.property
+    @pulumi.getter(name="accessTokenAwsSecretsManager")
+    def access_token_aws_secrets_manager(self) -> Optional['GetActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs']:
+        """
+        AWS Secrets Manager reference for this field.
+        """
+        return pulumi.get(self, "access_token_aws_secrets_manager")
+
+    @access_token_aws_secrets_manager.setter
+    def access_token_aws_secrets_manager(self, value: Optional['GetActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs']):
+        pulumi.set(self, "access_token_aws_secrets_manager", value)
+
+
+class GetActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    secret_id: _builtins.str
+    """
+    Name or ARN of the secret.
+    """
+    version_id: _builtins.str
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: _builtins.str
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class GetActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret_id: _builtins.str,
+                 version_id: _builtins.str,
+                 version_stage: _builtins.str):
+        """
+        :param _builtins.str key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param _builtins.str secret_id: Name or ARN of the secret.
+        :param _builtins.str version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param _builtins.str version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "version_id", version_id)
+        pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: _builtins.str):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        Name or ARN of the secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: _builtins.str):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> _builtins.str:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: _builtins.str):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> _builtins.str:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: _builtins.str):
+        pulumi.set(self, "version_stage", value)
 
 
 class GetActionConnectionAwsArgsDict(TypedDict):
@@ -464673,15 +469361,23 @@ class GetActionConnectionCircleCiApiKeyArgsDict(TypedDict):
     """
     CircleCI API token
     """
+    api_token_aws_secrets_manager: NotRequired['GetActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerArgsDict']
+    """
+    AWS Secrets Manager reference for this field.
+    """
 
 @pulumi.input_type
 class GetActionConnectionCircleCiApiKeyArgs:
     def __init__(__self__, *,
-                 api_token: _builtins.str):
+                 api_token: _builtins.str,
+                 api_token_aws_secrets_manager: Optional['GetActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerArgs'] = None):
         """
         :param _builtins.str api_token: CircleCI API token
+        :param 'GetActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerArgs' api_token_aws_secrets_manager: AWS Secrets Manager reference for this field.
         """
         pulumi.set(__self__, "api_token", api_token)
+        if api_token_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_token_aws_secrets_manager", api_token_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiToken")
@@ -464694,6 +469390,103 @@ class GetActionConnectionCircleCiApiKeyArgs:
     @api_token.setter
     def api_token(self, value: _builtins.str):
         pulumi.set(self, "api_token", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiTokenAwsSecretsManager")
+    def api_token_aws_secrets_manager(self) -> Optional['GetActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerArgs']:
+        """
+        AWS Secrets Manager reference for this field.
+        """
+        return pulumi.get(self, "api_token_aws_secrets_manager")
+
+    @api_token_aws_secrets_manager.setter
+    def api_token_aws_secrets_manager(self, value: Optional['GetActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerArgs']):
+        pulumi.set(self, "api_token_aws_secrets_manager", value)
+
+
+class GetActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    secret_id: _builtins.str
+    """
+    Name or ARN of the secret.
+    """
+    version_id: _builtins.str
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: _builtins.str
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class GetActionConnectionCircleCiApiKeyApiTokenAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret_id: _builtins.str,
+                 version_id: _builtins.str,
+                 version_stage: _builtins.str):
+        """
+        :param _builtins.str key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param _builtins.str secret_id: Name or ARN of the secret.
+        :param _builtins.str version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param _builtins.str version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "version_id", version_id)
+        pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: _builtins.str):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        Name or ARN of the secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: _builtins.str):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> _builtins.str:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: _builtins.str):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> _builtins.str:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: _builtins.str):
+        pulumi.set(self, "version_stage", value)
 
 
 class GetActionConnectionClickupArgsDict(TypedDict):
@@ -464730,15 +469523,23 @@ class GetActionConnectionClickupApiKeyArgsDict(TypedDict):
     """
     ClickUp API token
     """
+    api_token_aws_secrets_manager: NotRequired['GetActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgsDict']
+    """
+    AWS Secrets Manager reference for this field.
+    """
 
 @pulumi.input_type
 class GetActionConnectionClickupApiKeyArgs:
     def __init__(__self__, *,
-                 api_token: _builtins.str):
+                 api_token: _builtins.str,
+                 api_token_aws_secrets_manager: Optional['GetActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgs'] = None):
         """
         :param _builtins.str api_token: ClickUp API token
+        :param 'GetActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgs' api_token_aws_secrets_manager: AWS Secrets Manager reference for this field.
         """
         pulumi.set(__self__, "api_token", api_token)
+        if api_token_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_token_aws_secrets_manager", api_token_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiToken")
@@ -464751,6 +469552,103 @@ class GetActionConnectionClickupApiKeyArgs:
     @api_token.setter
     def api_token(self, value: _builtins.str):
         pulumi.set(self, "api_token", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiTokenAwsSecretsManager")
+    def api_token_aws_secrets_manager(self) -> Optional['GetActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgs']:
+        """
+        AWS Secrets Manager reference for this field.
+        """
+        return pulumi.get(self, "api_token_aws_secrets_manager")
+
+    @api_token_aws_secrets_manager.setter
+    def api_token_aws_secrets_manager(self, value: Optional['GetActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgs']):
+        pulumi.set(self, "api_token_aws_secrets_manager", value)
+
+
+class GetActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    secret_id: _builtins.str
+    """
+    Name or ARN of the secret.
+    """
+    version_id: _builtins.str
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: _builtins.str
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class GetActionConnectionClickupApiKeyApiTokenAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret_id: _builtins.str,
+                 version_id: _builtins.str,
+                 version_stage: _builtins.str):
+        """
+        :param _builtins.str key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param _builtins.str secret_id: Name or ARN of the secret.
+        :param _builtins.str version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param _builtins.str version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "version_id", version_id)
+        pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: _builtins.str):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        Name or ARN of the secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: _builtins.str):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> _builtins.str:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: _builtins.str):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> _builtins.str:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: _builtins.str):
+        pulumi.set(self, "version_stage", value)
 
 
 class GetActionConnectionCloudflareArgsDict(TypedDict):
@@ -464807,15 +469705,23 @@ class GetActionConnectionCloudflareApiTokenArgsDict(TypedDict):
     """
     Cloudflare API token
     """
+    api_token_aws_secrets_manager: NotRequired['GetActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerArgsDict']
+    """
+    AWS Secrets Manager reference for this field.
+    """
 
 @pulumi.input_type
 class GetActionConnectionCloudflareApiTokenArgs:
     def __init__(__self__, *,
-                 api_token: _builtins.str):
+                 api_token: _builtins.str,
+                 api_token_aws_secrets_manager: Optional['GetActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerArgs'] = None):
         """
         :param _builtins.str api_token: Cloudflare API token
+        :param 'GetActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerArgs' api_token_aws_secrets_manager: AWS Secrets Manager reference for this field.
         """
         pulumi.set(__self__, "api_token", api_token)
+        if api_token_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_token_aws_secrets_manager", api_token_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiToken")
@@ -464829,6 +469735,103 @@ class GetActionConnectionCloudflareApiTokenArgs:
     def api_token(self, value: _builtins.str):
         pulumi.set(self, "api_token", value)
 
+    @_builtins.property
+    @pulumi.getter(name="apiTokenAwsSecretsManager")
+    def api_token_aws_secrets_manager(self) -> Optional['GetActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerArgs']:
+        """
+        AWS Secrets Manager reference for this field.
+        """
+        return pulumi.get(self, "api_token_aws_secrets_manager")
+
+    @api_token_aws_secrets_manager.setter
+    def api_token_aws_secrets_manager(self, value: Optional['GetActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerArgs']):
+        pulumi.set(self, "api_token_aws_secrets_manager", value)
+
+
+class GetActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    secret_id: _builtins.str
+    """
+    Name or ARN of the secret.
+    """
+    version_id: _builtins.str
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: _builtins.str
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class GetActionConnectionCloudflareApiTokenApiTokenAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret_id: _builtins.str,
+                 version_id: _builtins.str,
+                 version_stage: _builtins.str):
+        """
+        :param _builtins.str key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param _builtins.str secret_id: Name or ARN of the secret.
+        :param _builtins.str version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param _builtins.str version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "version_id", version_id)
+        pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: _builtins.str):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        Name or ARN of the secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: _builtins.str):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> _builtins.str:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: _builtins.str):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> _builtins.str:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: _builtins.str):
+        pulumi.set(self, "version_stage", value)
+
 
 class GetActionConnectionCloudflareGlobalApiTokenArgsDict(TypedDict):
     auth_email: _builtins.str
@@ -464839,18 +469842,34 @@ class GetActionConnectionCloudflareGlobalApiTokenArgsDict(TypedDict):
     """
     Cloudflare global API key
     """
+    auth_email_aws_secrets_manager: NotRequired['GetActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgsDict']
+    """
+    AWS Secrets Manager reference for this field.
+    """
+    global_api_key_aws_secrets_manager: NotRequired['GetActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgsDict']
+    """
+    AWS Secrets Manager reference for this field.
+    """
 
 @pulumi.input_type
 class GetActionConnectionCloudflareGlobalApiTokenArgs:
     def __init__(__self__, *,
                  auth_email: _builtins.str,
-                 global_api_key: _builtins.str):
+                 global_api_key: _builtins.str,
+                 auth_email_aws_secrets_manager: Optional['GetActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgs'] = None,
+                 global_api_key_aws_secrets_manager: Optional['GetActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgs'] = None):
         """
         :param _builtins.str auth_email: Email address associated with the Cloudflare account
         :param _builtins.str global_api_key: Cloudflare global API key
+        :param 'GetActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgs' auth_email_aws_secrets_manager: AWS Secrets Manager reference for this field.
+        :param 'GetActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgs' global_api_key_aws_secrets_manager: AWS Secrets Manager reference for this field.
         """
         pulumi.set(__self__, "auth_email", auth_email)
         pulumi.set(__self__, "global_api_key", global_api_key)
+        if auth_email_aws_secrets_manager is not None:
+            pulumi.set(__self__, "auth_email_aws_secrets_manager", auth_email_aws_secrets_manager)
+        if global_api_key_aws_secrets_manager is not None:
+            pulumi.set(__self__, "global_api_key_aws_secrets_manager", global_api_key_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="authEmail")
@@ -464875,6 +469894,200 @@ class GetActionConnectionCloudflareGlobalApiTokenArgs:
     @global_api_key.setter
     def global_api_key(self, value: _builtins.str):
         pulumi.set(self, "global_api_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="authEmailAwsSecretsManager")
+    def auth_email_aws_secrets_manager(self) -> Optional['GetActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgs']:
+        """
+        AWS Secrets Manager reference for this field.
+        """
+        return pulumi.get(self, "auth_email_aws_secrets_manager")
+
+    @auth_email_aws_secrets_manager.setter
+    def auth_email_aws_secrets_manager(self, value: Optional['GetActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgs']):
+        pulumi.set(self, "auth_email_aws_secrets_manager", value)
+
+    @_builtins.property
+    @pulumi.getter(name="globalApiKeyAwsSecretsManager")
+    def global_api_key_aws_secrets_manager(self) -> Optional['GetActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgs']:
+        """
+        AWS Secrets Manager reference for this field.
+        """
+        return pulumi.get(self, "global_api_key_aws_secrets_manager")
+
+    @global_api_key_aws_secrets_manager.setter
+    def global_api_key_aws_secrets_manager(self, value: Optional['GetActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgs']):
+        pulumi.set(self, "global_api_key_aws_secrets_manager", value)
+
+
+class GetActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    secret_id: _builtins.str
+    """
+    Name or ARN of the secret.
+    """
+    version_id: _builtins.str
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: _builtins.str
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class GetActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret_id: _builtins.str,
+                 version_id: _builtins.str,
+                 version_stage: _builtins.str):
+        """
+        :param _builtins.str key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param _builtins.str secret_id: Name or ARN of the secret.
+        :param _builtins.str version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param _builtins.str version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "version_id", version_id)
+        pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: _builtins.str):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        Name or ARN of the secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: _builtins.str):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> _builtins.str:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: _builtins.str):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> _builtins.str:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: _builtins.str):
+        pulumi.set(self, "version_stage", value)
+
+
+class GetActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    secret_id: _builtins.str
+    """
+    Name or ARN of the secret.
+    """
+    version_id: _builtins.str
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: _builtins.str
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class GetActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret_id: _builtins.str,
+                 version_id: _builtins.str,
+                 version_stage: _builtins.str):
+        """
+        :param _builtins.str key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param _builtins.str secret_id: Name or ARN of the secret.
+        :param _builtins.str version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param _builtins.str version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "version_id", version_id)
+        pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: _builtins.str):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        Name or ARN of the secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: _builtins.str):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> _builtins.str:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: _builtins.str):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> _builtins.str:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: _builtins.str):
+        pulumi.set(self, "version_stage", value)
 
 
 class GetActionConnectionConfigCatArgsDict(TypedDict):
@@ -464919,21 +470132,45 @@ class GetActionConnectionConfigCatSdkKeyArgsDict(TypedDict):
     """
     ConfigCat SDK key
     """
+    api_password_aws_secrets_manager: NotRequired['GetActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgsDict']
+    """
+    AWS Secrets Manager reference for this field.
+    """
+    api_username_aws_secrets_manager: NotRequired['GetActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgsDict']
+    """
+    AWS Secrets Manager reference for this field.
+    """
+    sdk_key_aws_secrets_manager: NotRequired['GetActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgsDict']
+    """
+    AWS Secrets Manager reference for this field.
+    """
 
 @pulumi.input_type
 class GetActionConnectionConfigCatSdkKeyArgs:
     def __init__(__self__, *,
                  api_password: _builtins.str,
                  api_username: _builtins.str,
-                 sdk_key: _builtins.str):
+                 sdk_key: _builtins.str,
+                 api_password_aws_secrets_manager: Optional['GetActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgs'] = None,
+                 api_username_aws_secrets_manager: Optional['GetActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgs'] = None,
+                 sdk_key_aws_secrets_manager: Optional['GetActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgs'] = None):
         """
         :param _builtins.str api_password: ConfigCat Public Management API password
         :param _builtins.str api_username: ConfigCat Public Management API username
         :param _builtins.str sdk_key: ConfigCat SDK key
+        :param 'GetActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgs' api_password_aws_secrets_manager: AWS Secrets Manager reference for this field.
+        :param 'GetActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgs' api_username_aws_secrets_manager: AWS Secrets Manager reference for this field.
+        :param 'GetActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgs' sdk_key_aws_secrets_manager: AWS Secrets Manager reference for this field.
         """
         pulumi.set(__self__, "api_password", api_password)
         pulumi.set(__self__, "api_username", api_username)
         pulumi.set(__self__, "sdk_key", sdk_key)
+        if api_password_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_password_aws_secrets_manager", api_password_aws_secrets_manager)
+        if api_username_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_username_aws_secrets_manager", api_username_aws_secrets_manager)
+        if sdk_key_aws_secrets_manager is not None:
+            pulumi.set(__self__, "sdk_key_aws_secrets_manager", sdk_key_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiPassword")
@@ -464970,6 +470207,297 @@ class GetActionConnectionConfigCatSdkKeyArgs:
     @sdk_key.setter
     def sdk_key(self, value: _builtins.str):
         pulumi.set(self, "sdk_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiPasswordAwsSecretsManager")
+    def api_password_aws_secrets_manager(self) -> Optional['GetActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgs']:
+        """
+        AWS Secrets Manager reference for this field.
+        """
+        return pulumi.get(self, "api_password_aws_secrets_manager")
+
+    @api_password_aws_secrets_manager.setter
+    def api_password_aws_secrets_manager(self, value: Optional['GetActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgs']):
+        pulumi.set(self, "api_password_aws_secrets_manager", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiUsernameAwsSecretsManager")
+    def api_username_aws_secrets_manager(self) -> Optional['GetActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgs']:
+        """
+        AWS Secrets Manager reference for this field.
+        """
+        return pulumi.get(self, "api_username_aws_secrets_manager")
+
+    @api_username_aws_secrets_manager.setter
+    def api_username_aws_secrets_manager(self, value: Optional['GetActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgs']):
+        pulumi.set(self, "api_username_aws_secrets_manager", value)
+
+    @_builtins.property
+    @pulumi.getter(name="sdkKeyAwsSecretsManager")
+    def sdk_key_aws_secrets_manager(self) -> Optional['GetActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgs']:
+        """
+        AWS Secrets Manager reference for this field.
+        """
+        return pulumi.get(self, "sdk_key_aws_secrets_manager")
+
+    @sdk_key_aws_secrets_manager.setter
+    def sdk_key_aws_secrets_manager(self, value: Optional['GetActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgs']):
+        pulumi.set(self, "sdk_key_aws_secrets_manager", value)
+
+
+class GetActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    secret_id: _builtins.str
+    """
+    Name or ARN of the secret.
+    """
+    version_id: _builtins.str
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: _builtins.str
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class GetActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret_id: _builtins.str,
+                 version_id: _builtins.str,
+                 version_stage: _builtins.str):
+        """
+        :param _builtins.str key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param _builtins.str secret_id: Name or ARN of the secret.
+        :param _builtins.str version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param _builtins.str version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "version_id", version_id)
+        pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: _builtins.str):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        Name or ARN of the secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: _builtins.str):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> _builtins.str:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: _builtins.str):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> _builtins.str:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: _builtins.str):
+        pulumi.set(self, "version_stage", value)
+
+
+class GetActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    secret_id: _builtins.str
+    """
+    Name or ARN of the secret.
+    """
+    version_id: _builtins.str
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: _builtins.str
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class GetActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret_id: _builtins.str,
+                 version_id: _builtins.str,
+                 version_stage: _builtins.str):
+        """
+        :param _builtins.str key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param _builtins.str secret_id: Name or ARN of the secret.
+        :param _builtins.str version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param _builtins.str version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "version_id", version_id)
+        pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: _builtins.str):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        Name or ARN of the secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: _builtins.str):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> _builtins.str:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: _builtins.str):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> _builtins.str:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: _builtins.str):
+        pulumi.set(self, "version_stage", value)
+
+
+class GetActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    secret_id: _builtins.str
+    """
+    Name or ARN of the secret.
+    """
+    version_id: _builtins.str
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: _builtins.str
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class GetActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret_id: _builtins.str,
+                 version_id: _builtins.str,
+                 version_stage: _builtins.str):
+        """
+        :param _builtins.str key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param _builtins.str secret_id: Name or ARN of the secret.
+        :param _builtins.str version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param _builtins.str version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "version_id", version_id)
+        pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: _builtins.str):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        Name or ARN of the secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: _builtins.str):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> _builtins.str:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: _builtins.str):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> _builtins.str:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: _builtins.str):
+        pulumi.set(self, "version_stage", value)
 
 
 class GetActionConnectionDatadogArgsDict(TypedDict):
@@ -465018,6 +470546,22 @@ class GetActionConnectionDatadogApiKeyArgsDict(TypedDict):
     """
     Custom subdomain used for URLs generated with this connection
     """
+    api_key_aws_secrets_manager: NotRequired['GetActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgsDict']
+    """
+    AWS Secrets Manager reference for this field.
+    """
+    app_key_aws_secrets_manager: NotRequired['GetActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgsDict']
+    """
+    AWS Secrets Manager reference for this field.
+    """
+    datacenter_aws_secrets_manager: NotRequired['GetActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgsDict']
+    """
+    AWS Secrets Manager reference for this field.
+    """
+    subdomain_aws_secrets_manager: NotRequired['GetActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgsDict']
+    """
+    AWS Secrets Manager reference for this field.
+    """
 
 @pulumi.input_type
 class GetActionConnectionDatadogApiKeyArgs:
@@ -465025,17 +470569,33 @@ class GetActionConnectionDatadogApiKeyArgs:
                  api_key: _builtins.str,
                  app_key: _builtins.str,
                  datacenter: _builtins.str,
-                 subdomain: _builtins.str):
+                 subdomain: _builtins.str,
+                 api_key_aws_secrets_manager: Optional['GetActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgs'] = None,
+                 app_key_aws_secrets_manager: Optional['GetActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgs'] = None,
+                 datacenter_aws_secrets_manager: Optional['GetActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgs'] = None,
+                 subdomain_aws_secrets_manager: Optional['GetActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgs'] = None):
         """
         :param _builtins.str api_key: Datadog API key
         :param _builtins.str app_key: Datadog application key
         :param _builtins.str datacenter: Datadog site data center
         :param _builtins.str subdomain: Custom subdomain used for URLs generated with this connection
+        :param 'GetActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgs' api_key_aws_secrets_manager: AWS Secrets Manager reference for this field.
+        :param 'GetActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgs' app_key_aws_secrets_manager: AWS Secrets Manager reference for this field.
+        :param 'GetActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgs' datacenter_aws_secrets_manager: AWS Secrets Manager reference for this field.
+        :param 'GetActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgs' subdomain_aws_secrets_manager: AWS Secrets Manager reference for this field.
         """
         pulumi.set(__self__, "api_key", api_key)
         pulumi.set(__self__, "app_key", app_key)
         pulumi.set(__self__, "datacenter", datacenter)
         pulumi.set(__self__, "subdomain", subdomain)
+        if api_key_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_key_aws_secrets_manager", api_key_aws_secrets_manager)
+        if app_key_aws_secrets_manager is not None:
+            pulumi.set(__self__, "app_key_aws_secrets_manager", app_key_aws_secrets_manager)
+        if datacenter_aws_secrets_manager is not None:
+            pulumi.set(__self__, "datacenter_aws_secrets_manager", datacenter_aws_secrets_manager)
+        if subdomain_aws_secrets_manager is not None:
+            pulumi.set(__self__, "subdomain_aws_secrets_manager", subdomain_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiKey")
@@ -465085,6 +470645,394 @@ class GetActionConnectionDatadogApiKeyArgs:
     def subdomain(self, value: _builtins.str):
         pulumi.set(self, "subdomain", value)
 
+    @_builtins.property
+    @pulumi.getter(name="apiKeyAwsSecretsManager")
+    def api_key_aws_secrets_manager(self) -> Optional['GetActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgs']:
+        """
+        AWS Secrets Manager reference for this field.
+        """
+        return pulumi.get(self, "api_key_aws_secrets_manager")
+
+    @api_key_aws_secrets_manager.setter
+    def api_key_aws_secrets_manager(self, value: Optional['GetActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgs']):
+        pulumi.set(self, "api_key_aws_secrets_manager", value)
+
+    @_builtins.property
+    @pulumi.getter(name="appKeyAwsSecretsManager")
+    def app_key_aws_secrets_manager(self) -> Optional['GetActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgs']:
+        """
+        AWS Secrets Manager reference for this field.
+        """
+        return pulumi.get(self, "app_key_aws_secrets_manager")
+
+    @app_key_aws_secrets_manager.setter
+    def app_key_aws_secrets_manager(self, value: Optional['GetActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgs']):
+        pulumi.set(self, "app_key_aws_secrets_manager", value)
+
+    @_builtins.property
+    @pulumi.getter(name="datacenterAwsSecretsManager")
+    def datacenter_aws_secrets_manager(self) -> Optional['GetActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgs']:
+        """
+        AWS Secrets Manager reference for this field.
+        """
+        return pulumi.get(self, "datacenter_aws_secrets_manager")
+
+    @datacenter_aws_secrets_manager.setter
+    def datacenter_aws_secrets_manager(self, value: Optional['GetActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgs']):
+        pulumi.set(self, "datacenter_aws_secrets_manager", value)
+
+    @_builtins.property
+    @pulumi.getter(name="subdomainAwsSecretsManager")
+    def subdomain_aws_secrets_manager(self) -> Optional['GetActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgs']:
+        """
+        AWS Secrets Manager reference for this field.
+        """
+        return pulumi.get(self, "subdomain_aws_secrets_manager")
+
+    @subdomain_aws_secrets_manager.setter
+    def subdomain_aws_secrets_manager(self, value: Optional['GetActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgs']):
+        pulumi.set(self, "subdomain_aws_secrets_manager", value)
+
+
+class GetActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    secret_id: _builtins.str
+    """
+    Name or ARN of the secret.
+    """
+    version_id: _builtins.str
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: _builtins.str
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class GetActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret_id: _builtins.str,
+                 version_id: _builtins.str,
+                 version_stage: _builtins.str):
+        """
+        :param _builtins.str key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param _builtins.str secret_id: Name or ARN of the secret.
+        :param _builtins.str version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param _builtins.str version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "version_id", version_id)
+        pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: _builtins.str):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        Name or ARN of the secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: _builtins.str):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> _builtins.str:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: _builtins.str):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> _builtins.str:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: _builtins.str):
+        pulumi.set(self, "version_stage", value)
+
+
+class GetActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    secret_id: _builtins.str
+    """
+    Name or ARN of the secret.
+    """
+    version_id: _builtins.str
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: _builtins.str
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class GetActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret_id: _builtins.str,
+                 version_id: _builtins.str,
+                 version_stage: _builtins.str):
+        """
+        :param _builtins.str key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param _builtins.str secret_id: Name or ARN of the secret.
+        :param _builtins.str version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param _builtins.str version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "version_id", version_id)
+        pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: _builtins.str):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        Name or ARN of the secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: _builtins.str):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> _builtins.str:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: _builtins.str):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> _builtins.str:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: _builtins.str):
+        pulumi.set(self, "version_stage", value)
+
+
+class GetActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    secret_id: _builtins.str
+    """
+    Name or ARN of the secret.
+    """
+    version_id: _builtins.str
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: _builtins.str
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class GetActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret_id: _builtins.str,
+                 version_id: _builtins.str,
+                 version_stage: _builtins.str):
+        """
+        :param _builtins.str key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param _builtins.str secret_id: Name or ARN of the secret.
+        :param _builtins.str version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param _builtins.str version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "version_id", version_id)
+        pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: _builtins.str):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        Name or ARN of the secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: _builtins.str):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> _builtins.str:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: _builtins.str):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> _builtins.str:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: _builtins.str):
+        pulumi.set(self, "version_stage", value)
+
+
+class GetActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    secret_id: _builtins.str
+    """
+    Name or ARN of the secret.
+    """
+    version_id: _builtins.str
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: _builtins.str
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class GetActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret_id: _builtins.str,
+                 version_id: _builtins.str,
+                 version_stage: _builtins.str):
+        """
+        :param _builtins.str key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param _builtins.str secret_id: Name or ARN of the secret.
+        :param _builtins.str version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param _builtins.str version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "version_id", version_id)
+        pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: _builtins.str):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        Name or ARN of the secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: _builtins.str):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> _builtins.str:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: _builtins.str):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> _builtins.str:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: _builtins.str):
+        pulumi.set(self, "version_stage", value)
+
 
 class GetActionConnectionFastlyArgsDict(TypedDict):
     api_key: NotRequired['GetActionConnectionFastlyApiKeyArgsDict']
@@ -465120,15 +471068,23 @@ class GetActionConnectionFastlyApiKeyArgsDict(TypedDict):
     """
     Fastly API key
     """
+    api_key_aws_secrets_manager: NotRequired['GetActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerArgsDict']
+    """
+    AWS Secrets Manager reference for this field.
+    """
 
 @pulumi.input_type
 class GetActionConnectionFastlyApiKeyArgs:
     def __init__(__self__, *,
-                 api_key: _builtins.str):
+                 api_key: _builtins.str,
+                 api_key_aws_secrets_manager: Optional['GetActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerArgs'] = None):
         """
         :param _builtins.str api_key: Fastly API key
+        :param 'GetActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerArgs' api_key_aws_secrets_manager: AWS Secrets Manager reference for this field.
         """
         pulumi.set(__self__, "api_key", api_key)
+        if api_key_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_key_aws_secrets_manager", api_key_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiKey")
@@ -465141,6 +471097,103 @@ class GetActionConnectionFastlyApiKeyArgs:
     @api_key.setter
     def api_key(self, value: _builtins.str):
         pulumi.set(self, "api_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyAwsSecretsManager")
+    def api_key_aws_secrets_manager(self) -> Optional['GetActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerArgs']:
+        """
+        AWS Secrets Manager reference for this field.
+        """
+        return pulumi.get(self, "api_key_aws_secrets_manager")
+
+    @api_key_aws_secrets_manager.setter
+    def api_key_aws_secrets_manager(self, value: Optional['GetActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerArgs']):
+        pulumi.set(self, "api_key_aws_secrets_manager", value)
+
+
+class GetActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    secret_id: _builtins.str
+    """
+    Name or ARN of the secret.
+    """
+    version_id: _builtins.str
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: _builtins.str
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class GetActionConnectionFastlyApiKeyApiKeyAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret_id: _builtins.str,
+                 version_id: _builtins.str,
+                 version_stage: _builtins.str):
+        """
+        :param _builtins.str key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param _builtins.str secret_id: Name or ARN of the secret.
+        :param _builtins.str version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param _builtins.str version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "version_id", version_id)
+        pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: _builtins.str):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        Name or ARN of the secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: _builtins.str):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> _builtins.str:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: _builtins.str):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> _builtins.str:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: _builtins.str):
+        pulumi.set(self, "version_stage", value)
 
 
 class GetActionConnectionFreshserviceArgsDict(TypedDict):
@@ -465181,18 +471234,34 @@ class GetActionConnectionFreshserviceApiKeyArgsDict(TypedDict):
     """
     Freshservice domain
     """
+    api_key_aws_secrets_manager: NotRequired['GetActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgsDict']
+    """
+    AWS Secrets Manager reference for this field.
+    """
+    domain_aws_secrets_manager: NotRequired['GetActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgsDict']
+    """
+    AWS Secrets Manager reference for this field.
+    """
 
 @pulumi.input_type
 class GetActionConnectionFreshserviceApiKeyArgs:
     def __init__(__self__, *,
                  api_key: _builtins.str,
-                 domain: _builtins.str):
+                 domain: _builtins.str,
+                 api_key_aws_secrets_manager: Optional['GetActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs'] = None,
+                 domain_aws_secrets_manager: Optional['GetActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs'] = None):
         """
         :param _builtins.str api_key: Freshservice API key
         :param _builtins.str domain: Freshservice domain
+        :param 'GetActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs' api_key_aws_secrets_manager: AWS Secrets Manager reference for this field.
+        :param 'GetActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs' domain_aws_secrets_manager: AWS Secrets Manager reference for this field.
         """
         pulumi.set(__self__, "api_key", api_key)
         pulumi.set(__self__, "domain", domain)
+        if api_key_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_key_aws_secrets_manager", api_key_aws_secrets_manager)
+        if domain_aws_secrets_manager is not None:
+            pulumi.set(__self__, "domain_aws_secrets_manager", domain_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiKey")
@@ -465217,6 +471286,200 @@ class GetActionConnectionFreshserviceApiKeyArgs:
     @domain.setter
     def domain(self, value: _builtins.str):
         pulumi.set(self, "domain", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyAwsSecretsManager")
+    def api_key_aws_secrets_manager(self) -> Optional['GetActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs']:
+        """
+        AWS Secrets Manager reference for this field.
+        """
+        return pulumi.get(self, "api_key_aws_secrets_manager")
+
+    @api_key_aws_secrets_manager.setter
+    def api_key_aws_secrets_manager(self, value: Optional['GetActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs']):
+        pulumi.set(self, "api_key_aws_secrets_manager", value)
+
+    @_builtins.property
+    @pulumi.getter(name="domainAwsSecretsManager")
+    def domain_aws_secrets_manager(self) -> Optional['GetActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs']:
+        """
+        AWS Secrets Manager reference for this field.
+        """
+        return pulumi.get(self, "domain_aws_secrets_manager")
+
+    @domain_aws_secrets_manager.setter
+    def domain_aws_secrets_manager(self, value: Optional['GetActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs']):
+        pulumi.set(self, "domain_aws_secrets_manager", value)
+
+
+class GetActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    secret_id: _builtins.str
+    """
+    Name or ARN of the secret.
+    """
+    version_id: _builtins.str
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: _builtins.str
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class GetActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret_id: _builtins.str,
+                 version_id: _builtins.str,
+                 version_stage: _builtins.str):
+        """
+        :param _builtins.str key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param _builtins.str secret_id: Name or ARN of the secret.
+        :param _builtins.str version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param _builtins.str version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "version_id", version_id)
+        pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: _builtins.str):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        Name or ARN of the secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: _builtins.str):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> _builtins.str:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: _builtins.str):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> _builtins.str:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: _builtins.str):
+        pulumi.set(self, "version_stage", value)
+
+
+class GetActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    secret_id: _builtins.str
+    """
+    Name or ARN of the secret.
+    """
+    version_id: _builtins.str
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: _builtins.str
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class GetActionConnectionFreshserviceApiKeyDomainAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret_id: _builtins.str,
+                 version_id: _builtins.str,
+                 version_stage: _builtins.str):
+        """
+        :param _builtins.str key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param _builtins.str secret_id: Name or ARN of the secret.
+        :param _builtins.str version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param _builtins.str version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "version_id", version_id)
+        pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: _builtins.str):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        Name or ARN of the secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: _builtins.str):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> _builtins.str:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: _builtins.str):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> _builtins.str:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: _builtins.str):
+        pulumi.set(self, "version_stage", value)
 
 
 class GetActionConnectionGcpArgsDict(TypedDict):
@@ -465257,18 +471520,34 @@ class GetActionConnectionGcpServiceAccountArgsDict(TypedDict):
     """
     Google Cloud service account email
     """
+    private_key_aws_secrets_manager: NotRequired['GetActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgsDict']
+    """
+    AWS Secrets Manager reference for this field.
+    """
+    service_account_email_aws_secrets_manager: NotRequired['GetActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgsDict']
+    """
+    AWS Secrets Manager reference for this field.
+    """
 
 @pulumi.input_type
 class GetActionConnectionGcpServiceAccountArgs:
     def __init__(__self__, *,
                  private_key: _builtins.str,
-                 service_account_email: _builtins.str):
+                 service_account_email: _builtins.str,
+                 private_key_aws_secrets_manager: Optional['GetActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgs'] = None,
+                 service_account_email_aws_secrets_manager: Optional['GetActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgs'] = None):
         """
         :param _builtins.str private_key: Google Cloud service account private key
         :param _builtins.str service_account_email: Google Cloud service account email
+        :param 'GetActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgs' private_key_aws_secrets_manager: AWS Secrets Manager reference for this field.
+        :param 'GetActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgs' service_account_email_aws_secrets_manager: AWS Secrets Manager reference for this field.
         """
         pulumi.set(__self__, "private_key", private_key)
         pulumi.set(__self__, "service_account_email", service_account_email)
+        if private_key_aws_secrets_manager is not None:
+            pulumi.set(__self__, "private_key_aws_secrets_manager", private_key_aws_secrets_manager)
+        if service_account_email_aws_secrets_manager is not None:
+            pulumi.set(__self__, "service_account_email_aws_secrets_manager", service_account_email_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="privateKey")
@@ -465293,6 +471572,200 @@ class GetActionConnectionGcpServiceAccountArgs:
     @service_account_email.setter
     def service_account_email(self, value: _builtins.str):
         pulumi.set(self, "service_account_email", value)
+
+    @_builtins.property
+    @pulumi.getter(name="privateKeyAwsSecretsManager")
+    def private_key_aws_secrets_manager(self) -> Optional['GetActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgs']:
+        """
+        AWS Secrets Manager reference for this field.
+        """
+        return pulumi.get(self, "private_key_aws_secrets_manager")
+
+    @private_key_aws_secrets_manager.setter
+    def private_key_aws_secrets_manager(self, value: Optional['GetActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgs']):
+        pulumi.set(self, "private_key_aws_secrets_manager", value)
+
+    @_builtins.property
+    @pulumi.getter(name="serviceAccountEmailAwsSecretsManager")
+    def service_account_email_aws_secrets_manager(self) -> Optional['GetActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgs']:
+        """
+        AWS Secrets Manager reference for this field.
+        """
+        return pulumi.get(self, "service_account_email_aws_secrets_manager")
+
+    @service_account_email_aws_secrets_manager.setter
+    def service_account_email_aws_secrets_manager(self, value: Optional['GetActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgs']):
+        pulumi.set(self, "service_account_email_aws_secrets_manager", value)
+
+
+class GetActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    secret_id: _builtins.str
+    """
+    Name or ARN of the secret.
+    """
+    version_id: _builtins.str
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: _builtins.str
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class GetActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret_id: _builtins.str,
+                 version_id: _builtins.str,
+                 version_stage: _builtins.str):
+        """
+        :param _builtins.str key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param _builtins.str secret_id: Name or ARN of the secret.
+        :param _builtins.str version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param _builtins.str version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "version_id", version_id)
+        pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: _builtins.str):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        Name or ARN of the secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: _builtins.str):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> _builtins.str:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: _builtins.str):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> _builtins.str:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: _builtins.str):
+        pulumi.set(self, "version_stage", value)
+
+
+class GetActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    secret_id: _builtins.str
+    """
+    Name or ARN of the secret.
+    """
+    version_id: _builtins.str
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: _builtins.str
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class GetActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret_id: _builtins.str,
+                 version_id: _builtins.str,
+                 version_stage: _builtins.str):
+        """
+        :param _builtins.str key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param _builtins.str secret_id: Name or ARN of the secret.
+        :param _builtins.str version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param _builtins.str version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "version_id", version_id)
+        pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: _builtins.str):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        Name or ARN of the secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: _builtins.str):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> _builtins.str:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: _builtins.str):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> _builtins.str:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: _builtins.str):
+        pulumi.set(self, "version_stage", value)
 
 
 class GetActionConnectionGeminiArgsDict(TypedDict):
@@ -465329,15 +471802,23 @@ class GetActionConnectionGeminiApiKeyArgsDict(TypedDict):
     """
     Gemini API key
     """
+    api_key_aws_secrets_manager: NotRequired['GetActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgsDict']
+    """
+    AWS Secrets Manager reference for this field.
+    """
 
 @pulumi.input_type
 class GetActionConnectionGeminiApiKeyArgs:
     def __init__(__self__, *,
-                 api_key: _builtins.str):
+                 api_key: _builtins.str,
+                 api_key_aws_secrets_manager: Optional['GetActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgs'] = None):
         """
         :param _builtins.str api_key: Gemini API key
+        :param 'GetActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgs' api_key_aws_secrets_manager: AWS Secrets Manager reference for this field.
         """
         pulumi.set(__self__, "api_key", api_key)
+        if api_key_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_key_aws_secrets_manager", api_key_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiKey")
@@ -465350,6 +471831,103 @@ class GetActionConnectionGeminiApiKeyArgs:
     @api_key.setter
     def api_key(self, value: _builtins.str):
         pulumi.set(self, "api_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyAwsSecretsManager")
+    def api_key_aws_secrets_manager(self) -> Optional['GetActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgs']:
+        """
+        AWS Secrets Manager reference for this field.
+        """
+        return pulumi.get(self, "api_key_aws_secrets_manager")
+
+    @api_key_aws_secrets_manager.setter
+    def api_key_aws_secrets_manager(self, value: Optional['GetActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgs']):
+        pulumi.set(self, "api_key_aws_secrets_manager", value)
+
+
+class GetActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    secret_id: _builtins.str
+    """
+    Name or ARN of the secret.
+    """
+    version_id: _builtins.str
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: _builtins.str
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class GetActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret_id: _builtins.str,
+                 version_id: _builtins.str,
+                 version_stage: _builtins.str):
+        """
+        :param _builtins.str key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param _builtins.str secret_id: Name or ARN of the secret.
+        :param _builtins.str version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param _builtins.str version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "version_id", version_id)
+        pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: _builtins.str):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        Name or ARN of the secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: _builtins.str):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> _builtins.str:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: _builtins.str):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> _builtins.str:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: _builtins.str):
+        pulumi.set(self, "version_stage", value)
 
 
 class GetActionConnectionGitlabArgsDict(TypedDict):
@@ -465386,15 +471964,23 @@ class GetActionConnectionGitlabApiKeyArgsDict(TypedDict):
     """
     GitLab API token
     """
+    api_token_aws_secrets_manager: NotRequired['GetActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerArgsDict']
+    """
+    AWS Secrets Manager reference for this field.
+    """
 
 @pulumi.input_type
 class GetActionConnectionGitlabApiKeyArgs:
     def __init__(__self__, *,
-                 api_token: _builtins.str):
+                 api_token: _builtins.str,
+                 api_token_aws_secrets_manager: Optional['GetActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerArgs'] = None):
         """
         :param _builtins.str api_token: GitLab API token
+        :param 'GetActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerArgs' api_token_aws_secrets_manager: AWS Secrets Manager reference for this field.
         """
         pulumi.set(__self__, "api_token", api_token)
+        if api_token_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_token_aws_secrets_manager", api_token_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiToken")
@@ -465407,6 +471993,103 @@ class GetActionConnectionGitlabApiKeyArgs:
     @api_token.setter
     def api_token(self, value: _builtins.str):
         pulumi.set(self, "api_token", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiTokenAwsSecretsManager")
+    def api_token_aws_secrets_manager(self) -> Optional['GetActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerArgs']:
+        """
+        AWS Secrets Manager reference for this field.
+        """
+        return pulumi.get(self, "api_token_aws_secrets_manager")
+
+    @api_token_aws_secrets_manager.setter
+    def api_token_aws_secrets_manager(self, value: Optional['GetActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerArgs']):
+        pulumi.set(self, "api_token_aws_secrets_manager", value)
+
+
+class GetActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    secret_id: _builtins.str
+    """
+    Name or ARN of the secret.
+    """
+    version_id: _builtins.str
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: _builtins.str
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class GetActionConnectionGitlabApiKeyApiTokenAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret_id: _builtins.str,
+                 version_id: _builtins.str,
+                 version_stage: _builtins.str):
+        """
+        :param _builtins.str key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param _builtins.str secret_id: Name or ARN of the secret.
+        :param _builtins.str version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param _builtins.str version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "version_id", version_id)
+        pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: _builtins.str):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        Name or ARN of the secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: _builtins.str):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> _builtins.str:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: _builtins.str):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> _builtins.str:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: _builtins.str):
+        pulumi.set(self, "version_stage", value)
 
 
 class GetActionConnectionGreyNoiseArgsDict(TypedDict):
@@ -465443,15 +472126,23 @@ class GetActionConnectionGreyNoiseApiKeyArgsDict(TypedDict):
     """
     GreyNoise API key
     """
+    api_key_aws_secrets_manager: NotRequired['GetActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerArgsDict']
+    """
+    AWS Secrets Manager reference for this field.
+    """
 
 @pulumi.input_type
 class GetActionConnectionGreyNoiseApiKeyArgs:
     def __init__(__self__, *,
-                 api_key: _builtins.str):
+                 api_key: _builtins.str,
+                 api_key_aws_secrets_manager: Optional['GetActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerArgs'] = None):
         """
         :param _builtins.str api_key: GreyNoise API key
+        :param 'GetActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerArgs' api_key_aws_secrets_manager: AWS Secrets Manager reference for this field.
         """
         pulumi.set(__self__, "api_key", api_key)
+        if api_key_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_key_aws_secrets_manager", api_key_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiKey")
@@ -465464,6 +472155,103 @@ class GetActionConnectionGreyNoiseApiKeyArgs:
     @api_key.setter
     def api_key(self, value: _builtins.str):
         pulumi.set(self, "api_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyAwsSecretsManager")
+    def api_key_aws_secrets_manager(self) -> Optional['GetActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerArgs']:
+        """
+        AWS Secrets Manager reference for this field.
+        """
+        return pulumi.get(self, "api_key_aws_secrets_manager")
+
+    @api_key_aws_secrets_manager.setter
+    def api_key_aws_secrets_manager(self, value: Optional['GetActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerArgs']):
+        pulumi.set(self, "api_key_aws_secrets_manager", value)
+
+
+class GetActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    secret_id: _builtins.str
+    """
+    Name or ARN of the secret.
+    """
+    version_id: _builtins.str
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: _builtins.str
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class GetActionConnectionGreyNoiseApiKeyApiKeyAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret_id: _builtins.str,
+                 version_id: _builtins.str,
+                 version_stage: _builtins.str):
+        """
+        :param _builtins.str key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param _builtins.str secret_id: Name or ARN of the secret.
+        :param _builtins.str version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param _builtins.str version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "version_id", version_id)
+        pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: _builtins.str):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        Name or ARN of the secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: _builtins.str):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> _builtins.str:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: _builtins.str):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> _builtins.str:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: _builtins.str):
+        pulumi.set(self, "version_stage", value)
 
 
 class GetActionConnectionHttpArgsDict(TypedDict):
@@ -465703,21 +472491,29 @@ class GetActionConnectionHttpTokenAuthTokenArgsDict(TypedDict):
     """
     Token value
     """
+    value_aws_secrets_manager: NotRequired['GetActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgsDict']
+    """
+    AWS Secrets Manager reference for this field.
+    """
 
 @pulumi.input_type
 class GetActionConnectionHttpTokenAuthTokenArgs:
     def __init__(__self__, *,
                  name: _builtins.str,
                  type: _builtins.str,
-                 value: _builtins.str):
+                 value: _builtins.str,
+                 value_aws_secrets_manager: Optional['GetActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgs'] = None):
         """
         :param _builtins.str name: Token name
         :param _builtins.str type: Token type
         :param _builtins.str value: Token value
+        :param 'GetActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgs' value_aws_secrets_manager: AWS Secrets Manager reference for this field.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "value", value)
+        if value_aws_secrets_manager is not None:
+            pulumi.set(__self__, "value_aws_secrets_manager", value_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter
@@ -465754,6 +472550,103 @@ class GetActionConnectionHttpTokenAuthTokenArgs:
     @value.setter
     def value(self, value: _builtins.str):
         pulumi.set(self, "value", value)
+
+    @_builtins.property
+    @pulumi.getter(name="valueAwsSecretsManager")
+    def value_aws_secrets_manager(self) -> Optional['GetActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgs']:
+        """
+        AWS Secrets Manager reference for this field.
+        """
+        return pulumi.get(self, "value_aws_secrets_manager")
+
+    @value_aws_secrets_manager.setter
+    def value_aws_secrets_manager(self, value: Optional['GetActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgs']):
+        pulumi.set(self, "value_aws_secrets_manager", value)
+
+
+class GetActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    secret_id: _builtins.str
+    """
+    Name or ARN of the secret.
+    """
+    version_id: _builtins.str
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: _builtins.str
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class GetActionConnectionHttpTokenAuthTokenValueAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret_id: _builtins.str,
+                 version_id: _builtins.str,
+                 version_stage: _builtins.str):
+        """
+        :param _builtins.str key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param _builtins.str secret_id: Name or ARN of the secret.
+        :param _builtins.str version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param _builtins.str version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "version_id", version_id)
+        pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: _builtins.str):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        Name or ARN of the secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: _builtins.str):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> _builtins.str:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: _builtins.str):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> _builtins.str:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: _builtins.str):
+        pulumi.set(self, "version_stage", value)
 
 
 class GetActionConnectionHttpTokenAuthUrlParameterArgsDict(TypedDict):
@@ -465837,15 +472730,23 @@ class GetActionConnectionLaunchDarklyApiKeyArgsDict(TypedDict):
     """
     LaunchDarkly API token
     """
+    api_token_aws_secrets_manager: NotRequired['GetActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgsDict']
+    """
+    AWS Secrets Manager reference for this field.
+    """
 
 @pulumi.input_type
 class GetActionConnectionLaunchDarklyApiKeyArgs:
     def __init__(__self__, *,
-                 api_token: _builtins.str):
+                 api_token: _builtins.str,
+                 api_token_aws_secrets_manager: Optional['GetActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgs'] = None):
         """
         :param _builtins.str api_token: LaunchDarkly API token
+        :param 'GetActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgs' api_token_aws_secrets_manager: AWS Secrets Manager reference for this field.
         """
         pulumi.set(__self__, "api_token", api_token)
+        if api_token_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_token_aws_secrets_manager", api_token_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiToken")
@@ -465858,6 +472759,103 @@ class GetActionConnectionLaunchDarklyApiKeyArgs:
     @api_token.setter
     def api_token(self, value: _builtins.str):
         pulumi.set(self, "api_token", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiTokenAwsSecretsManager")
+    def api_token_aws_secrets_manager(self) -> Optional['GetActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgs']:
+        """
+        AWS Secrets Manager reference for this field.
+        """
+        return pulumi.get(self, "api_token_aws_secrets_manager")
+
+    @api_token_aws_secrets_manager.setter
+    def api_token_aws_secrets_manager(self, value: Optional['GetActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgs']):
+        pulumi.set(self, "api_token_aws_secrets_manager", value)
+
+
+class GetActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    secret_id: _builtins.str
+    """
+    Name or ARN of the secret.
+    """
+    version_id: _builtins.str
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: _builtins.str
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class GetActionConnectionLaunchDarklyApiKeyApiTokenAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret_id: _builtins.str,
+                 version_id: _builtins.str,
+                 version_stage: _builtins.str):
+        """
+        :param _builtins.str key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param _builtins.str secret_id: Name or ARN of the secret.
+        :param _builtins.str version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param _builtins.str version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "version_id", version_id)
+        pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: _builtins.str):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        Name or ARN of the secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: _builtins.str):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> _builtins.str:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: _builtins.str):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> _builtins.str:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: _builtins.str):
+        pulumi.set(self, "version_stage", value)
 
 
 class GetActionConnectionNotionArgsDict(TypedDict):
@@ -465894,15 +472892,23 @@ class GetActionConnectionNotionApiKeyArgsDict(TypedDict):
     """
     Notion API token
     """
+    api_token_aws_secrets_manager: NotRequired['GetActionConnectionNotionApiKeyApiTokenAwsSecretsManagerArgsDict']
+    """
+    AWS Secrets Manager reference for this field.
+    """
 
 @pulumi.input_type
 class GetActionConnectionNotionApiKeyArgs:
     def __init__(__self__, *,
-                 api_token: _builtins.str):
+                 api_token: _builtins.str,
+                 api_token_aws_secrets_manager: Optional['GetActionConnectionNotionApiKeyApiTokenAwsSecretsManagerArgs'] = None):
         """
         :param _builtins.str api_token: Notion API token
+        :param 'GetActionConnectionNotionApiKeyApiTokenAwsSecretsManagerArgs' api_token_aws_secrets_manager: AWS Secrets Manager reference for this field.
         """
         pulumi.set(__self__, "api_token", api_token)
+        if api_token_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_token_aws_secrets_manager", api_token_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiToken")
@@ -465915,6 +472921,103 @@ class GetActionConnectionNotionApiKeyArgs:
     @api_token.setter
     def api_token(self, value: _builtins.str):
         pulumi.set(self, "api_token", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiTokenAwsSecretsManager")
+    def api_token_aws_secrets_manager(self) -> Optional['GetActionConnectionNotionApiKeyApiTokenAwsSecretsManagerArgs']:
+        """
+        AWS Secrets Manager reference for this field.
+        """
+        return pulumi.get(self, "api_token_aws_secrets_manager")
+
+    @api_token_aws_secrets_manager.setter
+    def api_token_aws_secrets_manager(self, value: Optional['GetActionConnectionNotionApiKeyApiTokenAwsSecretsManagerArgs']):
+        pulumi.set(self, "api_token_aws_secrets_manager", value)
+
+
+class GetActionConnectionNotionApiKeyApiTokenAwsSecretsManagerArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    secret_id: _builtins.str
+    """
+    Name or ARN of the secret.
+    """
+    version_id: _builtins.str
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: _builtins.str
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class GetActionConnectionNotionApiKeyApiTokenAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret_id: _builtins.str,
+                 version_id: _builtins.str,
+                 version_stage: _builtins.str):
+        """
+        :param _builtins.str key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param _builtins.str secret_id: Name or ARN of the secret.
+        :param _builtins.str version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param _builtins.str version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "version_id", version_id)
+        pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: _builtins.str):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        Name or ARN of the secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: _builtins.str):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> _builtins.str:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: _builtins.str):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> _builtins.str:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: _builtins.str):
+        pulumi.set(self, "version_stage", value)
 
 
 class GetActionConnectionOktaArgsDict(TypedDict):
@@ -465955,18 +473058,34 @@ class GetActionConnectionOktaApiTokenArgsDict(TypedDict):
     """
     Okta domain
     """
+    api_token_aws_secrets_manager: NotRequired['GetActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgsDict']
+    """
+    AWS Secrets Manager reference for this field.
+    """
+    domain_aws_secrets_manager: NotRequired['GetActionConnectionOktaApiTokenDomainAwsSecretsManagerArgsDict']
+    """
+    AWS Secrets Manager reference for this field.
+    """
 
 @pulumi.input_type
 class GetActionConnectionOktaApiTokenArgs:
     def __init__(__self__, *,
                  api_token: _builtins.str,
-                 domain: _builtins.str):
+                 domain: _builtins.str,
+                 api_token_aws_secrets_manager: Optional['GetActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs'] = None,
+                 domain_aws_secrets_manager: Optional['GetActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs'] = None):
         """
         :param _builtins.str api_token: Okta API token
         :param _builtins.str domain: Okta domain
+        :param 'GetActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs' api_token_aws_secrets_manager: AWS Secrets Manager reference for this field.
+        :param 'GetActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs' domain_aws_secrets_manager: AWS Secrets Manager reference for this field.
         """
         pulumi.set(__self__, "api_token", api_token)
         pulumi.set(__self__, "domain", domain)
+        if api_token_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_token_aws_secrets_manager", api_token_aws_secrets_manager)
+        if domain_aws_secrets_manager is not None:
+            pulumi.set(__self__, "domain_aws_secrets_manager", domain_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiToken")
@@ -465991,6 +473110,200 @@ class GetActionConnectionOktaApiTokenArgs:
     @domain.setter
     def domain(self, value: _builtins.str):
         pulumi.set(self, "domain", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiTokenAwsSecretsManager")
+    def api_token_aws_secrets_manager(self) -> Optional['GetActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs']:
+        """
+        AWS Secrets Manager reference for this field.
+        """
+        return pulumi.get(self, "api_token_aws_secrets_manager")
+
+    @api_token_aws_secrets_manager.setter
+    def api_token_aws_secrets_manager(self, value: Optional['GetActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs']):
+        pulumi.set(self, "api_token_aws_secrets_manager", value)
+
+    @_builtins.property
+    @pulumi.getter(name="domainAwsSecretsManager")
+    def domain_aws_secrets_manager(self) -> Optional['GetActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs']:
+        """
+        AWS Secrets Manager reference for this field.
+        """
+        return pulumi.get(self, "domain_aws_secrets_manager")
+
+    @domain_aws_secrets_manager.setter
+    def domain_aws_secrets_manager(self, value: Optional['GetActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs']):
+        pulumi.set(self, "domain_aws_secrets_manager", value)
+
+
+class GetActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    secret_id: _builtins.str
+    """
+    Name or ARN of the secret.
+    """
+    version_id: _builtins.str
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: _builtins.str
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class GetActionConnectionOktaApiTokenApiTokenAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret_id: _builtins.str,
+                 version_id: _builtins.str,
+                 version_stage: _builtins.str):
+        """
+        :param _builtins.str key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param _builtins.str secret_id: Name or ARN of the secret.
+        :param _builtins.str version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param _builtins.str version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "version_id", version_id)
+        pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: _builtins.str):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        Name or ARN of the secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: _builtins.str):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> _builtins.str:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: _builtins.str):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> _builtins.str:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: _builtins.str):
+        pulumi.set(self, "version_stage", value)
+
+
+class GetActionConnectionOktaApiTokenDomainAwsSecretsManagerArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    secret_id: _builtins.str
+    """
+    Name or ARN of the secret.
+    """
+    version_id: _builtins.str
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: _builtins.str
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class GetActionConnectionOktaApiTokenDomainAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret_id: _builtins.str,
+                 version_id: _builtins.str,
+                 version_stage: _builtins.str):
+        """
+        :param _builtins.str key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param _builtins.str secret_id: Name or ARN of the secret.
+        :param _builtins.str version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param _builtins.str version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "version_id", version_id)
+        pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: _builtins.str):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        Name or ARN of the secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: _builtins.str):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> _builtins.str:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: _builtins.str):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> _builtins.str:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: _builtins.str):
+        pulumi.set(self, "version_stage", value)
 
 
 class GetActionConnectionOpenaiArgsDict(TypedDict):
@@ -466027,15 +473340,23 @@ class GetActionConnectionOpenaiApiKeyArgsDict(TypedDict):
     """
     OpenAI API token
     """
+    api_token_aws_secrets_manager: NotRequired['GetActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerArgsDict']
+    """
+    AWS Secrets Manager reference for this field.
+    """
 
 @pulumi.input_type
 class GetActionConnectionOpenaiApiKeyArgs:
     def __init__(__self__, *,
-                 api_token: _builtins.str):
+                 api_token: _builtins.str,
+                 api_token_aws_secrets_manager: Optional['GetActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerArgs'] = None):
         """
         :param _builtins.str api_token: OpenAI API token
+        :param 'GetActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerArgs' api_token_aws_secrets_manager: AWS Secrets Manager reference for this field.
         """
         pulumi.set(__self__, "api_token", api_token)
+        if api_token_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_token_aws_secrets_manager", api_token_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiToken")
@@ -466048,6 +473369,103 @@ class GetActionConnectionOpenaiApiKeyArgs:
     @api_token.setter
     def api_token(self, value: _builtins.str):
         pulumi.set(self, "api_token", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiTokenAwsSecretsManager")
+    def api_token_aws_secrets_manager(self) -> Optional['GetActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerArgs']:
+        """
+        AWS Secrets Manager reference for this field.
+        """
+        return pulumi.get(self, "api_token_aws_secrets_manager")
+
+    @api_token_aws_secrets_manager.setter
+    def api_token_aws_secrets_manager(self, value: Optional['GetActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerArgs']):
+        pulumi.set(self, "api_token_aws_secrets_manager", value)
+
+
+class GetActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    secret_id: _builtins.str
+    """
+    Name or ARN of the secret.
+    """
+    version_id: _builtins.str
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: _builtins.str
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class GetActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret_id: _builtins.str,
+                 version_id: _builtins.str,
+                 version_stage: _builtins.str):
+        """
+        :param _builtins.str key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param _builtins.str secret_id: Name or ARN of the secret.
+        :param _builtins.str version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param _builtins.str version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "version_id", version_id)
+        pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: _builtins.str):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        Name or ARN of the secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: _builtins.str):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> _builtins.str:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: _builtins.str):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> _builtins.str:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: _builtins.str):
+        pulumi.set(self, "version_stage", value)
 
 
 class GetActionConnectionServiceNowArgsDict(TypedDict):
@@ -466092,21 +473510,45 @@ class GetActionConnectionServiceNowBasicAuthArgsDict(TypedDict):
     """
     ServiceNow username
     """
+    instance_aws_secrets_manager: NotRequired['GetActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgsDict']
+    """
+    AWS Secrets Manager reference for this field.
+    """
+    password_aws_secrets_manager: NotRequired['GetActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgsDict']
+    """
+    AWS Secrets Manager reference for this field.
+    """
+    username_aws_secrets_manager: NotRequired['GetActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgsDict']
+    """
+    AWS Secrets Manager reference for this field.
+    """
 
 @pulumi.input_type
 class GetActionConnectionServiceNowBasicAuthArgs:
     def __init__(__self__, *,
                  instance: _builtins.str,
                  password: _builtins.str,
-                 username: _builtins.str):
+                 username: _builtins.str,
+                 instance_aws_secrets_manager: Optional['GetActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs'] = None,
+                 password_aws_secrets_manager: Optional['GetActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs'] = None,
+                 username_aws_secrets_manager: Optional['GetActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs'] = None):
         """
         :param _builtins.str instance: ServiceNow instance
         :param _builtins.str password: ServiceNow password
         :param _builtins.str username: ServiceNow username
+        :param 'GetActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs' instance_aws_secrets_manager: AWS Secrets Manager reference for this field.
+        :param 'GetActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs' password_aws_secrets_manager: AWS Secrets Manager reference for this field.
+        :param 'GetActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs' username_aws_secrets_manager: AWS Secrets Manager reference for this field.
         """
         pulumi.set(__self__, "instance", instance)
         pulumi.set(__self__, "password", password)
         pulumi.set(__self__, "username", username)
+        if instance_aws_secrets_manager is not None:
+            pulumi.set(__self__, "instance_aws_secrets_manager", instance_aws_secrets_manager)
+        if password_aws_secrets_manager is not None:
+            pulumi.set(__self__, "password_aws_secrets_manager", password_aws_secrets_manager)
+        if username_aws_secrets_manager is not None:
+            pulumi.set(__self__, "username_aws_secrets_manager", username_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter
@@ -466144,6 +473586,297 @@ class GetActionConnectionServiceNowBasicAuthArgs:
     def username(self, value: _builtins.str):
         pulumi.set(self, "username", value)
 
+    @_builtins.property
+    @pulumi.getter(name="instanceAwsSecretsManager")
+    def instance_aws_secrets_manager(self) -> Optional['GetActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs']:
+        """
+        AWS Secrets Manager reference for this field.
+        """
+        return pulumi.get(self, "instance_aws_secrets_manager")
+
+    @instance_aws_secrets_manager.setter
+    def instance_aws_secrets_manager(self, value: Optional['GetActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs']):
+        pulumi.set(self, "instance_aws_secrets_manager", value)
+
+    @_builtins.property
+    @pulumi.getter(name="passwordAwsSecretsManager")
+    def password_aws_secrets_manager(self) -> Optional['GetActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs']:
+        """
+        AWS Secrets Manager reference for this field.
+        """
+        return pulumi.get(self, "password_aws_secrets_manager")
+
+    @password_aws_secrets_manager.setter
+    def password_aws_secrets_manager(self, value: Optional['GetActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs']):
+        pulumi.set(self, "password_aws_secrets_manager", value)
+
+    @_builtins.property
+    @pulumi.getter(name="usernameAwsSecretsManager")
+    def username_aws_secrets_manager(self) -> Optional['GetActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs']:
+        """
+        AWS Secrets Manager reference for this field.
+        """
+        return pulumi.get(self, "username_aws_secrets_manager")
+
+    @username_aws_secrets_manager.setter
+    def username_aws_secrets_manager(self, value: Optional['GetActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs']):
+        pulumi.set(self, "username_aws_secrets_manager", value)
+
+
+class GetActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    secret_id: _builtins.str
+    """
+    Name or ARN of the secret.
+    """
+    version_id: _builtins.str
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: _builtins.str
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class GetActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret_id: _builtins.str,
+                 version_id: _builtins.str,
+                 version_stage: _builtins.str):
+        """
+        :param _builtins.str key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param _builtins.str secret_id: Name or ARN of the secret.
+        :param _builtins.str version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param _builtins.str version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "version_id", version_id)
+        pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: _builtins.str):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        Name or ARN of the secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: _builtins.str):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> _builtins.str:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: _builtins.str):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> _builtins.str:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: _builtins.str):
+        pulumi.set(self, "version_stage", value)
+
+
+class GetActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    secret_id: _builtins.str
+    """
+    Name or ARN of the secret.
+    """
+    version_id: _builtins.str
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: _builtins.str
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class GetActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret_id: _builtins.str,
+                 version_id: _builtins.str,
+                 version_stage: _builtins.str):
+        """
+        :param _builtins.str key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param _builtins.str secret_id: Name or ARN of the secret.
+        :param _builtins.str version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param _builtins.str version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "version_id", version_id)
+        pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: _builtins.str):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        Name or ARN of the secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: _builtins.str):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> _builtins.str:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: _builtins.str):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> _builtins.str:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: _builtins.str):
+        pulumi.set(self, "version_stage", value)
+
+
+class GetActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    secret_id: _builtins.str
+    """
+    Name or ARN of the secret.
+    """
+    version_id: _builtins.str
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: _builtins.str
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class GetActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret_id: _builtins.str,
+                 version_id: _builtins.str,
+                 version_stage: _builtins.str):
+        """
+        :param _builtins.str key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param _builtins.str secret_id: Name or ARN of the secret.
+        :param _builtins.str version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param _builtins.str version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "version_id", version_id)
+        pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: _builtins.str):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        Name or ARN of the secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: _builtins.str):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> _builtins.str:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: _builtins.str):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> _builtins.str:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: _builtins.str):
+        pulumi.set(self, "version_stage", value)
+
 
 class GetActionConnectionSplitArgsDict(TypedDict):
     api_key: NotRequired['GetActionConnectionSplitApiKeyArgsDict']
@@ -466179,15 +473912,23 @@ class GetActionConnectionSplitApiKeyArgsDict(TypedDict):
     """
     Split API key
     """
+    api_key_aws_secrets_manager: NotRequired['GetActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgsDict']
+    """
+    AWS Secrets Manager reference for this field.
+    """
 
 @pulumi.input_type
 class GetActionConnectionSplitApiKeyArgs:
     def __init__(__self__, *,
-                 api_key: _builtins.str):
+                 api_key: _builtins.str,
+                 api_key_aws_secrets_manager: Optional['GetActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgs'] = None):
         """
         :param _builtins.str api_key: Split API key
+        :param 'GetActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgs' api_key_aws_secrets_manager: AWS Secrets Manager reference for this field.
         """
         pulumi.set(__self__, "api_key", api_key)
+        if api_key_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_key_aws_secrets_manager", api_key_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiKey")
@@ -466200,6 +473941,103 @@ class GetActionConnectionSplitApiKeyArgs:
     @api_key.setter
     def api_key(self, value: _builtins.str):
         pulumi.set(self, "api_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyAwsSecretsManager")
+    def api_key_aws_secrets_manager(self) -> Optional['GetActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgs']:
+        """
+        AWS Secrets Manager reference for this field.
+        """
+        return pulumi.get(self, "api_key_aws_secrets_manager")
+
+    @api_key_aws_secrets_manager.setter
+    def api_key_aws_secrets_manager(self, value: Optional['GetActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgs']):
+        pulumi.set(self, "api_key_aws_secrets_manager", value)
+
+
+class GetActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    secret_id: _builtins.str
+    """
+    Name or ARN of the secret.
+    """
+    version_id: _builtins.str
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: _builtins.str
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class GetActionConnectionSplitApiKeyApiKeyAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret_id: _builtins.str,
+                 version_id: _builtins.str,
+                 version_stage: _builtins.str):
+        """
+        :param _builtins.str key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param _builtins.str secret_id: Name or ARN of the secret.
+        :param _builtins.str version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param _builtins.str version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "version_id", version_id)
+        pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: _builtins.str):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        Name or ARN of the secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: _builtins.str):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> _builtins.str:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: _builtins.str):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> _builtins.str:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: _builtins.str):
+        pulumi.set(self, "version_stage", value)
 
 
 class GetActionConnectionStatsigArgsDict(TypedDict):
@@ -466236,15 +474074,23 @@ class GetActionConnectionStatsigApiKeyArgsDict(TypedDict):
     """
     Statsig API key
     """
+    api_key_aws_secrets_manager: NotRequired['GetActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerArgsDict']
+    """
+    AWS Secrets Manager reference for this field.
+    """
 
 @pulumi.input_type
 class GetActionConnectionStatsigApiKeyArgs:
     def __init__(__self__, *,
-                 api_key: _builtins.str):
+                 api_key: _builtins.str,
+                 api_key_aws_secrets_manager: Optional['GetActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerArgs'] = None):
         """
         :param _builtins.str api_key: Statsig API key
+        :param 'GetActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerArgs' api_key_aws_secrets_manager: AWS Secrets Manager reference for this field.
         """
         pulumi.set(__self__, "api_key", api_key)
+        if api_key_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_key_aws_secrets_manager", api_key_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiKey")
@@ -466257,6 +474103,103 @@ class GetActionConnectionStatsigApiKeyArgs:
     @api_key.setter
     def api_key(self, value: _builtins.str):
         pulumi.set(self, "api_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyAwsSecretsManager")
+    def api_key_aws_secrets_manager(self) -> Optional['GetActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerArgs']:
+        """
+        AWS Secrets Manager reference for this field.
+        """
+        return pulumi.get(self, "api_key_aws_secrets_manager")
+
+    @api_key_aws_secrets_manager.setter
+    def api_key_aws_secrets_manager(self, value: Optional['GetActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerArgs']):
+        pulumi.set(self, "api_key_aws_secrets_manager", value)
+
+
+class GetActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    secret_id: _builtins.str
+    """
+    Name or ARN of the secret.
+    """
+    version_id: _builtins.str
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: _builtins.str
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class GetActionConnectionStatsigApiKeyApiKeyAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret_id: _builtins.str,
+                 version_id: _builtins.str,
+                 version_stage: _builtins.str):
+        """
+        :param _builtins.str key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param _builtins.str secret_id: Name or ARN of the secret.
+        :param _builtins.str version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param _builtins.str version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "version_id", version_id)
+        pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: _builtins.str):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        Name or ARN of the secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: _builtins.str):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> _builtins.str:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: _builtins.str):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> _builtins.str:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: _builtins.str):
+        pulumi.set(self, "version_stage", value)
 
 
 class GetActionConnectionVirusTotalArgsDict(TypedDict):
@@ -466293,15 +474236,23 @@ class GetActionConnectionVirusTotalApiKeyArgsDict(TypedDict):
     """
     VirusTotal API key
     """
+    api_key_aws_secrets_manager: NotRequired['GetActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerArgsDict']
+    """
+    AWS Secrets Manager reference for this field.
+    """
 
 @pulumi.input_type
 class GetActionConnectionVirusTotalApiKeyArgs:
     def __init__(__self__, *,
-                 api_key: _builtins.str):
+                 api_key: _builtins.str,
+                 api_key_aws_secrets_manager: Optional['GetActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerArgs'] = None):
         """
         :param _builtins.str api_key: VirusTotal API key
+        :param 'GetActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerArgs' api_key_aws_secrets_manager: AWS Secrets Manager reference for this field.
         """
         pulumi.set(__self__, "api_key", api_key)
+        if api_key_aws_secrets_manager is not None:
+            pulumi.set(__self__, "api_key_aws_secrets_manager", api_key_aws_secrets_manager)
 
     @_builtins.property
     @pulumi.getter(name="apiKey")
@@ -466314,6 +474265,103 @@ class GetActionConnectionVirusTotalApiKeyArgs:
     @api_key.setter
     def api_key(self, value: _builtins.str):
         pulumi.set(self, "api_key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="apiKeyAwsSecretsManager")
+    def api_key_aws_secrets_manager(self) -> Optional['GetActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerArgs']:
+        """
+        AWS Secrets Manager reference for this field.
+        """
+        return pulumi.get(self, "api_key_aws_secrets_manager")
+
+    @api_key_aws_secrets_manager.setter
+    def api_key_aws_secrets_manager(self, value: Optional['GetActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerArgs']):
+        pulumi.set(self, "api_key_aws_secrets_manager", value)
+
+
+class GetActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerArgsDict(TypedDict):
+    key: _builtins.str
+    """
+    Top-level JSON key to extract. Omit to use the entire secret string.
+    """
+    secret_id: _builtins.str
+    """
+    Name or ARN of the secret.
+    """
+    version_id: _builtins.str
+    """
+    Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+    """
+    version_stage: _builtins.str
+    """
+    Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+    """
+
+@pulumi.input_type
+class GetActionConnectionVirusTotalApiKeyApiKeyAwsSecretsManagerArgs:
+    def __init__(__self__, *,
+                 key: _builtins.str,
+                 secret_id: _builtins.str,
+                 version_id: _builtins.str,
+                 version_stage: _builtins.str):
+        """
+        :param _builtins.str key: Top-level JSON key to extract. Omit to use the entire secret string.
+        :param _builtins.str secret_id: Name or ARN of the secret.
+        :param _builtins.str version_id: Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        :param _builtins.str version_stage: Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        pulumi.set(__self__, "key", key)
+        pulumi.set(__self__, "secret_id", secret_id)
+        pulumi.set(__self__, "version_id", version_id)
+        pulumi.set(__self__, "version_stage", version_stage)
+
+    @_builtins.property
+    @pulumi.getter
+    def key(self) -> _builtins.str:
+        """
+        Top-level JSON key to extract. Omit to use the entire secret string.
+        """
+        return pulumi.get(self, "key")
+
+    @key.setter
+    def key(self, value: _builtins.str):
+        pulumi.set(self, "key", value)
+
+    @_builtins.property
+    @pulumi.getter(name="secretId")
+    def secret_id(self) -> _builtins.str:
+        """
+        Name or ARN of the secret.
+        """
+        return pulumi.get(self, "secret_id")
+
+    @secret_id.setter
+    def secret_id(self, value: _builtins.str):
+        pulumi.set(self, "secret_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> _builtins.str:
+        """
+        Secret version ID. Can't be used with `version_stage`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: _builtins.str):
+        pulumi.set(self, "version_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="versionStage")
+    def version_stage(self) -> _builtins.str:
+        """
+        Secret version staging label. Can't be used with `version_id`. If neither is set, the current version is used.
+        """
+        return pulumi.get(self, "version_stage")
+
+    @version_stage.setter
+    def version_stage(self, value: _builtins.str):
+        pulumi.set(self, "version_stage", value)
 
 
 class GetAwsCurConfigAccountFiltersArgsDict(TypedDict):

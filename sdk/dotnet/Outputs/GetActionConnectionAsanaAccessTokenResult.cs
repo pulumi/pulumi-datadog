@@ -17,11 +17,19 @@ namespace Pulumi.Datadog.Outputs
         /// Asana access token
         /// </summary>
         public readonly string AccessToken;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        public readonly Outputs.GetActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerResult? AccessTokenAwsSecretsManager;
 
         [OutputConstructor]
-        private GetActionConnectionAsanaAccessTokenResult(string accessToken)
+        private GetActionConnectionAsanaAccessTokenResult(
+            string accessToken,
+
+            Outputs.GetActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerResult? accessTokenAwsSecretsManager)
         {
             AccessToken = accessToken;
+            AccessTokenAwsSecretsManager = accessTokenAwsSecretsManager;
         }
     }
 }

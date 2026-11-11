@@ -49,14 +49,14 @@ public final class TeamSyncState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The external source platform for team synchronization. Valid values are `github`.
+     * The external source platform for team synchronization. Valid values are `github`, `servicenow`.
      * 
      */
     @Import(name="source")
     private @Nullable Output<String> source;
 
     /**
-     * @return The external source platform for team synchronization. Valid values are `github`.
+     * @return The external source platform for team synchronization. Valid values are `github`, `servicenow`.
      * 
      */
     public Optional<Output<String>> source() {
@@ -174,7 +174,7 @@ public final class TeamSyncState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param source The external source platform for team synchronization. Valid values are `github`.
+         * @param source The external source platform for team synchronization. Valid values are `github`, `servicenow`.
          * 
          * @return builder
          * 
@@ -185,7 +185,7 @@ public final class TeamSyncState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param source The external source platform for team synchronization. Valid values are `github`.
+         * @param source The external source platform for team synchronization. Valid values are `github`, `servicenow`.
          * 
          * @return builder
          * 

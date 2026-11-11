@@ -22,6 +22,7 @@ from .appsec_waf_exclusion_filter import *
 from .authn_mapping import *
 from .aws_cur_config import *
 from .aws_wif_identity_mapping import *
+from .aws_wif_intake_mapping import *
 from .azure_uc_config import *
 from .child_organization import *
 from .cloud_configuration_rule import *
@@ -539,6 +540,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/awsWifIdentityMapping:AwsWifIdentityMapping": "AwsWifIdentityMapping"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/awsWifIntakeMapping",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/awsWifIntakeMapping:AwsWifIntakeMapping": "AwsWifIntakeMapping"
   }
  },
  {

@@ -18,6 +18,12 @@ namespace Pulumi.Datadog.Inputs
         [Input("instance")]
         public Input<string>? Instance { get; set; }
 
+        /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        [Input("instanceAwsSecretsManager")]
+        public Input<Inputs.ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs>? InstanceAwsSecretsManager { get; set; }
+
         [Input("password")]
         private Input<string>? _password;
 
@@ -35,10 +41,22 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        [Input("passwordAwsSecretsManager")]
+        public Input<Inputs.ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs>? PasswordAwsSecretsManager { get; set; }
+
+        /// <summary>
         /// ServiceNow username. String length must be at least 1.
         /// </summary>
         [Input("username")]
         public Input<string>? Username { get; set; }
+
+        /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        [Input("usernameAwsSecretsManager")]
+        public Input<Inputs.ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs>? UsernameAwsSecretsManager { get; set; }
 
         public ActionConnectionServiceNowBasicAuthArgs()
         {

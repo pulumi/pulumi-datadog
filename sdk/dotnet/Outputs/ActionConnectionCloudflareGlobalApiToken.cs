@@ -18,18 +18,32 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? AuthEmail;
         /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        public readonly Outputs.ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager? AuthEmailAwsSecretsManager;
+        /// <summary>
         /// Cloudflare global API key. String length must be at least 1.
         /// </summary>
         public readonly string? GlobalApiKey;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        public readonly Outputs.ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager? GlobalApiKeyAwsSecretsManager;
 
         [OutputConstructor]
         private ActionConnectionCloudflareGlobalApiToken(
             string? authEmail,
 
-            string? globalApiKey)
+            Outputs.ActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager? authEmailAwsSecretsManager,
+
+            string? globalApiKey,
+
+            Outputs.ActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager? globalApiKeyAwsSecretsManager)
         {
             AuthEmail = authEmail;
+            AuthEmailAwsSecretsManager = authEmailAwsSecretsManager;
             GlobalApiKey = globalApiKey;
+            GlobalApiKeyAwsSecretsManager = globalApiKeyAwsSecretsManager;
         }
     }
 }

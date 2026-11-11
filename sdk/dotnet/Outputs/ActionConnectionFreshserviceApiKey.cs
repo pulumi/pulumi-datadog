@@ -18,18 +18,32 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? ApiKey;
         /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        public readonly Outputs.ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager? ApiKeyAwsSecretsManager;
+        /// <summary>
         /// Freshservice domain. String length must be at least 1.
         /// </summary>
         public readonly string? Domain;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        public readonly Outputs.ActionConnectionFreshserviceApiKeyDomainAwsSecretsManager? DomainAwsSecretsManager;
 
         [OutputConstructor]
         private ActionConnectionFreshserviceApiKey(
             string? apiKey,
 
-            string? domain)
+            Outputs.ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager? apiKeyAwsSecretsManager,
+
+            string? domain,
+
+            Outputs.ActionConnectionFreshserviceApiKeyDomainAwsSecretsManager? domainAwsSecretsManager)
         {
             ApiKey = apiKey;
+            ApiKeyAwsSecretsManager = apiKeyAwsSecretsManager;
             Domain = domain;
+            DomainAwsSecretsManager = domainAwsSecretsManager;
         }
     }
 }

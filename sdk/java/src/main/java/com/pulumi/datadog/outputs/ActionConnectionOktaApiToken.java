@@ -4,6 +4,8 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ActionConnectionOktaApiTokenApiTokenAwsSecretsManager;
+import com.pulumi.datadog.outputs.ActionConnectionOktaApiTokenDomainAwsSecretsManager;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -17,10 +19,20 @@ public final class ActionConnectionOktaApiToken {
      */
     private @Nullable String apiToken;
     /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    private @Nullable ActionConnectionOktaApiTokenApiTokenAwsSecretsManager apiTokenAwsSecretsManager;
+    /**
      * @return Okta domain. String length must be at least 1.
      * 
      */
     private @Nullable String domain;
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    private @Nullable ActionConnectionOktaApiTokenDomainAwsSecretsManager domainAwsSecretsManager;
 
     private ActionConnectionOktaApiToken() {}
     /**
@@ -31,11 +43,25 @@ public final class ActionConnectionOktaApiToken {
         return Optional.ofNullable(this.apiToken);
     }
     /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<ActionConnectionOktaApiTokenApiTokenAwsSecretsManager> apiTokenAwsSecretsManager() {
+        return Optional.ofNullable(this.apiTokenAwsSecretsManager);
+    }
+    /**
      * @return Okta domain. String length must be at least 1.
      * 
      */
     public Optional<String> domain() {
         return Optional.ofNullable(this.domain);
+    }
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<ActionConnectionOktaApiTokenDomainAwsSecretsManager> domainAwsSecretsManager() {
+        return Optional.ofNullable(this.domainAwsSecretsManager);
     }
 
     public static Builder builder() {
@@ -48,12 +74,16 @@ public final class ActionConnectionOktaApiToken {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String apiToken;
+        private @Nullable ActionConnectionOktaApiTokenApiTokenAwsSecretsManager apiTokenAwsSecretsManager;
         private @Nullable String domain;
+        private @Nullable ActionConnectionOktaApiTokenDomainAwsSecretsManager domainAwsSecretsManager;
         public Builder() {}
         public Builder(ActionConnectionOktaApiToken defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiToken = defaults.apiToken;
+    	      this.apiTokenAwsSecretsManager = defaults.apiTokenAwsSecretsManager;
     	      this.domain = defaults.domain;
+    	      this.domainAwsSecretsManager = defaults.domainAwsSecretsManager;
         }
 
         @CustomType.Setter
@@ -63,15 +93,29 @@ public final class ActionConnectionOktaApiToken {
             return this;
         }
         @CustomType.Setter
+        public Builder apiTokenAwsSecretsManager(@Nullable ActionConnectionOktaApiTokenApiTokenAwsSecretsManager apiTokenAwsSecretsManager) {
+
+            this.apiTokenAwsSecretsManager = apiTokenAwsSecretsManager;
+            return this;
+        }
+        @CustomType.Setter
         public Builder domain(@Nullable String domain) {
 
             this.domain = domain;
             return this;
         }
+        @CustomType.Setter
+        public Builder domainAwsSecretsManager(@Nullable ActionConnectionOktaApiTokenDomainAwsSecretsManager domainAwsSecretsManager) {
+
+            this.domainAwsSecretsManager = domainAwsSecretsManager;
+            return this;
+        }
         public ActionConnectionOktaApiToken build() {
             final var _resultValue = new ActionConnectionOktaApiToken();
             _resultValue.apiToken = apiToken;
+            _resultValue.apiTokenAwsSecretsManager = apiTokenAwsSecretsManager;
             _resultValue.domain = domain;
+            _resultValue.domainAwsSecretsManager = domainAwsSecretsManager;
             return _resultValue;
         }
     }

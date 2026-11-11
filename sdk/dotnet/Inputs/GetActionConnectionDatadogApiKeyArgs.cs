@@ -28,6 +28,12 @@ namespace Pulumi.Datadog.Inputs
             }
         }
 
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        [Input("apiKeyAwsSecretsManager")]
+        public Input<Inputs.GetActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerInputArgs>? ApiKeyAwsSecretsManager { get; set; }
+
         [Input("appKey", required: true)]
         private Input<string>? _appKey;
 
@@ -45,16 +51,34 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        [Input("appKeyAwsSecretsManager")]
+        public Input<Inputs.GetActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerInputArgs>? AppKeyAwsSecretsManager { get; set; }
+
+        /// <summary>
         /// Datadog site data center
         /// </summary>
         [Input("datacenter", required: true)]
         public Input<string> Datacenter { get; set; } = null!;
 
         /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        [Input("datacenterAwsSecretsManager")]
+        public Input<Inputs.GetActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerInputArgs>? DatacenterAwsSecretsManager { get; set; }
+
+        /// <summary>
         /// Custom subdomain used for URLs generated with this connection
         /// </summary>
         [Input("subdomain", required: true)]
         public Input<string> Subdomain { get; set; } = null!;
+
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        [Input("subdomainAwsSecretsManager")]
+        public Input<Inputs.GetActionConnectionDatadogApiKeySubdomainAwsSecretsManagerInputArgs>? SubdomainAwsSecretsManager { get; set; }
 
         public GetActionConnectionDatadogApiKeyInputArgs()
         {

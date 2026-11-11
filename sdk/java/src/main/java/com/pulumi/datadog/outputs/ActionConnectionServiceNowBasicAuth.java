@@ -4,6 +4,9 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager;
+import com.pulumi.datadog.outputs.ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager;
+import com.pulumi.datadog.outputs.ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -17,15 +20,30 @@ public final class ActionConnectionServiceNowBasicAuth {
      */
     private @Nullable String instance;
     /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    private @Nullable ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager instanceAwsSecretsManager;
+    /**
      * @return ServiceNow password. String length must be at least 1.
      * 
      */
     private @Nullable String password;
     /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    private @Nullable ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager passwordAwsSecretsManager;
+    /**
      * @return ServiceNow username. String length must be at least 1.
      * 
      */
     private @Nullable String username;
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    private @Nullable ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager usernameAwsSecretsManager;
 
     private ActionConnectionServiceNowBasicAuth() {}
     /**
@@ -36,6 +54,13 @@ public final class ActionConnectionServiceNowBasicAuth {
         return Optional.ofNullable(this.instance);
     }
     /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager> instanceAwsSecretsManager() {
+        return Optional.ofNullable(this.instanceAwsSecretsManager);
+    }
+    /**
      * @return ServiceNow password. String length must be at least 1.
      * 
      */
@@ -43,11 +68,25 @@ public final class ActionConnectionServiceNowBasicAuth {
         return Optional.ofNullable(this.password);
     }
     /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager> passwordAwsSecretsManager() {
+        return Optional.ofNullable(this.passwordAwsSecretsManager);
+    }
+    /**
      * @return ServiceNow username. String length must be at least 1.
      * 
      */
     public Optional<String> username() {
         return Optional.ofNullable(this.username);
+    }
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager> usernameAwsSecretsManager() {
+        return Optional.ofNullable(this.usernameAwsSecretsManager);
     }
 
     public static Builder builder() {
@@ -60,14 +99,20 @@ public final class ActionConnectionServiceNowBasicAuth {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String instance;
+        private @Nullable ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager instanceAwsSecretsManager;
         private @Nullable String password;
+        private @Nullable ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager passwordAwsSecretsManager;
         private @Nullable String username;
+        private @Nullable ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager usernameAwsSecretsManager;
         public Builder() {}
         public Builder(ActionConnectionServiceNowBasicAuth defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.instance = defaults.instance;
+    	      this.instanceAwsSecretsManager = defaults.instanceAwsSecretsManager;
     	      this.password = defaults.password;
+    	      this.passwordAwsSecretsManager = defaults.passwordAwsSecretsManager;
     	      this.username = defaults.username;
+    	      this.usernameAwsSecretsManager = defaults.usernameAwsSecretsManager;
         }
 
         @CustomType.Setter
@@ -77,9 +122,21 @@ public final class ActionConnectionServiceNowBasicAuth {
             return this;
         }
         @CustomType.Setter
+        public Builder instanceAwsSecretsManager(@Nullable ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManager instanceAwsSecretsManager) {
+
+            this.instanceAwsSecretsManager = instanceAwsSecretsManager;
+            return this;
+        }
+        @CustomType.Setter
         public Builder password(@Nullable String password) {
 
             this.password = password;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder passwordAwsSecretsManager(@Nullable ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManager passwordAwsSecretsManager) {
+
+            this.passwordAwsSecretsManager = passwordAwsSecretsManager;
             return this;
         }
         @CustomType.Setter
@@ -88,11 +145,20 @@ public final class ActionConnectionServiceNowBasicAuth {
             this.username = username;
             return this;
         }
+        @CustomType.Setter
+        public Builder usernameAwsSecretsManager(@Nullable ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManager usernameAwsSecretsManager) {
+
+            this.usernameAwsSecretsManager = usernameAwsSecretsManager;
+            return this;
+        }
         public ActionConnectionServiceNowBasicAuth build() {
             final var _resultValue = new ActionConnectionServiceNowBasicAuth();
             _resultValue.instance = instance;
+            _resultValue.instanceAwsSecretsManager = instanceAwsSecretsManager;
             _resultValue.password = password;
+            _resultValue.passwordAwsSecretsManager = passwordAwsSecretsManager;
             _resultValue.username = username;
+            _resultValue.usernameAwsSecretsManager = usernameAwsSecretsManager;
             return _resultValue;
         }
     }

@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgs;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -30,10 +31,26 @@ public final class ActionConnectionGeminiApiKeyArgs extends com.pulumi.resources
         return Optional.ofNullable(this.apiKey);
     }
 
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    @Import(name="apiKeyAwsSecretsManager")
+    private @Nullable Output<ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgs> apiKeyAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<Output<ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgs>> apiKeyAwsSecretsManager() {
+        return Optional.ofNullable(this.apiKeyAwsSecretsManager);
+    }
+
     private ActionConnectionGeminiApiKeyArgs() {}
 
     private ActionConnectionGeminiApiKeyArgs(ActionConnectionGeminiApiKeyArgs $) {
         this.apiKey = $.apiKey;
+        this.apiKeyAwsSecretsManager = $.apiKeyAwsSecretsManager;
     }
 
     public static Builder builder() {
@@ -73,6 +90,27 @@ public final class ActionConnectionGeminiApiKeyArgs extends com.pulumi.resources
          */
         public Builder apiKey(String apiKey) {
             return apiKey(Output.of(apiKey));
+        }
+
+        /**
+         * @param apiKeyAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKeyAwsSecretsManager(@Nullable Output<ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgs> apiKeyAwsSecretsManager) {
+            $.apiKeyAwsSecretsManager = apiKeyAwsSecretsManager;
+            return this;
+        }
+
+        /**
+         * @param apiKeyAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKeyAwsSecretsManager(ActionConnectionGeminiApiKeyApiKeyAwsSecretsManagerArgs apiKeyAwsSecretsManager) {
+            return apiKeyAwsSecretsManager(Output.of(apiKeyAwsSecretsManager));
         }
 
         public ActionConnectionGeminiApiKeyArgs build() {

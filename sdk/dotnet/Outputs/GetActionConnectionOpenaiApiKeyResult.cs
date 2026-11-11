@@ -17,11 +17,19 @@ namespace Pulumi.Datadog.Outputs
         /// OpenAI API token
         /// </summary>
         public readonly string ApiToken;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        public readonly Outputs.GetActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerResult? ApiTokenAwsSecretsManager;
 
         [OutputConstructor]
-        private GetActionConnectionOpenaiApiKeyResult(string apiToken)
+        private GetActionConnectionOpenaiApiKeyResult(
+            string apiToken,
+
+            Outputs.GetActionConnectionOpenaiApiKeyApiTokenAwsSecretsManagerResult? apiTokenAwsSecretsManager)
         {
             ApiToken = apiToken;
+            ApiTokenAwsSecretsManager = apiTokenAwsSecretsManager;
         }
     }
 }

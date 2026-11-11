@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.Objects;
@@ -47,6 +48,21 @@ public final class RumApplicationState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
+     * Whether to create the default retention filters (`Sessions with errors` and `Sessions`, both at 100%) when the application is created. Defaults to `true` on the API side. Set to `false` to create the application without them, such as when you manage its retention filters in the same configuration. Permanent retention filters are always created. This setting only applies during application creation. Changing it afterward doesn&#39;t add or remove filters.
+     * 
+     */
+    @Import(name="createDefaultRetentionFilters")
+    private @Nullable Output<Boolean> createDefaultRetentionFilters;
+
+    /**
+     * @return Whether to create the default retention filters (`Sessions with errors` and `Sessions`, both at 100%) when the application is created. Defaults to `true` on the API side. Set to `false` to create the application without them, such as when you manage its retention filters in the same configuration. Permanent retention filters are always created. This setting only applies during application creation. Changing it afterward doesn&#39;t add or remove filters.
+     * 
+     */
+    public Optional<Output<Boolean>> createDefaultRetentionFilters() {
+        return Optional.ofNullable(this.createDefaultRetentionFilters);
+    }
+
+    /**
      * Name of the RUM application.
      * 
      */
@@ -62,14 +78,14 @@ public final class RumApplicationState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
+     * Controls the retention policy for Product Analytics data derived from RUM events. `MAX` enables Product Analytics for the application, and `NONE` disables it. If not set, Datadog picks the value when the application is created. Valid values are `MAX`, `NONE`.
      * 
      */
     @Import(name="productAnalyticsRetentionState")
     private @Nullable Output<String> productAnalyticsRetentionState;
 
     /**
-     * @return Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
+     * @return Controls the retention policy for Product Analytics data derived from RUM events. `MAX` enables Product Analytics for the application, and `NONE` disables it. If not set, Datadog picks the value when the application is created. Valid values are `MAX`, `NONE`.
      * 
      */
     public Optional<Output<String>> productAnalyticsRetentionState() {
@@ -77,14 +93,14 @@ public final class RumApplicationState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
+     * Configures which RUM events are processed and stored for the application. `ALL` enables RUM, `ERROR_FOCUSED_MODE` uses the application for Error Tracking only, without RUM, and `NONE` disables RUM event processing. If not set, Datadog uses `ALL` when the application is created. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
      * 
      */
     @Import(name="rumEventProcessingState")
     private @Nullable Output<String> rumEventProcessingState;
 
     /**
-     * @return Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
+     * @return Configures which RUM events are processed and stored for the application. `ALL` enables RUM, `ERROR_FOCUSED_MODE` uses the application for Error Tracking only, without RUM, and `NONE` disables RUM event processing. If not set, Datadog uses `ALL` when the application is created. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
      * 
      */
     public Optional<Output<String>> rumEventProcessingState() {
@@ -92,14 +108,14 @@ public final class RumApplicationState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `&#34;browser&#34;`.
+     * Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`. Defaults to `&#34;browser&#34;`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `&#34;browser&#34;`.
+     * @return Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`. Defaults to `&#34;browser&#34;`.
      * 
      */
     public Optional<Output<String>> type() {
@@ -111,6 +127,7 @@ public final class RumApplicationState extends com.pulumi.resources.ResourceArgs
     private RumApplicationState(RumApplicationState $) {
         this.apiKeyId = $.apiKeyId;
         this.clientToken = $.clientToken;
+        this.createDefaultRetentionFilters = $.createDefaultRetentionFilters;
         this.name = $.name;
         this.productAnalyticsRetentionState = $.productAnalyticsRetentionState;
         this.rumEventProcessingState = $.rumEventProcessingState;
@@ -178,6 +195,27 @@ public final class RumApplicationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
+         * @param createDefaultRetentionFilters Whether to create the default retention filters (`Sessions with errors` and `Sessions`, both at 100%) when the application is created. Defaults to `true` on the API side. Set to `false` to create the application without them, such as when you manage its retention filters in the same configuration. Permanent retention filters are always created. This setting only applies during application creation. Changing it afterward doesn&#39;t add or remove filters.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder createDefaultRetentionFilters(@Nullable Output<Boolean> createDefaultRetentionFilters) {
+            $.createDefaultRetentionFilters = createDefaultRetentionFilters;
+            return this;
+        }
+
+        /**
+         * @param createDefaultRetentionFilters Whether to create the default retention filters (`Sessions with errors` and `Sessions`, both at 100%) when the application is created. Defaults to `true` on the API side. Set to `false` to create the application without them, such as when you manage its retention filters in the same configuration. Permanent retention filters are always created. This setting only applies during application creation. Changing it afterward doesn&#39;t add or remove filters.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder createDefaultRetentionFilters(Boolean createDefaultRetentionFilters) {
+            return createDefaultRetentionFilters(Output.of(createDefaultRetentionFilters));
+        }
+
+        /**
          * @param name Name of the RUM application.
          * 
          * @return builder
@@ -199,7 +237,7 @@ public final class RumApplicationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param productAnalyticsRetentionState Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
+         * @param productAnalyticsRetentionState Controls the retention policy for Product Analytics data derived from RUM events. `MAX` enables Product Analytics for the application, and `NONE` disables it. If not set, Datadog picks the value when the application is created. Valid values are `MAX`, `NONE`.
          * 
          * @return builder
          * 
@@ -210,7 +248,7 @@ public final class RumApplicationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param productAnalyticsRetentionState Controls the retention policy for Product Analytics data derived from RUM events. Valid values are `MAX`, `NONE`.
+         * @param productAnalyticsRetentionState Controls the retention policy for Product Analytics data derived from RUM events. `MAX` enables Product Analytics for the application, and `NONE` disables it. If not set, Datadog picks the value when the application is created. Valid values are `MAX`, `NONE`.
          * 
          * @return builder
          * 
@@ -220,7 +258,7 @@ public final class RumApplicationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param rumEventProcessingState Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
+         * @param rumEventProcessingState Configures which RUM events are processed and stored for the application. `ALL` enables RUM, `ERROR_FOCUSED_MODE` uses the application for Error Tracking only, without RUM, and `NONE` disables RUM event processing. If not set, Datadog uses `ALL` when the application is created. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
          * 
          * @return builder
          * 
@@ -231,7 +269,7 @@ public final class RumApplicationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param rumEventProcessingState Configures which RUM events are processed and stored for the application. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
+         * @param rumEventProcessingState Configures which RUM events are processed and stored for the application. `ALL` enables RUM, `ERROR_FOCUSED_MODE` uses the application for Error Tracking only, without RUM, and `NONE` disables RUM event processing. If not set, Datadog uses `ALL` when the application is created. Valid values are `ALL`, `ERROR_FOCUSED_MODE`, `NONE`.
          * 
          * @return builder
          * 
@@ -241,7 +279,7 @@ public final class RumApplicationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param type Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `&#34;browser&#34;`.
+         * @param type Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`. Defaults to `&#34;browser&#34;`.
          * 
          * @return builder
          * 
@@ -252,7 +290,7 @@ public final class RumApplicationState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param type Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`. Defaults to `&#34;browser&#34;`.
+         * @param type Type of the RUM application. Supported values are `browser`, `ios`, `android`, `react-native`, `flutter`, `roku`, `electron`, `unity`, `kotlin-multiplatform`. Defaults to `&#34;browser&#34;`.
          * 
          * @return builder
          * 

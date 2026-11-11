@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Datadog Team Sync resource. This can be used to configure team synchronization from external sources (e.g. GitHub) into Datadog.
+// Provides a Datadog Team Sync resource. This can be used to configure team synchronization from external sources (e.g. GitHub or ServiceNow) into Datadog.
 //
 // ## Example Usage
 //
@@ -50,6 +50,25 @@ import (
 //			if err != nil {
 //				return err
 //			}
+//			// Configure team synchronization from ServiceNow
+//			_, err = datadog.NewTeamSync(ctx, "servicenow", &datadog.TeamSyncArgs{
+//				Source:    pulumi.String("servicenow"),
+//				Type:      pulumi.String("link"),
+//				Frequency: pulumi.String("continuously"),
+//				SelectionStates: datadog.TeamSyncSelectionStateArray{
+//					&datadog.TeamSyncSelectionStateArgs{
+//						ExternalId: datadog.TeamSyncSelectionStateExternalIdArgs{
+//							map[string]string{
+//								"type":  "organization",
+//								"value": "my-instance",
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
 //			return nil
 //		})
 //	}
@@ -62,6 +81,7 @@ import (
 //
 // ```sh
 // $ pulumi import datadog:index/teamSync:TeamSync example "github"
+// $ pulumi import datadog:index/teamSync:TeamSync servicenow "servicenow"
 // ```
 type TeamSync struct {
 	pulumi.CustomResourceState
@@ -70,7 +90,7 @@ type TeamSync struct {
 	Frequency pulumi.StringOutput `pulumi:"frequency"`
 	// Specifies which teams or organizations to sync. When provided, synchronization is limited to the specified items and their subtrees.
 	SelectionStates TeamSyncSelectionStateArrayOutput `pulumi:"selectionStates"`
-	// The external source platform for team synchronization. Valid values are `github`.
+	// The external source platform for team synchronization. Valid values are `github`, `servicenow`.
 	Source pulumi.StringOutput `pulumi:"source"`
 	// Whether to sync members from the external team to the Datadog team. Defaults to `false`.
 	SyncMembership pulumi.BoolOutput `pulumi:"syncMembership"`
@@ -118,7 +138,7 @@ type teamSyncState struct {
 	Frequency *string `pulumi:"frequency"`
 	// Specifies which teams or organizations to sync. When provided, synchronization is limited to the specified items and their subtrees.
 	SelectionStates []TeamSyncSelectionState `pulumi:"selectionStates"`
-	// The external source platform for team synchronization. Valid values are `github`.
+	// The external source platform for team synchronization. Valid values are `github`, `servicenow`.
 	Source *string `pulumi:"source"`
 	// Whether to sync members from the external team to the Datadog team. Defaults to `false`.
 	SyncMembership *bool `pulumi:"syncMembership"`
@@ -131,7 +151,7 @@ type TeamSyncState struct {
 	Frequency pulumi.StringPtrInput
 	// Specifies which teams or organizations to sync. When provided, synchronization is limited to the specified items and their subtrees.
 	SelectionStates TeamSyncSelectionStateArrayInput
-	// The external source platform for team synchronization. Valid values are `github`.
+	// The external source platform for team synchronization. Valid values are `github`, `servicenow`.
 	Source pulumi.StringPtrInput
 	// Whether to sync members from the external team to the Datadog team. Defaults to `false`.
 	SyncMembership pulumi.BoolPtrInput
@@ -154,7 +174,7 @@ type teamSyncArgs struct {
 	Frequency *string `pulumi:"frequency"`
 	// Specifies which teams or organizations to sync. When provided, synchronization is limited to the specified items and their subtrees.
 	SelectionStates []TeamSyncSelectionState `pulumi:"selectionStates"`
-	// The external source platform for team synchronization. Valid values are `github`.
+	// The external source platform for team synchronization. Valid values are `github`, `servicenow`.
 	Source string `pulumi:"source"`
 	// Whether to sync members from the external team to the Datadog team. Defaults to `false`.
 	SyncMembership *bool `pulumi:"syncMembership"`
@@ -168,7 +188,7 @@ type TeamSyncArgs struct {
 	Frequency pulumi.StringPtrInput
 	// Specifies which teams or organizations to sync. When provided, synchronization is limited to the specified items and their subtrees.
 	SelectionStates TeamSyncSelectionStateArrayInput
-	// The external source platform for team synchronization. Valid values are `github`.
+	// The external source platform for team synchronization. Valid values are `github`, `servicenow`.
 	Source pulumi.StringInput
 	// Whether to sync members from the external team to the Datadog team. Defaults to `false`.
 	SyncMembership pulumi.BoolPtrInput
@@ -273,7 +293,7 @@ func (o TeamSyncOutput) SelectionStates() TeamSyncSelectionStateArrayOutput {
 	return o.ApplyT(func(v *TeamSync) TeamSyncSelectionStateArrayOutput { return v.SelectionStates }).(TeamSyncSelectionStateArrayOutput)
 }
 
-// The external source platform for team synchronization. Valid values are `github`.
+// The external source platform for team synchronization. Valid values are `github`, `servicenow`.
 func (o TeamSyncOutput) Source() pulumi.StringOutput {
 	return o.ApplyT(func(v *TeamSync) pulumi.StringOutput { return v.Source }).(pulumi.StringOutput)
 }

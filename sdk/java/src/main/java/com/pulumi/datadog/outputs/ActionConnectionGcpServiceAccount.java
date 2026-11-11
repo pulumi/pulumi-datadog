@@ -4,6 +4,8 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager;
+import com.pulumi.datadog.outputs.ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -17,10 +19,20 @@ public final class ActionConnectionGcpServiceAccount {
      */
     private @Nullable String privateKey;
     /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    private @Nullable ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager privateKeyAwsSecretsManager;
+    /**
      * @return Google Cloud service account email. String length must be at least 1.
      * 
      */
     private @Nullable String serviceAccountEmail;
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    private @Nullable ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager serviceAccountEmailAwsSecretsManager;
 
     private ActionConnectionGcpServiceAccount() {}
     /**
@@ -31,11 +43,25 @@ public final class ActionConnectionGcpServiceAccount {
         return Optional.ofNullable(this.privateKey);
     }
     /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager> privateKeyAwsSecretsManager() {
+        return Optional.ofNullable(this.privateKeyAwsSecretsManager);
+    }
+    /**
      * @return Google Cloud service account email. String length must be at least 1.
      * 
      */
     public Optional<String> serviceAccountEmail() {
         return Optional.ofNullable(this.serviceAccountEmail);
+    }
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager> serviceAccountEmailAwsSecretsManager() {
+        return Optional.ofNullable(this.serviceAccountEmailAwsSecretsManager);
     }
 
     public static Builder builder() {
@@ -48,12 +74,16 @@ public final class ActionConnectionGcpServiceAccount {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String privateKey;
+        private @Nullable ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager privateKeyAwsSecretsManager;
         private @Nullable String serviceAccountEmail;
+        private @Nullable ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager serviceAccountEmailAwsSecretsManager;
         public Builder() {}
         public Builder(ActionConnectionGcpServiceAccount defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.privateKey = defaults.privateKey;
+    	      this.privateKeyAwsSecretsManager = defaults.privateKeyAwsSecretsManager;
     	      this.serviceAccountEmail = defaults.serviceAccountEmail;
+    	      this.serviceAccountEmailAwsSecretsManager = defaults.serviceAccountEmailAwsSecretsManager;
         }
 
         @CustomType.Setter
@@ -63,15 +93,29 @@ public final class ActionConnectionGcpServiceAccount {
             return this;
         }
         @CustomType.Setter
+        public Builder privateKeyAwsSecretsManager(@Nullable ActionConnectionGcpServiceAccountPrivateKeyAwsSecretsManager privateKeyAwsSecretsManager) {
+
+            this.privateKeyAwsSecretsManager = privateKeyAwsSecretsManager;
+            return this;
+        }
+        @CustomType.Setter
         public Builder serviceAccountEmail(@Nullable String serviceAccountEmail) {
 
             this.serviceAccountEmail = serviceAccountEmail;
             return this;
         }
+        @CustomType.Setter
+        public Builder serviceAccountEmailAwsSecretsManager(@Nullable ActionConnectionGcpServiceAccountServiceAccountEmailAwsSecretsManager serviceAccountEmailAwsSecretsManager) {
+
+            this.serviceAccountEmailAwsSecretsManager = serviceAccountEmailAwsSecretsManager;
+            return this;
+        }
         public ActionConnectionGcpServiceAccount build() {
             final var _resultValue = new ActionConnectionGcpServiceAccount();
             _resultValue.privateKey = privateKey;
+            _resultValue.privateKeyAwsSecretsManager = privateKeyAwsSecretsManager;
             _resultValue.serviceAccountEmail = serviceAccountEmail;
+            _resultValue.serviceAccountEmailAwsSecretsManager = serviceAccountEmailAwsSecretsManager;
             return _resultValue;
         }
     }

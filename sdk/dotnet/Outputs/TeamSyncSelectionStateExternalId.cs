@@ -14,11 +14,11 @@ namespace Pulumi.Datadog.Outputs
     public sealed class TeamSyncSelectionStateExternalId
     {
         /// <summary>
-        /// The type of external identifier. Valid values are `Team`, `Organization`.
+        /// The type of external identifier. For GitHub, `Team` refers to a GitHub team and `Organization` refers to a GitHub organization. For ServiceNow, `Team` refers to a ServiceNow group and `Organization` refers to a ServiceNow instance. Valid values are `Team`, `Organization`.
         /// </summary>
         public readonly string Type;
         /// <summary>
-        /// The external identifier value from the source platform (e.g. a GitHub organization ID or team ID).
+        /// The external identifier value from the source platform. For GitHub, this is the string representation of a GitHub organization ID or team ID. For ServiceNow, this is the instance name for `Organization`, or `&lt;instance_name&gt;/&lt;sys_id&gt;` of the group for `Team`.
         /// </summary>
         public readonly string Value;
 

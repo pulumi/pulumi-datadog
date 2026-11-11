@@ -4,9 +4,12 @@
 package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.GetActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetActionConnectionAsanaAccessToken extends com.pulumi.resources.InvokeArgs {
@@ -28,10 +31,26 @@ public final class GetActionConnectionAsanaAccessToken extends com.pulumi.resour
         return this.accessToken;
     }
 
+    /**
+     * AWS Secrets Manager reference for this field.
+     * 
+     */
+    @Import(name="accessTokenAwsSecretsManager")
+    private @Nullable GetActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager accessTokenAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager> accessTokenAwsSecretsManager() {
+        return Optional.ofNullable(this.accessTokenAwsSecretsManager);
+    }
+
     private GetActionConnectionAsanaAccessToken() {}
 
     private GetActionConnectionAsanaAccessToken(GetActionConnectionAsanaAccessToken $) {
         this.accessToken = $.accessToken;
+        this.accessTokenAwsSecretsManager = $.accessTokenAwsSecretsManager;
     }
 
     public static Builder builder() {
@@ -60,6 +79,17 @@ public final class GetActionConnectionAsanaAccessToken extends com.pulumi.resour
          */
         public Builder accessToken(String accessToken) {
             $.accessToken = accessToken;
+            return this;
+        }
+
+        /**
+         * @param accessTokenAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessTokenAwsSecretsManager(@Nullable GetActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager accessTokenAwsSecretsManager) {
+            $.accessTokenAwsSecretsManager = accessTokenAwsSecretsManager;
             return this;
         }
 

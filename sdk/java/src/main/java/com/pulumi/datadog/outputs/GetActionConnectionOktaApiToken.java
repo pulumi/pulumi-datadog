@@ -4,9 +4,13 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.GetActionConnectionOktaApiTokenApiTokenAwsSecretsManager;
+import com.pulumi.datadog.outputs.GetActionConnectionOktaApiTokenDomainAwsSecretsManager;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetActionConnectionOktaApiToken {
@@ -16,10 +20,20 @@ public final class GetActionConnectionOktaApiToken {
      */
     private String apiToken;
     /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    private @Nullable GetActionConnectionOktaApiTokenApiTokenAwsSecretsManager apiTokenAwsSecretsManager;
+    /**
      * @return Okta domain
      * 
      */
     private String domain;
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    private @Nullable GetActionConnectionOktaApiTokenDomainAwsSecretsManager domainAwsSecretsManager;
 
     private GetActionConnectionOktaApiToken() {}
     /**
@@ -30,11 +44,25 @@ public final class GetActionConnectionOktaApiToken {
         return this.apiToken;
     }
     /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionOktaApiTokenApiTokenAwsSecretsManager> apiTokenAwsSecretsManager() {
+        return Optional.ofNullable(this.apiTokenAwsSecretsManager);
+    }
+    /**
      * @return Okta domain
      * 
      */
     public String domain() {
         return this.domain;
+    }
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionOktaApiTokenDomainAwsSecretsManager> domainAwsSecretsManager() {
+        return Optional.ofNullable(this.domainAwsSecretsManager);
     }
 
     public static Builder builder() {
@@ -47,12 +75,16 @@ public final class GetActionConnectionOktaApiToken {
     @CustomType.Builder
     public static final class Builder {
         private String apiToken;
+        private @Nullable GetActionConnectionOktaApiTokenApiTokenAwsSecretsManager apiTokenAwsSecretsManager;
         private String domain;
+        private @Nullable GetActionConnectionOktaApiTokenDomainAwsSecretsManager domainAwsSecretsManager;
         public Builder() {}
         public Builder(GetActionConnectionOktaApiToken defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiToken = defaults.apiToken;
+    	      this.apiTokenAwsSecretsManager = defaults.apiTokenAwsSecretsManager;
     	      this.domain = defaults.domain;
+    	      this.domainAwsSecretsManager = defaults.domainAwsSecretsManager;
         }
 
         @CustomType.Setter
@@ -64,6 +96,12 @@ public final class GetActionConnectionOktaApiToken {
             return this;
         }
         @CustomType.Setter
+        public Builder apiTokenAwsSecretsManager(@Nullable GetActionConnectionOktaApiTokenApiTokenAwsSecretsManager apiTokenAwsSecretsManager) {
+
+            this.apiTokenAwsSecretsManager = apiTokenAwsSecretsManager;
+            return this;
+        }
+        @CustomType.Setter
         public Builder domain(String domain) {
             if (domain == null) {
               throw new MissingRequiredPropertyException("GetActionConnectionOktaApiToken", "domain");
@@ -71,10 +109,18 @@ public final class GetActionConnectionOktaApiToken {
             this.domain = domain;
             return this;
         }
+        @CustomType.Setter
+        public Builder domainAwsSecretsManager(@Nullable GetActionConnectionOktaApiTokenDomainAwsSecretsManager domainAwsSecretsManager) {
+
+            this.domainAwsSecretsManager = domainAwsSecretsManager;
+            return this;
+        }
         public GetActionConnectionOktaApiToken build() {
             final var _resultValue = new GetActionConnectionOktaApiToken();
             _resultValue.apiToken = apiToken;
+            _resultValue.apiTokenAwsSecretsManager = apiTokenAwsSecretsManager;
             _resultValue.domain = domain;
+            _resultValue.domainAwsSecretsManager = domainAwsSecretsManager;
             return _resultValue;
         }
     }

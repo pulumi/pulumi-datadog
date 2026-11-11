@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -30,10 +31,26 @@ public final class ActionConnectionAsanaAccessTokenArgs extends com.pulumi.resou
         return Optional.ofNullable(this.accessToken);
     }
 
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    @Import(name="accessTokenAwsSecretsManager")
+    private @Nullable Output<ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs> accessTokenAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<Output<ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs>> accessTokenAwsSecretsManager() {
+        return Optional.ofNullable(this.accessTokenAwsSecretsManager);
+    }
+
     private ActionConnectionAsanaAccessTokenArgs() {}
 
     private ActionConnectionAsanaAccessTokenArgs(ActionConnectionAsanaAccessTokenArgs $) {
         this.accessToken = $.accessToken;
+        this.accessTokenAwsSecretsManager = $.accessTokenAwsSecretsManager;
     }
 
     public static Builder builder() {
@@ -73,6 +90,27 @@ public final class ActionConnectionAsanaAccessTokenArgs extends com.pulumi.resou
          */
         public Builder accessToken(String accessToken) {
             return accessToken(Output.of(accessToken));
+        }
+
+        /**
+         * @param accessTokenAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessTokenAwsSecretsManager(@Nullable Output<ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs> accessTokenAwsSecretsManager) {
+            $.accessTokenAwsSecretsManager = accessTokenAwsSecretsManager;
+            return this;
+        }
+
+        /**
+         * @param accessTokenAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder accessTokenAwsSecretsManager(ActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManagerArgs accessTokenAwsSecretsManager) {
+            return accessTokenAwsSecretsManager(Output.of(accessTokenAwsSecretsManager));
         }
 
         public ActionConnectionAsanaAccessTokenArgs build() {

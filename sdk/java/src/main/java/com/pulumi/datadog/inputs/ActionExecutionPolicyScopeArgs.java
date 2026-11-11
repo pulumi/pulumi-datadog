@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ActionExecutionPolicyScopeKubernetesArgs;
 import com.pulumi.datadog.inputs.ActionExecutionPolicyScopeRemoteActionRshellArgs;
 import com.pulumi.datadog.inputs.ActionExecutionPolicyScopeScriptsArgs;
+import com.pulumi.datadog.inputs.ActionExecutionPolicyScopeSlackArgs;
 import java.util.Objects;
 import java.util.Optional;
 import javax.annotation.Nullable;
@@ -62,12 +63,28 @@ public final class ActionExecutionPolicyScopeArgs extends com.pulumi.resources.R
         return Optional.ofNullable(this.scripts);
     }
 
+    /**
+     * Restricts the policy to specific Slack channel names. Requires `action_pattern.integration` to be `INTEGRATION_SLACK`.
+     * 
+     */
+    @Import(name="slack")
+    private @Nullable Output<ActionExecutionPolicyScopeSlackArgs> slack;
+
+    /**
+     * @return Restricts the policy to specific Slack channel names. Requires `action_pattern.integration` to be `INTEGRATION_SLACK`.
+     * 
+     */
+    public Optional<Output<ActionExecutionPolicyScopeSlackArgs>> slack() {
+        return Optional.ofNullable(this.slack);
+    }
+
     private ActionExecutionPolicyScopeArgs() {}
 
     private ActionExecutionPolicyScopeArgs(ActionExecutionPolicyScopeArgs $) {
         this.kubernetes = $.kubernetes;
         this.remoteActionRshell = $.remoteActionRshell;
         this.scripts = $.scripts;
+        this.slack = $.slack;
     }
 
     public static Builder builder() {
@@ -149,6 +166,27 @@ public final class ActionExecutionPolicyScopeArgs extends com.pulumi.resources.R
          */
         public Builder scripts(ActionExecutionPolicyScopeScriptsArgs scripts) {
             return scripts(Output.of(scripts));
+        }
+
+        /**
+         * @param slack Restricts the policy to specific Slack channel names. Requires `action_pattern.integration` to be `INTEGRATION_SLACK`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder slack(@Nullable Output<ActionExecutionPolicyScopeSlackArgs> slack) {
+            $.slack = slack;
+            return this;
+        }
+
+        /**
+         * @param slack Restricts the policy to specific Slack channel names. Requires `action_pattern.integration` to be `INTEGRATION_SLACK`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder slack(ActionExecutionPolicyScopeSlackArgs slack) {
+            return slack(Output.of(slack));
         }
 
         public ActionExecutionPolicyScopeArgs build() {

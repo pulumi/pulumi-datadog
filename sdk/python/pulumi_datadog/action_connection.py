@@ -31,6 +31,7 @@ class ActionConnectionArgs:
                  cloudflare: pulumi.Input[Optional['ActionConnectionCloudflareArgs']] = None,
                  config_cat: pulumi.Input[Optional['ActionConnectionConfigCatArgs']] = None,
                  datadog: pulumi.Input[Optional['ActionConnectionDatadogArgs']] = None,
+                 external_secrets_manager: pulumi.Input[Optional['ActionConnectionExternalSecretsManagerArgs']] = None,
                  fastly: pulumi.Input[Optional['ActionConnectionFastlyArgs']] = None,
                  freshservice: pulumi.Input[Optional['ActionConnectionFreshserviceArgs']] = None,
                  gcp: pulumi.Input[Optional['ActionConnectionGcpArgs']] = None,
@@ -60,6 +61,7 @@ class ActionConnectionArgs:
         :param pulumi.Input['ActionConnectionCloudflareArgs'] cloudflare: Configuration for a Cloudflare connection
         :param pulumi.Input['ActionConnectionConfigCatArgs'] config_cat: Configuration for a ConfigCat connection
         :param pulumi.Input['ActionConnectionDatadogArgs'] datadog: Configuration for a Datadog connection
+        :param pulumi.Input['ActionConnectionExternalSecretsManagerArgs'] external_secrets_manager: AWS Secrets Manager settings shared by credential references. Required when a credential uses an AWS Secrets Manager reference. Optional for literal credentials. Available only on connections that run in Datadog's cloud.
         :param pulumi.Input['ActionConnectionFastlyArgs'] fastly: Configuration for a Fastly connection
         :param pulumi.Input['ActionConnectionFreshserviceArgs'] freshservice: Configuration for a Freshservice connection
         :param pulumi.Input['ActionConnectionGcpArgs'] gcp: Configuration for a Google Cloud connection
@@ -96,6 +98,8 @@ class ActionConnectionArgs:
             pulumi.set(__self__, "config_cat", config_cat)
         if datadog is not None:
             pulumi.set(__self__, "datadog", datadog)
+        if external_secrets_manager is not None:
+            pulumi.set(__self__, "external_secrets_manager", external_secrets_manager)
         if fastly is not None:
             pulumi.set(__self__, "fastly", fastly)
         if freshservice is not None:
@@ -248,6 +252,18 @@ class ActionConnectionArgs:
     @datadog.setter
     def datadog(self, value: pulumi.Input[Optional['ActionConnectionDatadogArgs']]):
         pulumi.set(self, "datadog", value)
+
+    @_builtins.property
+    @pulumi.getter(name="externalSecretsManager")
+    def external_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionExternalSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager settings shared by credential references. Required when a credential uses an AWS Secrets Manager reference. Optional for literal credentials. Available only on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "external_secrets_manager")
+
+    @external_secrets_manager.setter
+    def external_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionExternalSecretsManagerArgs']]):
+        pulumi.set(self, "external_secrets_manager", value)
 
     @_builtins.property
     @pulumi.getter
@@ -455,6 +471,7 @@ class _ActionConnectionState:
                  config_cat: pulumi.Input[Optional['ActionConnectionConfigCatArgs']] = None,
                  datadog: pulumi.Input[Optional['ActionConnectionDatadogArgs']] = None,
                  effective_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+                 external_secrets_manager: pulumi.Input[Optional['ActionConnectionExternalSecretsManagerArgs']] = None,
                  fastly: pulumi.Input[Optional['ActionConnectionFastlyArgs']] = None,
                  freshservice: pulumi.Input[Optional['ActionConnectionFreshserviceArgs']] = None,
                  gcp: pulumi.Input[Optional['ActionConnectionGcpArgs']] = None,
@@ -485,6 +502,7 @@ class _ActionConnectionState:
         :param pulumi.Input['ActionConnectionConfigCatArgs'] config_cat: Configuration for a ConfigCat connection
         :param pulumi.Input['ActionConnectionDatadogArgs'] datadog: Configuration for a Datadog connection
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] effective_tags: Tags associated with the connection, including those inherited from the provider's `default_tags` configuration.
+        :param pulumi.Input['ActionConnectionExternalSecretsManagerArgs'] external_secrets_manager: AWS Secrets Manager settings shared by credential references. Required when a credential uses an AWS Secrets Manager reference. Optional for literal credentials. Available only on connections that run in Datadog's cloud.
         :param pulumi.Input['ActionConnectionFastlyArgs'] fastly: Configuration for a Fastly connection
         :param pulumi.Input['ActionConnectionFreshserviceArgs'] freshservice: Configuration for a Freshservice connection
         :param pulumi.Input['ActionConnectionGcpArgs'] gcp: Configuration for a Google Cloud connection
@@ -523,6 +541,8 @@ class _ActionConnectionState:
             pulumi.set(__self__, "datadog", datadog)
         if effective_tags is not None:
             pulumi.set(__self__, "effective_tags", effective_tags)
+        if external_secrets_manager is not None:
+            pulumi.set(__self__, "external_secrets_manager", external_secrets_manager)
         if fastly is not None:
             pulumi.set(__self__, "fastly", fastly)
         if freshservice is not None:
@@ -677,6 +697,18 @@ class _ActionConnectionState:
     @effective_tags.setter
     def effective_tags(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "effective_tags", value)
+
+    @_builtins.property
+    @pulumi.getter(name="externalSecretsManager")
+    def external_secrets_manager(self) -> pulumi.Input[Optional['ActionConnectionExternalSecretsManagerArgs']]:
+        """
+        AWS Secrets Manager settings shared by credential references. Required when a credential uses an AWS Secrets Manager reference. Optional for literal credentials. Available only on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "external_secrets_manager")
+
+    @external_secrets_manager.setter
+    def external_secrets_manager(self, value: pulumi.Input[Optional['ActionConnectionExternalSecretsManagerArgs']]):
+        pulumi.set(self, "external_secrets_manager", value)
 
     @_builtins.property
     @pulumi.getter
@@ -898,6 +930,7 @@ class ActionConnection(pulumi.CustomResource):
                  cloudflare: pulumi.Input[Optional[Union['ActionConnectionCloudflareArgs', 'ActionConnectionCloudflareArgsDict', 'outputs.ActionConnectionCloudflare']]] = None,
                  config_cat: pulumi.Input[Optional[Union['ActionConnectionConfigCatArgs', 'ActionConnectionConfigCatArgsDict', 'outputs.ActionConnectionConfigCat']]] = None,
                  datadog: pulumi.Input[Optional[Union['ActionConnectionDatadogArgs', 'ActionConnectionDatadogArgsDict', 'outputs.ActionConnectionDatadog']]] = None,
+                 external_secrets_manager: pulumi.Input[Optional[Union['ActionConnectionExternalSecretsManagerArgs', 'ActionConnectionExternalSecretsManagerArgsDict', 'outputs.ActionConnectionExternalSecretsManager']]] = None,
                  fastly: pulumi.Input[Optional[Union['ActionConnectionFastlyArgs', 'ActionConnectionFastlyArgsDict', 'outputs.ActionConnectionFastly']]] = None,
                  freshservice: pulumi.Input[Optional[Union['ActionConnectionFreshserviceArgs', 'ActionConnectionFreshserviceArgsDict', 'outputs.ActionConnectionFreshservice']]] = None,
                  gcp: pulumi.Input[Optional[Union['ActionConnectionGcpArgs', 'ActionConnectionGcpArgsDict', 'outputs.ActionConnectionGcp']]] = None,
@@ -917,7 +950,7 @@ class ActionConnection(pulumi.CustomResource):
                  virus_total: pulumi.Input[Optional[Union['ActionConnectionVirusTotalArgs', 'ActionConnectionVirusTotalArgsDict', 'outputs.ActionConnectionVirusTotal']]] = None,
                  __props__=None):
         """
-        A connection that can be used in Actions, including in the Workflow Automation and App Builder products. This resource requires a registered application key.
+        A connection that can be used in Actions, including in the Workflow Automation and App Builder products. This resource creates connections that run in Datadog's cloud. AWS Secrets Manager references are available for supported token-based credentials and HTTP authentication token values. AWS AssumeRole credentials, Azure credentials, and HTTP request metadata don't support AWS Secrets Manager references and must use literal values. This resource requires a registered application key.
 
         ## Example Usage
 
@@ -987,6 +1020,26 @@ class ActionConnection(pulumi.CustomResource):
                     }],
                 }],
             }])
+        # Datadog resolves these references at runtime. Pulumi stores only the
+        # references and does not retrieve the GCP credential values.
+        gcp_connection = datadog.ActionConnection("gcp_connection",
+            name="My GCP connection with AWS Secrets Manager",
+            external_secrets_manager={
+                "connection_id": aws_connection.id,
+                "region": "us-east-1",
+            },
+            gcp=[{
+                "serviceAccount": [{
+                    "privateKeyAwsSecretsManager": {
+                        "secret_id": "example/gcp/service-account",
+                        "key": "private_key",
+                    },
+                    "serviceAccountEmailAwsSecretsManager": {
+                        "secret_id": "example/gcp/service-account",
+                        "key": "client_email",
+                    },
+                }],
+            }])
         ```
 
         ## Import
@@ -1009,6 +1062,7 @@ class ActionConnection(pulumi.CustomResource):
         :param pulumi.Input[Union['ActionConnectionCloudflareArgs', 'ActionConnectionCloudflareArgsDict', 'outputs.ActionConnectionCloudflare']] cloudflare: Configuration for a Cloudflare connection
         :param pulumi.Input[Union['ActionConnectionConfigCatArgs', 'ActionConnectionConfigCatArgsDict', 'outputs.ActionConnectionConfigCat']] config_cat: Configuration for a ConfigCat connection
         :param pulumi.Input[Union['ActionConnectionDatadogArgs', 'ActionConnectionDatadogArgsDict', 'outputs.ActionConnectionDatadog']] datadog: Configuration for a Datadog connection
+        :param pulumi.Input[Union['ActionConnectionExternalSecretsManagerArgs', 'ActionConnectionExternalSecretsManagerArgsDict', 'outputs.ActionConnectionExternalSecretsManager']] external_secrets_manager: AWS Secrets Manager settings shared by credential references. Required when a credential uses an AWS Secrets Manager reference. Optional for literal credentials. Available only on connections that run in Datadog's cloud.
         :param pulumi.Input[Union['ActionConnectionFastlyArgs', 'ActionConnectionFastlyArgsDict', 'outputs.ActionConnectionFastly']] fastly: Configuration for a Fastly connection
         :param pulumi.Input[Union['ActionConnectionFreshserviceArgs', 'ActionConnectionFreshserviceArgsDict', 'outputs.ActionConnectionFreshservice']] freshservice: Configuration for a Freshservice connection
         :param pulumi.Input[Union['ActionConnectionGcpArgs', 'ActionConnectionGcpArgsDict', 'outputs.ActionConnectionGcp']] gcp: Configuration for a Google Cloud connection
@@ -1034,7 +1088,7 @@ class ActionConnection(pulumi.CustomResource):
                  args: ActionConnectionArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        A connection that can be used in Actions, including in the Workflow Automation and App Builder products. This resource requires a registered application key.
+        A connection that can be used in Actions, including in the Workflow Automation and App Builder products. This resource creates connections that run in Datadog's cloud. AWS Secrets Manager references are available for supported token-based credentials and HTTP authentication token values. AWS AssumeRole credentials, Azure credentials, and HTTP request metadata don't support AWS Secrets Manager references and must use literal values. This resource requires a registered application key.
 
         ## Example Usage
 
@@ -1102,6 +1156,26 @@ class ActionConnection(pulumi.CustomResource):
                             "value": "maybe with a secret: {{ token2 }}",
                         }),
                     }],
+                }],
+            }])
+        # Datadog resolves these references at runtime. Pulumi stores only the
+        # references and does not retrieve the GCP credential values.
+        gcp_connection = datadog.ActionConnection("gcp_connection",
+            name="My GCP connection with AWS Secrets Manager",
+            external_secrets_manager={
+                "connection_id": aws_connection.id,
+                "region": "us-east-1",
+            },
+            gcp=[{
+                "serviceAccount": [{
+                    "privateKeyAwsSecretsManager": {
+                        "secret_id": "example/gcp/service-account",
+                        "key": "private_key",
+                    },
+                    "serviceAccountEmailAwsSecretsManager": {
+                        "secret_id": "example/gcp/service-account",
+                        "key": "client_email",
+                    },
                 }],
             }])
         ```
@@ -1139,6 +1213,7 @@ class ActionConnection(pulumi.CustomResource):
                  cloudflare: pulumi.Input[Optional[Union['ActionConnectionCloudflareArgs', 'ActionConnectionCloudflareArgsDict', 'outputs.ActionConnectionCloudflare']]] = None,
                  config_cat: pulumi.Input[Optional[Union['ActionConnectionConfigCatArgs', 'ActionConnectionConfigCatArgsDict', 'outputs.ActionConnectionConfigCat']]] = None,
                  datadog: pulumi.Input[Optional[Union['ActionConnectionDatadogArgs', 'ActionConnectionDatadogArgsDict', 'outputs.ActionConnectionDatadog']]] = None,
+                 external_secrets_manager: pulumi.Input[Optional[Union['ActionConnectionExternalSecretsManagerArgs', 'ActionConnectionExternalSecretsManagerArgsDict', 'outputs.ActionConnectionExternalSecretsManager']]] = None,
                  fastly: pulumi.Input[Optional[Union['ActionConnectionFastlyArgs', 'ActionConnectionFastlyArgsDict', 'outputs.ActionConnectionFastly']]] = None,
                  freshservice: pulumi.Input[Optional[Union['ActionConnectionFreshserviceArgs', 'ActionConnectionFreshserviceArgsDict', 'outputs.ActionConnectionFreshservice']]] = None,
                  gcp: pulumi.Input[Optional[Union['ActionConnectionGcpArgs', 'ActionConnectionGcpArgsDict', 'outputs.ActionConnectionGcp']]] = None,
@@ -1174,6 +1249,7 @@ class ActionConnection(pulumi.CustomResource):
             __props__.__dict__["cloudflare"] = cloudflare
             __props__.__dict__["config_cat"] = config_cat
             __props__.__dict__["datadog"] = datadog
+            __props__.__dict__["external_secrets_manager"] = external_secrets_manager
             __props__.__dict__["fastly"] = fastly
             __props__.__dict__["freshservice"] = freshservice
             __props__.__dict__["gcp"] = gcp
@@ -1214,6 +1290,7 @@ class ActionConnection(pulumi.CustomResource):
             config_cat: pulumi.Input[Optional[Union['ActionConnectionConfigCatArgs', 'ActionConnectionConfigCatArgsDict', 'outputs.ActionConnectionConfigCat']]] = None,
             datadog: pulumi.Input[Optional[Union['ActionConnectionDatadogArgs', 'ActionConnectionDatadogArgsDict', 'outputs.ActionConnectionDatadog']]] = None,
             effective_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            external_secrets_manager: pulumi.Input[Optional[Union['ActionConnectionExternalSecretsManagerArgs', 'ActionConnectionExternalSecretsManagerArgsDict', 'outputs.ActionConnectionExternalSecretsManager']]] = None,
             fastly: pulumi.Input[Optional[Union['ActionConnectionFastlyArgs', 'ActionConnectionFastlyArgsDict', 'outputs.ActionConnectionFastly']]] = None,
             freshservice: pulumi.Input[Optional[Union['ActionConnectionFreshserviceArgs', 'ActionConnectionFreshserviceArgsDict', 'outputs.ActionConnectionFreshservice']]] = None,
             gcp: pulumi.Input[Optional[Union['ActionConnectionGcpArgs', 'ActionConnectionGcpArgsDict', 'outputs.ActionConnectionGcp']]] = None,
@@ -1248,6 +1325,7 @@ class ActionConnection(pulumi.CustomResource):
         :param pulumi.Input[Union['ActionConnectionConfigCatArgs', 'ActionConnectionConfigCatArgsDict', 'outputs.ActionConnectionConfigCat']] config_cat: Configuration for a ConfigCat connection
         :param pulumi.Input[Union['ActionConnectionDatadogArgs', 'ActionConnectionDatadogArgsDict', 'outputs.ActionConnectionDatadog']] datadog: Configuration for a Datadog connection
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] effective_tags: Tags associated with the connection, including those inherited from the provider's `default_tags` configuration.
+        :param pulumi.Input[Union['ActionConnectionExternalSecretsManagerArgs', 'ActionConnectionExternalSecretsManagerArgsDict', 'outputs.ActionConnectionExternalSecretsManager']] external_secrets_manager: AWS Secrets Manager settings shared by credential references. Required when a credential uses an AWS Secrets Manager reference. Optional for literal credentials. Available only on connections that run in Datadog's cloud.
         :param pulumi.Input[Union['ActionConnectionFastlyArgs', 'ActionConnectionFastlyArgsDict', 'outputs.ActionConnectionFastly']] fastly: Configuration for a Fastly connection
         :param pulumi.Input[Union['ActionConnectionFreshserviceArgs', 'ActionConnectionFreshserviceArgsDict', 'outputs.ActionConnectionFreshservice']] freshservice: Configuration for a Freshservice connection
         :param pulumi.Input[Union['ActionConnectionGcpArgs', 'ActionConnectionGcpArgsDict', 'outputs.ActionConnectionGcp']] gcp: Configuration for a Google Cloud connection
@@ -1280,6 +1358,7 @@ class ActionConnection(pulumi.CustomResource):
         __props__.__dict__["config_cat"] = config_cat
         __props__.__dict__["datadog"] = datadog
         __props__.__dict__["effective_tags"] = effective_tags
+        __props__.__dict__["external_secrets_manager"] = external_secrets_manager
         __props__.__dict__["fastly"] = fastly
         __props__.__dict__["freshservice"] = freshservice
         __props__.__dict__["gcp"] = gcp
@@ -1312,6 +1391,7 @@ class ActionConnection(pulumi.CustomResource):
             config_cat: pulumi.Input[Optional[Union['ActionConnectionConfigCatArgs', 'ActionConnectionConfigCatArgsDict', 'outputs.ActionConnectionConfigCat']]] = None,
             datadog: pulumi.Input[Optional[Union['ActionConnectionDatadogArgs', 'ActionConnectionDatadogArgsDict', 'outputs.ActionConnectionDatadog']]] = None,
             effective_tags: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
+            external_secrets_manager: pulumi.Input[Optional[Union['ActionConnectionExternalSecretsManagerArgs', 'ActionConnectionExternalSecretsManagerArgsDict', 'outputs.ActionConnectionExternalSecretsManager']]] = None,
             fastly: pulumi.Input[Optional[Union['ActionConnectionFastlyArgs', 'ActionConnectionFastlyArgsDict', 'outputs.ActionConnectionFastly']]] = None,
             freshservice: pulumi.Input[Optional[Union['ActionConnectionFreshserviceArgs', 'ActionConnectionFreshserviceArgsDict', 'outputs.ActionConnectionFreshservice']]] = None,
             gcp: pulumi.Input[Optional[Union['ActionConnectionGcpArgs', 'ActionConnectionGcpArgsDict', 'outputs.ActionConnectionGcp']]] = None,
@@ -1340,6 +1420,7 @@ class ActionConnection(pulumi.CustomResource):
         __props__["configCat"] = config_cat
         __props__["datadog"] = datadog
         __props__["effectiveTags"] = effective_tags
+        __props__["externalSecretsManager"] = external_secrets_manager
         __props__["fastly"] = fastly
         __props__["freshservice"] = freshservice
         __props__["gcp"] = gcp
@@ -1438,6 +1519,14 @@ class ActionConnection(pulumi.CustomResource):
         Tags associated with the connection, including those inherited from the provider's `default_tags` configuration.
         """
         return pulumi.get(self, "effective_tags")
+
+    @_builtins.property
+    @pulumi.getter(name="externalSecretsManager")
+    def external_secrets_manager(self) -> pulumi.Output[Optional['outputs.ActionConnectionExternalSecretsManager']]:
+        """
+        AWS Secrets Manager settings shared by credential references. Required when a credential uses an AWS Secrets Manager reference. Optional for literal credentials. Available only on connections that run in Datadog's cloud.
+        """
+        return pulumi.get(self, "external_secrets_manager")
 
     @_builtins.property
     @pulumi.getter

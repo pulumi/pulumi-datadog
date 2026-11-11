@@ -5,6 +5,10 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgs;
+import com.pulumi.datadog.inputs.ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgs;
+import com.pulumi.datadog.inputs.ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgs;
+import com.pulumi.datadog.inputs.ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgs;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -31,6 +35,21 @@ public final class ActionConnectionDatadogApiKeyArgs extends com.pulumi.resource
     }
 
     /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    @Import(name="apiKeyAwsSecretsManager")
+    private @Nullable Output<ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgs> apiKeyAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<Output<ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgs>> apiKeyAwsSecretsManager() {
+        return Optional.ofNullable(this.apiKeyAwsSecretsManager);
+    }
+
+    /**
      * Datadog application key. String length must be at least 1.
      * 
      */
@@ -43,6 +62,21 @@ public final class ActionConnectionDatadogApiKeyArgs extends com.pulumi.resource
      */
     public Optional<Output<String>> appKey() {
         return Optional.ofNullable(this.appKey);
+    }
+
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    @Import(name="appKeyAwsSecretsManager")
+    private @Nullable Output<ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgs> appKeyAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<Output<ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgs>> appKeyAwsSecretsManager() {
+        return Optional.ofNullable(this.appKeyAwsSecretsManager);
     }
 
     /**
@@ -61,6 +95,21 @@ public final class ActionConnectionDatadogApiKeyArgs extends com.pulumi.resource
     }
 
     /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    @Import(name="datacenterAwsSecretsManager")
+    private @Nullable Output<ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgs> datacenterAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<Output<ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgs>> datacenterAwsSecretsManager() {
+        return Optional.ofNullable(this.datacenterAwsSecretsManager);
+    }
+
+    /**
      * Custom subdomain used for URLs generated with this connection. String length must be at least 1.
      * 
      */
@@ -75,13 +124,32 @@ public final class ActionConnectionDatadogApiKeyArgs extends com.pulumi.resource
         return Optional.ofNullable(this.subdomain);
     }
 
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    @Import(name="subdomainAwsSecretsManager")
+    private @Nullable Output<ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgs> subdomainAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<Output<ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgs>> subdomainAwsSecretsManager() {
+        return Optional.ofNullable(this.subdomainAwsSecretsManager);
+    }
+
     private ActionConnectionDatadogApiKeyArgs() {}
 
     private ActionConnectionDatadogApiKeyArgs(ActionConnectionDatadogApiKeyArgs $) {
         this.apiKey = $.apiKey;
+        this.apiKeyAwsSecretsManager = $.apiKeyAwsSecretsManager;
         this.appKey = $.appKey;
+        this.appKeyAwsSecretsManager = $.appKeyAwsSecretsManager;
         this.datacenter = $.datacenter;
+        this.datacenterAwsSecretsManager = $.datacenterAwsSecretsManager;
         this.subdomain = $.subdomain;
+        this.subdomainAwsSecretsManager = $.subdomainAwsSecretsManager;
     }
 
     public static Builder builder() {
@@ -124,6 +192,27 @@ public final class ActionConnectionDatadogApiKeyArgs extends com.pulumi.resource
         }
 
         /**
+         * @param apiKeyAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKeyAwsSecretsManager(@Nullable Output<ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgs> apiKeyAwsSecretsManager) {
+            $.apiKeyAwsSecretsManager = apiKeyAwsSecretsManager;
+            return this;
+        }
+
+        /**
+         * @param apiKeyAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiKeyAwsSecretsManager(ActionConnectionDatadogApiKeyApiKeyAwsSecretsManagerArgs apiKeyAwsSecretsManager) {
+            return apiKeyAwsSecretsManager(Output.of(apiKeyAwsSecretsManager));
+        }
+
+        /**
          * @param appKey Datadog application key. String length must be at least 1.
          * 
          * @return builder
@@ -142,6 +231,27 @@ public final class ActionConnectionDatadogApiKeyArgs extends com.pulumi.resource
          */
         public Builder appKey(String appKey) {
             return appKey(Output.of(appKey));
+        }
+
+        /**
+         * @param appKeyAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder appKeyAwsSecretsManager(@Nullable Output<ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgs> appKeyAwsSecretsManager) {
+            $.appKeyAwsSecretsManager = appKeyAwsSecretsManager;
+            return this;
+        }
+
+        /**
+         * @param appKeyAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder appKeyAwsSecretsManager(ActionConnectionDatadogApiKeyAppKeyAwsSecretsManagerArgs appKeyAwsSecretsManager) {
+            return appKeyAwsSecretsManager(Output.of(appKeyAwsSecretsManager));
         }
 
         /**
@@ -166,6 +276,27 @@ public final class ActionConnectionDatadogApiKeyArgs extends com.pulumi.resource
         }
 
         /**
+         * @param datacenterAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder datacenterAwsSecretsManager(@Nullable Output<ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgs> datacenterAwsSecretsManager) {
+            $.datacenterAwsSecretsManager = datacenterAwsSecretsManager;
+            return this;
+        }
+
+        /**
+         * @param datacenterAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder datacenterAwsSecretsManager(ActionConnectionDatadogApiKeyDatacenterAwsSecretsManagerArgs datacenterAwsSecretsManager) {
+            return datacenterAwsSecretsManager(Output.of(datacenterAwsSecretsManager));
+        }
+
+        /**
          * @param subdomain Custom subdomain used for URLs generated with this connection. String length must be at least 1.
          * 
          * @return builder
@@ -184,6 +315,27 @@ public final class ActionConnectionDatadogApiKeyArgs extends com.pulumi.resource
          */
         public Builder subdomain(String subdomain) {
             return subdomain(Output.of(subdomain));
+        }
+
+        /**
+         * @param subdomainAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subdomainAwsSecretsManager(@Nullable Output<ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgs> subdomainAwsSecretsManager) {
+            $.subdomainAwsSecretsManager = subdomainAwsSecretsManager;
+            return this;
+        }
+
+        /**
+         * @param subdomainAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder subdomainAwsSecretsManager(ActionConnectionDatadogApiKeySubdomainAwsSecretsManagerArgs subdomainAwsSecretsManager) {
+            return subdomainAwsSecretsManager(Output.of(subdomainAwsSecretsManager));
         }
 
         public ActionConnectionDatadogApiKeyArgs build() {

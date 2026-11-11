@@ -4,9 +4,12 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.GetActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetActionConnectionAsanaAccessToken {
@@ -15,6 +18,11 @@ public final class GetActionConnectionAsanaAccessToken {
      * 
      */
     private String accessToken;
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    private @Nullable GetActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager accessTokenAwsSecretsManager;
 
     private GetActionConnectionAsanaAccessToken() {}
     /**
@@ -23,6 +31,13 @@ public final class GetActionConnectionAsanaAccessToken {
      */
     public String accessToken() {
         return this.accessToken;
+    }
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager> accessTokenAwsSecretsManager() {
+        return Optional.ofNullable(this.accessTokenAwsSecretsManager);
     }
 
     public static Builder builder() {
@@ -35,10 +50,12 @@ public final class GetActionConnectionAsanaAccessToken {
     @CustomType.Builder
     public static final class Builder {
         private String accessToken;
+        private @Nullable GetActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager accessTokenAwsSecretsManager;
         public Builder() {}
         public Builder(GetActionConnectionAsanaAccessToken defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.accessToken = defaults.accessToken;
+    	      this.accessTokenAwsSecretsManager = defaults.accessTokenAwsSecretsManager;
         }
 
         @CustomType.Setter
@@ -49,9 +66,16 @@ public final class GetActionConnectionAsanaAccessToken {
             this.accessToken = accessToken;
             return this;
         }
+        @CustomType.Setter
+        public Builder accessTokenAwsSecretsManager(@Nullable GetActionConnectionAsanaAccessTokenAccessTokenAwsSecretsManager accessTokenAwsSecretsManager) {
+
+            this.accessTokenAwsSecretsManager = accessTokenAwsSecretsManager;
+            return this;
+        }
         public GetActionConnectionAsanaAccessToken build() {
             final var _resultValue = new GetActionConnectionAsanaAccessToken();
             _resultValue.accessToken = accessToken;
+            _resultValue.accessTokenAwsSecretsManager = accessTokenAwsSecretsManager;
             return _resultValue;
         }
     }

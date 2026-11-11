@@ -30,6 +30,7 @@ import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProces
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorRenameMetricTagsArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorSampleArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerArgs;
+import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorSplitArrayArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitArgs;
 import com.pulumi.datadog.inputs.ObservabilityPipelineConfigProcessorGroupProcessorThrottleArgs;
@@ -479,6 +480,21 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorArgs extend
     }
 
     /**
+     * The `spikeProtection` processor learns the normal log volume and detects spikes, optionally dropping or rerouting the excess events.
+     * 
+     */
+    @Import(name="spikeProtection")
+    private @Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionArgs> spikeProtection;
+
+    /**
+     * @return The `spikeProtection` processor learns the normal log volume and detects spikes, optionally dropping or rerouting the excess events.
+     * 
+     */
+    public Optional<Output<ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionArgs>> spikeProtection() {
+        return Optional.ofNullable(this.spikeProtection);
+    }
+
+    /**
      * The `splitArray` processor splits array fields into separate events based on configured rules.
      * 
      */
@@ -555,6 +571,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorArgs extend
         this.renameMetricTags = $.renameMetricTags;
         this.sample = $.sample;
         this.sensitiveDataScanner = $.sensitiveDataScanner;
+        this.spikeProtection = $.spikeProtection;
         this.splitArray = $.splitArray;
         this.tagCardinalityLimit = $.tagCardinalityLimit;
         this.throttle = $.throttle;
@@ -1179,6 +1196,27 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorArgs extend
          */
         public Builder sensitiveDataScanner(ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScannerArgs sensitiveDataScanner) {
             return sensitiveDataScanner(Output.of(sensitiveDataScanner));
+        }
+
+        /**
+         * @param spikeProtection The `spikeProtection` processor learns the normal log volume and detects spikes, optionally dropping or rerouting the excess events.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spikeProtection(@Nullable Output<ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionArgs> spikeProtection) {
+            $.spikeProtection = spikeProtection;
+            return this;
+        }
+
+        /**
+         * @param spikeProtection The `spikeProtection` processor learns the normal log volume and detects spikes, optionally dropping or rerouting the excess events.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder spikeProtection(ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtectionArgs spikeProtection) {
+            return spikeProtection(Output.of(spikeProtection));
         }
 
         /**

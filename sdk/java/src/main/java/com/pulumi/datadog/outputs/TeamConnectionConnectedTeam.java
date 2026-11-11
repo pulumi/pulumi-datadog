@@ -11,26 +11,26 @@ import java.util.Objects;
 @CustomType
 public final class TeamConnectionConnectedTeam {
     /**
-     * @return The ID of the external connected team.
+     * @return The ID of the external connected team. For GitHub teams, this is `{@literal @}&lt;organization&gt;/&lt;team-slug&gt;`. For ServiceNow groups, this is `&lt;instance_name&gt;/&lt;sys_id&gt;`.
      * 
      */
     private String id;
     /**
-     * @return The resource type of the external connected team. Valid values are `githubTeam`.
+     * @return The resource type of the external connected team. Valid values are `githubTeam`, `servicenowTeam`.
      * 
      */
     private String type;
 
     private TeamConnectionConnectedTeam() {}
     /**
-     * @return The ID of the external connected team.
+     * @return The ID of the external connected team. For GitHub teams, this is `{@literal @}&lt;organization&gt;/&lt;team-slug&gt;`. For ServiceNow groups, this is `&lt;instance_name&gt;/&lt;sys_id&gt;`.
      * 
      */
     public String id() {
         return this.id;
     }
     /**
-     * @return The resource type of the external connected team. Valid values are `githubTeam`.
+     * @return The resource type of the external connected team. Valid values are `githubTeam`, `servicenowTeam`.
      * 
      */
     public String type() {

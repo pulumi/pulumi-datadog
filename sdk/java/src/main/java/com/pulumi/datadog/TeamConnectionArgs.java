@@ -19,14 +19,14 @@ public final class TeamConnectionArgs extends com.pulumi.resources.ResourceArgs 
     public static final TeamConnectionArgs Empty = new TeamConnectionArgs();
 
     /**
-     * The external connected team reference (e.g. a GitHub team).
+     * The external connected team reference (e.g. a GitHub team or a ServiceNow group).
      * 
      */
     @Import(name="connectedTeam", required=true)
     private Output<TeamConnectionConnectedTeamArgs> connectedTeam;
 
     /**
-     * @return The external connected team reference (e.g. a GitHub team).
+     * @return The external connected team reference (e.g. a GitHub team or a ServiceNow group).
      * 
      */
     public Output<TeamConnectionConnectedTeamArgs> connectedTeam() {
@@ -34,14 +34,14 @@ public final class TeamConnectionArgs extends com.pulumi.resources.ResourceArgs 
     }
 
     /**
-     * The source of the connection (e.g. github).
+     * The name of the external source, such as `github` or `servicenow`.
      * 
      */
     @Import(name="source")
     private @Nullable Output<String> source;
 
     /**
-     * @return The source of the connection (e.g. github).
+     * @return The name of the external source, such as `github` or `servicenow`.
      * 
      */
     public Optional<Output<String>> source() {
@@ -90,7 +90,7 @@ public final class TeamConnectionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param connectedTeam The external connected team reference (e.g. a GitHub team).
+         * @param connectedTeam The external connected team reference (e.g. a GitHub team or a ServiceNow group).
          * 
          * @return builder
          * 
@@ -101,7 +101,7 @@ public final class TeamConnectionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param connectedTeam The external connected team reference (e.g. a GitHub team).
+         * @param connectedTeam The external connected team reference (e.g. a GitHub team or a ServiceNow group).
          * 
          * @return builder
          * 
@@ -111,7 +111,7 @@ public final class TeamConnectionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param source The source of the connection (e.g. github).
+         * @param source The name of the external source, such as `github` or `servicenow`.
          * 
          * @return builder
          * 
@@ -122,7 +122,7 @@ public final class TeamConnectionArgs extends com.pulumi.resources.ResourceArgs 
         }
 
         /**
-         * @param source The source of the connection (e.g. github).
+         * @param source The name of the external source, such as `github` or `servicenow`.
          * 
          * @return builder
          * 

@@ -18,25 +18,46 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string? ApiPassword;
         /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        public readonly Outputs.ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager? ApiPasswordAwsSecretsManager;
+        /// <summary>
         /// ConfigCat Public Management API username. String length must be at least 1.
         /// </summary>
         public readonly string? ApiUsername;
         /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        public readonly Outputs.ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager? ApiUsernameAwsSecretsManager;
+        /// <summary>
         /// ConfigCat SDK key. String length must be at least 1.
         /// </summary>
         public readonly string? SdkKey;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field. To use it, set `ExternalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog's cloud.
+        /// </summary>
+        public readonly Outputs.ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager? SdkKeyAwsSecretsManager;
 
         [OutputConstructor]
         private ActionConnectionConfigCatSdkKey(
             string? apiPassword,
 
+            Outputs.ActionConnectionConfigCatSdkKeyApiPasswordAwsSecretsManager? apiPasswordAwsSecretsManager,
+
             string? apiUsername,
 
-            string? sdkKey)
+            Outputs.ActionConnectionConfigCatSdkKeyApiUsernameAwsSecretsManager? apiUsernameAwsSecretsManager,
+
+            string? sdkKey,
+
+            Outputs.ActionConnectionConfigCatSdkKeySdkKeyAwsSecretsManager? sdkKeyAwsSecretsManager)
         {
             ApiPassword = apiPassword;
+            ApiPasswordAwsSecretsManager = apiPasswordAwsSecretsManager;
             ApiUsername = apiUsername;
+            ApiUsernameAwsSecretsManager = apiUsernameAwsSecretsManager;
             SdkKey = sdkKey;
+            SdkKeyAwsSecretsManager = sdkKeyAwsSecretsManager;
         }
     }
 }

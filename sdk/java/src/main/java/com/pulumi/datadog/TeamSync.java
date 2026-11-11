@@ -18,7 +18,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Datadog Team Sync resource. This can be used to configure team synchronization from external sources (e.g. GitHub) into Datadog.
+ * Provides a Datadog Team Sync resource. This can be used to configure team synchronization from external sources (e.g. GitHub or ServiceNow) into Datadog.
  * 
  * ## Example Usage
  * 
@@ -61,6 +61,19 @@ import javax.annotation.Nullable;
  *                 .build())
  *             .build());
  * 
+ *         // Configure team synchronization from ServiceNow
+ *         var servicenow = new TeamSync("servicenow", TeamSyncArgs.builder()
+ *             .source("servicenow")
+ *             .type("link")
+ *             .frequency("continuously")
+ *             .selectionStates(TeamSyncSelectionStateArgs.builder()
+ *                 .externalId(com.pulumi.datadog.inputs.TeamSyncSelectionStateExternalIdArgs.builder()
+ *                     .type("organization")
+ *                     .value("my-instance")
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
  *     }
  * }
  * }
@@ -72,6 +85,7 @@ import javax.annotation.Nullable;
  * 
  * ```sh
  * $ pulumi import datadog:index/teamSync:TeamSync example &#34;github&#34;
+ * $ pulumi import datadog:index/teamSync:TeamSync servicenow &#34;servicenow&#34;
  * ```
  * 
  */
@@ -106,14 +120,14 @@ public class TeamSync extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.selectionStates);
     }
     /**
-     * The external source platform for team synchronization. Valid values are `github`.
+     * The external source platform for team synchronization. Valid values are `github`, `servicenow`.
      * 
      */
     @Export(name="source", refs={String.class}, tree="[0]")
     private Output<String> source;
 
     /**
-     * @return The external source platform for team synchronization. Valid values are `github`.
+     * @return The external source platform for team synchronization. Valid values are `github`, `servicenow`.
      * 
      */
     public Output<String> source() {

@@ -4,9 +4,13 @@
 package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.GetActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager;
+import com.pulumi.datadog.inputs.GetActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetActionConnectionCloudflareGlobalApiToken extends com.pulumi.resources.InvokeArgs {
@@ -29,6 +33,21 @@ public final class GetActionConnectionCloudflareGlobalApiToken extends com.pulum
     }
 
     /**
+     * AWS Secrets Manager reference for this field.
+     * 
+     */
+    @Import(name="authEmailAwsSecretsManager")
+    private @Nullable GetActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager authEmailAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager> authEmailAwsSecretsManager() {
+        return Optional.ofNullable(this.authEmailAwsSecretsManager);
+    }
+
+    /**
      * Cloudflare global API key
      * 
      */
@@ -43,11 +62,28 @@ public final class GetActionConnectionCloudflareGlobalApiToken extends com.pulum
         return this.globalApiKey;
     }
 
+    /**
+     * AWS Secrets Manager reference for this field.
+     * 
+     */
+    @Import(name="globalApiKeyAwsSecretsManager")
+    private @Nullable GetActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager globalApiKeyAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager> globalApiKeyAwsSecretsManager() {
+        return Optional.ofNullable(this.globalApiKeyAwsSecretsManager);
+    }
+
     private GetActionConnectionCloudflareGlobalApiToken() {}
 
     private GetActionConnectionCloudflareGlobalApiToken(GetActionConnectionCloudflareGlobalApiToken $) {
         this.authEmail = $.authEmail;
+        this.authEmailAwsSecretsManager = $.authEmailAwsSecretsManager;
         this.globalApiKey = $.globalApiKey;
+        this.globalApiKeyAwsSecretsManager = $.globalApiKeyAwsSecretsManager;
     }
 
     public static Builder builder() {
@@ -80,6 +116,17 @@ public final class GetActionConnectionCloudflareGlobalApiToken extends com.pulum
         }
 
         /**
+         * @param authEmailAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder authEmailAwsSecretsManager(@Nullable GetActionConnectionCloudflareGlobalApiTokenAuthEmailAwsSecretsManager authEmailAwsSecretsManager) {
+            $.authEmailAwsSecretsManager = authEmailAwsSecretsManager;
+            return this;
+        }
+
+        /**
          * @param globalApiKey Cloudflare global API key
          * 
          * @return builder
@@ -87,6 +134,17 @@ public final class GetActionConnectionCloudflareGlobalApiToken extends com.pulum
          */
         public Builder globalApiKey(String globalApiKey) {
             $.globalApiKey = globalApiKey;
+            return this;
+        }
+
+        /**
+         * @param globalApiKeyAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder globalApiKeyAwsSecretsManager(@Nullable GetActionConnectionCloudflareGlobalApiTokenGlobalApiKeyAwsSecretsManager globalApiKeyAwsSecretsManager) {
+            $.globalApiKeyAwsSecretsManager = globalApiKeyAwsSecretsManager;
             return this;
         }
 

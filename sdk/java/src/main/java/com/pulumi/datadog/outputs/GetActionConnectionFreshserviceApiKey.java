@@ -4,9 +4,13 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.GetActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager;
+import com.pulumi.datadog.outputs.GetActionConnectionFreshserviceApiKeyDomainAwsSecretsManager;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetActionConnectionFreshserviceApiKey {
@@ -16,10 +20,20 @@ public final class GetActionConnectionFreshserviceApiKey {
      */
     private String apiKey;
     /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    private @Nullable GetActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager apiKeyAwsSecretsManager;
+    /**
      * @return Freshservice domain
      * 
      */
     private String domain;
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    private @Nullable GetActionConnectionFreshserviceApiKeyDomainAwsSecretsManager domainAwsSecretsManager;
 
     private GetActionConnectionFreshserviceApiKey() {}
     /**
@@ -30,11 +44,25 @@ public final class GetActionConnectionFreshserviceApiKey {
         return this.apiKey;
     }
     /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager> apiKeyAwsSecretsManager() {
+        return Optional.ofNullable(this.apiKeyAwsSecretsManager);
+    }
+    /**
      * @return Freshservice domain
      * 
      */
     public String domain() {
         return this.domain;
+    }
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionFreshserviceApiKeyDomainAwsSecretsManager> domainAwsSecretsManager() {
+        return Optional.ofNullable(this.domainAwsSecretsManager);
     }
 
     public static Builder builder() {
@@ -47,12 +75,16 @@ public final class GetActionConnectionFreshserviceApiKey {
     @CustomType.Builder
     public static final class Builder {
         private String apiKey;
+        private @Nullable GetActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager apiKeyAwsSecretsManager;
         private String domain;
+        private @Nullable GetActionConnectionFreshserviceApiKeyDomainAwsSecretsManager domainAwsSecretsManager;
         public Builder() {}
         public Builder(GetActionConnectionFreshserviceApiKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiKey = defaults.apiKey;
+    	      this.apiKeyAwsSecretsManager = defaults.apiKeyAwsSecretsManager;
     	      this.domain = defaults.domain;
+    	      this.domainAwsSecretsManager = defaults.domainAwsSecretsManager;
         }
 
         @CustomType.Setter
@@ -64,6 +96,12 @@ public final class GetActionConnectionFreshserviceApiKey {
             return this;
         }
         @CustomType.Setter
+        public Builder apiKeyAwsSecretsManager(@Nullable GetActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager apiKeyAwsSecretsManager) {
+
+            this.apiKeyAwsSecretsManager = apiKeyAwsSecretsManager;
+            return this;
+        }
+        @CustomType.Setter
         public Builder domain(String domain) {
             if (domain == null) {
               throw new MissingRequiredPropertyException("GetActionConnectionFreshserviceApiKey", "domain");
@@ -71,10 +109,18 @@ public final class GetActionConnectionFreshserviceApiKey {
             this.domain = domain;
             return this;
         }
+        @CustomType.Setter
+        public Builder domainAwsSecretsManager(@Nullable GetActionConnectionFreshserviceApiKeyDomainAwsSecretsManager domainAwsSecretsManager) {
+
+            this.domainAwsSecretsManager = domainAwsSecretsManager;
+            return this;
+        }
         public GetActionConnectionFreshserviceApiKey build() {
             final var _resultValue = new GetActionConnectionFreshserviceApiKey();
             _resultValue.apiKey = apiKey;
+            _resultValue.apiKeyAwsSecretsManager = apiKeyAwsSecretsManager;
             _resultValue.domain = domain;
+            _resultValue.domainAwsSecretsManager = domainAwsSecretsManager;
             return _resultValue;
         }
     }

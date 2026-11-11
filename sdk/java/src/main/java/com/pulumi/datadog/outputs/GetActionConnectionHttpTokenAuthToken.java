@@ -4,9 +4,12 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.GetActionConnectionHttpTokenAuthTokenValueAwsSecretsManager;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetActionConnectionHttpTokenAuthToken {
@@ -25,6 +28,11 @@ public final class GetActionConnectionHttpTokenAuthToken {
      * 
      */
     private String value;
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    private @Nullable GetActionConnectionHttpTokenAuthTokenValueAwsSecretsManager valueAwsSecretsManager;
 
     private GetActionConnectionHttpTokenAuthToken() {}
     /**
@@ -48,6 +56,13 @@ public final class GetActionConnectionHttpTokenAuthToken {
     public String value() {
         return this.value;
     }
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionHttpTokenAuthTokenValueAwsSecretsManager> valueAwsSecretsManager() {
+        return Optional.ofNullable(this.valueAwsSecretsManager);
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -61,12 +76,14 @@ public final class GetActionConnectionHttpTokenAuthToken {
         private String name;
         private String type;
         private String value;
+        private @Nullable GetActionConnectionHttpTokenAuthTokenValueAwsSecretsManager valueAwsSecretsManager;
         public Builder() {}
         public Builder(GetActionConnectionHttpTokenAuthToken defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.name = defaults.name;
     	      this.type = defaults.type;
     	      this.value = defaults.value;
+    	      this.valueAwsSecretsManager = defaults.valueAwsSecretsManager;
         }
 
         @CustomType.Setter
@@ -93,11 +110,18 @@ public final class GetActionConnectionHttpTokenAuthToken {
             this.value = value;
             return this;
         }
+        @CustomType.Setter
+        public Builder valueAwsSecretsManager(@Nullable GetActionConnectionHttpTokenAuthTokenValueAwsSecretsManager valueAwsSecretsManager) {
+
+            this.valueAwsSecretsManager = valueAwsSecretsManager;
+            return this;
+        }
         public GetActionConnectionHttpTokenAuthToken build() {
             final var _resultValue = new GetActionConnectionHttpTokenAuthToken();
             _resultValue.name = name;
             _resultValue.type = type;
             _resultValue.value = value;
+            _resultValue.valueAwsSecretsManager = valueAwsSecretsManager;
             return _resultValue;
         }
     }

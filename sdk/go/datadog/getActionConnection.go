@@ -122,6 +122,8 @@ type LookupActionConnectionResult struct {
 	ConfigCat *GetActionConnectionConfigCat `pulumi:"configCat"`
 	// Configuration for a Datadog connection
 	Datadog *GetActionConnectionDatadog `pulumi:"datadog"`
+	// AWS Secrets Manager settings shared by credential references.
+	ExternalSecretsManager GetActionConnectionExternalSecretsManager `pulumi:"externalSecretsManager"`
 	// Configuration for a Fastly connection
 	Fastly *GetActionConnectionFastly `pulumi:"fastly"`
 	// Configuration for a Freshservice connection
@@ -281,6 +283,13 @@ func (o LookupActionConnectionResultOutput) ConfigCat() GetActionConnectionConfi
 // Configuration for a Datadog connection
 func (o LookupActionConnectionResultOutput) Datadog() GetActionConnectionDatadogPtrOutput {
 	return o.ApplyT(func(v LookupActionConnectionResult) *GetActionConnectionDatadog { return v.Datadog }).(GetActionConnectionDatadogPtrOutput)
+}
+
+// AWS Secrets Manager settings shared by credential references.
+func (o LookupActionConnectionResultOutput) ExternalSecretsManager() GetActionConnectionExternalSecretsManagerOutput {
+	return o.ApplyT(func(v LookupActionConnectionResult) GetActionConnectionExternalSecretsManager {
+		return v.ExternalSecretsManager
+	}).(GetActionConnectionExternalSecretsManagerOutput)
 }
 
 // Configuration for a Fastly connection

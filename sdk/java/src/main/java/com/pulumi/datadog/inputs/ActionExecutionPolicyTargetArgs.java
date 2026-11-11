@@ -18,14 +18,14 @@ public final class ActionExecutionPolicyTargetArgs extends com.pulumi.resources.
     public static final ActionExecutionPolicyTargetArgs Empty = new ActionExecutionPolicyTargetArgs();
 
     /**
-     * The Agent tags identifying the target, for example `env:prod`.
+     * The tags identifying the target, for example `env:prod` for Agents or `slack_workspace_id:T0123456789` for a Slack workspace.
      * 
      */
     @Import(name="agentTags", required=true)
     private Output<List<String>> agentTags;
 
     /**
-     * @return The Agent tags identifying the target, for example `env:prod`.
+     * @return The tags identifying the target, for example `env:prod` for Agents or `slack_workspace_id:T0123456789` for a Slack workspace.
      * 
      */
     public Output<List<String>> agentTags() {
@@ -73,7 +73,7 @@ public final class ActionExecutionPolicyTargetArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param agentTags The Agent tags identifying the target, for example `env:prod`.
+         * @param agentTags The tags identifying the target, for example `env:prod` for Agents or `slack_workspace_id:T0123456789` for a Slack workspace.
          * 
          * @return builder
          * 
@@ -84,7 +84,7 @@ public final class ActionExecutionPolicyTargetArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param agentTags The Agent tags identifying the target, for example `env:prod`.
+         * @param agentTags The tags identifying the target, for example `env:prod` for Agents or `slack_workspace_id:T0123456789` for a Slack workspace.
          * 
          * @return builder
          * 
@@ -94,7 +94,7 @@ public final class ActionExecutionPolicyTargetArgs extends com.pulumi.resources.
         }
 
         /**
-         * @param agentTags The Agent tags identifying the target, for example `env:prod`.
+         * @param agentTags The tags identifying the target, for example `env:prod` for Agents or `slack_workspace_id:T0123456789` for a Slack workspace.
          * 
          * @return builder
          * 

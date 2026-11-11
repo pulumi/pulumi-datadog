@@ -4,9 +4,12 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.GetActionConnectionStatsigApiKeyApiKeyAwsSecretsManager;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class GetActionConnectionStatsigApiKey {
@@ -15,6 +18,11 @@ public final class GetActionConnectionStatsigApiKey {
      * 
      */
     private String apiKey;
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    private @Nullable GetActionConnectionStatsigApiKeyApiKeyAwsSecretsManager apiKeyAwsSecretsManager;
 
     private GetActionConnectionStatsigApiKey() {}
     /**
@@ -23,6 +31,13 @@ public final class GetActionConnectionStatsigApiKey {
      */
     public String apiKey() {
         return this.apiKey;
+    }
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionStatsigApiKeyApiKeyAwsSecretsManager> apiKeyAwsSecretsManager() {
+        return Optional.ofNullable(this.apiKeyAwsSecretsManager);
     }
 
     public static Builder builder() {
@@ -35,10 +50,12 @@ public final class GetActionConnectionStatsigApiKey {
     @CustomType.Builder
     public static final class Builder {
         private String apiKey;
+        private @Nullable GetActionConnectionStatsigApiKeyApiKeyAwsSecretsManager apiKeyAwsSecretsManager;
         public Builder() {}
         public Builder(GetActionConnectionStatsigApiKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiKey = defaults.apiKey;
+    	      this.apiKeyAwsSecretsManager = defaults.apiKeyAwsSecretsManager;
         }
 
         @CustomType.Setter
@@ -49,9 +66,16 @@ public final class GetActionConnectionStatsigApiKey {
             this.apiKey = apiKey;
             return this;
         }
+        @CustomType.Setter
+        public Builder apiKeyAwsSecretsManager(@Nullable GetActionConnectionStatsigApiKeyApiKeyAwsSecretsManager apiKeyAwsSecretsManager) {
+
+            this.apiKeyAwsSecretsManager = apiKeyAwsSecretsManager;
+            return this;
+        }
         public GetActionConnectionStatsigApiKey build() {
             final var _resultValue = new GetActionConnectionStatsigApiKey();
             _resultValue.apiKey = apiKey;
+            _resultValue.apiKeyAwsSecretsManager = apiKeyAwsSecretsManager;
             return _resultValue;
         }
     }

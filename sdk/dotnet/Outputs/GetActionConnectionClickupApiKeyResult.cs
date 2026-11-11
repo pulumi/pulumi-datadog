@@ -17,11 +17,19 @@ namespace Pulumi.Datadog.Outputs
         /// ClickUp API token
         /// </summary>
         public readonly string ApiToken;
+        /// <summary>
+        /// AWS Secrets Manager reference for this field.
+        /// </summary>
+        public readonly Outputs.GetActionConnectionClickupApiKeyApiTokenAwsSecretsManagerResult? ApiTokenAwsSecretsManager;
 
         [OutputConstructor]
-        private GetActionConnectionClickupApiKeyResult(string apiToken)
+        private GetActionConnectionClickupApiKeyResult(
+            string apiToken,
+
+            Outputs.GetActionConnectionClickupApiKeyApiTokenAwsSecretsManagerResult? apiTokenAwsSecretsManager)
         {
             ApiToken = apiToken;
+            ApiTokenAwsSecretsManager = apiTokenAwsSecretsManager;
         }
     }
 }

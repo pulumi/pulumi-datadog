@@ -127,6 +127,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScanner? SensitiveDataScanner;
         /// <summary>
+        /// The `SpikeProtection` processor learns the normal log volume and detects spikes, optionally dropping or rerouting the excess events.
+        /// </summary>
+        public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtection? SpikeProtection;
+        /// <summary>
         /// The `SplitArray` processor splits array fields into separate events based on configured rules.
         /// </summary>
         public readonly Outputs.ObservabilityPipelineConfigProcessorGroupProcessorSplitArray? SplitArray;
@@ -199,6 +203,8 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.ObservabilityPipelineConfigProcessorGroupProcessorSensitiveDataScanner? sensitiveDataScanner,
 
+            Outputs.ObservabilityPipelineConfigProcessorGroupProcessorSpikeProtection? spikeProtection,
+
             Outputs.ObservabilityPipelineConfigProcessorGroupProcessorSplitArray? splitArray,
 
             Outputs.ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimit? tagCardinalityLimit,
@@ -234,6 +240,7 @@ namespace Pulumi.Datadog.Outputs
             RenameMetricTags = renameMetricTags;
             Sample = sample;
             SensitiveDataScanner = sensitiveDataScanner;
+            SpikeProtection = spikeProtection;
             SplitArray = splitArray;
             TagCardinalityLimit = tagCardinalityLimit;
             Throttle = throttle;

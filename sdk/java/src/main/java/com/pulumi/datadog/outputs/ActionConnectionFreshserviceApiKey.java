@@ -4,6 +4,8 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager;
+import com.pulumi.datadog.outputs.ActionConnectionFreshserviceApiKeyDomainAwsSecretsManager;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -17,10 +19,20 @@ public final class ActionConnectionFreshserviceApiKey {
      */
     private @Nullable String apiKey;
     /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    private @Nullable ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager apiKeyAwsSecretsManager;
+    /**
      * @return Freshservice domain. String length must be at least 1.
      * 
      */
     private @Nullable String domain;
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    private @Nullable ActionConnectionFreshserviceApiKeyDomainAwsSecretsManager domainAwsSecretsManager;
 
     private ActionConnectionFreshserviceApiKey() {}
     /**
@@ -31,11 +43,25 @@ public final class ActionConnectionFreshserviceApiKey {
         return Optional.ofNullable(this.apiKey);
     }
     /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager> apiKeyAwsSecretsManager() {
+        return Optional.ofNullable(this.apiKeyAwsSecretsManager);
+    }
+    /**
      * @return Freshservice domain. String length must be at least 1.
      * 
      */
     public Optional<String> domain() {
         return Optional.ofNullable(this.domain);
+    }
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<ActionConnectionFreshserviceApiKeyDomainAwsSecretsManager> domainAwsSecretsManager() {
+        return Optional.ofNullable(this.domainAwsSecretsManager);
     }
 
     public static Builder builder() {
@@ -48,12 +74,16 @@ public final class ActionConnectionFreshserviceApiKey {
     @CustomType.Builder
     public static final class Builder {
         private @Nullable String apiKey;
+        private @Nullable ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager apiKeyAwsSecretsManager;
         private @Nullable String domain;
+        private @Nullable ActionConnectionFreshserviceApiKeyDomainAwsSecretsManager domainAwsSecretsManager;
         public Builder() {}
         public Builder(ActionConnectionFreshserviceApiKey defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.apiKey = defaults.apiKey;
+    	      this.apiKeyAwsSecretsManager = defaults.apiKeyAwsSecretsManager;
     	      this.domain = defaults.domain;
+    	      this.domainAwsSecretsManager = defaults.domainAwsSecretsManager;
         }
 
         @CustomType.Setter
@@ -63,15 +93,29 @@ public final class ActionConnectionFreshserviceApiKey {
             return this;
         }
         @CustomType.Setter
+        public Builder apiKeyAwsSecretsManager(@Nullable ActionConnectionFreshserviceApiKeyApiKeyAwsSecretsManager apiKeyAwsSecretsManager) {
+
+            this.apiKeyAwsSecretsManager = apiKeyAwsSecretsManager;
+            return this;
+        }
+        @CustomType.Setter
         public Builder domain(@Nullable String domain) {
 
             this.domain = domain;
             return this;
         }
+        @CustomType.Setter
+        public Builder domainAwsSecretsManager(@Nullable ActionConnectionFreshserviceApiKeyDomainAwsSecretsManager domainAwsSecretsManager) {
+
+            this.domainAwsSecretsManager = domainAwsSecretsManager;
+            return this;
+        }
         public ActionConnectionFreshserviceApiKey build() {
             final var _resultValue = new ActionConnectionFreshserviceApiKey();
             _resultValue.apiKey = apiKey;
+            _resultValue.apiKeyAwsSecretsManager = apiKeyAwsSecretsManager;
             _resultValue.domain = domain;
+            _resultValue.domainAwsSecretsManager = domainAwsSecretsManager;
             return _resultValue;
         }
     }

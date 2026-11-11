@@ -14,6 +14,7 @@ import com.pulumi.datadog.inputs.ActionConnectionClickupArgs;
 import com.pulumi.datadog.inputs.ActionConnectionCloudflareArgs;
 import com.pulumi.datadog.inputs.ActionConnectionConfigCatArgs;
 import com.pulumi.datadog.inputs.ActionConnectionDatadogArgs;
+import com.pulumi.datadog.inputs.ActionConnectionExternalSecretsManagerArgs;
 import com.pulumi.datadog.inputs.ActionConnectionFastlyArgs;
 import com.pulumi.datadog.inputs.ActionConnectionFreshserviceArgs;
 import com.pulumi.datadog.inputs.ActionConnectionGcpArgs;
@@ -174,6 +175,21 @@ public final class ActionConnectionArgs extends com.pulumi.resources.ResourceArg
      */
     public Optional<Output<ActionConnectionDatadogArgs>> datadog() {
         return Optional.ofNullable(this.datadog);
+    }
+
+    /**
+     * AWS Secrets Manager settings shared by credential references. Required when a credential uses an AWS Secrets Manager reference. Optional for literal credentials. Available only on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    @Import(name="externalSecretsManager")
+    private @Nullable Output<ActionConnectionExternalSecretsManagerArgs> externalSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager settings shared by credential references. Required when a credential uses an AWS Secrets Manager reference. Optional for literal credentials. Available only on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<Output<ActionConnectionExternalSecretsManagerArgs>> externalSecretsManager() {
+        return Optional.ofNullable(this.externalSecretsManager);
     }
 
     /**
@@ -443,6 +459,7 @@ public final class ActionConnectionArgs extends com.pulumi.resources.ResourceArg
         this.cloudflare = $.cloudflare;
         this.configCat = $.configCat;
         this.datadog = $.datadog;
+        this.externalSecretsManager = $.externalSecretsManager;
         this.fastly = $.fastly;
         this.freshservice = $.freshservice;
         this.gcp = $.gcp;
@@ -667,6 +684,27 @@ public final class ActionConnectionArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder datadog(ActionConnectionDatadogArgs datadog) {
             return datadog(Output.of(datadog));
+        }
+
+        /**
+         * @param externalSecretsManager AWS Secrets Manager settings shared by credential references. Required when a credential uses an AWS Secrets Manager reference. Optional for literal credentials. Available only on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalSecretsManager(@Nullable Output<ActionConnectionExternalSecretsManagerArgs> externalSecretsManager) {
+            $.externalSecretsManager = externalSecretsManager;
+            return this;
+        }
+
+        /**
+         * @param externalSecretsManager AWS Secrets Manager settings shared by credential references. Required when a credential uses an AWS Secrets Manager reference. Optional for literal credentials. Available only on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder externalSecretsManager(ActionConnectionExternalSecretsManagerArgs externalSecretsManager) {
+            return externalSecretsManager(Output.of(externalSecretsManager));
         }
 
         /**

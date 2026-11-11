@@ -4,9 +4,12 @@
 package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.GetActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class GetActionConnectionOpenaiApiKey extends com.pulumi.resources.InvokeArgs {
@@ -28,10 +31,26 @@ public final class GetActionConnectionOpenaiApiKey extends com.pulumi.resources.
         return this.apiToken;
     }
 
+    /**
+     * AWS Secrets Manager reference for this field.
+     * 
+     */
+    @Import(name="apiTokenAwsSecretsManager")
+    private @Nullable GetActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager apiTokenAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field.
+     * 
+     */
+    public Optional<GetActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager> apiTokenAwsSecretsManager() {
+        return Optional.ofNullable(this.apiTokenAwsSecretsManager);
+    }
+
     private GetActionConnectionOpenaiApiKey() {}
 
     private GetActionConnectionOpenaiApiKey(GetActionConnectionOpenaiApiKey $) {
         this.apiToken = $.apiToken;
+        this.apiTokenAwsSecretsManager = $.apiTokenAwsSecretsManager;
     }
 
     public static Builder builder() {
@@ -60,6 +79,17 @@ public final class GetActionConnectionOpenaiApiKey extends com.pulumi.resources.
          */
         public Builder apiToken(String apiToken) {
             $.apiToken = apiToken;
+            return this;
+        }
+
+        /**
+         * @param apiTokenAwsSecretsManager AWS Secrets Manager reference for this field.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder apiTokenAwsSecretsManager(@Nullable GetActionConnectionOpenaiApiKeyApiTokenAwsSecretsManager apiTokenAwsSecretsManager) {
+            $.apiTokenAwsSecretsManager = apiTokenAwsSecretsManager;
             return this;
         }
 

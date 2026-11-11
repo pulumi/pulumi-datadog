@@ -5,6 +5,9 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs;
+import com.pulumi.datadog.inputs.ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs;
+import com.pulumi.datadog.inputs.ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs;
 import java.lang.String;
 import java.util.Objects;
 import java.util.Optional;
@@ -31,6 +34,21 @@ public final class ActionConnectionServiceNowBasicAuthArgs extends com.pulumi.re
     }
 
     /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    @Import(name="instanceAwsSecretsManager")
+    private @Nullable Output<ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs> instanceAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<Output<ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs>> instanceAwsSecretsManager() {
+        return Optional.ofNullable(this.instanceAwsSecretsManager);
+    }
+
+    /**
      * ServiceNow password. String length must be at least 1.
      * 
      */
@@ -43,6 +61,21 @@ public final class ActionConnectionServiceNowBasicAuthArgs extends com.pulumi.re
      */
     public Optional<Output<String>> password() {
         return Optional.ofNullable(this.password);
+    }
+
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    @Import(name="passwordAwsSecretsManager")
+    private @Nullable Output<ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs> passwordAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<Output<ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs>> passwordAwsSecretsManager() {
+        return Optional.ofNullable(this.passwordAwsSecretsManager);
     }
 
     /**
@@ -60,12 +93,30 @@ public final class ActionConnectionServiceNowBasicAuthArgs extends com.pulumi.re
         return Optional.ofNullable(this.username);
     }
 
+    /**
+     * AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    @Import(name="usernameAwsSecretsManager")
+    private @Nullable Output<ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs> usernameAwsSecretsManager;
+
+    /**
+     * @return AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+     * 
+     */
+    public Optional<Output<ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs>> usernameAwsSecretsManager() {
+        return Optional.ofNullable(this.usernameAwsSecretsManager);
+    }
+
     private ActionConnectionServiceNowBasicAuthArgs() {}
 
     private ActionConnectionServiceNowBasicAuthArgs(ActionConnectionServiceNowBasicAuthArgs $) {
         this.instance = $.instance;
+        this.instanceAwsSecretsManager = $.instanceAwsSecretsManager;
         this.password = $.password;
+        this.passwordAwsSecretsManager = $.passwordAwsSecretsManager;
         this.username = $.username;
+        this.usernameAwsSecretsManager = $.usernameAwsSecretsManager;
     }
 
     public static Builder builder() {
@@ -108,6 +159,27 @@ public final class ActionConnectionServiceNowBasicAuthArgs extends com.pulumi.re
         }
 
         /**
+         * @param instanceAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder instanceAwsSecretsManager(@Nullable Output<ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs> instanceAwsSecretsManager) {
+            $.instanceAwsSecretsManager = instanceAwsSecretsManager;
+            return this;
+        }
+
+        /**
+         * @param instanceAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder instanceAwsSecretsManager(ActionConnectionServiceNowBasicAuthInstanceAwsSecretsManagerArgs instanceAwsSecretsManager) {
+            return instanceAwsSecretsManager(Output.of(instanceAwsSecretsManager));
+        }
+
+        /**
          * @param password ServiceNow password. String length must be at least 1.
          * 
          * @return builder
@@ -129,6 +201,27 @@ public final class ActionConnectionServiceNowBasicAuthArgs extends com.pulumi.re
         }
 
         /**
+         * @param passwordAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordAwsSecretsManager(@Nullable Output<ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs> passwordAwsSecretsManager) {
+            $.passwordAwsSecretsManager = passwordAwsSecretsManager;
+            return this;
+        }
+
+        /**
+         * @param passwordAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder passwordAwsSecretsManager(ActionConnectionServiceNowBasicAuthPasswordAwsSecretsManagerArgs passwordAwsSecretsManager) {
+            return passwordAwsSecretsManager(Output.of(passwordAwsSecretsManager));
+        }
+
+        /**
          * @param username ServiceNow username. String length must be at least 1.
          * 
          * @return builder
@@ -147,6 +240,27 @@ public final class ActionConnectionServiceNowBasicAuthArgs extends com.pulumi.re
          */
         public Builder username(String username) {
             return username(Output.of(username));
+        }
+
+        /**
+         * @param usernameAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder usernameAwsSecretsManager(@Nullable Output<ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs> usernameAwsSecretsManager) {
+            $.usernameAwsSecretsManager = usernameAwsSecretsManager;
+            return this;
+        }
+
+        /**
+         * @param usernameAwsSecretsManager AWS Secrets Manager reference for this field. To use it, set `externalSecretsManager` on the connection and omit the literal field. Available only for supported credential tokens on connections that run in Datadog&#39;s cloud.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder usernameAwsSecretsManager(ActionConnectionServiceNowBasicAuthUsernameAwsSecretsManagerArgs usernameAwsSecretsManager) {
+            return usernameAwsSecretsManager(Output.of(usernameAwsSecretsManager));
         }
 
         public ActionConnectionServiceNowBasicAuthArgs build() {
