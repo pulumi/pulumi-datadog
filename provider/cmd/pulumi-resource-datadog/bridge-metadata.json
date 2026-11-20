@@ -125,6 +125,104 @@
                 "current": "datadog:index/agentlessScanningGcpScanOptions:AgentlessScanningGcpScanOptions",
                 "majorVersion": 5
             },
+            "datadog_ai_gateway_budget": {
+                "current": "datadog:index/aiGatewayBudget:AiGatewayBudget",
+                "majorVersion": 5,
+                "fields": {
+                    "selector": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "values": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "datadog_ai_gateway_data_capture_override": {
+                "current": "datadog:index/aiGatewayDataCaptureOverride:AiGatewayDataCaptureOverride",
+                "majorVersion": 5,
+                "fields": {
+                    "metadata_capture": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "datadog_ai_gateway_governance": {
+                "current": "datadog:index/aiGatewayGovernance:AiGatewayGovernance",
+                "majorVersion": 5,
+                "fields": {
+                    "metadata_capture": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "datadog_ai_gateway_model_group": {
+                "current": "datadog:index/aiGatewayModelGroup:AiGatewayModelGroup",
+                "majorVersion": 5,
+                "fields": {
+                    "model_ids": {
+                        "maxItemsOne": false
+                    },
+                    "provider_ids": {
+                        "maxItemsOne": false
+                    },
+                    "routing_rule_slugs": {
+                        "maxItemsOne": false
+                    }
+                }
+            },
+            "datadog_ai_gateway_policy": {
+                "current": "datadog:index/aiGatewayPolicy:AiGatewayPolicy",
+                "majorVersion": 5,
+                "fields": {
+                    "tiers": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "targets": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "datadog_ai_gateway_provider": {
+                "current": "datadog:index/aiGatewayProvider:AiGatewayProvider",
+                "majorVersion": 5,
+                "fields": {
+                    "integration_config": {
+                        "fields": {
+                            "supported_operations": {
+                                "maxItemsOne": false
+                            }
+                        }
+                    }
+                }
+            },
+            "datadog_ai_gateway_rate_limit": {
+                "current": "datadog:index/aiGatewayRateLimit:AiGatewayRateLimit",
+                "majorVersion": 5
+            },
+            "datadog_ai_gateway_routing_rule": {
+                "current": "datadog:index/aiGatewayRoutingRule:AiGatewayRoutingRule",
+                "majorVersion": 5,
+                "fields": {
+                    "tiers": {
+                        "maxItemsOne": false,
+                        "elem": {
+                            "fields": {
+                                "targets": {
+                                    "maxItemsOne": false
+                                }
+                            }
+                        }
+                    }
+                }
+            },
             "datadog_api_key": {
                 "current": "datadog:index/apiKey:ApiKey",
                 "majorVersion": 5
@@ -514,6 +612,19 @@
                     },
                     "dashboard_lists_removed": {
                         "maxItemsOne": false
+                    },
+                    "default_timeframe": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "fixed": {
+                                    "maxItemsOne": true
+                                },
+                                "live": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
                     },
                     "notify_list": {
                         "maxItemsOne": false
@@ -30680,6 +30791,19 @@
                     },
                     "dashboard_lists_removed": {
                         "maxItemsOne": false
+                    },
+                    "default_timeframe": {
+                        "maxItemsOne": true,
+                        "elem": {
+                            "fields": {
+                                "fixed": {
+                                    "maxItemsOne": true
+                                },
+                                "live": {
+                                    "maxItemsOne": true
+                                }
+                            }
+                        }
                     },
                     "notify_list": {
                         "maxItemsOne": false
@@ -62416,6 +62540,9 @@
                                             }
                                         }
                                     }
+                                },
+                                "metric_query": {
+                                    "maxItemsOne": false
                                 }
                             }
                         }
@@ -92534,6 +92661,10 @@
                     }
                 }
             },
+            "datadog_status_page_email_access_policy": {
+                "current": "datadog:index/statusPageEmailAccessPolicy:StatusPageEmailAccessPolicy",
+                "majorVersion": 5
+            },
             "datadog_status_page_maintenance_template": {
                 "current": "datadog:index/statusPageMaintenanceTemplate:StatusPageMaintenanceTemplate",
                 "majorVersion": 5,
@@ -93054,6 +93185,10 @@
                         "maxItemsOne": false
                     }
                 }
+            },
+            "datadog_usage_quota": {
+                "current": "datadog:index/usageQuota:UsageQuota",
+                "majorVersion": 5
             },
             "datadog_user": {
                 "current": "datadog:index/user:User",
@@ -94574,6 +94709,14 @@
             "datadog_agentless_scanning_aws_scan_options": {},
             "datadog_agentless_scanning_azure_scan_options": {},
             "datadog_agentless_scanning_gcp_scan_options": {},
+            "datadog_ai_gateway_budget": {},
+            "datadog_ai_gateway_data_capture_override": {},
+            "datadog_ai_gateway_governance": {},
+            "datadog_ai_gateway_model_group": {},
+            "datadog_ai_gateway_policy": {},
+            "datadog_ai_gateway_provider": {},
+            "datadog_ai_gateway_rate_limit": {},
+            "datadog_ai_gateway_routing_rule": {},
             "datadog_api_key": {},
             "datadog_apm_retention_filter": {},
             "datadog_apm_retention_filter_order": {},
@@ -94705,6 +94848,7 @@
             "datadog_status_page": {},
             "datadog_status_page_component": {},
             "datadog_status_page_degradation_template": {},
+            "datadog_status_page_email_access_policy": {},
             "datadog_status_page_maintenance_template": {},
             "datadog_synthetics_concurrency_cap": {},
             "datadog_synthetics_global_variable": {},
@@ -94724,6 +94868,7 @@
             "datadog_team_notification_rule": {},
             "datadog_team_permission_setting": {},
             "datadog_team_sync": {},
+            "datadog_usage_quota": {},
             "datadog_user_role": {},
             "datadog_webhook": {},
             "datadog_webhook_custom_variable": {},
@@ -94752,6 +94897,14 @@
             "datadog:index/agentlessScanningAwsScanOptions:AgentlessScanningAwsScanOptions": 1,
             "datadog:index/agentlessScanningAzureScanOptions:AgentlessScanningAzureScanOptions": 1,
             "datadog:index/agentlessScanningGcpScanOptions:AgentlessScanningGcpScanOptions": 1,
+            "datadog:index/aiGatewayBudget:AiGatewayBudget": 1,
+            "datadog:index/aiGatewayDataCaptureOverride:AiGatewayDataCaptureOverride": 1,
+            "datadog:index/aiGatewayGovernance:AiGatewayGovernance": 1,
+            "datadog:index/aiGatewayModelGroup:AiGatewayModelGroup": 1,
+            "datadog:index/aiGatewayPolicy:AiGatewayPolicy": 1,
+            "datadog:index/aiGatewayProvider:AiGatewayProvider": 1,
+            "datadog:index/aiGatewayRateLimit:AiGatewayRateLimit": 1,
+            "datadog:index/aiGatewayRoutingRule:AiGatewayRoutingRule": 1,
             "datadog:index/apiKey:ApiKey": 1,
             "datadog:index/apmRetentionFilter:ApmRetentionFilter": 1,
             "datadog:index/apmRetentionFilterOrder:ApmRetentionFilterOrder": 1,
@@ -94877,6 +95030,7 @@
             "datadog:index/statusPage:StatusPage": 1,
             "datadog:index/statusPageComponent:StatusPageComponent": 1,
             "datadog:index/statusPageDegradationTemplate:StatusPageDegradationTemplate": 1,
+            "datadog:index/statusPageEmailAccessPolicy:StatusPageEmailAccessPolicy": 1,
             "datadog:index/statusPageMaintenanceTemplate:StatusPageMaintenanceTemplate": 1,
             "datadog:index/syntheticsConcurrencyCap:SyntheticsConcurrencyCap": 1,
             "datadog:index/syntheticsGlobalVariable:SyntheticsGlobalVariable": 1,
@@ -94897,6 +95051,7 @@
             "datadog:index/teamNotificationRule:TeamNotificationRule": 1,
             "datadog:index/teamPermissionSetting:TeamPermissionSetting": 1,
             "datadog:index/teamSync:TeamSync": 1,
+            "datadog:index/usageQuota:UsageQuota": 1,
             "datadog:index/user:User": 0,
             "datadog:index/userRole:UserRole": 1,
             "datadog:index/webhook:Webhook": 1,
