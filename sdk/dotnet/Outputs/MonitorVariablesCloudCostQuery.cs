@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Aggregator;
         /// <summary>
-        /// The data source for cloud cost queries. Valid values are `Metrics`, `CloudCost`, `DatadogUsage`.
+        /// The data source for cloud cost queries. Valid values are `CloudCost`, `DatadogUsage`, `Metrics`.
         /// </summary>
         public readonly string DataSource;
         /// <summary>

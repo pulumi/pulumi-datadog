@@ -11,6 +11,7 @@ import com.pulumi.datadog.inputs.MonitorVariablesCloudCostQueryArgs;
 import com.pulumi.datadog.inputs.MonitorVariablesDataJobsQueryArgs;
 import com.pulumi.datadog.inputs.MonitorVariablesDataQualityQueryArgs;
 import com.pulumi.datadog.inputs.MonitorVariablesEventQueryArgs;
+import com.pulumi.datadog.inputs.MonitorVariablesMetricQueryArgs;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -111,6 +112,21 @@ public final class MonitorVariablesArgs extends com.pulumi.resources.ResourceArg
         return Optional.ofNullable(this.eventQueries);
     }
 
+    /**
+     * A metrics query for use in formulas in metric monitors. For cost monitors, use `cloudCostQuery` instead, which requires an aggregator.
+     * 
+     */
+    @Import(name="metricQueries")
+    private @Nullable Output<List<MonitorVariablesMetricQueryArgs>> metricQueries;
+
+    /**
+     * @return A metrics query for use in formulas in metric monitors. For cost monitors, use `cloudCostQuery` instead, which requires an aggregator.
+     * 
+     */
+    public Optional<Output<List<MonitorVariablesMetricQueryArgs>>> metricQueries() {
+        return Optional.ofNullable(this.metricQueries);
+    }
+
     private MonitorVariablesArgs() {}
 
     private MonitorVariablesArgs(MonitorVariablesArgs $) {
@@ -120,6 +136,7 @@ public final class MonitorVariablesArgs extends com.pulumi.resources.ResourceArg
         this.dataJobsQueries = $.dataJobsQueries;
         this.dataQualityQueries = $.dataQualityQueries;
         this.eventQueries = $.eventQueries;
+        this.metricQueries = $.metricQueries;
     }
 
     public static Builder builder() {
@@ -324,6 +341,37 @@ public final class MonitorVariablesArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder eventQueries(MonitorVariablesEventQueryArgs... eventQueries) {
             return eventQueries(List.of(eventQueries));
+        }
+
+        /**
+         * @param metricQueries A metrics query for use in formulas in metric monitors. For cost monitors, use `cloudCostQuery` instead, which requires an aggregator.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metricQueries(@Nullable Output<List<MonitorVariablesMetricQueryArgs>> metricQueries) {
+            $.metricQueries = metricQueries;
+            return this;
+        }
+
+        /**
+         * @param metricQueries A metrics query for use in formulas in metric monitors. For cost monitors, use `cloudCostQuery` instead, which requires an aggregator.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metricQueries(List<MonitorVariablesMetricQueryArgs> metricQueries) {
+            return metricQueries(Output.of(metricQueries));
+        }
+
+        /**
+         * @param metricQueries A metrics query for use in formulas in metric monitors. For cost monitors, use `cloudCostQuery` instead, which requires an aggregator.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder metricQueries(MonitorVariablesMetricQueryArgs... metricQueries) {
+            return metricQueries(List.of(metricQueries));
         }
 
         public MonitorVariablesArgs build() {

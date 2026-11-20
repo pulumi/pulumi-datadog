@@ -13,6 +13,1808 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type GetSyntheticsTestMobileOptionsListCi struct {
+	// Execution rule for a Synthetics test.
+	ExecutionRule string `pulumi:"executionRule"`
+}
+
+// GetSyntheticsTestMobileOptionsListCiInput is an input type that accepts GetSyntheticsTestMobileOptionsListCiArgs and GetSyntheticsTestMobileOptionsListCiOutput values.
+// You can construct a concrete instance of `GetSyntheticsTestMobileOptionsListCiInput` via:
+//
+//	GetSyntheticsTestMobileOptionsListCiArgs{...}
+type GetSyntheticsTestMobileOptionsListCiInput interface {
+	pulumi.Input
+
+	ToGetSyntheticsTestMobileOptionsListCiOutput() GetSyntheticsTestMobileOptionsListCiOutput
+	ToGetSyntheticsTestMobileOptionsListCiOutputWithContext(context.Context) GetSyntheticsTestMobileOptionsListCiOutput
+}
+
+type GetSyntheticsTestMobileOptionsListCiArgs struct {
+	// Execution rule for a Synthetics test.
+	ExecutionRule pulumi.StringInput `pulumi:"executionRule"`
+}
+
+func (GetSyntheticsTestMobileOptionsListCiArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSyntheticsTestMobileOptionsListCi)(nil)).Elem()
+}
+
+func (i GetSyntheticsTestMobileOptionsListCiArgs) ToGetSyntheticsTestMobileOptionsListCiOutput() GetSyntheticsTestMobileOptionsListCiOutput {
+	return i.ToGetSyntheticsTestMobileOptionsListCiOutputWithContext(context.Background())
+}
+
+func (i GetSyntheticsTestMobileOptionsListCiArgs) ToGetSyntheticsTestMobileOptionsListCiOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListCiOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestMobileOptionsListCiOutput)
+}
+
+// GetSyntheticsTestMobileOptionsListCiArrayInput is an input type that accepts GetSyntheticsTestMobileOptionsListCiArray and GetSyntheticsTestMobileOptionsListCiArrayOutput values.
+// You can construct a concrete instance of `GetSyntheticsTestMobileOptionsListCiArrayInput` via:
+//
+//	GetSyntheticsTestMobileOptionsListCiArray{ GetSyntheticsTestMobileOptionsListCiArgs{...} }
+type GetSyntheticsTestMobileOptionsListCiArrayInput interface {
+	pulumi.Input
+
+	ToGetSyntheticsTestMobileOptionsListCiArrayOutput() GetSyntheticsTestMobileOptionsListCiArrayOutput
+	ToGetSyntheticsTestMobileOptionsListCiArrayOutputWithContext(context.Context) GetSyntheticsTestMobileOptionsListCiArrayOutput
+}
+
+type GetSyntheticsTestMobileOptionsListCiArray []GetSyntheticsTestMobileOptionsListCiInput
+
+func (GetSyntheticsTestMobileOptionsListCiArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSyntheticsTestMobileOptionsListCi)(nil)).Elem()
+}
+
+func (i GetSyntheticsTestMobileOptionsListCiArray) ToGetSyntheticsTestMobileOptionsListCiArrayOutput() GetSyntheticsTestMobileOptionsListCiArrayOutput {
+	return i.ToGetSyntheticsTestMobileOptionsListCiArrayOutputWithContext(context.Background())
+}
+
+func (i GetSyntheticsTestMobileOptionsListCiArray) ToGetSyntheticsTestMobileOptionsListCiArrayOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListCiArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestMobileOptionsListCiArrayOutput)
+}
+
+type GetSyntheticsTestMobileOptionsListCiOutput struct{ *pulumi.OutputState }
+
+func (GetSyntheticsTestMobileOptionsListCiOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSyntheticsTestMobileOptionsListCi)(nil)).Elem()
+}
+
+func (o GetSyntheticsTestMobileOptionsListCiOutput) ToGetSyntheticsTestMobileOptionsListCiOutput() GetSyntheticsTestMobileOptionsListCiOutput {
+	return o
+}
+
+func (o GetSyntheticsTestMobileOptionsListCiOutput) ToGetSyntheticsTestMobileOptionsListCiOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListCiOutput {
+	return o
+}
+
+// Execution rule for a Synthetics test.
+func (o GetSyntheticsTestMobileOptionsListCiOutput) ExecutionRule() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSyntheticsTestMobileOptionsListCi) string { return v.ExecutionRule }).(pulumi.StringOutput)
+}
+
+type GetSyntheticsTestMobileOptionsListCiArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSyntheticsTestMobileOptionsListCiArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSyntheticsTestMobileOptionsListCi)(nil)).Elem()
+}
+
+func (o GetSyntheticsTestMobileOptionsListCiArrayOutput) ToGetSyntheticsTestMobileOptionsListCiArrayOutput() GetSyntheticsTestMobileOptionsListCiArrayOutput {
+	return o
+}
+
+func (o GetSyntheticsTestMobileOptionsListCiArrayOutput) ToGetSyntheticsTestMobileOptionsListCiArrayOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListCiArrayOutput {
+	return o
+}
+
+func (o GetSyntheticsTestMobileOptionsListCiArrayOutput) Index(i pulumi.IntInput) GetSyntheticsTestMobileOptionsListCiOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSyntheticsTestMobileOptionsListCi {
+		return vs[0].([]GetSyntheticsTestMobileOptionsListCi)[vs[1].(int)]
+	}).(GetSyntheticsTestMobileOptionsListCiOutput)
+}
+
+type GetSyntheticsTestMobileOptionsListMobileApplication struct {
+	// The ID of the mobile application.
+	ApplicationId string `pulumi:"applicationId"`
+	// The reference ID of the mobile application.
+	ReferenceId string `pulumi:"referenceId"`
+	// The reference type of the mobile application.
+	ReferenceType string `pulumi:"referenceType"`
+}
+
+// GetSyntheticsTestMobileOptionsListMobileApplicationInput is an input type that accepts GetSyntheticsTestMobileOptionsListMobileApplicationArgs and GetSyntheticsTestMobileOptionsListMobileApplicationOutput values.
+// You can construct a concrete instance of `GetSyntheticsTestMobileOptionsListMobileApplicationInput` via:
+//
+//	GetSyntheticsTestMobileOptionsListMobileApplicationArgs{...}
+type GetSyntheticsTestMobileOptionsListMobileApplicationInput interface {
+	pulumi.Input
+
+	ToGetSyntheticsTestMobileOptionsListMobileApplicationOutput() GetSyntheticsTestMobileOptionsListMobileApplicationOutput
+	ToGetSyntheticsTestMobileOptionsListMobileApplicationOutputWithContext(context.Context) GetSyntheticsTestMobileOptionsListMobileApplicationOutput
+}
+
+type GetSyntheticsTestMobileOptionsListMobileApplicationArgs struct {
+	// The ID of the mobile application.
+	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
+	// The reference ID of the mobile application.
+	ReferenceId pulumi.StringInput `pulumi:"referenceId"`
+	// The reference type of the mobile application.
+	ReferenceType pulumi.StringInput `pulumi:"referenceType"`
+}
+
+func (GetSyntheticsTestMobileOptionsListMobileApplicationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSyntheticsTestMobileOptionsListMobileApplication)(nil)).Elem()
+}
+
+func (i GetSyntheticsTestMobileOptionsListMobileApplicationArgs) ToGetSyntheticsTestMobileOptionsListMobileApplicationOutput() GetSyntheticsTestMobileOptionsListMobileApplicationOutput {
+	return i.ToGetSyntheticsTestMobileOptionsListMobileApplicationOutputWithContext(context.Background())
+}
+
+func (i GetSyntheticsTestMobileOptionsListMobileApplicationArgs) ToGetSyntheticsTestMobileOptionsListMobileApplicationOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListMobileApplicationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestMobileOptionsListMobileApplicationOutput)
+}
+
+// GetSyntheticsTestMobileOptionsListMobileApplicationArrayInput is an input type that accepts GetSyntheticsTestMobileOptionsListMobileApplicationArray and GetSyntheticsTestMobileOptionsListMobileApplicationArrayOutput values.
+// You can construct a concrete instance of `GetSyntheticsTestMobileOptionsListMobileApplicationArrayInput` via:
+//
+//	GetSyntheticsTestMobileOptionsListMobileApplicationArray{ GetSyntheticsTestMobileOptionsListMobileApplicationArgs{...} }
+type GetSyntheticsTestMobileOptionsListMobileApplicationArrayInput interface {
+	pulumi.Input
+
+	ToGetSyntheticsTestMobileOptionsListMobileApplicationArrayOutput() GetSyntheticsTestMobileOptionsListMobileApplicationArrayOutput
+	ToGetSyntheticsTestMobileOptionsListMobileApplicationArrayOutputWithContext(context.Context) GetSyntheticsTestMobileOptionsListMobileApplicationArrayOutput
+}
+
+type GetSyntheticsTestMobileOptionsListMobileApplicationArray []GetSyntheticsTestMobileOptionsListMobileApplicationInput
+
+func (GetSyntheticsTestMobileOptionsListMobileApplicationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSyntheticsTestMobileOptionsListMobileApplication)(nil)).Elem()
+}
+
+func (i GetSyntheticsTestMobileOptionsListMobileApplicationArray) ToGetSyntheticsTestMobileOptionsListMobileApplicationArrayOutput() GetSyntheticsTestMobileOptionsListMobileApplicationArrayOutput {
+	return i.ToGetSyntheticsTestMobileOptionsListMobileApplicationArrayOutputWithContext(context.Background())
+}
+
+func (i GetSyntheticsTestMobileOptionsListMobileApplicationArray) ToGetSyntheticsTestMobileOptionsListMobileApplicationArrayOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListMobileApplicationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestMobileOptionsListMobileApplicationArrayOutput)
+}
+
+type GetSyntheticsTestMobileOptionsListMobileApplicationOutput struct{ *pulumi.OutputState }
+
+func (GetSyntheticsTestMobileOptionsListMobileApplicationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSyntheticsTestMobileOptionsListMobileApplication)(nil)).Elem()
+}
+
+func (o GetSyntheticsTestMobileOptionsListMobileApplicationOutput) ToGetSyntheticsTestMobileOptionsListMobileApplicationOutput() GetSyntheticsTestMobileOptionsListMobileApplicationOutput {
+	return o
+}
+
+func (o GetSyntheticsTestMobileOptionsListMobileApplicationOutput) ToGetSyntheticsTestMobileOptionsListMobileApplicationOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListMobileApplicationOutput {
+	return o
+}
+
+// The ID of the mobile application.
+func (o GetSyntheticsTestMobileOptionsListMobileApplicationOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSyntheticsTestMobileOptionsListMobileApplication) string { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+// The reference ID of the mobile application.
+func (o GetSyntheticsTestMobileOptionsListMobileApplicationOutput) ReferenceId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSyntheticsTestMobileOptionsListMobileApplication) string { return v.ReferenceId }).(pulumi.StringOutput)
+}
+
+// The reference type of the mobile application.
+func (o GetSyntheticsTestMobileOptionsListMobileApplicationOutput) ReferenceType() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSyntheticsTestMobileOptionsListMobileApplication) string { return v.ReferenceType }).(pulumi.StringOutput)
+}
+
+type GetSyntheticsTestMobileOptionsListMobileApplicationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSyntheticsTestMobileOptionsListMobileApplicationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSyntheticsTestMobileOptionsListMobileApplication)(nil)).Elem()
+}
+
+func (o GetSyntheticsTestMobileOptionsListMobileApplicationArrayOutput) ToGetSyntheticsTestMobileOptionsListMobileApplicationArrayOutput() GetSyntheticsTestMobileOptionsListMobileApplicationArrayOutput {
+	return o
+}
+
+func (o GetSyntheticsTestMobileOptionsListMobileApplicationArrayOutput) ToGetSyntheticsTestMobileOptionsListMobileApplicationArrayOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListMobileApplicationArrayOutput {
+	return o
+}
+
+func (o GetSyntheticsTestMobileOptionsListMobileApplicationArrayOutput) Index(i pulumi.IntInput) GetSyntheticsTestMobileOptionsListMobileApplicationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSyntheticsTestMobileOptionsListMobileApplication {
+		return vs[0].([]GetSyntheticsTestMobileOptionsListMobileApplication)[vs[1].(int)]
+	}).(GetSyntheticsTestMobileOptionsListMobileApplicationOutput)
+}
+
+type GetSyntheticsTestMobileOptionsListMonitorOption struct {
+	// A message to include with a re-notification.
+	EscalationMessage string `pulumi:"escalationMessage"`
+	// The name of the preset for the notification for the monitor.
+	NotificationPresetName string `pulumi:"notificationPresetName"`
+	// Specify a renotification frequency in minutes.
+	RenotifyInterval int `pulumi:"renotifyInterval"`
+	// The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
+	RenotifyOccurrences int `pulumi:"renotifyOccurrences"`
+}
+
+// GetSyntheticsTestMobileOptionsListMonitorOptionInput is an input type that accepts GetSyntheticsTestMobileOptionsListMonitorOptionArgs and GetSyntheticsTestMobileOptionsListMonitorOptionOutput values.
+// You can construct a concrete instance of `GetSyntheticsTestMobileOptionsListMonitorOptionInput` via:
+//
+//	GetSyntheticsTestMobileOptionsListMonitorOptionArgs{...}
+type GetSyntheticsTestMobileOptionsListMonitorOptionInput interface {
+	pulumi.Input
+
+	ToGetSyntheticsTestMobileOptionsListMonitorOptionOutput() GetSyntheticsTestMobileOptionsListMonitorOptionOutput
+	ToGetSyntheticsTestMobileOptionsListMonitorOptionOutputWithContext(context.Context) GetSyntheticsTestMobileOptionsListMonitorOptionOutput
+}
+
+type GetSyntheticsTestMobileOptionsListMonitorOptionArgs struct {
+	// A message to include with a re-notification.
+	EscalationMessage pulumi.StringInput `pulumi:"escalationMessage"`
+	// The name of the preset for the notification for the monitor.
+	NotificationPresetName pulumi.StringInput `pulumi:"notificationPresetName"`
+	// Specify a renotification frequency in minutes.
+	RenotifyInterval pulumi.IntInput `pulumi:"renotifyInterval"`
+	// The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
+	RenotifyOccurrences pulumi.IntInput `pulumi:"renotifyOccurrences"`
+}
+
+func (GetSyntheticsTestMobileOptionsListMonitorOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSyntheticsTestMobileOptionsListMonitorOption)(nil)).Elem()
+}
+
+func (i GetSyntheticsTestMobileOptionsListMonitorOptionArgs) ToGetSyntheticsTestMobileOptionsListMonitorOptionOutput() GetSyntheticsTestMobileOptionsListMonitorOptionOutput {
+	return i.ToGetSyntheticsTestMobileOptionsListMonitorOptionOutputWithContext(context.Background())
+}
+
+func (i GetSyntheticsTestMobileOptionsListMonitorOptionArgs) ToGetSyntheticsTestMobileOptionsListMonitorOptionOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListMonitorOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestMobileOptionsListMonitorOptionOutput)
+}
+
+// GetSyntheticsTestMobileOptionsListMonitorOptionArrayInput is an input type that accepts GetSyntheticsTestMobileOptionsListMonitorOptionArray and GetSyntheticsTestMobileOptionsListMonitorOptionArrayOutput values.
+// You can construct a concrete instance of `GetSyntheticsTestMobileOptionsListMonitorOptionArrayInput` via:
+//
+//	GetSyntheticsTestMobileOptionsListMonitorOptionArray{ GetSyntheticsTestMobileOptionsListMonitorOptionArgs{...} }
+type GetSyntheticsTestMobileOptionsListMonitorOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetSyntheticsTestMobileOptionsListMonitorOptionArrayOutput() GetSyntheticsTestMobileOptionsListMonitorOptionArrayOutput
+	ToGetSyntheticsTestMobileOptionsListMonitorOptionArrayOutputWithContext(context.Context) GetSyntheticsTestMobileOptionsListMonitorOptionArrayOutput
+}
+
+type GetSyntheticsTestMobileOptionsListMonitorOptionArray []GetSyntheticsTestMobileOptionsListMonitorOptionInput
+
+func (GetSyntheticsTestMobileOptionsListMonitorOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSyntheticsTestMobileOptionsListMonitorOption)(nil)).Elem()
+}
+
+func (i GetSyntheticsTestMobileOptionsListMonitorOptionArray) ToGetSyntheticsTestMobileOptionsListMonitorOptionArrayOutput() GetSyntheticsTestMobileOptionsListMonitorOptionArrayOutput {
+	return i.ToGetSyntheticsTestMobileOptionsListMonitorOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetSyntheticsTestMobileOptionsListMonitorOptionArray) ToGetSyntheticsTestMobileOptionsListMonitorOptionArrayOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListMonitorOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestMobileOptionsListMonitorOptionArrayOutput)
+}
+
+type GetSyntheticsTestMobileOptionsListMonitorOptionOutput struct{ *pulumi.OutputState }
+
+func (GetSyntheticsTestMobileOptionsListMonitorOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSyntheticsTestMobileOptionsListMonitorOption)(nil)).Elem()
+}
+
+func (o GetSyntheticsTestMobileOptionsListMonitorOptionOutput) ToGetSyntheticsTestMobileOptionsListMonitorOptionOutput() GetSyntheticsTestMobileOptionsListMonitorOptionOutput {
+	return o
+}
+
+func (o GetSyntheticsTestMobileOptionsListMonitorOptionOutput) ToGetSyntheticsTestMobileOptionsListMonitorOptionOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListMonitorOptionOutput {
+	return o
+}
+
+// A message to include with a re-notification.
+func (o GetSyntheticsTestMobileOptionsListMonitorOptionOutput) EscalationMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSyntheticsTestMobileOptionsListMonitorOption) string { return v.EscalationMessage }).(pulumi.StringOutput)
+}
+
+// The name of the preset for the notification for the monitor.
+func (o GetSyntheticsTestMobileOptionsListMonitorOptionOutput) NotificationPresetName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSyntheticsTestMobileOptionsListMonitorOption) string { return v.NotificationPresetName }).(pulumi.StringOutput)
+}
+
+// Specify a renotification frequency in minutes.
+func (o GetSyntheticsTestMobileOptionsListMonitorOptionOutput) RenotifyInterval() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSyntheticsTestMobileOptionsListMonitorOption) int { return v.RenotifyInterval }).(pulumi.IntOutput)
+}
+
+// The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
+func (o GetSyntheticsTestMobileOptionsListMonitorOptionOutput) RenotifyOccurrences() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSyntheticsTestMobileOptionsListMonitorOption) int { return v.RenotifyOccurrences }).(pulumi.IntOutput)
+}
+
+type GetSyntheticsTestMobileOptionsListMonitorOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSyntheticsTestMobileOptionsListMonitorOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSyntheticsTestMobileOptionsListMonitorOption)(nil)).Elem()
+}
+
+func (o GetSyntheticsTestMobileOptionsListMonitorOptionArrayOutput) ToGetSyntheticsTestMobileOptionsListMonitorOptionArrayOutput() GetSyntheticsTestMobileOptionsListMonitorOptionArrayOutput {
+	return o
+}
+
+func (o GetSyntheticsTestMobileOptionsListMonitorOptionArrayOutput) ToGetSyntheticsTestMobileOptionsListMonitorOptionArrayOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListMonitorOptionArrayOutput {
+	return o
+}
+
+func (o GetSyntheticsTestMobileOptionsListMonitorOptionArrayOutput) Index(i pulumi.IntInput) GetSyntheticsTestMobileOptionsListMonitorOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSyntheticsTestMobileOptionsListMonitorOption {
+		return vs[0].([]GetSyntheticsTestMobileOptionsListMonitorOption)[vs[1].(int)]
+	}).(GetSyntheticsTestMobileOptionsListMonitorOptionOutput)
+}
+
+type GetSyntheticsTestMobileOptionsListRetry struct {
+	// Number of retries needed to consider a location as failed before sending a notification alert.
+	Count int `pulumi:"count"`
+	// Interval between a failed test and the next retry in milliseconds.
+	Interval int `pulumi:"interval"`
+}
+
+// GetSyntheticsTestMobileOptionsListRetryInput is an input type that accepts GetSyntheticsTestMobileOptionsListRetryArgs and GetSyntheticsTestMobileOptionsListRetryOutput values.
+// You can construct a concrete instance of `GetSyntheticsTestMobileOptionsListRetryInput` via:
+//
+//	GetSyntheticsTestMobileOptionsListRetryArgs{...}
+type GetSyntheticsTestMobileOptionsListRetryInput interface {
+	pulumi.Input
+
+	ToGetSyntheticsTestMobileOptionsListRetryOutput() GetSyntheticsTestMobileOptionsListRetryOutput
+	ToGetSyntheticsTestMobileOptionsListRetryOutputWithContext(context.Context) GetSyntheticsTestMobileOptionsListRetryOutput
+}
+
+type GetSyntheticsTestMobileOptionsListRetryArgs struct {
+	// Number of retries needed to consider a location as failed before sending a notification alert.
+	Count pulumi.IntInput `pulumi:"count"`
+	// Interval between a failed test and the next retry in milliseconds.
+	Interval pulumi.IntInput `pulumi:"interval"`
+}
+
+func (GetSyntheticsTestMobileOptionsListRetryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSyntheticsTestMobileOptionsListRetry)(nil)).Elem()
+}
+
+func (i GetSyntheticsTestMobileOptionsListRetryArgs) ToGetSyntheticsTestMobileOptionsListRetryOutput() GetSyntheticsTestMobileOptionsListRetryOutput {
+	return i.ToGetSyntheticsTestMobileOptionsListRetryOutputWithContext(context.Background())
+}
+
+func (i GetSyntheticsTestMobileOptionsListRetryArgs) ToGetSyntheticsTestMobileOptionsListRetryOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListRetryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestMobileOptionsListRetryOutput)
+}
+
+// GetSyntheticsTestMobileOptionsListRetryArrayInput is an input type that accepts GetSyntheticsTestMobileOptionsListRetryArray and GetSyntheticsTestMobileOptionsListRetryArrayOutput values.
+// You can construct a concrete instance of `GetSyntheticsTestMobileOptionsListRetryArrayInput` via:
+//
+//	GetSyntheticsTestMobileOptionsListRetryArray{ GetSyntheticsTestMobileOptionsListRetryArgs{...} }
+type GetSyntheticsTestMobileOptionsListRetryArrayInput interface {
+	pulumi.Input
+
+	ToGetSyntheticsTestMobileOptionsListRetryArrayOutput() GetSyntheticsTestMobileOptionsListRetryArrayOutput
+	ToGetSyntheticsTestMobileOptionsListRetryArrayOutputWithContext(context.Context) GetSyntheticsTestMobileOptionsListRetryArrayOutput
+}
+
+type GetSyntheticsTestMobileOptionsListRetryArray []GetSyntheticsTestMobileOptionsListRetryInput
+
+func (GetSyntheticsTestMobileOptionsListRetryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSyntheticsTestMobileOptionsListRetry)(nil)).Elem()
+}
+
+func (i GetSyntheticsTestMobileOptionsListRetryArray) ToGetSyntheticsTestMobileOptionsListRetryArrayOutput() GetSyntheticsTestMobileOptionsListRetryArrayOutput {
+	return i.ToGetSyntheticsTestMobileOptionsListRetryArrayOutputWithContext(context.Background())
+}
+
+func (i GetSyntheticsTestMobileOptionsListRetryArray) ToGetSyntheticsTestMobileOptionsListRetryArrayOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListRetryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestMobileOptionsListRetryArrayOutput)
+}
+
+type GetSyntheticsTestMobileOptionsListRetryOutput struct{ *pulumi.OutputState }
+
+func (GetSyntheticsTestMobileOptionsListRetryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSyntheticsTestMobileOptionsListRetry)(nil)).Elem()
+}
+
+func (o GetSyntheticsTestMobileOptionsListRetryOutput) ToGetSyntheticsTestMobileOptionsListRetryOutput() GetSyntheticsTestMobileOptionsListRetryOutput {
+	return o
+}
+
+func (o GetSyntheticsTestMobileOptionsListRetryOutput) ToGetSyntheticsTestMobileOptionsListRetryOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListRetryOutput {
+	return o
+}
+
+// Number of retries needed to consider a location as failed before sending a notification alert.
+func (o GetSyntheticsTestMobileOptionsListRetryOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSyntheticsTestMobileOptionsListRetry) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// Interval between a failed test and the next retry in milliseconds.
+func (o GetSyntheticsTestMobileOptionsListRetryOutput) Interval() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSyntheticsTestMobileOptionsListRetry) int { return v.Interval }).(pulumi.IntOutput)
+}
+
+type GetSyntheticsTestMobileOptionsListRetryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSyntheticsTestMobileOptionsListRetryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSyntheticsTestMobileOptionsListRetry)(nil)).Elem()
+}
+
+func (o GetSyntheticsTestMobileOptionsListRetryArrayOutput) ToGetSyntheticsTestMobileOptionsListRetryArrayOutput() GetSyntheticsTestMobileOptionsListRetryArrayOutput {
+	return o
+}
+
+func (o GetSyntheticsTestMobileOptionsListRetryArrayOutput) ToGetSyntheticsTestMobileOptionsListRetryArrayOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListRetryArrayOutput {
+	return o
+}
+
+func (o GetSyntheticsTestMobileOptionsListRetryArrayOutput) Index(i pulumi.IntInput) GetSyntheticsTestMobileOptionsListRetryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSyntheticsTestMobileOptionsListRetry {
+		return vs[0].([]GetSyntheticsTestMobileOptionsListRetry)[vs[1].(int)]
+	}).(GetSyntheticsTestMobileOptionsListRetryOutput)
+}
+
+type GetSyntheticsTestMobileOptionsListScheduling struct {
+	// Array containing objects describing the scheduling pattern to apply to each day.
+	Timeframes []GetSyntheticsTestMobileOptionsListSchedulingTimeframe `pulumi:"timeframes"`
+	// Timezone in which the timeframe is based.
+	Timezone string `pulumi:"timezone"`
+}
+
+// GetSyntheticsTestMobileOptionsListSchedulingInput is an input type that accepts GetSyntheticsTestMobileOptionsListSchedulingArgs and GetSyntheticsTestMobileOptionsListSchedulingOutput values.
+// You can construct a concrete instance of `GetSyntheticsTestMobileOptionsListSchedulingInput` via:
+//
+//	GetSyntheticsTestMobileOptionsListSchedulingArgs{...}
+type GetSyntheticsTestMobileOptionsListSchedulingInput interface {
+	pulumi.Input
+
+	ToGetSyntheticsTestMobileOptionsListSchedulingOutput() GetSyntheticsTestMobileOptionsListSchedulingOutput
+	ToGetSyntheticsTestMobileOptionsListSchedulingOutputWithContext(context.Context) GetSyntheticsTestMobileOptionsListSchedulingOutput
+}
+
+type GetSyntheticsTestMobileOptionsListSchedulingArgs struct {
+	// Array containing objects describing the scheduling pattern to apply to each day.
+	Timeframes GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayInput `pulumi:"timeframes"`
+	// Timezone in which the timeframe is based.
+	Timezone pulumi.StringInput `pulumi:"timezone"`
+}
+
+func (GetSyntheticsTestMobileOptionsListSchedulingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSyntheticsTestMobileOptionsListScheduling)(nil)).Elem()
+}
+
+func (i GetSyntheticsTestMobileOptionsListSchedulingArgs) ToGetSyntheticsTestMobileOptionsListSchedulingOutput() GetSyntheticsTestMobileOptionsListSchedulingOutput {
+	return i.ToGetSyntheticsTestMobileOptionsListSchedulingOutputWithContext(context.Background())
+}
+
+func (i GetSyntheticsTestMobileOptionsListSchedulingArgs) ToGetSyntheticsTestMobileOptionsListSchedulingOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListSchedulingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestMobileOptionsListSchedulingOutput)
+}
+
+// GetSyntheticsTestMobileOptionsListSchedulingArrayInput is an input type that accepts GetSyntheticsTestMobileOptionsListSchedulingArray and GetSyntheticsTestMobileOptionsListSchedulingArrayOutput values.
+// You can construct a concrete instance of `GetSyntheticsTestMobileOptionsListSchedulingArrayInput` via:
+//
+//	GetSyntheticsTestMobileOptionsListSchedulingArray{ GetSyntheticsTestMobileOptionsListSchedulingArgs{...} }
+type GetSyntheticsTestMobileOptionsListSchedulingArrayInput interface {
+	pulumi.Input
+
+	ToGetSyntheticsTestMobileOptionsListSchedulingArrayOutput() GetSyntheticsTestMobileOptionsListSchedulingArrayOutput
+	ToGetSyntheticsTestMobileOptionsListSchedulingArrayOutputWithContext(context.Context) GetSyntheticsTestMobileOptionsListSchedulingArrayOutput
+}
+
+type GetSyntheticsTestMobileOptionsListSchedulingArray []GetSyntheticsTestMobileOptionsListSchedulingInput
+
+func (GetSyntheticsTestMobileOptionsListSchedulingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSyntheticsTestMobileOptionsListScheduling)(nil)).Elem()
+}
+
+func (i GetSyntheticsTestMobileOptionsListSchedulingArray) ToGetSyntheticsTestMobileOptionsListSchedulingArrayOutput() GetSyntheticsTestMobileOptionsListSchedulingArrayOutput {
+	return i.ToGetSyntheticsTestMobileOptionsListSchedulingArrayOutputWithContext(context.Background())
+}
+
+func (i GetSyntheticsTestMobileOptionsListSchedulingArray) ToGetSyntheticsTestMobileOptionsListSchedulingArrayOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListSchedulingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestMobileOptionsListSchedulingArrayOutput)
+}
+
+type GetSyntheticsTestMobileOptionsListSchedulingOutput struct{ *pulumi.OutputState }
+
+func (GetSyntheticsTestMobileOptionsListSchedulingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSyntheticsTestMobileOptionsListScheduling)(nil)).Elem()
+}
+
+func (o GetSyntheticsTestMobileOptionsListSchedulingOutput) ToGetSyntheticsTestMobileOptionsListSchedulingOutput() GetSyntheticsTestMobileOptionsListSchedulingOutput {
+	return o
+}
+
+func (o GetSyntheticsTestMobileOptionsListSchedulingOutput) ToGetSyntheticsTestMobileOptionsListSchedulingOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListSchedulingOutput {
+	return o
+}
+
+// Array containing objects describing the scheduling pattern to apply to each day.
+func (o GetSyntheticsTestMobileOptionsListSchedulingOutput) Timeframes() GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput {
+	return o.ApplyT(func(v GetSyntheticsTestMobileOptionsListScheduling) []GetSyntheticsTestMobileOptionsListSchedulingTimeframe {
+		return v.Timeframes
+	}).(GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput)
+}
+
+// Timezone in which the timeframe is based.
+func (o GetSyntheticsTestMobileOptionsListSchedulingOutput) Timezone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSyntheticsTestMobileOptionsListScheduling) string { return v.Timezone }).(pulumi.StringOutput)
+}
+
+type GetSyntheticsTestMobileOptionsListSchedulingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSyntheticsTestMobileOptionsListSchedulingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSyntheticsTestMobileOptionsListScheduling)(nil)).Elem()
+}
+
+func (o GetSyntheticsTestMobileOptionsListSchedulingArrayOutput) ToGetSyntheticsTestMobileOptionsListSchedulingArrayOutput() GetSyntheticsTestMobileOptionsListSchedulingArrayOutput {
+	return o
+}
+
+func (o GetSyntheticsTestMobileOptionsListSchedulingArrayOutput) ToGetSyntheticsTestMobileOptionsListSchedulingArrayOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListSchedulingArrayOutput {
+	return o
+}
+
+func (o GetSyntheticsTestMobileOptionsListSchedulingArrayOutput) Index(i pulumi.IntInput) GetSyntheticsTestMobileOptionsListSchedulingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSyntheticsTestMobileOptionsListScheduling {
+		return vs[0].([]GetSyntheticsTestMobileOptionsListScheduling)[vs[1].(int)]
+	}).(GetSyntheticsTestMobileOptionsListSchedulingOutput)
+}
+
+type GetSyntheticsTestMobileOptionsListSchedulingTimeframe struct {
+	// Number representing the day of the week.
+	Day int `pulumi:"day"`
+	// The hour of the day on which scheduling starts.
+	From string `pulumi:"from"`
+	// The hour of the day on which scheduling ends.
+	To string `pulumi:"to"`
+}
+
+// GetSyntheticsTestMobileOptionsListSchedulingTimeframeInput is an input type that accepts GetSyntheticsTestMobileOptionsListSchedulingTimeframeArgs and GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput values.
+// You can construct a concrete instance of `GetSyntheticsTestMobileOptionsListSchedulingTimeframeInput` via:
+//
+//	GetSyntheticsTestMobileOptionsListSchedulingTimeframeArgs{...}
+type GetSyntheticsTestMobileOptionsListSchedulingTimeframeInput interface {
+	pulumi.Input
+
+	ToGetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput() GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput
+	ToGetSyntheticsTestMobileOptionsListSchedulingTimeframeOutputWithContext(context.Context) GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput
+}
+
+type GetSyntheticsTestMobileOptionsListSchedulingTimeframeArgs struct {
+	// Number representing the day of the week.
+	Day pulumi.IntInput `pulumi:"day"`
+	// The hour of the day on which scheduling starts.
+	From pulumi.StringInput `pulumi:"from"`
+	// The hour of the day on which scheduling ends.
+	To pulumi.StringInput `pulumi:"to"`
+}
+
+func (GetSyntheticsTestMobileOptionsListSchedulingTimeframeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSyntheticsTestMobileOptionsListSchedulingTimeframe)(nil)).Elem()
+}
+
+func (i GetSyntheticsTestMobileOptionsListSchedulingTimeframeArgs) ToGetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput() GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput {
+	return i.ToGetSyntheticsTestMobileOptionsListSchedulingTimeframeOutputWithContext(context.Background())
+}
+
+func (i GetSyntheticsTestMobileOptionsListSchedulingTimeframeArgs) ToGetSyntheticsTestMobileOptionsListSchedulingTimeframeOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput)
+}
+
+// GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayInput is an input type that accepts GetSyntheticsTestMobileOptionsListSchedulingTimeframeArray and GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput values.
+// You can construct a concrete instance of `GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayInput` via:
+//
+//	GetSyntheticsTestMobileOptionsListSchedulingTimeframeArray{ GetSyntheticsTestMobileOptionsListSchedulingTimeframeArgs{...} }
+type GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayInput interface {
+	pulumi.Input
+
+	ToGetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput() GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput
+	ToGetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutputWithContext(context.Context) GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput
+}
+
+type GetSyntheticsTestMobileOptionsListSchedulingTimeframeArray []GetSyntheticsTestMobileOptionsListSchedulingTimeframeInput
+
+func (GetSyntheticsTestMobileOptionsListSchedulingTimeframeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSyntheticsTestMobileOptionsListSchedulingTimeframe)(nil)).Elem()
+}
+
+func (i GetSyntheticsTestMobileOptionsListSchedulingTimeframeArray) ToGetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput() GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput {
+	return i.ToGetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutputWithContext(context.Background())
+}
+
+func (i GetSyntheticsTestMobileOptionsListSchedulingTimeframeArray) ToGetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput)
+}
+
+type GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput struct{ *pulumi.OutputState }
+
+func (GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSyntheticsTestMobileOptionsListSchedulingTimeframe)(nil)).Elem()
+}
+
+func (o GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput) ToGetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput() GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput {
+	return o
+}
+
+func (o GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput) ToGetSyntheticsTestMobileOptionsListSchedulingTimeframeOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput {
+	return o
+}
+
+// Number representing the day of the week.
+func (o GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput) Day() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSyntheticsTestMobileOptionsListSchedulingTimeframe) int { return v.Day }).(pulumi.IntOutput)
+}
+
+// The hour of the day on which scheduling starts.
+func (o GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput) From() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSyntheticsTestMobileOptionsListSchedulingTimeframe) string { return v.From }).(pulumi.StringOutput)
+}
+
+// The hour of the day on which scheduling ends.
+func (o GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput) To() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSyntheticsTestMobileOptionsListSchedulingTimeframe) string { return v.To }).(pulumi.StringOutput)
+}
+
+type GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSyntheticsTestMobileOptionsListSchedulingTimeframe)(nil)).Elem()
+}
+
+func (o GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput) ToGetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput() GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput {
+	return o
+}
+
+func (o GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput) ToGetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput {
+	return o
+}
+
+func (o GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput) Index(i pulumi.IntInput) GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSyntheticsTestMobileOptionsListSchedulingTimeframe {
+		return vs[0].([]GetSyntheticsTestMobileOptionsListSchedulingTimeframe)[vs[1].(int)]
+	}).(GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput)
+}
+
+type GetSyntheticsTestOptionsList struct {
+	// For SSL tests, whether or not the test should allow self signed certificates.
+	AcceptSelfSigned bool `pulumi:"acceptSelfSigned"`
+	// Allows loading insecure content for a request in an API test or in a multistep API test step.
+	AllowInsecure bool `pulumi:"allowInsecure"`
+	// Whether Bits AI automatically investigates alerts from the test monitor.
+	BitsAiAutoInvestigate bool `pulumi:"bitsAiAutoInvestigate"`
+	// Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
+	BlockedRequestPatterns []string `pulumi:"blockedRequestPatterns"`
+	// Capture HTTP request/response headers and bodies for Fetch/XHR calls made during browser tests.
+	CaptureNetworkPayloads bool `pulumi:"captureNetworkPayloads"`
+	// For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
+	CheckCertificateRevocation bool `pulumi:"checkCertificateRevocation"`
+	// CI/CD options for a Synthetic test.
+	Cis []GetSyntheticsTestOptionsListCi `pulumi:"cis"`
+	// For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA.
+	DisableAiaIntermediateFetching bool `pulumi:"disableAiaIntermediateFetching"`
+	// Disable Cross-Origin Resource Sharing for browser tests.
+	DisableCors bool `pulumi:"disableCors"`
+	// Disable Content Security Policy for browser tests.
+	DisableCsp bool `pulumi:"disableCsp"`
+	// Determines whether or not the API HTTP test should follow redirects.
+	FollowRedirects bool `pulumi:"followRedirects"`
+	// HTTP version to use for an HTTP request in an API test or step.
+	HttpVersion string `pulumi:"httpVersion"`
+	// Ignore server certificate error for SSL tests.
+	IgnoreCertificateValidation bool `pulumi:"ignoreCertificateValidation"`
+	// Ignore server certificate error for browser tests.
+	IgnoreServerCertificateError bool `pulumi:"ignoreServerCertificateError"`
+	// Timeout before declaring the initial step as failed (in seconds) for browser tests.
+	InitialNavigationTimeout int `pulumi:"initialNavigationTimeout"`
+	// Minimum amount of time in failure required to trigger an alert (in seconds).
+	MinFailureDuration int `pulumi:"minFailureDuration"`
+	// Minimum number of locations in failure required to trigger an alert.
+	MinLocationFailed int `pulumi:"minLocationFailed"`
+	// The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
+	MonitorName string `pulumi:"monitorName"`
+	// Object containing the options for a Synthetic test as a monitor (for example, renotification).
+	MonitorOptions []GetSyntheticsTestOptionsListMonitorOption `pulumi:"monitorOptions"`
+	// Integer from 1 (high) to 5 (low) indicating alert severity.
+	MonitorPriority int `pulumi:"monitorPriority"`
+	// Prevents saving screenshots of the steps.
+	NoScreenshot bool `pulumi:"noScreenshot"`
+	// A list of role identifiers pulled from the Roles API to restrict read and write access. Included for parity with the `SyntheticsTest` resource.
+	//
+	// Deprecated: This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
+	RestrictedRoles []string `pulumi:"restrictedRoles"`
+	// Object describing the retry strategy to apply to a Synthetic test.
+	Retries []GetSyntheticsTestOptionsListRetry `pulumi:"retries"`
+	// The RUM data collection settings for the Synthetic browser test.
+	RumSettings []GetSyntheticsTestOptionsListRumSetting `pulumi:"rumSettings"`
+	// Object containing timeframes and timezone used for advanced scheduling.
+	Schedulings []GetSyntheticsTestOptionsListScheduling `pulumi:"schedulings"`
+	// How often the test should run (in seconds).
+	TickEvery int `pulumi:"tickEvery"`
+}
+
+// GetSyntheticsTestOptionsListInput is an input type that accepts GetSyntheticsTestOptionsListArgs and GetSyntheticsTestOptionsListOutput values.
+// You can construct a concrete instance of `GetSyntheticsTestOptionsListInput` via:
+//
+//	GetSyntheticsTestOptionsListArgs{...}
+type GetSyntheticsTestOptionsListInput interface {
+	pulumi.Input
+
+	ToGetSyntheticsTestOptionsListOutput() GetSyntheticsTestOptionsListOutput
+	ToGetSyntheticsTestOptionsListOutputWithContext(context.Context) GetSyntheticsTestOptionsListOutput
+}
+
+type GetSyntheticsTestOptionsListArgs struct {
+	// For SSL tests, whether or not the test should allow self signed certificates.
+	AcceptSelfSigned pulumi.BoolInput `pulumi:"acceptSelfSigned"`
+	// Allows loading insecure content for a request in an API test or in a multistep API test step.
+	AllowInsecure pulumi.BoolInput `pulumi:"allowInsecure"`
+	// Whether Bits AI automatically investigates alerts from the test monitor.
+	BitsAiAutoInvestigate pulumi.BoolInput `pulumi:"bitsAiAutoInvestigate"`
+	// Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
+	BlockedRequestPatterns pulumi.StringArrayInput `pulumi:"blockedRequestPatterns"`
+	// Capture HTTP request/response headers and bodies for Fetch/XHR calls made during browser tests.
+	CaptureNetworkPayloads pulumi.BoolInput `pulumi:"captureNetworkPayloads"`
+	// For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
+	CheckCertificateRevocation pulumi.BoolInput `pulumi:"checkCertificateRevocation"`
+	// CI/CD options for a Synthetic test.
+	Cis GetSyntheticsTestOptionsListCiArrayInput `pulumi:"cis"`
+	// For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA.
+	DisableAiaIntermediateFetching pulumi.BoolInput `pulumi:"disableAiaIntermediateFetching"`
+	// Disable Cross-Origin Resource Sharing for browser tests.
+	DisableCors pulumi.BoolInput `pulumi:"disableCors"`
+	// Disable Content Security Policy for browser tests.
+	DisableCsp pulumi.BoolInput `pulumi:"disableCsp"`
+	// Determines whether or not the API HTTP test should follow redirects.
+	FollowRedirects pulumi.BoolInput `pulumi:"followRedirects"`
+	// HTTP version to use for an HTTP request in an API test or step.
+	HttpVersion pulumi.StringInput `pulumi:"httpVersion"`
+	// Ignore server certificate error for SSL tests.
+	IgnoreCertificateValidation pulumi.BoolInput `pulumi:"ignoreCertificateValidation"`
+	// Ignore server certificate error for browser tests.
+	IgnoreServerCertificateError pulumi.BoolInput `pulumi:"ignoreServerCertificateError"`
+	// Timeout before declaring the initial step as failed (in seconds) for browser tests.
+	InitialNavigationTimeout pulumi.IntInput `pulumi:"initialNavigationTimeout"`
+	// Minimum amount of time in failure required to trigger an alert (in seconds).
+	MinFailureDuration pulumi.IntInput `pulumi:"minFailureDuration"`
+	// Minimum number of locations in failure required to trigger an alert.
+	MinLocationFailed pulumi.IntInput `pulumi:"minLocationFailed"`
+	// The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
+	MonitorName pulumi.StringInput `pulumi:"monitorName"`
+	// Object containing the options for a Synthetic test as a monitor (for example, renotification).
+	MonitorOptions GetSyntheticsTestOptionsListMonitorOptionArrayInput `pulumi:"monitorOptions"`
+	// Integer from 1 (high) to 5 (low) indicating alert severity.
+	MonitorPriority pulumi.IntInput `pulumi:"monitorPriority"`
+	// Prevents saving screenshots of the steps.
+	NoScreenshot pulumi.BoolInput `pulumi:"noScreenshot"`
+	// A list of role identifiers pulled from the Roles API to restrict read and write access. Included for parity with the `SyntheticsTest` resource.
+	//
+	// Deprecated: This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
+	RestrictedRoles pulumi.StringArrayInput `pulumi:"restrictedRoles"`
+	// Object describing the retry strategy to apply to a Synthetic test.
+	Retries GetSyntheticsTestOptionsListRetryArrayInput `pulumi:"retries"`
+	// The RUM data collection settings for the Synthetic browser test.
+	RumSettings GetSyntheticsTestOptionsListRumSettingArrayInput `pulumi:"rumSettings"`
+	// Object containing timeframes and timezone used for advanced scheduling.
+	Schedulings GetSyntheticsTestOptionsListSchedulingArrayInput `pulumi:"schedulings"`
+	// How often the test should run (in seconds).
+	TickEvery pulumi.IntInput `pulumi:"tickEvery"`
+}
+
+func (GetSyntheticsTestOptionsListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSyntheticsTestOptionsList)(nil)).Elem()
+}
+
+func (i GetSyntheticsTestOptionsListArgs) ToGetSyntheticsTestOptionsListOutput() GetSyntheticsTestOptionsListOutput {
+	return i.ToGetSyntheticsTestOptionsListOutputWithContext(context.Background())
+}
+
+func (i GetSyntheticsTestOptionsListArgs) ToGetSyntheticsTestOptionsListOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestOptionsListOutput)
+}
+
+// GetSyntheticsTestOptionsListArrayInput is an input type that accepts GetSyntheticsTestOptionsListArray and GetSyntheticsTestOptionsListArrayOutput values.
+// You can construct a concrete instance of `GetSyntheticsTestOptionsListArrayInput` via:
+//
+//	GetSyntheticsTestOptionsListArray{ GetSyntheticsTestOptionsListArgs{...} }
+type GetSyntheticsTestOptionsListArrayInput interface {
+	pulumi.Input
+
+	ToGetSyntheticsTestOptionsListArrayOutput() GetSyntheticsTestOptionsListArrayOutput
+	ToGetSyntheticsTestOptionsListArrayOutputWithContext(context.Context) GetSyntheticsTestOptionsListArrayOutput
+}
+
+type GetSyntheticsTestOptionsListArray []GetSyntheticsTestOptionsListInput
+
+func (GetSyntheticsTestOptionsListArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSyntheticsTestOptionsList)(nil)).Elem()
+}
+
+func (i GetSyntheticsTestOptionsListArray) ToGetSyntheticsTestOptionsListArrayOutput() GetSyntheticsTestOptionsListArrayOutput {
+	return i.ToGetSyntheticsTestOptionsListArrayOutputWithContext(context.Background())
+}
+
+func (i GetSyntheticsTestOptionsListArray) ToGetSyntheticsTestOptionsListArrayOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestOptionsListArrayOutput)
+}
+
+type GetSyntheticsTestOptionsListOutput struct{ *pulumi.OutputState }
+
+func (GetSyntheticsTestOptionsListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSyntheticsTestOptionsList)(nil)).Elem()
+}
+
+func (o GetSyntheticsTestOptionsListOutput) ToGetSyntheticsTestOptionsListOutput() GetSyntheticsTestOptionsListOutput {
+	return o
+}
+
+func (o GetSyntheticsTestOptionsListOutput) ToGetSyntheticsTestOptionsListOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListOutput {
+	return o
+}
+
+// For SSL tests, whether or not the test should allow self signed certificates.
+func (o GetSyntheticsTestOptionsListOutput) AcceptSelfSigned() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsList) bool { return v.AcceptSelfSigned }).(pulumi.BoolOutput)
+}
+
+// Allows loading insecure content for a request in an API test or in a multistep API test step.
+func (o GetSyntheticsTestOptionsListOutput) AllowInsecure() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsList) bool { return v.AllowInsecure }).(pulumi.BoolOutput)
+}
+
+// Whether Bits AI automatically investigates alerts from the test monitor.
+func (o GetSyntheticsTestOptionsListOutput) BitsAiAutoInvestigate() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsList) bool { return v.BitsAiAutoInvestigate }).(pulumi.BoolOutput)
+}
+
+// Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
+func (o GetSyntheticsTestOptionsListOutput) BlockedRequestPatterns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsList) []string { return v.BlockedRequestPatterns }).(pulumi.StringArrayOutput)
+}
+
+// Capture HTTP request/response headers and bodies for Fetch/XHR calls made during browser tests.
+func (o GetSyntheticsTestOptionsListOutput) CaptureNetworkPayloads() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsList) bool { return v.CaptureNetworkPayloads }).(pulumi.BoolOutput)
+}
+
+// For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
+func (o GetSyntheticsTestOptionsListOutput) CheckCertificateRevocation() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsList) bool { return v.CheckCertificateRevocation }).(pulumi.BoolOutput)
+}
+
+// CI/CD options for a Synthetic test.
+func (o GetSyntheticsTestOptionsListOutput) Cis() GetSyntheticsTestOptionsListCiArrayOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsList) []GetSyntheticsTestOptionsListCi { return v.Cis }).(GetSyntheticsTestOptionsListCiArrayOutput)
+}
+
+// For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA.
+func (o GetSyntheticsTestOptionsListOutput) DisableAiaIntermediateFetching() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsList) bool { return v.DisableAiaIntermediateFetching }).(pulumi.BoolOutput)
+}
+
+// Disable Cross-Origin Resource Sharing for browser tests.
+func (o GetSyntheticsTestOptionsListOutput) DisableCors() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsList) bool { return v.DisableCors }).(pulumi.BoolOutput)
+}
+
+// Disable Content Security Policy for browser tests.
+func (o GetSyntheticsTestOptionsListOutput) DisableCsp() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsList) bool { return v.DisableCsp }).(pulumi.BoolOutput)
+}
+
+// Determines whether or not the API HTTP test should follow redirects.
+func (o GetSyntheticsTestOptionsListOutput) FollowRedirects() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsList) bool { return v.FollowRedirects }).(pulumi.BoolOutput)
+}
+
+// HTTP version to use for an HTTP request in an API test or step.
+func (o GetSyntheticsTestOptionsListOutput) HttpVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsList) string { return v.HttpVersion }).(pulumi.StringOutput)
+}
+
+// Ignore server certificate error for SSL tests.
+func (o GetSyntheticsTestOptionsListOutput) IgnoreCertificateValidation() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsList) bool { return v.IgnoreCertificateValidation }).(pulumi.BoolOutput)
+}
+
+// Ignore server certificate error for browser tests.
+func (o GetSyntheticsTestOptionsListOutput) IgnoreServerCertificateError() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsList) bool { return v.IgnoreServerCertificateError }).(pulumi.BoolOutput)
+}
+
+// Timeout before declaring the initial step as failed (in seconds) for browser tests.
+func (o GetSyntheticsTestOptionsListOutput) InitialNavigationTimeout() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsList) int { return v.InitialNavigationTimeout }).(pulumi.IntOutput)
+}
+
+// Minimum amount of time in failure required to trigger an alert (in seconds).
+func (o GetSyntheticsTestOptionsListOutput) MinFailureDuration() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsList) int { return v.MinFailureDuration }).(pulumi.IntOutput)
+}
+
+// Minimum number of locations in failure required to trigger an alert.
+func (o GetSyntheticsTestOptionsListOutput) MinLocationFailed() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsList) int { return v.MinLocationFailed }).(pulumi.IntOutput)
+}
+
+// The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
+func (o GetSyntheticsTestOptionsListOutput) MonitorName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsList) string { return v.MonitorName }).(pulumi.StringOutput)
+}
+
+// Object containing the options for a Synthetic test as a monitor (for example, renotification).
+func (o GetSyntheticsTestOptionsListOutput) MonitorOptions() GetSyntheticsTestOptionsListMonitorOptionArrayOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsList) []GetSyntheticsTestOptionsListMonitorOption {
+		return v.MonitorOptions
+	}).(GetSyntheticsTestOptionsListMonitorOptionArrayOutput)
+}
+
+// Integer from 1 (high) to 5 (low) indicating alert severity.
+func (o GetSyntheticsTestOptionsListOutput) MonitorPriority() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsList) int { return v.MonitorPriority }).(pulumi.IntOutput)
+}
+
+// Prevents saving screenshots of the steps.
+func (o GetSyntheticsTestOptionsListOutput) NoScreenshot() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsList) bool { return v.NoScreenshot }).(pulumi.BoolOutput)
+}
+
+// A list of role identifiers pulled from the Roles API to restrict read and write access. Included for parity with the `SyntheticsTest` resource.
+//
+// Deprecated: This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
+func (o GetSyntheticsTestOptionsListOutput) RestrictedRoles() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsList) []string { return v.RestrictedRoles }).(pulumi.StringArrayOutput)
+}
+
+// Object describing the retry strategy to apply to a Synthetic test.
+func (o GetSyntheticsTestOptionsListOutput) Retries() GetSyntheticsTestOptionsListRetryArrayOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsList) []GetSyntheticsTestOptionsListRetry { return v.Retries }).(GetSyntheticsTestOptionsListRetryArrayOutput)
+}
+
+// The RUM data collection settings for the Synthetic browser test.
+func (o GetSyntheticsTestOptionsListOutput) RumSettings() GetSyntheticsTestOptionsListRumSettingArrayOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsList) []GetSyntheticsTestOptionsListRumSetting { return v.RumSettings }).(GetSyntheticsTestOptionsListRumSettingArrayOutput)
+}
+
+// Object containing timeframes and timezone used for advanced scheduling.
+func (o GetSyntheticsTestOptionsListOutput) Schedulings() GetSyntheticsTestOptionsListSchedulingArrayOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsList) []GetSyntheticsTestOptionsListScheduling { return v.Schedulings }).(GetSyntheticsTestOptionsListSchedulingArrayOutput)
+}
+
+// How often the test should run (in seconds).
+func (o GetSyntheticsTestOptionsListOutput) TickEvery() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsList) int { return v.TickEvery }).(pulumi.IntOutput)
+}
+
+type GetSyntheticsTestOptionsListArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSyntheticsTestOptionsListArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSyntheticsTestOptionsList)(nil)).Elem()
+}
+
+func (o GetSyntheticsTestOptionsListArrayOutput) ToGetSyntheticsTestOptionsListArrayOutput() GetSyntheticsTestOptionsListArrayOutput {
+	return o
+}
+
+func (o GetSyntheticsTestOptionsListArrayOutput) ToGetSyntheticsTestOptionsListArrayOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListArrayOutput {
+	return o
+}
+
+func (o GetSyntheticsTestOptionsListArrayOutput) Index(i pulumi.IntInput) GetSyntheticsTestOptionsListOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSyntheticsTestOptionsList {
+		return vs[0].([]GetSyntheticsTestOptionsList)[vs[1].(int)]
+	}).(GetSyntheticsTestOptionsListOutput)
+}
+
+type GetSyntheticsTestOptionsListCi struct {
+	// Execution rule for a Synthetics test.
+	ExecutionRule string `pulumi:"executionRule"`
+}
+
+// GetSyntheticsTestOptionsListCiInput is an input type that accepts GetSyntheticsTestOptionsListCiArgs and GetSyntheticsTestOptionsListCiOutput values.
+// You can construct a concrete instance of `GetSyntheticsTestOptionsListCiInput` via:
+//
+//	GetSyntheticsTestOptionsListCiArgs{...}
+type GetSyntheticsTestOptionsListCiInput interface {
+	pulumi.Input
+
+	ToGetSyntheticsTestOptionsListCiOutput() GetSyntheticsTestOptionsListCiOutput
+	ToGetSyntheticsTestOptionsListCiOutputWithContext(context.Context) GetSyntheticsTestOptionsListCiOutput
+}
+
+type GetSyntheticsTestOptionsListCiArgs struct {
+	// Execution rule for a Synthetics test.
+	ExecutionRule pulumi.StringInput `pulumi:"executionRule"`
+}
+
+func (GetSyntheticsTestOptionsListCiArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSyntheticsTestOptionsListCi)(nil)).Elem()
+}
+
+func (i GetSyntheticsTestOptionsListCiArgs) ToGetSyntheticsTestOptionsListCiOutput() GetSyntheticsTestOptionsListCiOutput {
+	return i.ToGetSyntheticsTestOptionsListCiOutputWithContext(context.Background())
+}
+
+func (i GetSyntheticsTestOptionsListCiArgs) ToGetSyntheticsTestOptionsListCiOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListCiOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestOptionsListCiOutput)
+}
+
+// GetSyntheticsTestOptionsListCiArrayInput is an input type that accepts GetSyntheticsTestOptionsListCiArray and GetSyntheticsTestOptionsListCiArrayOutput values.
+// You can construct a concrete instance of `GetSyntheticsTestOptionsListCiArrayInput` via:
+//
+//	GetSyntheticsTestOptionsListCiArray{ GetSyntheticsTestOptionsListCiArgs{...} }
+type GetSyntheticsTestOptionsListCiArrayInput interface {
+	pulumi.Input
+
+	ToGetSyntheticsTestOptionsListCiArrayOutput() GetSyntheticsTestOptionsListCiArrayOutput
+	ToGetSyntheticsTestOptionsListCiArrayOutputWithContext(context.Context) GetSyntheticsTestOptionsListCiArrayOutput
+}
+
+type GetSyntheticsTestOptionsListCiArray []GetSyntheticsTestOptionsListCiInput
+
+func (GetSyntheticsTestOptionsListCiArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSyntheticsTestOptionsListCi)(nil)).Elem()
+}
+
+func (i GetSyntheticsTestOptionsListCiArray) ToGetSyntheticsTestOptionsListCiArrayOutput() GetSyntheticsTestOptionsListCiArrayOutput {
+	return i.ToGetSyntheticsTestOptionsListCiArrayOutputWithContext(context.Background())
+}
+
+func (i GetSyntheticsTestOptionsListCiArray) ToGetSyntheticsTestOptionsListCiArrayOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListCiArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestOptionsListCiArrayOutput)
+}
+
+type GetSyntheticsTestOptionsListCiOutput struct{ *pulumi.OutputState }
+
+func (GetSyntheticsTestOptionsListCiOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSyntheticsTestOptionsListCi)(nil)).Elem()
+}
+
+func (o GetSyntheticsTestOptionsListCiOutput) ToGetSyntheticsTestOptionsListCiOutput() GetSyntheticsTestOptionsListCiOutput {
+	return o
+}
+
+func (o GetSyntheticsTestOptionsListCiOutput) ToGetSyntheticsTestOptionsListCiOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListCiOutput {
+	return o
+}
+
+// Execution rule for a Synthetics test.
+func (o GetSyntheticsTestOptionsListCiOutput) ExecutionRule() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsListCi) string { return v.ExecutionRule }).(pulumi.StringOutput)
+}
+
+type GetSyntheticsTestOptionsListCiArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSyntheticsTestOptionsListCiArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSyntheticsTestOptionsListCi)(nil)).Elem()
+}
+
+func (o GetSyntheticsTestOptionsListCiArrayOutput) ToGetSyntheticsTestOptionsListCiArrayOutput() GetSyntheticsTestOptionsListCiArrayOutput {
+	return o
+}
+
+func (o GetSyntheticsTestOptionsListCiArrayOutput) ToGetSyntheticsTestOptionsListCiArrayOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListCiArrayOutput {
+	return o
+}
+
+func (o GetSyntheticsTestOptionsListCiArrayOutput) Index(i pulumi.IntInput) GetSyntheticsTestOptionsListCiOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSyntheticsTestOptionsListCi {
+		return vs[0].([]GetSyntheticsTestOptionsListCi)[vs[1].(int)]
+	}).(GetSyntheticsTestOptionsListCiOutput)
+}
+
+type GetSyntheticsTestOptionsListMonitorOption struct {
+	// A message to include with a re-notification.
+	EscalationMessage string `pulumi:"escalationMessage"`
+	// The name of the preset for the notification for the monitor.
+	NotificationPresetName string `pulumi:"notificationPresetName"`
+	// Specify a renotification frequency in minutes.
+	RenotifyInterval int `pulumi:"renotifyInterval"`
+	// The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
+	RenotifyOccurrences int `pulumi:"renotifyOccurrences"`
+}
+
+// GetSyntheticsTestOptionsListMonitorOptionInput is an input type that accepts GetSyntheticsTestOptionsListMonitorOptionArgs and GetSyntheticsTestOptionsListMonitorOptionOutput values.
+// You can construct a concrete instance of `GetSyntheticsTestOptionsListMonitorOptionInput` via:
+//
+//	GetSyntheticsTestOptionsListMonitorOptionArgs{...}
+type GetSyntheticsTestOptionsListMonitorOptionInput interface {
+	pulumi.Input
+
+	ToGetSyntheticsTestOptionsListMonitorOptionOutput() GetSyntheticsTestOptionsListMonitorOptionOutput
+	ToGetSyntheticsTestOptionsListMonitorOptionOutputWithContext(context.Context) GetSyntheticsTestOptionsListMonitorOptionOutput
+}
+
+type GetSyntheticsTestOptionsListMonitorOptionArgs struct {
+	// A message to include with a re-notification.
+	EscalationMessage pulumi.StringInput `pulumi:"escalationMessage"`
+	// The name of the preset for the notification for the monitor.
+	NotificationPresetName pulumi.StringInput `pulumi:"notificationPresetName"`
+	// Specify a renotification frequency in minutes.
+	RenotifyInterval pulumi.IntInput `pulumi:"renotifyInterval"`
+	// The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
+	RenotifyOccurrences pulumi.IntInput `pulumi:"renotifyOccurrences"`
+}
+
+func (GetSyntheticsTestOptionsListMonitorOptionArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSyntheticsTestOptionsListMonitorOption)(nil)).Elem()
+}
+
+func (i GetSyntheticsTestOptionsListMonitorOptionArgs) ToGetSyntheticsTestOptionsListMonitorOptionOutput() GetSyntheticsTestOptionsListMonitorOptionOutput {
+	return i.ToGetSyntheticsTestOptionsListMonitorOptionOutputWithContext(context.Background())
+}
+
+func (i GetSyntheticsTestOptionsListMonitorOptionArgs) ToGetSyntheticsTestOptionsListMonitorOptionOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListMonitorOptionOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestOptionsListMonitorOptionOutput)
+}
+
+// GetSyntheticsTestOptionsListMonitorOptionArrayInput is an input type that accepts GetSyntheticsTestOptionsListMonitorOptionArray and GetSyntheticsTestOptionsListMonitorOptionArrayOutput values.
+// You can construct a concrete instance of `GetSyntheticsTestOptionsListMonitorOptionArrayInput` via:
+//
+//	GetSyntheticsTestOptionsListMonitorOptionArray{ GetSyntheticsTestOptionsListMonitorOptionArgs{...} }
+type GetSyntheticsTestOptionsListMonitorOptionArrayInput interface {
+	pulumi.Input
+
+	ToGetSyntheticsTestOptionsListMonitorOptionArrayOutput() GetSyntheticsTestOptionsListMonitorOptionArrayOutput
+	ToGetSyntheticsTestOptionsListMonitorOptionArrayOutputWithContext(context.Context) GetSyntheticsTestOptionsListMonitorOptionArrayOutput
+}
+
+type GetSyntheticsTestOptionsListMonitorOptionArray []GetSyntheticsTestOptionsListMonitorOptionInput
+
+func (GetSyntheticsTestOptionsListMonitorOptionArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSyntheticsTestOptionsListMonitorOption)(nil)).Elem()
+}
+
+func (i GetSyntheticsTestOptionsListMonitorOptionArray) ToGetSyntheticsTestOptionsListMonitorOptionArrayOutput() GetSyntheticsTestOptionsListMonitorOptionArrayOutput {
+	return i.ToGetSyntheticsTestOptionsListMonitorOptionArrayOutputWithContext(context.Background())
+}
+
+func (i GetSyntheticsTestOptionsListMonitorOptionArray) ToGetSyntheticsTestOptionsListMonitorOptionArrayOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListMonitorOptionArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestOptionsListMonitorOptionArrayOutput)
+}
+
+type GetSyntheticsTestOptionsListMonitorOptionOutput struct{ *pulumi.OutputState }
+
+func (GetSyntheticsTestOptionsListMonitorOptionOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSyntheticsTestOptionsListMonitorOption)(nil)).Elem()
+}
+
+func (o GetSyntheticsTestOptionsListMonitorOptionOutput) ToGetSyntheticsTestOptionsListMonitorOptionOutput() GetSyntheticsTestOptionsListMonitorOptionOutput {
+	return o
+}
+
+func (o GetSyntheticsTestOptionsListMonitorOptionOutput) ToGetSyntheticsTestOptionsListMonitorOptionOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListMonitorOptionOutput {
+	return o
+}
+
+// A message to include with a re-notification.
+func (o GetSyntheticsTestOptionsListMonitorOptionOutput) EscalationMessage() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsListMonitorOption) string { return v.EscalationMessage }).(pulumi.StringOutput)
+}
+
+// The name of the preset for the notification for the monitor.
+func (o GetSyntheticsTestOptionsListMonitorOptionOutput) NotificationPresetName() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsListMonitorOption) string { return v.NotificationPresetName }).(pulumi.StringOutput)
+}
+
+// Specify a renotification frequency in minutes.
+func (o GetSyntheticsTestOptionsListMonitorOptionOutput) RenotifyInterval() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsListMonitorOption) int { return v.RenotifyInterval }).(pulumi.IntOutput)
+}
+
+// The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
+func (o GetSyntheticsTestOptionsListMonitorOptionOutput) RenotifyOccurrences() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsListMonitorOption) int { return v.RenotifyOccurrences }).(pulumi.IntOutput)
+}
+
+type GetSyntheticsTestOptionsListMonitorOptionArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSyntheticsTestOptionsListMonitorOptionArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSyntheticsTestOptionsListMonitorOption)(nil)).Elem()
+}
+
+func (o GetSyntheticsTestOptionsListMonitorOptionArrayOutput) ToGetSyntheticsTestOptionsListMonitorOptionArrayOutput() GetSyntheticsTestOptionsListMonitorOptionArrayOutput {
+	return o
+}
+
+func (o GetSyntheticsTestOptionsListMonitorOptionArrayOutput) ToGetSyntheticsTestOptionsListMonitorOptionArrayOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListMonitorOptionArrayOutput {
+	return o
+}
+
+func (o GetSyntheticsTestOptionsListMonitorOptionArrayOutput) Index(i pulumi.IntInput) GetSyntheticsTestOptionsListMonitorOptionOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSyntheticsTestOptionsListMonitorOption {
+		return vs[0].([]GetSyntheticsTestOptionsListMonitorOption)[vs[1].(int)]
+	}).(GetSyntheticsTestOptionsListMonitorOptionOutput)
+}
+
+type GetSyntheticsTestOptionsListRetry struct {
+	// Number of retries needed to consider a location as failed before sending a notification alert.
+	Count int `pulumi:"count"`
+	// Interval between a failed test and the next retry in milliseconds.
+	Interval int `pulumi:"interval"`
+}
+
+// GetSyntheticsTestOptionsListRetryInput is an input type that accepts GetSyntheticsTestOptionsListRetryArgs and GetSyntheticsTestOptionsListRetryOutput values.
+// You can construct a concrete instance of `GetSyntheticsTestOptionsListRetryInput` via:
+//
+//	GetSyntheticsTestOptionsListRetryArgs{...}
+type GetSyntheticsTestOptionsListRetryInput interface {
+	pulumi.Input
+
+	ToGetSyntheticsTestOptionsListRetryOutput() GetSyntheticsTestOptionsListRetryOutput
+	ToGetSyntheticsTestOptionsListRetryOutputWithContext(context.Context) GetSyntheticsTestOptionsListRetryOutput
+}
+
+type GetSyntheticsTestOptionsListRetryArgs struct {
+	// Number of retries needed to consider a location as failed before sending a notification alert.
+	Count pulumi.IntInput `pulumi:"count"`
+	// Interval between a failed test and the next retry in milliseconds.
+	Interval pulumi.IntInput `pulumi:"interval"`
+}
+
+func (GetSyntheticsTestOptionsListRetryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSyntheticsTestOptionsListRetry)(nil)).Elem()
+}
+
+func (i GetSyntheticsTestOptionsListRetryArgs) ToGetSyntheticsTestOptionsListRetryOutput() GetSyntheticsTestOptionsListRetryOutput {
+	return i.ToGetSyntheticsTestOptionsListRetryOutputWithContext(context.Background())
+}
+
+func (i GetSyntheticsTestOptionsListRetryArgs) ToGetSyntheticsTestOptionsListRetryOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListRetryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestOptionsListRetryOutput)
+}
+
+// GetSyntheticsTestOptionsListRetryArrayInput is an input type that accepts GetSyntheticsTestOptionsListRetryArray and GetSyntheticsTestOptionsListRetryArrayOutput values.
+// You can construct a concrete instance of `GetSyntheticsTestOptionsListRetryArrayInput` via:
+//
+//	GetSyntheticsTestOptionsListRetryArray{ GetSyntheticsTestOptionsListRetryArgs{...} }
+type GetSyntheticsTestOptionsListRetryArrayInput interface {
+	pulumi.Input
+
+	ToGetSyntheticsTestOptionsListRetryArrayOutput() GetSyntheticsTestOptionsListRetryArrayOutput
+	ToGetSyntheticsTestOptionsListRetryArrayOutputWithContext(context.Context) GetSyntheticsTestOptionsListRetryArrayOutput
+}
+
+type GetSyntheticsTestOptionsListRetryArray []GetSyntheticsTestOptionsListRetryInput
+
+func (GetSyntheticsTestOptionsListRetryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSyntheticsTestOptionsListRetry)(nil)).Elem()
+}
+
+func (i GetSyntheticsTestOptionsListRetryArray) ToGetSyntheticsTestOptionsListRetryArrayOutput() GetSyntheticsTestOptionsListRetryArrayOutput {
+	return i.ToGetSyntheticsTestOptionsListRetryArrayOutputWithContext(context.Background())
+}
+
+func (i GetSyntheticsTestOptionsListRetryArray) ToGetSyntheticsTestOptionsListRetryArrayOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListRetryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestOptionsListRetryArrayOutput)
+}
+
+type GetSyntheticsTestOptionsListRetryOutput struct{ *pulumi.OutputState }
+
+func (GetSyntheticsTestOptionsListRetryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSyntheticsTestOptionsListRetry)(nil)).Elem()
+}
+
+func (o GetSyntheticsTestOptionsListRetryOutput) ToGetSyntheticsTestOptionsListRetryOutput() GetSyntheticsTestOptionsListRetryOutput {
+	return o
+}
+
+func (o GetSyntheticsTestOptionsListRetryOutput) ToGetSyntheticsTestOptionsListRetryOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListRetryOutput {
+	return o
+}
+
+// Number of retries needed to consider a location as failed before sending a notification alert.
+func (o GetSyntheticsTestOptionsListRetryOutput) Count() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsListRetry) int { return v.Count }).(pulumi.IntOutput)
+}
+
+// Interval between a failed test and the next retry in milliseconds.
+func (o GetSyntheticsTestOptionsListRetryOutput) Interval() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsListRetry) int { return v.Interval }).(pulumi.IntOutput)
+}
+
+type GetSyntheticsTestOptionsListRetryArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSyntheticsTestOptionsListRetryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSyntheticsTestOptionsListRetry)(nil)).Elem()
+}
+
+func (o GetSyntheticsTestOptionsListRetryArrayOutput) ToGetSyntheticsTestOptionsListRetryArrayOutput() GetSyntheticsTestOptionsListRetryArrayOutput {
+	return o
+}
+
+func (o GetSyntheticsTestOptionsListRetryArrayOutput) ToGetSyntheticsTestOptionsListRetryArrayOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListRetryArrayOutput {
+	return o
+}
+
+func (o GetSyntheticsTestOptionsListRetryArrayOutput) Index(i pulumi.IntInput) GetSyntheticsTestOptionsListRetryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSyntheticsTestOptionsListRetry {
+		return vs[0].([]GetSyntheticsTestOptionsListRetry)[vs[1].(int)]
+	}).(GetSyntheticsTestOptionsListRetryOutput)
+}
+
+type GetSyntheticsTestOptionsListRumSetting struct {
+	// RUM application ID used to collect RUM data for the browser test.
+	ApplicationId string `pulumi:"applicationId"`
+	// RUM application API key ID used to collect RUM data for the browser test.
+	ClientTokenId int `pulumi:"clientTokenId"`
+	// Determines whether RUM data is collected during test runs.
+	IsEnabled bool `pulumi:"isEnabled"`
+}
+
+// GetSyntheticsTestOptionsListRumSettingInput is an input type that accepts GetSyntheticsTestOptionsListRumSettingArgs and GetSyntheticsTestOptionsListRumSettingOutput values.
+// You can construct a concrete instance of `GetSyntheticsTestOptionsListRumSettingInput` via:
+//
+//	GetSyntheticsTestOptionsListRumSettingArgs{...}
+type GetSyntheticsTestOptionsListRumSettingInput interface {
+	pulumi.Input
+
+	ToGetSyntheticsTestOptionsListRumSettingOutput() GetSyntheticsTestOptionsListRumSettingOutput
+	ToGetSyntheticsTestOptionsListRumSettingOutputWithContext(context.Context) GetSyntheticsTestOptionsListRumSettingOutput
+}
+
+type GetSyntheticsTestOptionsListRumSettingArgs struct {
+	// RUM application ID used to collect RUM data for the browser test.
+	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
+	// RUM application API key ID used to collect RUM data for the browser test.
+	ClientTokenId pulumi.IntInput `pulumi:"clientTokenId"`
+	// Determines whether RUM data is collected during test runs.
+	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
+}
+
+func (GetSyntheticsTestOptionsListRumSettingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSyntheticsTestOptionsListRumSetting)(nil)).Elem()
+}
+
+func (i GetSyntheticsTestOptionsListRumSettingArgs) ToGetSyntheticsTestOptionsListRumSettingOutput() GetSyntheticsTestOptionsListRumSettingOutput {
+	return i.ToGetSyntheticsTestOptionsListRumSettingOutputWithContext(context.Background())
+}
+
+func (i GetSyntheticsTestOptionsListRumSettingArgs) ToGetSyntheticsTestOptionsListRumSettingOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListRumSettingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestOptionsListRumSettingOutput)
+}
+
+// GetSyntheticsTestOptionsListRumSettingArrayInput is an input type that accepts GetSyntheticsTestOptionsListRumSettingArray and GetSyntheticsTestOptionsListRumSettingArrayOutput values.
+// You can construct a concrete instance of `GetSyntheticsTestOptionsListRumSettingArrayInput` via:
+//
+//	GetSyntheticsTestOptionsListRumSettingArray{ GetSyntheticsTestOptionsListRumSettingArgs{...} }
+type GetSyntheticsTestOptionsListRumSettingArrayInput interface {
+	pulumi.Input
+
+	ToGetSyntheticsTestOptionsListRumSettingArrayOutput() GetSyntheticsTestOptionsListRumSettingArrayOutput
+	ToGetSyntheticsTestOptionsListRumSettingArrayOutputWithContext(context.Context) GetSyntheticsTestOptionsListRumSettingArrayOutput
+}
+
+type GetSyntheticsTestOptionsListRumSettingArray []GetSyntheticsTestOptionsListRumSettingInput
+
+func (GetSyntheticsTestOptionsListRumSettingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSyntheticsTestOptionsListRumSetting)(nil)).Elem()
+}
+
+func (i GetSyntheticsTestOptionsListRumSettingArray) ToGetSyntheticsTestOptionsListRumSettingArrayOutput() GetSyntheticsTestOptionsListRumSettingArrayOutput {
+	return i.ToGetSyntheticsTestOptionsListRumSettingArrayOutputWithContext(context.Background())
+}
+
+func (i GetSyntheticsTestOptionsListRumSettingArray) ToGetSyntheticsTestOptionsListRumSettingArrayOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListRumSettingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestOptionsListRumSettingArrayOutput)
+}
+
+type GetSyntheticsTestOptionsListRumSettingOutput struct{ *pulumi.OutputState }
+
+func (GetSyntheticsTestOptionsListRumSettingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSyntheticsTestOptionsListRumSetting)(nil)).Elem()
+}
+
+func (o GetSyntheticsTestOptionsListRumSettingOutput) ToGetSyntheticsTestOptionsListRumSettingOutput() GetSyntheticsTestOptionsListRumSettingOutput {
+	return o
+}
+
+func (o GetSyntheticsTestOptionsListRumSettingOutput) ToGetSyntheticsTestOptionsListRumSettingOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListRumSettingOutput {
+	return o
+}
+
+// RUM application ID used to collect RUM data for the browser test.
+func (o GetSyntheticsTestOptionsListRumSettingOutput) ApplicationId() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsListRumSetting) string { return v.ApplicationId }).(pulumi.StringOutput)
+}
+
+// RUM application API key ID used to collect RUM data for the browser test.
+func (o GetSyntheticsTestOptionsListRumSettingOutput) ClientTokenId() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsListRumSetting) int { return v.ClientTokenId }).(pulumi.IntOutput)
+}
+
+// Determines whether RUM data is collected during test runs.
+func (o GetSyntheticsTestOptionsListRumSettingOutput) IsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsListRumSetting) bool { return v.IsEnabled }).(pulumi.BoolOutput)
+}
+
+type GetSyntheticsTestOptionsListRumSettingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSyntheticsTestOptionsListRumSettingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSyntheticsTestOptionsListRumSetting)(nil)).Elem()
+}
+
+func (o GetSyntheticsTestOptionsListRumSettingArrayOutput) ToGetSyntheticsTestOptionsListRumSettingArrayOutput() GetSyntheticsTestOptionsListRumSettingArrayOutput {
+	return o
+}
+
+func (o GetSyntheticsTestOptionsListRumSettingArrayOutput) ToGetSyntheticsTestOptionsListRumSettingArrayOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListRumSettingArrayOutput {
+	return o
+}
+
+func (o GetSyntheticsTestOptionsListRumSettingArrayOutput) Index(i pulumi.IntInput) GetSyntheticsTestOptionsListRumSettingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSyntheticsTestOptionsListRumSetting {
+		return vs[0].([]GetSyntheticsTestOptionsListRumSetting)[vs[1].(int)]
+	}).(GetSyntheticsTestOptionsListRumSettingOutput)
+}
+
+type GetSyntheticsTestOptionsListScheduling struct {
+	// Array containing objects describing the scheduling pattern to apply to each day.
+	Timeframes []GetSyntheticsTestOptionsListSchedulingTimeframe `pulumi:"timeframes"`
+	// Timezone in which the timeframe is based.
+	Timezone string `pulumi:"timezone"`
+}
+
+// GetSyntheticsTestOptionsListSchedulingInput is an input type that accepts GetSyntheticsTestOptionsListSchedulingArgs and GetSyntheticsTestOptionsListSchedulingOutput values.
+// You can construct a concrete instance of `GetSyntheticsTestOptionsListSchedulingInput` via:
+//
+//	GetSyntheticsTestOptionsListSchedulingArgs{...}
+type GetSyntheticsTestOptionsListSchedulingInput interface {
+	pulumi.Input
+
+	ToGetSyntheticsTestOptionsListSchedulingOutput() GetSyntheticsTestOptionsListSchedulingOutput
+	ToGetSyntheticsTestOptionsListSchedulingOutputWithContext(context.Context) GetSyntheticsTestOptionsListSchedulingOutput
+}
+
+type GetSyntheticsTestOptionsListSchedulingArgs struct {
+	// Array containing objects describing the scheduling pattern to apply to each day.
+	Timeframes GetSyntheticsTestOptionsListSchedulingTimeframeArrayInput `pulumi:"timeframes"`
+	// Timezone in which the timeframe is based.
+	Timezone pulumi.StringInput `pulumi:"timezone"`
+}
+
+func (GetSyntheticsTestOptionsListSchedulingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSyntheticsTestOptionsListScheduling)(nil)).Elem()
+}
+
+func (i GetSyntheticsTestOptionsListSchedulingArgs) ToGetSyntheticsTestOptionsListSchedulingOutput() GetSyntheticsTestOptionsListSchedulingOutput {
+	return i.ToGetSyntheticsTestOptionsListSchedulingOutputWithContext(context.Background())
+}
+
+func (i GetSyntheticsTestOptionsListSchedulingArgs) ToGetSyntheticsTestOptionsListSchedulingOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListSchedulingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestOptionsListSchedulingOutput)
+}
+
+// GetSyntheticsTestOptionsListSchedulingArrayInput is an input type that accepts GetSyntheticsTestOptionsListSchedulingArray and GetSyntheticsTestOptionsListSchedulingArrayOutput values.
+// You can construct a concrete instance of `GetSyntheticsTestOptionsListSchedulingArrayInput` via:
+//
+//	GetSyntheticsTestOptionsListSchedulingArray{ GetSyntheticsTestOptionsListSchedulingArgs{...} }
+type GetSyntheticsTestOptionsListSchedulingArrayInput interface {
+	pulumi.Input
+
+	ToGetSyntheticsTestOptionsListSchedulingArrayOutput() GetSyntheticsTestOptionsListSchedulingArrayOutput
+	ToGetSyntheticsTestOptionsListSchedulingArrayOutputWithContext(context.Context) GetSyntheticsTestOptionsListSchedulingArrayOutput
+}
+
+type GetSyntheticsTestOptionsListSchedulingArray []GetSyntheticsTestOptionsListSchedulingInput
+
+func (GetSyntheticsTestOptionsListSchedulingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSyntheticsTestOptionsListScheduling)(nil)).Elem()
+}
+
+func (i GetSyntheticsTestOptionsListSchedulingArray) ToGetSyntheticsTestOptionsListSchedulingArrayOutput() GetSyntheticsTestOptionsListSchedulingArrayOutput {
+	return i.ToGetSyntheticsTestOptionsListSchedulingArrayOutputWithContext(context.Background())
+}
+
+func (i GetSyntheticsTestOptionsListSchedulingArray) ToGetSyntheticsTestOptionsListSchedulingArrayOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListSchedulingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestOptionsListSchedulingArrayOutput)
+}
+
+type GetSyntheticsTestOptionsListSchedulingOutput struct{ *pulumi.OutputState }
+
+func (GetSyntheticsTestOptionsListSchedulingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSyntheticsTestOptionsListScheduling)(nil)).Elem()
+}
+
+func (o GetSyntheticsTestOptionsListSchedulingOutput) ToGetSyntheticsTestOptionsListSchedulingOutput() GetSyntheticsTestOptionsListSchedulingOutput {
+	return o
+}
+
+func (o GetSyntheticsTestOptionsListSchedulingOutput) ToGetSyntheticsTestOptionsListSchedulingOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListSchedulingOutput {
+	return o
+}
+
+// Array containing objects describing the scheduling pattern to apply to each day.
+func (o GetSyntheticsTestOptionsListSchedulingOutput) Timeframes() GetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsListScheduling) []GetSyntheticsTestOptionsListSchedulingTimeframe {
+		return v.Timeframes
+	}).(GetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput)
+}
+
+// Timezone in which the timeframe is based.
+func (o GetSyntheticsTestOptionsListSchedulingOutput) Timezone() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsListScheduling) string { return v.Timezone }).(pulumi.StringOutput)
+}
+
+type GetSyntheticsTestOptionsListSchedulingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSyntheticsTestOptionsListSchedulingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSyntheticsTestOptionsListScheduling)(nil)).Elem()
+}
+
+func (o GetSyntheticsTestOptionsListSchedulingArrayOutput) ToGetSyntheticsTestOptionsListSchedulingArrayOutput() GetSyntheticsTestOptionsListSchedulingArrayOutput {
+	return o
+}
+
+func (o GetSyntheticsTestOptionsListSchedulingArrayOutput) ToGetSyntheticsTestOptionsListSchedulingArrayOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListSchedulingArrayOutput {
+	return o
+}
+
+func (o GetSyntheticsTestOptionsListSchedulingArrayOutput) Index(i pulumi.IntInput) GetSyntheticsTestOptionsListSchedulingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSyntheticsTestOptionsListScheduling {
+		return vs[0].([]GetSyntheticsTestOptionsListScheduling)[vs[1].(int)]
+	}).(GetSyntheticsTestOptionsListSchedulingOutput)
+}
+
+type GetSyntheticsTestOptionsListSchedulingTimeframe struct {
+	// Number representing the day of the week.
+	Day int `pulumi:"day"`
+	// The hour of the day on which scheduling starts.
+	From string `pulumi:"from"`
+	// The hour of the day on which scheduling ends.
+	To string `pulumi:"to"`
+}
+
+// GetSyntheticsTestOptionsListSchedulingTimeframeInput is an input type that accepts GetSyntheticsTestOptionsListSchedulingTimeframeArgs and GetSyntheticsTestOptionsListSchedulingTimeframeOutput values.
+// You can construct a concrete instance of `GetSyntheticsTestOptionsListSchedulingTimeframeInput` via:
+//
+//	GetSyntheticsTestOptionsListSchedulingTimeframeArgs{...}
+type GetSyntheticsTestOptionsListSchedulingTimeframeInput interface {
+	pulumi.Input
+
+	ToGetSyntheticsTestOptionsListSchedulingTimeframeOutput() GetSyntheticsTestOptionsListSchedulingTimeframeOutput
+	ToGetSyntheticsTestOptionsListSchedulingTimeframeOutputWithContext(context.Context) GetSyntheticsTestOptionsListSchedulingTimeframeOutput
+}
+
+type GetSyntheticsTestOptionsListSchedulingTimeframeArgs struct {
+	// Number representing the day of the week.
+	Day pulumi.IntInput `pulumi:"day"`
+	// The hour of the day on which scheduling starts.
+	From pulumi.StringInput `pulumi:"from"`
+	// The hour of the day on which scheduling ends.
+	To pulumi.StringInput `pulumi:"to"`
+}
+
+func (GetSyntheticsTestOptionsListSchedulingTimeframeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSyntheticsTestOptionsListSchedulingTimeframe)(nil)).Elem()
+}
+
+func (i GetSyntheticsTestOptionsListSchedulingTimeframeArgs) ToGetSyntheticsTestOptionsListSchedulingTimeframeOutput() GetSyntheticsTestOptionsListSchedulingTimeframeOutput {
+	return i.ToGetSyntheticsTestOptionsListSchedulingTimeframeOutputWithContext(context.Background())
+}
+
+func (i GetSyntheticsTestOptionsListSchedulingTimeframeArgs) ToGetSyntheticsTestOptionsListSchedulingTimeframeOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListSchedulingTimeframeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestOptionsListSchedulingTimeframeOutput)
+}
+
+// GetSyntheticsTestOptionsListSchedulingTimeframeArrayInput is an input type that accepts GetSyntheticsTestOptionsListSchedulingTimeframeArray and GetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput values.
+// You can construct a concrete instance of `GetSyntheticsTestOptionsListSchedulingTimeframeArrayInput` via:
+//
+//	GetSyntheticsTestOptionsListSchedulingTimeframeArray{ GetSyntheticsTestOptionsListSchedulingTimeframeArgs{...} }
+type GetSyntheticsTestOptionsListSchedulingTimeframeArrayInput interface {
+	pulumi.Input
+
+	ToGetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput() GetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput
+	ToGetSyntheticsTestOptionsListSchedulingTimeframeArrayOutputWithContext(context.Context) GetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput
+}
+
+type GetSyntheticsTestOptionsListSchedulingTimeframeArray []GetSyntheticsTestOptionsListSchedulingTimeframeInput
+
+func (GetSyntheticsTestOptionsListSchedulingTimeframeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSyntheticsTestOptionsListSchedulingTimeframe)(nil)).Elem()
+}
+
+func (i GetSyntheticsTestOptionsListSchedulingTimeframeArray) ToGetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput() GetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput {
+	return i.ToGetSyntheticsTestOptionsListSchedulingTimeframeArrayOutputWithContext(context.Background())
+}
+
+func (i GetSyntheticsTestOptionsListSchedulingTimeframeArray) ToGetSyntheticsTestOptionsListSchedulingTimeframeArrayOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput)
+}
+
+type GetSyntheticsTestOptionsListSchedulingTimeframeOutput struct{ *pulumi.OutputState }
+
+func (GetSyntheticsTestOptionsListSchedulingTimeframeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSyntheticsTestOptionsListSchedulingTimeframe)(nil)).Elem()
+}
+
+func (o GetSyntheticsTestOptionsListSchedulingTimeframeOutput) ToGetSyntheticsTestOptionsListSchedulingTimeframeOutput() GetSyntheticsTestOptionsListSchedulingTimeframeOutput {
+	return o
+}
+
+func (o GetSyntheticsTestOptionsListSchedulingTimeframeOutput) ToGetSyntheticsTestOptionsListSchedulingTimeframeOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListSchedulingTimeframeOutput {
+	return o
+}
+
+// Number representing the day of the week.
+func (o GetSyntheticsTestOptionsListSchedulingTimeframeOutput) Day() pulumi.IntOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsListSchedulingTimeframe) int { return v.Day }).(pulumi.IntOutput)
+}
+
+// The hour of the day on which scheduling starts.
+func (o GetSyntheticsTestOptionsListSchedulingTimeframeOutput) From() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsListSchedulingTimeframe) string { return v.From }).(pulumi.StringOutput)
+}
+
+// The hour of the day on which scheduling ends.
+func (o GetSyntheticsTestOptionsListSchedulingTimeframeOutput) To() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSyntheticsTestOptionsListSchedulingTimeframe) string { return v.To }).(pulumi.StringOutput)
+}
+
+type GetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSyntheticsTestOptionsListSchedulingTimeframe)(nil)).Elem()
+}
+
+func (o GetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput) ToGetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput() GetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput {
+	return o
+}
+
+func (o GetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput) ToGetSyntheticsTestOptionsListSchedulingTimeframeArrayOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput {
+	return o
+}
+
+func (o GetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput) Index(i pulumi.IntInput) GetSyntheticsTestOptionsListSchedulingTimeframeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSyntheticsTestOptionsListSchedulingTimeframe {
+		return vs[0].([]GetSyntheticsTestOptionsListSchedulingTimeframe)[vs[1].(int)]
+	}).(GetSyntheticsTestOptionsListSchedulingTimeframeOutput)
+}
+
+type GetTagPipelineRulesetRule struct {
+	// Whether the rule is enabled.
+	Enabled bool `pulumi:"enabled"`
+	// The mapping configuration for the rule.
+	Mapping *GetTagPipelineRulesetRuleMapping `pulumi:"mapping"`
+	// Rule metadata key-value pairs.
+	Metadata map[string]string `pulumi:"metadata"`
+	// The name of the rule.
+	Name string `pulumi:"name"`
+	// The query configuration for the rule.
+	Query *GetTagPipelineRulesetRuleQuery `pulumi:"query"`
+	// The reference table configuration for the rule.
+	ReferenceTable *GetTagPipelineRulesetRuleReferenceTable `pulumi:"referenceTable"`
+}
+
+// GetTagPipelineRulesetRuleInput is an input type that accepts GetTagPipelineRulesetRuleArgs and GetTagPipelineRulesetRuleOutput values.
+// You can construct a concrete instance of `GetTagPipelineRulesetRuleInput` via:
+//
+//	GetTagPipelineRulesetRuleArgs{...}
+type GetTagPipelineRulesetRuleInput interface {
+	pulumi.Input
+
+	ToGetTagPipelineRulesetRuleOutput() GetTagPipelineRulesetRuleOutput
+	ToGetTagPipelineRulesetRuleOutputWithContext(context.Context) GetTagPipelineRulesetRuleOutput
+}
+
+type GetTagPipelineRulesetRuleArgs struct {
+	// Whether the rule is enabled.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The mapping configuration for the rule.
+	Mapping GetTagPipelineRulesetRuleMappingPtrInput `pulumi:"mapping"`
+	// Rule metadata key-value pairs.
+	Metadata pulumi.StringMapInput `pulumi:"metadata"`
+	// The name of the rule.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The query configuration for the rule.
+	Query GetTagPipelineRulesetRuleQueryPtrInput `pulumi:"query"`
+	// The reference table configuration for the rule.
+	ReferenceTable GetTagPipelineRulesetRuleReferenceTablePtrInput `pulumi:"referenceTable"`
+}
+
+func (GetTagPipelineRulesetRuleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTagPipelineRulesetRule)(nil)).Elem()
+}
+
+func (i GetTagPipelineRulesetRuleArgs) ToGetTagPipelineRulesetRuleOutput() GetTagPipelineRulesetRuleOutput {
+	return i.ToGetTagPipelineRulesetRuleOutputWithContext(context.Background())
+}
+
+func (i GetTagPipelineRulesetRuleArgs) ToGetTagPipelineRulesetRuleOutputWithContext(ctx context.Context) GetTagPipelineRulesetRuleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTagPipelineRulesetRuleOutput)
+}
+
+// GetTagPipelineRulesetRuleArrayInput is an input type that accepts GetTagPipelineRulesetRuleArray and GetTagPipelineRulesetRuleArrayOutput values.
+// You can construct a concrete instance of `GetTagPipelineRulesetRuleArrayInput` via:
+//
+//	GetTagPipelineRulesetRuleArray{ GetTagPipelineRulesetRuleArgs{...} }
+type GetTagPipelineRulesetRuleArrayInput interface {
+	pulumi.Input
+
+	ToGetTagPipelineRulesetRuleArrayOutput() GetTagPipelineRulesetRuleArrayOutput
+	ToGetTagPipelineRulesetRuleArrayOutputWithContext(context.Context) GetTagPipelineRulesetRuleArrayOutput
+}
+
+type GetTagPipelineRulesetRuleArray []GetTagPipelineRulesetRuleInput
+
+func (GetTagPipelineRulesetRuleArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTagPipelineRulesetRule)(nil)).Elem()
+}
+
+func (i GetTagPipelineRulesetRuleArray) ToGetTagPipelineRulesetRuleArrayOutput() GetTagPipelineRulesetRuleArrayOutput {
+	return i.ToGetTagPipelineRulesetRuleArrayOutputWithContext(context.Background())
+}
+
+func (i GetTagPipelineRulesetRuleArray) ToGetTagPipelineRulesetRuleArrayOutputWithContext(ctx context.Context) GetTagPipelineRulesetRuleArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetTagPipelineRulesetRuleArrayOutput)
+}
+
+type GetTagPipelineRulesetRuleOutput struct{ *pulumi.OutputState }
+
+func (GetTagPipelineRulesetRuleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetTagPipelineRulesetRule)(nil)).Elem()
+}
+
+func (o GetTagPipelineRulesetRuleOutput) ToGetTagPipelineRulesetRuleOutput() GetTagPipelineRulesetRuleOutput {
+	return o
+}
+
+func (o GetTagPipelineRulesetRuleOutput) ToGetTagPipelineRulesetRuleOutputWithContext(ctx context.Context) GetTagPipelineRulesetRuleOutput {
+	return o
+}
+
+// Whether the rule is enabled.
+func (o GetTagPipelineRulesetRuleOutput) Enabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetTagPipelineRulesetRule) bool { return v.Enabled }).(pulumi.BoolOutput)
+}
+
+// The mapping configuration for the rule.
+func (o GetTagPipelineRulesetRuleOutput) Mapping() GetTagPipelineRulesetRuleMappingPtrOutput {
+	return o.ApplyT(func(v GetTagPipelineRulesetRule) *GetTagPipelineRulesetRuleMapping { return v.Mapping }).(GetTagPipelineRulesetRuleMappingPtrOutput)
+}
+
+// Rule metadata key-value pairs.
+func (o GetTagPipelineRulesetRuleOutput) Metadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v GetTagPipelineRulesetRule) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
+}
+
+// The name of the rule.
+func (o GetTagPipelineRulesetRuleOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v GetTagPipelineRulesetRule) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The query configuration for the rule.
+func (o GetTagPipelineRulesetRuleOutput) Query() GetTagPipelineRulesetRuleQueryPtrOutput {
+	return o.ApplyT(func(v GetTagPipelineRulesetRule) *GetTagPipelineRulesetRuleQuery { return v.Query }).(GetTagPipelineRulesetRuleQueryPtrOutput)
+}
+
+// The reference table configuration for the rule.
+func (o GetTagPipelineRulesetRuleOutput) ReferenceTable() GetTagPipelineRulesetRuleReferenceTablePtrOutput {
+	return o.ApplyT(func(v GetTagPipelineRulesetRule) *GetTagPipelineRulesetRuleReferenceTable { return v.ReferenceTable }).(GetTagPipelineRulesetRuleReferenceTablePtrOutput)
+}
+
+type GetTagPipelineRulesetRuleArrayOutput struct{ *pulumi.OutputState }
+
+func (GetTagPipelineRulesetRuleArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetTagPipelineRulesetRule)(nil)).Elem()
+}
+
+func (o GetTagPipelineRulesetRuleArrayOutput) ToGetTagPipelineRulesetRuleArrayOutput() GetTagPipelineRulesetRuleArrayOutput {
+	return o
+}
+
+func (o GetTagPipelineRulesetRuleArrayOutput) ToGetTagPipelineRulesetRuleArrayOutputWithContext(ctx context.Context) GetTagPipelineRulesetRuleArrayOutput {
+	return o
+}
+
+func (o GetTagPipelineRulesetRuleArrayOutput) Index(i pulumi.IntInput) GetTagPipelineRulesetRuleOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTagPipelineRulesetRule {
+		return vs[0].([]GetTagPipelineRulesetRule)[vs[1].(int)]
+	}).(GetTagPipelineRulesetRuleOutput)
+}
+
 type GetTagPipelineRulesetRuleMapping struct {
 	// The destination key for the mapping.
 	DestinationKey string `pulumi:"destinationKey"`
@@ -3029,6 +4831,34 @@ func (o GetWorkflowAutomationRunAsOutput) Type() pulumi.StringOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListCiInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListCiArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListCiArrayInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListCiArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListMobileApplicationInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListMobileApplicationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListMobileApplicationArrayInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListMobileApplicationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListMonitorOptionInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListMonitorOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListMonitorOptionArrayInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListMonitorOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListRetryInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListRetryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListRetryArrayInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListRetryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListSchedulingInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListSchedulingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListSchedulingArrayInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListSchedulingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListSchedulingTimeframeInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListSchedulingTimeframeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListSchedulingTimeframeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestOptionsListInput)(nil)).Elem(), GetSyntheticsTestOptionsListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestOptionsListArrayInput)(nil)).Elem(), GetSyntheticsTestOptionsListArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestOptionsListCiInput)(nil)).Elem(), GetSyntheticsTestOptionsListCiArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestOptionsListCiArrayInput)(nil)).Elem(), GetSyntheticsTestOptionsListCiArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestOptionsListMonitorOptionInput)(nil)).Elem(), GetSyntheticsTestOptionsListMonitorOptionArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestOptionsListMonitorOptionArrayInput)(nil)).Elem(), GetSyntheticsTestOptionsListMonitorOptionArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestOptionsListRetryInput)(nil)).Elem(), GetSyntheticsTestOptionsListRetryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestOptionsListRetryArrayInput)(nil)).Elem(), GetSyntheticsTestOptionsListRetryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestOptionsListRumSettingInput)(nil)).Elem(), GetSyntheticsTestOptionsListRumSettingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestOptionsListRumSettingArrayInput)(nil)).Elem(), GetSyntheticsTestOptionsListRumSettingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestOptionsListSchedulingInput)(nil)).Elem(), GetSyntheticsTestOptionsListSchedulingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestOptionsListSchedulingArrayInput)(nil)).Elem(), GetSyntheticsTestOptionsListSchedulingArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestOptionsListSchedulingTimeframeInput)(nil)).Elem(), GetSyntheticsTestOptionsListSchedulingTimeframeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestOptionsListSchedulingTimeframeArrayInput)(nil)).Elem(), GetSyntheticsTestOptionsListSchedulingTimeframeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTagPipelineRulesetRuleInput)(nil)).Elem(), GetTagPipelineRulesetRuleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetTagPipelineRulesetRuleArrayInput)(nil)).Elem(), GetTagPipelineRulesetRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTagPipelineRulesetRuleMappingInput)(nil)).Elem(), GetTagPipelineRulesetRuleMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTagPipelineRulesetRuleMappingPtrInput)(nil)).Elem(), GetTagPipelineRulesetRuleMappingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetTagPipelineRulesetRuleQueryInput)(nil)).Elem(), GetTagPipelineRulesetRuleQueryArgs{})
@@ -3068,6 +4898,34 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkflowAutomationRunAsInput)(nil)).Elem(), GetWorkflowAutomationRunAsArgs{})
+	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListCiOutput{})
+	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListCiArrayOutput{})
+	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListMobileApplicationOutput{})
+	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListMobileApplicationArrayOutput{})
+	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListMonitorOptionOutput{})
+	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListMonitorOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListRetryOutput{})
+	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListRetryArrayOutput{})
+	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListSchedulingOutput{})
+	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListSchedulingArrayOutput{})
+	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput{})
+	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput{})
+	pulumi.RegisterOutputType(GetSyntheticsTestOptionsListOutput{})
+	pulumi.RegisterOutputType(GetSyntheticsTestOptionsListArrayOutput{})
+	pulumi.RegisterOutputType(GetSyntheticsTestOptionsListCiOutput{})
+	pulumi.RegisterOutputType(GetSyntheticsTestOptionsListCiArrayOutput{})
+	pulumi.RegisterOutputType(GetSyntheticsTestOptionsListMonitorOptionOutput{})
+	pulumi.RegisterOutputType(GetSyntheticsTestOptionsListMonitorOptionArrayOutput{})
+	pulumi.RegisterOutputType(GetSyntheticsTestOptionsListRetryOutput{})
+	pulumi.RegisterOutputType(GetSyntheticsTestOptionsListRetryArrayOutput{})
+	pulumi.RegisterOutputType(GetSyntheticsTestOptionsListRumSettingOutput{})
+	pulumi.RegisterOutputType(GetSyntheticsTestOptionsListRumSettingArrayOutput{})
+	pulumi.RegisterOutputType(GetSyntheticsTestOptionsListSchedulingOutput{})
+	pulumi.RegisterOutputType(GetSyntheticsTestOptionsListSchedulingArrayOutput{})
+	pulumi.RegisterOutputType(GetSyntheticsTestOptionsListSchedulingTimeframeOutput{})
+	pulumi.RegisterOutputType(GetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput{})
+	pulumi.RegisterOutputType(GetTagPipelineRulesetRuleOutput{})
+	pulumi.RegisterOutputType(GetTagPipelineRulesetRuleArrayOutput{})
 	pulumi.RegisterOutputType(GetTagPipelineRulesetRuleMappingOutput{})
 	pulumi.RegisterOutputType(GetTagPipelineRulesetRuleMappingPtrOutput{})
 	pulumi.RegisterOutputType(GetTagPipelineRulesetRuleQueryOutput{})

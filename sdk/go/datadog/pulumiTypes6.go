@@ -13,6 +13,2446 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeInterval struct {
+	// Type of return interval. Valid values are `fixed`.
+	Type string `pulumi:"type"`
+	// Unit of the return interval. Valid values are `day`, `week`, `month`.
+	Unit string `pulumi:"unit"`
+	// Value of the return interval.
+	Value float64 `pulumi:"value"`
+}
+
+// DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalInput is an input type that accepts DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalArgs and DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalOutput values.
+// You can construct a concrete instance of `DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalInput` via:
+//
+//	DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalArgs{...}
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalOutput
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalOutputWithContext(context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalOutput
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalArgs struct {
+	// Type of return interval. Valid values are `fixed`.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Unit of the return interval. Valid values are `day`, `week`, `month`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// Value of the return interval.
+	Value pulumi.Float64Input `pulumi:"value"`
+}
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeInterval)(nil)).Elem()
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalOutput)
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalOutput).ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutputWithContext(ctx)
+}
+
+// DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrInput is an input type that accepts DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalArgs, DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtr and DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutput values.
+// You can construct a concrete instance of `DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrInput` via:
+//
+//	        DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutput
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutputWithContext(context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutput
+}
+
+type dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrType DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalArgs
+
+func DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtr(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalArgs) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrInput {
+	return (*dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrType)(v)
+}
+
+func (*dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeInterval)(nil)).Elem()
+}
+
+func (i *dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrType) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrType) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeInterval)(nil)).Elem()
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutput {
+	return o.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeInterval) *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeInterval {
+		return &v
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutput)
+}
+
+// Type of return interval. Valid values are `fixed`.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeInterval) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+// Unit of the return interval. Valid values are `day`, `week`, `month`.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeInterval) string {
+		return v.Unit
+	}).(pulumi.StringOutput)
+}
+
+// Value of the return interval.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalOutput) Value() pulumi.Float64Output {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeInterval) float64 {
+		return v.Value
+	}).(pulumi.Float64Output)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeInterval)(nil)).Elem()
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutput) Elem() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeInterval) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeInterval {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeInterval
+		return ret
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalOutput)
+}
+
+// Type of return interval. Valid values are `fixed`.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeInterval) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Unit of the return interval. Valid values are `day`, `week`, `month`.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeInterval) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// Value of the return interval.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutput) Value() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeInterval) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.Float64PtrOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQuery struct {
+	// Additional filters applied to the SLO query.
+	AdditionalQueryFilters *string `pulumi:"additionalQueryFilters"`
+	// The source organization UUID for cross organization queries. Feature in Private Beta.
+	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
+	// The data source for SLO queries. Valid values are `slo`.
+	DataSource string `pulumi:"dataSource"`
+	// Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+	GroupMode *string `pulumi:"groupMode"`
+	// SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+	Measure string `pulumi:"measure"`
+	// The name of query for use in formulas.
+	Name *string `pulumi:"name"`
+	// ID of an SLO to query measures.
+	SloId string `pulumi:"sloId"`
+	// type of the SLO to query. Valid values are `metric`, `monitor`, `timeSlice`. Defaults to `"metric"`.
+	SloQueryType *string `pulumi:"sloQueryType"`
+}
+
+// DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryInput is an input type that accepts DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryArgs and DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryOutput values.
+// You can construct a concrete instance of `DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryInput` via:
+//
+//	DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryArgs{...}
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryOutput
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryOutputWithContext(context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryOutput
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryArgs struct {
+	// Additional filters applied to the SLO query.
+	AdditionalQueryFilters pulumi.StringPtrInput `pulumi:"additionalQueryFilters"`
+	// The source organization UUID for cross organization queries. Feature in Private Beta.
+	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
+	// The data source for SLO queries. Valid values are `slo`.
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
+	// Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+	GroupMode pulumi.StringPtrInput `pulumi:"groupMode"`
+	// SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+	Measure pulumi.StringInput `pulumi:"measure"`
+	// The name of query for use in formulas.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// ID of an SLO to query measures.
+	SloId pulumi.StringInput `pulumi:"sloId"`
+	// type of the SLO to query. Valid values are `metric`, `monitor`, `timeSlice`. Defaults to `"metric"`.
+	SloQueryType pulumi.StringPtrInput `pulumi:"sloQueryType"`
+}
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQuery)(nil)).Elem()
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryOutput)
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryOutput).ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutputWithContext(ctx)
+}
+
+// DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrInput is an input type that accepts DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryArgs, DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtr and DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutput values.
+// You can construct a concrete instance of `DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrInput` via:
+//
+//	        DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutput
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutputWithContext(context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutput
+}
+
+type dashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrType DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryArgs
+
+func DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtr(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryArgs) DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrInput {
+	return (*dashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrType)(v)
+}
+
+func (*dashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQuery)(nil)).Elem()
+}
+
+func (i *dashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrType) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrType) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQuery)(nil)).Elem()
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutput {
+	return o.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQuery) *DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQuery {
+		return &v
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutput)
+}
+
+// Additional filters applied to the SLO query.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryOutput) AdditionalQueryFilters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQuery) *string {
+		return v.AdditionalQueryFilters
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source organization UUID for cross organization queries. Feature in Private Beta.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryOutput) CrossOrgUuids() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQuery) *string {
+		return v.CrossOrgUuids
+	}).(pulumi.StringPtrOutput)
+}
+
+// The data source for SLO queries. Valid values are `slo`.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryOutput) DataSource() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQuery) string {
+		return v.DataSource
+	}).(pulumi.StringOutput)
+}
+
+// Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryOutput) GroupMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQuery) *string {
+		return v.GroupMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryOutput) Measure() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQuery) string { return v.Measure }).(pulumi.StringOutput)
+}
+
+// The name of query for use in formulas.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQuery) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+// ID of an SLO to query measures.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryOutput) SloId() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQuery) string { return v.SloId }).(pulumi.StringOutput)
+}
+
+// type of the SLO to query. Valid values are `metric`, `monitor`, `timeSlice`. Defaults to `"metric"`.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryOutput) SloQueryType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQuery) *string {
+		return v.SloQueryType
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQuery)(nil)).Elem()
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutput) Elem() DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQuery) DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQuery {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQuery
+		return ret
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryOutput)
+}
+
+// Additional filters applied to the SLO query.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutput) AdditionalQueryFilters() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AdditionalQueryFilters
+	}).(pulumi.StringPtrOutput)
+}
+
+// The source organization UUID for cross organization queries. Feature in Private Beta.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutput) CrossOrgUuids() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CrossOrgUuids
+	}).(pulumi.StringPtrOutput)
+}
+
+// The data source for SLO queries. Valid values are `slo`.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// Group mode to query measures. Valid values are `overall`, `components`. Defaults to `"overall"`.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutput) GroupMode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupMode
+	}).(pulumi.StringPtrOutput)
+}
+
+// SLO measures queries. Valid values are `goodEvents`, `badEvents`, `goodMinutes`, `badMinutes`, `sloStatus`, `errorBudgetRemaining`, `burnRate`, `errorBudgetBurndown`.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutput) Measure() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Measure
+	}).(pulumi.StringPtrOutput)
+}
+
+// The name of query for use in formulas.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// ID of an SLO to query measures.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutput) SloId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.SloId
+	}).(pulumi.StringPtrOutput)
+}
+
+// type of the SLO to query. Valid values are `metric`, `monitor`, `timeSlice`. Defaults to `"metric"`.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutput) SloQueryType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SloQueryType
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuery struct {
+	// Compute configuration for the User Journey query.
+	Compute DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryCompute `pulumi:"compute"`
+	// Data source for User Journey queries. Valid values are `productAnalyticsJourney`.
+	DataSource string `pulumi:"dataSource"`
+	// Group by configuration for the User Journey query.
+	GroupBies []DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBy `pulumi:"groupBies"`
+	// Name of the query for use in formulas.
+	Name string `pulumi:"name"`
+	// User journey search configuration.
+	Search DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearch `pulumi:"search"`
+}
+
+// DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryInput is an input type that accepts DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryArgs and DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryOutput values.
+// You can construct a concrete instance of `DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryInput` via:
+//
+//	DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryArgs{...}
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryOutput
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryOutputWithContext(context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryOutput
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryArgs struct {
+	// Compute configuration for the User Journey query.
+	Compute DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeInput `pulumi:"compute"`
+	// Data source for User Journey queries. Valid values are `productAnalyticsJourney`.
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
+	// Group by configuration for the User Journey query.
+	GroupBies DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArrayInput `pulumi:"groupBies"`
+	// Name of the query for use in formulas.
+	Name pulumi.StringInput `pulumi:"name"`
+	// User journey search configuration.
+	Search DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchInput `pulumi:"search"`
+}
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuery)(nil)).Elem()
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryOutput)
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryOutput).ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutputWithContext(ctx)
+}
+
+// DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrInput is an input type that accepts DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryArgs, DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtr and DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutput values.
+// You can construct a concrete instance of `DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrInput` via:
+//
+//	        DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutput
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutputWithContext(context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutput
+}
+
+type dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrType DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryArgs
+
+func DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtr(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryArgs) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrInput {
+	return (*dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrType)(v)
+}
+
+func (*dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuery)(nil)).Elem()
+}
+
+func (i *dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrType) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrType) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuery)(nil)).Elem()
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutput {
+	return o.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuery) *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuery {
+		return &v
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutput)
+}
+
+// Compute configuration for the User Journey query.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryOutput) Compute() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuery) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryCompute {
+		return v.Compute
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeOutput)
+}
+
+// Data source for User Journey queries. Valid values are `productAnalyticsJourney`.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryOutput) DataSource() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuery) string {
+		return v.DataSource
+	}).(pulumi.StringOutput)
+}
+
+// Group by configuration for the User Journey query.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryOutput) GroupBies() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArrayOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuery) []DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBy {
+		return v.GroupBies
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArrayOutput)
+}
+
+// Name of the query for use in formulas.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuery) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// User journey search configuration.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryOutput) Search() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuery) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearch {
+		return v.Search
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuery)(nil)).Elem()
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutput) Elem() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuery) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuery {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuery
+		return ret
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryOutput)
+}
+
+// Compute configuration for the User Journey query.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutput) Compute() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuery) *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryCompute {
+		if v == nil {
+			return nil
+		}
+		return &v.Compute
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutput)
+}
+
+// Data source for User Journey queries. Valid values are `productAnalyticsJourney`.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.DataSource
+	}).(pulumi.StringPtrOutput)
+}
+
+// Group by configuration for the User Journey query.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutput) GroupBies() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArrayOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuery) []DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBy {
+		if v == nil {
+			return nil
+		}
+		return v.GroupBies
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArrayOutput)
+}
+
+// Name of the query for use in formulas.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// User journey search configuration.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutput) Search() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuery) *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearch {
+		if v == nil {
+			return nil
+		}
+		return &v.Search
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryCompute struct {
+	// Aggregation method for the User Journey query. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+	Aggregation string `pulumi:"aggregation"`
+	// Time bucket interval in milliseconds for timeseries queries.
+	Interval *int `pulumi:"interval"`
+	// Metric for the User Journey computation. Valid values are `__dd.conversion`, `__dd.conversion_rate`, `__dd.time_to_convert`.
+	Metric *string `pulumi:"metric"`
+	// Journey target to compute.
+	Target *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTarget `pulumi:"target"`
+}
+
+// DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeInput is an input type that accepts DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeArgs and DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeOutput values.
+// You can construct a concrete instance of `DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeInput` via:
+//
+//	DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeArgs{...}
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeOutput
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeOutputWithContext(context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeOutput
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeArgs struct {
+	// Aggregation method for the User Journey query. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// Time bucket interval in milliseconds for timeseries queries.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+	// Metric for the User Journey computation. Valid values are `__dd.conversion`, `__dd.conversion_rate`, `__dd.time_to_convert`.
+	Metric pulumi.StringPtrInput `pulumi:"metric"`
+	// Journey target to compute.
+	Target DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrInput `pulumi:"target"`
+}
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryCompute)(nil)).Elem()
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeOutput)
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeOutput).ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutputWithContext(ctx)
+}
+
+// DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrInput is an input type that accepts DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeArgs, DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtr and DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutput values.
+// You can construct a concrete instance of `DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrInput` via:
+//
+//	        DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutput
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutputWithContext(context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutput
+}
+
+type dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrType DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeArgs
+
+func DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtr(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeArgs) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrInput {
+	return (*dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrType)(v)
+}
+
+func (*dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryCompute)(nil)).Elem()
+}
+
+func (i *dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrType) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrType) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryCompute)(nil)).Elem()
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutput {
+	return o.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutputWithContext(context.Background())
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryCompute) *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryCompute {
+		return &v
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutput)
+}
+
+// Aggregation method for the User Journey query. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryCompute) string {
+		return v.Aggregation
+	}).(pulumi.StringOutput)
+}
+
+// Time bucket interval in milliseconds for timeseries queries.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryCompute) *int {
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+// Metric for the User Journey computation. Valid values are `__dd.conversion`, `__dd.conversion_rate`, `__dd.time_to_convert`.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeOutput) Metric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryCompute) *string {
+		return v.Metric
+	}).(pulumi.StringPtrOutput)
+}
+
+// Journey target to compute.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeOutput) Target() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryCompute) *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTarget {
+		return v.Target
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryCompute)(nil)).Elem()
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutput) Elem() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryCompute) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryCompute {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryCompute
+		return ret
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeOutput)
+}
+
+// Aggregation method for the User Journey query. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryCompute) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Aggregation
+	}).(pulumi.StringPtrOutput)
+}
+
+// Time bucket interval in milliseconds for timeseries queries.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryCompute) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+// Metric for the User Journey computation. Valid values are `__dd.conversion`, `__dd.conversion_rate`, `__dd.time_to_convert`.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutput) Metric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryCompute) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Metric
+	}).(pulumi.StringPtrOutput)
+}
+
+// Journey target to compute.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutput) Target() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryCompute) *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTarget {
+		if v == nil {
+			return nil
+		}
+		return v.Target
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTarget struct {
+	// End node of the target range.
+	End *string `pulumi:"end"`
+	// Start node of the target range.
+	Start *string `pulumi:"start"`
+	// Target type.
+	Type string `pulumi:"type"`
+	// Target node value.
+	Value *string `pulumi:"value"`
+}
+
+// DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetInput is an input type that accepts DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetArgs and DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetOutput values.
+// You can construct a concrete instance of `DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetInput` via:
+//
+//	DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetArgs{...}
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetOutput
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetOutputWithContext(context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetOutput
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetArgs struct {
+	// End node of the target range.
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// Start node of the target range.
+	Start pulumi.StringPtrInput `pulumi:"start"`
+	// Target type.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Target node value.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTarget)(nil)).Elem()
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetOutput)
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetOutput).ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutputWithContext(ctx)
+}
+
+// DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrInput is an input type that accepts DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetArgs, DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtr and DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutput values.
+// You can construct a concrete instance of `DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrInput` via:
+//
+//	        DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutput
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutputWithContext(context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutput
+}
+
+type dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrType DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetArgs
+
+func DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtr(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetArgs) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrInput {
+	return (*dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrType)(v)
+}
+
+func (*dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTarget)(nil)).Elem()
+}
+
+func (i *dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrType) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrType) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTarget)(nil)).Elem()
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutput {
+	return o.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTarget) *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTarget {
+		return &v
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutput)
+}
+
+// End node of the target range.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTarget) *string {
+		return v.End
+	}).(pulumi.StringPtrOutput)
+}
+
+// Start node of the target range.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTarget) *string {
+		return v.Start
+	}).(pulumi.StringPtrOutput)
+}
+
+// Target type.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTarget) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+// Target node value.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTarget) *string {
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTarget)(nil)).Elem()
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutput) Elem() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTarget) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTarget {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTarget
+		return ret
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetOutput)
+}
+
+// End node of the target range.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.End
+	}).(pulumi.StringPtrOutput)
+}
+
+// Start node of the target range.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Start
+	}).(pulumi.StringPtrOutput)
+}
+
+// Target type.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Target node value.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBy struct {
+	// Facet name to group by.
+	Facet string `pulumi:"facet"`
+	// Maximum number of groups to return.
+	Limit *int `pulumi:"limit"`
+	// Whether to exclude events missing the group-by facet.
+	ShouldExcludeMissing *bool `pulumi:"shouldExcludeMissing"`
+	// Options for sorting group by results.
+	Sort *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySort `pulumi:"sort"`
+	// Journey target to group.
+	Target *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTarget `pulumi:"target"`
+}
+
+// DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByInput is an input type that accepts DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArgs and DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByOutput values.
+// You can construct a concrete instance of `DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByInput` via:
+//
+//	DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArgs{...}
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByOutput
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByOutputWithContext(context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByOutput
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArgs struct {
+	// Facet name to group by.
+	Facet pulumi.StringInput `pulumi:"facet"`
+	// Maximum number of groups to return.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// Whether to exclude events missing the group-by facet.
+	ShouldExcludeMissing pulumi.BoolPtrInput `pulumi:"shouldExcludeMissing"`
+	// Options for sorting group by results.
+	Sort DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrInput `pulumi:"sort"`
+	// Journey target to group.
+	Target DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrInput `pulumi:"target"`
+}
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBy)(nil)).Elem()
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByOutput)
+}
+
+// DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArrayInput is an input type that accepts DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArray and DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArrayOutput values.
+// You can construct a concrete instance of `DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArrayInput` via:
+//
+//	DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArray{ DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArgs{...} }
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArrayInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArrayOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArrayOutput
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArrayOutputWithContext(context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArrayOutput
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArray []DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByInput
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBy)(nil)).Elem()
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArray) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArrayOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArrayOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArrayOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArray) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArrayOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArrayOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBy)(nil)).Elem()
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByOutput {
+	return o
+}
+
+// Facet name to group by.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByOutput) Facet() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBy) string {
+		return v.Facet
+	}).(pulumi.StringOutput)
+}
+
+// Maximum number of groups to return.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBy) *int {
+		return v.Limit
+	}).(pulumi.IntPtrOutput)
+}
+
+// Whether to exclude events missing the group-by facet.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByOutput) ShouldExcludeMissing() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBy) *bool {
+		return v.ShouldExcludeMissing
+	}).(pulumi.BoolPtrOutput)
+}
+
+// Options for sorting group by results.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByOutput) Sort() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBy) *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySort {
+		return v.Sort
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutput)
+}
+
+// Journey target to group.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByOutput) Target() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBy) *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTarget {
+		return v.Target
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArrayOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBy)(nil)).Elem()
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArrayOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArrayOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArrayOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArrayOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArrayOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArrayOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArrayOutput) Index(i pulumi.IntInput) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBy {
+		return vs[0].([]DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBy)[vs[1].(int)]
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySort struct {
+	// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+	Aggregation string `pulumi:"aggregation"`
+	// The metric used for sorting group by results.
+	Metric *string `pulumi:"metric"`
+	// Direction of sort. Valid values are `asc`, `desc`.
+	Order *string `pulumi:"order"`
+}
+
+// DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortInput is an input type that accepts DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortArgs and DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortOutput values.
+// You can construct a concrete instance of `DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortInput` via:
+//
+//	DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortArgs{...}
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortOutput
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortOutputWithContext(context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortOutput
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortArgs struct {
+	// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The metric used for sorting group by results.
+	Metric pulumi.StringPtrInput `pulumi:"metric"`
+	// Direction of sort. Valid values are `asc`, `desc`.
+	Order pulumi.StringPtrInput `pulumi:"order"`
+}
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySort)(nil)).Elem()
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortOutput)
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortOutput).ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutputWithContext(ctx)
+}
+
+// DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrInput is an input type that accepts DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortArgs, DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtr and DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutput values.
+// You can construct a concrete instance of `DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrInput` via:
+//
+//	        DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutput
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutputWithContext(context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutput
+}
+
+type dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrType DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortArgs
+
+func DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtr(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortArgs) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrInput {
+	return (*dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrType)(v)
+}
+
+func (*dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySort)(nil)).Elem()
+}
+
+func (i *dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrType) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrType) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySort)(nil)).Elem()
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutput {
+	return o.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySort) *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySort {
+		return &v
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutput)
+}
+
+// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySort) string {
+		return v.Aggregation
+	}).(pulumi.StringOutput)
+}
+
+// The metric used for sorting group by results.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortOutput) Metric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySort) *string {
+		return v.Metric
+	}).(pulumi.StringPtrOutput)
+}
+
+// Direction of sort. Valid values are `asc`, `desc`.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortOutput) Order() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySort) *string {
+		return v.Order
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySort)(nil)).Elem()
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutput) Elem() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySort) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySort {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySort
+		return ret
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortOutput)
+}
+
+// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySort) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Aggregation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The metric used for sorting group by results.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutput) Metric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySort) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Metric
+	}).(pulumi.StringPtrOutput)
+}
+
+// Direction of sort. Valid values are `asc`, `desc`.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutput) Order() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySort) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Order
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTarget struct {
+	// End node of the target range.
+	End *string `pulumi:"end"`
+	// Start node of the target range.
+	Start *string `pulumi:"start"`
+	// Target type.
+	Type string `pulumi:"type"`
+	// Target node value.
+	Value *string `pulumi:"value"`
+}
+
+// DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetInput is an input type that accepts DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetArgs and DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetOutput values.
+// You can construct a concrete instance of `DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetInput` via:
+//
+//	DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetArgs{...}
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetOutput
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetOutputWithContext(context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetOutput
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetArgs struct {
+	// End node of the target range.
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// Start node of the target range.
+	Start pulumi.StringPtrInput `pulumi:"start"`
+	// Target type.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Target node value.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTarget)(nil)).Elem()
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetOutput)
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetOutput).ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutputWithContext(ctx)
+}
+
+// DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrInput is an input type that accepts DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetArgs, DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtr and DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutput values.
+// You can construct a concrete instance of `DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrInput` via:
+//
+//	        DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutput
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutputWithContext(context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutput
+}
+
+type dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrType DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetArgs
+
+func DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtr(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetArgs) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrInput {
+	return (*dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrType)(v)
+}
+
+func (*dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTarget)(nil)).Elem()
+}
+
+func (i *dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrType) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrType) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTarget)(nil)).Elem()
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutput {
+	return o.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTarget) *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTarget {
+		return &v
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutput)
+}
+
+// End node of the target range.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTarget) *string {
+		return v.End
+	}).(pulumi.StringPtrOutput)
+}
+
+// Start node of the target range.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTarget) *string {
+		return v.Start
+	}).(pulumi.StringPtrOutput)
+}
+
+// Target type.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTarget) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+// Target node value.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTarget) *string {
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTarget)(nil)).Elem()
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutput) Elem() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTarget) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTarget {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTarget
+		return ret
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetOutput)
+}
+
+// End node of the target range.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.End
+	}).(pulumi.StringPtrOutput)
+}
+
+// Start node of the target range.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Start
+	}).(pulumi.StringPtrOutput)
+}
+
+// Target type.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Target node value.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearch struct {
+	// Expression describing the journey between nodes.
+	Expression string `pulumi:"expression"`
+	// Filters for the user journey search.
+	Filters *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFilters `pulumi:"filters"`
+	// Join keys for the user journey query.
+	JoinKeys *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchJoinKeys `pulumi:"joinKeys"`
+	// JSON object mapping journey node names to Product Analytics base queries.
+	NodeObjects string `pulumi:"nodeObjects"`
+	// JSON object mapping journey step names to display aliases.
+	StepAliases *string `pulumi:"stepAliases"`
+}
+
+// DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchInput is an input type that accepts DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchArgs and DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchOutput values.
+// You can construct a concrete instance of `DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchInput` via:
+//
+//	DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchArgs{...}
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchOutput
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchOutputWithContext(context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchOutput
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchArgs struct {
+	// Expression describing the journey between nodes.
+	Expression pulumi.StringInput `pulumi:"expression"`
+	// Filters for the user journey search.
+	Filters DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrInput `pulumi:"filters"`
+	// Join keys for the user journey query.
+	JoinKeys DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchJoinKeysPtrInput `pulumi:"joinKeys"`
+	// JSON object mapping journey node names to Product Analytics base queries.
+	NodeObjects pulumi.StringInput `pulumi:"nodeObjects"`
+	// JSON object mapping journey step names to display aliases.
+	StepAliases pulumi.StringPtrInput `pulumi:"stepAliases"`
+}
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearch)(nil)).Elem()
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchOutput)
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchOutput).ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutputWithContext(ctx)
+}
+
+// DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrInput is an input type that accepts DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchArgs, DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtr and DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutput values.
+// You can construct a concrete instance of `DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrInput` via:
+//
+//	        DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutput
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutputWithContext(context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutput
+}
+
+type dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrType DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchArgs
+
+func DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtr(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchArgs) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrInput {
+	return (*dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrType)(v)
+}
+
+func (*dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearch)(nil)).Elem()
+}
+
+func (i *dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrType) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrType) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearch)(nil)).Elem()
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutput {
+	return o.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearch) *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearch {
+		return &v
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutput)
+}
+
+// Expression describing the journey between nodes.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearch) string {
+		return v.Expression
+	}).(pulumi.StringOutput)
+}
+
+// Filters for the user journey search.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchOutput) Filters() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearch) *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFilters {
+		return v.Filters
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutput)
+}
+
+// Join keys for the user journey query.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchOutput) JoinKeys() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearch) *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchJoinKeys {
+		return v.JoinKeys
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput)
+}
+
+// JSON object mapping journey node names to Product Analytics base queries.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchOutput) NodeObjects() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearch) string {
+		return v.NodeObjects
+	}).(pulumi.StringOutput)
+}
+
+// JSON object mapping journey step names to display aliases.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchOutput) StepAliases() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearch) *string {
+		return v.StepAliases
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearch)(nil)).Elem()
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutput) Elem() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearch) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearch {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearch
+		return ret
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchOutput)
+}
+
+// Expression describing the journey between nodes.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearch) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Expression
+	}).(pulumi.StringPtrOutput)
+}
+
+// Filters for the user journey search.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutput) Filters() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearch) *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFilters {
+		if v == nil {
+			return nil
+		}
+		return v.Filters
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutput)
+}
+
+// Join keys for the user journey query.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutput) JoinKeys() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearch) *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchJoinKeys {
+		if v == nil {
+			return nil
+		}
+		return v.JoinKeys
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput)
+}
+
+// JSON object mapping journey node names to Product Analytics base queries.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutput) NodeObjects() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearch) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NodeObjects
+	}).(pulumi.StringPtrOutput)
+}
+
+// JSON object mapping journey step names to display aliases.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutput) StepAliases() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearch) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StepAliases
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFilters struct {
+	// Product Analytics audience filters.
+	AudienceFilters *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFilters `pulumi:"audienceFilters"`
+	// Graph filters for the user journey search.
+	GraphFilters []DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersGraphFilter `pulumi:"graphFilters"`
+	// String filter for the user journey search.
+	StringFilter *string `pulumi:"stringFilter"`
+}
+
+// DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersInput is an input type that accepts DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersArgs and DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersOutput values.
+// You can construct a concrete instance of `DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersInput` via:
+//
+//	DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersArgs{...}
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersOutput
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersOutputWithContext(context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersOutput
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersArgs struct {
+	// Product Analytics audience filters.
+	AudienceFilters DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrInput `pulumi:"audienceFilters"`
+	// Graph filters for the user journey search.
+	GraphFilters DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersGraphFilterArrayInput `pulumi:"graphFilters"`
+	// String filter for the user journey search.
+	StringFilter pulumi.StringPtrInput `pulumi:"stringFilter"`
+}
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFilters)(nil)).Elem()
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersOutput)
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersOutput).ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutputWithContext(ctx)
+}
+
+// DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrInput is an input type that accepts DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersArgs, DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtr and DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutput values.
+// You can construct a concrete instance of `DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrInput` via:
+//
+//	        DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutput
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutputWithContext(context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutput
+}
+
+type dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrType DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersArgs
+
+func DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtr(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersArgs) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrInput {
+	return (*dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrType)(v)
+}
+
+func (*dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFilters)(nil)).Elem()
+}
+
+func (i *dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrType) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrType) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFilters)(nil)).Elem()
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutput {
+	return o.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFilters) *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFilters {
+		return &v
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutput)
+}
+
+// Product Analytics audience filters.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersOutput) AudienceFilters() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFilters) *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFilters {
+		return v.AudienceFilters
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput)
+}
+
+// Graph filters for the user journey search.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersOutput) GraphFilters() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersGraphFilterArrayOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFilters) []DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersGraphFilter {
+		return v.GraphFilters
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersGraphFilterArrayOutput)
+}
+
+// String filter for the user journey search.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersOutput) StringFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFilters) *string {
+		return v.StringFilter
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFilters)(nil)).Elem()
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutput) Elem() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFilters) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFilters {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFilters
+		return ret
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersOutput)
+}
+
+// Product Analytics audience filters.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutput) AudienceFilters() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFilters) *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFilters {
+		if v == nil {
+			return nil
+		}
+		return v.AudienceFilters
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput)
+}
+
+// Graph filters for the user journey search.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutput) GraphFilters() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersGraphFilterArrayOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFilters) []DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersGraphFilter {
+		if v == nil {
+			return nil
+		}
+		return v.GraphFilters
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersGraphFilterArrayOutput)
+}
+
+// String filter for the user journey search.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutput) StringFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFilters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StringFilter
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFilters struct {
+	// Product Analytics audience account subqueries.
+	Accounts []DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccount `pulumi:"accounts"`
+	// An optional filter condition applied to the audience subquery.
+	FilterCondition *string `pulumi:"filterCondition"`
+	// Product Analytics audience segment subqueries.
+	Segments []DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegment `pulumi:"segments"`
+	// Product Analytics audience user subqueries.
+	Users []DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUser `pulumi:"users"`
+}
+
+// DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersInput is an input type that accepts DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersArgs and DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput values.
+// You can construct a concrete instance of `DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersInput` via:
+//
+//	DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersArgs{...}
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutputWithContext(context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersArgs struct {
+	// Product Analytics audience account subqueries.
+	Accounts DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayInput `pulumi:"accounts"`
+	// An optional filter condition applied to the audience subquery.
+	FilterCondition pulumi.StringPtrInput `pulumi:"filterCondition"`
+	// Product Analytics audience segment subqueries.
+	Segments DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayInput `pulumi:"segments"`
+	// Product Analytics audience user subqueries.
+	Users DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayInput `pulumi:"users"`
+}
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFilters)(nil)).Elem()
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput)
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput).ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutputWithContext(ctx)
+}
+
+// DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrInput is an input type that accepts DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersArgs, DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtr and DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput values.
+// You can construct a concrete instance of `DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrInput` via:
+//
+//	        DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutputWithContext(context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput
+}
+
+type dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrType DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersArgs
+
+func DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtr(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersArgs) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrInput {
+	return (*dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrType)(v)
+}
+
+func (*dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFilters)(nil)).Elem()
+}
+
+func (i *dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrType) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrType) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFilters)(nil)).Elem()
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput {
+	return o.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFilters) *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFilters {
+		return &v
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput)
+}
+
+// Product Analytics audience account subqueries.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput) Accounts() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFilters) []DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccount {
+		return v.Accounts
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput)
+}
+
+// An optional filter condition applied to the audience subquery.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput) FilterCondition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFilters) *string {
+		return v.FilterCondition
+	}).(pulumi.StringPtrOutput)
+}
+
+// Product Analytics audience segment subqueries.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput) Segments() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFilters) []DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegment {
+		return v.Segments
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput)
+}
+
+// Product Analytics audience user subqueries.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput) Users() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFilters) []DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUser {
+		return v.Users
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFilters)(nil)).Elem()
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput) Elem() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFilters) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFilters {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFilters
+		return ret
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput)
+}
+
+// Product Analytics audience account subqueries.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput) Accounts() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFilters) []DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccount {
+		if v == nil {
+			return nil
+		}
+		return v.Accounts
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput)
+}
+
+// An optional filter condition applied to the audience subquery.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput) FilterCondition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFilters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FilterCondition
+	}).(pulumi.StringPtrOutput)
+}
+
+// Product Analytics audience segment subqueries.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput) Segments() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFilters) []DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegment {
+		if v == nil {
+			return nil
+		}
+		return v.Segments
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput)
+}
+
+// Product Analytics audience user subqueries.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput) Users() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayOutput {
+	return o.ApplyT(func(v *DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFilters) []DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUser {
+		if v == nil {
+			return nil
+		}
+		return v.Users
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccount struct {
+	// The name of the account subquery.
+	Name *string `pulumi:"name"`
+	// The query string for the account subquery.
+	Query *string `pulumi:"query"`
+}
+
+// DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountInput is an input type that accepts DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArgs and DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput values.
+// You can construct a concrete instance of `DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountInput` via:
+//
+//	DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArgs{...}
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutputWithContext(context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArgs struct {
+	// The name of the account subquery.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The query string for the account subquery.
+	Query pulumi.StringPtrInput `pulumi:"query"`
+}
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccount)(nil)).Elem()
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput)
+}
+
+// DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayInput is an input type that accepts DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArray and DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput values.
+// You can construct a concrete instance of `DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayInput` via:
+//
+//	DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArray{ DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArgs{...} }
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutputWithContext(context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArray []DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountInput
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccount)(nil)).Elem()
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArray) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArray) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccount)(nil)).Elem()
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput {
+	return o
+}
+
+// The name of the account subquery.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccount) *string {
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The query string for the account subquery.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccount) *string {
+		return v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccount)(nil)).Elem()
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput) Index(i pulumi.IntInput) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccount {
+		return vs[0].([]DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccount)[vs[1].(int)]
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegment struct {
+	// The name of the segment subquery.
+	Name *string `pulumi:"name"`
+	// The unique identifier of the segment.
+	SegmentId *string `pulumi:"segmentId"`
+}
+
+// DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentInput is an input type that accepts DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArgs and DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput values.
+// You can construct a concrete instance of `DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentInput` via:
+//
+//	DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArgs{...}
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutputWithContext(context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArgs struct {
+	// The name of the segment subquery.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The unique identifier of the segment.
+	SegmentId pulumi.StringPtrInput `pulumi:"segmentId"`
+}
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegment)(nil)).Elem()
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArgs) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput)
+}
+
+// DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayInput is an input type that accepts DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArray and DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput values.
+// You can construct a concrete instance of `DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayInput` via:
+//
+//	DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArray{ DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArgs{...} }
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput
+	ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutputWithContext(context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArray []DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentInput
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegment)(nil)).Elem()
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArray) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput {
+	return i.ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArray) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegment)(nil)).Elem()
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput {
+	return o
+}
+
+// The name of the segment subquery.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegment) *string {
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier of the segment.
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput) SegmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegment) *string {
+		return v.SegmentId
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegment)(nil)).Elem()
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput() DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput) ToDashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutputWithContext(ctx context.Context) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput {
+	return o
+}
+
+func (o DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput) Index(i pulumi.IntInput) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegment {
+		return vs[0].([]DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegment)[vs[1].(int)]
+	}).(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput)
+}
+
 type DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUser struct {
 	// The name of the user subquery.
 	Name *string `pulumi:"name"`
@@ -28034,6 +30474,8 @@ type MonitorVariables struct {
 	DataQualityQueries []MonitorVariablesDataQualityQuery `pulumi:"dataQualityQueries"`
 	// A timeseries formula and functions events query.
 	EventQueries []MonitorVariablesEventQuery `pulumi:"eventQueries"`
+	// A metrics query for use in formulas in metric monitors. For cost monitors, use `cloudCostQuery` instead, which requires an aggregator.
+	MetricQueries []MonitorVariablesMetricQuery `pulumi:"metricQueries"`
 }
 
 // MonitorVariablesInput is an input type that accepts MonitorVariablesArgs and MonitorVariablesOutput values.
@@ -28060,6 +30502,8 @@ type MonitorVariablesArgs struct {
 	DataQualityQueries MonitorVariablesDataQualityQueryArrayInput `pulumi:"dataQualityQueries"`
 	// A timeseries formula and functions events query.
 	EventQueries MonitorVariablesEventQueryArrayInput `pulumi:"eventQueries"`
+	// A metrics query for use in formulas in metric monitors. For cost monitors, use `cloudCostQuery` instead, which requires an aggregator.
+	MetricQueries MonitorVariablesMetricQueryArrayInput `pulumi:"metricQueries"`
 }
 
 func (MonitorVariablesArgs) ElementType() reflect.Type {
@@ -28169,6 +30613,11 @@ func (o MonitorVariablesOutput) EventQueries() MonitorVariablesEventQueryArrayOu
 	return o.ApplyT(func(v MonitorVariables) []MonitorVariablesEventQuery { return v.EventQueries }).(MonitorVariablesEventQueryArrayOutput)
 }
 
+// A metrics query for use in formulas in metric monitors. For cost monitors, use `cloudCostQuery` instead, which requires an aggregator.
+func (o MonitorVariablesOutput) MetricQueries() MonitorVariablesMetricQueryArrayOutput {
+	return o.ApplyT(func(v MonitorVariables) []MonitorVariablesMetricQuery { return v.MetricQueries }).(MonitorVariablesMetricQueryArrayOutput)
+}
+
 type MonitorVariablesPtrOutput struct{ *pulumi.OutputState }
 
 func (MonitorVariablesPtrOutput) ElementType() reflect.Type {
@@ -28251,6 +30700,16 @@ func (o MonitorVariablesPtrOutput) EventQueries() MonitorVariablesEventQueryArra
 		}
 		return v.EventQueries
 	}).(MonitorVariablesEventQueryArrayOutput)
+}
+
+// A metrics query for use in formulas in metric monitors. For cost monitors, use `cloudCostQuery` instead, which requires an aggregator.
+func (o MonitorVariablesPtrOutput) MetricQueries() MonitorVariablesMetricQueryArrayOutput {
+	return o.ApplyT(func(v *MonitorVariables) []MonitorVariablesMetricQuery {
+		if v == nil {
+			return nil
+		}
+		return v.MetricQueries
+	}).(MonitorVariablesMetricQueryArrayOutput)
 }
 
 type MonitorVariablesAggregateAugmentedQuery struct {
@@ -28439,7 +30898,7 @@ func (o MonitorVariablesAggregateAugmentedQueryArrayOutput) Index(i pulumi.IntIn
 type MonitorVariablesAggregateAugmentedQueryAugmentEventQuery struct {
 	// The compute options.
 	Computes []MonitorVariablesAggregateAugmentedQueryAugmentEventQueryCompute `pulumi:"computes"`
-	// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
+	// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`, `llmObservability`.
 	DataSource string `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies []MonitorVariablesAggregateAugmentedQueryAugmentEventQueryGroupBy `pulumi:"groupBies"`
@@ -28465,7 +30924,7 @@ type MonitorVariablesAggregateAugmentedQueryAugmentEventQueryInput interface {
 type MonitorVariablesAggregateAugmentedQueryAugmentEventQueryArgs struct {
 	// The compute options.
 	Computes MonitorVariablesAggregateAugmentedQueryAugmentEventQueryComputeArrayInput `pulumi:"computes"`
-	// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
+	// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`, `llmObservability`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies MonitorVariablesAggregateAugmentedQueryAugmentEventQueryGroupByArrayInput `pulumi:"groupBies"`
@@ -28561,7 +31020,7 @@ func (o MonitorVariablesAggregateAugmentedQueryAugmentEventQueryOutput) Computes
 	}).(MonitorVariablesAggregateAugmentedQueryAugmentEventQueryComputeArrayOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
+// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`, `llmObservability`.
 func (o MonitorVariablesAggregateAugmentedQueryAugmentEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorVariablesAggregateAugmentedQueryAugmentEventQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -28624,7 +31083,7 @@ func (o MonitorVariablesAggregateAugmentedQueryAugmentEventQueryPtrOutput) Compu
 	}).(MonitorVariablesAggregateAugmentedQueryAugmentEventQueryComputeArrayOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
+// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`, `llmObservability`.
 func (o MonitorVariablesAggregateAugmentedQueryAugmentEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitorVariablesAggregateAugmentedQueryAugmentEventQuery) *string {
 		if v == nil {
@@ -29562,7 +32021,7 @@ func (o MonitorVariablesAggregateAugmentedQueryAugmentReferenceTableColumnArrayO
 type MonitorVariablesAggregateAugmentedQueryBaseEventQuery struct {
 	// The compute options.
 	Computes []MonitorVariablesAggregateAugmentedQueryBaseEventQueryCompute `pulumi:"computes"`
-	// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
+	// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`, `llmObservability`.
 	DataSource string `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies []MonitorVariablesAggregateAugmentedQueryBaseEventQueryGroupBy `pulumi:"groupBies"`
@@ -29588,7 +32047,7 @@ type MonitorVariablesAggregateAugmentedQueryBaseEventQueryInput interface {
 type MonitorVariablesAggregateAugmentedQueryBaseEventQueryArgs struct {
 	// The compute options.
 	Computes MonitorVariablesAggregateAugmentedQueryBaseEventQueryComputeArrayInput `pulumi:"computes"`
-	// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
+	// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`, `llmObservability`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies MonitorVariablesAggregateAugmentedQueryBaseEventQueryGroupByArrayInput `pulumi:"groupBies"`
@@ -29684,7 +32143,7 @@ func (o MonitorVariablesAggregateAugmentedQueryBaseEventQueryOutput) Computes() 
 	}).(MonitorVariablesAggregateAugmentedQueryBaseEventQueryComputeArrayOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
+// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`, `llmObservability`.
 func (o MonitorVariablesAggregateAugmentedQueryBaseEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorVariablesAggregateAugmentedQueryBaseEventQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -29747,7 +32206,7 @@ func (o MonitorVariablesAggregateAugmentedQueryBaseEventQueryPtrOutput) Computes
 	}).(MonitorVariablesAggregateAugmentedQueryBaseEventQueryComputeArrayOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
+// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`, `llmObservability`.
 func (o MonitorVariablesAggregateAugmentedQueryBaseEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitorVariablesAggregateAugmentedQueryBaseEventQuery) *string {
 		if v == nil {
@@ -31234,7 +33693,7 @@ func (o MonitorVariablesAggregateFilteredQueryArrayOutput) Index(i pulumi.IntInp
 type MonitorVariablesAggregateFilteredQueryBaseEventQuery struct {
 	// The compute options.
 	Computes []MonitorVariablesAggregateFilteredQueryBaseEventQueryCompute `pulumi:"computes"`
-	// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
+	// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`, `llmObservability`.
 	DataSource string `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies []MonitorVariablesAggregateFilteredQueryBaseEventQueryGroupBy `pulumi:"groupBies"`
@@ -31260,7 +33719,7 @@ type MonitorVariablesAggregateFilteredQueryBaseEventQueryInput interface {
 type MonitorVariablesAggregateFilteredQueryBaseEventQueryArgs struct {
 	// The compute options.
 	Computes MonitorVariablesAggregateFilteredQueryBaseEventQueryComputeArrayInput `pulumi:"computes"`
-	// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
+	// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`, `llmObservability`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies MonitorVariablesAggregateFilteredQueryBaseEventQueryGroupByArrayInput `pulumi:"groupBies"`
@@ -31356,7 +33815,7 @@ func (o MonitorVariablesAggregateFilteredQueryBaseEventQueryOutput) Computes() M
 	}).(MonitorVariablesAggregateFilteredQueryBaseEventQueryComputeArrayOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
+// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`, `llmObservability`.
 func (o MonitorVariablesAggregateFilteredQueryBaseEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorVariablesAggregateFilteredQueryBaseEventQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -31419,7 +33878,7 @@ func (o MonitorVariablesAggregateFilteredQueryBaseEventQueryPtrOutput) Computes(
 	}).(MonitorVariablesAggregateFilteredQueryBaseEventQueryComputeArrayOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
+// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`, `llmObservability`.
 func (o MonitorVariablesAggregateFilteredQueryBaseEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitorVariablesAggregateFilteredQueryBaseEventQuery) *string {
 		if v == nil {
@@ -32467,7 +34926,7 @@ func (o MonitorVariablesAggregateFilteredQueryFilterArrayOutput) Index(i pulumi.
 type MonitorVariablesAggregateFilteredQueryFilterEventQuery struct {
 	// The compute options.
 	Computes []MonitorVariablesAggregateFilteredQueryFilterEventQueryCompute `pulumi:"computes"`
-	// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
+	// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`, `llmObservability`.
 	DataSource string `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies []MonitorVariablesAggregateFilteredQueryFilterEventQueryGroupBy `pulumi:"groupBies"`
@@ -32493,7 +34952,7 @@ type MonitorVariablesAggregateFilteredQueryFilterEventQueryInput interface {
 type MonitorVariablesAggregateFilteredQueryFilterEventQueryArgs struct {
 	// The compute options.
 	Computes MonitorVariablesAggregateFilteredQueryFilterEventQueryComputeArrayInput `pulumi:"computes"`
-	// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
+	// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`, `llmObservability`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies MonitorVariablesAggregateFilteredQueryFilterEventQueryGroupByArrayInput `pulumi:"groupBies"`
@@ -32589,7 +35048,7 @@ func (o MonitorVariablesAggregateFilteredQueryFilterEventQueryOutput) Computes()
 	}).(MonitorVariablesAggregateFilteredQueryFilterEventQueryComputeArrayOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
+// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`, `llmObservability`.
 func (o MonitorVariablesAggregateFilteredQueryFilterEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorVariablesAggregateFilteredQueryFilterEventQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -32652,7 +35111,7 @@ func (o MonitorVariablesAggregateFilteredQueryFilterEventQueryPtrOutput) Compute
 	}).(MonitorVariablesAggregateFilteredQueryFilterEventQueryComputeArrayOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
+// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`, `llmObservability`.
 func (o MonitorVariablesAggregateFilteredQueryFilterEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitorVariablesAggregateFilteredQueryFilterEventQuery) *string {
 		if v == nil {
@@ -33889,7 +36348,7 @@ func (o MonitorVariablesAggregateFilteredQueryGroupBySortPtrOutput) Order() pulu
 type MonitorVariablesCloudCostQuery struct {
 	// The aggregation methods available for cloud cost queries. Valid values are `avg`, `sum`, `max`, `min`, `last`, `area`, `l2norm`, `percentile`, `stddev`.
 	Aggregator string `pulumi:"aggregator"`
-	// The data source for cloud cost queries. Valid values are `metrics`, `cloudCost`, `datadogUsage`.
+	// The data source for cloud cost queries. Valid values are `cloudCost`, `datadogUsage`, `metrics`.
 	DataSource string `pulumi:"dataSource"`
 	// The name of the query for use in formulas.
 	Name string `pulumi:"name"`
@@ -33911,7 +36370,7 @@ type MonitorVariablesCloudCostQueryInput interface {
 type MonitorVariablesCloudCostQueryArgs struct {
 	// The aggregation methods available for cloud cost queries. Valid values are `avg`, `sum`, `max`, `min`, `last`, `area`, `l2norm`, `percentile`, `stddev`.
 	Aggregator pulumi.StringInput `pulumi:"aggregator"`
-	// The data source for cloud cost queries. Valid values are `metrics`, `cloudCost`, `datadogUsage`.
+	// The data source for cloud cost queries. Valid values are `cloudCost`, `datadogUsage`, `metrics`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// The name of the query for use in formulas.
 	Name pulumi.StringInput `pulumi:"name"`
@@ -33975,7 +36434,7 @@ func (o MonitorVariablesCloudCostQueryOutput) Aggregator() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorVariablesCloudCostQuery) string { return v.Aggregator }).(pulumi.StringOutput)
 }
 
-// The data source for cloud cost queries. Valid values are `metrics`, `cloudCost`, `datadogUsage`.
+// The data source for cloud cost queries. Valid values are `cloudCost`, `datadogUsage`, `metrics`.
 func (o MonitorVariablesCloudCostQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorVariablesCloudCostQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -35459,7 +37918,7 @@ func (o MonitorVariablesDataQualityQueryMonitorOptionsSourceToTargetConfigTarget
 type MonitorVariablesEventQuery struct {
 	// The compute options.
 	Computes []MonitorVariablesEventQueryCompute `pulumi:"computes"`
-	// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
+	// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`, `llmObservability`.
 	DataSource string `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies []MonitorVariablesEventQueryGroupBy `pulumi:"groupBies"`
@@ -35485,7 +37944,7 @@ type MonitorVariablesEventQueryInput interface {
 type MonitorVariablesEventQueryArgs struct {
 	// The compute options.
 	Computes MonitorVariablesEventQueryComputeArrayInput `pulumi:"computes"`
-	// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
+	// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`, `llmObservability`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
 	// Group by options.
 	GroupBies MonitorVariablesEventQueryGroupByArrayInput `pulumi:"groupBies"`
@@ -35553,7 +38012,7 @@ func (o MonitorVariablesEventQueryOutput) Computes() MonitorVariablesEventQueryC
 	return o.ApplyT(func(v MonitorVariablesEventQuery) []MonitorVariablesEventQueryCompute { return v.Computes }).(MonitorVariablesEventQueryComputeArrayOutput)
 }
 
-// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
+// The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`, `llmObservability`.
 func (o MonitorVariablesEventQueryOutput) DataSource() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorVariablesEventQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
@@ -36071,6 +38530,121 @@ func (o MonitorVariablesEventQuerySearchOutput) ToMonitorVariablesEventQuerySear
 // The events search string.
 func (o MonitorVariablesEventQuerySearchOutput) Query() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorVariablesEventQuerySearch) string { return v.Query }).(pulumi.StringOutput)
+}
+
+type MonitorVariablesMetricQuery struct {
+	// The data source for metrics queries. Valid values are `metrics`.
+	DataSource string `pulumi:"dataSource"`
+	// The name of the query for use in formulas.
+	Name string `pulumi:"name"`
+	// The metrics query definition.
+	Query string `pulumi:"query"`
+}
+
+// MonitorVariablesMetricQueryInput is an input type that accepts MonitorVariablesMetricQueryArgs and MonitorVariablesMetricQueryOutput values.
+// You can construct a concrete instance of `MonitorVariablesMetricQueryInput` via:
+//
+//	MonitorVariablesMetricQueryArgs{...}
+type MonitorVariablesMetricQueryInput interface {
+	pulumi.Input
+
+	ToMonitorVariablesMetricQueryOutput() MonitorVariablesMetricQueryOutput
+	ToMonitorVariablesMetricQueryOutputWithContext(context.Context) MonitorVariablesMetricQueryOutput
+}
+
+type MonitorVariablesMetricQueryArgs struct {
+	// The data source for metrics queries. Valid values are `metrics`.
+	DataSource pulumi.StringInput `pulumi:"dataSource"`
+	// The name of the query for use in formulas.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The metrics query definition.
+	Query pulumi.StringInput `pulumi:"query"`
+}
+
+func (MonitorVariablesMetricQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorVariablesMetricQuery)(nil)).Elem()
+}
+
+func (i MonitorVariablesMetricQueryArgs) ToMonitorVariablesMetricQueryOutput() MonitorVariablesMetricQueryOutput {
+	return i.ToMonitorVariablesMetricQueryOutputWithContext(context.Background())
+}
+
+func (i MonitorVariablesMetricQueryArgs) ToMonitorVariablesMetricQueryOutputWithContext(ctx context.Context) MonitorVariablesMetricQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorVariablesMetricQueryOutput)
+}
+
+// MonitorVariablesMetricQueryArrayInput is an input type that accepts MonitorVariablesMetricQueryArray and MonitorVariablesMetricQueryArrayOutput values.
+// You can construct a concrete instance of `MonitorVariablesMetricQueryArrayInput` via:
+//
+//	MonitorVariablesMetricQueryArray{ MonitorVariablesMetricQueryArgs{...} }
+type MonitorVariablesMetricQueryArrayInput interface {
+	pulumi.Input
+
+	ToMonitorVariablesMetricQueryArrayOutput() MonitorVariablesMetricQueryArrayOutput
+	ToMonitorVariablesMetricQueryArrayOutputWithContext(context.Context) MonitorVariablesMetricQueryArrayOutput
+}
+
+type MonitorVariablesMetricQueryArray []MonitorVariablesMetricQueryInput
+
+func (MonitorVariablesMetricQueryArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MonitorVariablesMetricQuery)(nil)).Elem()
+}
+
+func (i MonitorVariablesMetricQueryArray) ToMonitorVariablesMetricQueryArrayOutput() MonitorVariablesMetricQueryArrayOutput {
+	return i.ToMonitorVariablesMetricQueryArrayOutputWithContext(context.Background())
+}
+
+func (i MonitorVariablesMetricQueryArray) ToMonitorVariablesMetricQueryArrayOutputWithContext(ctx context.Context) MonitorVariablesMetricQueryArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorVariablesMetricQueryArrayOutput)
+}
+
+type MonitorVariablesMetricQueryOutput struct{ *pulumi.OutputState }
+
+func (MonitorVariablesMetricQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorVariablesMetricQuery)(nil)).Elem()
+}
+
+func (o MonitorVariablesMetricQueryOutput) ToMonitorVariablesMetricQueryOutput() MonitorVariablesMetricQueryOutput {
+	return o
+}
+
+func (o MonitorVariablesMetricQueryOutput) ToMonitorVariablesMetricQueryOutputWithContext(ctx context.Context) MonitorVariablesMetricQueryOutput {
+	return o
+}
+
+// The data source for metrics queries. Valid values are `metrics`.
+func (o MonitorVariablesMetricQueryOutput) DataSource() pulumi.StringOutput {
+	return o.ApplyT(func(v MonitorVariablesMetricQuery) string { return v.DataSource }).(pulumi.StringOutput)
+}
+
+// The name of the query for use in formulas.
+func (o MonitorVariablesMetricQueryOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v MonitorVariablesMetricQuery) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// The metrics query definition.
+func (o MonitorVariablesMetricQueryOutput) Query() pulumi.StringOutput {
+	return o.ApplyT(func(v MonitorVariablesMetricQuery) string { return v.Query }).(pulumi.StringOutput)
+}
+
+type MonitorVariablesMetricQueryArrayOutput struct{ *pulumi.OutputState }
+
+func (MonitorVariablesMetricQueryArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]MonitorVariablesMetricQuery)(nil)).Elem()
+}
+
+func (o MonitorVariablesMetricQueryArrayOutput) ToMonitorVariablesMetricQueryArrayOutput() MonitorVariablesMetricQueryArrayOutput {
+	return o
+}
+
+func (o MonitorVariablesMetricQueryArrayOutput) ToMonitorVariablesMetricQueryArrayOutputWithContext(ctx context.Context) MonitorVariablesMetricQueryArrayOutput {
+	return o
+}
+
+func (o MonitorVariablesMetricQueryArrayOutput) Index(i pulumi.IntInput) MonitorVariablesMetricQueryOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) MonitorVariablesMetricQuery {
+		return vs[0].([]MonitorVariablesMetricQuery)[vs[1].(int)]
+	}).(MonitorVariablesMetricQueryOutput)
 }
 
 type ObservabilityPipelineConfig struct {
@@ -80466,2422 +83040,33 @@ func (o ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTra
 	}).(pulumi.StringPtrOutput)
 }
 
-type ObservabilityPipelineConfigProcessorGroupProcessorThrottle struct {
-	// Optional list of fields used to group events before applying throttling.
-	GroupBies []string `pulumi:"groupBies"`
-	// The number of events to allow before throttling is applied.
-	Threshold int `pulumi:"threshold"`
-	// The time window in seconds over which the threshold applies.
-	Window float64 `pulumi:"window"`
-}
-
-// ObservabilityPipelineConfigProcessorGroupProcessorThrottleInput is an input type that accepts ObservabilityPipelineConfigProcessorGroupProcessorThrottleArgs and ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput values.
-// You can construct a concrete instance of `ObservabilityPipelineConfigProcessorGroupProcessorThrottleInput` via:
-//
-//	ObservabilityPipelineConfigProcessorGroupProcessorThrottleArgs{...}
-type ObservabilityPipelineConfigProcessorGroupProcessorThrottleInput interface {
-	pulumi.Input
-
-	ToObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput() ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput
-	ToObservabilityPipelineConfigProcessorGroupProcessorThrottleOutputWithContext(context.Context) ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput
-}
-
-type ObservabilityPipelineConfigProcessorGroupProcessorThrottleArgs struct {
-	// Optional list of fields used to group events before applying throttling.
-	GroupBies pulumi.StringArrayInput `pulumi:"groupBies"`
-	// The number of events to allow before throttling is applied.
-	Threshold pulumi.IntInput `pulumi:"threshold"`
-	// The time window in seconds over which the threshold applies.
-	Window pulumi.Float64Input `pulumi:"window"`
-}
-
-func (ObservabilityPipelineConfigProcessorGroupProcessorThrottleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorThrottle)(nil)).Elem()
-}
-
-func (i ObservabilityPipelineConfigProcessorGroupProcessorThrottleArgs) ToObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput() ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput {
-	return i.ToObservabilityPipelineConfigProcessorGroupProcessorThrottleOutputWithContext(context.Background())
-}
-
-func (i ObservabilityPipelineConfigProcessorGroupProcessorThrottleArgs) ToObservabilityPipelineConfigProcessorGroupProcessorThrottleOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput)
-}
-
-func (i ObservabilityPipelineConfigProcessorGroupProcessorThrottleArgs) ToObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput {
-	return i.ToObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutputWithContext(context.Background())
-}
-
-func (i ObservabilityPipelineConfigProcessorGroupProcessorThrottleArgs) ToObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput).ToObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutputWithContext(ctx)
-}
-
-// ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrInput is an input type that accepts ObservabilityPipelineConfigProcessorGroupProcessorThrottleArgs, ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtr and ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput values.
-// You can construct a concrete instance of `ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrInput` via:
-//
-//	        ObservabilityPipelineConfigProcessorGroupProcessorThrottleArgs{...}
-//
-//	or:
-//
-//	        nil
-type ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrInput interface {
-	pulumi.Input
-
-	ToObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput
-	ToObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutputWithContext(context.Context) ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput
-}
-
-type observabilityPipelineConfigProcessorGroupProcessorThrottlePtrType ObservabilityPipelineConfigProcessorGroupProcessorThrottleArgs
-
-func ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtr(v *ObservabilityPipelineConfigProcessorGroupProcessorThrottleArgs) ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrInput {
-	return (*observabilityPipelineConfigProcessorGroupProcessorThrottlePtrType)(v)
-}
-
-func (*observabilityPipelineConfigProcessorGroupProcessorThrottlePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ObservabilityPipelineConfigProcessorGroupProcessorThrottle)(nil)).Elem()
-}
-
-func (i *observabilityPipelineConfigProcessorGroupProcessorThrottlePtrType) ToObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput {
-	return i.ToObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutputWithContext(context.Background())
-}
-
-func (i *observabilityPipelineConfigProcessorGroupProcessorThrottlePtrType) ToObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput)
-}
-
-type ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput struct{ *pulumi.OutputState }
-
-func (ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorThrottle)(nil)).Elem()
-}
-
-func (o ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput) ToObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput() ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput) ToObservabilityPipelineConfigProcessorGroupProcessorThrottleOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput) ToObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput {
-	return o.ToObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutputWithContext(context.Background())
-}
-
-func (o ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput) ToObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigProcessorGroupProcessorThrottle) *ObservabilityPipelineConfigProcessorGroupProcessorThrottle {
-		return &v
-	}).(ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput)
-}
-
-// Optional list of fields used to group events before applying throttling.
-func (o ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput) GroupBies() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorThrottle) []string { return v.GroupBies }).(pulumi.StringArrayOutput)
-}
-
-// The number of events to allow before throttling is applied.
-func (o ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput) Threshold() pulumi.IntOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorThrottle) int { return v.Threshold }).(pulumi.IntOutput)
-}
-
-// The time window in seconds over which the threshold applies.
-func (o ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput) Window() pulumi.Float64Output {
-	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorThrottle) float64 { return v.Window }).(pulumi.Float64Output)
-}
-
-type ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput struct{ *pulumi.OutputState }
-
-func (ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ObservabilityPipelineConfigProcessorGroupProcessorThrottle)(nil)).Elem()
-}
-
-func (o ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput) ToObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput) ToObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput) Elem() ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorThrottle) ObservabilityPipelineConfigProcessorGroupProcessorThrottle {
-		if v != nil {
-			return *v
-		}
-		var ret ObservabilityPipelineConfigProcessorGroupProcessorThrottle
-		return ret
-	}).(ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput)
-}
-
-// Optional list of fields used to group events before applying throttling.
-func (o ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput) GroupBies() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorThrottle) []string {
-		if v == nil {
-			return nil
-		}
-		return v.GroupBies
-	}).(pulumi.StringArrayOutput)
-}
-
-// The number of events to allow before throttling is applied.
-func (o ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput) Threshold() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorThrottle) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Threshold
-	}).(pulumi.IntPtrOutput)
-}
-
-// The time window in seconds over which the threshold applies.
-func (o ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput) Window() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorThrottle) *float64 {
-		if v == nil {
-			return nil
-		}
-		return &v.Window
-	}).(pulumi.Float64PtrOutput)
-}
-
-type ObservabilityPipelineConfigSource struct {
-	// The `amazonDataFirehose` source ingests logs from AWS Data Firehose.
-	AmazonDataFirehoses []ObservabilityPipelineConfigSourceAmazonDataFirehose `pulumi:"amazonDataFirehoses"`
-	// The `amazonS3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication, TLS encryption, and configurable compression.
-	AmazonS3s []ObservabilityPipelineConfigSourceAmazonS3 `pulumi:"amazonS3s"`
-	// The `datadogAgent` source collects logs from the Datadog Agent.
-	DatadogAgents []ObservabilityPipelineConfigSourceDatadogAgent `pulumi:"datadogAgents"`
-	// The `fluentBit` source ingests logs from Fluent Bit.
-	FluentBits []ObservabilityPipelineConfigSourceFluentBit `pulumi:"fluentBits"`
-	// The `fluentd` source ingests logs from a Fluentd-compatible service.
-	Fluentds []ObservabilityPipelineConfigSourceFluentd `pulumi:"fluentds"`
-	// The `googlePubsub` source ingests logs from a Google Cloud Pub/Sub subscription.
-	GooglePubsubs []ObservabilityPipelineConfigSourceGooglePubsub `pulumi:"googlePubsubs"`
-	// The `httpClient` source scrapes logs from HTTP endpoints at regular intervals.
-	HttpClients []ObservabilityPipelineConfigSourceHttpClient `pulumi:"httpClients"`
-	// The `httpServer` source collects logs over HTTP POST from external services.
-	HttpServers []ObservabilityPipelineConfigSourceHttpServer `pulumi:"httpServers"`
-	// The unique identifier for this source.
-	Id string `pulumi:"id"`
-	// The `kafka` source ingests data from Apache Kafka topics.
-	Kafkas []ObservabilityPipelineConfigSourceKafka `pulumi:"kafkas"`
-	// The `logstash` source ingests logs from a Logstash forwarder.
-	Logstashes []ObservabilityPipelineConfigSourceLogstash `pulumi:"logstashes"`
-	// The `opentelemetry` source receives telemetry data using the OpenTelemetry Protocol (OTLP) over gRPC and HTTP.
-	Opentelemetry *ObservabilityPipelineConfigSourceOpentelemetry `pulumi:"opentelemetry"`
-	// The `prometheusRemoteWrite` source ingests metrics pushed over the Prometheus Remote Write protocol.
-	PrometheusRemoteWrite *ObservabilityPipelineConfigSourcePrometheusRemoteWrite `pulumi:"prometheusRemoteWrite"`
-	// The `rsyslog` source listens for logs over TCP or UDP from an `rsyslog` server using the syslog protocol.
-	Rsyslogs []ObservabilityPipelineConfigSourceRsyslog `pulumi:"rsyslogs"`
-	// The `socket` source ingests logs over TCP or UDP.
-	Sockets []ObservabilityPipelineConfigSourceSocket `pulumi:"sockets"`
-	// The `splunkHec` source implements the Splunk HTTP Event Collector (HEC) API.
-	SplunkHecs []ObservabilityPipelineConfigSourceSplunkHec `pulumi:"splunkHecs"`
-	// The `splunkTcp` source receives logs from a Splunk Universal Forwarder over TCP. TLS is supported for secure transmission.
-	SplunkTcps []ObservabilityPipelineConfigSourceSplunkTcp `pulumi:"splunkTcps"`
-	// The `sumoLogic` source receives logs from Sumo Logic collectors.
-	SumoLogics []ObservabilityPipelineConfigSourceSumoLogic `pulumi:"sumoLogics"`
-	// The `syslogNg` source listens for logs over TCP or UDP from a `syslog-ng` server using the syslog protocol.
-	SyslogNgs []ObservabilityPipelineConfigSourceSyslogNg `pulumi:"syslogNgs"`
-	// The `websocket` source establishes a persistent WebSocket connection to a remote endpoint and ingests log events as they are pushed by the server.
-	Websocket *ObservabilityPipelineConfigSourceWebsocket `pulumi:"websocket"`
-}
-
-// ObservabilityPipelineConfigSourceInput is an input type that accepts ObservabilityPipelineConfigSourceArgs and ObservabilityPipelineConfigSourceOutput values.
-// You can construct a concrete instance of `ObservabilityPipelineConfigSourceInput` via:
-//
-//	ObservabilityPipelineConfigSourceArgs{...}
-type ObservabilityPipelineConfigSourceInput interface {
-	pulumi.Input
-
-	ToObservabilityPipelineConfigSourceOutput() ObservabilityPipelineConfigSourceOutput
-	ToObservabilityPipelineConfigSourceOutputWithContext(context.Context) ObservabilityPipelineConfigSourceOutput
-}
-
-type ObservabilityPipelineConfigSourceArgs struct {
-	// The `amazonDataFirehose` source ingests logs from AWS Data Firehose.
-	AmazonDataFirehoses ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayInput `pulumi:"amazonDataFirehoses"`
-	// The `amazonS3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication, TLS encryption, and configurable compression.
-	AmazonS3s ObservabilityPipelineConfigSourceAmazonS3ArrayInput `pulumi:"amazonS3s"`
-	// The `datadogAgent` source collects logs from the Datadog Agent.
-	DatadogAgents ObservabilityPipelineConfigSourceDatadogAgentArrayInput `pulumi:"datadogAgents"`
-	// The `fluentBit` source ingests logs from Fluent Bit.
-	FluentBits ObservabilityPipelineConfigSourceFluentBitArrayInput `pulumi:"fluentBits"`
-	// The `fluentd` source ingests logs from a Fluentd-compatible service.
-	Fluentds ObservabilityPipelineConfigSourceFluentdArrayInput `pulumi:"fluentds"`
-	// The `googlePubsub` source ingests logs from a Google Cloud Pub/Sub subscription.
-	GooglePubsubs ObservabilityPipelineConfigSourceGooglePubsubArrayInput `pulumi:"googlePubsubs"`
-	// The `httpClient` source scrapes logs from HTTP endpoints at regular intervals.
-	HttpClients ObservabilityPipelineConfigSourceHttpClientArrayInput `pulumi:"httpClients"`
-	// The `httpServer` source collects logs over HTTP POST from external services.
-	HttpServers ObservabilityPipelineConfigSourceHttpServerArrayInput `pulumi:"httpServers"`
-	// The unique identifier for this source.
-	Id pulumi.StringInput `pulumi:"id"`
-	// The `kafka` source ingests data from Apache Kafka topics.
-	Kafkas ObservabilityPipelineConfigSourceKafkaArrayInput `pulumi:"kafkas"`
-	// The `logstash` source ingests logs from a Logstash forwarder.
-	Logstashes ObservabilityPipelineConfigSourceLogstashArrayInput `pulumi:"logstashes"`
-	// The `opentelemetry` source receives telemetry data using the OpenTelemetry Protocol (OTLP) over gRPC and HTTP.
-	Opentelemetry ObservabilityPipelineConfigSourceOpentelemetryPtrInput `pulumi:"opentelemetry"`
-	// The `prometheusRemoteWrite` source ingests metrics pushed over the Prometheus Remote Write protocol.
-	PrometheusRemoteWrite ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrInput `pulumi:"prometheusRemoteWrite"`
-	// The `rsyslog` source listens for logs over TCP or UDP from an `rsyslog` server using the syslog protocol.
-	Rsyslogs ObservabilityPipelineConfigSourceRsyslogArrayInput `pulumi:"rsyslogs"`
-	// The `socket` source ingests logs over TCP or UDP.
-	Sockets ObservabilityPipelineConfigSourceSocketArrayInput `pulumi:"sockets"`
-	// The `splunkHec` source implements the Splunk HTTP Event Collector (HEC) API.
-	SplunkHecs ObservabilityPipelineConfigSourceSplunkHecArrayInput `pulumi:"splunkHecs"`
-	// The `splunkTcp` source receives logs from a Splunk Universal Forwarder over TCP. TLS is supported for secure transmission.
-	SplunkTcps ObservabilityPipelineConfigSourceSplunkTcpArrayInput `pulumi:"splunkTcps"`
-	// The `sumoLogic` source receives logs from Sumo Logic collectors.
-	SumoLogics ObservabilityPipelineConfigSourceSumoLogicArrayInput `pulumi:"sumoLogics"`
-	// The `syslogNg` source listens for logs over TCP or UDP from a `syslog-ng` server using the syslog protocol.
-	SyslogNgs ObservabilityPipelineConfigSourceSyslogNgArrayInput `pulumi:"syslogNgs"`
-	// The `websocket` source establishes a persistent WebSocket connection to a remote endpoint and ingests log events as they are pushed by the server.
-	Websocket ObservabilityPipelineConfigSourceWebsocketPtrInput `pulumi:"websocket"`
-}
-
-func (ObservabilityPipelineConfigSourceArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObservabilityPipelineConfigSource)(nil)).Elem()
-}
-
-func (i ObservabilityPipelineConfigSourceArgs) ToObservabilityPipelineConfigSourceOutput() ObservabilityPipelineConfigSourceOutput {
-	return i.ToObservabilityPipelineConfigSourceOutputWithContext(context.Background())
-}
-
-func (i ObservabilityPipelineConfigSourceArgs) ToObservabilityPipelineConfigSourceOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceOutput)
-}
-
-// ObservabilityPipelineConfigSourceArrayInput is an input type that accepts ObservabilityPipelineConfigSourceArray and ObservabilityPipelineConfigSourceArrayOutput values.
-// You can construct a concrete instance of `ObservabilityPipelineConfigSourceArrayInput` via:
-//
-//	ObservabilityPipelineConfigSourceArray{ ObservabilityPipelineConfigSourceArgs{...} }
-type ObservabilityPipelineConfigSourceArrayInput interface {
-	pulumi.Input
-
-	ToObservabilityPipelineConfigSourceArrayOutput() ObservabilityPipelineConfigSourceArrayOutput
-	ToObservabilityPipelineConfigSourceArrayOutputWithContext(context.Context) ObservabilityPipelineConfigSourceArrayOutput
-}
-
-type ObservabilityPipelineConfigSourceArray []ObservabilityPipelineConfigSourceInput
-
-func (ObservabilityPipelineConfigSourceArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ObservabilityPipelineConfigSource)(nil)).Elem()
-}
-
-func (i ObservabilityPipelineConfigSourceArray) ToObservabilityPipelineConfigSourceArrayOutput() ObservabilityPipelineConfigSourceArrayOutput {
-	return i.ToObservabilityPipelineConfigSourceArrayOutputWithContext(context.Background())
-}
-
-func (i ObservabilityPipelineConfigSourceArray) ToObservabilityPipelineConfigSourceArrayOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceArrayOutput)
-}
-
-type ObservabilityPipelineConfigSourceOutput struct{ *pulumi.OutputState }
-
-func (ObservabilityPipelineConfigSourceOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObservabilityPipelineConfigSource)(nil)).Elem()
-}
-
-func (o ObservabilityPipelineConfigSourceOutput) ToObservabilityPipelineConfigSourceOutput() ObservabilityPipelineConfigSourceOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceOutput) ToObservabilityPipelineConfigSourceOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceOutput {
-	return o
-}
-
-// The `amazonDataFirehose` source ingests logs from AWS Data Firehose.
-func (o ObservabilityPipelineConfigSourceOutput) AmazonDataFirehoses() ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSource) []ObservabilityPipelineConfigSourceAmazonDataFirehose {
-		return v.AmazonDataFirehoses
-	}).(ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput)
-}
-
-// The `amazonS3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication, TLS encryption, and configurable compression.
-func (o ObservabilityPipelineConfigSourceOutput) AmazonS3s() ObservabilityPipelineConfigSourceAmazonS3ArrayOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSource) []ObservabilityPipelineConfigSourceAmazonS3 {
-		return v.AmazonS3s
-	}).(ObservabilityPipelineConfigSourceAmazonS3ArrayOutput)
-}
-
-// The `datadogAgent` source collects logs from the Datadog Agent.
-func (o ObservabilityPipelineConfigSourceOutput) DatadogAgents() ObservabilityPipelineConfigSourceDatadogAgentArrayOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSource) []ObservabilityPipelineConfigSourceDatadogAgent {
-		return v.DatadogAgents
-	}).(ObservabilityPipelineConfigSourceDatadogAgentArrayOutput)
-}
-
-// The `fluentBit` source ingests logs from Fluent Bit.
-func (o ObservabilityPipelineConfigSourceOutput) FluentBits() ObservabilityPipelineConfigSourceFluentBitArrayOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSource) []ObservabilityPipelineConfigSourceFluentBit {
-		return v.FluentBits
-	}).(ObservabilityPipelineConfigSourceFluentBitArrayOutput)
-}
-
-// The `fluentd` source ingests logs from a Fluentd-compatible service.
-func (o ObservabilityPipelineConfigSourceOutput) Fluentds() ObservabilityPipelineConfigSourceFluentdArrayOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSource) []ObservabilityPipelineConfigSourceFluentd {
-		return v.Fluentds
-	}).(ObservabilityPipelineConfigSourceFluentdArrayOutput)
-}
-
-// The `googlePubsub` source ingests logs from a Google Cloud Pub/Sub subscription.
-func (o ObservabilityPipelineConfigSourceOutput) GooglePubsubs() ObservabilityPipelineConfigSourceGooglePubsubArrayOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSource) []ObservabilityPipelineConfigSourceGooglePubsub {
-		return v.GooglePubsubs
-	}).(ObservabilityPipelineConfigSourceGooglePubsubArrayOutput)
-}
-
-// The `httpClient` source scrapes logs from HTTP endpoints at regular intervals.
-func (o ObservabilityPipelineConfigSourceOutput) HttpClients() ObservabilityPipelineConfigSourceHttpClientArrayOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSource) []ObservabilityPipelineConfigSourceHttpClient {
-		return v.HttpClients
-	}).(ObservabilityPipelineConfigSourceHttpClientArrayOutput)
-}
-
-// The `httpServer` source collects logs over HTTP POST from external services.
-func (o ObservabilityPipelineConfigSourceOutput) HttpServers() ObservabilityPipelineConfigSourceHttpServerArrayOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSource) []ObservabilityPipelineConfigSourceHttpServer {
-		return v.HttpServers
-	}).(ObservabilityPipelineConfigSourceHttpServerArrayOutput)
-}
-
-// The unique identifier for this source.
-func (o ObservabilityPipelineConfigSourceOutput) Id() pulumi.StringOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSource) string { return v.Id }).(pulumi.StringOutput)
-}
-
-// The `kafka` source ingests data from Apache Kafka topics.
-func (o ObservabilityPipelineConfigSourceOutput) Kafkas() ObservabilityPipelineConfigSourceKafkaArrayOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSource) []ObservabilityPipelineConfigSourceKafka { return v.Kafkas }).(ObservabilityPipelineConfigSourceKafkaArrayOutput)
-}
-
-// The `logstash` source ingests logs from a Logstash forwarder.
-func (o ObservabilityPipelineConfigSourceOutput) Logstashes() ObservabilityPipelineConfigSourceLogstashArrayOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSource) []ObservabilityPipelineConfigSourceLogstash {
-		return v.Logstashes
-	}).(ObservabilityPipelineConfigSourceLogstashArrayOutput)
-}
-
-// The `opentelemetry` source receives telemetry data using the OpenTelemetry Protocol (OTLP) over gRPC and HTTP.
-func (o ObservabilityPipelineConfigSourceOutput) Opentelemetry() ObservabilityPipelineConfigSourceOpentelemetryPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSource) *ObservabilityPipelineConfigSourceOpentelemetry {
-		return v.Opentelemetry
-	}).(ObservabilityPipelineConfigSourceOpentelemetryPtrOutput)
-}
-
-// The `prometheusRemoteWrite` source ingests metrics pushed over the Prometheus Remote Write protocol.
-func (o ObservabilityPipelineConfigSourceOutput) PrometheusRemoteWrite() ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSource) *ObservabilityPipelineConfigSourcePrometheusRemoteWrite {
-		return v.PrometheusRemoteWrite
-	}).(ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput)
-}
-
-// The `rsyslog` source listens for logs over TCP or UDP from an `rsyslog` server using the syslog protocol.
-func (o ObservabilityPipelineConfigSourceOutput) Rsyslogs() ObservabilityPipelineConfigSourceRsyslogArrayOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSource) []ObservabilityPipelineConfigSourceRsyslog {
-		return v.Rsyslogs
-	}).(ObservabilityPipelineConfigSourceRsyslogArrayOutput)
-}
-
-// The `socket` source ingests logs over TCP or UDP.
-func (o ObservabilityPipelineConfigSourceOutput) Sockets() ObservabilityPipelineConfigSourceSocketArrayOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSource) []ObservabilityPipelineConfigSourceSocket { return v.Sockets }).(ObservabilityPipelineConfigSourceSocketArrayOutput)
-}
-
-// The `splunkHec` source implements the Splunk HTTP Event Collector (HEC) API.
-func (o ObservabilityPipelineConfigSourceOutput) SplunkHecs() ObservabilityPipelineConfigSourceSplunkHecArrayOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSource) []ObservabilityPipelineConfigSourceSplunkHec {
-		return v.SplunkHecs
-	}).(ObservabilityPipelineConfigSourceSplunkHecArrayOutput)
-}
-
-// The `splunkTcp` source receives logs from a Splunk Universal Forwarder over TCP. TLS is supported for secure transmission.
-func (o ObservabilityPipelineConfigSourceOutput) SplunkTcps() ObservabilityPipelineConfigSourceSplunkTcpArrayOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSource) []ObservabilityPipelineConfigSourceSplunkTcp {
-		return v.SplunkTcps
-	}).(ObservabilityPipelineConfigSourceSplunkTcpArrayOutput)
-}
-
-// The `sumoLogic` source receives logs from Sumo Logic collectors.
-func (o ObservabilityPipelineConfigSourceOutput) SumoLogics() ObservabilityPipelineConfigSourceSumoLogicArrayOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSource) []ObservabilityPipelineConfigSourceSumoLogic {
-		return v.SumoLogics
-	}).(ObservabilityPipelineConfigSourceSumoLogicArrayOutput)
-}
-
-// The `syslogNg` source listens for logs over TCP or UDP from a `syslog-ng` server using the syslog protocol.
-func (o ObservabilityPipelineConfigSourceOutput) SyslogNgs() ObservabilityPipelineConfigSourceSyslogNgArrayOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSource) []ObservabilityPipelineConfigSourceSyslogNg {
-		return v.SyslogNgs
-	}).(ObservabilityPipelineConfigSourceSyslogNgArrayOutput)
-}
-
-// The `websocket` source establishes a persistent WebSocket connection to a remote endpoint and ingests log events as they are pushed by the server.
-func (o ObservabilityPipelineConfigSourceOutput) Websocket() ObservabilityPipelineConfigSourceWebsocketPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSource) *ObservabilityPipelineConfigSourceWebsocket {
-		return v.Websocket
-	}).(ObservabilityPipelineConfigSourceWebsocketPtrOutput)
-}
-
-type ObservabilityPipelineConfigSourceArrayOutput struct{ *pulumi.OutputState }
-
-func (ObservabilityPipelineConfigSourceArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ObservabilityPipelineConfigSource)(nil)).Elem()
-}
-
-func (o ObservabilityPipelineConfigSourceArrayOutput) ToObservabilityPipelineConfigSourceArrayOutput() ObservabilityPipelineConfigSourceArrayOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceArrayOutput) ToObservabilityPipelineConfigSourceArrayOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceArrayOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceArrayOutput) Index(i pulumi.IntInput) ObservabilityPipelineConfigSourceOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ObservabilityPipelineConfigSource {
-		return vs[0].([]ObservabilityPipelineConfigSource)[vs[1].(int)]
-	}).(ObservabilityPipelineConfigSourceOutput)
-}
-
-type ObservabilityPipelineConfigSourceAmazonDataFirehose struct {
-	// Name of the environment variable or secret that holds the listen address.
-	AddressKey *string `pulumi:"addressKey"`
-	// AWS authentication credentials used for accessing AWS services. If omitted, the system's default credentials are used (for example, the IAM role and environment variables).
-	Auth *ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth `pulumi:"auth"`
-	// Configuration for enabling TLS encryption between the pipeline component and external services.
-	Tls *ObservabilityPipelineConfigSourceAmazonDataFirehoseTls `pulumi:"tls"`
-}
-
-// ObservabilityPipelineConfigSourceAmazonDataFirehoseInput is an input type that accepts ObservabilityPipelineConfigSourceAmazonDataFirehoseArgs and ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput values.
-// You can construct a concrete instance of `ObservabilityPipelineConfigSourceAmazonDataFirehoseInput` via:
-//
-//	ObservabilityPipelineConfigSourceAmazonDataFirehoseArgs{...}
-type ObservabilityPipelineConfigSourceAmazonDataFirehoseInput interface {
-	pulumi.Input
-
-	ToObservabilityPipelineConfigSourceAmazonDataFirehoseOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput
-	ToObservabilityPipelineConfigSourceAmazonDataFirehoseOutputWithContext(context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput
-}
-
-type ObservabilityPipelineConfigSourceAmazonDataFirehoseArgs struct {
-	// Name of the environment variable or secret that holds the listen address.
-	AddressKey pulumi.StringPtrInput `pulumi:"addressKey"`
-	// AWS authentication credentials used for accessing AWS services. If omitted, the system's default credentials are used (for example, the IAM role and environment variables).
-	Auth ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrInput `pulumi:"auth"`
-	// Configuration for enabling TLS encryption between the pipeline component and external services.
-	Tls ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrInput `pulumi:"tls"`
-}
-
-func (ObservabilityPipelineConfigSourceAmazonDataFirehoseArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonDataFirehose)(nil)).Elem()
-}
-
-func (i ObservabilityPipelineConfigSourceAmazonDataFirehoseArgs) ToObservabilityPipelineConfigSourceAmazonDataFirehoseOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput {
-	return i.ToObservabilityPipelineConfigSourceAmazonDataFirehoseOutputWithContext(context.Background())
-}
-
-func (i ObservabilityPipelineConfigSourceAmazonDataFirehoseArgs) ToObservabilityPipelineConfigSourceAmazonDataFirehoseOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput)
-}
-
-// ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayInput is an input type that accepts ObservabilityPipelineConfigSourceAmazonDataFirehoseArray and ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput values.
-// You can construct a concrete instance of `ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayInput` via:
-//
-//	ObservabilityPipelineConfigSourceAmazonDataFirehoseArray{ ObservabilityPipelineConfigSourceAmazonDataFirehoseArgs{...} }
-type ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayInput interface {
-	pulumi.Input
-
-	ToObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput
-	ToObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutputWithContext(context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput
-}
-
-type ObservabilityPipelineConfigSourceAmazonDataFirehoseArray []ObservabilityPipelineConfigSourceAmazonDataFirehoseInput
-
-func (ObservabilityPipelineConfigSourceAmazonDataFirehoseArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ObservabilityPipelineConfigSourceAmazonDataFirehose)(nil)).Elem()
-}
-
-func (i ObservabilityPipelineConfigSourceAmazonDataFirehoseArray) ToObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput {
-	return i.ToObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutputWithContext(context.Background())
-}
-
-func (i ObservabilityPipelineConfigSourceAmazonDataFirehoseArray) ToObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput)
-}
-
-type ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput struct{ *pulumi.OutputState }
-
-func (ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonDataFirehose)(nil)).Elem()
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput) ToObservabilityPipelineConfigSourceAmazonDataFirehoseOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput) ToObservabilityPipelineConfigSourceAmazonDataFirehoseOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput {
-	return o
-}
-
-// Name of the environment variable or secret that holds the listen address.
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput) AddressKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonDataFirehose) *string { return v.AddressKey }).(pulumi.StringPtrOutput)
-}
-
-// AWS authentication credentials used for accessing AWS services. If omitted, the system's default credentials are used (for example, the IAM role and environment variables).
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput) Auth() ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonDataFirehose) *ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth {
-		return v.Auth
-	}).(ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput)
-}
-
-// Configuration for enabling TLS encryption between the pipeline component and external services.
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput) Tls() ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonDataFirehose) *ObservabilityPipelineConfigSourceAmazonDataFirehoseTls {
-		return v.Tls
-	}).(ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput)
-}
-
-type ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput struct{ *pulumi.OutputState }
-
-func (ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ObservabilityPipelineConfigSourceAmazonDataFirehose)(nil)).Elem()
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput) ToObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput) ToObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput) Index(i pulumi.IntInput) ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ObservabilityPipelineConfigSourceAmazonDataFirehose {
-		return vs[0].([]ObservabilityPipelineConfigSourceAmazonDataFirehose)[vs[1].(int)]
-	}).(ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput)
-}
-
-type ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth struct {
-	// The Amazon Resource Name (ARN) of the role to assume.
-	AssumeRole *string `pulumi:"assumeRole"`
-	// A unique identifier for cross-account role assumption.
-	ExternalId *string `pulumi:"externalId"`
-	// A session identifier used for logging and tracing the assumed role session.
-	SessionName *string `pulumi:"sessionName"`
-}
-
-// ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthInput is an input type that accepts ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthArgs and ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput values.
-// You can construct a concrete instance of `ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthInput` via:
-//
-//	ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthArgs{...}
-type ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthInput interface {
-	pulumi.Input
-
-	ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput
-	ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutputWithContext(context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput
-}
-
-type ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthArgs struct {
-	// The Amazon Resource Name (ARN) of the role to assume.
-	AssumeRole pulumi.StringPtrInput `pulumi:"assumeRole"`
-	// A unique identifier for cross-account role assumption.
-	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
-	// A session identifier used for logging and tracing the assumed role session.
-	SessionName pulumi.StringPtrInput `pulumi:"sessionName"`
-}
-
-func (ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth)(nil)).Elem()
-}
-
-func (i ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthArgs) ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput {
-	return i.ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutputWithContext(context.Background())
-}
-
-func (i ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthArgs) ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput)
-}
-
-func (i ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthArgs) ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput {
-	return i.ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutputWithContext(context.Background())
-}
-
-func (i ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthArgs) ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput).ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutputWithContext(ctx)
-}
-
-// ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrInput is an input type that accepts ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthArgs, ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtr and ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput values.
-// You can construct a concrete instance of `ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrInput` via:
-//
-//	        ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthArgs{...}
-//
-//	or:
-//
-//	        nil
-type ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrInput interface {
-	pulumi.Input
-
-	ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput
-	ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutputWithContext(context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput
-}
-
-type observabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrType ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthArgs
-
-func ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtr(v *ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthArgs) ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrInput {
-	return (*observabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrType)(v)
-}
-
-func (*observabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth)(nil)).Elem()
-}
-
-func (i *observabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrType) ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput {
-	return i.ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutputWithContext(context.Background())
-}
-
-func (i *observabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrType) ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput)
-}
-
-type ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput struct{ *pulumi.OutputState }
-
-func (ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth)(nil)).Elem()
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput) ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput) ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput) ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput {
-	return o.ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutputWithContext(context.Background())
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput) ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth) *ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth {
-		return &v
-	}).(ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput)
-}
-
-// The Amazon Resource Name (ARN) of the role to assume.
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput) AssumeRole() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth) *string { return v.AssumeRole }).(pulumi.StringPtrOutput)
-}
-
-// A unique identifier for cross-account role assumption.
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput) ExternalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
-}
-
-// A session identifier used for logging and tracing the assumed role session.
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput) SessionName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth) *string { return v.SessionName }).(pulumi.StringPtrOutput)
-}
-
-type ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput struct{ *pulumi.OutputState }
-
-func (ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth)(nil)).Elem()
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput) ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput) ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput) Elem() ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth) ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth {
-		if v != nil {
-			return *v
-		}
-		var ret ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth
-		return ret
-	}).(ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput)
-}
-
-// The Amazon Resource Name (ARN) of the role to assume.
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput) AssumeRole() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AssumeRole
-	}).(pulumi.StringPtrOutput)
-}
-
-// A unique identifier for cross-account role assumption.
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput) ExternalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ExternalId
-	}).(pulumi.StringPtrOutput)
-}
-
-// A session identifier used for logging and tracing the assumed role session.
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput) SessionName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SessionName
-	}).(pulumi.StringPtrOutput)
-}
-
-type ObservabilityPipelineConfigSourceAmazonDataFirehoseTls struct {
-	// Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
-	CaFile *string `pulumi:"caFile"`
-	// Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
-	CrtFile string `pulumi:"crtFile"`
-	// Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
-	KeyFile *string `pulumi:"keyFile"`
-	// Name of the environment variable or secret that holds the passphrase for the private key file.
-	KeyPassKey *string `pulumi:"keyPassKey"`
-}
-
-// ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsInput is an input type that accepts ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsArgs and ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput values.
-// You can construct a concrete instance of `ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsInput` via:
-//
-//	ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsArgs{...}
-type ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsInput interface {
-	pulumi.Input
-
-	ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput
-	ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutputWithContext(context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput
-}
-
-type ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsArgs struct {
-	// Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
-	CaFile pulumi.StringPtrInput `pulumi:"caFile"`
-	// Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
-	CrtFile pulumi.StringInput `pulumi:"crtFile"`
-	// Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
-	KeyFile pulumi.StringPtrInput `pulumi:"keyFile"`
-	// Name of the environment variable or secret that holds the passphrase for the private key file.
-	KeyPassKey pulumi.StringPtrInput `pulumi:"keyPassKey"`
-}
-
-func (ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonDataFirehoseTls)(nil)).Elem()
-}
-
-func (i ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsArgs) ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput {
-	return i.ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutputWithContext(context.Background())
-}
-
-func (i ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsArgs) ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput)
-}
-
-func (i ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsArgs) ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput {
-	return i.ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutputWithContext(context.Background())
-}
-
-func (i ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsArgs) ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput).ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutputWithContext(ctx)
-}
-
-// ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrInput is an input type that accepts ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsArgs, ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtr and ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput values.
-// You can construct a concrete instance of `ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrInput` via:
-//
-//	        ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsArgs{...}
-//
-//	or:
-//
-//	        nil
-type ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrInput interface {
-	pulumi.Input
-
-	ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput
-	ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutputWithContext(context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput
-}
-
-type observabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrType ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsArgs
-
-func ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtr(v *ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsArgs) ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrInput {
-	return (*observabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrType)(v)
-}
-
-func (*observabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ObservabilityPipelineConfigSourceAmazonDataFirehoseTls)(nil)).Elem()
-}
-
-func (i *observabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrType) ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput {
-	return i.ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutputWithContext(context.Background())
-}
-
-func (i *observabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrType) ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput)
-}
-
-type ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput struct{ *pulumi.OutputState }
-
-func (ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonDataFirehoseTls)(nil)).Elem()
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput) ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput) ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput) ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput {
-	return o.ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutputWithContext(context.Background())
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput) ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigSourceAmazonDataFirehoseTls) *ObservabilityPipelineConfigSourceAmazonDataFirehoseTls {
-		return &v
-	}).(ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput)
-}
-
-// Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput) CaFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonDataFirehoseTls) *string { return v.CaFile }).(pulumi.StringPtrOutput)
-}
-
-// Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput) CrtFile() pulumi.StringOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonDataFirehoseTls) string { return v.CrtFile }).(pulumi.StringOutput)
-}
-
-// Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput) KeyFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonDataFirehoseTls) *string { return v.KeyFile }).(pulumi.StringPtrOutput)
-}
-
-// Name of the environment variable or secret that holds the passphrase for the private key file.
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput) KeyPassKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonDataFirehoseTls) *string { return v.KeyPassKey }).(pulumi.StringPtrOutput)
-}
-
-type ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput struct{ *pulumi.OutputState }
-
-func (ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ObservabilityPipelineConfigSourceAmazonDataFirehoseTls)(nil)).Elem()
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput) ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput) ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput) Elem() ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonDataFirehoseTls) ObservabilityPipelineConfigSourceAmazonDataFirehoseTls {
-		if v != nil {
-			return *v
-		}
-		var ret ObservabilityPipelineConfigSourceAmazonDataFirehoseTls
-		return ret
-	}).(ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput)
-}
-
-// Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput) CaFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonDataFirehoseTls) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CaFile
-	}).(pulumi.StringPtrOutput)
-}
-
-// Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput) CrtFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonDataFirehoseTls) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CrtFile
-	}).(pulumi.StringPtrOutput)
-}
-
-// Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput) KeyFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonDataFirehoseTls) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KeyFile
-	}).(pulumi.StringPtrOutput)
-}
-
-// Name of the environment variable or secret that holds the passphrase for the private key file.
-func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput) KeyPassKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonDataFirehoseTls) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KeyPassKey
-	}).(pulumi.StringPtrOutput)
-}
-
-type ObservabilityPipelineConfigSourceAmazonS3 struct {
-	// AWS authentication credentials used for accessing AWS services. If omitted, the system's default credentials are used (for example, the IAM role and environment variables).
-	Auth *ObservabilityPipelineConfigSourceAmazonS3Auth `pulumi:"auth"`
-	// Compression format for objects retrieved from the S3 bucket. Use `auto` to detect compression from the object's Content-Encoding header or file extension. Valid values are `auto`, `none`, `gzip`, `zstd`.
-	Compression *string `pulumi:"compression"`
-	// AWS region where the S3 bucket resides.
-	Region string `pulumi:"region"`
-	// Configuration for enabling TLS encryption between the pipeline component and external services.
-	Tls *ObservabilityPipelineConfigSourceAmazonS3Tls `pulumi:"tls"`
-	// Name of the environment variable or secret that holds the S3 bucket URL.
-	UrlKey *string `pulumi:"urlKey"`
-}
-
-// ObservabilityPipelineConfigSourceAmazonS3Input is an input type that accepts ObservabilityPipelineConfigSourceAmazonS3Args and ObservabilityPipelineConfigSourceAmazonS3Output values.
-// You can construct a concrete instance of `ObservabilityPipelineConfigSourceAmazonS3Input` via:
-//
-//	ObservabilityPipelineConfigSourceAmazonS3Args{...}
-type ObservabilityPipelineConfigSourceAmazonS3Input interface {
-	pulumi.Input
-
-	ToObservabilityPipelineConfigSourceAmazonS3Output() ObservabilityPipelineConfigSourceAmazonS3Output
-	ToObservabilityPipelineConfigSourceAmazonS3OutputWithContext(context.Context) ObservabilityPipelineConfigSourceAmazonS3Output
-}
-
-type ObservabilityPipelineConfigSourceAmazonS3Args struct {
-	// AWS authentication credentials used for accessing AWS services. If omitted, the system's default credentials are used (for example, the IAM role and environment variables).
-	Auth ObservabilityPipelineConfigSourceAmazonS3AuthPtrInput `pulumi:"auth"`
-	// Compression format for objects retrieved from the S3 bucket. Use `auto` to detect compression from the object's Content-Encoding header or file extension. Valid values are `auto`, `none`, `gzip`, `zstd`.
-	Compression pulumi.StringPtrInput `pulumi:"compression"`
-	// AWS region where the S3 bucket resides.
-	Region pulumi.StringInput `pulumi:"region"`
-	// Configuration for enabling TLS encryption between the pipeline component and external services.
-	Tls ObservabilityPipelineConfigSourceAmazonS3TlsPtrInput `pulumi:"tls"`
-	// Name of the environment variable or secret that holds the S3 bucket URL.
-	UrlKey pulumi.StringPtrInput `pulumi:"urlKey"`
-}
-
-func (ObservabilityPipelineConfigSourceAmazonS3Args) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonS3)(nil)).Elem()
-}
-
-func (i ObservabilityPipelineConfigSourceAmazonS3Args) ToObservabilityPipelineConfigSourceAmazonS3Output() ObservabilityPipelineConfigSourceAmazonS3Output {
-	return i.ToObservabilityPipelineConfigSourceAmazonS3OutputWithContext(context.Background())
-}
-
-func (i ObservabilityPipelineConfigSourceAmazonS3Args) ToObservabilityPipelineConfigSourceAmazonS3OutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonS3Output {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceAmazonS3Output)
-}
-
-// ObservabilityPipelineConfigSourceAmazonS3ArrayInput is an input type that accepts ObservabilityPipelineConfigSourceAmazonS3Array and ObservabilityPipelineConfigSourceAmazonS3ArrayOutput values.
-// You can construct a concrete instance of `ObservabilityPipelineConfigSourceAmazonS3ArrayInput` via:
-//
-//	ObservabilityPipelineConfigSourceAmazonS3Array{ ObservabilityPipelineConfigSourceAmazonS3Args{...} }
-type ObservabilityPipelineConfigSourceAmazonS3ArrayInput interface {
-	pulumi.Input
-
-	ToObservabilityPipelineConfigSourceAmazonS3ArrayOutput() ObservabilityPipelineConfigSourceAmazonS3ArrayOutput
-	ToObservabilityPipelineConfigSourceAmazonS3ArrayOutputWithContext(context.Context) ObservabilityPipelineConfigSourceAmazonS3ArrayOutput
-}
-
-type ObservabilityPipelineConfigSourceAmazonS3Array []ObservabilityPipelineConfigSourceAmazonS3Input
-
-func (ObservabilityPipelineConfigSourceAmazonS3Array) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ObservabilityPipelineConfigSourceAmazonS3)(nil)).Elem()
-}
-
-func (i ObservabilityPipelineConfigSourceAmazonS3Array) ToObservabilityPipelineConfigSourceAmazonS3ArrayOutput() ObservabilityPipelineConfigSourceAmazonS3ArrayOutput {
-	return i.ToObservabilityPipelineConfigSourceAmazonS3ArrayOutputWithContext(context.Background())
-}
-
-func (i ObservabilityPipelineConfigSourceAmazonS3Array) ToObservabilityPipelineConfigSourceAmazonS3ArrayOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonS3ArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceAmazonS3ArrayOutput)
-}
-
-type ObservabilityPipelineConfigSourceAmazonS3Output struct{ *pulumi.OutputState }
-
-func (ObservabilityPipelineConfigSourceAmazonS3Output) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonS3)(nil)).Elem()
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonS3Output) ToObservabilityPipelineConfigSourceAmazonS3Output() ObservabilityPipelineConfigSourceAmazonS3Output {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonS3Output) ToObservabilityPipelineConfigSourceAmazonS3OutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonS3Output {
-	return o
-}
-
-// AWS authentication credentials used for accessing AWS services. If omitted, the system's default credentials are used (for example, the IAM role and environment variables).
-func (o ObservabilityPipelineConfigSourceAmazonS3Output) Auth() ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonS3) *ObservabilityPipelineConfigSourceAmazonS3Auth {
-		return v.Auth
-	}).(ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput)
-}
-
-// Compression format for objects retrieved from the S3 bucket. Use `auto` to detect compression from the object's Content-Encoding header or file extension. Valid values are `auto`, `none`, `gzip`, `zstd`.
-func (o ObservabilityPipelineConfigSourceAmazonS3Output) Compression() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonS3) *string { return v.Compression }).(pulumi.StringPtrOutput)
-}
-
-// AWS region where the S3 bucket resides.
-func (o ObservabilityPipelineConfigSourceAmazonS3Output) Region() pulumi.StringOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonS3) string { return v.Region }).(pulumi.StringOutput)
-}
-
-// Configuration for enabling TLS encryption between the pipeline component and external services.
-func (o ObservabilityPipelineConfigSourceAmazonS3Output) Tls() ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonS3) *ObservabilityPipelineConfigSourceAmazonS3Tls {
-		return v.Tls
-	}).(ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput)
-}
-
-// Name of the environment variable or secret that holds the S3 bucket URL.
-func (o ObservabilityPipelineConfigSourceAmazonS3Output) UrlKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonS3) *string { return v.UrlKey }).(pulumi.StringPtrOutput)
-}
-
-type ObservabilityPipelineConfigSourceAmazonS3ArrayOutput struct{ *pulumi.OutputState }
-
-func (ObservabilityPipelineConfigSourceAmazonS3ArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ObservabilityPipelineConfigSourceAmazonS3)(nil)).Elem()
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonS3ArrayOutput) ToObservabilityPipelineConfigSourceAmazonS3ArrayOutput() ObservabilityPipelineConfigSourceAmazonS3ArrayOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonS3ArrayOutput) ToObservabilityPipelineConfigSourceAmazonS3ArrayOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonS3ArrayOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonS3ArrayOutput) Index(i pulumi.IntInput) ObservabilityPipelineConfigSourceAmazonS3Output {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ObservabilityPipelineConfigSourceAmazonS3 {
-		return vs[0].([]ObservabilityPipelineConfigSourceAmazonS3)[vs[1].(int)]
-	}).(ObservabilityPipelineConfigSourceAmazonS3Output)
-}
-
-type ObservabilityPipelineConfigSourceAmazonS3Auth struct {
-	// The Amazon Resource Name (ARN) of the role to assume.
-	AssumeRole *string `pulumi:"assumeRole"`
-	// A unique identifier for cross-account role assumption.
-	ExternalId *string `pulumi:"externalId"`
-	// A session identifier used for logging and tracing the assumed role session.
-	SessionName *string `pulumi:"sessionName"`
-}
-
-// ObservabilityPipelineConfigSourceAmazonS3AuthInput is an input type that accepts ObservabilityPipelineConfigSourceAmazonS3AuthArgs and ObservabilityPipelineConfigSourceAmazonS3AuthOutput values.
-// You can construct a concrete instance of `ObservabilityPipelineConfigSourceAmazonS3AuthInput` via:
-//
-//	ObservabilityPipelineConfigSourceAmazonS3AuthArgs{...}
-type ObservabilityPipelineConfigSourceAmazonS3AuthInput interface {
-	pulumi.Input
-
-	ToObservabilityPipelineConfigSourceAmazonS3AuthOutput() ObservabilityPipelineConfigSourceAmazonS3AuthOutput
-	ToObservabilityPipelineConfigSourceAmazonS3AuthOutputWithContext(context.Context) ObservabilityPipelineConfigSourceAmazonS3AuthOutput
-}
-
-type ObservabilityPipelineConfigSourceAmazonS3AuthArgs struct {
-	// The Amazon Resource Name (ARN) of the role to assume.
-	AssumeRole pulumi.StringPtrInput `pulumi:"assumeRole"`
-	// A unique identifier for cross-account role assumption.
-	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
-	// A session identifier used for logging and tracing the assumed role session.
-	SessionName pulumi.StringPtrInput `pulumi:"sessionName"`
-}
-
-func (ObservabilityPipelineConfigSourceAmazonS3AuthArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonS3Auth)(nil)).Elem()
-}
-
-func (i ObservabilityPipelineConfigSourceAmazonS3AuthArgs) ToObservabilityPipelineConfigSourceAmazonS3AuthOutput() ObservabilityPipelineConfigSourceAmazonS3AuthOutput {
-	return i.ToObservabilityPipelineConfigSourceAmazonS3AuthOutputWithContext(context.Background())
-}
-
-func (i ObservabilityPipelineConfigSourceAmazonS3AuthArgs) ToObservabilityPipelineConfigSourceAmazonS3AuthOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonS3AuthOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceAmazonS3AuthOutput)
-}
-
-func (i ObservabilityPipelineConfigSourceAmazonS3AuthArgs) ToObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput() ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput {
-	return i.ToObservabilityPipelineConfigSourceAmazonS3AuthPtrOutputWithContext(context.Background())
-}
-
-func (i ObservabilityPipelineConfigSourceAmazonS3AuthArgs) ToObservabilityPipelineConfigSourceAmazonS3AuthPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceAmazonS3AuthOutput).ToObservabilityPipelineConfigSourceAmazonS3AuthPtrOutputWithContext(ctx)
-}
-
-// ObservabilityPipelineConfigSourceAmazonS3AuthPtrInput is an input type that accepts ObservabilityPipelineConfigSourceAmazonS3AuthArgs, ObservabilityPipelineConfigSourceAmazonS3AuthPtr and ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput values.
-// You can construct a concrete instance of `ObservabilityPipelineConfigSourceAmazonS3AuthPtrInput` via:
-//
-//	        ObservabilityPipelineConfigSourceAmazonS3AuthArgs{...}
-//
-//	or:
-//
-//	        nil
-type ObservabilityPipelineConfigSourceAmazonS3AuthPtrInput interface {
-	pulumi.Input
-
-	ToObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput() ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput
-	ToObservabilityPipelineConfigSourceAmazonS3AuthPtrOutputWithContext(context.Context) ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput
-}
-
-type observabilityPipelineConfigSourceAmazonS3AuthPtrType ObservabilityPipelineConfigSourceAmazonS3AuthArgs
-
-func ObservabilityPipelineConfigSourceAmazonS3AuthPtr(v *ObservabilityPipelineConfigSourceAmazonS3AuthArgs) ObservabilityPipelineConfigSourceAmazonS3AuthPtrInput {
-	return (*observabilityPipelineConfigSourceAmazonS3AuthPtrType)(v)
-}
-
-func (*observabilityPipelineConfigSourceAmazonS3AuthPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ObservabilityPipelineConfigSourceAmazonS3Auth)(nil)).Elem()
-}
-
-func (i *observabilityPipelineConfigSourceAmazonS3AuthPtrType) ToObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput() ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput {
-	return i.ToObservabilityPipelineConfigSourceAmazonS3AuthPtrOutputWithContext(context.Background())
-}
-
-func (i *observabilityPipelineConfigSourceAmazonS3AuthPtrType) ToObservabilityPipelineConfigSourceAmazonS3AuthPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput)
-}
-
-type ObservabilityPipelineConfigSourceAmazonS3AuthOutput struct{ *pulumi.OutputState }
-
-func (ObservabilityPipelineConfigSourceAmazonS3AuthOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonS3Auth)(nil)).Elem()
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonS3AuthOutput) ToObservabilityPipelineConfigSourceAmazonS3AuthOutput() ObservabilityPipelineConfigSourceAmazonS3AuthOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonS3AuthOutput) ToObservabilityPipelineConfigSourceAmazonS3AuthOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonS3AuthOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonS3AuthOutput) ToObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput() ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput {
-	return o.ToObservabilityPipelineConfigSourceAmazonS3AuthPtrOutputWithContext(context.Background())
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonS3AuthOutput) ToObservabilityPipelineConfigSourceAmazonS3AuthPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigSourceAmazonS3Auth) *ObservabilityPipelineConfigSourceAmazonS3Auth {
-		return &v
-	}).(ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput)
-}
-
-// The Amazon Resource Name (ARN) of the role to assume.
-func (o ObservabilityPipelineConfigSourceAmazonS3AuthOutput) AssumeRole() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonS3Auth) *string { return v.AssumeRole }).(pulumi.StringPtrOutput)
-}
-
-// A unique identifier for cross-account role assumption.
-func (o ObservabilityPipelineConfigSourceAmazonS3AuthOutput) ExternalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonS3Auth) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
-}
-
-// A session identifier used for logging and tracing the assumed role session.
-func (o ObservabilityPipelineConfigSourceAmazonS3AuthOutput) SessionName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonS3Auth) *string { return v.SessionName }).(pulumi.StringPtrOutput)
-}
-
-type ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput struct{ *pulumi.OutputState }
-
-func (ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ObservabilityPipelineConfigSourceAmazonS3Auth)(nil)).Elem()
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput) ToObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput() ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput) ToObservabilityPipelineConfigSourceAmazonS3AuthPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput) Elem() ObservabilityPipelineConfigSourceAmazonS3AuthOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonS3Auth) ObservabilityPipelineConfigSourceAmazonS3Auth {
-		if v != nil {
-			return *v
-		}
-		var ret ObservabilityPipelineConfigSourceAmazonS3Auth
-		return ret
-	}).(ObservabilityPipelineConfigSourceAmazonS3AuthOutput)
-}
-
-// The Amazon Resource Name (ARN) of the role to assume.
-func (o ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput) AssumeRole() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonS3Auth) *string {
-		if v == nil {
-			return nil
-		}
-		return v.AssumeRole
-	}).(pulumi.StringPtrOutput)
-}
-
-// A unique identifier for cross-account role assumption.
-func (o ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput) ExternalId() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonS3Auth) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ExternalId
-	}).(pulumi.StringPtrOutput)
-}
-
-// A session identifier used for logging and tracing the assumed role session.
-func (o ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput) SessionName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonS3Auth) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SessionName
-	}).(pulumi.StringPtrOutput)
-}
-
-type ObservabilityPipelineConfigSourceAmazonS3Tls struct {
-	// Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
-	CaFile *string `pulumi:"caFile"`
-	// Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
-	CrtFile string `pulumi:"crtFile"`
-	// Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
-	KeyFile *string `pulumi:"keyFile"`
-	// Name of the environment variable or secret that holds the passphrase for the private key file.
-	KeyPassKey *string `pulumi:"keyPassKey"`
-}
-
-// ObservabilityPipelineConfigSourceAmazonS3TlsInput is an input type that accepts ObservabilityPipelineConfigSourceAmazonS3TlsArgs and ObservabilityPipelineConfigSourceAmazonS3TlsOutput values.
-// You can construct a concrete instance of `ObservabilityPipelineConfigSourceAmazonS3TlsInput` via:
-//
-//	ObservabilityPipelineConfigSourceAmazonS3TlsArgs{...}
-type ObservabilityPipelineConfigSourceAmazonS3TlsInput interface {
-	pulumi.Input
-
-	ToObservabilityPipelineConfigSourceAmazonS3TlsOutput() ObservabilityPipelineConfigSourceAmazonS3TlsOutput
-	ToObservabilityPipelineConfigSourceAmazonS3TlsOutputWithContext(context.Context) ObservabilityPipelineConfigSourceAmazonS3TlsOutput
-}
-
-type ObservabilityPipelineConfigSourceAmazonS3TlsArgs struct {
-	// Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
-	CaFile pulumi.StringPtrInput `pulumi:"caFile"`
-	// Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
-	CrtFile pulumi.StringInput `pulumi:"crtFile"`
-	// Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
-	KeyFile pulumi.StringPtrInput `pulumi:"keyFile"`
-	// Name of the environment variable or secret that holds the passphrase for the private key file.
-	KeyPassKey pulumi.StringPtrInput `pulumi:"keyPassKey"`
-}
-
-func (ObservabilityPipelineConfigSourceAmazonS3TlsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonS3Tls)(nil)).Elem()
-}
-
-func (i ObservabilityPipelineConfigSourceAmazonS3TlsArgs) ToObservabilityPipelineConfigSourceAmazonS3TlsOutput() ObservabilityPipelineConfigSourceAmazonS3TlsOutput {
-	return i.ToObservabilityPipelineConfigSourceAmazonS3TlsOutputWithContext(context.Background())
-}
-
-func (i ObservabilityPipelineConfigSourceAmazonS3TlsArgs) ToObservabilityPipelineConfigSourceAmazonS3TlsOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonS3TlsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceAmazonS3TlsOutput)
-}
-
-func (i ObservabilityPipelineConfigSourceAmazonS3TlsArgs) ToObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput() ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput {
-	return i.ToObservabilityPipelineConfigSourceAmazonS3TlsPtrOutputWithContext(context.Background())
-}
-
-func (i ObservabilityPipelineConfigSourceAmazonS3TlsArgs) ToObservabilityPipelineConfigSourceAmazonS3TlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceAmazonS3TlsOutput).ToObservabilityPipelineConfigSourceAmazonS3TlsPtrOutputWithContext(ctx)
-}
-
-// ObservabilityPipelineConfigSourceAmazonS3TlsPtrInput is an input type that accepts ObservabilityPipelineConfigSourceAmazonS3TlsArgs, ObservabilityPipelineConfigSourceAmazonS3TlsPtr and ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput values.
-// You can construct a concrete instance of `ObservabilityPipelineConfigSourceAmazonS3TlsPtrInput` via:
-//
-//	        ObservabilityPipelineConfigSourceAmazonS3TlsArgs{...}
-//
-//	or:
-//
-//	        nil
-type ObservabilityPipelineConfigSourceAmazonS3TlsPtrInput interface {
-	pulumi.Input
-
-	ToObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput() ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput
-	ToObservabilityPipelineConfigSourceAmazonS3TlsPtrOutputWithContext(context.Context) ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput
-}
-
-type observabilityPipelineConfigSourceAmazonS3TlsPtrType ObservabilityPipelineConfigSourceAmazonS3TlsArgs
-
-func ObservabilityPipelineConfigSourceAmazonS3TlsPtr(v *ObservabilityPipelineConfigSourceAmazonS3TlsArgs) ObservabilityPipelineConfigSourceAmazonS3TlsPtrInput {
-	return (*observabilityPipelineConfigSourceAmazonS3TlsPtrType)(v)
-}
-
-func (*observabilityPipelineConfigSourceAmazonS3TlsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ObservabilityPipelineConfigSourceAmazonS3Tls)(nil)).Elem()
-}
-
-func (i *observabilityPipelineConfigSourceAmazonS3TlsPtrType) ToObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput() ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput {
-	return i.ToObservabilityPipelineConfigSourceAmazonS3TlsPtrOutputWithContext(context.Background())
-}
-
-func (i *observabilityPipelineConfigSourceAmazonS3TlsPtrType) ToObservabilityPipelineConfigSourceAmazonS3TlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput)
-}
-
-type ObservabilityPipelineConfigSourceAmazonS3TlsOutput struct{ *pulumi.OutputState }
-
-func (ObservabilityPipelineConfigSourceAmazonS3TlsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonS3Tls)(nil)).Elem()
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonS3TlsOutput) ToObservabilityPipelineConfigSourceAmazonS3TlsOutput() ObservabilityPipelineConfigSourceAmazonS3TlsOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonS3TlsOutput) ToObservabilityPipelineConfigSourceAmazonS3TlsOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonS3TlsOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonS3TlsOutput) ToObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput() ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput {
-	return o.ToObservabilityPipelineConfigSourceAmazonS3TlsPtrOutputWithContext(context.Background())
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonS3TlsOutput) ToObservabilityPipelineConfigSourceAmazonS3TlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigSourceAmazonS3Tls) *ObservabilityPipelineConfigSourceAmazonS3Tls {
-		return &v
-	}).(ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput)
-}
-
-// Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
-func (o ObservabilityPipelineConfigSourceAmazonS3TlsOutput) CaFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonS3Tls) *string { return v.CaFile }).(pulumi.StringPtrOutput)
-}
-
-// Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
-func (o ObservabilityPipelineConfigSourceAmazonS3TlsOutput) CrtFile() pulumi.StringOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonS3Tls) string { return v.CrtFile }).(pulumi.StringOutput)
-}
-
-// Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
-func (o ObservabilityPipelineConfigSourceAmazonS3TlsOutput) KeyFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonS3Tls) *string { return v.KeyFile }).(pulumi.StringPtrOutput)
-}
-
-// Name of the environment variable or secret that holds the passphrase for the private key file.
-func (o ObservabilityPipelineConfigSourceAmazonS3TlsOutput) KeyPassKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonS3Tls) *string { return v.KeyPassKey }).(pulumi.StringPtrOutput)
-}
-
-type ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput struct{ *pulumi.OutputState }
-
-func (ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ObservabilityPipelineConfigSourceAmazonS3Tls)(nil)).Elem()
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput) ToObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput() ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput) ToObservabilityPipelineConfigSourceAmazonS3TlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput) Elem() ObservabilityPipelineConfigSourceAmazonS3TlsOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonS3Tls) ObservabilityPipelineConfigSourceAmazonS3Tls {
-		if v != nil {
-			return *v
-		}
-		var ret ObservabilityPipelineConfigSourceAmazonS3Tls
-		return ret
-	}).(ObservabilityPipelineConfigSourceAmazonS3TlsOutput)
-}
-
-// Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
-func (o ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput) CaFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonS3Tls) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CaFile
-	}).(pulumi.StringPtrOutput)
-}
-
-// Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
-func (o ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput) CrtFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonS3Tls) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CrtFile
-	}).(pulumi.StringPtrOutput)
-}
-
-// Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
-func (o ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput) KeyFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonS3Tls) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KeyFile
-	}).(pulumi.StringPtrOutput)
-}
-
-// Name of the environment variable or secret that holds the passphrase for the private key file.
-func (o ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput) KeyPassKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonS3Tls) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KeyPassKey
-	}).(pulumi.StringPtrOutput)
-}
-
-type ObservabilityPipelineConfigSourceDatadogAgent struct {
-	// Name of the environment variable or secret that holds the listen address for the Datadog Agent source.
-	AddressKey *string `pulumi:"addressKey"`
-	// Configuration for enabling TLS encryption between the pipeline component and external services.
-	Tls *ObservabilityPipelineConfigSourceDatadogAgentTls `pulumi:"tls"`
-}
-
-// ObservabilityPipelineConfigSourceDatadogAgentInput is an input type that accepts ObservabilityPipelineConfigSourceDatadogAgentArgs and ObservabilityPipelineConfigSourceDatadogAgentOutput values.
-// You can construct a concrete instance of `ObservabilityPipelineConfigSourceDatadogAgentInput` via:
-//
-//	ObservabilityPipelineConfigSourceDatadogAgentArgs{...}
-type ObservabilityPipelineConfigSourceDatadogAgentInput interface {
-	pulumi.Input
-
-	ToObservabilityPipelineConfigSourceDatadogAgentOutput() ObservabilityPipelineConfigSourceDatadogAgentOutput
-	ToObservabilityPipelineConfigSourceDatadogAgentOutputWithContext(context.Context) ObservabilityPipelineConfigSourceDatadogAgentOutput
-}
-
-type ObservabilityPipelineConfigSourceDatadogAgentArgs struct {
-	// Name of the environment variable or secret that holds the listen address for the Datadog Agent source.
-	AddressKey pulumi.StringPtrInput `pulumi:"addressKey"`
-	// Configuration for enabling TLS encryption between the pipeline component and external services.
-	Tls ObservabilityPipelineConfigSourceDatadogAgentTlsPtrInput `pulumi:"tls"`
-}
-
-func (ObservabilityPipelineConfigSourceDatadogAgentArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObservabilityPipelineConfigSourceDatadogAgent)(nil)).Elem()
-}
-
-func (i ObservabilityPipelineConfigSourceDatadogAgentArgs) ToObservabilityPipelineConfigSourceDatadogAgentOutput() ObservabilityPipelineConfigSourceDatadogAgentOutput {
-	return i.ToObservabilityPipelineConfigSourceDatadogAgentOutputWithContext(context.Background())
-}
-
-func (i ObservabilityPipelineConfigSourceDatadogAgentArgs) ToObservabilityPipelineConfigSourceDatadogAgentOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceDatadogAgentOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceDatadogAgentOutput)
-}
-
-// ObservabilityPipelineConfigSourceDatadogAgentArrayInput is an input type that accepts ObservabilityPipelineConfigSourceDatadogAgentArray and ObservabilityPipelineConfigSourceDatadogAgentArrayOutput values.
-// You can construct a concrete instance of `ObservabilityPipelineConfigSourceDatadogAgentArrayInput` via:
-//
-//	ObservabilityPipelineConfigSourceDatadogAgentArray{ ObservabilityPipelineConfigSourceDatadogAgentArgs{...} }
-type ObservabilityPipelineConfigSourceDatadogAgentArrayInput interface {
-	pulumi.Input
-
-	ToObservabilityPipelineConfigSourceDatadogAgentArrayOutput() ObservabilityPipelineConfigSourceDatadogAgentArrayOutput
-	ToObservabilityPipelineConfigSourceDatadogAgentArrayOutputWithContext(context.Context) ObservabilityPipelineConfigSourceDatadogAgentArrayOutput
-}
-
-type ObservabilityPipelineConfigSourceDatadogAgentArray []ObservabilityPipelineConfigSourceDatadogAgentInput
-
-func (ObservabilityPipelineConfigSourceDatadogAgentArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ObservabilityPipelineConfigSourceDatadogAgent)(nil)).Elem()
-}
-
-func (i ObservabilityPipelineConfigSourceDatadogAgentArray) ToObservabilityPipelineConfigSourceDatadogAgentArrayOutput() ObservabilityPipelineConfigSourceDatadogAgentArrayOutput {
-	return i.ToObservabilityPipelineConfigSourceDatadogAgentArrayOutputWithContext(context.Background())
-}
-
-func (i ObservabilityPipelineConfigSourceDatadogAgentArray) ToObservabilityPipelineConfigSourceDatadogAgentArrayOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceDatadogAgentArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceDatadogAgentArrayOutput)
-}
-
-type ObservabilityPipelineConfigSourceDatadogAgentOutput struct{ *pulumi.OutputState }
-
-func (ObservabilityPipelineConfigSourceDatadogAgentOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObservabilityPipelineConfigSourceDatadogAgent)(nil)).Elem()
-}
-
-func (o ObservabilityPipelineConfigSourceDatadogAgentOutput) ToObservabilityPipelineConfigSourceDatadogAgentOutput() ObservabilityPipelineConfigSourceDatadogAgentOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceDatadogAgentOutput) ToObservabilityPipelineConfigSourceDatadogAgentOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceDatadogAgentOutput {
-	return o
-}
-
-// Name of the environment variable or secret that holds the listen address for the Datadog Agent source.
-func (o ObservabilityPipelineConfigSourceDatadogAgentOutput) AddressKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceDatadogAgent) *string { return v.AddressKey }).(pulumi.StringPtrOutput)
-}
-
-// Configuration for enabling TLS encryption between the pipeline component and external services.
-func (o ObservabilityPipelineConfigSourceDatadogAgentOutput) Tls() ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceDatadogAgent) *ObservabilityPipelineConfigSourceDatadogAgentTls {
-		return v.Tls
-	}).(ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput)
-}
-
-type ObservabilityPipelineConfigSourceDatadogAgentArrayOutput struct{ *pulumi.OutputState }
-
-func (ObservabilityPipelineConfigSourceDatadogAgentArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ObservabilityPipelineConfigSourceDatadogAgent)(nil)).Elem()
-}
-
-func (o ObservabilityPipelineConfigSourceDatadogAgentArrayOutput) ToObservabilityPipelineConfigSourceDatadogAgentArrayOutput() ObservabilityPipelineConfigSourceDatadogAgentArrayOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceDatadogAgentArrayOutput) ToObservabilityPipelineConfigSourceDatadogAgentArrayOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceDatadogAgentArrayOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceDatadogAgentArrayOutput) Index(i pulumi.IntInput) ObservabilityPipelineConfigSourceDatadogAgentOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ObservabilityPipelineConfigSourceDatadogAgent {
-		return vs[0].([]ObservabilityPipelineConfigSourceDatadogAgent)[vs[1].(int)]
-	}).(ObservabilityPipelineConfigSourceDatadogAgentOutput)
-}
-
-type ObservabilityPipelineConfigSourceDatadogAgentTls struct {
-	// Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
-	CaFile *string `pulumi:"caFile"`
-	// Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
-	CrtFile string `pulumi:"crtFile"`
-	// Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
-	KeyFile *string `pulumi:"keyFile"`
-	// Name of the environment variable or secret that holds the passphrase for the private key file.
-	KeyPassKey *string `pulumi:"keyPassKey"`
-}
-
-// ObservabilityPipelineConfigSourceDatadogAgentTlsInput is an input type that accepts ObservabilityPipelineConfigSourceDatadogAgentTlsArgs and ObservabilityPipelineConfigSourceDatadogAgentTlsOutput values.
-// You can construct a concrete instance of `ObservabilityPipelineConfigSourceDatadogAgentTlsInput` via:
-//
-//	ObservabilityPipelineConfigSourceDatadogAgentTlsArgs{...}
-type ObservabilityPipelineConfigSourceDatadogAgentTlsInput interface {
-	pulumi.Input
-
-	ToObservabilityPipelineConfigSourceDatadogAgentTlsOutput() ObservabilityPipelineConfigSourceDatadogAgentTlsOutput
-	ToObservabilityPipelineConfigSourceDatadogAgentTlsOutputWithContext(context.Context) ObservabilityPipelineConfigSourceDatadogAgentTlsOutput
-}
-
-type ObservabilityPipelineConfigSourceDatadogAgentTlsArgs struct {
-	// Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
-	CaFile pulumi.StringPtrInput `pulumi:"caFile"`
-	// Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
-	CrtFile pulumi.StringInput `pulumi:"crtFile"`
-	// Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
-	KeyFile pulumi.StringPtrInput `pulumi:"keyFile"`
-	// Name of the environment variable or secret that holds the passphrase for the private key file.
-	KeyPassKey pulumi.StringPtrInput `pulumi:"keyPassKey"`
-}
-
-func (ObservabilityPipelineConfigSourceDatadogAgentTlsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObservabilityPipelineConfigSourceDatadogAgentTls)(nil)).Elem()
-}
-
-func (i ObservabilityPipelineConfigSourceDatadogAgentTlsArgs) ToObservabilityPipelineConfigSourceDatadogAgentTlsOutput() ObservabilityPipelineConfigSourceDatadogAgentTlsOutput {
-	return i.ToObservabilityPipelineConfigSourceDatadogAgentTlsOutputWithContext(context.Background())
-}
-
-func (i ObservabilityPipelineConfigSourceDatadogAgentTlsArgs) ToObservabilityPipelineConfigSourceDatadogAgentTlsOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceDatadogAgentTlsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceDatadogAgentTlsOutput)
-}
-
-func (i ObservabilityPipelineConfigSourceDatadogAgentTlsArgs) ToObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput() ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput {
-	return i.ToObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutputWithContext(context.Background())
-}
-
-func (i ObservabilityPipelineConfigSourceDatadogAgentTlsArgs) ToObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceDatadogAgentTlsOutput).ToObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutputWithContext(ctx)
-}
-
-// ObservabilityPipelineConfigSourceDatadogAgentTlsPtrInput is an input type that accepts ObservabilityPipelineConfigSourceDatadogAgentTlsArgs, ObservabilityPipelineConfigSourceDatadogAgentTlsPtr and ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput values.
-// You can construct a concrete instance of `ObservabilityPipelineConfigSourceDatadogAgentTlsPtrInput` via:
-//
-//	        ObservabilityPipelineConfigSourceDatadogAgentTlsArgs{...}
-//
-//	or:
-//
-//	        nil
-type ObservabilityPipelineConfigSourceDatadogAgentTlsPtrInput interface {
-	pulumi.Input
-
-	ToObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput() ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput
-	ToObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutputWithContext(context.Context) ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput
-}
-
-type observabilityPipelineConfigSourceDatadogAgentTlsPtrType ObservabilityPipelineConfigSourceDatadogAgentTlsArgs
-
-func ObservabilityPipelineConfigSourceDatadogAgentTlsPtr(v *ObservabilityPipelineConfigSourceDatadogAgentTlsArgs) ObservabilityPipelineConfigSourceDatadogAgentTlsPtrInput {
-	return (*observabilityPipelineConfigSourceDatadogAgentTlsPtrType)(v)
-}
-
-func (*observabilityPipelineConfigSourceDatadogAgentTlsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ObservabilityPipelineConfigSourceDatadogAgentTls)(nil)).Elem()
-}
-
-func (i *observabilityPipelineConfigSourceDatadogAgentTlsPtrType) ToObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput() ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput {
-	return i.ToObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutputWithContext(context.Background())
-}
-
-func (i *observabilityPipelineConfigSourceDatadogAgentTlsPtrType) ToObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput)
-}
-
-type ObservabilityPipelineConfigSourceDatadogAgentTlsOutput struct{ *pulumi.OutputState }
-
-func (ObservabilityPipelineConfigSourceDatadogAgentTlsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObservabilityPipelineConfigSourceDatadogAgentTls)(nil)).Elem()
-}
-
-func (o ObservabilityPipelineConfigSourceDatadogAgentTlsOutput) ToObservabilityPipelineConfigSourceDatadogAgentTlsOutput() ObservabilityPipelineConfigSourceDatadogAgentTlsOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceDatadogAgentTlsOutput) ToObservabilityPipelineConfigSourceDatadogAgentTlsOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceDatadogAgentTlsOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceDatadogAgentTlsOutput) ToObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput() ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput {
-	return o.ToObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutputWithContext(context.Background())
-}
-
-func (o ObservabilityPipelineConfigSourceDatadogAgentTlsOutput) ToObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigSourceDatadogAgentTls) *ObservabilityPipelineConfigSourceDatadogAgentTls {
-		return &v
-	}).(ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput)
-}
-
-// Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
-func (o ObservabilityPipelineConfigSourceDatadogAgentTlsOutput) CaFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceDatadogAgentTls) *string { return v.CaFile }).(pulumi.StringPtrOutput)
-}
-
-// Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
-func (o ObservabilityPipelineConfigSourceDatadogAgentTlsOutput) CrtFile() pulumi.StringOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceDatadogAgentTls) string { return v.CrtFile }).(pulumi.StringOutput)
-}
-
-// Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
-func (o ObservabilityPipelineConfigSourceDatadogAgentTlsOutput) KeyFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceDatadogAgentTls) *string { return v.KeyFile }).(pulumi.StringPtrOutput)
-}
-
-// Name of the environment variable or secret that holds the passphrase for the private key file.
-func (o ObservabilityPipelineConfigSourceDatadogAgentTlsOutput) KeyPassKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceDatadogAgentTls) *string { return v.KeyPassKey }).(pulumi.StringPtrOutput)
-}
-
-type ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput struct{ *pulumi.OutputState }
-
-func (ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ObservabilityPipelineConfigSourceDatadogAgentTls)(nil)).Elem()
-}
-
-func (o ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput) ToObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput() ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput) ToObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput) Elem() ObservabilityPipelineConfigSourceDatadogAgentTlsOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceDatadogAgentTls) ObservabilityPipelineConfigSourceDatadogAgentTls {
-		if v != nil {
-			return *v
-		}
-		var ret ObservabilityPipelineConfigSourceDatadogAgentTls
-		return ret
-	}).(ObservabilityPipelineConfigSourceDatadogAgentTlsOutput)
-}
-
-// Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
-func (o ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput) CaFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceDatadogAgentTls) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CaFile
-	}).(pulumi.StringPtrOutput)
-}
-
-// Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
-func (o ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput) CrtFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceDatadogAgentTls) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CrtFile
-	}).(pulumi.StringPtrOutput)
-}
-
-// Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
-func (o ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput) KeyFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceDatadogAgentTls) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KeyFile
-	}).(pulumi.StringPtrOutput)
-}
-
-// Name of the environment variable or secret that holds the passphrase for the private key file.
-func (o ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput) KeyPassKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceDatadogAgentTls) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KeyPassKey
-	}).(pulumi.StringPtrOutput)
-}
-
-type ObservabilityPipelineConfigSourceFluentBit struct {
-	// Name of the environment variable or secret that holds the listen address.
-	AddressKey *string `pulumi:"addressKey"`
-	// Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
-	Tls *ObservabilityPipelineConfigSourceFluentBitTls `pulumi:"tls"`
-}
-
-// ObservabilityPipelineConfigSourceFluentBitInput is an input type that accepts ObservabilityPipelineConfigSourceFluentBitArgs and ObservabilityPipelineConfigSourceFluentBitOutput values.
-// You can construct a concrete instance of `ObservabilityPipelineConfigSourceFluentBitInput` via:
-//
-//	ObservabilityPipelineConfigSourceFluentBitArgs{...}
-type ObservabilityPipelineConfigSourceFluentBitInput interface {
-	pulumi.Input
-
-	ToObservabilityPipelineConfigSourceFluentBitOutput() ObservabilityPipelineConfigSourceFluentBitOutput
-	ToObservabilityPipelineConfigSourceFluentBitOutputWithContext(context.Context) ObservabilityPipelineConfigSourceFluentBitOutput
-}
-
-type ObservabilityPipelineConfigSourceFluentBitArgs struct {
-	// Name of the environment variable or secret that holds the listen address.
-	AddressKey pulumi.StringPtrInput `pulumi:"addressKey"`
-	// Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
-	Tls ObservabilityPipelineConfigSourceFluentBitTlsPtrInput `pulumi:"tls"`
-}
-
-func (ObservabilityPipelineConfigSourceFluentBitArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObservabilityPipelineConfigSourceFluentBit)(nil)).Elem()
-}
-
-func (i ObservabilityPipelineConfigSourceFluentBitArgs) ToObservabilityPipelineConfigSourceFluentBitOutput() ObservabilityPipelineConfigSourceFluentBitOutput {
-	return i.ToObservabilityPipelineConfigSourceFluentBitOutputWithContext(context.Background())
-}
-
-func (i ObservabilityPipelineConfigSourceFluentBitArgs) ToObservabilityPipelineConfigSourceFluentBitOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentBitOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceFluentBitOutput)
-}
-
-// ObservabilityPipelineConfigSourceFluentBitArrayInput is an input type that accepts ObservabilityPipelineConfigSourceFluentBitArray and ObservabilityPipelineConfigSourceFluentBitArrayOutput values.
-// You can construct a concrete instance of `ObservabilityPipelineConfigSourceFluentBitArrayInput` via:
-//
-//	ObservabilityPipelineConfigSourceFluentBitArray{ ObservabilityPipelineConfigSourceFluentBitArgs{...} }
-type ObservabilityPipelineConfigSourceFluentBitArrayInput interface {
-	pulumi.Input
-
-	ToObservabilityPipelineConfigSourceFluentBitArrayOutput() ObservabilityPipelineConfigSourceFluentBitArrayOutput
-	ToObservabilityPipelineConfigSourceFluentBitArrayOutputWithContext(context.Context) ObservabilityPipelineConfigSourceFluentBitArrayOutput
-}
-
-type ObservabilityPipelineConfigSourceFluentBitArray []ObservabilityPipelineConfigSourceFluentBitInput
-
-func (ObservabilityPipelineConfigSourceFluentBitArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ObservabilityPipelineConfigSourceFluentBit)(nil)).Elem()
-}
-
-func (i ObservabilityPipelineConfigSourceFluentBitArray) ToObservabilityPipelineConfigSourceFluentBitArrayOutput() ObservabilityPipelineConfigSourceFluentBitArrayOutput {
-	return i.ToObservabilityPipelineConfigSourceFluentBitArrayOutputWithContext(context.Background())
-}
-
-func (i ObservabilityPipelineConfigSourceFluentBitArray) ToObservabilityPipelineConfigSourceFluentBitArrayOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentBitArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceFluentBitArrayOutput)
-}
-
-type ObservabilityPipelineConfigSourceFluentBitOutput struct{ *pulumi.OutputState }
-
-func (ObservabilityPipelineConfigSourceFluentBitOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObservabilityPipelineConfigSourceFluentBit)(nil)).Elem()
-}
-
-func (o ObservabilityPipelineConfigSourceFluentBitOutput) ToObservabilityPipelineConfigSourceFluentBitOutput() ObservabilityPipelineConfigSourceFluentBitOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceFluentBitOutput) ToObservabilityPipelineConfigSourceFluentBitOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentBitOutput {
-	return o
-}
-
-// Name of the environment variable or secret that holds the listen address.
-func (o ObservabilityPipelineConfigSourceFluentBitOutput) AddressKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceFluentBit) *string { return v.AddressKey }).(pulumi.StringPtrOutput)
-}
-
-// Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
-func (o ObservabilityPipelineConfigSourceFluentBitOutput) Tls() ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceFluentBit) *ObservabilityPipelineConfigSourceFluentBitTls {
-		return v.Tls
-	}).(ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput)
-}
-
-type ObservabilityPipelineConfigSourceFluentBitArrayOutput struct{ *pulumi.OutputState }
-
-func (ObservabilityPipelineConfigSourceFluentBitArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ObservabilityPipelineConfigSourceFluentBit)(nil)).Elem()
-}
-
-func (o ObservabilityPipelineConfigSourceFluentBitArrayOutput) ToObservabilityPipelineConfigSourceFluentBitArrayOutput() ObservabilityPipelineConfigSourceFluentBitArrayOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceFluentBitArrayOutput) ToObservabilityPipelineConfigSourceFluentBitArrayOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentBitArrayOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceFluentBitArrayOutput) Index(i pulumi.IntInput) ObservabilityPipelineConfigSourceFluentBitOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ObservabilityPipelineConfigSourceFluentBit {
-		return vs[0].([]ObservabilityPipelineConfigSourceFluentBit)[vs[1].(int)]
-	}).(ObservabilityPipelineConfigSourceFluentBitOutput)
-}
-
-type ObservabilityPipelineConfigSourceFluentBitTls struct {
-	// Path to the Certificate Authority (CA) file used to validate connecting clients' TLS certificates.
-	CaFile *string `pulumi:"caFile"`
-	// Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
-	CrtFile string `pulumi:"crtFile"`
-	// Path to the private key file associated with the TLS server certificate.
-	KeyFile *string `pulumi:"keyFile"`
-	// Name of the environment variable or secret that holds the passphrase for the private key file.
-	KeyPassKey *string `pulumi:"keyPassKey"`
-	// When `true`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
-	VerifyCertificate *bool `pulumi:"verifyCertificate"`
-}
-
-// ObservabilityPipelineConfigSourceFluentBitTlsInput is an input type that accepts ObservabilityPipelineConfigSourceFluentBitTlsArgs and ObservabilityPipelineConfigSourceFluentBitTlsOutput values.
-// You can construct a concrete instance of `ObservabilityPipelineConfigSourceFluentBitTlsInput` via:
-//
-//	ObservabilityPipelineConfigSourceFluentBitTlsArgs{...}
-type ObservabilityPipelineConfigSourceFluentBitTlsInput interface {
-	pulumi.Input
-
-	ToObservabilityPipelineConfigSourceFluentBitTlsOutput() ObservabilityPipelineConfigSourceFluentBitTlsOutput
-	ToObservabilityPipelineConfigSourceFluentBitTlsOutputWithContext(context.Context) ObservabilityPipelineConfigSourceFluentBitTlsOutput
-}
-
-type ObservabilityPipelineConfigSourceFluentBitTlsArgs struct {
-	// Path to the Certificate Authority (CA) file used to validate connecting clients' TLS certificates.
-	CaFile pulumi.StringPtrInput `pulumi:"caFile"`
-	// Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
-	CrtFile pulumi.StringInput `pulumi:"crtFile"`
-	// Path to the private key file associated with the TLS server certificate.
-	KeyFile pulumi.StringPtrInput `pulumi:"keyFile"`
-	// Name of the environment variable or secret that holds the passphrase for the private key file.
-	KeyPassKey pulumi.StringPtrInput `pulumi:"keyPassKey"`
-	// When `true`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
-	VerifyCertificate pulumi.BoolPtrInput `pulumi:"verifyCertificate"`
-}
-
-func (ObservabilityPipelineConfigSourceFluentBitTlsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObservabilityPipelineConfigSourceFluentBitTls)(nil)).Elem()
-}
-
-func (i ObservabilityPipelineConfigSourceFluentBitTlsArgs) ToObservabilityPipelineConfigSourceFluentBitTlsOutput() ObservabilityPipelineConfigSourceFluentBitTlsOutput {
-	return i.ToObservabilityPipelineConfigSourceFluentBitTlsOutputWithContext(context.Background())
-}
-
-func (i ObservabilityPipelineConfigSourceFluentBitTlsArgs) ToObservabilityPipelineConfigSourceFluentBitTlsOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentBitTlsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceFluentBitTlsOutput)
-}
-
-func (i ObservabilityPipelineConfigSourceFluentBitTlsArgs) ToObservabilityPipelineConfigSourceFluentBitTlsPtrOutput() ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput {
-	return i.ToObservabilityPipelineConfigSourceFluentBitTlsPtrOutputWithContext(context.Background())
-}
-
-func (i ObservabilityPipelineConfigSourceFluentBitTlsArgs) ToObservabilityPipelineConfigSourceFluentBitTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceFluentBitTlsOutput).ToObservabilityPipelineConfigSourceFluentBitTlsPtrOutputWithContext(ctx)
-}
-
-// ObservabilityPipelineConfigSourceFluentBitTlsPtrInput is an input type that accepts ObservabilityPipelineConfigSourceFluentBitTlsArgs, ObservabilityPipelineConfigSourceFluentBitTlsPtr and ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput values.
-// You can construct a concrete instance of `ObservabilityPipelineConfigSourceFluentBitTlsPtrInput` via:
-//
-//	        ObservabilityPipelineConfigSourceFluentBitTlsArgs{...}
-//
-//	or:
-//
-//	        nil
-type ObservabilityPipelineConfigSourceFluentBitTlsPtrInput interface {
-	pulumi.Input
-
-	ToObservabilityPipelineConfigSourceFluentBitTlsPtrOutput() ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput
-	ToObservabilityPipelineConfigSourceFluentBitTlsPtrOutputWithContext(context.Context) ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput
-}
-
-type observabilityPipelineConfigSourceFluentBitTlsPtrType ObservabilityPipelineConfigSourceFluentBitTlsArgs
-
-func ObservabilityPipelineConfigSourceFluentBitTlsPtr(v *ObservabilityPipelineConfigSourceFluentBitTlsArgs) ObservabilityPipelineConfigSourceFluentBitTlsPtrInput {
-	return (*observabilityPipelineConfigSourceFluentBitTlsPtrType)(v)
-}
-
-func (*observabilityPipelineConfigSourceFluentBitTlsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ObservabilityPipelineConfigSourceFluentBitTls)(nil)).Elem()
-}
-
-func (i *observabilityPipelineConfigSourceFluentBitTlsPtrType) ToObservabilityPipelineConfigSourceFluentBitTlsPtrOutput() ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput {
-	return i.ToObservabilityPipelineConfigSourceFluentBitTlsPtrOutputWithContext(context.Background())
-}
-
-func (i *observabilityPipelineConfigSourceFluentBitTlsPtrType) ToObservabilityPipelineConfigSourceFluentBitTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput)
-}
-
-type ObservabilityPipelineConfigSourceFluentBitTlsOutput struct{ *pulumi.OutputState }
-
-func (ObservabilityPipelineConfigSourceFluentBitTlsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObservabilityPipelineConfigSourceFluentBitTls)(nil)).Elem()
-}
-
-func (o ObservabilityPipelineConfigSourceFluentBitTlsOutput) ToObservabilityPipelineConfigSourceFluentBitTlsOutput() ObservabilityPipelineConfigSourceFluentBitTlsOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceFluentBitTlsOutput) ToObservabilityPipelineConfigSourceFluentBitTlsOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentBitTlsOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceFluentBitTlsOutput) ToObservabilityPipelineConfigSourceFluentBitTlsPtrOutput() ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput {
-	return o.ToObservabilityPipelineConfigSourceFluentBitTlsPtrOutputWithContext(context.Background())
-}
-
-func (o ObservabilityPipelineConfigSourceFluentBitTlsOutput) ToObservabilityPipelineConfigSourceFluentBitTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigSourceFluentBitTls) *ObservabilityPipelineConfigSourceFluentBitTls {
-		return &v
-	}).(ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput)
-}
-
-// Path to the Certificate Authority (CA) file used to validate connecting clients' TLS certificates.
-func (o ObservabilityPipelineConfigSourceFluentBitTlsOutput) CaFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceFluentBitTls) *string { return v.CaFile }).(pulumi.StringPtrOutput)
-}
-
-// Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
-func (o ObservabilityPipelineConfigSourceFluentBitTlsOutput) CrtFile() pulumi.StringOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceFluentBitTls) string { return v.CrtFile }).(pulumi.StringOutput)
-}
-
-// Path to the private key file associated with the TLS server certificate.
-func (o ObservabilityPipelineConfigSourceFluentBitTlsOutput) KeyFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceFluentBitTls) *string { return v.KeyFile }).(pulumi.StringPtrOutput)
-}
-
-// Name of the environment variable or secret that holds the passphrase for the private key file.
-func (o ObservabilityPipelineConfigSourceFluentBitTlsOutput) KeyPassKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceFluentBitTls) *string { return v.KeyPassKey }).(pulumi.StringPtrOutput)
-}
-
-// When `true`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
-func (o ObservabilityPipelineConfigSourceFluentBitTlsOutput) VerifyCertificate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceFluentBitTls) *bool { return v.VerifyCertificate }).(pulumi.BoolPtrOutput)
-}
-
-type ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput struct{ *pulumi.OutputState }
-
-func (ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ObservabilityPipelineConfigSourceFluentBitTls)(nil)).Elem()
-}
-
-func (o ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput) ToObservabilityPipelineConfigSourceFluentBitTlsPtrOutput() ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput) ToObservabilityPipelineConfigSourceFluentBitTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput) Elem() ObservabilityPipelineConfigSourceFluentBitTlsOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceFluentBitTls) ObservabilityPipelineConfigSourceFluentBitTls {
-		if v != nil {
-			return *v
-		}
-		var ret ObservabilityPipelineConfigSourceFluentBitTls
-		return ret
-	}).(ObservabilityPipelineConfigSourceFluentBitTlsOutput)
-}
-
-// Path to the Certificate Authority (CA) file used to validate connecting clients' TLS certificates.
-func (o ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput) CaFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceFluentBitTls) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CaFile
-	}).(pulumi.StringPtrOutput)
-}
-
-// Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
-func (o ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput) CrtFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceFluentBitTls) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CrtFile
-	}).(pulumi.StringPtrOutput)
-}
-
-// Path to the private key file associated with the TLS server certificate.
-func (o ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput) KeyFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceFluentBitTls) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KeyFile
-	}).(pulumi.StringPtrOutput)
-}
-
-// Name of the environment variable or secret that holds the passphrase for the private key file.
-func (o ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput) KeyPassKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceFluentBitTls) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KeyPassKey
-	}).(pulumi.StringPtrOutput)
-}
-
-// When `true`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
-func (o ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput) VerifyCertificate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceFluentBitTls) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.VerifyCertificate
-	}).(pulumi.BoolPtrOutput)
-}
-
-type ObservabilityPipelineConfigSourceFluentd struct {
-	// Name of the environment variable or secret that holds the listen address.
-	AddressKey *string `pulumi:"addressKey"`
-	// Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
-	Tls *ObservabilityPipelineConfigSourceFluentdTls `pulumi:"tls"`
-}
-
-// ObservabilityPipelineConfigSourceFluentdInput is an input type that accepts ObservabilityPipelineConfigSourceFluentdArgs and ObservabilityPipelineConfigSourceFluentdOutput values.
-// You can construct a concrete instance of `ObservabilityPipelineConfigSourceFluentdInput` via:
-//
-//	ObservabilityPipelineConfigSourceFluentdArgs{...}
-type ObservabilityPipelineConfigSourceFluentdInput interface {
-	pulumi.Input
-
-	ToObservabilityPipelineConfigSourceFluentdOutput() ObservabilityPipelineConfigSourceFluentdOutput
-	ToObservabilityPipelineConfigSourceFluentdOutputWithContext(context.Context) ObservabilityPipelineConfigSourceFluentdOutput
-}
-
-type ObservabilityPipelineConfigSourceFluentdArgs struct {
-	// Name of the environment variable or secret that holds the listen address.
-	AddressKey pulumi.StringPtrInput `pulumi:"addressKey"`
-	// Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
-	Tls ObservabilityPipelineConfigSourceFluentdTlsPtrInput `pulumi:"tls"`
-}
-
-func (ObservabilityPipelineConfigSourceFluentdArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObservabilityPipelineConfigSourceFluentd)(nil)).Elem()
-}
-
-func (i ObservabilityPipelineConfigSourceFluentdArgs) ToObservabilityPipelineConfigSourceFluentdOutput() ObservabilityPipelineConfigSourceFluentdOutput {
-	return i.ToObservabilityPipelineConfigSourceFluentdOutputWithContext(context.Background())
-}
-
-func (i ObservabilityPipelineConfigSourceFluentdArgs) ToObservabilityPipelineConfigSourceFluentdOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentdOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceFluentdOutput)
-}
-
-// ObservabilityPipelineConfigSourceFluentdArrayInput is an input type that accepts ObservabilityPipelineConfigSourceFluentdArray and ObservabilityPipelineConfigSourceFluentdArrayOutput values.
-// You can construct a concrete instance of `ObservabilityPipelineConfigSourceFluentdArrayInput` via:
-//
-//	ObservabilityPipelineConfigSourceFluentdArray{ ObservabilityPipelineConfigSourceFluentdArgs{...} }
-type ObservabilityPipelineConfigSourceFluentdArrayInput interface {
-	pulumi.Input
-
-	ToObservabilityPipelineConfigSourceFluentdArrayOutput() ObservabilityPipelineConfigSourceFluentdArrayOutput
-	ToObservabilityPipelineConfigSourceFluentdArrayOutputWithContext(context.Context) ObservabilityPipelineConfigSourceFluentdArrayOutput
-}
-
-type ObservabilityPipelineConfigSourceFluentdArray []ObservabilityPipelineConfigSourceFluentdInput
-
-func (ObservabilityPipelineConfigSourceFluentdArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ObservabilityPipelineConfigSourceFluentd)(nil)).Elem()
-}
-
-func (i ObservabilityPipelineConfigSourceFluentdArray) ToObservabilityPipelineConfigSourceFluentdArrayOutput() ObservabilityPipelineConfigSourceFluentdArrayOutput {
-	return i.ToObservabilityPipelineConfigSourceFluentdArrayOutputWithContext(context.Background())
-}
-
-func (i ObservabilityPipelineConfigSourceFluentdArray) ToObservabilityPipelineConfigSourceFluentdArrayOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentdArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceFluentdArrayOutput)
-}
-
-type ObservabilityPipelineConfigSourceFluentdOutput struct{ *pulumi.OutputState }
-
-func (ObservabilityPipelineConfigSourceFluentdOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObservabilityPipelineConfigSourceFluentd)(nil)).Elem()
-}
-
-func (o ObservabilityPipelineConfigSourceFluentdOutput) ToObservabilityPipelineConfigSourceFluentdOutput() ObservabilityPipelineConfigSourceFluentdOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceFluentdOutput) ToObservabilityPipelineConfigSourceFluentdOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentdOutput {
-	return o
-}
-
-// Name of the environment variable or secret that holds the listen address.
-func (o ObservabilityPipelineConfigSourceFluentdOutput) AddressKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceFluentd) *string { return v.AddressKey }).(pulumi.StringPtrOutput)
-}
-
-// Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
-func (o ObservabilityPipelineConfigSourceFluentdOutput) Tls() ObservabilityPipelineConfigSourceFluentdTlsPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceFluentd) *ObservabilityPipelineConfigSourceFluentdTls {
-		return v.Tls
-	}).(ObservabilityPipelineConfigSourceFluentdTlsPtrOutput)
-}
-
-type ObservabilityPipelineConfigSourceFluentdArrayOutput struct{ *pulumi.OutputState }
-
-func (ObservabilityPipelineConfigSourceFluentdArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]ObservabilityPipelineConfigSourceFluentd)(nil)).Elem()
-}
-
-func (o ObservabilityPipelineConfigSourceFluentdArrayOutput) ToObservabilityPipelineConfigSourceFluentdArrayOutput() ObservabilityPipelineConfigSourceFluentdArrayOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceFluentdArrayOutput) ToObservabilityPipelineConfigSourceFluentdArrayOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentdArrayOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceFluentdArrayOutput) Index(i pulumi.IntInput) ObservabilityPipelineConfigSourceFluentdOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ObservabilityPipelineConfigSourceFluentd {
-		return vs[0].([]ObservabilityPipelineConfigSourceFluentd)[vs[1].(int)]
-	}).(ObservabilityPipelineConfigSourceFluentdOutput)
-}
-
-type ObservabilityPipelineConfigSourceFluentdTls struct {
-	// Path to the Certificate Authority (CA) file used to validate connecting clients' TLS certificates.
-	CaFile *string `pulumi:"caFile"`
-	// Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
-	CrtFile string `pulumi:"crtFile"`
-	// Path to the private key file associated with the TLS server certificate.
-	KeyFile *string `pulumi:"keyFile"`
-	// Name of the environment variable or secret that holds the passphrase for the private key file.
-	KeyPassKey *string `pulumi:"keyPassKey"`
-	// When `true`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
-	VerifyCertificate *bool `pulumi:"verifyCertificate"`
-}
-
-// ObservabilityPipelineConfigSourceFluentdTlsInput is an input type that accepts ObservabilityPipelineConfigSourceFluentdTlsArgs and ObservabilityPipelineConfigSourceFluentdTlsOutput values.
-// You can construct a concrete instance of `ObservabilityPipelineConfigSourceFluentdTlsInput` via:
-//
-//	ObservabilityPipelineConfigSourceFluentdTlsArgs{...}
-type ObservabilityPipelineConfigSourceFluentdTlsInput interface {
-	pulumi.Input
-
-	ToObservabilityPipelineConfigSourceFluentdTlsOutput() ObservabilityPipelineConfigSourceFluentdTlsOutput
-	ToObservabilityPipelineConfigSourceFluentdTlsOutputWithContext(context.Context) ObservabilityPipelineConfigSourceFluentdTlsOutput
-}
-
-type ObservabilityPipelineConfigSourceFluentdTlsArgs struct {
-	// Path to the Certificate Authority (CA) file used to validate connecting clients' TLS certificates.
-	CaFile pulumi.StringPtrInput `pulumi:"caFile"`
-	// Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
-	CrtFile pulumi.StringInput `pulumi:"crtFile"`
-	// Path to the private key file associated with the TLS server certificate.
-	KeyFile pulumi.StringPtrInput `pulumi:"keyFile"`
-	// Name of the environment variable or secret that holds the passphrase for the private key file.
-	KeyPassKey pulumi.StringPtrInput `pulumi:"keyPassKey"`
-	// When `true`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
-	VerifyCertificate pulumi.BoolPtrInput `pulumi:"verifyCertificate"`
-}
-
-func (ObservabilityPipelineConfigSourceFluentdTlsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObservabilityPipelineConfigSourceFluentdTls)(nil)).Elem()
-}
-
-func (i ObservabilityPipelineConfigSourceFluentdTlsArgs) ToObservabilityPipelineConfigSourceFluentdTlsOutput() ObservabilityPipelineConfigSourceFluentdTlsOutput {
-	return i.ToObservabilityPipelineConfigSourceFluentdTlsOutputWithContext(context.Background())
-}
-
-func (i ObservabilityPipelineConfigSourceFluentdTlsArgs) ToObservabilityPipelineConfigSourceFluentdTlsOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentdTlsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceFluentdTlsOutput)
-}
-
-func (i ObservabilityPipelineConfigSourceFluentdTlsArgs) ToObservabilityPipelineConfigSourceFluentdTlsPtrOutput() ObservabilityPipelineConfigSourceFluentdTlsPtrOutput {
-	return i.ToObservabilityPipelineConfigSourceFluentdTlsPtrOutputWithContext(context.Background())
-}
-
-func (i ObservabilityPipelineConfigSourceFluentdTlsArgs) ToObservabilityPipelineConfigSourceFluentdTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentdTlsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceFluentdTlsOutput).ToObservabilityPipelineConfigSourceFluentdTlsPtrOutputWithContext(ctx)
-}
-
-// ObservabilityPipelineConfigSourceFluentdTlsPtrInput is an input type that accepts ObservabilityPipelineConfigSourceFluentdTlsArgs, ObservabilityPipelineConfigSourceFluentdTlsPtr and ObservabilityPipelineConfigSourceFluentdTlsPtrOutput values.
-// You can construct a concrete instance of `ObservabilityPipelineConfigSourceFluentdTlsPtrInput` via:
-//
-//	        ObservabilityPipelineConfigSourceFluentdTlsArgs{...}
-//
-//	or:
-//
-//	        nil
-type ObservabilityPipelineConfigSourceFluentdTlsPtrInput interface {
-	pulumi.Input
-
-	ToObservabilityPipelineConfigSourceFluentdTlsPtrOutput() ObservabilityPipelineConfigSourceFluentdTlsPtrOutput
-	ToObservabilityPipelineConfigSourceFluentdTlsPtrOutputWithContext(context.Context) ObservabilityPipelineConfigSourceFluentdTlsPtrOutput
-}
-
-type observabilityPipelineConfigSourceFluentdTlsPtrType ObservabilityPipelineConfigSourceFluentdTlsArgs
-
-func ObservabilityPipelineConfigSourceFluentdTlsPtr(v *ObservabilityPipelineConfigSourceFluentdTlsArgs) ObservabilityPipelineConfigSourceFluentdTlsPtrInput {
-	return (*observabilityPipelineConfigSourceFluentdTlsPtrType)(v)
-}
-
-func (*observabilityPipelineConfigSourceFluentdTlsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ObservabilityPipelineConfigSourceFluentdTls)(nil)).Elem()
-}
-
-func (i *observabilityPipelineConfigSourceFluentdTlsPtrType) ToObservabilityPipelineConfigSourceFluentdTlsPtrOutput() ObservabilityPipelineConfigSourceFluentdTlsPtrOutput {
-	return i.ToObservabilityPipelineConfigSourceFluentdTlsPtrOutputWithContext(context.Background())
-}
-
-func (i *observabilityPipelineConfigSourceFluentdTlsPtrType) ToObservabilityPipelineConfigSourceFluentdTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentdTlsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceFluentdTlsPtrOutput)
-}
-
-type ObservabilityPipelineConfigSourceFluentdTlsOutput struct{ *pulumi.OutputState }
-
-func (ObservabilityPipelineConfigSourceFluentdTlsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObservabilityPipelineConfigSourceFluentdTls)(nil)).Elem()
-}
-
-func (o ObservabilityPipelineConfigSourceFluentdTlsOutput) ToObservabilityPipelineConfigSourceFluentdTlsOutput() ObservabilityPipelineConfigSourceFluentdTlsOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceFluentdTlsOutput) ToObservabilityPipelineConfigSourceFluentdTlsOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentdTlsOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceFluentdTlsOutput) ToObservabilityPipelineConfigSourceFluentdTlsPtrOutput() ObservabilityPipelineConfigSourceFluentdTlsPtrOutput {
-	return o.ToObservabilityPipelineConfigSourceFluentdTlsPtrOutputWithContext(context.Background())
-}
-
-func (o ObservabilityPipelineConfigSourceFluentdTlsOutput) ToObservabilityPipelineConfigSourceFluentdTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentdTlsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigSourceFluentdTls) *ObservabilityPipelineConfigSourceFluentdTls {
-		return &v
-	}).(ObservabilityPipelineConfigSourceFluentdTlsPtrOutput)
-}
-
-// Path to the Certificate Authority (CA) file used to validate connecting clients' TLS certificates.
-func (o ObservabilityPipelineConfigSourceFluentdTlsOutput) CaFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceFluentdTls) *string { return v.CaFile }).(pulumi.StringPtrOutput)
-}
-
-// Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
-func (o ObservabilityPipelineConfigSourceFluentdTlsOutput) CrtFile() pulumi.StringOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceFluentdTls) string { return v.CrtFile }).(pulumi.StringOutput)
-}
-
-// Path to the private key file associated with the TLS server certificate.
-func (o ObservabilityPipelineConfigSourceFluentdTlsOutput) KeyFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceFluentdTls) *string { return v.KeyFile }).(pulumi.StringPtrOutput)
-}
-
-// Name of the environment variable or secret that holds the passphrase for the private key file.
-func (o ObservabilityPipelineConfigSourceFluentdTlsOutput) KeyPassKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceFluentdTls) *string { return v.KeyPassKey }).(pulumi.StringPtrOutput)
-}
-
-// When `true`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
-func (o ObservabilityPipelineConfigSourceFluentdTlsOutput) VerifyCertificate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigSourceFluentdTls) *bool { return v.VerifyCertificate }).(pulumi.BoolPtrOutput)
-}
-
-type ObservabilityPipelineConfigSourceFluentdTlsPtrOutput struct{ *pulumi.OutputState }
-
-func (ObservabilityPipelineConfigSourceFluentdTlsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ObservabilityPipelineConfigSourceFluentdTls)(nil)).Elem()
-}
-
-func (o ObservabilityPipelineConfigSourceFluentdTlsPtrOutput) ToObservabilityPipelineConfigSourceFluentdTlsPtrOutput() ObservabilityPipelineConfigSourceFluentdTlsPtrOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceFluentdTlsPtrOutput) ToObservabilityPipelineConfigSourceFluentdTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentdTlsPtrOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigSourceFluentdTlsPtrOutput) Elem() ObservabilityPipelineConfigSourceFluentdTlsOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceFluentdTls) ObservabilityPipelineConfigSourceFluentdTls {
-		if v != nil {
-			return *v
-		}
-		var ret ObservabilityPipelineConfigSourceFluentdTls
-		return ret
-	}).(ObservabilityPipelineConfigSourceFluentdTlsOutput)
-}
-
-// Path to the Certificate Authority (CA) file used to validate connecting clients' TLS certificates.
-func (o ObservabilityPipelineConfigSourceFluentdTlsPtrOutput) CaFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceFluentdTls) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CaFile
-	}).(pulumi.StringPtrOutput)
-}
-
-// Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
-func (o ObservabilityPipelineConfigSourceFluentdTlsPtrOutput) CrtFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceFluentdTls) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.CrtFile
-	}).(pulumi.StringPtrOutput)
-}
-
-// Path to the private key file associated with the TLS server certificate.
-func (o ObservabilityPipelineConfigSourceFluentdTlsPtrOutput) KeyFile() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceFluentdTls) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KeyFile
-	}).(pulumi.StringPtrOutput)
-}
-
-// Name of the environment variable or secret that holds the passphrase for the private key file.
-func (o ObservabilityPipelineConfigSourceFluentdTlsPtrOutput) KeyPassKey() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceFluentdTls) *string {
-		if v == nil {
-			return nil
-		}
-		return v.KeyPassKey
-	}).(pulumi.StringPtrOutput)
-}
-
-// When `true`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
-func (o ObservabilityPipelineConfigSourceFluentdTlsPtrOutput) VerifyCertificate() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceFluentdTls) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.VerifyCertificate
-	}).(pulumi.BoolPtrOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalInput)(nil)).Elem(), DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrInput)(nil)).Elem(), DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryInput)(nil)).Elem(), DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrInput)(nil)).Elem(), DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryInput)(nil)).Elem(), DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrInput)(nil)).Elem(), DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeInput)(nil)).Elem(), DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrInput)(nil)).Elem(), DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetInput)(nil)).Elem(), DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrInput)(nil)).Elem(), DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByInput)(nil)).Elem(), DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArrayInput)(nil)).Elem(), DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortInput)(nil)).Elem(), DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrInput)(nil)).Elem(), DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetInput)(nil)).Elem(), DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrInput)(nil)).Elem(), DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchInput)(nil)).Elem(), DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrInput)(nil)).Elem(), DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersInput)(nil)).Elem(), DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrInput)(nil)).Elem(), DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersInput)(nil)).Elem(), DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrInput)(nil)).Elem(), DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountInput)(nil)).Elem(), DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayInput)(nil)).Elem(), DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentInput)(nil)).Elem(), DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayInput)(nil)).Elem(), DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserInput)(nil)).Elem(), DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayInput)(nil)).Elem(), DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersGraphFilterInput)(nil)).Elem(), DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersGraphFilterArgs{})
@@ -83298,6 +83483,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorVariablesEventQueryGroupBySortInput)(nil)).Elem(), MonitorVariablesEventQueryGroupBySortArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorVariablesEventQueryGroupBySortPtrInput)(nil)).Elem(), MonitorVariablesEventQueryGroupBySortArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorVariablesEventQuerySearchInput)(nil)).Elem(), MonitorVariablesEventQuerySearchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorVariablesMetricQueryInput)(nil)).Elem(), MonitorVariablesMetricQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorVariablesMetricQueryArrayInput)(nil)).Elem(), MonitorVariablesMetricQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigInput)(nil)).Elem(), ObservabilityPipelineConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigPtrInput)(nil)).Elem(), ObservabilityPipelineConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigDestinationInput)(nil)).Elem(), ObservabilityPipelineConfigDestinationArgs{})
@@ -83836,34 +84023,32 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitPerTagLimitArrayInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitPerTagLimitArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorThrottleInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorThrottleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorThrottleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceInput)(nil)).Elem(), ObservabilityPipelineConfigSourceArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceArrayInput)(nil)).Elem(), ObservabilityPipelineConfigSourceArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonDataFirehoseInput)(nil)).Elem(), ObservabilityPipelineConfigSourceAmazonDataFirehoseArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayInput)(nil)).Elem(), ObservabilityPipelineConfigSourceAmazonDataFirehoseArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthInput)(nil)).Elem(), ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrInput)(nil)).Elem(), ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsInput)(nil)).Elem(), ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrInput)(nil)).Elem(), ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonS3Input)(nil)).Elem(), ObservabilityPipelineConfigSourceAmazonS3Args{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonS3ArrayInput)(nil)).Elem(), ObservabilityPipelineConfigSourceAmazonS3Array{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonS3AuthInput)(nil)).Elem(), ObservabilityPipelineConfigSourceAmazonS3AuthArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonS3AuthPtrInput)(nil)).Elem(), ObservabilityPipelineConfigSourceAmazonS3AuthArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonS3TlsInput)(nil)).Elem(), ObservabilityPipelineConfigSourceAmazonS3TlsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonS3TlsPtrInput)(nil)).Elem(), ObservabilityPipelineConfigSourceAmazonS3TlsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceDatadogAgentInput)(nil)).Elem(), ObservabilityPipelineConfigSourceDatadogAgentArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceDatadogAgentArrayInput)(nil)).Elem(), ObservabilityPipelineConfigSourceDatadogAgentArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceDatadogAgentTlsInput)(nil)).Elem(), ObservabilityPipelineConfigSourceDatadogAgentTlsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceDatadogAgentTlsPtrInput)(nil)).Elem(), ObservabilityPipelineConfigSourceDatadogAgentTlsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceFluentBitInput)(nil)).Elem(), ObservabilityPipelineConfigSourceFluentBitArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceFluentBitArrayInput)(nil)).Elem(), ObservabilityPipelineConfigSourceFluentBitArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceFluentBitTlsInput)(nil)).Elem(), ObservabilityPipelineConfigSourceFluentBitTlsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceFluentBitTlsPtrInput)(nil)).Elem(), ObservabilityPipelineConfigSourceFluentBitTlsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceFluentdInput)(nil)).Elem(), ObservabilityPipelineConfigSourceFluentdArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceFluentdArrayInput)(nil)).Elem(), ObservabilityPipelineConfigSourceFluentdArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceFluentdTlsInput)(nil)).Elem(), ObservabilityPipelineConfigSourceFluentdTlsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceFluentdTlsPtrInput)(nil)).Elem(), ObservabilityPipelineConfigSourceFluentdTlsArgs{})
+	pulumi.RegisterOutputType(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryPtrOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryPtrOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputePtrOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryComputeTargetPtrOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByArrayOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupBySortPtrOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQueryGroupByTargetPtrOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchPtrOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersPtrOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput{})
 	pulumi.RegisterOutputType(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserOutput{})
 	pulumi.RegisterOutputType(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayOutput{})
 	pulumi.RegisterOutputType(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryUserJourneyQuerySearchFiltersGraphFilterOutput{})
@@ -84280,6 +84465,8 @@ func init() {
 	pulumi.RegisterOutputType(MonitorVariablesEventQueryGroupBySortOutput{})
 	pulumi.RegisterOutputType(MonitorVariablesEventQueryGroupBySortPtrOutput{})
 	pulumi.RegisterOutputType(MonitorVariablesEventQuerySearchOutput{})
+	pulumi.RegisterOutputType(MonitorVariablesMetricQueryOutput{})
+	pulumi.RegisterOutputType(MonitorVariablesMetricQueryArrayOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigPtrOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigDestinationOutput{})
@@ -84818,32 +85005,4 @@ func init() {
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitPerTagLimitArrayOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput{})
-	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput{})
-	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput{})
-	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceOutput{})
-	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceArrayOutput{})
-	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput{})
-	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput{})
-	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput{})
-	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput{})
-	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput{})
-	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput{})
-	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceAmazonS3Output{})
-	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceAmazonS3ArrayOutput{})
-	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceAmazonS3AuthOutput{})
-	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput{})
-	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceAmazonS3TlsOutput{})
-	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput{})
-	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceDatadogAgentOutput{})
-	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceDatadogAgentArrayOutput{})
-	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceDatadogAgentTlsOutput{})
-	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput{})
-	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceFluentBitOutput{})
-	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceFluentBitArrayOutput{})
-	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceFluentBitTlsOutput{})
-	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput{})
-	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceFluentdOutput{})
-	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceFluentdArrayOutput{})
-	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceFluentdTlsOutput{})
-	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceFluentdTlsPtrOutput{})
 }

@@ -16506,6 +16506,1016 @@ func (o ActionExecutionPolicyTargetArrayOutput) Index(i pulumi.IntInput) ActionE
 	}).(ActionExecutionPolicyTargetOutput)
 }
 
+type AiGatewayBudgetSelector struct {
+	// Dimension to match: `userId`, `teamId`, `model`, `provider`, or `tag:<key>` with a lowercase key.
+	Dim string `pulumi:"dim"`
+	// Whether each matched value gets its own budget instance. When `false`, spend is pooled across all matched values. Defaults to `false`.
+	PerValue *bool `pulumi:"perValue"`
+	// Values the dimension must have. Omit to match any value, including requests that don't have the dimension.
+	Values []string `pulumi:"values"`
+}
+
+// AiGatewayBudgetSelectorInput is an input type that accepts AiGatewayBudgetSelectorArgs and AiGatewayBudgetSelectorOutput values.
+// You can construct a concrete instance of `AiGatewayBudgetSelectorInput` via:
+//
+//	AiGatewayBudgetSelectorArgs{...}
+type AiGatewayBudgetSelectorInput interface {
+	pulumi.Input
+
+	ToAiGatewayBudgetSelectorOutput() AiGatewayBudgetSelectorOutput
+	ToAiGatewayBudgetSelectorOutputWithContext(context.Context) AiGatewayBudgetSelectorOutput
+}
+
+type AiGatewayBudgetSelectorArgs struct {
+	// Dimension to match: `userId`, `teamId`, `model`, `provider`, or `tag:<key>` with a lowercase key.
+	Dim pulumi.StringInput `pulumi:"dim"`
+	// Whether each matched value gets its own budget instance. When `false`, spend is pooled across all matched values. Defaults to `false`.
+	PerValue pulumi.BoolPtrInput `pulumi:"perValue"`
+	// Values the dimension must have. Omit to match any value, including requests that don't have the dimension.
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (AiGatewayBudgetSelectorArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGatewayBudgetSelector)(nil)).Elem()
+}
+
+func (i AiGatewayBudgetSelectorArgs) ToAiGatewayBudgetSelectorOutput() AiGatewayBudgetSelectorOutput {
+	return i.ToAiGatewayBudgetSelectorOutputWithContext(context.Background())
+}
+
+func (i AiGatewayBudgetSelectorArgs) ToAiGatewayBudgetSelectorOutputWithContext(ctx context.Context) AiGatewayBudgetSelectorOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGatewayBudgetSelectorOutput)
+}
+
+// AiGatewayBudgetSelectorArrayInput is an input type that accepts AiGatewayBudgetSelectorArray and AiGatewayBudgetSelectorArrayOutput values.
+// You can construct a concrete instance of `AiGatewayBudgetSelectorArrayInput` via:
+//
+//	AiGatewayBudgetSelectorArray{ AiGatewayBudgetSelectorArgs{...} }
+type AiGatewayBudgetSelectorArrayInput interface {
+	pulumi.Input
+
+	ToAiGatewayBudgetSelectorArrayOutput() AiGatewayBudgetSelectorArrayOutput
+	ToAiGatewayBudgetSelectorArrayOutputWithContext(context.Context) AiGatewayBudgetSelectorArrayOutput
+}
+
+type AiGatewayBudgetSelectorArray []AiGatewayBudgetSelectorInput
+
+func (AiGatewayBudgetSelectorArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AiGatewayBudgetSelector)(nil)).Elem()
+}
+
+func (i AiGatewayBudgetSelectorArray) ToAiGatewayBudgetSelectorArrayOutput() AiGatewayBudgetSelectorArrayOutput {
+	return i.ToAiGatewayBudgetSelectorArrayOutputWithContext(context.Background())
+}
+
+func (i AiGatewayBudgetSelectorArray) ToAiGatewayBudgetSelectorArrayOutputWithContext(ctx context.Context) AiGatewayBudgetSelectorArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGatewayBudgetSelectorArrayOutput)
+}
+
+type AiGatewayBudgetSelectorOutput struct{ *pulumi.OutputState }
+
+func (AiGatewayBudgetSelectorOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGatewayBudgetSelector)(nil)).Elem()
+}
+
+func (o AiGatewayBudgetSelectorOutput) ToAiGatewayBudgetSelectorOutput() AiGatewayBudgetSelectorOutput {
+	return o
+}
+
+func (o AiGatewayBudgetSelectorOutput) ToAiGatewayBudgetSelectorOutputWithContext(ctx context.Context) AiGatewayBudgetSelectorOutput {
+	return o
+}
+
+// Dimension to match: `userId`, `teamId`, `model`, `provider`, or `tag:<key>` with a lowercase key.
+func (o AiGatewayBudgetSelectorOutput) Dim() pulumi.StringOutput {
+	return o.ApplyT(func(v AiGatewayBudgetSelector) string { return v.Dim }).(pulumi.StringOutput)
+}
+
+// Whether each matched value gets its own budget instance. When `false`, spend is pooled across all matched values. Defaults to `false`.
+func (o AiGatewayBudgetSelectorOutput) PerValue() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AiGatewayBudgetSelector) *bool { return v.PerValue }).(pulumi.BoolPtrOutput)
+}
+
+// Values the dimension must have. Omit to match any value, including requests that don't have the dimension.
+func (o AiGatewayBudgetSelectorOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AiGatewayBudgetSelector) []string { return v.Values }).(pulumi.StringArrayOutput)
+}
+
+type AiGatewayBudgetSelectorArrayOutput struct{ *pulumi.OutputState }
+
+func (AiGatewayBudgetSelectorArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AiGatewayBudgetSelector)(nil)).Elem()
+}
+
+func (o AiGatewayBudgetSelectorArrayOutput) ToAiGatewayBudgetSelectorArrayOutput() AiGatewayBudgetSelectorArrayOutput {
+	return o
+}
+
+func (o AiGatewayBudgetSelectorArrayOutput) ToAiGatewayBudgetSelectorArrayOutputWithContext(ctx context.Context) AiGatewayBudgetSelectorArrayOutput {
+	return o
+}
+
+func (o AiGatewayBudgetSelectorArrayOutput) Index(i pulumi.IntInput) AiGatewayBudgetSelectorOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AiGatewayBudgetSelector {
+		return vs[0].([]AiGatewayBudgetSelector)[vs[1].(int)]
+	}).(AiGatewayBudgetSelectorOutput)
+}
+
+type AiGatewayPolicyTier struct {
+	// Targets in the tier.
+	Targets []AiGatewayPolicyTierTarget `pulumi:"targets"`
+}
+
+// AiGatewayPolicyTierInput is an input type that accepts AiGatewayPolicyTierArgs and AiGatewayPolicyTierOutput values.
+// You can construct a concrete instance of `AiGatewayPolicyTierInput` via:
+//
+//	AiGatewayPolicyTierArgs{...}
+type AiGatewayPolicyTierInput interface {
+	pulumi.Input
+
+	ToAiGatewayPolicyTierOutput() AiGatewayPolicyTierOutput
+	ToAiGatewayPolicyTierOutputWithContext(context.Context) AiGatewayPolicyTierOutput
+}
+
+type AiGatewayPolicyTierArgs struct {
+	// Targets in the tier.
+	Targets AiGatewayPolicyTierTargetArrayInput `pulumi:"targets"`
+}
+
+func (AiGatewayPolicyTierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGatewayPolicyTier)(nil)).Elem()
+}
+
+func (i AiGatewayPolicyTierArgs) ToAiGatewayPolicyTierOutput() AiGatewayPolicyTierOutput {
+	return i.ToAiGatewayPolicyTierOutputWithContext(context.Background())
+}
+
+func (i AiGatewayPolicyTierArgs) ToAiGatewayPolicyTierOutputWithContext(ctx context.Context) AiGatewayPolicyTierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGatewayPolicyTierOutput)
+}
+
+// AiGatewayPolicyTierArrayInput is an input type that accepts AiGatewayPolicyTierArray and AiGatewayPolicyTierArrayOutput values.
+// You can construct a concrete instance of `AiGatewayPolicyTierArrayInput` via:
+//
+//	AiGatewayPolicyTierArray{ AiGatewayPolicyTierArgs{...} }
+type AiGatewayPolicyTierArrayInput interface {
+	pulumi.Input
+
+	ToAiGatewayPolicyTierArrayOutput() AiGatewayPolicyTierArrayOutput
+	ToAiGatewayPolicyTierArrayOutputWithContext(context.Context) AiGatewayPolicyTierArrayOutput
+}
+
+type AiGatewayPolicyTierArray []AiGatewayPolicyTierInput
+
+func (AiGatewayPolicyTierArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AiGatewayPolicyTier)(nil)).Elem()
+}
+
+func (i AiGatewayPolicyTierArray) ToAiGatewayPolicyTierArrayOutput() AiGatewayPolicyTierArrayOutput {
+	return i.ToAiGatewayPolicyTierArrayOutputWithContext(context.Background())
+}
+
+func (i AiGatewayPolicyTierArray) ToAiGatewayPolicyTierArrayOutputWithContext(ctx context.Context) AiGatewayPolicyTierArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGatewayPolicyTierArrayOutput)
+}
+
+type AiGatewayPolicyTierOutput struct{ *pulumi.OutputState }
+
+func (AiGatewayPolicyTierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGatewayPolicyTier)(nil)).Elem()
+}
+
+func (o AiGatewayPolicyTierOutput) ToAiGatewayPolicyTierOutput() AiGatewayPolicyTierOutput {
+	return o
+}
+
+func (o AiGatewayPolicyTierOutput) ToAiGatewayPolicyTierOutputWithContext(ctx context.Context) AiGatewayPolicyTierOutput {
+	return o
+}
+
+// Targets in the tier.
+func (o AiGatewayPolicyTierOutput) Targets() AiGatewayPolicyTierTargetArrayOutput {
+	return o.ApplyT(func(v AiGatewayPolicyTier) []AiGatewayPolicyTierTarget { return v.Targets }).(AiGatewayPolicyTierTargetArrayOutput)
+}
+
+type AiGatewayPolicyTierArrayOutput struct{ *pulumi.OutputState }
+
+func (AiGatewayPolicyTierArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AiGatewayPolicyTier)(nil)).Elem()
+}
+
+func (o AiGatewayPolicyTierArrayOutput) ToAiGatewayPolicyTierArrayOutput() AiGatewayPolicyTierArrayOutput {
+	return o
+}
+
+func (o AiGatewayPolicyTierArrayOutput) ToAiGatewayPolicyTierArrayOutputWithContext(ctx context.Context) AiGatewayPolicyTierArrayOutput {
+	return o
+}
+
+func (o AiGatewayPolicyTierArrayOutput) Index(i pulumi.IntInput) AiGatewayPolicyTierOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AiGatewayPolicyTier {
+		return vs[0].([]AiGatewayPolicyTier)[vs[1].(int)]
+	}).(AiGatewayPolicyTierOutput)
+}
+
+type AiGatewayPolicyTierTarget struct {
+	// Model name, or a pattern with a trailing `*`.
+	Model string `pulumi:"model"`
+	// Slug of the provider to route to, or `*` to fan out to every provider. When unset, the gateway resolves the provider from the model.
+	Provider *string `pulumi:"provider"`
+}
+
+// AiGatewayPolicyTierTargetInput is an input type that accepts AiGatewayPolicyTierTargetArgs and AiGatewayPolicyTierTargetOutput values.
+// You can construct a concrete instance of `AiGatewayPolicyTierTargetInput` via:
+//
+//	AiGatewayPolicyTierTargetArgs{...}
+type AiGatewayPolicyTierTargetInput interface {
+	pulumi.Input
+
+	ToAiGatewayPolicyTierTargetOutput() AiGatewayPolicyTierTargetOutput
+	ToAiGatewayPolicyTierTargetOutputWithContext(context.Context) AiGatewayPolicyTierTargetOutput
+}
+
+type AiGatewayPolicyTierTargetArgs struct {
+	// Model name, or a pattern with a trailing `*`.
+	Model pulumi.StringInput `pulumi:"model"`
+	// Slug of the provider to route to, or `*` to fan out to every provider. When unset, the gateway resolves the provider from the model.
+	Provider pulumi.StringPtrInput `pulumi:"provider"`
+}
+
+func (AiGatewayPolicyTierTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGatewayPolicyTierTarget)(nil)).Elem()
+}
+
+func (i AiGatewayPolicyTierTargetArgs) ToAiGatewayPolicyTierTargetOutput() AiGatewayPolicyTierTargetOutput {
+	return i.ToAiGatewayPolicyTierTargetOutputWithContext(context.Background())
+}
+
+func (i AiGatewayPolicyTierTargetArgs) ToAiGatewayPolicyTierTargetOutputWithContext(ctx context.Context) AiGatewayPolicyTierTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGatewayPolicyTierTargetOutput)
+}
+
+// AiGatewayPolicyTierTargetArrayInput is an input type that accepts AiGatewayPolicyTierTargetArray and AiGatewayPolicyTierTargetArrayOutput values.
+// You can construct a concrete instance of `AiGatewayPolicyTierTargetArrayInput` via:
+//
+//	AiGatewayPolicyTierTargetArray{ AiGatewayPolicyTierTargetArgs{...} }
+type AiGatewayPolicyTierTargetArrayInput interface {
+	pulumi.Input
+
+	ToAiGatewayPolicyTierTargetArrayOutput() AiGatewayPolicyTierTargetArrayOutput
+	ToAiGatewayPolicyTierTargetArrayOutputWithContext(context.Context) AiGatewayPolicyTierTargetArrayOutput
+}
+
+type AiGatewayPolicyTierTargetArray []AiGatewayPolicyTierTargetInput
+
+func (AiGatewayPolicyTierTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AiGatewayPolicyTierTarget)(nil)).Elem()
+}
+
+func (i AiGatewayPolicyTierTargetArray) ToAiGatewayPolicyTierTargetArrayOutput() AiGatewayPolicyTierTargetArrayOutput {
+	return i.ToAiGatewayPolicyTierTargetArrayOutputWithContext(context.Background())
+}
+
+func (i AiGatewayPolicyTierTargetArray) ToAiGatewayPolicyTierTargetArrayOutputWithContext(ctx context.Context) AiGatewayPolicyTierTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGatewayPolicyTierTargetArrayOutput)
+}
+
+type AiGatewayPolicyTierTargetOutput struct{ *pulumi.OutputState }
+
+func (AiGatewayPolicyTierTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGatewayPolicyTierTarget)(nil)).Elem()
+}
+
+func (o AiGatewayPolicyTierTargetOutput) ToAiGatewayPolicyTierTargetOutput() AiGatewayPolicyTierTargetOutput {
+	return o
+}
+
+func (o AiGatewayPolicyTierTargetOutput) ToAiGatewayPolicyTierTargetOutputWithContext(ctx context.Context) AiGatewayPolicyTierTargetOutput {
+	return o
+}
+
+// Model name, or a pattern with a trailing `*`.
+func (o AiGatewayPolicyTierTargetOutput) Model() pulumi.StringOutput {
+	return o.ApplyT(func(v AiGatewayPolicyTierTarget) string { return v.Model }).(pulumi.StringOutput)
+}
+
+// Slug of the provider to route to, or `*` to fan out to every provider. When unset, the gateway resolves the provider from the model.
+func (o AiGatewayPolicyTierTargetOutput) Provider() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AiGatewayPolicyTierTarget) *string { return v.Provider }).(pulumi.StringPtrOutput)
+}
+
+type AiGatewayPolicyTierTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (AiGatewayPolicyTierTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AiGatewayPolicyTierTarget)(nil)).Elem()
+}
+
+func (o AiGatewayPolicyTierTargetArrayOutput) ToAiGatewayPolicyTierTargetArrayOutput() AiGatewayPolicyTierTargetArrayOutput {
+	return o
+}
+
+func (o AiGatewayPolicyTierTargetArrayOutput) ToAiGatewayPolicyTierTargetArrayOutputWithContext(ctx context.Context) AiGatewayPolicyTierTargetArrayOutput {
+	return o
+}
+
+func (o AiGatewayPolicyTierTargetArrayOutput) Index(i pulumi.IntInput) AiGatewayPolicyTierTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AiGatewayPolicyTierTarget {
+		return vs[0].([]AiGatewayPolicyTierTarget)[vs[1].(int)]
+	}).(AiGatewayPolicyTierTargetOutput)
+}
+
+type AiGatewayProviderIntegrationConfig struct {
+	// AWS region, for `bedrock` providers.
+	BedrockRegion *string `pulumi:"bedrockRegion"`
+	// Azure AI Foundry project name, for `azureFoundry` providers.
+	FoundryProject *string `pulumi:"foundryProject"`
+	// ARM resource ID of the Azure AI Foundry resource, for `azureFoundry` providers.
+	FoundryResourceId *string `pulumi:"foundryResourceId"`
+	// GCP location, for `gemini` providers.
+	Location *string `pulumi:"location"`
+	// GCP project ID, for `gemini` providers.
+	ProjectId *string `pulumi:"projectId"`
+	// Operations that a `custom` provider discovered and manually added models support. The API defaults to `OPENAI_CHAT_COMPLETIONS`.
+	SupportedOperations []string `pulumi:"supportedOperations"`
+}
+
+// AiGatewayProviderIntegrationConfigInput is an input type that accepts AiGatewayProviderIntegrationConfigArgs and AiGatewayProviderIntegrationConfigOutput values.
+// You can construct a concrete instance of `AiGatewayProviderIntegrationConfigInput` via:
+//
+//	AiGatewayProviderIntegrationConfigArgs{...}
+type AiGatewayProviderIntegrationConfigInput interface {
+	pulumi.Input
+
+	ToAiGatewayProviderIntegrationConfigOutput() AiGatewayProviderIntegrationConfigOutput
+	ToAiGatewayProviderIntegrationConfigOutputWithContext(context.Context) AiGatewayProviderIntegrationConfigOutput
+}
+
+type AiGatewayProviderIntegrationConfigArgs struct {
+	// AWS region, for `bedrock` providers.
+	BedrockRegion pulumi.StringPtrInput `pulumi:"bedrockRegion"`
+	// Azure AI Foundry project name, for `azureFoundry` providers.
+	FoundryProject pulumi.StringPtrInput `pulumi:"foundryProject"`
+	// ARM resource ID of the Azure AI Foundry resource, for `azureFoundry` providers.
+	FoundryResourceId pulumi.StringPtrInput `pulumi:"foundryResourceId"`
+	// GCP location, for `gemini` providers.
+	Location pulumi.StringPtrInput `pulumi:"location"`
+	// GCP project ID, for `gemini` providers.
+	ProjectId pulumi.StringPtrInput `pulumi:"projectId"`
+	// Operations that a `custom` provider discovered and manually added models support. The API defaults to `OPENAI_CHAT_COMPLETIONS`.
+	SupportedOperations pulumi.StringArrayInput `pulumi:"supportedOperations"`
+}
+
+func (AiGatewayProviderIntegrationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGatewayProviderIntegrationConfig)(nil)).Elem()
+}
+
+func (i AiGatewayProviderIntegrationConfigArgs) ToAiGatewayProviderIntegrationConfigOutput() AiGatewayProviderIntegrationConfigOutput {
+	return i.ToAiGatewayProviderIntegrationConfigOutputWithContext(context.Background())
+}
+
+func (i AiGatewayProviderIntegrationConfigArgs) ToAiGatewayProviderIntegrationConfigOutputWithContext(ctx context.Context) AiGatewayProviderIntegrationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGatewayProviderIntegrationConfigOutput)
+}
+
+func (i AiGatewayProviderIntegrationConfigArgs) ToAiGatewayProviderIntegrationConfigPtrOutput() AiGatewayProviderIntegrationConfigPtrOutput {
+	return i.ToAiGatewayProviderIntegrationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i AiGatewayProviderIntegrationConfigArgs) ToAiGatewayProviderIntegrationConfigPtrOutputWithContext(ctx context.Context) AiGatewayProviderIntegrationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGatewayProviderIntegrationConfigOutput).ToAiGatewayProviderIntegrationConfigPtrOutputWithContext(ctx)
+}
+
+// AiGatewayProviderIntegrationConfigPtrInput is an input type that accepts AiGatewayProviderIntegrationConfigArgs, AiGatewayProviderIntegrationConfigPtr and AiGatewayProviderIntegrationConfigPtrOutput values.
+// You can construct a concrete instance of `AiGatewayProviderIntegrationConfigPtrInput` via:
+//
+//	        AiGatewayProviderIntegrationConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type AiGatewayProviderIntegrationConfigPtrInput interface {
+	pulumi.Input
+
+	ToAiGatewayProviderIntegrationConfigPtrOutput() AiGatewayProviderIntegrationConfigPtrOutput
+	ToAiGatewayProviderIntegrationConfigPtrOutputWithContext(context.Context) AiGatewayProviderIntegrationConfigPtrOutput
+}
+
+type aiGatewayProviderIntegrationConfigPtrType AiGatewayProviderIntegrationConfigArgs
+
+func AiGatewayProviderIntegrationConfigPtr(v *AiGatewayProviderIntegrationConfigArgs) AiGatewayProviderIntegrationConfigPtrInput {
+	return (*aiGatewayProviderIntegrationConfigPtrType)(v)
+}
+
+func (*aiGatewayProviderIntegrationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiGatewayProviderIntegrationConfig)(nil)).Elem()
+}
+
+func (i *aiGatewayProviderIntegrationConfigPtrType) ToAiGatewayProviderIntegrationConfigPtrOutput() AiGatewayProviderIntegrationConfigPtrOutput {
+	return i.ToAiGatewayProviderIntegrationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *aiGatewayProviderIntegrationConfigPtrType) ToAiGatewayProviderIntegrationConfigPtrOutputWithContext(ctx context.Context) AiGatewayProviderIntegrationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGatewayProviderIntegrationConfigPtrOutput)
+}
+
+type AiGatewayProviderIntegrationConfigOutput struct{ *pulumi.OutputState }
+
+func (AiGatewayProviderIntegrationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGatewayProviderIntegrationConfig)(nil)).Elem()
+}
+
+func (o AiGatewayProviderIntegrationConfigOutput) ToAiGatewayProviderIntegrationConfigOutput() AiGatewayProviderIntegrationConfigOutput {
+	return o
+}
+
+func (o AiGatewayProviderIntegrationConfigOutput) ToAiGatewayProviderIntegrationConfigOutputWithContext(ctx context.Context) AiGatewayProviderIntegrationConfigOutput {
+	return o
+}
+
+func (o AiGatewayProviderIntegrationConfigOutput) ToAiGatewayProviderIntegrationConfigPtrOutput() AiGatewayProviderIntegrationConfigPtrOutput {
+	return o.ToAiGatewayProviderIntegrationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o AiGatewayProviderIntegrationConfigOutput) ToAiGatewayProviderIntegrationConfigPtrOutputWithContext(ctx context.Context) AiGatewayProviderIntegrationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AiGatewayProviderIntegrationConfig) *AiGatewayProviderIntegrationConfig {
+		return &v
+	}).(AiGatewayProviderIntegrationConfigPtrOutput)
+}
+
+// AWS region, for `bedrock` providers.
+func (o AiGatewayProviderIntegrationConfigOutput) BedrockRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AiGatewayProviderIntegrationConfig) *string { return v.BedrockRegion }).(pulumi.StringPtrOutput)
+}
+
+// Azure AI Foundry project name, for `azureFoundry` providers.
+func (o AiGatewayProviderIntegrationConfigOutput) FoundryProject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AiGatewayProviderIntegrationConfig) *string { return v.FoundryProject }).(pulumi.StringPtrOutput)
+}
+
+// ARM resource ID of the Azure AI Foundry resource, for `azureFoundry` providers.
+func (o AiGatewayProviderIntegrationConfigOutput) FoundryResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AiGatewayProviderIntegrationConfig) *string { return v.FoundryResourceId }).(pulumi.StringPtrOutput)
+}
+
+// GCP location, for `gemini` providers.
+func (o AiGatewayProviderIntegrationConfigOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AiGatewayProviderIntegrationConfig) *string { return v.Location }).(pulumi.StringPtrOutput)
+}
+
+// GCP project ID, for `gemini` providers.
+func (o AiGatewayProviderIntegrationConfigOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AiGatewayProviderIntegrationConfig) *string { return v.ProjectId }).(pulumi.StringPtrOutput)
+}
+
+// Operations that a `custom` provider discovered and manually added models support. The API defaults to `OPENAI_CHAT_COMPLETIONS`.
+func (o AiGatewayProviderIntegrationConfigOutput) SupportedOperations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v AiGatewayProviderIntegrationConfig) []string { return v.SupportedOperations }).(pulumi.StringArrayOutput)
+}
+
+type AiGatewayProviderIntegrationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (AiGatewayProviderIntegrationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiGatewayProviderIntegrationConfig)(nil)).Elem()
+}
+
+func (o AiGatewayProviderIntegrationConfigPtrOutput) ToAiGatewayProviderIntegrationConfigPtrOutput() AiGatewayProviderIntegrationConfigPtrOutput {
+	return o
+}
+
+func (o AiGatewayProviderIntegrationConfigPtrOutput) ToAiGatewayProviderIntegrationConfigPtrOutputWithContext(ctx context.Context) AiGatewayProviderIntegrationConfigPtrOutput {
+	return o
+}
+
+func (o AiGatewayProviderIntegrationConfigPtrOutput) Elem() AiGatewayProviderIntegrationConfigOutput {
+	return o.ApplyT(func(v *AiGatewayProviderIntegrationConfig) AiGatewayProviderIntegrationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret AiGatewayProviderIntegrationConfig
+		return ret
+	}).(AiGatewayProviderIntegrationConfigOutput)
+}
+
+// AWS region, for `bedrock` providers.
+func (o AiGatewayProviderIntegrationConfigPtrOutput) BedrockRegion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AiGatewayProviderIntegrationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.BedrockRegion
+	}).(pulumi.StringPtrOutput)
+}
+
+// Azure AI Foundry project name, for `azureFoundry` providers.
+func (o AiGatewayProviderIntegrationConfigPtrOutput) FoundryProject() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AiGatewayProviderIntegrationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FoundryProject
+	}).(pulumi.StringPtrOutput)
+}
+
+// ARM resource ID of the Azure AI Foundry resource, for `azureFoundry` providers.
+func (o AiGatewayProviderIntegrationConfigPtrOutput) FoundryResourceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AiGatewayProviderIntegrationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FoundryResourceId
+	}).(pulumi.StringPtrOutput)
+}
+
+// GCP location, for `gemini` providers.
+func (o AiGatewayProviderIntegrationConfigPtrOutput) Location() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AiGatewayProviderIntegrationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Location
+	}).(pulumi.StringPtrOutput)
+}
+
+// GCP project ID, for `gemini` providers.
+func (o AiGatewayProviderIntegrationConfigPtrOutput) ProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AiGatewayProviderIntegrationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ProjectId
+	}).(pulumi.StringPtrOutput)
+}
+
+// Operations that a `custom` provider discovered and manually added models support. The API defaults to `OPENAI_CHAT_COMPLETIONS`.
+func (o AiGatewayProviderIntegrationConfigPtrOutput) SupportedOperations() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *AiGatewayProviderIntegrationConfig) []string {
+		if v == nil {
+			return nil
+		}
+		return v.SupportedOperations
+	}).(pulumi.StringArrayOutput)
+}
+
+type AiGatewayRoutingRuleTier struct {
+	// Decision model of a `classified` tier. Required on a `classified` tier and not allowed on others.
+	Classifier *AiGatewayRoutingRuleTierClassifier `pulumi:"classifier"`
+	// How the tier orders its targets. `configured` tries them in the order listed. `weightedAffinity` spreads requests by each target's `weight`. `classified`, which lets a decision model pick one target by its `rubric`, is allowed only on the first tier. Valid values are `configured`, `weightedAffinity`, `classified`. Defaults to `"configured"`.
+	Ordering *string `pulumi:"ordering"`
+	// Destinations in the tier, in order. A target is either a model, set with `provider` and `model`, or another routing rule, set with `routingRule`. A routing rule target must be the only target in its tier.
+	Targets []AiGatewayRoutingRuleTierTarget `pulumi:"targets"`
+}
+
+// AiGatewayRoutingRuleTierInput is an input type that accepts AiGatewayRoutingRuleTierArgs and AiGatewayRoutingRuleTierOutput values.
+// You can construct a concrete instance of `AiGatewayRoutingRuleTierInput` via:
+//
+//	AiGatewayRoutingRuleTierArgs{...}
+type AiGatewayRoutingRuleTierInput interface {
+	pulumi.Input
+
+	ToAiGatewayRoutingRuleTierOutput() AiGatewayRoutingRuleTierOutput
+	ToAiGatewayRoutingRuleTierOutputWithContext(context.Context) AiGatewayRoutingRuleTierOutput
+}
+
+type AiGatewayRoutingRuleTierArgs struct {
+	// Decision model of a `classified` tier. Required on a `classified` tier and not allowed on others.
+	Classifier AiGatewayRoutingRuleTierClassifierPtrInput `pulumi:"classifier"`
+	// How the tier orders its targets. `configured` tries them in the order listed. `weightedAffinity` spreads requests by each target's `weight`. `classified`, which lets a decision model pick one target by its `rubric`, is allowed only on the first tier. Valid values are `configured`, `weightedAffinity`, `classified`. Defaults to `"configured"`.
+	Ordering pulumi.StringPtrInput `pulumi:"ordering"`
+	// Destinations in the tier, in order. A target is either a model, set with `provider` and `model`, or another routing rule, set with `routingRule`. A routing rule target must be the only target in its tier.
+	Targets AiGatewayRoutingRuleTierTargetArrayInput `pulumi:"targets"`
+}
+
+func (AiGatewayRoutingRuleTierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGatewayRoutingRuleTier)(nil)).Elem()
+}
+
+func (i AiGatewayRoutingRuleTierArgs) ToAiGatewayRoutingRuleTierOutput() AiGatewayRoutingRuleTierOutput {
+	return i.ToAiGatewayRoutingRuleTierOutputWithContext(context.Background())
+}
+
+func (i AiGatewayRoutingRuleTierArgs) ToAiGatewayRoutingRuleTierOutputWithContext(ctx context.Context) AiGatewayRoutingRuleTierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGatewayRoutingRuleTierOutput)
+}
+
+// AiGatewayRoutingRuleTierArrayInput is an input type that accepts AiGatewayRoutingRuleTierArray and AiGatewayRoutingRuleTierArrayOutput values.
+// You can construct a concrete instance of `AiGatewayRoutingRuleTierArrayInput` via:
+//
+//	AiGatewayRoutingRuleTierArray{ AiGatewayRoutingRuleTierArgs{...} }
+type AiGatewayRoutingRuleTierArrayInput interface {
+	pulumi.Input
+
+	ToAiGatewayRoutingRuleTierArrayOutput() AiGatewayRoutingRuleTierArrayOutput
+	ToAiGatewayRoutingRuleTierArrayOutputWithContext(context.Context) AiGatewayRoutingRuleTierArrayOutput
+}
+
+type AiGatewayRoutingRuleTierArray []AiGatewayRoutingRuleTierInput
+
+func (AiGatewayRoutingRuleTierArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AiGatewayRoutingRuleTier)(nil)).Elem()
+}
+
+func (i AiGatewayRoutingRuleTierArray) ToAiGatewayRoutingRuleTierArrayOutput() AiGatewayRoutingRuleTierArrayOutput {
+	return i.ToAiGatewayRoutingRuleTierArrayOutputWithContext(context.Background())
+}
+
+func (i AiGatewayRoutingRuleTierArray) ToAiGatewayRoutingRuleTierArrayOutputWithContext(ctx context.Context) AiGatewayRoutingRuleTierArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGatewayRoutingRuleTierArrayOutput)
+}
+
+type AiGatewayRoutingRuleTierOutput struct{ *pulumi.OutputState }
+
+func (AiGatewayRoutingRuleTierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGatewayRoutingRuleTier)(nil)).Elem()
+}
+
+func (o AiGatewayRoutingRuleTierOutput) ToAiGatewayRoutingRuleTierOutput() AiGatewayRoutingRuleTierOutput {
+	return o
+}
+
+func (o AiGatewayRoutingRuleTierOutput) ToAiGatewayRoutingRuleTierOutputWithContext(ctx context.Context) AiGatewayRoutingRuleTierOutput {
+	return o
+}
+
+// Decision model of a `classified` tier. Required on a `classified` tier and not allowed on others.
+func (o AiGatewayRoutingRuleTierOutput) Classifier() AiGatewayRoutingRuleTierClassifierPtrOutput {
+	return o.ApplyT(func(v AiGatewayRoutingRuleTier) *AiGatewayRoutingRuleTierClassifier { return v.Classifier }).(AiGatewayRoutingRuleTierClassifierPtrOutput)
+}
+
+// How the tier orders its targets. `configured` tries them in the order listed. `weightedAffinity` spreads requests by each target's `weight`. `classified`, which lets a decision model pick one target by its `rubric`, is allowed only on the first tier. Valid values are `configured`, `weightedAffinity`, `classified`. Defaults to `"configured"`.
+func (o AiGatewayRoutingRuleTierOutput) Ordering() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AiGatewayRoutingRuleTier) *string { return v.Ordering }).(pulumi.StringPtrOutput)
+}
+
+// Destinations in the tier, in order. A target is either a model, set with `provider` and `model`, or another routing rule, set with `routingRule`. A routing rule target must be the only target in its tier.
+func (o AiGatewayRoutingRuleTierOutput) Targets() AiGatewayRoutingRuleTierTargetArrayOutput {
+	return o.ApplyT(func(v AiGatewayRoutingRuleTier) []AiGatewayRoutingRuleTierTarget { return v.Targets }).(AiGatewayRoutingRuleTierTargetArrayOutput)
+}
+
+type AiGatewayRoutingRuleTierArrayOutput struct{ *pulumi.OutputState }
+
+func (AiGatewayRoutingRuleTierArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AiGatewayRoutingRuleTier)(nil)).Elem()
+}
+
+func (o AiGatewayRoutingRuleTierArrayOutput) ToAiGatewayRoutingRuleTierArrayOutput() AiGatewayRoutingRuleTierArrayOutput {
+	return o
+}
+
+func (o AiGatewayRoutingRuleTierArrayOutput) ToAiGatewayRoutingRuleTierArrayOutputWithContext(ctx context.Context) AiGatewayRoutingRuleTierArrayOutput {
+	return o
+}
+
+func (o AiGatewayRoutingRuleTierArrayOutput) Index(i pulumi.IntInput) AiGatewayRoutingRuleTierOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AiGatewayRoutingRuleTier {
+		return vs[0].([]AiGatewayRoutingRuleTier)[vs[1].(int)]
+	}).(AiGatewayRoutingRuleTierOutput)
+}
+
+type AiGatewayRoutingRuleTierClassifier struct {
+	// Minimum confidence that the picked target must reach. If the confidence is lower, the request goes to the default target. Value must be between 0.000000 and 1.000000. Defaults to `0.5`.
+	ConfidenceThreshold *float64 `pulumi:"confidenceThreshold"`
+	// Prompt that tells the decision model about the rule's traffic, up to 2000 characters.
+	Context *string `pulumi:"context"`
+	// Canonical name of the decision model on that provider.
+	Model string `pulumi:"model"`
+	// Slug of the provider that serves the decision model. It must be an OpenAI, Baseten, or TypeSafe provider.
+	Provider string `pulumi:"provider"`
+}
+
+// AiGatewayRoutingRuleTierClassifierInput is an input type that accepts AiGatewayRoutingRuleTierClassifierArgs and AiGatewayRoutingRuleTierClassifierOutput values.
+// You can construct a concrete instance of `AiGatewayRoutingRuleTierClassifierInput` via:
+//
+//	AiGatewayRoutingRuleTierClassifierArgs{...}
+type AiGatewayRoutingRuleTierClassifierInput interface {
+	pulumi.Input
+
+	ToAiGatewayRoutingRuleTierClassifierOutput() AiGatewayRoutingRuleTierClassifierOutput
+	ToAiGatewayRoutingRuleTierClassifierOutputWithContext(context.Context) AiGatewayRoutingRuleTierClassifierOutput
+}
+
+type AiGatewayRoutingRuleTierClassifierArgs struct {
+	// Minimum confidence that the picked target must reach. If the confidence is lower, the request goes to the default target. Value must be between 0.000000 and 1.000000. Defaults to `0.5`.
+	ConfidenceThreshold pulumi.Float64PtrInput `pulumi:"confidenceThreshold"`
+	// Prompt that tells the decision model about the rule's traffic, up to 2000 characters.
+	Context pulumi.StringPtrInput `pulumi:"context"`
+	// Canonical name of the decision model on that provider.
+	Model pulumi.StringInput `pulumi:"model"`
+	// Slug of the provider that serves the decision model. It must be an OpenAI, Baseten, or TypeSafe provider.
+	Provider pulumi.StringInput `pulumi:"provider"`
+}
+
+func (AiGatewayRoutingRuleTierClassifierArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGatewayRoutingRuleTierClassifier)(nil)).Elem()
+}
+
+func (i AiGatewayRoutingRuleTierClassifierArgs) ToAiGatewayRoutingRuleTierClassifierOutput() AiGatewayRoutingRuleTierClassifierOutput {
+	return i.ToAiGatewayRoutingRuleTierClassifierOutputWithContext(context.Background())
+}
+
+func (i AiGatewayRoutingRuleTierClassifierArgs) ToAiGatewayRoutingRuleTierClassifierOutputWithContext(ctx context.Context) AiGatewayRoutingRuleTierClassifierOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGatewayRoutingRuleTierClassifierOutput)
+}
+
+func (i AiGatewayRoutingRuleTierClassifierArgs) ToAiGatewayRoutingRuleTierClassifierPtrOutput() AiGatewayRoutingRuleTierClassifierPtrOutput {
+	return i.ToAiGatewayRoutingRuleTierClassifierPtrOutputWithContext(context.Background())
+}
+
+func (i AiGatewayRoutingRuleTierClassifierArgs) ToAiGatewayRoutingRuleTierClassifierPtrOutputWithContext(ctx context.Context) AiGatewayRoutingRuleTierClassifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGatewayRoutingRuleTierClassifierOutput).ToAiGatewayRoutingRuleTierClassifierPtrOutputWithContext(ctx)
+}
+
+// AiGatewayRoutingRuleTierClassifierPtrInput is an input type that accepts AiGatewayRoutingRuleTierClassifierArgs, AiGatewayRoutingRuleTierClassifierPtr and AiGatewayRoutingRuleTierClassifierPtrOutput values.
+// You can construct a concrete instance of `AiGatewayRoutingRuleTierClassifierPtrInput` via:
+//
+//	        AiGatewayRoutingRuleTierClassifierArgs{...}
+//
+//	or:
+//
+//	        nil
+type AiGatewayRoutingRuleTierClassifierPtrInput interface {
+	pulumi.Input
+
+	ToAiGatewayRoutingRuleTierClassifierPtrOutput() AiGatewayRoutingRuleTierClassifierPtrOutput
+	ToAiGatewayRoutingRuleTierClassifierPtrOutputWithContext(context.Context) AiGatewayRoutingRuleTierClassifierPtrOutput
+}
+
+type aiGatewayRoutingRuleTierClassifierPtrType AiGatewayRoutingRuleTierClassifierArgs
+
+func AiGatewayRoutingRuleTierClassifierPtr(v *AiGatewayRoutingRuleTierClassifierArgs) AiGatewayRoutingRuleTierClassifierPtrInput {
+	return (*aiGatewayRoutingRuleTierClassifierPtrType)(v)
+}
+
+func (*aiGatewayRoutingRuleTierClassifierPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiGatewayRoutingRuleTierClassifier)(nil)).Elem()
+}
+
+func (i *aiGatewayRoutingRuleTierClassifierPtrType) ToAiGatewayRoutingRuleTierClassifierPtrOutput() AiGatewayRoutingRuleTierClassifierPtrOutput {
+	return i.ToAiGatewayRoutingRuleTierClassifierPtrOutputWithContext(context.Background())
+}
+
+func (i *aiGatewayRoutingRuleTierClassifierPtrType) ToAiGatewayRoutingRuleTierClassifierPtrOutputWithContext(ctx context.Context) AiGatewayRoutingRuleTierClassifierPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGatewayRoutingRuleTierClassifierPtrOutput)
+}
+
+type AiGatewayRoutingRuleTierClassifierOutput struct{ *pulumi.OutputState }
+
+func (AiGatewayRoutingRuleTierClassifierOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGatewayRoutingRuleTierClassifier)(nil)).Elem()
+}
+
+func (o AiGatewayRoutingRuleTierClassifierOutput) ToAiGatewayRoutingRuleTierClassifierOutput() AiGatewayRoutingRuleTierClassifierOutput {
+	return o
+}
+
+func (o AiGatewayRoutingRuleTierClassifierOutput) ToAiGatewayRoutingRuleTierClassifierOutputWithContext(ctx context.Context) AiGatewayRoutingRuleTierClassifierOutput {
+	return o
+}
+
+func (o AiGatewayRoutingRuleTierClassifierOutput) ToAiGatewayRoutingRuleTierClassifierPtrOutput() AiGatewayRoutingRuleTierClassifierPtrOutput {
+	return o.ToAiGatewayRoutingRuleTierClassifierPtrOutputWithContext(context.Background())
+}
+
+func (o AiGatewayRoutingRuleTierClassifierOutput) ToAiGatewayRoutingRuleTierClassifierPtrOutputWithContext(ctx context.Context) AiGatewayRoutingRuleTierClassifierPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v AiGatewayRoutingRuleTierClassifier) *AiGatewayRoutingRuleTierClassifier {
+		return &v
+	}).(AiGatewayRoutingRuleTierClassifierPtrOutput)
+}
+
+// Minimum confidence that the picked target must reach. If the confidence is lower, the request goes to the default target. Value must be between 0.000000 and 1.000000. Defaults to `0.5`.
+func (o AiGatewayRoutingRuleTierClassifierOutput) ConfidenceThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v AiGatewayRoutingRuleTierClassifier) *float64 { return v.ConfidenceThreshold }).(pulumi.Float64PtrOutput)
+}
+
+// Prompt that tells the decision model about the rule's traffic, up to 2000 characters.
+func (o AiGatewayRoutingRuleTierClassifierOutput) Context() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AiGatewayRoutingRuleTierClassifier) *string { return v.Context }).(pulumi.StringPtrOutput)
+}
+
+// Canonical name of the decision model on that provider.
+func (o AiGatewayRoutingRuleTierClassifierOutput) Model() pulumi.StringOutput {
+	return o.ApplyT(func(v AiGatewayRoutingRuleTierClassifier) string { return v.Model }).(pulumi.StringOutput)
+}
+
+// Slug of the provider that serves the decision model. It must be an OpenAI, Baseten, or TypeSafe provider.
+func (o AiGatewayRoutingRuleTierClassifierOutput) Provider() pulumi.StringOutput {
+	return o.ApplyT(func(v AiGatewayRoutingRuleTierClassifier) string { return v.Provider }).(pulumi.StringOutput)
+}
+
+type AiGatewayRoutingRuleTierClassifierPtrOutput struct{ *pulumi.OutputState }
+
+func (AiGatewayRoutingRuleTierClassifierPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**AiGatewayRoutingRuleTierClassifier)(nil)).Elem()
+}
+
+func (o AiGatewayRoutingRuleTierClassifierPtrOutput) ToAiGatewayRoutingRuleTierClassifierPtrOutput() AiGatewayRoutingRuleTierClassifierPtrOutput {
+	return o
+}
+
+func (o AiGatewayRoutingRuleTierClassifierPtrOutput) ToAiGatewayRoutingRuleTierClassifierPtrOutputWithContext(ctx context.Context) AiGatewayRoutingRuleTierClassifierPtrOutput {
+	return o
+}
+
+func (o AiGatewayRoutingRuleTierClassifierPtrOutput) Elem() AiGatewayRoutingRuleTierClassifierOutput {
+	return o.ApplyT(func(v *AiGatewayRoutingRuleTierClassifier) AiGatewayRoutingRuleTierClassifier {
+		if v != nil {
+			return *v
+		}
+		var ret AiGatewayRoutingRuleTierClassifier
+		return ret
+	}).(AiGatewayRoutingRuleTierClassifierOutput)
+}
+
+// Minimum confidence that the picked target must reach. If the confidence is lower, the request goes to the default target. Value must be between 0.000000 and 1.000000. Defaults to `0.5`.
+func (o AiGatewayRoutingRuleTierClassifierPtrOutput) ConfidenceThreshold() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *AiGatewayRoutingRuleTierClassifier) *float64 {
+		if v == nil {
+			return nil
+		}
+		return v.ConfidenceThreshold
+	}).(pulumi.Float64PtrOutput)
+}
+
+// Prompt that tells the decision model about the rule's traffic, up to 2000 characters.
+func (o AiGatewayRoutingRuleTierClassifierPtrOutput) Context() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AiGatewayRoutingRuleTierClassifier) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Context
+	}).(pulumi.StringPtrOutput)
+}
+
+// Canonical name of the decision model on that provider.
+func (o AiGatewayRoutingRuleTierClassifierPtrOutput) Model() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AiGatewayRoutingRuleTierClassifier) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Model
+	}).(pulumi.StringPtrOutput)
+}
+
+// Slug of the provider that serves the decision model. It must be an OpenAI, Baseten, or TypeSafe provider.
+func (o AiGatewayRoutingRuleTierClassifierPtrOutput) Provider() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AiGatewayRoutingRuleTierClassifier) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Provider
+	}).(pulumi.StringPtrOutput)
+}
+
+type AiGatewayRoutingRuleTierTarget struct {
+	// Marks the default target of a `classified` tier, which receives requests that don't match any rubric. Each `classified` tier must have exactly one default target.
+	Default *bool `pulumi:"default"`
+	// Model to route to. Required for a model target.
+	Model *string `pulumi:"model"`
+	// Slug of the provider to route to, or `*` to route to any provider that serves the model. Required for a model target.
+	Provider *string `pulumi:"provider"`
+	// Reasoning effort override for a model target. When unset, the caller's and provider's defaults apply. Valid values are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, `max`.
+	ReasoningLevel *string `pulumi:"reasoningLevel"`
+	// Slug of another routing rule to route to.
+	RoutingRule *string `pulumi:"routingRule"`
+	// Description of when the decision model should pick this target, up to 300 characters. Required on every target of a `classified` tier except the default one, and not allowed in other tiers.
+	Rubric *string `pulumi:"rubric"`
+	// Relative weight of the target in a `weightedAffinity` tier. The API uses 1 when it's unset. Not allowed in other tiers. Value must be between 1 and 10000.
+	Weight *int `pulumi:"weight"`
+}
+
+// AiGatewayRoutingRuleTierTargetInput is an input type that accepts AiGatewayRoutingRuleTierTargetArgs and AiGatewayRoutingRuleTierTargetOutput values.
+// You can construct a concrete instance of `AiGatewayRoutingRuleTierTargetInput` via:
+//
+//	AiGatewayRoutingRuleTierTargetArgs{...}
+type AiGatewayRoutingRuleTierTargetInput interface {
+	pulumi.Input
+
+	ToAiGatewayRoutingRuleTierTargetOutput() AiGatewayRoutingRuleTierTargetOutput
+	ToAiGatewayRoutingRuleTierTargetOutputWithContext(context.Context) AiGatewayRoutingRuleTierTargetOutput
+}
+
+type AiGatewayRoutingRuleTierTargetArgs struct {
+	// Marks the default target of a `classified` tier, which receives requests that don't match any rubric. Each `classified` tier must have exactly one default target.
+	Default pulumi.BoolPtrInput `pulumi:"default"`
+	// Model to route to. Required for a model target.
+	Model pulumi.StringPtrInput `pulumi:"model"`
+	// Slug of the provider to route to, or `*` to route to any provider that serves the model. Required for a model target.
+	Provider pulumi.StringPtrInput `pulumi:"provider"`
+	// Reasoning effort override for a model target. When unset, the caller's and provider's defaults apply. Valid values are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, `max`.
+	ReasoningLevel pulumi.StringPtrInput `pulumi:"reasoningLevel"`
+	// Slug of another routing rule to route to.
+	RoutingRule pulumi.StringPtrInput `pulumi:"routingRule"`
+	// Description of when the decision model should pick this target, up to 300 characters. Required on every target of a `classified` tier except the default one, and not allowed in other tiers.
+	Rubric pulumi.StringPtrInput `pulumi:"rubric"`
+	// Relative weight of the target in a `weightedAffinity` tier. The API uses 1 when it's unset. Not allowed in other tiers. Value must be between 1 and 10000.
+	Weight pulumi.IntPtrInput `pulumi:"weight"`
+}
+
+func (AiGatewayRoutingRuleTierTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGatewayRoutingRuleTierTarget)(nil)).Elem()
+}
+
+func (i AiGatewayRoutingRuleTierTargetArgs) ToAiGatewayRoutingRuleTierTargetOutput() AiGatewayRoutingRuleTierTargetOutput {
+	return i.ToAiGatewayRoutingRuleTierTargetOutputWithContext(context.Background())
+}
+
+func (i AiGatewayRoutingRuleTierTargetArgs) ToAiGatewayRoutingRuleTierTargetOutputWithContext(ctx context.Context) AiGatewayRoutingRuleTierTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGatewayRoutingRuleTierTargetOutput)
+}
+
+// AiGatewayRoutingRuleTierTargetArrayInput is an input type that accepts AiGatewayRoutingRuleTierTargetArray and AiGatewayRoutingRuleTierTargetArrayOutput values.
+// You can construct a concrete instance of `AiGatewayRoutingRuleTierTargetArrayInput` via:
+//
+//	AiGatewayRoutingRuleTierTargetArray{ AiGatewayRoutingRuleTierTargetArgs{...} }
+type AiGatewayRoutingRuleTierTargetArrayInput interface {
+	pulumi.Input
+
+	ToAiGatewayRoutingRuleTierTargetArrayOutput() AiGatewayRoutingRuleTierTargetArrayOutput
+	ToAiGatewayRoutingRuleTierTargetArrayOutputWithContext(context.Context) AiGatewayRoutingRuleTierTargetArrayOutput
+}
+
+type AiGatewayRoutingRuleTierTargetArray []AiGatewayRoutingRuleTierTargetInput
+
+func (AiGatewayRoutingRuleTierTargetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AiGatewayRoutingRuleTierTarget)(nil)).Elem()
+}
+
+func (i AiGatewayRoutingRuleTierTargetArray) ToAiGatewayRoutingRuleTierTargetArrayOutput() AiGatewayRoutingRuleTierTargetArrayOutput {
+	return i.ToAiGatewayRoutingRuleTierTargetArrayOutputWithContext(context.Background())
+}
+
+func (i AiGatewayRoutingRuleTierTargetArray) ToAiGatewayRoutingRuleTierTargetArrayOutputWithContext(ctx context.Context) AiGatewayRoutingRuleTierTargetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(AiGatewayRoutingRuleTierTargetArrayOutput)
+}
+
+type AiGatewayRoutingRuleTierTargetOutput struct{ *pulumi.OutputState }
+
+func (AiGatewayRoutingRuleTierTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*AiGatewayRoutingRuleTierTarget)(nil)).Elem()
+}
+
+func (o AiGatewayRoutingRuleTierTargetOutput) ToAiGatewayRoutingRuleTierTargetOutput() AiGatewayRoutingRuleTierTargetOutput {
+	return o
+}
+
+func (o AiGatewayRoutingRuleTierTargetOutput) ToAiGatewayRoutingRuleTierTargetOutputWithContext(ctx context.Context) AiGatewayRoutingRuleTierTargetOutput {
+	return o
+}
+
+// Marks the default target of a `classified` tier, which receives requests that don't match any rubric. Each `classified` tier must have exactly one default target.
+func (o AiGatewayRoutingRuleTierTargetOutput) Default() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v AiGatewayRoutingRuleTierTarget) *bool { return v.Default }).(pulumi.BoolPtrOutput)
+}
+
+// Model to route to. Required for a model target.
+func (o AiGatewayRoutingRuleTierTargetOutput) Model() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AiGatewayRoutingRuleTierTarget) *string { return v.Model }).(pulumi.StringPtrOutput)
+}
+
+// Slug of the provider to route to, or `*` to route to any provider that serves the model. Required for a model target.
+func (o AiGatewayRoutingRuleTierTargetOutput) Provider() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AiGatewayRoutingRuleTierTarget) *string { return v.Provider }).(pulumi.StringPtrOutput)
+}
+
+// Reasoning effort override for a model target. When unset, the caller's and provider's defaults apply. Valid values are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, `max`.
+func (o AiGatewayRoutingRuleTierTargetOutput) ReasoningLevel() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AiGatewayRoutingRuleTierTarget) *string { return v.ReasoningLevel }).(pulumi.StringPtrOutput)
+}
+
+// Slug of another routing rule to route to.
+func (o AiGatewayRoutingRuleTierTargetOutput) RoutingRule() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AiGatewayRoutingRuleTierTarget) *string { return v.RoutingRule }).(pulumi.StringPtrOutput)
+}
+
+// Description of when the decision model should pick this target, up to 300 characters. Required on every target of a `classified` tier except the default one, and not allowed in other tiers.
+func (o AiGatewayRoutingRuleTierTargetOutput) Rubric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v AiGatewayRoutingRuleTierTarget) *string { return v.Rubric }).(pulumi.StringPtrOutput)
+}
+
+// Relative weight of the target in a `weightedAffinity` tier. The API uses 1 when it's unset. Not allowed in other tiers. Value must be between 1 and 10000.
+func (o AiGatewayRoutingRuleTierTargetOutput) Weight() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v AiGatewayRoutingRuleTierTarget) *int { return v.Weight }).(pulumi.IntPtrOutput)
+}
+
+type AiGatewayRoutingRuleTierTargetArrayOutput struct{ *pulumi.OutputState }
+
+func (AiGatewayRoutingRuleTierTargetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]AiGatewayRoutingRuleTierTarget)(nil)).Elem()
+}
+
+func (o AiGatewayRoutingRuleTierTargetArrayOutput) ToAiGatewayRoutingRuleTierTargetArrayOutput() AiGatewayRoutingRuleTierTargetArrayOutput {
+	return o
+}
+
+func (o AiGatewayRoutingRuleTierTargetArrayOutput) ToAiGatewayRoutingRuleTierTargetArrayOutputWithContext(ctx context.Context) AiGatewayRoutingRuleTierTargetArrayOutput {
+	return o
+}
+
+func (o AiGatewayRoutingRuleTierTargetArrayOutput) Index(i pulumi.IntInput) AiGatewayRoutingRuleTierTargetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) AiGatewayRoutingRuleTierTarget {
+		return vs[0].([]AiGatewayRoutingRuleTierTarget)[vs[1].(int)]
+	}).(AiGatewayRoutingRuleTierTargetOutput)
+}
+
 type ApmRetentionFilterFilter struct {
 	// The search query - follow the span search syntax, use `AND` between tags and `\` to escape special characters, use nanosecond for duration. Defaults to `"*"`.
 	Query *string `pulumi:"query"`
@@ -22960,6 +23970,474 @@ func (o CustomAllocationRuleStrategyEvaluateGroupedByFilterArrayOutput) Index(i 
 	}).(CustomAllocationRuleStrategyEvaluateGroupedByFilterOutput)
 }
 
+type DashboardDefaultTimeframe struct {
+	// A fixed timeframe applied when opening the dashboard.
+	Fixed *DashboardDefaultTimeframeFixed `pulumi:"fixed"`
+	// A live timeframe applied when opening the dashboard.
+	Live *DashboardDefaultTimeframeLive `pulumi:"live"`
+}
+
+// DashboardDefaultTimeframeInput is an input type that accepts DashboardDefaultTimeframeArgs and DashboardDefaultTimeframeOutput values.
+// You can construct a concrete instance of `DashboardDefaultTimeframeInput` via:
+//
+//	DashboardDefaultTimeframeArgs{...}
+type DashboardDefaultTimeframeInput interface {
+	pulumi.Input
+
+	ToDashboardDefaultTimeframeOutput() DashboardDefaultTimeframeOutput
+	ToDashboardDefaultTimeframeOutputWithContext(context.Context) DashboardDefaultTimeframeOutput
+}
+
+type DashboardDefaultTimeframeArgs struct {
+	// A fixed timeframe applied when opening the dashboard.
+	Fixed DashboardDefaultTimeframeFixedPtrInput `pulumi:"fixed"`
+	// A live timeframe applied when opening the dashboard.
+	Live DashboardDefaultTimeframeLivePtrInput `pulumi:"live"`
+}
+
+func (DashboardDefaultTimeframeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardDefaultTimeframe)(nil)).Elem()
+}
+
+func (i DashboardDefaultTimeframeArgs) ToDashboardDefaultTimeframeOutput() DashboardDefaultTimeframeOutput {
+	return i.ToDashboardDefaultTimeframeOutputWithContext(context.Background())
+}
+
+func (i DashboardDefaultTimeframeArgs) ToDashboardDefaultTimeframeOutputWithContext(ctx context.Context) DashboardDefaultTimeframeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardDefaultTimeframeOutput)
+}
+
+func (i DashboardDefaultTimeframeArgs) ToDashboardDefaultTimeframePtrOutput() DashboardDefaultTimeframePtrOutput {
+	return i.ToDashboardDefaultTimeframePtrOutputWithContext(context.Background())
+}
+
+func (i DashboardDefaultTimeframeArgs) ToDashboardDefaultTimeframePtrOutputWithContext(ctx context.Context) DashboardDefaultTimeframePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardDefaultTimeframeOutput).ToDashboardDefaultTimeframePtrOutputWithContext(ctx)
+}
+
+// DashboardDefaultTimeframePtrInput is an input type that accepts DashboardDefaultTimeframeArgs, DashboardDefaultTimeframePtr and DashboardDefaultTimeframePtrOutput values.
+// You can construct a concrete instance of `DashboardDefaultTimeframePtrInput` via:
+//
+//	        DashboardDefaultTimeframeArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardDefaultTimeframePtrInput interface {
+	pulumi.Input
+
+	ToDashboardDefaultTimeframePtrOutput() DashboardDefaultTimeframePtrOutput
+	ToDashboardDefaultTimeframePtrOutputWithContext(context.Context) DashboardDefaultTimeframePtrOutput
+}
+
+type dashboardDefaultTimeframePtrType DashboardDefaultTimeframeArgs
+
+func DashboardDefaultTimeframePtr(v *DashboardDefaultTimeframeArgs) DashboardDefaultTimeframePtrInput {
+	return (*dashboardDefaultTimeframePtrType)(v)
+}
+
+func (*dashboardDefaultTimeframePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardDefaultTimeframe)(nil)).Elem()
+}
+
+func (i *dashboardDefaultTimeframePtrType) ToDashboardDefaultTimeframePtrOutput() DashboardDefaultTimeframePtrOutput {
+	return i.ToDashboardDefaultTimeframePtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardDefaultTimeframePtrType) ToDashboardDefaultTimeframePtrOutputWithContext(ctx context.Context) DashboardDefaultTimeframePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardDefaultTimeframePtrOutput)
+}
+
+type DashboardDefaultTimeframeOutput struct{ *pulumi.OutputState }
+
+func (DashboardDefaultTimeframeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardDefaultTimeframe)(nil)).Elem()
+}
+
+func (o DashboardDefaultTimeframeOutput) ToDashboardDefaultTimeframeOutput() DashboardDefaultTimeframeOutput {
+	return o
+}
+
+func (o DashboardDefaultTimeframeOutput) ToDashboardDefaultTimeframeOutputWithContext(ctx context.Context) DashboardDefaultTimeframeOutput {
+	return o
+}
+
+func (o DashboardDefaultTimeframeOutput) ToDashboardDefaultTimeframePtrOutput() DashboardDefaultTimeframePtrOutput {
+	return o.ToDashboardDefaultTimeframePtrOutputWithContext(context.Background())
+}
+
+func (o DashboardDefaultTimeframeOutput) ToDashboardDefaultTimeframePtrOutputWithContext(ctx context.Context) DashboardDefaultTimeframePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardDefaultTimeframe) *DashboardDefaultTimeframe {
+		return &v
+	}).(DashboardDefaultTimeframePtrOutput)
+}
+
+// A fixed timeframe applied when opening the dashboard.
+func (o DashboardDefaultTimeframeOutput) Fixed() DashboardDefaultTimeframeFixedPtrOutput {
+	return o.ApplyT(func(v DashboardDefaultTimeframe) *DashboardDefaultTimeframeFixed { return v.Fixed }).(DashboardDefaultTimeframeFixedPtrOutput)
+}
+
+// A live timeframe applied when opening the dashboard.
+func (o DashboardDefaultTimeframeOutput) Live() DashboardDefaultTimeframeLivePtrOutput {
+	return o.ApplyT(func(v DashboardDefaultTimeframe) *DashboardDefaultTimeframeLive { return v.Live }).(DashboardDefaultTimeframeLivePtrOutput)
+}
+
+type DashboardDefaultTimeframePtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardDefaultTimeframePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardDefaultTimeframe)(nil)).Elem()
+}
+
+func (o DashboardDefaultTimeframePtrOutput) ToDashboardDefaultTimeframePtrOutput() DashboardDefaultTimeframePtrOutput {
+	return o
+}
+
+func (o DashboardDefaultTimeframePtrOutput) ToDashboardDefaultTimeframePtrOutputWithContext(ctx context.Context) DashboardDefaultTimeframePtrOutput {
+	return o
+}
+
+func (o DashboardDefaultTimeframePtrOutput) Elem() DashboardDefaultTimeframeOutput {
+	return o.ApplyT(func(v *DashboardDefaultTimeframe) DashboardDefaultTimeframe {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardDefaultTimeframe
+		return ret
+	}).(DashboardDefaultTimeframeOutput)
+}
+
+// A fixed timeframe applied when opening the dashboard.
+func (o DashboardDefaultTimeframePtrOutput) Fixed() DashboardDefaultTimeframeFixedPtrOutput {
+	return o.ApplyT(func(v *DashboardDefaultTimeframe) *DashboardDefaultTimeframeFixed {
+		if v == nil {
+			return nil
+		}
+		return v.Fixed
+	}).(DashboardDefaultTimeframeFixedPtrOutput)
+}
+
+// A live timeframe applied when opening the dashboard.
+func (o DashboardDefaultTimeframePtrOutput) Live() DashboardDefaultTimeframeLivePtrOutput {
+	return o.ApplyT(func(v *DashboardDefaultTimeframe) *DashboardDefaultTimeframeLive {
+		if v == nil {
+			return nil
+		}
+		return v.Live
+	}).(DashboardDefaultTimeframeLivePtrOutput)
+}
+
+type DashboardDefaultTimeframeFixed struct {
+	// Start time in milliseconds since epoch.
+	From int `pulumi:"from"`
+	// End time in milliseconds since epoch.
+	To int `pulumi:"to"`
+}
+
+// DashboardDefaultTimeframeFixedInput is an input type that accepts DashboardDefaultTimeframeFixedArgs and DashboardDefaultTimeframeFixedOutput values.
+// You can construct a concrete instance of `DashboardDefaultTimeframeFixedInput` via:
+//
+//	DashboardDefaultTimeframeFixedArgs{...}
+type DashboardDefaultTimeframeFixedInput interface {
+	pulumi.Input
+
+	ToDashboardDefaultTimeframeFixedOutput() DashboardDefaultTimeframeFixedOutput
+	ToDashboardDefaultTimeframeFixedOutputWithContext(context.Context) DashboardDefaultTimeframeFixedOutput
+}
+
+type DashboardDefaultTimeframeFixedArgs struct {
+	// Start time in milliseconds since epoch.
+	From pulumi.IntInput `pulumi:"from"`
+	// End time in milliseconds since epoch.
+	To pulumi.IntInput `pulumi:"to"`
+}
+
+func (DashboardDefaultTimeframeFixedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardDefaultTimeframeFixed)(nil)).Elem()
+}
+
+func (i DashboardDefaultTimeframeFixedArgs) ToDashboardDefaultTimeframeFixedOutput() DashboardDefaultTimeframeFixedOutput {
+	return i.ToDashboardDefaultTimeframeFixedOutputWithContext(context.Background())
+}
+
+func (i DashboardDefaultTimeframeFixedArgs) ToDashboardDefaultTimeframeFixedOutputWithContext(ctx context.Context) DashboardDefaultTimeframeFixedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardDefaultTimeframeFixedOutput)
+}
+
+func (i DashboardDefaultTimeframeFixedArgs) ToDashboardDefaultTimeframeFixedPtrOutput() DashboardDefaultTimeframeFixedPtrOutput {
+	return i.ToDashboardDefaultTimeframeFixedPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardDefaultTimeframeFixedArgs) ToDashboardDefaultTimeframeFixedPtrOutputWithContext(ctx context.Context) DashboardDefaultTimeframeFixedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardDefaultTimeframeFixedOutput).ToDashboardDefaultTimeframeFixedPtrOutputWithContext(ctx)
+}
+
+// DashboardDefaultTimeframeFixedPtrInput is an input type that accepts DashboardDefaultTimeframeFixedArgs, DashboardDefaultTimeframeFixedPtr and DashboardDefaultTimeframeFixedPtrOutput values.
+// You can construct a concrete instance of `DashboardDefaultTimeframeFixedPtrInput` via:
+//
+//	        DashboardDefaultTimeframeFixedArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardDefaultTimeframeFixedPtrInput interface {
+	pulumi.Input
+
+	ToDashboardDefaultTimeframeFixedPtrOutput() DashboardDefaultTimeframeFixedPtrOutput
+	ToDashboardDefaultTimeframeFixedPtrOutputWithContext(context.Context) DashboardDefaultTimeframeFixedPtrOutput
+}
+
+type dashboardDefaultTimeframeFixedPtrType DashboardDefaultTimeframeFixedArgs
+
+func DashboardDefaultTimeframeFixedPtr(v *DashboardDefaultTimeframeFixedArgs) DashboardDefaultTimeframeFixedPtrInput {
+	return (*dashboardDefaultTimeframeFixedPtrType)(v)
+}
+
+func (*dashboardDefaultTimeframeFixedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardDefaultTimeframeFixed)(nil)).Elem()
+}
+
+func (i *dashboardDefaultTimeframeFixedPtrType) ToDashboardDefaultTimeframeFixedPtrOutput() DashboardDefaultTimeframeFixedPtrOutput {
+	return i.ToDashboardDefaultTimeframeFixedPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardDefaultTimeframeFixedPtrType) ToDashboardDefaultTimeframeFixedPtrOutputWithContext(ctx context.Context) DashboardDefaultTimeframeFixedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardDefaultTimeframeFixedPtrOutput)
+}
+
+type DashboardDefaultTimeframeFixedOutput struct{ *pulumi.OutputState }
+
+func (DashboardDefaultTimeframeFixedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardDefaultTimeframeFixed)(nil)).Elem()
+}
+
+func (o DashboardDefaultTimeframeFixedOutput) ToDashboardDefaultTimeframeFixedOutput() DashboardDefaultTimeframeFixedOutput {
+	return o
+}
+
+func (o DashboardDefaultTimeframeFixedOutput) ToDashboardDefaultTimeframeFixedOutputWithContext(ctx context.Context) DashboardDefaultTimeframeFixedOutput {
+	return o
+}
+
+func (o DashboardDefaultTimeframeFixedOutput) ToDashboardDefaultTimeframeFixedPtrOutput() DashboardDefaultTimeframeFixedPtrOutput {
+	return o.ToDashboardDefaultTimeframeFixedPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardDefaultTimeframeFixedOutput) ToDashboardDefaultTimeframeFixedPtrOutputWithContext(ctx context.Context) DashboardDefaultTimeframeFixedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardDefaultTimeframeFixed) *DashboardDefaultTimeframeFixed {
+		return &v
+	}).(DashboardDefaultTimeframeFixedPtrOutput)
+}
+
+// Start time in milliseconds since epoch.
+func (o DashboardDefaultTimeframeFixedOutput) From() pulumi.IntOutput {
+	return o.ApplyT(func(v DashboardDefaultTimeframeFixed) int { return v.From }).(pulumi.IntOutput)
+}
+
+// End time in milliseconds since epoch.
+func (o DashboardDefaultTimeframeFixedOutput) To() pulumi.IntOutput {
+	return o.ApplyT(func(v DashboardDefaultTimeframeFixed) int { return v.To }).(pulumi.IntOutput)
+}
+
+type DashboardDefaultTimeframeFixedPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardDefaultTimeframeFixedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardDefaultTimeframeFixed)(nil)).Elem()
+}
+
+func (o DashboardDefaultTimeframeFixedPtrOutput) ToDashboardDefaultTimeframeFixedPtrOutput() DashboardDefaultTimeframeFixedPtrOutput {
+	return o
+}
+
+func (o DashboardDefaultTimeframeFixedPtrOutput) ToDashboardDefaultTimeframeFixedPtrOutputWithContext(ctx context.Context) DashboardDefaultTimeframeFixedPtrOutput {
+	return o
+}
+
+func (o DashboardDefaultTimeframeFixedPtrOutput) Elem() DashboardDefaultTimeframeFixedOutput {
+	return o.ApplyT(func(v *DashboardDefaultTimeframeFixed) DashboardDefaultTimeframeFixed {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardDefaultTimeframeFixed
+		return ret
+	}).(DashboardDefaultTimeframeFixedOutput)
+}
+
+// Start time in milliseconds since epoch.
+func (o DashboardDefaultTimeframeFixedPtrOutput) From() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DashboardDefaultTimeframeFixed) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.From
+	}).(pulumi.IntPtrOutput)
+}
+
+// End time in milliseconds since epoch.
+func (o DashboardDefaultTimeframeFixedPtrOutput) To() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DashboardDefaultTimeframeFixed) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.To
+	}).(pulumi.IntPtrOutput)
+}
+
+type DashboardDefaultTimeframeLive struct {
+	// Unit of the live timeframe span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+	Unit string `pulumi:"unit"`
+	// Value of the live timeframe span.
+	Value int `pulumi:"value"`
+}
+
+// DashboardDefaultTimeframeLiveInput is an input type that accepts DashboardDefaultTimeframeLiveArgs and DashboardDefaultTimeframeLiveOutput values.
+// You can construct a concrete instance of `DashboardDefaultTimeframeLiveInput` via:
+//
+//	DashboardDefaultTimeframeLiveArgs{...}
+type DashboardDefaultTimeframeLiveInput interface {
+	pulumi.Input
+
+	ToDashboardDefaultTimeframeLiveOutput() DashboardDefaultTimeframeLiveOutput
+	ToDashboardDefaultTimeframeLiveOutputWithContext(context.Context) DashboardDefaultTimeframeLiveOutput
+}
+
+type DashboardDefaultTimeframeLiveArgs struct {
+	// Unit of the live timeframe span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// Value of the live timeframe span.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (DashboardDefaultTimeframeLiveArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardDefaultTimeframeLive)(nil)).Elem()
+}
+
+func (i DashboardDefaultTimeframeLiveArgs) ToDashboardDefaultTimeframeLiveOutput() DashboardDefaultTimeframeLiveOutput {
+	return i.ToDashboardDefaultTimeframeLiveOutputWithContext(context.Background())
+}
+
+func (i DashboardDefaultTimeframeLiveArgs) ToDashboardDefaultTimeframeLiveOutputWithContext(ctx context.Context) DashboardDefaultTimeframeLiveOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardDefaultTimeframeLiveOutput)
+}
+
+func (i DashboardDefaultTimeframeLiveArgs) ToDashboardDefaultTimeframeLivePtrOutput() DashboardDefaultTimeframeLivePtrOutput {
+	return i.ToDashboardDefaultTimeframeLivePtrOutputWithContext(context.Background())
+}
+
+func (i DashboardDefaultTimeframeLiveArgs) ToDashboardDefaultTimeframeLivePtrOutputWithContext(ctx context.Context) DashboardDefaultTimeframeLivePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardDefaultTimeframeLiveOutput).ToDashboardDefaultTimeframeLivePtrOutputWithContext(ctx)
+}
+
+// DashboardDefaultTimeframeLivePtrInput is an input type that accepts DashboardDefaultTimeframeLiveArgs, DashboardDefaultTimeframeLivePtr and DashboardDefaultTimeframeLivePtrOutput values.
+// You can construct a concrete instance of `DashboardDefaultTimeframeLivePtrInput` via:
+//
+//	        DashboardDefaultTimeframeLiveArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardDefaultTimeframeLivePtrInput interface {
+	pulumi.Input
+
+	ToDashboardDefaultTimeframeLivePtrOutput() DashboardDefaultTimeframeLivePtrOutput
+	ToDashboardDefaultTimeframeLivePtrOutputWithContext(context.Context) DashboardDefaultTimeframeLivePtrOutput
+}
+
+type dashboardDefaultTimeframeLivePtrType DashboardDefaultTimeframeLiveArgs
+
+func DashboardDefaultTimeframeLivePtr(v *DashboardDefaultTimeframeLiveArgs) DashboardDefaultTimeframeLivePtrInput {
+	return (*dashboardDefaultTimeframeLivePtrType)(v)
+}
+
+func (*dashboardDefaultTimeframeLivePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardDefaultTimeframeLive)(nil)).Elem()
+}
+
+func (i *dashboardDefaultTimeframeLivePtrType) ToDashboardDefaultTimeframeLivePtrOutput() DashboardDefaultTimeframeLivePtrOutput {
+	return i.ToDashboardDefaultTimeframeLivePtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardDefaultTimeframeLivePtrType) ToDashboardDefaultTimeframeLivePtrOutputWithContext(ctx context.Context) DashboardDefaultTimeframeLivePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardDefaultTimeframeLivePtrOutput)
+}
+
+type DashboardDefaultTimeframeLiveOutput struct{ *pulumi.OutputState }
+
+func (DashboardDefaultTimeframeLiveOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardDefaultTimeframeLive)(nil)).Elem()
+}
+
+func (o DashboardDefaultTimeframeLiveOutput) ToDashboardDefaultTimeframeLiveOutput() DashboardDefaultTimeframeLiveOutput {
+	return o
+}
+
+func (o DashboardDefaultTimeframeLiveOutput) ToDashboardDefaultTimeframeLiveOutputWithContext(ctx context.Context) DashboardDefaultTimeframeLiveOutput {
+	return o
+}
+
+func (o DashboardDefaultTimeframeLiveOutput) ToDashboardDefaultTimeframeLivePtrOutput() DashboardDefaultTimeframeLivePtrOutput {
+	return o.ToDashboardDefaultTimeframeLivePtrOutputWithContext(context.Background())
+}
+
+func (o DashboardDefaultTimeframeLiveOutput) ToDashboardDefaultTimeframeLivePtrOutputWithContext(ctx context.Context) DashboardDefaultTimeframeLivePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardDefaultTimeframeLive) *DashboardDefaultTimeframeLive {
+		return &v
+	}).(DashboardDefaultTimeframeLivePtrOutput)
+}
+
+// Unit of the live timeframe span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+func (o DashboardDefaultTimeframeLiveOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardDefaultTimeframeLive) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// Value of the live timeframe span.
+func (o DashboardDefaultTimeframeLiveOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v DashboardDefaultTimeframeLive) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type DashboardDefaultTimeframeLivePtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardDefaultTimeframeLivePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardDefaultTimeframeLive)(nil)).Elem()
+}
+
+func (o DashboardDefaultTimeframeLivePtrOutput) ToDashboardDefaultTimeframeLivePtrOutput() DashboardDefaultTimeframeLivePtrOutput {
+	return o
+}
+
+func (o DashboardDefaultTimeframeLivePtrOutput) ToDashboardDefaultTimeframeLivePtrOutputWithContext(ctx context.Context) DashboardDefaultTimeframeLivePtrOutput {
+	return o
+}
+
+func (o DashboardDefaultTimeframeLivePtrOutput) Elem() DashboardDefaultTimeframeLiveOutput {
+	return o.ApplyT(func(v *DashboardDefaultTimeframeLive) DashboardDefaultTimeframeLive {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardDefaultTimeframeLive
+		return ret
+	}).(DashboardDefaultTimeframeLiveOutput)
+}
+
+// Unit of the live timeframe span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+func (o DashboardDefaultTimeframeLivePtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardDefaultTimeframeLive) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// Value of the live timeframe span.
+func (o DashboardDefaultTimeframeLivePtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DashboardDefaultTimeframeLive) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
 type DashboardListDashItem struct {
 	// The ID of the dashboard to add
 	DashId string `pulumi:"dashId"`
@@ -23556,6 +25034,474 @@ func (o DashboardTemplateVariablePresetTemplateVariableArrayOutput) Index(i pulu
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardTemplateVariablePresetTemplateVariable {
 		return vs[0].([]DashboardTemplateVariablePresetTemplateVariable)[vs[1].(int)]
 	}).(DashboardTemplateVariablePresetTemplateVariableOutput)
+}
+
+type DashboardV2DefaultTimeframe struct {
+	// A fixed timeframe applied when opening the dashboard.
+	Fixed *DashboardV2DefaultTimeframeFixed `pulumi:"fixed"`
+	// A live timeframe applied when opening the dashboard.
+	Live *DashboardV2DefaultTimeframeLive `pulumi:"live"`
+}
+
+// DashboardV2DefaultTimeframeInput is an input type that accepts DashboardV2DefaultTimeframeArgs and DashboardV2DefaultTimeframeOutput values.
+// You can construct a concrete instance of `DashboardV2DefaultTimeframeInput` via:
+//
+//	DashboardV2DefaultTimeframeArgs{...}
+type DashboardV2DefaultTimeframeInput interface {
+	pulumi.Input
+
+	ToDashboardV2DefaultTimeframeOutput() DashboardV2DefaultTimeframeOutput
+	ToDashboardV2DefaultTimeframeOutputWithContext(context.Context) DashboardV2DefaultTimeframeOutput
+}
+
+type DashboardV2DefaultTimeframeArgs struct {
+	// A fixed timeframe applied when opening the dashboard.
+	Fixed DashboardV2DefaultTimeframeFixedPtrInput `pulumi:"fixed"`
+	// A live timeframe applied when opening the dashboard.
+	Live DashboardV2DefaultTimeframeLivePtrInput `pulumi:"live"`
+}
+
+func (DashboardV2DefaultTimeframeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2DefaultTimeframe)(nil)).Elem()
+}
+
+func (i DashboardV2DefaultTimeframeArgs) ToDashboardV2DefaultTimeframeOutput() DashboardV2DefaultTimeframeOutput {
+	return i.ToDashboardV2DefaultTimeframeOutputWithContext(context.Background())
+}
+
+func (i DashboardV2DefaultTimeframeArgs) ToDashboardV2DefaultTimeframeOutputWithContext(ctx context.Context) DashboardV2DefaultTimeframeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2DefaultTimeframeOutput)
+}
+
+func (i DashboardV2DefaultTimeframeArgs) ToDashboardV2DefaultTimeframePtrOutput() DashboardV2DefaultTimeframePtrOutput {
+	return i.ToDashboardV2DefaultTimeframePtrOutputWithContext(context.Background())
+}
+
+func (i DashboardV2DefaultTimeframeArgs) ToDashboardV2DefaultTimeframePtrOutputWithContext(ctx context.Context) DashboardV2DefaultTimeframePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2DefaultTimeframeOutput).ToDashboardV2DefaultTimeframePtrOutputWithContext(ctx)
+}
+
+// DashboardV2DefaultTimeframePtrInput is an input type that accepts DashboardV2DefaultTimeframeArgs, DashboardV2DefaultTimeframePtr and DashboardV2DefaultTimeframePtrOutput values.
+// You can construct a concrete instance of `DashboardV2DefaultTimeframePtrInput` via:
+//
+//	        DashboardV2DefaultTimeframeArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardV2DefaultTimeframePtrInput interface {
+	pulumi.Input
+
+	ToDashboardV2DefaultTimeframePtrOutput() DashboardV2DefaultTimeframePtrOutput
+	ToDashboardV2DefaultTimeframePtrOutputWithContext(context.Context) DashboardV2DefaultTimeframePtrOutput
+}
+
+type dashboardV2DefaultTimeframePtrType DashboardV2DefaultTimeframeArgs
+
+func DashboardV2DefaultTimeframePtr(v *DashboardV2DefaultTimeframeArgs) DashboardV2DefaultTimeframePtrInput {
+	return (*dashboardV2DefaultTimeframePtrType)(v)
+}
+
+func (*dashboardV2DefaultTimeframePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardV2DefaultTimeframe)(nil)).Elem()
+}
+
+func (i *dashboardV2DefaultTimeframePtrType) ToDashboardV2DefaultTimeframePtrOutput() DashboardV2DefaultTimeframePtrOutput {
+	return i.ToDashboardV2DefaultTimeframePtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardV2DefaultTimeframePtrType) ToDashboardV2DefaultTimeframePtrOutputWithContext(ctx context.Context) DashboardV2DefaultTimeframePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2DefaultTimeframePtrOutput)
+}
+
+type DashboardV2DefaultTimeframeOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2DefaultTimeframeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2DefaultTimeframe)(nil)).Elem()
+}
+
+func (o DashboardV2DefaultTimeframeOutput) ToDashboardV2DefaultTimeframeOutput() DashboardV2DefaultTimeframeOutput {
+	return o
+}
+
+func (o DashboardV2DefaultTimeframeOutput) ToDashboardV2DefaultTimeframeOutputWithContext(ctx context.Context) DashboardV2DefaultTimeframeOutput {
+	return o
+}
+
+func (o DashboardV2DefaultTimeframeOutput) ToDashboardV2DefaultTimeframePtrOutput() DashboardV2DefaultTimeframePtrOutput {
+	return o.ToDashboardV2DefaultTimeframePtrOutputWithContext(context.Background())
+}
+
+func (o DashboardV2DefaultTimeframeOutput) ToDashboardV2DefaultTimeframePtrOutputWithContext(ctx context.Context) DashboardV2DefaultTimeframePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2DefaultTimeframe) *DashboardV2DefaultTimeframe {
+		return &v
+	}).(DashboardV2DefaultTimeframePtrOutput)
+}
+
+// A fixed timeframe applied when opening the dashboard.
+func (o DashboardV2DefaultTimeframeOutput) Fixed() DashboardV2DefaultTimeframeFixedPtrOutput {
+	return o.ApplyT(func(v DashboardV2DefaultTimeframe) *DashboardV2DefaultTimeframeFixed { return v.Fixed }).(DashboardV2DefaultTimeframeFixedPtrOutput)
+}
+
+// A live timeframe applied when opening the dashboard.
+func (o DashboardV2DefaultTimeframeOutput) Live() DashboardV2DefaultTimeframeLivePtrOutput {
+	return o.ApplyT(func(v DashboardV2DefaultTimeframe) *DashboardV2DefaultTimeframeLive { return v.Live }).(DashboardV2DefaultTimeframeLivePtrOutput)
+}
+
+type DashboardV2DefaultTimeframePtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2DefaultTimeframePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardV2DefaultTimeframe)(nil)).Elem()
+}
+
+func (o DashboardV2DefaultTimeframePtrOutput) ToDashboardV2DefaultTimeframePtrOutput() DashboardV2DefaultTimeframePtrOutput {
+	return o
+}
+
+func (o DashboardV2DefaultTimeframePtrOutput) ToDashboardV2DefaultTimeframePtrOutputWithContext(ctx context.Context) DashboardV2DefaultTimeframePtrOutput {
+	return o
+}
+
+func (o DashboardV2DefaultTimeframePtrOutput) Elem() DashboardV2DefaultTimeframeOutput {
+	return o.ApplyT(func(v *DashboardV2DefaultTimeframe) DashboardV2DefaultTimeframe {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardV2DefaultTimeframe
+		return ret
+	}).(DashboardV2DefaultTimeframeOutput)
+}
+
+// A fixed timeframe applied when opening the dashboard.
+func (o DashboardV2DefaultTimeframePtrOutput) Fixed() DashboardV2DefaultTimeframeFixedPtrOutput {
+	return o.ApplyT(func(v *DashboardV2DefaultTimeframe) *DashboardV2DefaultTimeframeFixed {
+		if v == nil {
+			return nil
+		}
+		return v.Fixed
+	}).(DashboardV2DefaultTimeframeFixedPtrOutput)
+}
+
+// A live timeframe applied when opening the dashboard.
+func (o DashboardV2DefaultTimeframePtrOutput) Live() DashboardV2DefaultTimeframeLivePtrOutput {
+	return o.ApplyT(func(v *DashboardV2DefaultTimeframe) *DashboardV2DefaultTimeframeLive {
+		if v == nil {
+			return nil
+		}
+		return v.Live
+	}).(DashboardV2DefaultTimeframeLivePtrOutput)
+}
+
+type DashboardV2DefaultTimeframeFixed struct {
+	// Start time in milliseconds since epoch.
+	From int `pulumi:"from"`
+	// End time in milliseconds since epoch.
+	To int `pulumi:"to"`
+}
+
+// DashboardV2DefaultTimeframeFixedInput is an input type that accepts DashboardV2DefaultTimeframeFixedArgs and DashboardV2DefaultTimeframeFixedOutput values.
+// You can construct a concrete instance of `DashboardV2DefaultTimeframeFixedInput` via:
+//
+//	DashboardV2DefaultTimeframeFixedArgs{...}
+type DashboardV2DefaultTimeframeFixedInput interface {
+	pulumi.Input
+
+	ToDashboardV2DefaultTimeframeFixedOutput() DashboardV2DefaultTimeframeFixedOutput
+	ToDashboardV2DefaultTimeframeFixedOutputWithContext(context.Context) DashboardV2DefaultTimeframeFixedOutput
+}
+
+type DashboardV2DefaultTimeframeFixedArgs struct {
+	// Start time in milliseconds since epoch.
+	From pulumi.IntInput `pulumi:"from"`
+	// End time in milliseconds since epoch.
+	To pulumi.IntInput `pulumi:"to"`
+}
+
+func (DashboardV2DefaultTimeframeFixedArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2DefaultTimeframeFixed)(nil)).Elem()
+}
+
+func (i DashboardV2DefaultTimeframeFixedArgs) ToDashboardV2DefaultTimeframeFixedOutput() DashboardV2DefaultTimeframeFixedOutput {
+	return i.ToDashboardV2DefaultTimeframeFixedOutputWithContext(context.Background())
+}
+
+func (i DashboardV2DefaultTimeframeFixedArgs) ToDashboardV2DefaultTimeframeFixedOutputWithContext(ctx context.Context) DashboardV2DefaultTimeframeFixedOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2DefaultTimeframeFixedOutput)
+}
+
+func (i DashboardV2DefaultTimeframeFixedArgs) ToDashboardV2DefaultTimeframeFixedPtrOutput() DashboardV2DefaultTimeframeFixedPtrOutput {
+	return i.ToDashboardV2DefaultTimeframeFixedPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardV2DefaultTimeframeFixedArgs) ToDashboardV2DefaultTimeframeFixedPtrOutputWithContext(ctx context.Context) DashboardV2DefaultTimeframeFixedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2DefaultTimeframeFixedOutput).ToDashboardV2DefaultTimeframeFixedPtrOutputWithContext(ctx)
+}
+
+// DashboardV2DefaultTimeframeFixedPtrInput is an input type that accepts DashboardV2DefaultTimeframeFixedArgs, DashboardV2DefaultTimeframeFixedPtr and DashboardV2DefaultTimeframeFixedPtrOutput values.
+// You can construct a concrete instance of `DashboardV2DefaultTimeframeFixedPtrInput` via:
+//
+//	        DashboardV2DefaultTimeframeFixedArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardV2DefaultTimeframeFixedPtrInput interface {
+	pulumi.Input
+
+	ToDashboardV2DefaultTimeframeFixedPtrOutput() DashboardV2DefaultTimeframeFixedPtrOutput
+	ToDashboardV2DefaultTimeframeFixedPtrOutputWithContext(context.Context) DashboardV2DefaultTimeframeFixedPtrOutput
+}
+
+type dashboardV2DefaultTimeframeFixedPtrType DashboardV2DefaultTimeframeFixedArgs
+
+func DashboardV2DefaultTimeframeFixedPtr(v *DashboardV2DefaultTimeframeFixedArgs) DashboardV2DefaultTimeframeFixedPtrInput {
+	return (*dashboardV2DefaultTimeframeFixedPtrType)(v)
+}
+
+func (*dashboardV2DefaultTimeframeFixedPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardV2DefaultTimeframeFixed)(nil)).Elem()
+}
+
+func (i *dashboardV2DefaultTimeframeFixedPtrType) ToDashboardV2DefaultTimeframeFixedPtrOutput() DashboardV2DefaultTimeframeFixedPtrOutput {
+	return i.ToDashboardV2DefaultTimeframeFixedPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardV2DefaultTimeframeFixedPtrType) ToDashboardV2DefaultTimeframeFixedPtrOutputWithContext(ctx context.Context) DashboardV2DefaultTimeframeFixedPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2DefaultTimeframeFixedPtrOutput)
+}
+
+type DashboardV2DefaultTimeframeFixedOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2DefaultTimeframeFixedOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2DefaultTimeframeFixed)(nil)).Elem()
+}
+
+func (o DashboardV2DefaultTimeframeFixedOutput) ToDashboardV2DefaultTimeframeFixedOutput() DashboardV2DefaultTimeframeFixedOutput {
+	return o
+}
+
+func (o DashboardV2DefaultTimeframeFixedOutput) ToDashboardV2DefaultTimeframeFixedOutputWithContext(ctx context.Context) DashboardV2DefaultTimeframeFixedOutput {
+	return o
+}
+
+func (o DashboardV2DefaultTimeframeFixedOutput) ToDashboardV2DefaultTimeframeFixedPtrOutput() DashboardV2DefaultTimeframeFixedPtrOutput {
+	return o.ToDashboardV2DefaultTimeframeFixedPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardV2DefaultTimeframeFixedOutput) ToDashboardV2DefaultTimeframeFixedPtrOutputWithContext(ctx context.Context) DashboardV2DefaultTimeframeFixedPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2DefaultTimeframeFixed) *DashboardV2DefaultTimeframeFixed {
+		return &v
+	}).(DashboardV2DefaultTimeframeFixedPtrOutput)
+}
+
+// Start time in milliseconds since epoch.
+func (o DashboardV2DefaultTimeframeFixedOutput) From() pulumi.IntOutput {
+	return o.ApplyT(func(v DashboardV2DefaultTimeframeFixed) int { return v.From }).(pulumi.IntOutput)
+}
+
+// End time in milliseconds since epoch.
+func (o DashboardV2DefaultTimeframeFixedOutput) To() pulumi.IntOutput {
+	return o.ApplyT(func(v DashboardV2DefaultTimeframeFixed) int { return v.To }).(pulumi.IntOutput)
+}
+
+type DashboardV2DefaultTimeframeFixedPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2DefaultTimeframeFixedPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardV2DefaultTimeframeFixed)(nil)).Elem()
+}
+
+func (o DashboardV2DefaultTimeframeFixedPtrOutput) ToDashboardV2DefaultTimeframeFixedPtrOutput() DashboardV2DefaultTimeframeFixedPtrOutput {
+	return o
+}
+
+func (o DashboardV2DefaultTimeframeFixedPtrOutput) ToDashboardV2DefaultTimeframeFixedPtrOutputWithContext(ctx context.Context) DashboardV2DefaultTimeframeFixedPtrOutput {
+	return o
+}
+
+func (o DashboardV2DefaultTimeframeFixedPtrOutput) Elem() DashboardV2DefaultTimeframeFixedOutput {
+	return o.ApplyT(func(v *DashboardV2DefaultTimeframeFixed) DashboardV2DefaultTimeframeFixed {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardV2DefaultTimeframeFixed
+		return ret
+	}).(DashboardV2DefaultTimeframeFixedOutput)
+}
+
+// Start time in milliseconds since epoch.
+func (o DashboardV2DefaultTimeframeFixedPtrOutput) From() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DashboardV2DefaultTimeframeFixed) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.From
+	}).(pulumi.IntPtrOutput)
+}
+
+// End time in milliseconds since epoch.
+func (o DashboardV2DefaultTimeframeFixedPtrOutput) To() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DashboardV2DefaultTimeframeFixed) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.To
+	}).(pulumi.IntPtrOutput)
+}
+
+type DashboardV2DefaultTimeframeLive struct {
+	// Unit of the live timeframe span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+	Unit string `pulumi:"unit"`
+	// Value of the live timeframe span.
+	Value int `pulumi:"value"`
+}
+
+// DashboardV2DefaultTimeframeLiveInput is an input type that accepts DashboardV2DefaultTimeframeLiveArgs and DashboardV2DefaultTimeframeLiveOutput values.
+// You can construct a concrete instance of `DashboardV2DefaultTimeframeLiveInput` via:
+//
+//	DashboardV2DefaultTimeframeLiveArgs{...}
+type DashboardV2DefaultTimeframeLiveInput interface {
+	pulumi.Input
+
+	ToDashboardV2DefaultTimeframeLiveOutput() DashboardV2DefaultTimeframeLiveOutput
+	ToDashboardV2DefaultTimeframeLiveOutputWithContext(context.Context) DashboardV2DefaultTimeframeLiveOutput
+}
+
+type DashboardV2DefaultTimeframeLiveArgs struct {
+	// Unit of the live timeframe span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+	Unit pulumi.StringInput `pulumi:"unit"`
+	// Value of the live timeframe span.
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (DashboardV2DefaultTimeframeLiveArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2DefaultTimeframeLive)(nil)).Elem()
+}
+
+func (i DashboardV2DefaultTimeframeLiveArgs) ToDashboardV2DefaultTimeframeLiveOutput() DashboardV2DefaultTimeframeLiveOutput {
+	return i.ToDashboardV2DefaultTimeframeLiveOutputWithContext(context.Background())
+}
+
+func (i DashboardV2DefaultTimeframeLiveArgs) ToDashboardV2DefaultTimeframeLiveOutputWithContext(ctx context.Context) DashboardV2DefaultTimeframeLiveOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2DefaultTimeframeLiveOutput)
+}
+
+func (i DashboardV2DefaultTimeframeLiveArgs) ToDashboardV2DefaultTimeframeLivePtrOutput() DashboardV2DefaultTimeframeLivePtrOutput {
+	return i.ToDashboardV2DefaultTimeframeLivePtrOutputWithContext(context.Background())
+}
+
+func (i DashboardV2DefaultTimeframeLiveArgs) ToDashboardV2DefaultTimeframeLivePtrOutputWithContext(ctx context.Context) DashboardV2DefaultTimeframeLivePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2DefaultTimeframeLiveOutput).ToDashboardV2DefaultTimeframeLivePtrOutputWithContext(ctx)
+}
+
+// DashboardV2DefaultTimeframeLivePtrInput is an input type that accepts DashboardV2DefaultTimeframeLiveArgs, DashboardV2DefaultTimeframeLivePtr and DashboardV2DefaultTimeframeLivePtrOutput values.
+// You can construct a concrete instance of `DashboardV2DefaultTimeframeLivePtrInput` via:
+//
+//	        DashboardV2DefaultTimeframeLiveArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardV2DefaultTimeframeLivePtrInput interface {
+	pulumi.Input
+
+	ToDashboardV2DefaultTimeframeLivePtrOutput() DashboardV2DefaultTimeframeLivePtrOutput
+	ToDashboardV2DefaultTimeframeLivePtrOutputWithContext(context.Context) DashboardV2DefaultTimeframeLivePtrOutput
+}
+
+type dashboardV2DefaultTimeframeLivePtrType DashboardV2DefaultTimeframeLiveArgs
+
+func DashboardV2DefaultTimeframeLivePtr(v *DashboardV2DefaultTimeframeLiveArgs) DashboardV2DefaultTimeframeLivePtrInput {
+	return (*dashboardV2DefaultTimeframeLivePtrType)(v)
+}
+
+func (*dashboardV2DefaultTimeframeLivePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardV2DefaultTimeframeLive)(nil)).Elem()
+}
+
+func (i *dashboardV2DefaultTimeframeLivePtrType) ToDashboardV2DefaultTimeframeLivePtrOutput() DashboardV2DefaultTimeframeLivePtrOutput {
+	return i.ToDashboardV2DefaultTimeframeLivePtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardV2DefaultTimeframeLivePtrType) ToDashboardV2DefaultTimeframeLivePtrOutputWithContext(ctx context.Context) DashboardV2DefaultTimeframeLivePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2DefaultTimeframeLivePtrOutput)
+}
+
+type DashboardV2DefaultTimeframeLiveOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2DefaultTimeframeLiveOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardV2DefaultTimeframeLive)(nil)).Elem()
+}
+
+func (o DashboardV2DefaultTimeframeLiveOutput) ToDashboardV2DefaultTimeframeLiveOutput() DashboardV2DefaultTimeframeLiveOutput {
+	return o
+}
+
+func (o DashboardV2DefaultTimeframeLiveOutput) ToDashboardV2DefaultTimeframeLiveOutputWithContext(ctx context.Context) DashboardV2DefaultTimeframeLiveOutput {
+	return o
+}
+
+func (o DashboardV2DefaultTimeframeLiveOutput) ToDashboardV2DefaultTimeframeLivePtrOutput() DashboardV2DefaultTimeframeLivePtrOutput {
+	return o.ToDashboardV2DefaultTimeframeLivePtrOutputWithContext(context.Background())
+}
+
+func (o DashboardV2DefaultTimeframeLiveOutput) ToDashboardV2DefaultTimeframeLivePtrOutputWithContext(ctx context.Context) DashboardV2DefaultTimeframeLivePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2DefaultTimeframeLive) *DashboardV2DefaultTimeframeLive {
+		return &v
+	}).(DashboardV2DefaultTimeframeLivePtrOutput)
+}
+
+// Unit of the live timeframe span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+func (o DashboardV2DefaultTimeframeLiveOutput) Unit() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardV2DefaultTimeframeLive) string { return v.Unit }).(pulumi.StringOutput)
+}
+
+// Value of the live timeframe span.
+func (o DashboardV2DefaultTimeframeLiveOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v DashboardV2DefaultTimeframeLive) int { return v.Value }).(pulumi.IntOutput)
+}
+
+type DashboardV2DefaultTimeframeLivePtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardV2DefaultTimeframeLivePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardV2DefaultTimeframeLive)(nil)).Elem()
+}
+
+func (o DashboardV2DefaultTimeframeLivePtrOutput) ToDashboardV2DefaultTimeframeLivePtrOutput() DashboardV2DefaultTimeframeLivePtrOutput {
+	return o
+}
+
+func (o DashboardV2DefaultTimeframeLivePtrOutput) ToDashboardV2DefaultTimeframeLivePtrOutputWithContext(ctx context.Context) DashboardV2DefaultTimeframeLivePtrOutput {
+	return o
+}
+
+func (o DashboardV2DefaultTimeframeLivePtrOutput) Elem() DashboardV2DefaultTimeframeLiveOutput {
+	return o.ApplyT(func(v *DashboardV2DefaultTimeframeLive) DashboardV2DefaultTimeframeLive {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardV2DefaultTimeframeLive
+		return ret
+	}).(DashboardV2DefaultTimeframeLiveOutput)
+}
+
+// Unit of the live timeframe span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+func (o DashboardV2DefaultTimeframeLivePtrOutput) Unit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardV2DefaultTimeframeLive) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Unit
+	}).(pulumi.StringPtrOutput)
+}
+
+// Value of the live timeframe span.
+func (o DashboardV2DefaultTimeframeLivePtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *DashboardV2DefaultTimeframeLive) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
 }
 
 type DashboardV2Tab struct {
@@ -83137,2438 +85083,6 @@ func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByArray
 	}).(DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByOutput)
 }
 
-type DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFields struct {
-	// List of event facets to group by.
-	Fields []string `pulumi:"fields"`
-	// The number of groups to return.
-	Limit *int `pulumi:"limit"`
-	// The options for sorting group by results.
-	Sort *DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSort `pulumi:"sort"`
-}
-
-// DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsInput is an input type that accepts DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsArgs and DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsInput` via:
-//
-//	DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsArgs{...}
-type DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsOutput
-	ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsOutputWithContext(context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsOutput
-}
-
-type DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsArgs struct {
-	// List of event facets to group by.
-	Fields pulumi.StringArrayInput `pulumi:"fields"`
-	// The number of groups to return.
-	Limit pulumi.IntPtrInput `pulumi:"limit"`
-	// The options for sorting group by results.
-	Sort DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrInput `pulumi:"sort"`
-}
-
-func (DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFields)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsArgs) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsOutput {
-	return i.ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsArgs) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsOutput)
-}
-
-func (i DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsArgs) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutput {
-	return i.ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsArgs) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsOutput).ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrInput is an input type that accepts DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsArgs, DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtr and DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrInput` via:
-//
-//	        DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutput
-	ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutputWithContext(context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutput
-}
-
-type dashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrType DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsArgs
-
-func DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtr(v *DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsArgs) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrInput {
-	return (*dashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrType)(v)
-}
-
-func (*dashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFields)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrType) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutput {
-	return i.ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrType) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutput)
-}
-
-type DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFields)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsOutput) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsOutput) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsOutput) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutput {
-	return o.ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsOutput) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFields) *DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFields {
-		return &v
-	}).(DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutput)
-}
-
-// List of event facets to group by.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsOutput) Fields() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFields) []string {
-		return v.Fields
-	}).(pulumi.StringArrayOutput)
-}
-
-// The number of groups to return.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsOutput) Limit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFields) *int { return v.Limit }).(pulumi.IntPtrOutput)
-}
-
-// The options for sorting group by results.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsOutput) Sort() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFields) *DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSort {
-		return v.Sort
-	}).(DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutput)
-}
-
-type DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFields)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutput) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutput) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutput) Elem() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFields) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFields {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFields
-		return ret
-	}).(DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsOutput)
-}
-
-// List of event facets to group by.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutput) Fields() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFields) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Fields
-	}).(pulumi.StringArrayOutput)
-}
-
-// The number of groups to return.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutput) Limit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFields) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Limit
-	}).(pulumi.IntPtrOutput)
-}
-
-// The options for sorting group by results.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutput) Sort() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFields) *DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSort {
-		if v == nil {
-			return nil
-		}
-		return v.Sort
-	}).(DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutput)
-}
-
-type DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSort struct {
-	// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-	Aggregation string `pulumi:"aggregation"`
-	// The metric used for sorting group by results.
-	Metric *string `pulumi:"metric"`
-	// Direction of sort. Valid values are `asc`, `desc`.
-	Order *string `pulumi:"order"`
-}
-
-// DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortInput is an input type that accepts DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortArgs and DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortInput` via:
-//
-//	DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortArgs{...}
-type DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortOutput
-	ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortOutputWithContext(context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortOutput
-}
-
-type DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortArgs struct {
-	// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-	Aggregation pulumi.StringInput `pulumi:"aggregation"`
-	// The metric used for sorting group by results.
-	Metric pulumi.StringPtrInput `pulumi:"metric"`
-	// Direction of sort. Valid values are `asc`, `desc`.
-	Order pulumi.StringPtrInput `pulumi:"order"`
-}
-
-func (DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSort)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortArgs) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortOutput {
-	return i.ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortArgs) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortOutput)
-}
-
-func (i DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortArgs) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutput {
-	return i.ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortArgs) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortOutput).ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrInput is an input type that accepts DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortArgs, DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtr and DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrInput` via:
-//
-//	        DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutput
-	ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutputWithContext(context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutput
-}
-
-type dashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrType DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortArgs
-
-func DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtr(v *DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortArgs) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrInput {
-	return (*dashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrType)(v)
-}
-
-func (*dashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSort)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrType) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutput {
-	return i.ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrType) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutput)
-}
-
-type DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSort)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortOutput) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortOutput) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortOutput) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutput {
-	return o.ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortOutput) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSort) *DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSort {
-		return &v
-	}).(DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutput)
-}
-
-// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortOutput) Aggregation() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSort) string {
-		return v.Aggregation
-	}).(pulumi.StringOutput)
-}
-
-// The metric used for sorting group by results.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortOutput) Metric() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSort) *string {
-		return v.Metric
-	}).(pulumi.StringPtrOutput)
-}
-
-// Direction of sort. Valid values are `asc`, `desc`.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortOutput) Order() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSort) *string {
-		return v.Order
-	}).(pulumi.StringPtrOutput)
-}
-
-type DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSort)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutput) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutput) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutput) Elem() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSort) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSort {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSort
-		return ret
-	}).(DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortOutput)
-}
-
-// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutput) Aggregation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSort) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Aggregation
-	}).(pulumi.StringPtrOutput)
-}
-
-// The metric used for sorting group by results.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutput) Metric() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSort) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Metric
-	}).(pulumi.StringPtrOutput)
-}
-
-// Direction of sort. Valid values are `asc`, `desc`.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutput) Order() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSort) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Order
-	}).(pulumi.StringPtrOutput)
-}
-
-type DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySort struct {
-	// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-	Aggregation string `pulumi:"aggregation"`
-	// The metric used for sorting group by results.
-	Metric *string `pulumi:"metric"`
-	// Direction of sort. Valid values are `asc`, `desc`.
-	Order *string `pulumi:"order"`
-}
-
-// DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortInput is an input type that accepts DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortArgs and DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortInput` via:
-//
-//	DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortArgs{...}
-type DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortOutput
-	ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortOutputWithContext(context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortOutput
-}
-
-type DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortArgs struct {
-	// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-	Aggregation pulumi.StringInput `pulumi:"aggregation"`
-	// The metric used for sorting group by results.
-	Metric pulumi.StringPtrInput `pulumi:"metric"`
-	// Direction of sort. Valid values are `asc`, `desc`.
-	Order pulumi.StringPtrInput `pulumi:"order"`
-}
-
-func (DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySort)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortArgs) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortOutput {
-	return i.ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortArgs) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortOutput)
-}
-
-func (i DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortArgs) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutput {
-	return i.ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortArgs) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortOutput).ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrInput is an input type that accepts DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortArgs, DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtr and DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrInput` via:
-//
-//	        DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutput
-	ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutputWithContext(context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutput
-}
-
-type dashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrType DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortArgs
-
-func DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtr(v *DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortArgs) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrInput {
-	return (*dashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrType)(v)
-}
-
-func (*dashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySort)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrType) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutput {
-	return i.ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrType) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutput)
-}
-
-type DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySort)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortOutput) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortOutput) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortOutput) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutput {
-	return o.ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortOutput) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySort) *DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySort {
-		return &v
-	}).(DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutput)
-}
-
-// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortOutput) Aggregation() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySort) string {
-		return v.Aggregation
-	}).(pulumi.StringOutput)
-}
-
-// The metric used for sorting group by results.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortOutput) Metric() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySort) *string {
-		return v.Metric
-	}).(pulumi.StringPtrOutput)
-}
-
-// Direction of sort. Valid values are `asc`, `desc`.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortOutput) Order() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySort) *string {
-		return v.Order
-	}).(pulumi.StringPtrOutput)
-}
-
-type DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySort)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutput) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutput) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutput) Elem() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySort) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySort {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySort
-		return ret
-	}).(DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortOutput)
-}
-
-// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutput) Aggregation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySort) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Aggregation
-	}).(pulumi.StringPtrOutput)
-}
-
-// The metric used for sorting group by results.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutput) Metric() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySort) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Metric
-	}).(pulumi.StringPtrOutput)
-}
-
-// Direction of sort. Valid values are `asc`, `desc`.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutput) Order() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySort) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Order
-	}).(pulumi.StringPtrOutput)
-}
-
-type DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearch struct {
-	// The events search string.
-	Query string `pulumi:"query"`
-}
-
-// DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchInput is an input type that accepts DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchArgs and DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchInput` via:
-//
-//	DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchArgs{...}
-type DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchOutput
-	ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchOutputWithContext(context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchOutput
-}
-
-type DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchArgs struct {
-	// The events search string.
-	Query pulumi.StringInput `pulumi:"query"`
-}
-
-func (DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearch)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchArgs) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchOutput {
-	return i.ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchArgs) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchOutput)
-}
-
-func (i DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchArgs) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrOutput {
-	return i.ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchArgs) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchOutput).ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrInput is an input type that accepts DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchArgs, DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtr and DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrInput` via:
-//
-//	        DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrOutput
-	ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrOutputWithContext(context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrOutput
-}
-
-type dashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrType DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchArgs
-
-func DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtr(v *DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchArgs) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrInput {
-	return (*dashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrType)(v)
-}
-
-func (*dashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearch)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrType) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrOutput {
-	return i.ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrType) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrOutput)
-}
-
-type DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearch)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchOutput) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchOutput) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchOutput) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrOutput {
-	return o.ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchOutput) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearch) *DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearch {
-		return &v
-	}).(DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrOutput)
-}
-
-// The events search string.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchOutput) Query() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearch) string { return v.Query }).(pulumi.StringOutput)
-}
-
-type DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearch)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrOutput) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrOutput) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrOutput) Elem() DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearch) DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearch {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearch
-		return ret
-	}).(DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchOutput)
-}
-
-// The events search string.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrOutput) Query() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearch) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Query
-	}).(pulumi.StringPtrOutput)
-}
-
-type DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery struct {
-	// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
-	Aggregator *string `pulumi:"aggregator"`
-	// The source organization UUID for cross organization queries. Feature in Private Beta.
-	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for process queries. Valid values are `process`, `container`.
-	DataSource string `pulumi:"dataSource"`
-	// Whether to normalize the CPU percentages.
-	IsNormalizedCpu *bool `pulumi:"isNormalizedCpu"`
-	// The number of hits to return.
-	Limit *int `pulumi:"limit"`
-	// The process metric name.
-	Metric string `pulumi:"metric"`
-	// The name of query for use in formulas.
-	Name string `pulumi:"name"`
-	// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
-	Sort *string `pulumi:"sort"`
-	// An array of tags to filter by.
-	TagFilters []string `pulumi:"tagFilters"`
-	// The text to use as a filter.
-	TextFilter *string `pulumi:"textFilter"`
-}
-
-// DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryInput is an input type that accepts DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryArgs and DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryInput` via:
-//
-//	DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryArgs{...}
-type DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryOutput
-	ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryOutputWithContext(context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryOutput
-}
-
-type DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryArgs struct {
-	// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
-	Aggregator pulumi.StringPtrInput `pulumi:"aggregator"`
-	// The source organization UUID for cross organization queries. Feature in Private Beta.
-	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for process queries. Valid values are `process`, `container`.
-	DataSource pulumi.StringInput `pulumi:"dataSource"`
-	// Whether to normalize the CPU percentages.
-	IsNormalizedCpu pulumi.BoolPtrInput `pulumi:"isNormalizedCpu"`
-	// The number of hits to return.
-	Limit pulumi.IntPtrInput `pulumi:"limit"`
-	// The process metric name.
-	Metric pulumi.StringInput `pulumi:"metric"`
-	// The name of query for use in formulas.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
-	Sort pulumi.StringPtrInput `pulumi:"sort"`
-	// An array of tags to filter by.
-	TagFilters pulumi.StringArrayInput `pulumi:"tagFilters"`
-	// The text to use as a filter.
-	TextFilter pulumi.StringPtrInput `pulumi:"textFilter"`
-}
-
-func (DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryArgs) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryOutput {
-	return i.ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryArgs) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryOutput)
-}
-
-func (i DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryArgs) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutput {
-	return i.ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryArgs) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryOutput).ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrInput is an input type that accepts DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryArgs, DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtr and DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrInput` via:
-//
-//	        DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutput
-	ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutputWithContext(context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutput
-}
-
-type dashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrType DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryArgs
-
-func DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtr(v *DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryArgs) DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrInput {
-	return (*dashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrType)(v)
-}
-
-func (*dashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrType) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutput {
-	return i.ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrType) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutput)
-}
-
-type DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryOutput) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryOutput) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryOutput) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutput {
-	return o.ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryOutput) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery) *DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery {
-		return &v
-	}).(DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutput)
-}
-
-// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryOutput) Aggregator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery) *string { return v.Aggregator }).(pulumi.StringPtrOutput)
-}
-
-// The source organization UUID for cross organization queries. Feature in Private Beta.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryOutput) CrossOrgUuids() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
-}
-
-// The data source for process queries. Valid values are `process`, `container`.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryOutput) DataSource() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery) string { return v.DataSource }).(pulumi.StringOutput)
-}
-
-// Whether to normalize the CPU percentages.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryOutput) IsNormalizedCpu() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery) *bool { return v.IsNormalizedCpu }).(pulumi.BoolPtrOutput)
-}
-
-// The number of hits to return.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryOutput) Limit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery) *int { return v.Limit }).(pulumi.IntPtrOutput)
-}
-
-// The process metric name.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryOutput) Metric() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery) string { return v.Metric }).(pulumi.StringOutput)
-}
-
-// The name of query for use in formulas.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryOutput) Sort() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery) *string { return v.Sort }).(pulumi.StringPtrOutput)
-}
-
-// An array of tags to filter by.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryOutput) TagFilters() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery) []string { return v.TagFilters }).(pulumi.StringArrayOutput)
-}
-
-// The text to use as a filter.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryOutput) TextFilter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery) *string { return v.TextFilter }).(pulumi.StringPtrOutput)
-}
-
-type DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutput) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutput() DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutput) ToDashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutput) Elem() DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery) DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery
-		return ret
-	}).(DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryOutput)
-}
-
-// The aggregation methods available for metrics queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutput) Aggregator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Aggregator
-	}).(pulumi.StringPtrOutput)
-}
-
-// The source organization UUID for cross organization queries. Feature in Private Beta.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutput) CrossOrgUuids() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CrossOrgUuids
-	}).(pulumi.StringPtrOutput)
-}
-
-// The data source for process queries. Valid values are `process`, `container`.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DataSource
-	}).(pulumi.StringPtrOutput)
-}
-
-// Whether to normalize the CPU percentages.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutput) IsNormalizedCpu() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsNormalizedCpu
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The number of hits to return.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutput) Limit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Limit
-	}).(pulumi.IntPtrOutput)
-}
-
-// The process metric name.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutput) Metric() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Metric
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of query for use in formulas.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutput) Sort() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Sort
-	}).(pulumi.StringPtrOutput)
-}
-
-// An array of tags to filter by.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutput) TagFilters() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery) []string {
-		if v == nil {
-			return nil
-		}
-		return v.TagFilters
-	}).(pulumi.StringArrayOutput)
-}
-
-// The text to use as a filter.
-func (o DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutput) TextFilter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TextFilter
-	}).(pulumi.StringPtrOutput)
-}
-
-type DashboardV2WidgetHostmapDefinitionRequestStyle struct {
-	// Maximum value for the fill color scale. Omit to use automatic scaling.
-	FillMax *float64 `pulumi:"fillMax"`
-	// Minimum value for the fill color scale. Omit to use automatic scaling.
-	FillMin *float64 `pulumi:"fillMin"`
-	// Color palette name or alias.
-	Palette *string `pulumi:"palette"`
-	// Whether to invert the color palette.
-	PaletteFlip *bool `pulumi:"paletteFlip"`
-}
-
-// DashboardV2WidgetHostmapDefinitionRequestStyleInput is an input type that accepts DashboardV2WidgetHostmapDefinitionRequestStyleArgs and DashboardV2WidgetHostmapDefinitionRequestStyleOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetHostmapDefinitionRequestStyleInput` via:
-//
-//	DashboardV2WidgetHostmapDefinitionRequestStyleArgs{...}
-type DashboardV2WidgetHostmapDefinitionRequestStyleInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetHostmapDefinitionRequestStyleOutput() DashboardV2WidgetHostmapDefinitionRequestStyleOutput
-	ToDashboardV2WidgetHostmapDefinitionRequestStyleOutputWithContext(context.Context) DashboardV2WidgetHostmapDefinitionRequestStyleOutput
-}
-
-type DashboardV2WidgetHostmapDefinitionRequestStyleArgs struct {
-	// Maximum value for the fill color scale. Omit to use automatic scaling.
-	FillMax pulumi.Float64PtrInput `pulumi:"fillMax"`
-	// Minimum value for the fill color scale. Omit to use automatic scaling.
-	FillMin pulumi.Float64PtrInput `pulumi:"fillMin"`
-	// Color palette name or alias.
-	Palette pulumi.StringPtrInput `pulumi:"palette"`
-	// Whether to invert the color palette.
-	PaletteFlip pulumi.BoolPtrInput `pulumi:"paletteFlip"`
-}
-
-func (DashboardV2WidgetHostmapDefinitionRequestStyleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionRequestStyle)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetHostmapDefinitionRequestStyleArgs) ToDashboardV2WidgetHostmapDefinitionRequestStyleOutput() DashboardV2WidgetHostmapDefinitionRequestStyleOutput {
-	return i.ToDashboardV2WidgetHostmapDefinitionRequestStyleOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetHostmapDefinitionRequestStyleArgs) ToDashboardV2WidgetHostmapDefinitionRequestStyleOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestStyleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetHostmapDefinitionRequestStyleOutput)
-}
-
-func (i DashboardV2WidgetHostmapDefinitionRequestStyleArgs) ToDashboardV2WidgetHostmapDefinitionRequestStylePtrOutput() DashboardV2WidgetHostmapDefinitionRequestStylePtrOutput {
-	return i.ToDashboardV2WidgetHostmapDefinitionRequestStylePtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetHostmapDefinitionRequestStyleArgs) ToDashboardV2WidgetHostmapDefinitionRequestStylePtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestStylePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetHostmapDefinitionRequestStyleOutput).ToDashboardV2WidgetHostmapDefinitionRequestStylePtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetHostmapDefinitionRequestStylePtrInput is an input type that accepts DashboardV2WidgetHostmapDefinitionRequestStyleArgs, DashboardV2WidgetHostmapDefinitionRequestStylePtr and DashboardV2WidgetHostmapDefinitionRequestStylePtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetHostmapDefinitionRequestStylePtrInput` via:
-//
-//	        DashboardV2WidgetHostmapDefinitionRequestStyleArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetHostmapDefinitionRequestStylePtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetHostmapDefinitionRequestStylePtrOutput() DashboardV2WidgetHostmapDefinitionRequestStylePtrOutput
-	ToDashboardV2WidgetHostmapDefinitionRequestStylePtrOutputWithContext(context.Context) DashboardV2WidgetHostmapDefinitionRequestStylePtrOutput
-}
-
-type dashboardV2WidgetHostmapDefinitionRequestStylePtrType DashboardV2WidgetHostmapDefinitionRequestStyleArgs
-
-func DashboardV2WidgetHostmapDefinitionRequestStylePtr(v *DashboardV2WidgetHostmapDefinitionRequestStyleArgs) DashboardV2WidgetHostmapDefinitionRequestStylePtrInput {
-	return (*dashboardV2WidgetHostmapDefinitionRequestStylePtrType)(v)
-}
-
-func (*dashboardV2WidgetHostmapDefinitionRequestStylePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetHostmapDefinitionRequestStyle)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetHostmapDefinitionRequestStylePtrType) ToDashboardV2WidgetHostmapDefinitionRequestStylePtrOutput() DashboardV2WidgetHostmapDefinitionRequestStylePtrOutput {
-	return i.ToDashboardV2WidgetHostmapDefinitionRequestStylePtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetHostmapDefinitionRequestStylePtrType) ToDashboardV2WidgetHostmapDefinitionRequestStylePtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestStylePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetHostmapDefinitionRequestStylePtrOutput)
-}
-
-type DashboardV2WidgetHostmapDefinitionRequestStyleOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetHostmapDefinitionRequestStyleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionRequestStyle)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestStyleOutput) ToDashboardV2WidgetHostmapDefinitionRequestStyleOutput() DashboardV2WidgetHostmapDefinitionRequestStyleOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestStyleOutput) ToDashboardV2WidgetHostmapDefinitionRequestStyleOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestStyleOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestStyleOutput) ToDashboardV2WidgetHostmapDefinitionRequestStylePtrOutput() DashboardV2WidgetHostmapDefinitionRequestStylePtrOutput {
-	return o.ToDashboardV2WidgetHostmapDefinitionRequestStylePtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestStyleOutput) ToDashboardV2WidgetHostmapDefinitionRequestStylePtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestStylePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetHostmapDefinitionRequestStyle) *DashboardV2WidgetHostmapDefinitionRequestStyle {
-		return &v
-	}).(DashboardV2WidgetHostmapDefinitionRequestStylePtrOutput)
-}
-
-// Maximum value for the fill color scale. Omit to use automatic scaling.
-func (o DashboardV2WidgetHostmapDefinitionRequestStyleOutput) FillMax() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetHostmapDefinitionRequestStyle) *float64 { return v.FillMax }).(pulumi.Float64PtrOutput)
-}
-
-// Minimum value for the fill color scale. Omit to use automatic scaling.
-func (o DashboardV2WidgetHostmapDefinitionRequestStyleOutput) FillMin() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetHostmapDefinitionRequestStyle) *float64 { return v.FillMin }).(pulumi.Float64PtrOutput)
-}
-
-// Color palette name or alias.
-func (o DashboardV2WidgetHostmapDefinitionRequestStyleOutput) Palette() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetHostmapDefinitionRequestStyle) *string { return v.Palette }).(pulumi.StringPtrOutput)
-}
-
-// Whether to invert the color palette.
-func (o DashboardV2WidgetHostmapDefinitionRequestStyleOutput) PaletteFlip() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetHostmapDefinitionRequestStyle) *bool { return v.PaletteFlip }).(pulumi.BoolPtrOutput)
-}
-
-type DashboardV2WidgetHostmapDefinitionRequestStylePtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetHostmapDefinitionRequestStylePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetHostmapDefinitionRequestStyle)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestStylePtrOutput) ToDashboardV2WidgetHostmapDefinitionRequestStylePtrOutput() DashboardV2WidgetHostmapDefinitionRequestStylePtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestStylePtrOutput) ToDashboardV2WidgetHostmapDefinitionRequestStylePtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionRequestStylePtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionRequestStylePtrOutput) Elem() DashboardV2WidgetHostmapDefinitionRequestStyleOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionRequestStyle) DashboardV2WidgetHostmapDefinitionRequestStyle {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetHostmapDefinitionRequestStyle
-		return ret
-	}).(DashboardV2WidgetHostmapDefinitionRequestStyleOutput)
-}
-
-// Maximum value for the fill color scale. Omit to use automatic scaling.
-func (o DashboardV2WidgetHostmapDefinitionRequestStylePtrOutput) FillMax() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionRequestStyle) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.FillMax
-	}).(pulumi.Float64PtrOutput)
-}
-
-// Minimum value for the fill color scale. Omit to use automatic scaling.
-func (o DashboardV2WidgetHostmapDefinitionRequestStylePtrOutput) FillMin() pulumi.Float64PtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionRequestStyle) *float64 {
-		if v == nil {
-			return nil
-		}
-		return v.FillMin
-	}).(pulumi.Float64PtrOutput)
-}
-
-// Color palette name or alias.
-func (o DashboardV2WidgetHostmapDefinitionRequestStylePtrOutput) Palette() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionRequestStyle) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Palette
-	}).(pulumi.StringPtrOutput)
-}
-
-// Whether to invert the color palette.
-func (o DashboardV2WidgetHostmapDefinitionRequestStylePtrOutput) PaletteFlip() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionRequestStyle) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.PaletteFlip
-	}).(pulumi.BoolPtrOutput)
-}
-
-type DashboardV2WidgetHostmapDefinitionStyle struct {
-	// The max value to use to color the map.
-	FillMax *string `pulumi:"fillMax"`
-	// The min value to use to color the map.
-	FillMin *string `pulumi:"fillMin"`
-	// A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
-	Palette *string `pulumi:"palette"`
-	// A Boolean indicating whether to flip the palette tones.
-	PaletteFlip *bool `pulumi:"paletteFlip"`
-}
-
-// DashboardV2WidgetHostmapDefinitionStyleInput is an input type that accepts DashboardV2WidgetHostmapDefinitionStyleArgs and DashboardV2WidgetHostmapDefinitionStyleOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetHostmapDefinitionStyleInput` via:
-//
-//	DashboardV2WidgetHostmapDefinitionStyleArgs{...}
-type DashboardV2WidgetHostmapDefinitionStyleInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetHostmapDefinitionStyleOutput() DashboardV2WidgetHostmapDefinitionStyleOutput
-	ToDashboardV2WidgetHostmapDefinitionStyleOutputWithContext(context.Context) DashboardV2WidgetHostmapDefinitionStyleOutput
-}
-
-type DashboardV2WidgetHostmapDefinitionStyleArgs struct {
-	// The max value to use to color the map.
-	FillMax pulumi.StringPtrInput `pulumi:"fillMax"`
-	// The min value to use to color the map.
-	FillMin pulumi.StringPtrInput `pulumi:"fillMin"`
-	// A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
-	Palette pulumi.StringPtrInput `pulumi:"palette"`
-	// A Boolean indicating whether to flip the palette tones.
-	PaletteFlip pulumi.BoolPtrInput `pulumi:"paletteFlip"`
-}
-
-func (DashboardV2WidgetHostmapDefinitionStyleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionStyle)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetHostmapDefinitionStyleArgs) ToDashboardV2WidgetHostmapDefinitionStyleOutput() DashboardV2WidgetHostmapDefinitionStyleOutput {
-	return i.ToDashboardV2WidgetHostmapDefinitionStyleOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetHostmapDefinitionStyleArgs) ToDashboardV2WidgetHostmapDefinitionStyleOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionStyleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetHostmapDefinitionStyleOutput)
-}
-
-func (i DashboardV2WidgetHostmapDefinitionStyleArgs) ToDashboardV2WidgetHostmapDefinitionStylePtrOutput() DashboardV2WidgetHostmapDefinitionStylePtrOutput {
-	return i.ToDashboardV2WidgetHostmapDefinitionStylePtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetHostmapDefinitionStyleArgs) ToDashboardV2WidgetHostmapDefinitionStylePtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionStylePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetHostmapDefinitionStyleOutput).ToDashboardV2WidgetHostmapDefinitionStylePtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetHostmapDefinitionStylePtrInput is an input type that accepts DashboardV2WidgetHostmapDefinitionStyleArgs, DashboardV2WidgetHostmapDefinitionStylePtr and DashboardV2WidgetHostmapDefinitionStylePtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetHostmapDefinitionStylePtrInput` via:
-//
-//	        DashboardV2WidgetHostmapDefinitionStyleArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetHostmapDefinitionStylePtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetHostmapDefinitionStylePtrOutput() DashboardV2WidgetHostmapDefinitionStylePtrOutput
-	ToDashboardV2WidgetHostmapDefinitionStylePtrOutputWithContext(context.Context) DashboardV2WidgetHostmapDefinitionStylePtrOutput
-}
-
-type dashboardV2WidgetHostmapDefinitionStylePtrType DashboardV2WidgetHostmapDefinitionStyleArgs
-
-func DashboardV2WidgetHostmapDefinitionStylePtr(v *DashboardV2WidgetHostmapDefinitionStyleArgs) DashboardV2WidgetHostmapDefinitionStylePtrInput {
-	return (*dashboardV2WidgetHostmapDefinitionStylePtrType)(v)
-}
-
-func (*dashboardV2WidgetHostmapDefinitionStylePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetHostmapDefinitionStyle)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetHostmapDefinitionStylePtrType) ToDashboardV2WidgetHostmapDefinitionStylePtrOutput() DashboardV2WidgetHostmapDefinitionStylePtrOutput {
-	return i.ToDashboardV2WidgetHostmapDefinitionStylePtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetHostmapDefinitionStylePtrType) ToDashboardV2WidgetHostmapDefinitionStylePtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionStylePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetHostmapDefinitionStylePtrOutput)
-}
-
-type DashboardV2WidgetHostmapDefinitionStyleOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetHostmapDefinitionStyleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionStyle)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetHostmapDefinitionStyleOutput) ToDashboardV2WidgetHostmapDefinitionStyleOutput() DashboardV2WidgetHostmapDefinitionStyleOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionStyleOutput) ToDashboardV2WidgetHostmapDefinitionStyleOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionStyleOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionStyleOutput) ToDashboardV2WidgetHostmapDefinitionStylePtrOutput() DashboardV2WidgetHostmapDefinitionStylePtrOutput {
-	return o.ToDashboardV2WidgetHostmapDefinitionStylePtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetHostmapDefinitionStyleOutput) ToDashboardV2WidgetHostmapDefinitionStylePtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionStylePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetHostmapDefinitionStyle) *DashboardV2WidgetHostmapDefinitionStyle {
-		return &v
-	}).(DashboardV2WidgetHostmapDefinitionStylePtrOutput)
-}
-
-// The max value to use to color the map.
-func (o DashboardV2WidgetHostmapDefinitionStyleOutput) FillMax() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetHostmapDefinitionStyle) *string { return v.FillMax }).(pulumi.StringPtrOutput)
-}
-
-// The min value to use to color the map.
-func (o DashboardV2WidgetHostmapDefinitionStyleOutput) FillMin() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetHostmapDefinitionStyle) *string { return v.FillMin }).(pulumi.StringPtrOutput)
-}
-
-// A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
-func (o DashboardV2WidgetHostmapDefinitionStyleOutput) Palette() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetHostmapDefinitionStyle) *string { return v.Palette }).(pulumi.StringPtrOutput)
-}
-
-// A Boolean indicating whether to flip the palette tones.
-func (o DashboardV2WidgetHostmapDefinitionStyleOutput) PaletteFlip() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetHostmapDefinitionStyle) *bool { return v.PaletteFlip }).(pulumi.BoolPtrOutput)
-}
-
-type DashboardV2WidgetHostmapDefinitionStylePtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetHostmapDefinitionStylePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetHostmapDefinitionStyle)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetHostmapDefinitionStylePtrOutput) ToDashboardV2WidgetHostmapDefinitionStylePtrOutput() DashboardV2WidgetHostmapDefinitionStylePtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionStylePtrOutput) ToDashboardV2WidgetHostmapDefinitionStylePtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionStylePtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionStylePtrOutput) Elem() DashboardV2WidgetHostmapDefinitionStyleOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionStyle) DashboardV2WidgetHostmapDefinitionStyle {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetHostmapDefinitionStyle
-		return ret
-	}).(DashboardV2WidgetHostmapDefinitionStyleOutput)
-}
-
-// The max value to use to color the map.
-func (o DashboardV2WidgetHostmapDefinitionStylePtrOutput) FillMax() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionStyle) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FillMax
-	}).(pulumi.StringPtrOutput)
-}
-
-// The min value to use to color the map.
-func (o DashboardV2WidgetHostmapDefinitionStylePtrOutput) FillMin() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionStyle) *string {
-		if v == nil {
-			return nil
-		}
-		return v.FillMin
-	}).(pulumi.StringPtrOutput)
-}
-
-// A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
-func (o DashboardV2WidgetHostmapDefinitionStylePtrOutput) Palette() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionStyle) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Palette
-	}).(pulumi.StringPtrOutput)
-}
-
-// A Boolean indicating whether to flip the palette tones.
-func (o DashboardV2WidgetHostmapDefinitionStylePtrOutput) PaletteFlip() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionStyle) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.PaletteFlip
-	}).(pulumi.BoolPtrOutput)
-}
-
-type DashboardV2WidgetHostmapDefinitionTime struct {
-	// A fixed time range with explicit start and end times.
-	Fixed *DashboardV2WidgetHostmapDefinitionTimeFixed `pulumi:"fixed"`
-	// An arbitrary live time span, such as 17 minutes or 6 hours.
-	Live *DashboardV2WidgetHostmapDefinitionTimeLive `pulumi:"live"`
-}
-
-// DashboardV2WidgetHostmapDefinitionTimeInput is an input type that accepts DashboardV2WidgetHostmapDefinitionTimeArgs and DashboardV2WidgetHostmapDefinitionTimeOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetHostmapDefinitionTimeInput` via:
-//
-//	DashboardV2WidgetHostmapDefinitionTimeArgs{...}
-type DashboardV2WidgetHostmapDefinitionTimeInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetHostmapDefinitionTimeOutput() DashboardV2WidgetHostmapDefinitionTimeOutput
-	ToDashboardV2WidgetHostmapDefinitionTimeOutputWithContext(context.Context) DashboardV2WidgetHostmapDefinitionTimeOutput
-}
-
-type DashboardV2WidgetHostmapDefinitionTimeArgs struct {
-	// A fixed time range with explicit start and end times.
-	Fixed DashboardV2WidgetHostmapDefinitionTimeFixedPtrInput `pulumi:"fixed"`
-	// An arbitrary live time span, such as 17 minutes or 6 hours.
-	Live DashboardV2WidgetHostmapDefinitionTimeLivePtrInput `pulumi:"live"`
-}
-
-func (DashboardV2WidgetHostmapDefinitionTimeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionTime)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetHostmapDefinitionTimeArgs) ToDashboardV2WidgetHostmapDefinitionTimeOutput() DashboardV2WidgetHostmapDefinitionTimeOutput {
-	return i.ToDashboardV2WidgetHostmapDefinitionTimeOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetHostmapDefinitionTimeArgs) ToDashboardV2WidgetHostmapDefinitionTimeOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionTimeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetHostmapDefinitionTimeOutput)
-}
-
-func (i DashboardV2WidgetHostmapDefinitionTimeArgs) ToDashboardV2WidgetHostmapDefinitionTimePtrOutput() DashboardV2WidgetHostmapDefinitionTimePtrOutput {
-	return i.ToDashboardV2WidgetHostmapDefinitionTimePtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetHostmapDefinitionTimeArgs) ToDashboardV2WidgetHostmapDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionTimePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetHostmapDefinitionTimeOutput).ToDashboardV2WidgetHostmapDefinitionTimePtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetHostmapDefinitionTimePtrInput is an input type that accepts DashboardV2WidgetHostmapDefinitionTimeArgs, DashboardV2WidgetHostmapDefinitionTimePtr and DashboardV2WidgetHostmapDefinitionTimePtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetHostmapDefinitionTimePtrInput` via:
-//
-//	        DashboardV2WidgetHostmapDefinitionTimeArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetHostmapDefinitionTimePtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetHostmapDefinitionTimePtrOutput() DashboardV2WidgetHostmapDefinitionTimePtrOutput
-	ToDashboardV2WidgetHostmapDefinitionTimePtrOutputWithContext(context.Context) DashboardV2WidgetHostmapDefinitionTimePtrOutput
-}
-
-type dashboardV2WidgetHostmapDefinitionTimePtrType DashboardV2WidgetHostmapDefinitionTimeArgs
-
-func DashboardV2WidgetHostmapDefinitionTimePtr(v *DashboardV2WidgetHostmapDefinitionTimeArgs) DashboardV2WidgetHostmapDefinitionTimePtrInput {
-	return (*dashboardV2WidgetHostmapDefinitionTimePtrType)(v)
-}
-
-func (*dashboardV2WidgetHostmapDefinitionTimePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetHostmapDefinitionTime)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetHostmapDefinitionTimePtrType) ToDashboardV2WidgetHostmapDefinitionTimePtrOutput() DashboardV2WidgetHostmapDefinitionTimePtrOutput {
-	return i.ToDashboardV2WidgetHostmapDefinitionTimePtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetHostmapDefinitionTimePtrType) ToDashboardV2WidgetHostmapDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionTimePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetHostmapDefinitionTimePtrOutput)
-}
-
-type DashboardV2WidgetHostmapDefinitionTimeOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetHostmapDefinitionTimeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionTime)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetHostmapDefinitionTimeOutput) ToDashboardV2WidgetHostmapDefinitionTimeOutput() DashboardV2WidgetHostmapDefinitionTimeOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionTimeOutput) ToDashboardV2WidgetHostmapDefinitionTimeOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionTimeOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionTimeOutput) ToDashboardV2WidgetHostmapDefinitionTimePtrOutput() DashboardV2WidgetHostmapDefinitionTimePtrOutput {
-	return o.ToDashboardV2WidgetHostmapDefinitionTimePtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetHostmapDefinitionTimeOutput) ToDashboardV2WidgetHostmapDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionTimePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetHostmapDefinitionTime) *DashboardV2WidgetHostmapDefinitionTime {
-		return &v
-	}).(DashboardV2WidgetHostmapDefinitionTimePtrOutput)
-}
-
-// A fixed time range with explicit start and end times.
-func (o DashboardV2WidgetHostmapDefinitionTimeOutput) Fixed() DashboardV2WidgetHostmapDefinitionTimeFixedPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetHostmapDefinitionTime) *DashboardV2WidgetHostmapDefinitionTimeFixed {
-		return v.Fixed
-	}).(DashboardV2WidgetHostmapDefinitionTimeFixedPtrOutput)
-}
-
-// An arbitrary live time span, such as 17 minutes or 6 hours.
-func (o DashboardV2WidgetHostmapDefinitionTimeOutput) Live() DashboardV2WidgetHostmapDefinitionTimeLivePtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetHostmapDefinitionTime) *DashboardV2WidgetHostmapDefinitionTimeLive {
-		return v.Live
-	}).(DashboardV2WidgetHostmapDefinitionTimeLivePtrOutput)
-}
-
-type DashboardV2WidgetHostmapDefinitionTimePtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetHostmapDefinitionTimePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetHostmapDefinitionTime)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetHostmapDefinitionTimePtrOutput) ToDashboardV2WidgetHostmapDefinitionTimePtrOutput() DashboardV2WidgetHostmapDefinitionTimePtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionTimePtrOutput) ToDashboardV2WidgetHostmapDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionTimePtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionTimePtrOutput) Elem() DashboardV2WidgetHostmapDefinitionTimeOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionTime) DashboardV2WidgetHostmapDefinitionTime {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetHostmapDefinitionTime
-		return ret
-	}).(DashboardV2WidgetHostmapDefinitionTimeOutput)
-}
-
-// A fixed time range with explicit start and end times.
-func (o DashboardV2WidgetHostmapDefinitionTimePtrOutput) Fixed() DashboardV2WidgetHostmapDefinitionTimeFixedPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionTime) *DashboardV2WidgetHostmapDefinitionTimeFixed {
-		if v == nil {
-			return nil
-		}
-		return v.Fixed
-	}).(DashboardV2WidgetHostmapDefinitionTimeFixedPtrOutput)
-}
-
-// An arbitrary live time span, such as 17 minutes or 6 hours.
-func (o DashboardV2WidgetHostmapDefinitionTimePtrOutput) Live() DashboardV2WidgetHostmapDefinitionTimeLivePtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionTime) *DashboardV2WidgetHostmapDefinitionTimeLive {
-		if v == nil {
-			return nil
-		}
-		return v.Live
-	}).(DashboardV2WidgetHostmapDefinitionTimeLivePtrOutput)
-}
-
-type DashboardV2WidgetHostmapDefinitionTimeFixed struct {
-	// Start time in seconds since epoch.
-	From int `pulumi:"from"`
-	// End time in seconds since epoch.
-	To int `pulumi:"to"`
-}
-
-// DashboardV2WidgetHostmapDefinitionTimeFixedInput is an input type that accepts DashboardV2WidgetHostmapDefinitionTimeFixedArgs and DashboardV2WidgetHostmapDefinitionTimeFixedOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetHostmapDefinitionTimeFixedInput` via:
-//
-//	DashboardV2WidgetHostmapDefinitionTimeFixedArgs{...}
-type DashboardV2WidgetHostmapDefinitionTimeFixedInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetHostmapDefinitionTimeFixedOutput() DashboardV2WidgetHostmapDefinitionTimeFixedOutput
-	ToDashboardV2WidgetHostmapDefinitionTimeFixedOutputWithContext(context.Context) DashboardV2WidgetHostmapDefinitionTimeFixedOutput
-}
-
-type DashboardV2WidgetHostmapDefinitionTimeFixedArgs struct {
-	// Start time in seconds since epoch.
-	From pulumi.IntInput `pulumi:"from"`
-	// End time in seconds since epoch.
-	To pulumi.IntInput `pulumi:"to"`
-}
-
-func (DashboardV2WidgetHostmapDefinitionTimeFixedArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetHostmapDefinitionTimeFixedArgs) ToDashboardV2WidgetHostmapDefinitionTimeFixedOutput() DashboardV2WidgetHostmapDefinitionTimeFixedOutput {
-	return i.ToDashboardV2WidgetHostmapDefinitionTimeFixedOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetHostmapDefinitionTimeFixedArgs) ToDashboardV2WidgetHostmapDefinitionTimeFixedOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionTimeFixedOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetHostmapDefinitionTimeFixedOutput)
-}
-
-func (i DashboardV2WidgetHostmapDefinitionTimeFixedArgs) ToDashboardV2WidgetHostmapDefinitionTimeFixedPtrOutput() DashboardV2WidgetHostmapDefinitionTimeFixedPtrOutput {
-	return i.ToDashboardV2WidgetHostmapDefinitionTimeFixedPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetHostmapDefinitionTimeFixedArgs) ToDashboardV2WidgetHostmapDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionTimeFixedPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetHostmapDefinitionTimeFixedOutput).ToDashboardV2WidgetHostmapDefinitionTimeFixedPtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetHostmapDefinitionTimeFixedPtrInput is an input type that accepts DashboardV2WidgetHostmapDefinitionTimeFixedArgs, DashboardV2WidgetHostmapDefinitionTimeFixedPtr and DashboardV2WidgetHostmapDefinitionTimeFixedPtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetHostmapDefinitionTimeFixedPtrInput` via:
-//
-//	        DashboardV2WidgetHostmapDefinitionTimeFixedArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetHostmapDefinitionTimeFixedPtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetHostmapDefinitionTimeFixedPtrOutput() DashboardV2WidgetHostmapDefinitionTimeFixedPtrOutput
-	ToDashboardV2WidgetHostmapDefinitionTimeFixedPtrOutputWithContext(context.Context) DashboardV2WidgetHostmapDefinitionTimeFixedPtrOutput
-}
-
-type dashboardV2WidgetHostmapDefinitionTimeFixedPtrType DashboardV2WidgetHostmapDefinitionTimeFixedArgs
-
-func DashboardV2WidgetHostmapDefinitionTimeFixedPtr(v *DashboardV2WidgetHostmapDefinitionTimeFixedArgs) DashboardV2WidgetHostmapDefinitionTimeFixedPtrInput {
-	return (*dashboardV2WidgetHostmapDefinitionTimeFixedPtrType)(v)
-}
-
-func (*dashboardV2WidgetHostmapDefinitionTimeFixedPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetHostmapDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetHostmapDefinitionTimeFixedPtrType) ToDashboardV2WidgetHostmapDefinitionTimeFixedPtrOutput() DashboardV2WidgetHostmapDefinitionTimeFixedPtrOutput {
-	return i.ToDashboardV2WidgetHostmapDefinitionTimeFixedPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetHostmapDefinitionTimeFixedPtrType) ToDashboardV2WidgetHostmapDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionTimeFixedPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetHostmapDefinitionTimeFixedPtrOutput)
-}
-
-type DashboardV2WidgetHostmapDefinitionTimeFixedOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetHostmapDefinitionTimeFixedOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetHostmapDefinitionTimeFixedOutput) ToDashboardV2WidgetHostmapDefinitionTimeFixedOutput() DashboardV2WidgetHostmapDefinitionTimeFixedOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionTimeFixedOutput) ToDashboardV2WidgetHostmapDefinitionTimeFixedOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionTimeFixedOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionTimeFixedOutput) ToDashboardV2WidgetHostmapDefinitionTimeFixedPtrOutput() DashboardV2WidgetHostmapDefinitionTimeFixedPtrOutput {
-	return o.ToDashboardV2WidgetHostmapDefinitionTimeFixedPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetHostmapDefinitionTimeFixedOutput) ToDashboardV2WidgetHostmapDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionTimeFixedPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetHostmapDefinitionTimeFixed) *DashboardV2WidgetHostmapDefinitionTimeFixed {
-		return &v
-	}).(DashboardV2WidgetHostmapDefinitionTimeFixedPtrOutput)
-}
-
-// Start time in seconds since epoch.
-func (o DashboardV2WidgetHostmapDefinitionTimeFixedOutput) From() pulumi.IntOutput {
-	return o.ApplyT(func(v DashboardV2WidgetHostmapDefinitionTimeFixed) int { return v.From }).(pulumi.IntOutput)
-}
-
-// End time in seconds since epoch.
-func (o DashboardV2WidgetHostmapDefinitionTimeFixedOutput) To() pulumi.IntOutput {
-	return o.ApplyT(func(v DashboardV2WidgetHostmapDefinitionTimeFixed) int { return v.To }).(pulumi.IntOutput)
-}
-
-type DashboardV2WidgetHostmapDefinitionTimeFixedPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetHostmapDefinitionTimeFixedPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetHostmapDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetHostmapDefinitionTimeFixedPtrOutput) ToDashboardV2WidgetHostmapDefinitionTimeFixedPtrOutput() DashboardV2WidgetHostmapDefinitionTimeFixedPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionTimeFixedPtrOutput) ToDashboardV2WidgetHostmapDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionTimeFixedPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionTimeFixedPtrOutput) Elem() DashboardV2WidgetHostmapDefinitionTimeFixedOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionTimeFixed) DashboardV2WidgetHostmapDefinitionTimeFixed {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetHostmapDefinitionTimeFixed
-		return ret
-	}).(DashboardV2WidgetHostmapDefinitionTimeFixedOutput)
-}
-
-// Start time in seconds since epoch.
-func (o DashboardV2WidgetHostmapDefinitionTimeFixedPtrOutput) From() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionTimeFixed) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.From
-	}).(pulumi.IntPtrOutput)
-}
-
-// End time in seconds since epoch.
-func (o DashboardV2WidgetHostmapDefinitionTimeFixedPtrOutput) To() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionTimeFixed) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.To
-	}).(pulumi.IntPtrOutput)
-}
-
-type DashboardV2WidgetHostmapDefinitionTimeLive struct {
-	// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-	Unit string `pulumi:"unit"`
-	// Value of the time span.
-	Value int `pulumi:"value"`
-}
-
-// DashboardV2WidgetHostmapDefinitionTimeLiveInput is an input type that accepts DashboardV2WidgetHostmapDefinitionTimeLiveArgs and DashboardV2WidgetHostmapDefinitionTimeLiveOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetHostmapDefinitionTimeLiveInput` via:
-//
-//	DashboardV2WidgetHostmapDefinitionTimeLiveArgs{...}
-type DashboardV2WidgetHostmapDefinitionTimeLiveInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetHostmapDefinitionTimeLiveOutput() DashboardV2WidgetHostmapDefinitionTimeLiveOutput
-	ToDashboardV2WidgetHostmapDefinitionTimeLiveOutputWithContext(context.Context) DashboardV2WidgetHostmapDefinitionTimeLiveOutput
-}
-
-type DashboardV2WidgetHostmapDefinitionTimeLiveArgs struct {
-	// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// Value of the time span.
-	Value pulumi.IntInput `pulumi:"value"`
-}
-
-func (DashboardV2WidgetHostmapDefinitionTimeLiveArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionTimeLive)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetHostmapDefinitionTimeLiveArgs) ToDashboardV2WidgetHostmapDefinitionTimeLiveOutput() DashboardV2WidgetHostmapDefinitionTimeLiveOutput {
-	return i.ToDashboardV2WidgetHostmapDefinitionTimeLiveOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetHostmapDefinitionTimeLiveArgs) ToDashboardV2WidgetHostmapDefinitionTimeLiveOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionTimeLiveOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetHostmapDefinitionTimeLiveOutput)
-}
-
-func (i DashboardV2WidgetHostmapDefinitionTimeLiveArgs) ToDashboardV2WidgetHostmapDefinitionTimeLivePtrOutput() DashboardV2WidgetHostmapDefinitionTimeLivePtrOutput {
-	return i.ToDashboardV2WidgetHostmapDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetHostmapDefinitionTimeLiveArgs) ToDashboardV2WidgetHostmapDefinitionTimeLivePtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionTimeLivePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetHostmapDefinitionTimeLiveOutput).ToDashboardV2WidgetHostmapDefinitionTimeLivePtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetHostmapDefinitionTimeLivePtrInput is an input type that accepts DashboardV2WidgetHostmapDefinitionTimeLiveArgs, DashboardV2WidgetHostmapDefinitionTimeLivePtr and DashboardV2WidgetHostmapDefinitionTimeLivePtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetHostmapDefinitionTimeLivePtrInput` via:
-//
-//	        DashboardV2WidgetHostmapDefinitionTimeLiveArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetHostmapDefinitionTimeLivePtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetHostmapDefinitionTimeLivePtrOutput() DashboardV2WidgetHostmapDefinitionTimeLivePtrOutput
-	ToDashboardV2WidgetHostmapDefinitionTimeLivePtrOutputWithContext(context.Context) DashboardV2WidgetHostmapDefinitionTimeLivePtrOutput
-}
-
-type dashboardV2WidgetHostmapDefinitionTimeLivePtrType DashboardV2WidgetHostmapDefinitionTimeLiveArgs
-
-func DashboardV2WidgetHostmapDefinitionTimeLivePtr(v *DashboardV2WidgetHostmapDefinitionTimeLiveArgs) DashboardV2WidgetHostmapDefinitionTimeLivePtrInput {
-	return (*dashboardV2WidgetHostmapDefinitionTimeLivePtrType)(v)
-}
-
-func (*dashboardV2WidgetHostmapDefinitionTimeLivePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetHostmapDefinitionTimeLive)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetHostmapDefinitionTimeLivePtrType) ToDashboardV2WidgetHostmapDefinitionTimeLivePtrOutput() DashboardV2WidgetHostmapDefinitionTimeLivePtrOutput {
-	return i.ToDashboardV2WidgetHostmapDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetHostmapDefinitionTimeLivePtrType) ToDashboardV2WidgetHostmapDefinitionTimeLivePtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionTimeLivePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetHostmapDefinitionTimeLivePtrOutput)
-}
-
-type DashboardV2WidgetHostmapDefinitionTimeLiveOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetHostmapDefinitionTimeLiveOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionTimeLive)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetHostmapDefinitionTimeLiveOutput) ToDashboardV2WidgetHostmapDefinitionTimeLiveOutput() DashboardV2WidgetHostmapDefinitionTimeLiveOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionTimeLiveOutput) ToDashboardV2WidgetHostmapDefinitionTimeLiveOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionTimeLiveOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionTimeLiveOutput) ToDashboardV2WidgetHostmapDefinitionTimeLivePtrOutput() DashboardV2WidgetHostmapDefinitionTimeLivePtrOutput {
-	return o.ToDashboardV2WidgetHostmapDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetHostmapDefinitionTimeLiveOutput) ToDashboardV2WidgetHostmapDefinitionTimeLivePtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionTimeLivePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetHostmapDefinitionTimeLive) *DashboardV2WidgetHostmapDefinitionTimeLive {
-		return &v
-	}).(DashboardV2WidgetHostmapDefinitionTimeLivePtrOutput)
-}
-
-// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-func (o DashboardV2WidgetHostmapDefinitionTimeLiveOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetHostmapDefinitionTimeLive) string { return v.Unit }).(pulumi.StringOutput)
-}
-
-// Value of the time span.
-func (o DashboardV2WidgetHostmapDefinitionTimeLiveOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func(v DashboardV2WidgetHostmapDefinitionTimeLive) int { return v.Value }).(pulumi.IntOutput)
-}
-
-type DashboardV2WidgetHostmapDefinitionTimeLivePtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetHostmapDefinitionTimeLivePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetHostmapDefinitionTimeLive)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetHostmapDefinitionTimeLivePtrOutput) ToDashboardV2WidgetHostmapDefinitionTimeLivePtrOutput() DashboardV2WidgetHostmapDefinitionTimeLivePtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionTimeLivePtrOutput) ToDashboardV2WidgetHostmapDefinitionTimeLivePtrOutputWithContext(ctx context.Context) DashboardV2WidgetHostmapDefinitionTimeLivePtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetHostmapDefinitionTimeLivePtrOutput) Elem() DashboardV2WidgetHostmapDefinitionTimeLiveOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionTimeLive) DashboardV2WidgetHostmapDefinitionTimeLive {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetHostmapDefinitionTimeLive
-		return ret
-	}).(DashboardV2WidgetHostmapDefinitionTimeLiveOutput)
-}
-
-// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-func (o DashboardV2WidgetHostmapDefinitionTimeLivePtrOutput) Unit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionTimeLive) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Unit
-	}).(pulumi.StringPtrOutput)
-}
-
-// Value of the time span.
-func (o DashboardV2WidgetHostmapDefinitionTimeLivePtrOutput) Value() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetHostmapDefinitionTimeLive) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Value
-	}).(pulumi.IntPtrOutput)
-}
-
-type DashboardV2WidgetIframeDefinition struct {
-	// The description of the widget.
-	Description *string `pulumi:"description"`
-	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-	HideIncompleteCostData *bool `pulumi:"hideIncompleteCostData"`
-	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-	LiveSpan *string `pulumi:"liveSpan"`
-	// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-	Time *DashboardV2WidgetIframeDefinitionTime `pulumi:"time"`
-	// The title of the widget.
-	Title *string `pulumi:"title"`
-	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-	TitleAlign *string `pulumi:"titleAlign"`
-	// The size of the widget's title (defaults to 16).
-	TitleSize *string `pulumi:"titleSize"`
-	// The URL to use as a data source for the widget.
-	Url string `pulumi:"url"`
-}
-
-// DashboardV2WidgetIframeDefinitionInput is an input type that accepts DashboardV2WidgetIframeDefinitionArgs and DashboardV2WidgetIframeDefinitionOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetIframeDefinitionInput` via:
-//
-//	DashboardV2WidgetIframeDefinitionArgs{...}
-type DashboardV2WidgetIframeDefinitionInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetIframeDefinitionOutput() DashboardV2WidgetIframeDefinitionOutput
-	ToDashboardV2WidgetIframeDefinitionOutputWithContext(context.Context) DashboardV2WidgetIframeDefinitionOutput
-}
-
-type DashboardV2WidgetIframeDefinitionArgs struct {
-	// The description of the widget.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-	HideIncompleteCostData pulumi.BoolPtrInput `pulumi:"hideIncompleteCostData"`
-	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-	LiveSpan pulumi.StringPtrInput `pulumi:"liveSpan"`
-	// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-	Time DashboardV2WidgetIframeDefinitionTimePtrInput `pulumi:"time"`
-	// The title of the widget.
-	Title pulumi.StringPtrInput `pulumi:"title"`
-	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-	TitleAlign pulumi.StringPtrInput `pulumi:"titleAlign"`
-	// The size of the widget's title (defaults to 16).
-	TitleSize pulumi.StringPtrInput `pulumi:"titleSize"`
-	// The URL to use as a data source for the widget.
-	Url pulumi.StringInput `pulumi:"url"`
-}
-
-func (DashboardV2WidgetIframeDefinitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetIframeDefinition)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetIframeDefinitionArgs) ToDashboardV2WidgetIframeDefinitionOutput() DashboardV2WidgetIframeDefinitionOutput {
-	return i.ToDashboardV2WidgetIframeDefinitionOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetIframeDefinitionArgs) ToDashboardV2WidgetIframeDefinitionOutputWithContext(ctx context.Context) DashboardV2WidgetIframeDefinitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetIframeDefinitionOutput)
-}
-
-func (i DashboardV2WidgetIframeDefinitionArgs) ToDashboardV2WidgetIframeDefinitionPtrOutput() DashboardV2WidgetIframeDefinitionPtrOutput {
-	return i.ToDashboardV2WidgetIframeDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetIframeDefinitionArgs) ToDashboardV2WidgetIframeDefinitionPtrOutputWithContext(ctx context.Context) DashboardV2WidgetIframeDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetIframeDefinitionOutput).ToDashboardV2WidgetIframeDefinitionPtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetIframeDefinitionPtrInput is an input type that accepts DashboardV2WidgetIframeDefinitionArgs, DashboardV2WidgetIframeDefinitionPtr and DashboardV2WidgetIframeDefinitionPtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetIframeDefinitionPtrInput` via:
-//
-//	        DashboardV2WidgetIframeDefinitionArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetIframeDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetIframeDefinitionPtrOutput() DashboardV2WidgetIframeDefinitionPtrOutput
-	ToDashboardV2WidgetIframeDefinitionPtrOutputWithContext(context.Context) DashboardV2WidgetIframeDefinitionPtrOutput
-}
-
-type dashboardV2WidgetIframeDefinitionPtrType DashboardV2WidgetIframeDefinitionArgs
-
-func DashboardV2WidgetIframeDefinitionPtr(v *DashboardV2WidgetIframeDefinitionArgs) DashboardV2WidgetIframeDefinitionPtrInput {
-	return (*dashboardV2WidgetIframeDefinitionPtrType)(v)
-}
-
-func (*dashboardV2WidgetIframeDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetIframeDefinition)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetIframeDefinitionPtrType) ToDashboardV2WidgetIframeDefinitionPtrOutput() DashboardV2WidgetIframeDefinitionPtrOutput {
-	return i.ToDashboardV2WidgetIframeDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetIframeDefinitionPtrType) ToDashboardV2WidgetIframeDefinitionPtrOutputWithContext(ctx context.Context) DashboardV2WidgetIframeDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetIframeDefinitionPtrOutput)
-}
-
-type DashboardV2WidgetIframeDefinitionOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetIframeDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetIframeDefinition)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetIframeDefinitionOutput) ToDashboardV2WidgetIframeDefinitionOutput() DashboardV2WidgetIframeDefinitionOutput {
-	return o
-}
-
-func (o DashboardV2WidgetIframeDefinitionOutput) ToDashboardV2WidgetIframeDefinitionOutputWithContext(ctx context.Context) DashboardV2WidgetIframeDefinitionOutput {
-	return o
-}
-
-func (o DashboardV2WidgetIframeDefinitionOutput) ToDashboardV2WidgetIframeDefinitionPtrOutput() DashboardV2WidgetIframeDefinitionPtrOutput {
-	return o.ToDashboardV2WidgetIframeDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetIframeDefinitionOutput) ToDashboardV2WidgetIframeDefinitionPtrOutputWithContext(ctx context.Context) DashboardV2WidgetIframeDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetIframeDefinition) *DashboardV2WidgetIframeDefinition {
-		return &v
-	}).(DashboardV2WidgetIframeDefinitionPtrOutput)
-}
-
-// The description of the widget.
-func (o DashboardV2WidgetIframeDefinitionOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetIframeDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-func (o DashboardV2WidgetIframeDefinitionOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetIframeDefinition) *bool { return v.HideIncompleteCostData }).(pulumi.BoolPtrOutput)
-}
-
-// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-func (o DashboardV2WidgetIframeDefinitionOutput) LiveSpan() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetIframeDefinition) *string { return v.LiveSpan }).(pulumi.StringPtrOutput)
-}
-
-// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-func (o DashboardV2WidgetIframeDefinitionOutput) Time() DashboardV2WidgetIframeDefinitionTimePtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetIframeDefinition) *DashboardV2WidgetIframeDefinitionTime { return v.Time }).(DashboardV2WidgetIframeDefinitionTimePtrOutput)
-}
-
-// The title of the widget.
-func (o DashboardV2WidgetIframeDefinitionOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetIframeDefinition) *string { return v.Title }).(pulumi.StringPtrOutput)
-}
-
-// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-func (o DashboardV2WidgetIframeDefinitionOutput) TitleAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetIframeDefinition) *string { return v.TitleAlign }).(pulumi.StringPtrOutput)
-}
-
-// The size of the widget's title (defaults to 16).
-func (o DashboardV2WidgetIframeDefinitionOutput) TitleSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetIframeDefinition) *string { return v.TitleSize }).(pulumi.StringPtrOutput)
-}
-
-// The URL to use as a data source for the widget.
-func (o DashboardV2WidgetIframeDefinitionOutput) Url() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardV2WidgetIframeDefinition) string { return v.Url }).(pulumi.StringOutput)
-}
-
-type DashboardV2WidgetIframeDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetIframeDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetIframeDefinition)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetIframeDefinitionPtrOutput) ToDashboardV2WidgetIframeDefinitionPtrOutput() DashboardV2WidgetIframeDefinitionPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetIframeDefinitionPtrOutput) ToDashboardV2WidgetIframeDefinitionPtrOutputWithContext(ctx context.Context) DashboardV2WidgetIframeDefinitionPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetIframeDefinitionPtrOutput) Elem() DashboardV2WidgetIframeDefinitionOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetIframeDefinition) DashboardV2WidgetIframeDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetIframeDefinition
-		return ret
-	}).(DashboardV2WidgetIframeDefinitionOutput)
-}
-
-// The description of the widget.
-func (o DashboardV2WidgetIframeDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetIframeDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-func (o DashboardV2WidgetIframeDefinitionPtrOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetIframeDefinition) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.HideIncompleteCostData
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-func (o DashboardV2WidgetIframeDefinitionPtrOutput) LiveSpan() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetIframeDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LiveSpan
-	}).(pulumi.StringPtrOutput)
-}
-
-// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-func (o DashboardV2WidgetIframeDefinitionPtrOutput) Time() DashboardV2WidgetIframeDefinitionTimePtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetIframeDefinition) *DashboardV2WidgetIframeDefinitionTime {
-		if v == nil {
-			return nil
-		}
-		return v.Time
-	}).(DashboardV2WidgetIframeDefinitionTimePtrOutput)
-}
-
-// The title of the widget.
-func (o DashboardV2WidgetIframeDefinitionPtrOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetIframeDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Title
-	}).(pulumi.StringPtrOutput)
-}
-
-// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-func (o DashboardV2WidgetIframeDefinitionPtrOutput) TitleAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetIframeDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TitleAlign
-	}).(pulumi.StringPtrOutput)
-}
-
-// The size of the widget's title (defaults to 16).
-func (o DashboardV2WidgetIframeDefinitionPtrOutput) TitleSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetIframeDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TitleSize
-	}).(pulumi.StringPtrOutput)
-}
-
-// The URL to use as a data source for the widget.
-func (o DashboardV2WidgetIframeDefinitionPtrOutput) Url() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetIframeDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Url
-	}).(pulumi.StringPtrOutput)
-}
-
-type DashboardV2WidgetIframeDefinitionTime struct {
-	// A fixed time range with explicit start and end times.
-	Fixed *DashboardV2WidgetIframeDefinitionTimeFixed `pulumi:"fixed"`
-	// An arbitrary live time span, such as 17 minutes or 6 hours.
-	Live *DashboardV2WidgetIframeDefinitionTimeLive `pulumi:"live"`
-}
-
-// DashboardV2WidgetIframeDefinitionTimeInput is an input type that accepts DashboardV2WidgetIframeDefinitionTimeArgs and DashboardV2WidgetIframeDefinitionTimeOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetIframeDefinitionTimeInput` via:
-//
-//	DashboardV2WidgetIframeDefinitionTimeArgs{...}
-type DashboardV2WidgetIframeDefinitionTimeInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetIframeDefinitionTimeOutput() DashboardV2WidgetIframeDefinitionTimeOutput
-	ToDashboardV2WidgetIframeDefinitionTimeOutputWithContext(context.Context) DashboardV2WidgetIframeDefinitionTimeOutput
-}
-
-type DashboardV2WidgetIframeDefinitionTimeArgs struct {
-	// A fixed time range with explicit start and end times.
-	Fixed DashboardV2WidgetIframeDefinitionTimeFixedPtrInput `pulumi:"fixed"`
-	// An arbitrary live time span, such as 17 minutes or 6 hours.
-	Live DashboardV2WidgetIframeDefinitionTimeLivePtrInput `pulumi:"live"`
-}
-
-func (DashboardV2WidgetIframeDefinitionTimeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetIframeDefinitionTime)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetIframeDefinitionTimeArgs) ToDashboardV2WidgetIframeDefinitionTimeOutput() DashboardV2WidgetIframeDefinitionTimeOutput {
-	return i.ToDashboardV2WidgetIframeDefinitionTimeOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetIframeDefinitionTimeArgs) ToDashboardV2WidgetIframeDefinitionTimeOutputWithContext(ctx context.Context) DashboardV2WidgetIframeDefinitionTimeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetIframeDefinitionTimeOutput)
-}
-
-func (i DashboardV2WidgetIframeDefinitionTimeArgs) ToDashboardV2WidgetIframeDefinitionTimePtrOutput() DashboardV2WidgetIframeDefinitionTimePtrOutput {
-	return i.ToDashboardV2WidgetIframeDefinitionTimePtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetIframeDefinitionTimeArgs) ToDashboardV2WidgetIframeDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetIframeDefinitionTimePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetIframeDefinitionTimeOutput).ToDashboardV2WidgetIframeDefinitionTimePtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetIframeDefinitionTimePtrInput is an input type that accepts DashboardV2WidgetIframeDefinitionTimeArgs, DashboardV2WidgetIframeDefinitionTimePtr and DashboardV2WidgetIframeDefinitionTimePtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetIframeDefinitionTimePtrInput` via:
-//
-//	        DashboardV2WidgetIframeDefinitionTimeArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetIframeDefinitionTimePtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetIframeDefinitionTimePtrOutput() DashboardV2WidgetIframeDefinitionTimePtrOutput
-	ToDashboardV2WidgetIframeDefinitionTimePtrOutputWithContext(context.Context) DashboardV2WidgetIframeDefinitionTimePtrOutput
-}
-
-type dashboardV2WidgetIframeDefinitionTimePtrType DashboardV2WidgetIframeDefinitionTimeArgs
-
-func DashboardV2WidgetIframeDefinitionTimePtr(v *DashboardV2WidgetIframeDefinitionTimeArgs) DashboardV2WidgetIframeDefinitionTimePtrInput {
-	return (*dashboardV2WidgetIframeDefinitionTimePtrType)(v)
-}
-
-func (*dashboardV2WidgetIframeDefinitionTimePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetIframeDefinitionTime)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetIframeDefinitionTimePtrType) ToDashboardV2WidgetIframeDefinitionTimePtrOutput() DashboardV2WidgetIframeDefinitionTimePtrOutput {
-	return i.ToDashboardV2WidgetIframeDefinitionTimePtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetIframeDefinitionTimePtrType) ToDashboardV2WidgetIframeDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetIframeDefinitionTimePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetIframeDefinitionTimePtrOutput)
-}
-
-type DashboardV2WidgetIframeDefinitionTimeOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetIframeDefinitionTimeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetIframeDefinitionTime)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetIframeDefinitionTimeOutput) ToDashboardV2WidgetIframeDefinitionTimeOutput() DashboardV2WidgetIframeDefinitionTimeOutput {
-	return o
-}
-
-func (o DashboardV2WidgetIframeDefinitionTimeOutput) ToDashboardV2WidgetIframeDefinitionTimeOutputWithContext(ctx context.Context) DashboardV2WidgetIframeDefinitionTimeOutput {
-	return o
-}
-
-func (o DashboardV2WidgetIframeDefinitionTimeOutput) ToDashboardV2WidgetIframeDefinitionTimePtrOutput() DashboardV2WidgetIframeDefinitionTimePtrOutput {
-	return o.ToDashboardV2WidgetIframeDefinitionTimePtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetIframeDefinitionTimeOutput) ToDashboardV2WidgetIframeDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetIframeDefinitionTimePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetIframeDefinitionTime) *DashboardV2WidgetIframeDefinitionTime {
-		return &v
-	}).(DashboardV2WidgetIframeDefinitionTimePtrOutput)
-}
-
-// A fixed time range with explicit start and end times.
-func (o DashboardV2WidgetIframeDefinitionTimeOutput) Fixed() DashboardV2WidgetIframeDefinitionTimeFixedPtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetIframeDefinitionTime) *DashboardV2WidgetIframeDefinitionTimeFixed {
-		return v.Fixed
-	}).(DashboardV2WidgetIframeDefinitionTimeFixedPtrOutput)
-}
-
-// An arbitrary live time span, such as 17 minutes or 6 hours.
-func (o DashboardV2WidgetIframeDefinitionTimeOutput) Live() DashboardV2WidgetIframeDefinitionTimeLivePtrOutput {
-	return o.ApplyT(func(v DashboardV2WidgetIframeDefinitionTime) *DashboardV2WidgetIframeDefinitionTimeLive {
-		return v.Live
-	}).(DashboardV2WidgetIframeDefinitionTimeLivePtrOutput)
-}
-
-type DashboardV2WidgetIframeDefinitionTimePtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetIframeDefinitionTimePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetIframeDefinitionTime)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetIframeDefinitionTimePtrOutput) ToDashboardV2WidgetIframeDefinitionTimePtrOutput() DashboardV2WidgetIframeDefinitionTimePtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetIframeDefinitionTimePtrOutput) ToDashboardV2WidgetIframeDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardV2WidgetIframeDefinitionTimePtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetIframeDefinitionTimePtrOutput) Elem() DashboardV2WidgetIframeDefinitionTimeOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetIframeDefinitionTime) DashboardV2WidgetIframeDefinitionTime {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetIframeDefinitionTime
-		return ret
-	}).(DashboardV2WidgetIframeDefinitionTimeOutput)
-}
-
-// A fixed time range with explicit start and end times.
-func (o DashboardV2WidgetIframeDefinitionTimePtrOutput) Fixed() DashboardV2WidgetIframeDefinitionTimeFixedPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetIframeDefinitionTime) *DashboardV2WidgetIframeDefinitionTimeFixed {
-		if v == nil {
-			return nil
-		}
-		return v.Fixed
-	}).(DashboardV2WidgetIframeDefinitionTimeFixedPtrOutput)
-}
-
-// An arbitrary live time span, such as 17 minutes or 6 hours.
-func (o DashboardV2WidgetIframeDefinitionTimePtrOutput) Live() DashboardV2WidgetIframeDefinitionTimeLivePtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetIframeDefinitionTime) *DashboardV2WidgetIframeDefinitionTimeLive {
-		if v == nil {
-			return nil
-		}
-		return v.Live
-	}).(DashboardV2WidgetIframeDefinitionTimeLivePtrOutput)
-}
-
-type DashboardV2WidgetIframeDefinitionTimeFixed struct {
-	// Start time in seconds since epoch.
-	From int `pulumi:"from"`
-	// End time in seconds since epoch.
-	To int `pulumi:"to"`
-}
-
-// DashboardV2WidgetIframeDefinitionTimeFixedInput is an input type that accepts DashboardV2WidgetIframeDefinitionTimeFixedArgs and DashboardV2WidgetIframeDefinitionTimeFixedOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetIframeDefinitionTimeFixedInput` via:
-//
-//	DashboardV2WidgetIframeDefinitionTimeFixedArgs{...}
-type DashboardV2WidgetIframeDefinitionTimeFixedInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetIframeDefinitionTimeFixedOutput() DashboardV2WidgetIframeDefinitionTimeFixedOutput
-	ToDashboardV2WidgetIframeDefinitionTimeFixedOutputWithContext(context.Context) DashboardV2WidgetIframeDefinitionTimeFixedOutput
-}
-
-type DashboardV2WidgetIframeDefinitionTimeFixedArgs struct {
-	// Start time in seconds since epoch.
-	From pulumi.IntInput `pulumi:"from"`
-	// End time in seconds since epoch.
-	To pulumi.IntInput `pulumi:"to"`
-}
-
-func (DashboardV2WidgetIframeDefinitionTimeFixedArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetIframeDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (i DashboardV2WidgetIframeDefinitionTimeFixedArgs) ToDashboardV2WidgetIframeDefinitionTimeFixedOutput() DashboardV2WidgetIframeDefinitionTimeFixedOutput {
-	return i.ToDashboardV2WidgetIframeDefinitionTimeFixedOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetIframeDefinitionTimeFixedArgs) ToDashboardV2WidgetIframeDefinitionTimeFixedOutputWithContext(ctx context.Context) DashboardV2WidgetIframeDefinitionTimeFixedOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetIframeDefinitionTimeFixedOutput)
-}
-
-func (i DashboardV2WidgetIframeDefinitionTimeFixedArgs) ToDashboardV2WidgetIframeDefinitionTimeFixedPtrOutput() DashboardV2WidgetIframeDefinitionTimeFixedPtrOutput {
-	return i.ToDashboardV2WidgetIframeDefinitionTimeFixedPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardV2WidgetIframeDefinitionTimeFixedArgs) ToDashboardV2WidgetIframeDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetIframeDefinitionTimeFixedPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetIframeDefinitionTimeFixedOutput).ToDashboardV2WidgetIframeDefinitionTimeFixedPtrOutputWithContext(ctx)
-}
-
-// DashboardV2WidgetIframeDefinitionTimeFixedPtrInput is an input type that accepts DashboardV2WidgetIframeDefinitionTimeFixedArgs, DashboardV2WidgetIframeDefinitionTimeFixedPtr and DashboardV2WidgetIframeDefinitionTimeFixedPtrOutput values.
-// You can construct a concrete instance of `DashboardV2WidgetIframeDefinitionTimeFixedPtrInput` via:
-//
-//	        DashboardV2WidgetIframeDefinitionTimeFixedArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardV2WidgetIframeDefinitionTimeFixedPtrInput interface {
-	pulumi.Input
-
-	ToDashboardV2WidgetIframeDefinitionTimeFixedPtrOutput() DashboardV2WidgetIframeDefinitionTimeFixedPtrOutput
-	ToDashboardV2WidgetIframeDefinitionTimeFixedPtrOutputWithContext(context.Context) DashboardV2WidgetIframeDefinitionTimeFixedPtrOutput
-}
-
-type dashboardV2WidgetIframeDefinitionTimeFixedPtrType DashboardV2WidgetIframeDefinitionTimeFixedArgs
-
-func DashboardV2WidgetIframeDefinitionTimeFixedPtr(v *DashboardV2WidgetIframeDefinitionTimeFixedArgs) DashboardV2WidgetIframeDefinitionTimeFixedPtrInput {
-	return (*dashboardV2WidgetIframeDefinitionTimeFixedPtrType)(v)
-}
-
-func (*dashboardV2WidgetIframeDefinitionTimeFixedPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetIframeDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (i *dashboardV2WidgetIframeDefinitionTimeFixedPtrType) ToDashboardV2WidgetIframeDefinitionTimeFixedPtrOutput() DashboardV2WidgetIframeDefinitionTimeFixedPtrOutput {
-	return i.ToDashboardV2WidgetIframeDefinitionTimeFixedPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardV2WidgetIframeDefinitionTimeFixedPtrType) ToDashboardV2WidgetIframeDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetIframeDefinitionTimeFixedPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardV2WidgetIframeDefinitionTimeFixedPtrOutput)
-}
-
-type DashboardV2WidgetIframeDefinitionTimeFixedOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetIframeDefinitionTimeFixedOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardV2WidgetIframeDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetIframeDefinitionTimeFixedOutput) ToDashboardV2WidgetIframeDefinitionTimeFixedOutput() DashboardV2WidgetIframeDefinitionTimeFixedOutput {
-	return o
-}
-
-func (o DashboardV2WidgetIframeDefinitionTimeFixedOutput) ToDashboardV2WidgetIframeDefinitionTimeFixedOutputWithContext(ctx context.Context) DashboardV2WidgetIframeDefinitionTimeFixedOutput {
-	return o
-}
-
-func (o DashboardV2WidgetIframeDefinitionTimeFixedOutput) ToDashboardV2WidgetIframeDefinitionTimeFixedPtrOutput() DashboardV2WidgetIframeDefinitionTimeFixedPtrOutput {
-	return o.ToDashboardV2WidgetIframeDefinitionTimeFixedPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardV2WidgetIframeDefinitionTimeFixedOutput) ToDashboardV2WidgetIframeDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetIframeDefinitionTimeFixedPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardV2WidgetIframeDefinitionTimeFixed) *DashboardV2WidgetIframeDefinitionTimeFixed {
-		return &v
-	}).(DashboardV2WidgetIframeDefinitionTimeFixedPtrOutput)
-}
-
-// Start time in seconds since epoch.
-func (o DashboardV2WidgetIframeDefinitionTimeFixedOutput) From() pulumi.IntOutput {
-	return o.ApplyT(func(v DashboardV2WidgetIframeDefinitionTimeFixed) int { return v.From }).(pulumi.IntOutput)
-}
-
-// End time in seconds since epoch.
-func (o DashboardV2WidgetIframeDefinitionTimeFixedOutput) To() pulumi.IntOutput {
-	return o.ApplyT(func(v DashboardV2WidgetIframeDefinitionTimeFixed) int { return v.To }).(pulumi.IntOutput)
-}
-
-type DashboardV2WidgetIframeDefinitionTimeFixedPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardV2WidgetIframeDefinitionTimeFixedPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardV2WidgetIframeDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (o DashboardV2WidgetIframeDefinitionTimeFixedPtrOutput) ToDashboardV2WidgetIframeDefinitionTimeFixedPtrOutput() DashboardV2WidgetIframeDefinitionTimeFixedPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetIframeDefinitionTimeFixedPtrOutput) ToDashboardV2WidgetIframeDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) DashboardV2WidgetIframeDefinitionTimeFixedPtrOutput {
-	return o
-}
-
-func (o DashboardV2WidgetIframeDefinitionTimeFixedPtrOutput) Elem() DashboardV2WidgetIframeDefinitionTimeFixedOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetIframeDefinitionTimeFixed) DashboardV2WidgetIframeDefinitionTimeFixed {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardV2WidgetIframeDefinitionTimeFixed
-		return ret
-	}).(DashboardV2WidgetIframeDefinitionTimeFixedOutput)
-}
-
-// Start time in seconds since epoch.
-func (o DashboardV2WidgetIframeDefinitionTimeFixedPtrOutput) From() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetIframeDefinitionTimeFixed) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.From
-	}).(pulumi.IntPtrOutput)
-}
-
-// End time in seconds since epoch.
-func (o DashboardV2WidgetIframeDefinitionTimeFixedPtrOutput) To() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DashboardV2WidgetIframeDefinitionTimeFixed) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.To
-	}).(pulumi.IntPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionAnthropicInput)(nil)).Elem(), ActionConnectionAnthropicArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionConnectionAnthropicPtrInput)(nil)).Elem(), ActionConnectionAnthropicArgs{})
@@ -85768,6 +85282,20 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionExecutionPolicyScopeSlackRuleArrayInput)(nil)).Elem(), ActionExecutionPolicyScopeSlackRuleArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionExecutionPolicyTargetInput)(nil)).Elem(), ActionExecutionPolicyTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ActionExecutionPolicyTargetArrayInput)(nil)).Elem(), ActionExecutionPolicyTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGatewayBudgetSelectorInput)(nil)).Elem(), AiGatewayBudgetSelectorArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGatewayBudgetSelectorArrayInput)(nil)).Elem(), AiGatewayBudgetSelectorArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGatewayPolicyTierInput)(nil)).Elem(), AiGatewayPolicyTierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGatewayPolicyTierArrayInput)(nil)).Elem(), AiGatewayPolicyTierArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGatewayPolicyTierTargetInput)(nil)).Elem(), AiGatewayPolicyTierTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGatewayPolicyTierTargetArrayInput)(nil)).Elem(), AiGatewayPolicyTierTargetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGatewayProviderIntegrationConfigInput)(nil)).Elem(), AiGatewayProviderIntegrationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGatewayProviderIntegrationConfigPtrInput)(nil)).Elem(), AiGatewayProviderIntegrationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGatewayRoutingRuleTierInput)(nil)).Elem(), AiGatewayRoutingRuleTierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGatewayRoutingRuleTierArrayInput)(nil)).Elem(), AiGatewayRoutingRuleTierArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGatewayRoutingRuleTierClassifierInput)(nil)).Elem(), AiGatewayRoutingRuleTierClassifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGatewayRoutingRuleTierClassifierPtrInput)(nil)).Elem(), AiGatewayRoutingRuleTierClassifierArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGatewayRoutingRuleTierTargetInput)(nil)).Elem(), AiGatewayRoutingRuleTierTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*AiGatewayRoutingRuleTierTargetArrayInput)(nil)).Elem(), AiGatewayRoutingRuleTierTargetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApmRetentionFilterFilterInput)(nil)).Elem(), ApmRetentionFilterFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ApmRetentionFilterFilterPtrInput)(nil)).Elem(), ApmRetentionFilterFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AppsecWafCustomRuleActionInput)(nil)).Elem(), AppsecWafCustomRuleActionArgs{})
@@ -85862,6 +85390,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomAllocationRuleStrategyBasedOnTimeseriesPtrInput)(nil)).Elem(), CustomAllocationRuleStrategyBasedOnTimeseriesArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomAllocationRuleStrategyEvaluateGroupedByFilterInput)(nil)).Elem(), CustomAllocationRuleStrategyEvaluateGroupedByFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*CustomAllocationRuleStrategyEvaluateGroupedByFilterArrayInput)(nil)).Elem(), CustomAllocationRuleStrategyEvaluateGroupedByFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDefaultTimeframeInput)(nil)).Elem(), DashboardDefaultTimeframeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDefaultTimeframePtrInput)(nil)).Elem(), DashboardDefaultTimeframeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDefaultTimeframeFixedInput)(nil)).Elem(), DashboardDefaultTimeframeFixedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDefaultTimeframeFixedPtrInput)(nil)).Elem(), DashboardDefaultTimeframeFixedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDefaultTimeframeLiveInput)(nil)).Elem(), DashboardDefaultTimeframeLiveArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardDefaultTimeframeLivePtrInput)(nil)).Elem(), DashboardDefaultTimeframeLiveArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardListDashItemInput)(nil)).Elem(), DashboardListDashItemArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardListDashItemArrayInput)(nil)).Elem(), DashboardListDashItemArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTabInput)(nil)).Elem(), DashboardTabArgs{})
@@ -85872,6 +85406,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTemplateVariablePresetArrayInput)(nil)).Elem(), DashboardTemplateVariablePresetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTemplateVariablePresetTemplateVariableInput)(nil)).Elem(), DashboardTemplateVariablePresetTemplateVariableArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardTemplateVariablePresetTemplateVariableArrayInput)(nil)).Elem(), DashboardTemplateVariablePresetTemplateVariableArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2DefaultTimeframeInput)(nil)).Elem(), DashboardV2DefaultTimeframeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2DefaultTimeframePtrInput)(nil)).Elem(), DashboardV2DefaultTimeframeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2DefaultTimeframeFixedInput)(nil)).Elem(), DashboardV2DefaultTimeframeFixedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2DefaultTimeframeFixedPtrInput)(nil)).Elem(), DashboardV2DefaultTimeframeFixedArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2DefaultTimeframeLiveInput)(nil)).Elem(), DashboardV2DefaultTimeframeLiveArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2DefaultTimeframeLivePtrInput)(nil)).Elem(), DashboardV2DefaultTimeframeLiveArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2TabInput)(nil)).Elem(), DashboardV2TabArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2TabArrayInput)(nil)).Elem(), DashboardV2TabArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2TemplateVariableInput)(nil)).Elem(), DashboardV2TemplateVariableArgs{})
@@ -86536,32 +86076,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryComputeArrayInput)(nil)).Elem(), DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryComputeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByInput)(nil)).Elem(), DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByArrayInput)(nil)).Elem(), DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsInput)(nil)).Elem(), DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrInput)(nil)).Elem(), DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortInput)(nil)).Elem(), DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrInput)(nil)).Elem(), DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortInput)(nil)).Elem(), DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrInput)(nil)).Elem(), DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchInput)(nil)).Elem(), DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrInput)(nil)).Elem(), DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryInput)(nil)).Elem(), DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrInput)(nil)).Elem(), DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionRequestStyleInput)(nil)).Elem(), DashboardV2WidgetHostmapDefinitionRequestStyleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionRequestStylePtrInput)(nil)).Elem(), DashboardV2WidgetHostmapDefinitionRequestStyleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionStyleInput)(nil)).Elem(), DashboardV2WidgetHostmapDefinitionStyleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionStylePtrInput)(nil)).Elem(), DashboardV2WidgetHostmapDefinitionStyleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionTimeInput)(nil)).Elem(), DashboardV2WidgetHostmapDefinitionTimeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionTimePtrInput)(nil)).Elem(), DashboardV2WidgetHostmapDefinitionTimeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionTimeFixedInput)(nil)).Elem(), DashboardV2WidgetHostmapDefinitionTimeFixedArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionTimeFixedPtrInput)(nil)).Elem(), DashboardV2WidgetHostmapDefinitionTimeFixedArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionTimeLiveInput)(nil)).Elem(), DashboardV2WidgetHostmapDefinitionTimeLiveArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetHostmapDefinitionTimeLivePtrInput)(nil)).Elem(), DashboardV2WidgetHostmapDefinitionTimeLiveArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetIframeDefinitionInput)(nil)).Elem(), DashboardV2WidgetIframeDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetIframeDefinitionPtrInput)(nil)).Elem(), DashboardV2WidgetIframeDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetIframeDefinitionTimeInput)(nil)).Elem(), DashboardV2WidgetIframeDefinitionTimeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetIframeDefinitionTimePtrInput)(nil)).Elem(), DashboardV2WidgetIframeDefinitionTimeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetIframeDefinitionTimeFixedInput)(nil)).Elem(), DashboardV2WidgetIframeDefinitionTimeFixedArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardV2WidgetIframeDefinitionTimeFixedPtrInput)(nil)).Elem(), DashboardV2WidgetIframeDefinitionTimeFixedArgs{})
 	pulumi.RegisterOutputType(ActionConnectionAnthropicOutput{})
 	pulumi.RegisterOutputType(ActionConnectionAnthropicPtrOutput{})
 	pulumi.RegisterOutputType(ActionConnectionAnthropicApiKeyOutput{})
@@ -86760,6 +86274,20 @@ func init() {
 	pulumi.RegisterOutputType(ActionExecutionPolicyScopeSlackRuleArrayOutput{})
 	pulumi.RegisterOutputType(ActionExecutionPolicyTargetOutput{})
 	pulumi.RegisterOutputType(ActionExecutionPolicyTargetArrayOutput{})
+	pulumi.RegisterOutputType(AiGatewayBudgetSelectorOutput{})
+	pulumi.RegisterOutputType(AiGatewayBudgetSelectorArrayOutput{})
+	pulumi.RegisterOutputType(AiGatewayPolicyTierOutput{})
+	pulumi.RegisterOutputType(AiGatewayPolicyTierArrayOutput{})
+	pulumi.RegisterOutputType(AiGatewayPolicyTierTargetOutput{})
+	pulumi.RegisterOutputType(AiGatewayPolicyTierTargetArrayOutput{})
+	pulumi.RegisterOutputType(AiGatewayProviderIntegrationConfigOutput{})
+	pulumi.RegisterOutputType(AiGatewayProviderIntegrationConfigPtrOutput{})
+	pulumi.RegisterOutputType(AiGatewayRoutingRuleTierOutput{})
+	pulumi.RegisterOutputType(AiGatewayRoutingRuleTierArrayOutput{})
+	pulumi.RegisterOutputType(AiGatewayRoutingRuleTierClassifierOutput{})
+	pulumi.RegisterOutputType(AiGatewayRoutingRuleTierClassifierPtrOutput{})
+	pulumi.RegisterOutputType(AiGatewayRoutingRuleTierTargetOutput{})
+	pulumi.RegisterOutputType(AiGatewayRoutingRuleTierTargetArrayOutput{})
 	pulumi.RegisterOutputType(ApmRetentionFilterFilterOutput{})
 	pulumi.RegisterOutputType(ApmRetentionFilterFilterPtrOutput{})
 	pulumi.RegisterOutputType(AppsecWafCustomRuleActionOutput{})
@@ -86854,6 +86382,12 @@ func init() {
 	pulumi.RegisterOutputType(CustomAllocationRuleStrategyBasedOnTimeseriesPtrOutput{})
 	pulumi.RegisterOutputType(CustomAllocationRuleStrategyEvaluateGroupedByFilterOutput{})
 	pulumi.RegisterOutputType(CustomAllocationRuleStrategyEvaluateGroupedByFilterArrayOutput{})
+	pulumi.RegisterOutputType(DashboardDefaultTimeframeOutput{})
+	pulumi.RegisterOutputType(DashboardDefaultTimeframePtrOutput{})
+	pulumi.RegisterOutputType(DashboardDefaultTimeframeFixedOutput{})
+	pulumi.RegisterOutputType(DashboardDefaultTimeframeFixedPtrOutput{})
+	pulumi.RegisterOutputType(DashboardDefaultTimeframeLiveOutput{})
+	pulumi.RegisterOutputType(DashboardDefaultTimeframeLivePtrOutput{})
 	pulumi.RegisterOutputType(DashboardListDashItemOutput{})
 	pulumi.RegisterOutputType(DashboardListDashItemArrayOutput{})
 	pulumi.RegisterOutputType(DashboardTabOutput{})
@@ -86864,6 +86398,12 @@ func init() {
 	pulumi.RegisterOutputType(DashboardTemplateVariablePresetArrayOutput{})
 	pulumi.RegisterOutputType(DashboardTemplateVariablePresetTemplateVariableOutput{})
 	pulumi.RegisterOutputType(DashboardTemplateVariablePresetTemplateVariableArrayOutput{})
+	pulumi.RegisterOutputType(DashboardV2DefaultTimeframeOutput{})
+	pulumi.RegisterOutputType(DashboardV2DefaultTimeframePtrOutput{})
+	pulumi.RegisterOutputType(DashboardV2DefaultTimeframeFixedOutput{})
+	pulumi.RegisterOutputType(DashboardV2DefaultTimeframeFixedPtrOutput{})
+	pulumi.RegisterOutputType(DashboardV2DefaultTimeframeLiveOutput{})
+	pulumi.RegisterOutputType(DashboardV2DefaultTimeframeLivePtrOutput{})
 	pulumi.RegisterOutputType(DashboardV2TabOutput{})
 	pulumi.RegisterOutputType(DashboardV2TabArrayOutput{})
 	pulumi.RegisterOutputType(DashboardV2TemplateVariableOutput{})
@@ -87528,30 +87068,4 @@ func init() {
 	pulumi.RegisterOutputType(DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryComputeArrayOutput{})
 	pulumi.RegisterOutputType(DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByOutput{})
 	pulumi.RegisterOutputType(DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByArrayOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsPtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupByFieldsSortPtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQueryGroupBySortPtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetHostmapDefinitionRequestSizeQueryEventQuerySearchPtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetHostmapDefinitionRequestSizeQueryProcessQueryPtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetHostmapDefinitionRequestStyleOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetHostmapDefinitionRequestStylePtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetHostmapDefinitionStyleOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetHostmapDefinitionStylePtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetHostmapDefinitionTimeOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetHostmapDefinitionTimePtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetHostmapDefinitionTimeFixedOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetHostmapDefinitionTimeFixedPtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetHostmapDefinitionTimeLiveOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetHostmapDefinitionTimeLivePtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetIframeDefinitionOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetIframeDefinitionPtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetIframeDefinitionTimeOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetIframeDefinitionTimePtrOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetIframeDefinitionTimeFixedOutput{})
-	pulumi.RegisterOutputType(DashboardV2WidgetIframeDefinitionTimeFixedPtrOutput{})
 }

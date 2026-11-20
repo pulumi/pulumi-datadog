@@ -142,6 +142,14 @@ namespace Pulumi.Datadog
     ///                 },
     ///             },
     ///         },
+    ///         DefaultTimeframe = new Datadog.Inputs.DashboardV2DefaultTimeframeArgs
+    ///         {
+    ///             Live = new Datadog.Inputs.DashboardV2DefaultTimeframeLiveArgs
+    ///             {
+    ///                 Unit = "week",
+    ///                 Value = 1,
+    ///             },
+    ///         },
     ///         TemplateVariables = new[]
     ///         {
     ///             new Datadog.Inputs.DashboardV2TemplateVariableArgs
@@ -237,6 +245,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Output("dashboardListsRemoveds")]
         public Output<ImmutableArray<int>> DashboardListsRemoveds { get; private set; } = null!;
+
+        /// <summary>
+        /// The default timeframe applied when opening the dashboard. Set to `Null` to disable after it has been configured.
+        /// </summary>
+        [Output("defaultTimeframe")]
+        public Output<Outputs.DashboardV2DefaultTimeframe?> DefaultTimeframe { get; private set; } = null!;
 
         /// <summary>
         /// The description of the dashboard.
@@ -391,6 +405,12 @@ namespace Pulumi.Datadog
             get => _dashboardListsRemoveds ?? (_dashboardListsRemoveds = new InputList<int>());
             set => _dashboardListsRemoveds = value;
         }
+
+        /// <summary>
+        /// The default timeframe applied when opening the dashboard. Set to `Null` to disable after it has been configured.
+        /// </summary>
+        [Input("defaultTimeframe")]
+        public Input<Inputs.DashboardV2DefaultTimeframeArgs>? DefaultTimeframe { get; set; }
 
         /// <summary>
         /// The description of the dashboard.
@@ -549,6 +569,12 @@ namespace Pulumi.Datadog
             get => _dashboardListsRemoveds ?? (_dashboardListsRemoveds = new InputList<int>());
             set => _dashboardListsRemoveds = value;
         }
+
+        /// <summary>
+        /// The default timeframe applied when opening the dashboard. Set to `Null` to disable after it has been configured.
+        /// </summary>
+        [Input("defaultTimeframe")]
+        public Input<Inputs.DashboardV2DefaultTimeframeGetArgs>? DefaultTimeframe { get; set; }
 
         /// <summary>
         /// The description of the dashboard.

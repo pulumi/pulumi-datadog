@@ -30,10 +30,12 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			// Create new datadog_status_page resource
 //			_, err := datadog.NewStatusPage(ctx, "acme_status_page", &datadog.StatusPageArgs{
-//				Name:              pulumi.String("Acme Status"),
-//				Type:              pulumi.String("public"),
-//				DomainPrefix:      pulumi.String("acme-status"),
-//				VisualizationType: pulumi.String("bars_and_uptime_percentage"),
+//				Name:                pulumi.String("Acme Status"),
+//				Type:                pulumi.String("public"),
+//				DomainPrefix:        pulumi.String("acme-status"),
+//				VisualizationType:   pulumi.String("bars_and_uptime_percentage"),
+//				VisualizationLayout: pulumi.String("list"),
+//				RssFeedEnabled:      pulumi.Bool(true),
 //			})
 //			if err != nil {
 //				return err
@@ -66,24 +68,32 @@ type StatusPage struct {
 	DomainPrefix pulumi.StringOutput `pulumi:"domainPrefix"`
 	// The header image included in subscriber emails.
 	EmailHeaderImage pulumi.StringOutput `pulumi:"emailHeaderImage"`
+	// Whether email notifications are enabled for the status page. Must be enabled when `subscriptionsEnabled` is `true`.
+	EmailNotificationsEnabled pulumi.BoolOutput `pulumi:"emailNotificationsEnabled"`
 	// Whether the status page is published. Managed by the publish/unpublish API operations, not by this resource; always reflects the page's current state.
 	Enabled pulumi.BoolOutput `pulumi:"enabled"`
 	// The favicon displayed for the status page.
 	Favicon pulumi.StringOutput `pulumi:"favicon"`
 	// Timestamp when the status page was last modified.
 	ModifiedAt pulumi.StringOutput `pulumi:"modifiedAt"`
+	// Whether Microsoft Teams subscriber notifications are enabled for the status page.
+	MsTeamsSubscriptionsEnabled pulumi.BoolOutput `pulumi:"msTeamsSubscriptionsEnabled"`
 	// The name of the status page.
 	Name pulumi.StringOutput `pulumi:"name"`
 	// The URL of the status page.
 	PageUrl pulumi.StringOutput `pulumi:"pageUrl"`
+	// Whether the RSS feed is enabled for the status page.
+	RssFeedEnabled pulumi.BoolOutput `pulumi:"rssFeedEnabled"`
 	// The icon used for the status page's Slack app integration.
 	SlackAppIcon pulumi.StringOutput `pulumi:"slackAppIcon"`
 	// Whether Slack subscriber notifications are enabled for the status page.
 	SlackSubscriptionsEnabled pulumi.BoolOutput `pulumi:"slackSubscriptionsEnabled"`
 	// Whether subscriber notifications are enabled for the status page.
 	SubscriptionsEnabled pulumi.BoolOutput `pulumi:"subscriptionsEnabled"`
-	// The type of the status page. Valid values are: public, internal.
+	// The type of the status page. Valid values are: public, internal, private. Private pages are only accessible to users allowed by the page's email access policies, managed with `StatusPageEmailAccessPolicy`.
 	Type pulumi.StringOutput `pulumi:"type"`
+	// The layout of components on the status page. Defaults to `list`. `grid` requires `visualizationType` to be `componentNameOnly`; changing `visualizationType` to any other value resets the layout to `list`. Valid values are `list`, `grid`.
+	VisualizationLayout pulumi.StringOutput `pulumi:"visualizationLayout"`
 	// How component statuses are visualized on the page. Valid values are: bars*and*uptime*percentage, bars*only, component*name*only.
 	VisualizationType pulumi.StringOutput `pulumi:"visualizationType"`
 }
@@ -142,24 +152,32 @@ type statusPageState struct {
 	DomainPrefix *string `pulumi:"domainPrefix"`
 	// The header image included in subscriber emails.
 	EmailHeaderImage *string `pulumi:"emailHeaderImage"`
+	// Whether email notifications are enabled for the status page. Must be enabled when `subscriptionsEnabled` is `true`.
+	EmailNotificationsEnabled *bool `pulumi:"emailNotificationsEnabled"`
 	// Whether the status page is published. Managed by the publish/unpublish API operations, not by this resource; always reflects the page's current state.
 	Enabled *bool `pulumi:"enabled"`
 	// The favicon displayed for the status page.
 	Favicon *string `pulumi:"favicon"`
 	// Timestamp when the status page was last modified.
 	ModifiedAt *string `pulumi:"modifiedAt"`
+	// Whether Microsoft Teams subscriber notifications are enabled for the status page.
+	MsTeamsSubscriptionsEnabled *bool `pulumi:"msTeamsSubscriptionsEnabled"`
 	// The name of the status page.
 	Name *string `pulumi:"name"`
 	// The URL of the status page.
 	PageUrl *string `pulumi:"pageUrl"`
+	// Whether the RSS feed is enabled for the status page.
+	RssFeedEnabled *bool `pulumi:"rssFeedEnabled"`
 	// The icon used for the status page's Slack app integration.
 	SlackAppIcon *string `pulumi:"slackAppIcon"`
 	// Whether Slack subscriber notifications are enabled for the status page.
 	SlackSubscriptionsEnabled *bool `pulumi:"slackSubscriptionsEnabled"`
 	// Whether subscriber notifications are enabled for the status page.
 	SubscriptionsEnabled *bool `pulumi:"subscriptionsEnabled"`
-	// The type of the status page. Valid values are: public, internal.
+	// The type of the status page. Valid values are: public, internal, private. Private pages are only accessible to users allowed by the page's email access policies, managed with `StatusPageEmailAccessPolicy`.
 	Type *string `pulumi:"type"`
+	// The layout of components on the status page. Defaults to `list`. `grid` requires `visualizationType` to be `componentNameOnly`; changing `visualizationType` to any other value resets the layout to `list`. Valid values are `list`, `grid`.
+	VisualizationLayout *string `pulumi:"visualizationLayout"`
 	// How component statuses are visualized on the page. Valid values are: bars*and*uptime*percentage, bars*only, component*name*only.
 	VisualizationType *string `pulumi:"visualizationType"`
 }
@@ -177,24 +195,32 @@ type StatusPageState struct {
 	DomainPrefix pulumi.StringPtrInput
 	// The header image included in subscriber emails.
 	EmailHeaderImage pulumi.StringPtrInput
+	// Whether email notifications are enabled for the status page. Must be enabled when `subscriptionsEnabled` is `true`.
+	EmailNotificationsEnabled pulumi.BoolPtrInput
 	// Whether the status page is published. Managed by the publish/unpublish API operations, not by this resource; always reflects the page's current state.
 	Enabled pulumi.BoolPtrInput
 	// The favicon displayed for the status page.
 	Favicon pulumi.StringPtrInput
 	// Timestamp when the status page was last modified.
 	ModifiedAt pulumi.StringPtrInput
+	// Whether Microsoft Teams subscriber notifications are enabled for the status page.
+	MsTeamsSubscriptionsEnabled pulumi.BoolPtrInput
 	// The name of the status page.
 	Name pulumi.StringPtrInput
 	// The URL of the status page.
 	PageUrl pulumi.StringPtrInput
+	// Whether the RSS feed is enabled for the status page.
+	RssFeedEnabled pulumi.BoolPtrInput
 	// The icon used for the status page's Slack app integration.
 	SlackAppIcon pulumi.StringPtrInput
 	// Whether Slack subscriber notifications are enabled for the status page.
 	SlackSubscriptionsEnabled pulumi.BoolPtrInput
 	// Whether subscriber notifications are enabled for the status page.
 	SubscriptionsEnabled pulumi.BoolPtrInput
-	// The type of the status page. Valid values are: public, internal.
+	// The type of the status page. Valid values are: public, internal, private. Private pages are only accessible to users allowed by the page's email access policies, managed with `StatusPageEmailAccessPolicy`.
 	Type pulumi.StringPtrInput
+	// The layout of components on the status page. Defaults to `list`. `grid` requires `visualizationType` to be `componentNameOnly`; changing `visualizationType` to any other value resets the layout to `list`. Valid values are `list`, `grid`.
+	VisualizationLayout pulumi.StringPtrInput
 	// How component statuses are visualized on the page. Valid values are: bars*and*uptime*percentage, bars*only, component*name*only.
 	VisualizationType pulumi.StringPtrInput
 }
@@ -216,18 +242,26 @@ type statusPageArgs struct {
 	DomainPrefix string `pulumi:"domainPrefix"`
 	// The header image included in subscriber emails.
 	EmailHeaderImage *string `pulumi:"emailHeaderImage"`
+	// Whether email notifications are enabled for the status page. Must be enabled when `subscriptionsEnabled` is `true`.
+	EmailNotificationsEnabled *bool `pulumi:"emailNotificationsEnabled"`
 	// The favicon displayed for the status page.
 	Favicon *string `pulumi:"favicon"`
+	// Whether Microsoft Teams subscriber notifications are enabled for the status page.
+	MsTeamsSubscriptionsEnabled *bool `pulumi:"msTeamsSubscriptionsEnabled"`
 	// The name of the status page.
 	Name string `pulumi:"name"`
+	// Whether the RSS feed is enabled for the status page.
+	RssFeedEnabled *bool `pulumi:"rssFeedEnabled"`
 	// The icon used for the status page's Slack app integration.
 	SlackAppIcon *string `pulumi:"slackAppIcon"`
 	// Whether Slack subscriber notifications are enabled for the status page.
 	SlackSubscriptionsEnabled *bool `pulumi:"slackSubscriptionsEnabled"`
 	// Whether subscriber notifications are enabled for the status page.
 	SubscriptionsEnabled *bool `pulumi:"subscriptionsEnabled"`
-	// The type of the status page. Valid values are: public, internal.
+	// The type of the status page. Valid values are: public, internal, private. Private pages are only accessible to users allowed by the page's email access policies, managed with `StatusPageEmailAccessPolicy`.
 	Type string `pulumi:"type"`
+	// The layout of components on the status page. Defaults to `list`. `grid` requires `visualizationType` to be `componentNameOnly`; changing `visualizationType` to any other value resets the layout to `list`. Valid values are `list`, `grid`.
+	VisualizationLayout *string `pulumi:"visualizationLayout"`
 	// How component statuses are visualized on the page. Valid values are: bars*and*uptime*percentage, bars*only, component*name*only.
 	VisualizationType string `pulumi:"visualizationType"`
 }
@@ -240,18 +274,26 @@ type StatusPageArgs struct {
 	DomainPrefix pulumi.StringInput
 	// The header image included in subscriber emails.
 	EmailHeaderImage pulumi.StringPtrInput
+	// Whether email notifications are enabled for the status page. Must be enabled when `subscriptionsEnabled` is `true`.
+	EmailNotificationsEnabled pulumi.BoolPtrInput
 	// The favicon displayed for the status page.
 	Favicon pulumi.StringPtrInput
+	// Whether Microsoft Teams subscriber notifications are enabled for the status page.
+	MsTeamsSubscriptionsEnabled pulumi.BoolPtrInput
 	// The name of the status page.
 	Name pulumi.StringInput
+	// Whether the RSS feed is enabled for the status page.
+	RssFeedEnabled pulumi.BoolPtrInput
 	// The icon used for the status page's Slack app integration.
 	SlackAppIcon pulumi.StringPtrInput
 	// Whether Slack subscriber notifications are enabled for the status page.
 	SlackSubscriptionsEnabled pulumi.BoolPtrInput
 	// Whether subscriber notifications are enabled for the status page.
 	SubscriptionsEnabled pulumi.BoolPtrInput
-	// The type of the status page. Valid values are: public, internal.
+	// The type of the status page. Valid values are: public, internal, private. Private pages are only accessible to users allowed by the page's email access policies, managed with `StatusPageEmailAccessPolicy`.
 	Type pulumi.StringInput
+	// The layout of components on the status page. Defaults to `list`. `grid` requires `visualizationType` to be `componentNameOnly`; changing `visualizationType` to any other value resets the layout to `list`. Valid values are `list`, `grid`.
+	VisualizationLayout pulumi.StringPtrInput
 	// How component statuses are visualized on the page. Valid values are: bars*and*uptime*percentage, bars*only, component*name*only.
 	VisualizationType pulumi.StringInput
 }
@@ -373,6 +415,11 @@ func (o StatusPageOutput) EmailHeaderImage() pulumi.StringOutput {
 	return o.ApplyT(func(v *StatusPage) pulumi.StringOutput { return v.EmailHeaderImage }).(pulumi.StringOutput)
 }
 
+// Whether email notifications are enabled for the status page. Must be enabled when `subscriptionsEnabled` is `true`.
+func (o StatusPageOutput) EmailNotificationsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *StatusPage) pulumi.BoolOutput { return v.EmailNotificationsEnabled }).(pulumi.BoolOutput)
+}
+
 // Whether the status page is published. Managed by the publish/unpublish API operations, not by this resource; always reflects the page's current state.
 func (o StatusPageOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *StatusPage) pulumi.BoolOutput { return v.Enabled }).(pulumi.BoolOutput)
@@ -388,6 +435,11 @@ func (o StatusPageOutput) ModifiedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *StatusPage) pulumi.StringOutput { return v.ModifiedAt }).(pulumi.StringOutput)
 }
 
+// Whether Microsoft Teams subscriber notifications are enabled for the status page.
+func (o StatusPageOutput) MsTeamsSubscriptionsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *StatusPage) pulumi.BoolOutput { return v.MsTeamsSubscriptionsEnabled }).(pulumi.BoolOutput)
+}
+
 // The name of the status page.
 func (o StatusPageOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *StatusPage) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
@@ -396,6 +448,11 @@ func (o StatusPageOutput) Name() pulumi.StringOutput {
 // The URL of the status page.
 func (o StatusPageOutput) PageUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v *StatusPage) pulumi.StringOutput { return v.PageUrl }).(pulumi.StringOutput)
+}
+
+// Whether the RSS feed is enabled for the status page.
+func (o StatusPageOutput) RssFeedEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *StatusPage) pulumi.BoolOutput { return v.RssFeedEnabled }).(pulumi.BoolOutput)
 }
 
 // The icon used for the status page's Slack app integration.
@@ -413,9 +470,14 @@ func (o StatusPageOutput) SubscriptionsEnabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v *StatusPage) pulumi.BoolOutput { return v.SubscriptionsEnabled }).(pulumi.BoolOutput)
 }
 
-// The type of the status page. Valid values are: public, internal.
+// The type of the status page. Valid values are: public, internal, private. Private pages are only accessible to users allowed by the page's email access policies, managed with `StatusPageEmailAccessPolicy`.
 func (o StatusPageOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v *StatusPage) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
+}
+
+// The layout of components on the status page. Defaults to `list`. `grid` requires `visualizationType` to be `componentNameOnly`; changing `visualizationType` to any other value resets the layout to `list`. Valid values are `list`, `grid`.
+func (o StatusPageOutput) VisualizationLayout() pulumi.StringOutput {
+	return o.ApplyT(func(v *StatusPage) pulumi.StringOutput { return v.VisualizationLayout }).(pulumi.StringOutput)
 }
 
 // How component statuses are visualized on the page. Valid values are: bars*and*uptime*percentage, bars*only, component*name*only.

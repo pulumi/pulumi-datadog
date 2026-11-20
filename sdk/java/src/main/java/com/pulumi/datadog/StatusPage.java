@@ -47,6 +47,8 @@ import javax.annotation.Nullable;
  *             .type("public")
  *             .domainPrefix("acme-status")
  *             .visualizationType("bars_and_uptime_percentage")
+ *             .visualizationLayout("list")
+ *             .rssFeedEnabled(true)
  *             .build());
  * 
  *     }
@@ -150,6 +152,20 @@ public class StatusPage extends com.pulumi.resources.CustomResource {
         return this.emailHeaderImage;
     }
     /**
+     * Whether email notifications are enabled for the status page. Must be enabled when `subscriptionsEnabled` is `true`.
+     * 
+     */
+    @Export(name="emailNotificationsEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> emailNotificationsEnabled;
+
+    /**
+     * @return Whether email notifications are enabled for the status page. Must be enabled when `subscriptionsEnabled` is `true`.
+     * 
+     */
+    public Output<Boolean> emailNotificationsEnabled() {
+        return this.emailNotificationsEnabled;
+    }
+    /**
      * Whether the status page is published. Managed by the publish/unpublish API operations, not by this resource; always reflects the page&#39;s current state.
      * 
      */
@@ -192,6 +208,20 @@ public class StatusPage extends com.pulumi.resources.CustomResource {
         return this.modifiedAt;
     }
     /**
+     * Whether Microsoft Teams subscriber notifications are enabled for the status page.
+     * 
+     */
+    @Export(name="msTeamsSubscriptionsEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> msTeamsSubscriptionsEnabled;
+
+    /**
+     * @return Whether Microsoft Teams subscriber notifications are enabled for the status page.
+     * 
+     */
+    public Output<Boolean> msTeamsSubscriptionsEnabled() {
+        return this.msTeamsSubscriptionsEnabled;
+    }
+    /**
      * The name of the status page.
      * 
      */
@@ -218,6 +248,20 @@ public class StatusPage extends com.pulumi.resources.CustomResource {
      */
     public Output<String> pageUrl() {
         return this.pageUrl;
+    }
+    /**
+     * Whether the RSS feed is enabled for the status page.
+     * 
+     */
+    @Export(name="rssFeedEnabled", refs={Boolean.class}, tree="[0]")
+    private Output<Boolean> rssFeedEnabled;
+
+    /**
+     * @return Whether the RSS feed is enabled for the status page.
+     * 
+     */
+    public Output<Boolean> rssFeedEnabled() {
+        return this.rssFeedEnabled;
     }
     /**
      * The icon used for the status page&#39;s Slack app integration.
@@ -262,18 +306,32 @@ public class StatusPage extends com.pulumi.resources.CustomResource {
         return this.subscriptionsEnabled;
     }
     /**
-     * The type of the status page. Valid values are: public, internal.
+     * The type of the status page. Valid values are: public, internal, private. Private pages are only accessible to users allowed by the page&#39;s email access policies, managed with `datadog.StatusPageEmailAccessPolicy`.
      * 
      */
     @Export(name="type", refs={String.class}, tree="[0]")
     private Output<String> type;
 
     /**
-     * @return The type of the status page. Valid values are: public, internal.
+     * @return The type of the status page. Valid values are: public, internal, private. Private pages are only accessible to users allowed by the page&#39;s email access policies, managed with `datadog.StatusPageEmailAccessPolicy`.
      * 
      */
     public Output<String> type() {
         return this.type;
+    }
+    /**
+     * The layout of components on the status page. Defaults to `list`. `grid` requires `visualizationType` to be `componentNameOnly`; changing `visualizationType` to any other value resets the layout to `list`. Valid values are `list`, `grid`.
+     * 
+     */
+    @Export(name="visualizationLayout", refs={String.class}, tree="[0]")
+    private Output<String> visualizationLayout;
+
+    /**
+     * @return The layout of components on the status page. Defaults to `list`. `grid` requires `visualizationType` to be `componentNameOnly`; changing `visualizationType` to any other value resets the layout to `list`. Valid values are `list`, `grid`.
+     * 
+     */
+    public Output<String> visualizationLayout() {
+        return this.visualizationLayout;
     }
     /**
      * How component statuses are visualized on the page. Valid values are: bars*and*uptime*percentage, bars*only, component*name*only.

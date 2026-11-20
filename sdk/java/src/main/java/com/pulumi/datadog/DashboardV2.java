@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.datadog.DashboardV2Args;
 import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.inputs.DashboardV2State;
+import com.pulumi.datadog.outputs.DashboardV2DefaultTimeframe;
 import com.pulumi.datadog.outputs.DashboardV2Tab;
 import com.pulumi.datadog.outputs.DashboardV2TemplateVariable;
 import com.pulumi.datadog.outputs.DashboardV2TemplateVariablePreset;
@@ -49,6 +50,8 @@ import javax.annotation.Nullable;
  * import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionArgs;
  * import com.pulumi.datadog.inputs.DashboardV2WidgetGroupDefinitionWidgetArgs;
  * import com.pulumi.datadog.inputs.DashboardV2WidgetNoteDefinitionArgs;
+ * import com.pulumi.datadog.inputs.DashboardV2DefaultTimeframeArgs;
+ * import com.pulumi.datadog.inputs.DashboardV2DefaultTimeframeLiveArgs;
  * import com.pulumi.datadog.inputs.DashboardV2TemplateVariableArgs;
  * import com.pulumi.datadog.inputs.DashboardV2WidgetWidgetLayoutArgs;
  * import java.util.ArrayList;
@@ -140,6 +143,12 @@ import javax.annotation.Nullable;
  *                             .build())
  *                         .build())
  *                     .build())
+ *             .defaultTimeframe(DashboardV2DefaultTimeframeArgs.builder()
+ *                 .live(DashboardV2DefaultTimeframeLiveArgs.builder()
+ *                     .unit("week")
+ *                     .value(1)
+ *                     .build())
+ *                 .build())
  *             .templateVariables(DashboardV2TemplateVariableArgs.builder()
  *                 .name("var_1")
  *                 .prefix("host")
@@ -225,6 +234,20 @@ public class DashboardV2 extends com.pulumi.resources.CustomResource {
      */
     public Output<List<Integer>> dashboardListsRemoveds() {
         return this.dashboardListsRemoveds;
+    }
+    /**
+     * The default timeframe applied when opening the dashboard. Set to `null` to disable after it has been configured.
+     * 
+     */
+    @Export(name="defaultTimeframe", refs={DashboardV2DefaultTimeframe.class}, tree="[0]")
+    private Output</* @Nullable */ DashboardV2DefaultTimeframe> defaultTimeframe;
+
+    /**
+     * @return The default timeframe applied when opening the dashboard. Set to `null` to disable after it has been configured.
+     * 
+     */
+    public Output<Optional<DashboardV2DefaultTimeframe>> defaultTimeframe() {
+        return Codegen.optional(this.defaultTimeframe);
     }
     /**
      * The description of the dashboard.

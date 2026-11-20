@@ -10,6 +10,7 @@ import com.pulumi.datadog.outputs.MonitorVariablesCloudCostQuery;
 import com.pulumi.datadog.outputs.MonitorVariablesDataJobsQuery;
 import com.pulumi.datadog.outputs.MonitorVariablesDataQualityQuery;
 import com.pulumi.datadog.outputs.MonitorVariablesEventQuery;
+import com.pulumi.datadog.outputs.MonitorVariablesMetricQuery;
 import java.util.List;
 import java.util.Objects;
 import javax.annotation.Nullable;
@@ -46,6 +47,11 @@ public final class MonitorVariables {
      * 
      */
     private @Nullable List<MonitorVariablesEventQuery> eventQueries;
+    /**
+     * @return A metrics query for use in formulas in metric monitors. For cost monitors, use `cloudCostQuery` instead, which requires an aggregator.
+     * 
+     */
+    private @Nullable List<MonitorVariablesMetricQuery> metricQueries;
 
     private MonitorVariables() {}
     /**
@@ -90,6 +96,13 @@ public final class MonitorVariables {
     public List<MonitorVariablesEventQuery> eventQueries() {
         return this.eventQueries == null ? List.of() : this.eventQueries;
     }
+    /**
+     * @return A metrics query for use in formulas in metric monitors. For cost monitors, use `cloudCostQuery` instead, which requires an aggregator.
+     * 
+     */
+    public List<MonitorVariablesMetricQuery> metricQueries() {
+        return this.metricQueries == null ? List.of() : this.metricQueries;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -106,6 +119,7 @@ public final class MonitorVariables {
         private @Nullable List<MonitorVariablesDataJobsQuery> dataJobsQueries;
         private @Nullable List<MonitorVariablesDataQualityQuery> dataQualityQueries;
         private @Nullable List<MonitorVariablesEventQuery> eventQueries;
+        private @Nullable List<MonitorVariablesMetricQuery> metricQueries;
         public Builder() {}
         public Builder(MonitorVariables defaults) {
     	      Objects.requireNonNull(defaults);
@@ -115,6 +129,7 @@ public final class MonitorVariables {
     	      this.dataJobsQueries = defaults.dataJobsQueries;
     	      this.dataQualityQueries = defaults.dataQualityQueries;
     	      this.eventQueries = defaults.eventQueries;
+    	      this.metricQueries = defaults.metricQueries;
         }
 
         @CustomType.Setter
@@ -171,6 +186,15 @@ public final class MonitorVariables {
         public Builder eventQueries(MonitorVariablesEventQuery... eventQueries) {
             return eventQueries(List.of(eventQueries));
         }
+        @CustomType.Setter
+        public Builder metricQueries(@Nullable List<MonitorVariablesMetricQuery> metricQueries) {
+
+            this.metricQueries = metricQueries;
+            return this;
+        }
+        public Builder metricQueries(MonitorVariablesMetricQuery... metricQueries) {
+            return metricQueries(List.of(metricQueries));
+        }
         public MonitorVariables build() {
             final var _resultValue = new MonitorVariables();
             _resultValue.aggregateAugmentedQueries = aggregateAugmentedQueries;
@@ -179,6 +203,7 @@ public final class MonitorVariables {
             _resultValue.dataJobsQueries = dataJobsQueries;
             _resultValue.dataQualityQueries = dataQualityQueries;
             _resultValue.eventQueries = eventQueries;
+            _resultValue.metricQueries = metricQueries;
             return _resultValue;
         }
     }

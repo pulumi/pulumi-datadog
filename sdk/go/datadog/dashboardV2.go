@@ -120,6 +120,12 @@ import (
 //						},
 //					},
 //				},
+//				DefaultTimeframe: &datadog.DashboardV2DefaultTimeframeArgs{
+//					Live: &datadog.DashboardV2DefaultTimeframeLiveArgs{
+//						Unit:  pulumi.String("week"),
+//						Value: pulumi.Int(1),
+//					},
+//				},
 //				TemplateVariables: datadog.DashboardV2TemplateVariableArray{
 //					&datadog.DashboardV2TemplateVariableArgs{
 //						Name:    pulumi.String("var_1"),
@@ -198,6 +204,8 @@ type DashboardV2 struct {
 	DashboardLists pulumi.IntArrayOutput `pulumi:"dashboardLists"`
 	// A list of dashboard lists this dashboard should be removed from. Internal only.
 	DashboardListsRemoveds pulumi.IntArrayOutput `pulumi:"dashboardListsRemoveds"`
+	// The default timeframe applied when opening the dashboard. Set to `null` to disable after it has been configured.
+	DefaultTimeframe DashboardV2DefaultTimeframePtrOutput `pulumi:"defaultTimeframe"`
 	// The description of the dashboard.
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	// Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
@@ -270,6 +278,8 @@ type dashboardV2State struct {
 	DashboardLists []int `pulumi:"dashboardLists"`
 	// A list of dashboard lists this dashboard should be removed from. Internal only.
 	DashboardListsRemoveds []int `pulumi:"dashboardListsRemoveds"`
+	// The default timeframe applied when opening the dashboard. Set to `null` to disable after it has been configured.
+	DefaultTimeframe *DashboardV2DefaultTimeframe `pulumi:"defaultTimeframe"`
 	// The description of the dashboard.
 	Description *string `pulumi:"description"`
 	// Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
@@ -307,6 +317,8 @@ type DashboardV2State struct {
 	DashboardLists pulumi.IntArrayInput
 	// A list of dashboard lists this dashboard should be removed from. Internal only.
 	DashboardListsRemoveds pulumi.IntArrayInput
+	// The default timeframe applied when opening the dashboard. Set to `null` to disable after it has been configured.
+	DefaultTimeframe DashboardV2DefaultTimeframePtrInput
 	// The description of the dashboard.
 	Description pulumi.StringPtrInput
 	// Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
@@ -354,6 +366,8 @@ type dashboardV2Args struct {
 	DashboardLists []int `pulumi:"dashboardLists"`
 	// A list of dashboard lists this dashboard should be removed from. Internal only.
 	DashboardListsRemoveds []int `pulumi:"dashboardListsRemoveds"`
+	// The default timeframe applied when opening the dashboard. Set to `null` to disable after it has been configured.
+	DefaultTimeframe *DashboardV2DefaultTimeframe `pulumi:"defaultTimeframe"`
 	// The description of the dashboard.
 	Description *string `pulumi:"description"`
 	// Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
@@ -392,6 +406,8 @@ type DashboardV2Args struct {
 	DashboardLists pulumi.IntArrayInput
 	// A list of dashboard lists this dashboard should be removed from. Internal only.
 	DashboardListsRemoveds pulumi.IntArrayInput
+	// The default timeframe applied when opening the dashboard. Set to `null` to disable after it has been configured.
+	DefaultTimeframe DashboardV2DefaultTimeframePtrInput
 	// The description of the dashboard.
 	Description pulumi.StringPtrInput
 	// Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restrictedRoles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
@@ -519,6 +535,11 @@ func (o DashboardV2Output) DashboardLists() pulumi.IntArrayOutput {
 // A list of dashboard lists this dashboard should be removed from. Internal only.
 func (o DashboardV2Output) DashboardListsRemoveds() pulumi.IntArrayOutput {
 	return o.ApplyT(func(v *DashboardV2) pulumi.IntArrayOutput { return v.DashboardListsRemoveds }).(pulumi.IntArrayOutput)
+}
+
+// The default timeframe applied when opening the dashboard. Set to `null` to disable after it has been configured.
+func (o DashboardV2Output) DefaultTimeframe() DashboardV2DefaultTimeframePtrOutput {
+	return o.ApplyT(func(v *DashboardV2) DashboardV2DefaultTimeframePtrOutput { return v.DefaultTimeframe }).(DashboardV2DefaultTimeframePtrOutput)
 }
 
 // The description of the dashboard.

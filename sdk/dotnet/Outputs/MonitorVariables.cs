@@ -37,6 +37,10 @@ namespace Pulumi.Datadog.Outputs
         /// A timeseries formula and functions events query.
         /// </summary>
         public readonly ImmutableArray<Outputs.MonitorVariablesEventQuery> EventQueries;
+        /// <summary>
+        /// A metrics query for use in formulas in metric monitors. For cost monitors, use `CloudCostQuery` instead, which requires an aggregator.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.MonitorVariablesMetricQuery> MetricQueries;
 
         [OutputConstructor]
         private MonitorVariables(
@@ -50,7 +54,9 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.MonitorVariablesDataQualityQuery> dataQualityQueries,
 
-            ImmutableArray<Outputs.MonitorVariablesEventQuery> eventQueries)
+            ImmutableArray<Outputs.MonitorVariablesEventQuery> eventQueries,
+
+            ImmutableArray<Outputs.MonitorVariablesMetricQuery> metricQueries)
         {
             AggregateAugmentedQueries = aggregateAugmentedQueries;
             AggregateFilteredQueries = aggregateFilteredQueries;
@@ -58,6 +64,7 @@ namespace Pulumi.Datadog.Outputs
             DataJobsQueries = dataJobsQueries;
             DataQualityQueries = dataQualityQueries;
             EventQueries = eventQueries;
+            MetricQueries = metricQueries;
         }
     }
 }

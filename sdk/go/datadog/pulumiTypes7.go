@@ -13,6 +13,2421 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ObservabilityPipelineConfigProcessorGroupProcessorThrottle struct {
+	// Optional list of fields used to group events before applying throttling.
+	GroupBies []string `pulumi:"groupBies"`
+	// The number of events to allow before throttling is applied.
+	Threshold int `pulumi:"threshold"`
+	// The time window in seconds over which the threshold applies.
+	Window float64 `pulumi:"window"`
+}
+
+// ObservabilityPipelineConfigProcessorGroupProcessorThrottleInput is an input type that accepts ObservabilityPipelineConfigProcessorGroupProcessorThrottleArgs and ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigProcessorGroupProcessorThrottleInput` via:
+//
+//	ObservabilityPipelineConfigProcessorGroupProcessorThrottleArgs{...}
+type ObservabilityPipelineConfigProcessorGroupProcessorThrottleInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput() ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput
+	ToObservabilityPipelineConfigProcessorGroupProcessorThrottleOutputWithContext(context.Context) ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorThrottleArgs struct {
+	// Optional list of fields used to group events before applying throttling.
+	GroupBies pulumi.StringArrayInput `pulumi:"groupBies"`
+	// The number of events to allow before throttling is applied.
+	Threshold pulumi.IntInput `pulumi:"threshold"`
+	// The time window in seconds over which the threshold applies.
+	Window pulumi.Float64Input `pulumi:"window"`
+}
+
+func (ObservabilityPipelineConfigProcessorGroupProcessorThrottleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorThrottle)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorThrottleArgs) ToObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput() ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput {
+	return i.ToObservabilityPipelineConfigProcessorGroupProcessorThrottleOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorThrottleArgs) ToObservabilityPipelineConfigProcessorGroupProcessorThrottleOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput)
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorThrottleArgs) ToObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput {
+	return i.ToObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorThrottleArgs) ToObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput).ToObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrInput is an input type that accepts ObservabilityPipelineConfigProcessorGroupProcessorThrottleArgs, ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtr and ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrInput` via:
+//
+//	        ObservabilityPipelineConfigProcessorGroupProcessorThrottleArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput
+	ToObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutputWithContext(context.Context) ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput
+}
+
+type observabilityPipelineConfigProcessorGroupProcessorThrottlePtrType ObservabilityPipelineConfigProcessorGroupProcessorThrottleArgs
+
+func ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtr(v *ObservabilityPipelineConfigProcessorGroupProcessorThrottleArgs) ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrInput {
+	return (*observabilityPipelineConfigProcessorGroupProcessorThrottlePtrType)(v)
+}
+
+func (*observabilityPipelineConfigProcessorGroupProcessorThrottlePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigProcessorGroupProcessorThrottle)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigProcessorGroupProcessorThrottlePtrType) ToObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput {
+	return i.ToObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigProcessorGroupProcessorThrottlePtrType) ToObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput)
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorThrottle)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput) ToObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput() ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput) ToObservabilityPipelineConfigProcessorGroupProcessorThrottleOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput) ToObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput {
+	return o.ToObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput) ToObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigProcessorGroupProcessorThrottle) *ObservabilityPipelineConfigProcessorGroupProcessorThrottle {
+		return &v
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput)
+}
+
+// Optional list of fields used to group events before applying throttling.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput) GroupBies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorThrottle) []string { return v.GroupBies }).(pulumi.StringArrayOutput)
+}
+
+// The number of events to allow before throttling is applied.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput) Threshold() pulumi.IntOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorThrottle) int { return v.Threshold }).(pulumi.IntOutput)
+}
+
+// The time window in seconds over which the threshold applies.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput) Window() pulumi.Float64Output {
+	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorThrottle) float64 { return v.Window }).(pulumi.Float64Output)
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigProcessorGroupProcessorThrottle)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput) ToObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput) ToObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput) Elem() ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorThrottle) ObservabilityPipelineConfigProcessorGroupProcessorThrottle {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigProcessorGroupProcessorThrottle
+		return ret
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput)
+}
+
+// Optional list of fields used to group events before applying throttling.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput) GroupBies() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorThrottle) []string {
+		if v == nil {
+			return nil
+		}
+		return v.GroupBies
+	}).(pulumi.StringArrayOutput)
+}
+
+// The number of events to allow before throttling is applied.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput) Threshold() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorThrottle) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Threshold
+	}).(pulumi.IntPtrOutput)
+}
+
+// The time window in seconds over which the threshold applies.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput) Window() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorThrottle) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Window
+	}).(pulumi.Float64PtrOutput)
+}
+
+type ObservabilityPipelineConfigSource struct {
+	// The `amazonDataFirehose` source ingests logs from AWS Data Firehose.
+	AmazonDataFirehoses []ObservabilityPipelineConfigSourceAmazonDataFirehose `pulumi:"amazonDataFirehoses"`
+	// The `amazonS3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication, TLS encryption, and configurable compression.
+	AmazonS3s []ObservabilityPipelineConfigSourceAmazonS3 `pulumi:"amazonS3s"`
+	// The `datadogAgent` source collects logs from the Datadog Agent.
+	DatadogAgents []ObservabilityPipelineConfigSourceDatadogAgent `pulumi:"datadogAgents"`
+	// The `fluentBit` source ingests logs from Fluent Bit.
+	FluentBits []ObservabilityPipelineConfigSourceFluentBit `pulumi:"fluentBits"`
+	// The `fluentd` source ingests logs from a Fluentd-compatible service.
+	Fluentds []ObservabilityPipelineConfigSourceFluentd `pulumi:"fluentds"`
+	// The `googlePubsub` source ingests logs from a Google Cloud Pub/Sub subscription.
+	GooglePubsubs []ObservabilityPipelineConfigSourceGooglePubsub `pulumi:"googlePubsubs"`
+	// The `httpClient` source scrapes logs from HTTP endpoints at regular intervals.
+	HttpClients []ObservabilityPipelineConfigSourceHttpClient `pulumi:"httpClients"`
+	// The `httpServer` source collects logs over HTTP POST from external services.
+	HttpServers []ObservabilityPipelineConfigSourceHttpServer `pulumi:"httpServers"`
+	// The unique identifier for this source.
+	Id string `pulumi:"id"`
+	// The `kafka` source ingests data from Apache Kafka topics.
+	Kafkas []ObservabilityPipelineConfigSourceKafka `pulumi:"kafkas"`
+	// The `logstash` source ingests logs from a Logstash forwarder.
+	Logstashes []ObservabilityPipelineConfigSourceLogstash `pulumi:"logstashes"`
+	// The `opentelemetry` source receives telemetry data using the OpenTelemetry Protocol (OTLP) over gRPC and HTTP.
+	Opentelemetry *ObservabilityPipelineConfigSourceOpentelemetry `pulumi:"opentelemetry"`
+	// The `prometheusRemoteWrite` source ingests metrics pushed over the Prometheus Remote Write protocol.
+	PrometheusRemoteWrite *ObservabilityPipelineConfigSourcePrometheusRemoteWrite `pulumi:"prometheusRemoteWrite"`
+	// The `rsyslog` source listens for logs over TCP or UDP from an `rsyslog` server using the syslog protocol.
+	Rsyslogs []ObservabilityPipelineConfigSourceRsyslog `pulumi:"rsyslogs"`
+	// The `socket` source ingests logs over TCP or UDP.
+	Sockets []ObservabilityPipelineConfigSourceSocket `pulumi:"sockets"`
+	// The `splunkHec` source implements the Splunk HTTP Event Collector (HEC) API.
+	SplunkHecs []ObservabilityPipelineConfigSourceSplunkHec `pulumi:"splunkHecs"`
+	// The `splunkTcp` source receives logs from a Splunk Universal Forwarder over TCP. TLS is supported for secure transmission.
+	SplunkTcps []ObservabilityPipelineConfigSourceSplunkTcp `pulumi:"splunkTcps"`
+	// The `sumoLogic` source receives logs from Sumo Logic collectors.
+	SumoLogics []ObservabilityPipelineConfigSourceSumoLogic `pulumi:"sumoLogics"`
+	// The `syslogNg` source listens for logs over TCP or UDP from a `syslog-ng` server using the syslog protocol.
+	SyslogNgs []ObservabilityPipelineConfigSourceSyslogNg `pulumi:"syslogNgs"`
+	// The `websocket` source establishes a persistent WebSocket connection to a remote endpoint and ingests log events as they are pushed by the server.
+	Websocket *ObservabilityPipelineConfigSourceWebsocket `pulumi:"websocket"`
+}
+
+// ObservabilityPipelineConfigSourceInput is an input type that accepts ObservabilityPipelineConfigSourceArgs and ObservabilityPipelineConfigSourceOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigSourceInput` via:
+//
+//	ObservabilityPipelineConfigSourceArgs{...}
+type ObservabilityPipelineConfigSourceInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigSourceOutput() ObservabilityPipelineConfigSourceOutput
+	ToObservabilityPipelineConfigSourceOutputWithContext(context.Context) ObservabilityPipelineConfigSourceOutput
+}
+
+type ObservabilityPipelineConfigSourceArgs struct {
+	// The `amazonDataFirehose` source ingests logs from AWS Data Firehose.
+	AmazonDataFirehoses ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayInput `pulumi:"amazonDataFirehoses"`
+	// The `amazonS3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication, TLS encryption, and configurable compression.
+	AmazonS3s ObservabilityPipelineConfigSourceAmazonS3ArrayInput `pulumi:"amazonS3s"`
+	// The `datadogAgent` source collects logs from the Datadog Agent.
+	DatadogAgents ObservabilityPipelineConfigSourceDatadogAgentArrayInput `pulumi:"datadogAgents"`
+	// The `fluentBit` source ingests logs from Fluent Bit.
+	FluentBits ObservabilityPipelineConfigSourceFluentBitArrayInput `pulumi:"fluentBits"`
+	// The `fluentd` source ingests logs from a Fluentd-compatible service.
+	Fluentds ObservabilityPipelineConfigSourceFluentdArrayInput `pulumi:"fluentds"`
+	// The `googlePubsub` source ingests logs from a Google Cloud Pub/Sub subscription.
+	GooglePubsubs ObservabilityPipelineConfigSourceGooglePubsubArrayInput `pulumi:"googlePubsubs"`
+	// The `httpClient` source scrapes logs from HTTP endpoints at regular intervals.
+	HttpClients ObservabilityPipelineConfigSourceHttpClientArrayInput `pulumi:"httpClients"`
+	// The `httpServer` source collects logs over HTTP POST from external services.
+	HttpServers ObservabilityPipelineConfigSourceHttpServerArrayInput `pulumi:"httpServers"`
+	// The unique identifier for this source.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The `kafka` source ingests data from Apache Kafka topics.
+	Kafkas ObservabilityPipelineConfigSourceKafkaArrayInput `pulumi:"kafkas"`
+	// The `logstash` source ingests logs from a Logstash forwarder.
+	Logstashes ObservabilityPipelineConfigSourceLogstashArrayInput `pulumi:"logstashes"`
+	// The `opentelemetry` source receives telemetry data using the OpenTelemetry Protocol (OTLP) over gRPC and HTTP.
+	Opentelemetry ObservabilityPipelineConfigSourceOpentelemetryPtrInput `pulumi:"opentelemetry"`
+	// The `prometheusRemoteWrite` source ingests metrics pushed over the Prometheus Remote Write protocol.
+	PrometheusRemoteWrite ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrInput `pulumi:"prometheusRemoteWrite"`
+	// The `rsyslog` source listens for logs over TCP or UDP from an `rsyslog` server using the syslog protocol.
+	Rsyslogs ObservabilityPipelineConfigSourceRsyslogArrayInput `pulumi:"rsyslogs"`
+	// The `socket` source ingests logs over TCP or UDP.
+	Sockets ObservabilityPipelineConfigSourceSocketArrayInput `pulumi:"sockets"`
+	// The `splunkHec` source implements the Splunk HTTP Event Collector (HEC) API.
+	SplunkHecs ObservabilityPipelineConfigSourceSplunkHecArrayInput `pulumi:"splunkHecs"`
+	// The `splunkTcp` source receives logs from a Splunk Universal Forwarder over TCP. TLS is supported for secure transmission.
+	SplunkTcps ObservabilityPipelineConfigSourceSplunkTcpArrayInput `pulumi:"splunkTcps"`
+	// The `sumoLogic` source receives logs from Sumo Logic collectors.
+	SumoLogics ObservabilityPipelineConfigSourceSumoLogicArrayInput `pulumi:"sumoLogics"`
+	// The `syslogNg` source listens for logs over TCP or UDP from a `syslog-ng` server using the syslog protocol.
+	SyslogNgs ObservabilityPipelineConfigSourceSyslogNgArrayInput `pulumi:"syslogNgs"`
+	// The `websocket` source establishes a persistent WebSocket connection to a remote endpoint and ingests log events as they are pushed by the server.
+	Websocket ObservabilityPipelineConfigSourceWebsocketPtrInput `pulumi:"websocket"`
+}
+
+func (ObservabilityPipelineConfigSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigSource)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigSourceArgs) ToObservabilityPipelineConfigSourceOutput() ObservabilityPipelineConfigSourceOutput {
+	return i.ToObservabilityPipelineConfigSourceOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigSourceArgs) ToObservabilityPipelineConfigSourceOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceOutput)
+}
+
+// ObservabilityPipelineConfigSourceArrayInput is an input type that accepts ObservabilityPipelineConfigSourceArray and ObservabilityPipelineConfigSourceArrayOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigSourceArrayInput` via:
+//
+//	ObservabilityPipelineConfigSourceArray{ ObservabilityPipelineConfigSourceArgs{...} }
+type ObservabilityPipelineConfigSourceArrayInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigSourceArrayOutput() ObservabilityPipelineConfigSourceArrayOutput
+	ToObservabilityPipelineConfigSourceArrayOutputWithContext(context.Context) ObservabilityPipelineConfigSourceArrayOutput
+}
+
+type ObservabilityPipelineConfigSourceArray []ObservabilityPipelineConfigSourceInput
+
+func (ObservabilityPipelineConfigSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ObservabilityPipelineConfigSource)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigSourceArray) ToObservabilityPipelineConfigSourceArrayOutput() ObservabilityPipelineConfigSourceArrayOutput {
+	return i.ToObservabilityPipelineConfigSourceArrayOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigSourceArray) ToObservabilityPipelineConfigSourceArrayOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceArrayOutput)
+}
+
+type ObservabilityPipelineConfigSourceOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigSource)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigSourceOutput) ToObservabilityPipelineConfigSourceOutput() ObservabilityPipelineConfigSourceOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceOutput) ToObservabilityPipelineConfigSourceOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceOutput {
+	return o
+}
+
+// The `amazonDataFirehose` source ingests logs from AWS Data Firehose.
+func (o ObservabilityPipelineConfigSourceOutput) AmazonDataFirehoses() ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSource) []ObservabilityPipelineConfigSourceAmazonDataFirehose {
+		return v.AmazonDataFirehoses
+	}).(ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput)
+}
+
+// The `amazonS3` source ingests logs from an Amazon S3 bucket. It supports AWS authentication, TLS encryption, and configurable compression.
+func (o ObservabilityPipelineConfigSourceOutput) AmazonS3s() ObservabilityPipelineConfigSourceAmazonS3ArrayOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSource) []ObservabilityPipelineConfigSourceAmazonS3 {
+		return v.AmazonS3s
+	}).(ObservabilityPipelineConfigSourceAmazonS3ArrayOutput)
+}
+
+// The `datadogAgent` source collects logs from the Datadog Agent.
+func (o ObservabilityPipelineConfigSourceOutput) DatadogAgents() ObservabilityPipelineConfigSourceDatadogAgentArrayOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSource) []ObservabilityPipelineConfigSourceDatadogAgent {
+		return v.DatadogAgents
+	}).(ObservabilityPipelineConfigSourceDatadogAgentArrayOutput)
+}
+
+// The `fluentBit` source ingests logs from Fluent Bit.
+func (o ObservabilityPipelineConfigSourceOutput) FluentBits() ObservabilityPipelineConfigSourceFluentBitArrayOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSource) []ObservabilityPipelineConfigSourceFluentBit {
+		return v.FluentBits
+	}).(ObservabilityPipelineConfigSourceFluentBitArrayOutput)
+}
+
+// The `fluentd` source ingests logs from a Fluentd-compatible service.
+func (o ObservabilityPipelineConfigSourceOutput) Fluentds() ObservabilityPipelineConfigSourceFluentdArrayOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSource) []ObservabilityPipelineConfigSourceFluentd {
+		return v.Fluentds
+	}).(ObservabilityPipelineConfigSourceFluentdArrayOutput)
+}
+
+// The `googlePubsub` source ingests logs from a Google Cloud Pub/Sub subscription.
+func (o ObservabilityPipelineConfigSourceOutput) GooglePubsubs() ObservabilityPipelineConfigSourceGooglePubsubArrayOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSource) []ObservabilityPipelineConfigSourceGooglePubsub {
+		return v.GooglePubsubs
+	}).(ObservabilityPipelineConfigSourceGooglePubsubArrayOutput)
+}
+
+// The `httpClient` source scrapes logs from HTTP endpoints at regular intervals.
+func (o ObservabilityPipelineConfigSourceOutput) HttpClients() ObservabilityPipelineConfigSourceHttpClientArrayOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSource) []ObservabilityPipelineConfigSourceHttpClient {
+		return v.HttpClients
+	}).(ObservabilityPipelineConfigSourceHttpClientArrayOutput)
+}
+
+// The `httpServer` source collects logs over HTTP POST from external services.
+func (o ObservabilityPipelineConfigSourceOutput) HttpServers() ObservabilityPipelineConfigSourceHttpServerArrayOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSource) []ObservabilityPipelineConfigSourceHttpServer {
+		return v.HttpServers
+	}).(ObservabilityPipelineConfigSourceHttpServerArrayOutput)
+}
+
+// The unique identifier for this source.
+func (o ObservabilityPipelineConfigSourceOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSource) string { return v.Id }).(pulumi.StringOutput)
+}
+
+// The `kafka` source ingests data from Apache Kafka topics.
+func (o ObservabilityPipelineConfigSourceOutput) Kafkas() ObservabilityPipelineConfigSourceKafkaArrayOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSource) []ObservabilityPipelineConfigSourceKafka { return v.Kafkas }).(ObservabilityPipelineConfigSourceKafkaArrayOutput)
+}
+
+// The `logstash` source ingests logs from a Logstash forwarder.
+func (o ObservabilityPipelineConfigSourceOutput) Logstashes() ObservabilityPipelineConfigSourceLogstashArrayOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSource) []ObservabilityPipelineConfigSourceLogstash {
+		return v.Logstashes
+	}).(ObservabilityPipelineConfigSourceLogstashArrayOutput)
+}
+
+// The `opentelemetry` source receives telemetry data using the OpenTelemetry Protocol (OTLP) over gRPC and HTTP.
+func (o ObservabilityPipelineConfigSourceOutput) Opentelemetry() ObservabilityPipelineConfigSourceOpentelemetryPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSource) *ObservabilityPipelineConfigSourceOpentelemetry {
+		return v.Opentelemetry
+	}).(ObservabilityPipelineConfigSourceOpentelemetryPtrOutput)
+}
+
+// The `prometheusRemoteWrite` source ingests metrics pushed over the Prometheus Remote Write protocol.
+func (o ObservabilityPipelineConfigSourceOutput) PrometheusRemoteWrite() ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSource) *ObservabilityPipelineConfigSourcePrometheusRemoteWrite {
+		return v.PrometheusRemoteWrite
+	}).(ObservabilityPipelineConfigSourcePrometheusRemoteWritePtrOutput)
+}
+
+// The `rsyslog` source listens for logs over TCP or UDP from an `rsyslog` server using the syslog protocol.
+func (o ObservabilityPipelineConfigSourceOutput) Rsyslogs() ObservabilityPipelineConfigSourceRsyslogArrayOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSource) []ObservabilityPipelineConfigSourceRsyslog {
+		return v.Rsyslogs
+	}).(ObservabilityPipelineConfigSourceRsyslogArrayOutput)
+}
+
+// The `socket` source ingests logs over TCP or UDP.
+func (o ObservabilityPipelineConfigSourceOutput) Sockets() ObservabilityPipelineConfigSourceSocketArrayOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSource) []ObservabilityPipelineConfigSourceSocket { return v.Sockets }).(ObservabilityPipelineConfigSourceSocketArrayOutput)
+}
+
+// The `splunkHec` source implements the Splunk HTTP Event Collector (HEC) API.
+func (o ObservabilityPipelineConfigSourceOutput) SplunkHecs() ObservabilityPipelineConfigSourceSplunkHecArrayOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSource) []ObservabilityPipelineConfigSourceSplunkHec {
+		return v.SplunkHecs
+	}).(ObservabilityPipelineConfigSourceSplunkHecArrayOutput)
+}
+
+// The `splunkTcp` source receives logs from a Splunk Universal Forwarder over TCP. TLS is supported for secure transmission.
+func (o ObservabilityPipelineConfigSourceOutput) SplunkTcps() ObservabilityPipelineConfigSourceSplunkTcpArrayOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSource) []ObservabilityPipelineConfigSourceSplunkTcp {
+		return v.SplunkTcps
+	}).(ObservabilityPipelineConfigSourceSplunkTcpArrayOutput)
+}
+
+// The `sumoLogic` source receives logs from Sumo Logic collectors.
+func (o ObservabilityPipelineConfigSourceOutput) SumoLogics() ObservabilityPipelineConfigSourceSumoLogicArrayOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSource) []ObservabilityPipelineConfigSourceSumoLogic {
+		return v.SumoLogics
+	}).(ObservabilityPipelineConfigSourceSumoLogicArrayOutput)
+}
+
+// The `syslogNg` source listens for logs over TCP or UDP from a `syslog-ng` server using the syslog protocol.
+func (o ObservabilityPipelineConfigSourceOutput) SyslogNgs() ObservabilityPipelineConfigSourceSyslogNgArrayOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSource) []ObservabilityPipelineConfigSourceSyslogNg {
+		return v.SyslogNgs
+	}).(ObservabilityPipelineConfigSourceSyslogNgArrayOutput)
+}
+
+// The `websocket` source establishes a persistent WebSocket connection to a remote endpoint and ingests log events as they are pushed by the server.
+func (o ObservabilityPipelineConfigSourceOutput) Websocket() ObservabilityPipelineConfigSourceWebsocketPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSource) *ObservabilityPipelineConfigSourceWebsocket {
+		return v.Websocket
+	}).(ObservabilityPipelineConfigSourceWebsocketPtrOutput)
+}
+
+type ObservabilityPipelineConfigSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ObservabilityPipelineConfigSource)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigSourceArrayOutput) ToObservabilityPipelineConfigSourceArrayOutput() ObservabilityPipelineConfigSourceArrayOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceArrayOutput) ToObservabilityPipelineConfigSourceArrayOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceArrayOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceArrayOutput) Index(i pulumi.IntInput) ObservabilityPipelineConfigSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ObservabilityPipelineConfigSource {
+		return vs[0].([]ObservabilityPipelineConfigSource)[vs[1].(int)]
+	}).(ObservabilityPipelineConfigSourceOutput)
+}
+
+type ObservabilityPipelineConfigSourceAmazonDataFirehose struct {
+	// Name of the environment variable or secret that holds the listen address.
+	AddressKey *string `pulumi:"addressKey"`
+	// AWS authentication credentials used for accessing AWS services. If omitted, the system's default credentials are used (for example, the IAM role and environment variables).
+	Auth *ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth `pulumi:"auth"`
+	// Configuration for enabling TLS encryption between the pipeline component and external services.
+	Tls *ObservabilityPipelineConfigSourceAmazonDataFirehoseTls `pulumi:"tls"`
+}
+
+// ObservabilityPipelineConfigSourceAmazonDataFirehoseInput is an input type that accepts ObservabilityPipelineConfigSourceAmazonDataFirehoseArgs and ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigSourceAmazonDataFirehoseInput` via:
+//
+//	ObservabilityPipelineConfigSourceAmazonDataFirehoseArgs{...}
+type ObservabilityPipelineConfigSourceAmazonDataFirehoseInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigSourceAmazonDataFirehoseOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput
+	ToObservabilityPipelineConfigSourceAmazonDataFirehoseOutputWithContext(context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput
+}
+
+type ObservabilityPipelineConfigSourceAmazonDataFirehoseArgs struct {
+	// Name of the environment variable or secret that holds the listen address.
+	AddressKey pulumi.StringPtrInput `pulumi:"addressKey"`
+	// AWS authentication credentials used for accessing AWS services. If omitted, the system's default credentials are used (for example, the IAM role and environment variables).
+	Auth ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrInput `pulumi:"auth"`
+	// Configuration for enabling TLS encryption between the pipeline component and external services.
+	Tls ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrInput `pulumi:"tls"`
+}
+
+func (ObservabilityPipelineConfigSourceAmazonDataFirehoseArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonDataFirehose)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigSourceAmazonDataFirehoseArgs) ToObservabilityPipelineConfigSourceAmazonDataFirehoseOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput {
+	return i.ToObservabilityPipelineConfigSourceAmazonDataFirehoseOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigSourceAmazonDataFirehoseArgs) ToObservabilityPipelineConfigSourceAmazonDataFirehoseOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput)
+}
+
+// ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayInput is an input type that accepts ObservabilityPipelineConfigSourceAmazonDataFirehoseArray and ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayInput` via:
+//
+//	ObservabilityPipelineConfigSourceAmazonDataFirehoseArray{ ObservabilityPipelineConfigSourceAmazonDataFirehoseArgs{...} }
+type ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput
+	ToObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutputWithContext(context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput
+}
+
+type ObservabilityPipelineConfigSourceAmazonDataFirehoseArray []ObservabilityPipelineConfigSourceAmazonDataFirehoseInput
+
+func (ObservabilityPipelineConfigSourceAmazonDataFirehoseArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ObservabilityPipelineConfigSourceAmazonDataFirehose)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigSourceAmazonDataFirehoseArray) ToObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput {
+	return i.ToObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigSourceAmazonDataFirehoseArray) ToObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput)
+}
+
+type ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonDataFirehose)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput) ToObservabilityPipelineConfigSourceAmazonDataFirehoseOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput) ToObservabilityPipelineConfigSourceAmazonDataFirehoseOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput {
+	return o
+}
+
+// Name of the environment variable or secret that holds the listen address.
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput) AddressKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonDataFirehose) *string { return v.AddressKey }).(pulumi.StringPtrOutput)
+}
+
+// AWS authentication credentials used for accessing AWS services. If omitted, the system's default credentials are used (for example, the IAM role and environment variables).
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput) Auth() ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonDataFirehose) *ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth {
+		return v.Auth
+	}).(ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput)
+}
+
+// Configuration for enabling TLS encryption between the pipeline component and external services.
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput) Tls() ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonDataFirehose) *ObservabilityPipelineConfigSourceAmazonDataFirehoseTls {
+		return v.Tls
+	}).(ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput)
+}
+
+type ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ObservabilityPipelineConfigSourceAmazonDataFirehose)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput) ToObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput) ToObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput) Index(i pulumi.IntInput) ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ObservabilityPipelineConfigSourceAmazonDataFirehose {
+		return vs[0].([]ObservabilityPipelineConfigSourceAmazonDataFirehose)[vs[1].(int)]
+	}).(ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput)
+}
+
+type ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth struct {
+	// The Amazon Resource Name (ARN) of the role to assume.
+	AssumeRole *string `pulumi:"assumeRole"`
+	// A unique identifier for cross-account role assumption.
+	ExternalId *string `pulumi:"externalId"`
+	// A session identifier used for logging and tracing the assumed role session.
+	SessionName *string `pulumi:"sessionName"`
+}
+
+// ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthInput is an input type that accepts ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthArgs and ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthInput` via:
+//
+//	ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthArgs{...}
+type ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput
+	ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutputWithContext(context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput
+}
+
+type ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthArgs struct {
+	// The Amazon Resource Name (ARN) of the role to assume.
+	AssumeRole pulumi.StringPtrInput `pulumi:"assumeRole"`
+	// A unique identifier for cross-account role assumption.
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// A session identifier used for logging and tracing the assumed role session.
+	SessionName pulumi.StringPtrInput `pulumi:"sessionName"`
+}
+
+func (ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthArgs) ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput {
+	return i.ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthArgs) ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput)
+}
+
+func (i ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthArgs) ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput {
+	return i.ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthArgs) ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput).ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrInput is an input type that accepts ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthArgs, ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtr and ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrInput` via:
+//
+//	        ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput
+	ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutputWithContext(context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput
+}
+
+type observabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrType ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthArgs
+
+func ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtr(v *ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthArgs) ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrInput {
+	return (*observabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrType)(v)
+}
+
+func (*observabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrType) ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput {
+	return i.ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrType) ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput)
+}
+
+type ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput) ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput) ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput) ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput {
+	return o.ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput) ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth) *ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth {
+		return &v
+	}).(ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the role to assume.
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput) AssumeRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth) *string { return v.AssumeRole }).(pulumi.StringPtrOutput)
+}
+
+// A unique identifier for cross-account role assumption.
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+// A session identifier used for logging and tracing the assumed role session.
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput) SessionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth) *string { return v.SessionName }).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput) ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput) ToObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput) Elem() ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth) ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth
+		return ret
+	}).(ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput)
+}
+
+// The Amazon Resource Name (ARN) of the role to assume.
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput) AssumeRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AssumeRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// A unique identifier for cross-account role assumption.
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A session identifier used for logging and tracing the assumed role session.
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput) SessionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonDataFirehoseAuth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SessionName
+	}).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigSourceAmazonDataFirehoseTls struct {
+	// Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+	CaFile *string `pulumi:"caFile"`
+	// Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+	CrtFile string `pulumi:"crtFile"`
+	// Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+	KeyFile *string `pulumi:"keyFile"`
+	// Name of the environment variable or secret that holds the passphrase for the private key file.
+	KeyPassKey *string `pulumi:"keyPassKey"`
+}
+
+// ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsInput is an input type that accepts ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsArgs and ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsInput` via:
+//
+//	ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsArgs{...}
+type ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput
+	ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutputWithContext(context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput
+}
+
+type ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsArgs struct {
+	// Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+	CaFile pulumi.StringPtrInput `pulumi:"caFile"`
+	// Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+	CrtFile pulumi.StringInput `pulumi:"crtFile"`
+	// Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+	KeyFile pulumi.StringPtrInput `pulumi:"keyFile"`
+	// Name of the environment variable or secret that holds the passphrase for the private key file.
+	KeyPassKey pulumi.StringPtrInput `pulumi:"keyPassKey"`
+}
+
+func (ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonDataFirehoseTls)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsArgs) ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput {
+	return i.ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsArgs) ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput)
+}
+
+func (i ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsArgs) ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput {
+	return i.ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsArgs) ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput).ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrInput is an input type that accepts ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsArgs, ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtr and ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrInput` via:
+//
+//	        ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput
+	ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutputWithContext(context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput
+}
+
+type observabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrType ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsArgs
+
+func ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtr(v *ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsArgs) ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrInput {
+	return (*observabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrType)(v)
+}
+
+func (*observabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigSourceAmazonDataFirehoseTls)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrType) ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput {
+	return i.ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrType) ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput)
+}
+
+type ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonDataFirehoseTls)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput) ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput) ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput) ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput {
+	return o.ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput) ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigSourceAmazonDataFirehoseTls) *ObservabilityPipelineConfigSourceAmazonDataFirehoseTls {
+		return &v
+	}).(ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput)
+}
+
+// Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput) CaFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonDataFirehoseTls) *string { return v.CaFile }).(pulumi.StringPtrOutput)
+}
+
+// Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput) CrtFile() pulumi.StringOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonDataFirehoseTls) string { return v.CrtFile }).(pulumi.StringOutput)
+}
+
+// Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput) KeyFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonDataFirehoseTls) *string { return v.KeyFile }).(pulumi.StringPtrOutput)
+}
+
+// Name of the environment variable or secret that holds the passphrase for the private key file.
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput) KeyPassKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonDataFirehoseTls) *string { return v.KeyPassKey }).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigSourceAmazonDataFirehoseTls)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput) ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput() ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput) ToObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput) Elem() ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonDataFirehoseTls) ObservabilityPipelineConfigSourceAmazonDataFirehoseTls {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigSourceAmazonDataFirehoseTls
+		return ret
+	}).(ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput)
+}
+
+// Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput) CaFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonDataFirehoseTls) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CaFile
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput) CrtFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonDataFirehoseTls) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CrtFile
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput) KeyFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonDataFirehoseTls) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyFile
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the environment variable or secret that holds the passphrase for the private key file.
+func (o ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput) KeyPassKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonDataFirehoseTls) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyPassKey
+	}).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigSourceAmazonS3 struct {
+	// AWS authentication credentials used for accessing AWS services. If omitted, the system's default credentials are used (for example, the IAM role and environment variables).
+	Auth *ObservabilityPipelineConfigSourceAmazonS3Auth `pulumi:"auth"`
+	// Compression format for objects retrieved from the S3 bucket. Use `auto` to detect compression from the object's Content-Encoding header or file extension. Valid values are `auto`, `none`, `gzip`, `zstd`.
+	Compression *string `pulumi:"compression"`
+	// AWS region where the S3 bucket resides.
+	Region string `pulumi:"region"`
+	// Configuration for enabling TLS encryption between the pipeline component and external services.
+	Tls *ObservabilityPipelineConfigSourceAmazonS3Tls `pulumi:"tls"`
+	// Name of the environment variable or secret that holds the S3 bucket URL.
+	UrlKey *string `pulumi:"urlKey"`
+}
+
+// ObservabilityPipelineConfigSourceAmazonS3Input is an input type that accepts ObservabilityPipelineConfigSourceAmazonS3Args and ObservabilityPipelineConfigSourceAmazonS3Output values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigSourceAmazonS3Input` via:
+//
+//	ObservabilityPipelineConfigSourceAmazonS3Args{...}
+type ObservabilityPipelineConfigSourceAmazonS3Input interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigSourceAmazonS3Output() ObservabilityPipelineConfigSourceAmazonS3Output
+	ToObservabilityPipelineConfigSourceAmazonS3OutputWithContext(context.Context) ObservabilityPipelineConfigSourceAmazonS3Output
+}
+
+type ObservabilityPipelineConfigSourceAmazonS3Args struct {
+	// AWS authentication credentials used for accessing AWS services. If omitted, the system's default credentials are used (for example, the IAM role and environment variables).
+	Auth ObservabilityPipelineConfigSourceAmazonS3AuthPtrInput `pulumi:"auth"`
+	// Compression format for objects retrieved from the S3 bucket. Use `auto` to detect compression from the object's Content-Encoding header or file extension. Valid values are `auto`, `none`, `gzip`, `zstd`.
+	Compression pulumi.StringPtrInput `pulumi:"compression"`
+	// AWS region where the S3 bucket resides.
+	Region pulumi.StringInput `pulumi:"region"`
+	// Configuration for enabling TLS encryption between the pipeline component and external services.
+	Tls ObservabilityPipelineConfigSourceAmazonS3TlsPtrInput `pulumi:"tls"`
+	// Name of the environment variable or secret that holds the S3 bucket URL.
+	UrlKey pulumi.StringPtrInput `pulumi:"urlKey"`
+}
+
+func (ObservabilityPipelineConfigSourceAmazonS3Args) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonS3)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigSourceAmazonS3Args) ToObservabilityPipelineConfigSourceAmazonS3Output() ObservabilityPipelineConfigSourceAmazonS3Output {
+	return i.ToObservabilityPipelineConfigSourceAmazonS3OutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigSourceAmazonS3Args) ToObservabilityPipelineConfigSourceAmazonS3OutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonS3Output {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceAmazonS3Output)
+}
+
+// ObservabilityPipelineConfigSourceAmazonS3ArrayInput is an input type that accepts ObservabilityPipelineConfigSourceAmazonS3Array and ObservabilityPipelineConfigSourceAmazonS3ArrayOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigSourceAmazonS3ArrayInput` via:
+//
+//	ObservabilityPipelineConfigSourceAmazonS3Array{ ObservabilityPipelineConfigSourceAmazonS3Args{...} }
+type ObservabilityPipelineConfigSourceAmazonS3ArrayInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigSourceAmazonS3ArrayOutput() ObservabilityPipelineConfigSourceAmazonS3ArrayOutput
+	ToObservabilityPipelineConfigSourceAmazonS3ArrayOutputWithContext(context.Context) ObservabilityPipelineConfigSourceAmazonS3ArrayOutput
+}
+
+type ObservabilityPipelineConfigSourceAmazonS3Array []ObservabilityPipelineConfigSourceAmazonS3Input
+
+func (ObservabilityPipelineConfigSourceAmazonS3Array) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ObservabilityPipelineConfigSourceAmazonS3)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigSourceAmazonS3Array) ToObservabilityPipelineConfigSourceAmazonS3ArrayOutput() ObservabilityPipelineConfigSourceAmazonS3ArrayOutput {
+	return i.ToObservabilityPipelineConfigSourceAmazonS3ArrayOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigSourceAmazonS3Array) ToObservabilityPipelineConfigSourceAmazonS3ArrayOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonS3ArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceAmazonS3ArrayOutput)
+}
+
+type ObservabilityPipelineConfigSourceAmazonS3Output struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigSourceAmazonS3Output) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonS3)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonS3Output) ToObservabilityPipelineConfigSourceAmazonS3Output() ObservabilityPipelineConfigSourceAmazonS3Output {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonS3Output) ToObservabilityPipelineConfigSourceAmazonS3OutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonS3Output {
+	return o
+}
+
+// AWS authentication credentials used for accessing AWS services. If omitted, the system's default credentials are used (for example, the IAM role and environment variables).
+func (o ObservabilityPipelineConfigSourceAmazonS3Output) Auth() ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonS3) *ObservabilityPipelineConfigSourceAmazonS3Auth {
+		return v.Auth
+	}).(ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput)
+}
+
+// Compression format for objects retrieved from the S3 bucket. Use `auto` to detect compression from the object's Content-Encoding header or file extension. Valid values are `auto`, `none`, `gzip`, `zstd`.
+func (o ObservabilityPipelineConfigSourceAmazonS3Output) Compression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonS3) *string { return v.Compression }).(pulumi.StringPtrOutput)
+}
+
+// AWS region where the S3 bucket resides.
+func (o ObservabilityPipelineConfigSourceAmazonS3Output) Region() pulumi.StringOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonS3) string { return v.Region }).(pulumi.StringOutput)
+}
+
+// Configuration for enabling TLS encryption between the pipeline component and external services.
+func (o ObservabilityPipelineConfigSourceAmazonS3Output) Tls() ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonS3) *ObservabilityPipelineConfigSourceAmazonS3Tls {
+		return v.Tls
+	}).(ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput)
+}
+
+// Name of the environment variable or secret that holds the S3 bucket URL.
+func (o ObservabilityPipelineConfigSourceAmazonS3Output) UrlKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonS3) *string { return v.UrlKey }).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigSourceAmazonS3ArrayOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigSourceAmazonS3ArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ObservabilityPipelineConfigSourceAmazonS3)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonS3ArrayOutput) ToObservabilityPipelineConfigSourceAmazonS3ArrayOutput() ObservabilityPipelineConfigSourceAmazonS3ArrayOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonS3ArrayOutput) ToObservabilityPipelineConfigSourceAmazonS3ArrayOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonS3ArrayOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonS3ArrayOutput) Index(i pulumi.IntInput) ObservabilityPipelineConfigSourceAmazonS3Output {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ObservabilityPipelineConfigSourceAmazonS3 {
+		return vs[0].([]ObservabilityPipelineConfigSourceAmazonS3)[vs[1].(int)]
+	}).(ObservabilityPipelineConfigSourceAmazonS3Output)
+}
+
+type ObservabilityPipelineConfigSourceAmazonS3Auth struct {
+	// The Amazon Resource Name (ARN) of the role to assume.
+	AssumeRole *string `pulumi:"assumeRole"`
+	// A unique identifier for cross-account role assumption.
+	ExternalId *string `pulumi:"externalId"`
+	// A session identifier used for logging and tracing the assumed role session.
+	SessionName *string `pulumi:"sessionName"`
+}
+
+// ObservabilityPipelineConfigSourceAmazonS3AuthInput is an input type that accepts ObservabilityPipelineConfigSourceAmazonS3AuthArgs and ObservabilityPipelineConfigSourceAmazonS3AuthOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigSourceAmazonS3AuthInput` via:
+//
+//	ObservabilityPipelineConfigSourceAmazonS3AuthArgs{...}
+type ObservabilityPipelineConfigSourceAmazonS3AuthInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigSourceAmazonS3AuthOutput() ObservabilityPipelineConfigSourceAmazonS3AuthOutput
+	ToObservabilityPipelineConfigSourceAmazonS3AuthOutputWithContext(context.Context) ObservabilityPipelineConfigSourceAmazonS3AuthOutput
+}
+
+type ObservabilityPipelineConfigSourceAmazonS3AuthArgs struct {
+	// The Amazon Resource Name (ARN) of the role to assume.
+	AssumeRole pulumi.StringPtrInput `pulumi:"assumeRole"`
+	// A unique identifier for cross-account role assumption.
+	ExternalId pulumi.StringPtrInput `pulumi:"externalId"`
+	// A session identifier used for logging and tracing the assumed role session.
+	SessionName pulumi.StringPtrInput `pulumi:"sessionName"`
+}
+
+func (ObservabilityPipelineConfigSourceAmazonS3AuthArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonS3Auth)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigSourceAmazonS3AuthArgs) ToObservabilityPipelineConfigSourceAmazonS3AuthOutput() ObservabilityPipelineConfigSourceAmazonS3AuthOutput {
+	return i.ToObservabilityPipelineConfigSourceAmazonS3AuthOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigSourceAmazonS3AuthArgs) ToObservabilityPipelineConfigSourceAmazonS3AuthOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonS3AuthOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceAmazonS3AuthOutput)
+}
+
+func (i ObservabilityPipelineConfigSourceAmazonS3AuthArgs) ToObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput() ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput {
+	return i.ToObservabilityPipelineConfigSourceAmazonS3AuthPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigSourceAmazonS3AuthArgs) ToObservabilityPipelineConfigSourceAmazonS3AuthPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceAmazonS3AuthOutput).ToObservabilityPipelineConfigSourceAmazonS3AuthPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigSourceAmazonS3AuthPtrInput is an input type that accepts ObservabilityPipelineConfigSourceAmazonS3AuthArgs, ObservabilityPipelineConfigSourceAmazonS3AuthPtr and ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigSourceAmazonS3AuthPtrInput` via:
+//
+//	        ObservabilityPipelineConfigSourceAmazonS3AuthArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigSourceAmazonS3AuthPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput() ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput
+	ToObservabilityPipelineConfigSourceAmazonS3AuthPtrOutputWithContext(context.Context) ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput
+}
+
+type observabilityPipelineConfigSourceAmazonS3AuthPtrType ObservabilityPipelineConfigSourceAmazonS3AuthArgs
+
+func ObservabilityPipelineConfigSourceAmazonS3AuthPtr(v *ObservabilityPipelineConfigSourceAmazonS3AuthArgs) ObservabilityPipelineConfigSourceAmazonS3AuthPtrInput {
+	return (*observabilityPipelineConfigSourceAmazonS3AuthPtrType)(v)
+}
+
+func (*observabilityPipelineConfigSourceAmazonS3AuthPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigSourceAmazonS3Auth)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigSourceAmazonS3AuthPtrType) ToObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput() ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput {
+	return i.ToObservabilityPipelineConfigSourceAmazonS3AuthPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigSourceAmazonS3AuthPtrType) ToObservabilityPipelineConfigSourceAmazonS3AuthPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput)
+}
+
+type ObservabilityPipelineConfigSourceAmazonS3AuthOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigSourceAmazonS3AuthOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonS3Auth)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonS3AuthOutput) ToObservabilityPipelineConfigSourceAmazonS3AuthOutput() ObservabilityPipelineConfigSourceAmazonS3AuthOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonS3AuthOutput) ToObservabilityPipelineConfigSourceAmazonS3AuthOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonS3AuthOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonS3AuthOutput) ToObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput() ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput {
+	return o.ToObservabilityPipelineConfigSourceAmazonS3AuthPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonS3AuthOutput) ToObservabilityPipelineConfigSourceAmazonS3AuthPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigSourceAmazonS3Auth) *ObservabilityPipelineConfigSourceAmazonS3Auth {
+		return &v
+	}).(ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput)
+}
+
+// The Amazon Resource Name (ARN) of the role to assume.
+func (o ObservabilityPipelineConfigSourceAmazonS3AuthOutput) AssumeRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonS3Auth) *string { return v.AssumeRole }).(pulumi.StringPtrOutput)
+}
+
+// A unique identifier for cross-account role assumption.
+func (o ObservabilityPipelineConfigSourceAmazonS3AuthOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonS3Auth) *string { return v.ExternalId }).(pulumi.StringPtrOutput)
+}
+
+// A session identifier used for logging and tracing the assumed role session.
+func (o ObservabilityPipelineConfigSourceAmazonS3AuthOutput) SessionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonS3Auth) *string { return v.SessionName }).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigSourceAmazonS3Auth)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput) ToObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput() ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput) ToObservabilityPipelineConfigSourceAmazonS3AuthPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput) Elem() ObservabilityPipelineConfigSourceAmazonS3AuthOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonS3Auth) ObservabilityPipelineConfigSourceAmazonS3Auth {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigSourceAmazonS3Auth
+		return ret
+	}).(ObservabilityPipelineConfigSourceAmazonS3AuthOutput)
+}
+
+// The Amazon Resource Name (ARN) of the role to assume.
+func (o ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput) AssumeRole() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonS3Auth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.AssumeRole
+	}).(pulumi.StringPtrOutput)
+}
+
+// A unique identifier for cross-account role assumption.
+func (o ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput) ExternalId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonS3Auth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.ExternalId
+	}).(pulumi.StringPtrOutput)
+}
+
+// A session identifier used for logging and tracing the assumed role session.
+func (o ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput) SessionName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonS3Auth) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SessionName
+	}).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigSourceAmazonS3Tls struct {
+	// Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+	CaFile *string `pulumi:"caFile"`
+	// Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+	CrtFile string `pulumi:"crtFile"`
+	// Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+	KeyFile *string `pulumi:"keyFile"`
+	// Name of the environment variable or secret that holds the passphrase for the private key file.
+	KeyPassKey *string `pulumi:"keyPassKey"`
+}
+
+// ObservabilityPipelineConfigSourceAmazonS3TlsInput is an input type that accepts ObservabilityPipelineConfigSourceAmazonS3TlsArgs and ObservabilityPipelineConfigSourceAmazonS3TlsOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigSourceAmazonS3TlsInput` via:
+//
+//	ObservabilityPipelineConfigSourceAmazonS3TlsArgs{...}
+type ObservabilityPipelineConfigSourceAmazonS3TlsInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigSourceAmazonS3TlsOutput() ObservabilityPipelineConfigSourceAmazonS3TlsOutput
+	ToObservabilityPipelineConfigSourceAmazonS3TlsOutputWithContext(context.Context) ObservabilityPipelineConfigSourceAmazonS3TlsOutput
+}
+
+type ObservabilityPipelineConfigSourceAmazonS3TlsArgs struct {
+	// Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+	CaFile pulumi.StringPtrInput `pulumi:"caFile"`
+	// Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+	CrtFile pulumi.StringInput `pulumi:"crtFile"`
+	// Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+	KeyFile pulumi.StringPtrInput `pulumi:"keyFile"`
+	// Name of the environment variable or secret that holds the passphrase for the private key file.
+	KeyPassKey pulumi.StringPtrInput `pulumi:"keyPassKey"`
+}
+
+func (ObservabilityPipelineConfigSourceAmazonS3TlsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonS3Tls)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigSourceAmazonS3TlsArgs) ToObservabilityPipelineConfigSourceAmazonS3TlsOutput() ObservabilityPipelineConfigSourceAmazonS3TlsOutput {
+	return i.ToObservabilityPipelineConfigSourceAmazonS3TlsOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigSourceAmazonS3TlsArgs) ToObservabilityPipelineConfigSourceAmazonS3TlsOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonS3TlsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceAmazonS3TlsOutput)
+}
+
+func (i ObservabilityPipelineConfigSourceAmazonS3TlsArgs) ToObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput() ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput {
+	return i.ToObservabilityPipelineConfigSourceAmazonS3TlsPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigSourceAmazonS3TlsArgs) ToObservabilityPipelineConfigSourceAmazonS3TlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceAmazonS3TlsOutput).ToObservabilityPipelineConfigSourceAmazonS3TlsPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigSourceAmazonS3TlsPtrInput is an input type that accepts ObservabilityPipelineConfigSourceAmazonS3TlsArgs, ObservabilityPipelineConfigSourceAmazonS3TlsPtr and ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigSourceAmazonS3TlsPtrInput` via:
+//
+//	        ObservabilityPipelineConfigSourceAmazonS3TlsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigSourceAmazonS3TlsPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput() ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput
+	ToObservabilityPipelineConfigSourceAmazonS3TlsPtrOutputWithContext(context.Context) ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput
+}
+
+type observabilityPipelineConfigSourceAmazonS3TlsPtrType ObservabilityPipelineConfigSourceAmazonS3TlsArgs
+
+func ObservabilityPipelineConfigSourceAmazonS3TlsPtr(v *ObservabilityPipelineConfigSourceAmazonS3TlsArgs) ObservabilityPipelineConfigSourceAmazonS3TlsPtrInput {
+	return (*observabilityPipelineConfigSourceAmazonS3TlsPtrType)(v)
+}
+
+func (*observabilityPipelineConfigSourceAmazonS3TlsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigSourceAmazonS3Tls)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigSourceAmazonS3TlsPtrType) ToObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput() ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput {
+	return i.ToObservabilityPipelineConfigSourceAmazonS3TlsPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigSourceAmazonS3TlsPtrType) ToObservabilityPipelineConfigSourceAmazonS3TlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput)
+}
+
+type ObservabilityPipelineConfigSourceAmazonS3TlsOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigSourceAmazonS3TlsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonS3Tls)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonS3TlsOutput) ToObservabilityPipelineConfigSourceAmazonS3TlsOutput() ObservabilityPipelineConfigSourceAmazonS3TlsOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonS3TlsOutput) ToObservabilityPipelineConfigSourceAmazonS3TlsOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonS3TlsOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonS3TlsOutput) ToObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput() ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput {
+	return o.ToObservabilityPipelineConfigSourceAmazonS3TlsPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonS3TlsOutput) ToObservabilityPipelineConfigSourceAmazonS3TlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigSourceAmazonS3Tls) *ObservabilityPipelineConfigSourceAmazonS3Tls {
+		return &v
+	}).(ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput)
+}
+
+// Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+func (o ObservabilityPipelineConfigSourceAmazonS3TlsOutput) CaFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonS3Tls) *string { return v.CaFile }).(pulumi.StringPtrOutput)
+}
+
+// Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+func (o ObservabilityPipelineConfigSourceAmazonS3TlsOutput) CrtFile() pulumi.StringOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonS3Tls) string { return v.CrtFile }).(pulumi.StringOutput)
+}
+
+// Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+func (o ObservabilityPipelineConfigSourceAmazonS3TlsOutput) KeyFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonS3Tls) *string { return v.KeyFile }).(pulumi.StringPtrOutput)
+}
+
+// Name of the environment variable or secret that holds the passphrase for the private key file.
+func (o ObservabilityPipelineConfigSourceAmazonS3TlsOutput) KeyPassKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceAmazonS3Tls) *string { return v.KeyPassKey }).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigSourceAmazonS3Tls)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput) ToObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput() ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput) ToObservabilityPipelineConfigSourceAmazonS3TlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput) Elem() ObservabilityPipelineConfigSourceAmazonS3TlsOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonS3Tls) ObservabilityPipelineConfigSourceAmazonS3Tls {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigSourceAmazonS3Tls
+		return ret
+	}).(ObservabilityPipelineConfigSourceAmazonS3TlsOutput)
+}
+
+// Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+func (o ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput) CaFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonS3Tls) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CaFile
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+func (o ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput) CrtFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonS3Tls) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CrtFile
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+func (o ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput) KeyFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonS3Tls) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyFile
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the environment variable or secret that holds the passphrase for the private key file.
+func (o ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput) KeyPassKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceAmazonS3Tls) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyPassKey
+	}).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigSourceDatadogAgent struct {
+	// Name of the environment variable or secret that holds the listen address for the Datadog Agent source.
+	AddressKey *string `pulumi:"addressKey"`
+	// Configuration for enabling TLS encryption between the pipeline component and external services.
+	Tls *ObservabilityPipelineConfigSourceDatadogAgentTls `pulumi:"tls"`
+}
+
+// ObservabilityPipelineConfigSourceDatadogAgentInput is an input type that accepts ObservabilityPipelineConfigSourceDatadogAgentArgs and ObservabilityPipelineConfigSourceDatadogAgentOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigSourceDatadogAgentInput` via:
+//
+//	ObservabilityPipelineConfigSourceDatadogAgentArgs{...}
+type ObservabilityPipelineConfigSourceDatadogAgentInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigSourceDatadogAgentOutput() ObservabilityPipelineConfigSourceDatadogAgentOutput
+	ToObservabilityPipelineConfigSourceDatadogAgentOutputWithContext(context.Context) ObservabilityPipelineConfigSourceDatadogAgentOutput
+}
+
+type ObservabilityPipelineConfigSourceDatadogAgentArgs struct {
+	// Name of the environment variable or secret that holds the listen address for the Datadog Agent source.
+	AddressKey pulumi.StringPtrInput `pulumi:"addressKey"`
+	// Configuration for enabling TLS encryption between the pipeline component and external services.
+	Tls ObservabilityPipelineConfigSourceDatadogAgentTlsPtrInput `pulumi:"tls"`
+}
+
+func (ObservabilityPipelineConfigSourceDatadogAgentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigSourceDatadogAgent)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigSourceDatadogAgentArgs) ToObservabilityPipelineConfigSourceDatadogAgentOutput() ObservabilityPipelineConfigSourceDatadogAgentOutput {
+	return i.ToObservabilityPipelineConfigSourceDatadogAgentOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigSourceDatadogAgentArgs) ToObservabilityPipelineConfigSourceDatadogAgentOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceDatadogAgentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceDatadogAgentOutput)
+}
+
+// ObservabilityPipelineConfigSourceDatadogAgentArrayInput is an input type that accepts ObservabilityPipelineConfigSourceDatadogAgentArray and ObservabilityPipelineConfigSourceDatadogAgentArrayOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigSourceDatadogAgentArrayInput` via:
+//
+//	ObservabilityPipelineConfigSourceDatadogAgentArray{ ObservabilityPipelineConfigSourceDatadogAgentArgs{...} }
+type ObservabilityPipelineConfigSourceDatadogAgentArrayInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigSourceDatadogAgentArrayOutput() ObservabilityPipelineConfigSourceDatadogAgentArrayOutput
+	ToObservabilityPipelineConfigSourceDatadogAgentArrayOutputWithContext(context.Context) ObservabilityPipelineConfigSourceDatadogAgentArrayOutput
+}
+
+type ObservabilityPipelineConfigSourceDatadogAgentArray []ObservabilityPipelineConfigSourceDatadogAgentInput
+
+func (ObservabilityPipelineConfigSourceDatadogAgentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ObservabilityPipelineConfigSourceDatadogAgent)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigSourceDatadogAgentArray) ToObservabilityPipelineConfigSourceDatadogAgentArrayOutput() ObservabilityPipelineConfigSourceDatadogAgentArrayOutput {
+	return i.ToObservabilityPipelineConfigSourceDatadogAgentArrayOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigSourceDatadogAgentArray) ToObservabilityPipelineConfigSourceDatadogAgentArrayOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceDatadogAgentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceDatadogAgentArrayOutput)
+}
+
+type ObservabilityPipelineConfigSourceDatadogAgentOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigSourceDatadogAgentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigSourceDatadogAgent)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigSourceDatadogAgentOutput) ToObservabilityPipelineConfigSourceDatadogAgentOutput() ObservabilityPipelineConfigSourceDatadogAgentOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceDatadogAgentOutput) ToObservabilityPipelineConfigSourceDatadogAgentOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceDatadogAgentOutput {
+	return o
+}
+
+// Name of the environment variable or secret that holds the listen address for the Datadog Agent source.
+func (o ObservabilityPipelineConfigSourceDatadogAgentOutput) AddressKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceDatadogAgent) *string { return v.AddressKey }).(pulumi.StringPtrOutput)
+}
+
+// Configuration for enabling TLS encryption between the pipeline component and external services.
+func (o ObservabilityPipelineConfigSourceDatadogAgentOutput) Tls() ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceDatadogAgent) *ObservabilityPipelineConfigSourceDatadogAgentTls {
+		return v.Tls
+	}).(ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput)
+}
+
+type ObservabilityPipelineConfigSourceDatadogAgentArrayOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigSourceDatadogAgentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ObservabilityPipelineConfigSourceDatadogAgent)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigSourceDatadogAgentArrayOutput) ToObservabilityPipelineConfigSourceDatadogAgentArrayOutput() ObservabilityPipelineConfigSourceDatadogAgentArrayOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceDatadogAgentArrayOutput) ToObservabilityPipelineConfigSourceDatadogAgentArrayOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceDatadogAgentArrayOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceDatadogAgentArrayOutput) Index(i pulumi.IntInput) ObservabilityPipelineConfigSourceDatadogAgentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ObservabilityPipelineConfigSourceDatadogAgent {
+		return vs[0].([]ObservabilityPipelineConfigSourceDatadogAgent)[vs[1].(int)]
+	}).(ObservabilityPipelineConfigSourceDatadogAgentOutput)
+}
+
+type ObservabilityPipelineConfigSourceDatadogAgentTls struct {
+	// Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+	CaFile *string `pulumi:"caFile"`
+	// Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+	CrtFile string `pulumi:"crtFile"`
+	// Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+	KeyFile *string `pulumi:"keyFile"`
+	// Name of the environment variable or secret that holds the passphrase for the private key file.
+	KeyPassKey *string `pulumi:"keyPassKey"`
+}
+
+// ObservabilityPipelineConfigSourceDatadogAgentTlsInput is an input type that accepts ObservabilityPipelineConfigSourceDatadogAgentTlsArgs and ObservabilityPipelineConfigSourceDatadogAgentTlsOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigSourceDatadogAgentTlsInput` via:
+//
+//	ObservabilityPipelineConfigSourceDatadogAgentTlsArgs{...}
+type ObservabilityPipelineConfigSourceDatadogAgentTlsInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigSourceDatadogAgentTlsOutput() ObservabilityPipelineConfigSourceDatadogAgentTlsOutput
+	ToObservabilityPipelineConfigSourceDatadogAgentTlsOutputWithContext(context.Context) ObservabilityPipelineConfigSourceDatadogAgentTlsOutput
+}
+
+type ObservabilityPipelineConfigSourceDatadogAgentTlsArgs struct {
+	// Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+	CaFile pulumi.StringPtrInput `pulumi:"caFile"`
+	// Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+	CrtFile pulumi.StringInput `pulumi:"crtFile"`
+	// Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+	KeyFile pulumi.StringPtrInput `pulumi:"keyFile"`
+	// Name of the environment variable or secret that holds the passphrase for the private key file.
+	KeyPassKey pulumi.StringPtrInput `pulumi:"keyPassKey"`
+}
+
+func (ObservabilityPipelineConfigSourceDatadogAgentTlsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigSourceDatadogAgentTls)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigSourceDatadogAgentTlsArgs) ToObservabilityPipelineConfigSourceDatadogAgentTlsOutput() ObservabilityPipelineConfigSourceDatadogAgentTlsOutput {
+	return i.ToObservabilityPipelineConfigSourceDatadogAgentTlsOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigSourceDatadogAgentTlsArgs) ToObservabilityPipelineConfigSourceDatadogAgentTlsOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceDatadogAgentTlsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceDatadogAgentTlsOutput)
+}
+
+func (i ObservabilityPipelineConfigSourceDatadogAgentTlsArgs) ToObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput() ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput {
+	return i.ToObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigSourceDatadogAgentTlsArgs) ToObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceDatadogAgentTlsOutput).ToObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigSourceDatadogAgentTlsPtrInput is an input type that accepts ObservabilityPipelineConfigSourceDatadogAgentTlsArgs, ObservabilityPipelineConfigSourceDatadogAgentTlsPtr and ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigSourceDatadogAgentTlsPtrInput` via:
+//
+//	        ObservabilityPipelineConfigSourceDatadogAgentTlsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigSourceDatadogAgentTlsPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput() ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput
+	ToObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutputWithContext(context.Context) ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput
+}
+
+type observabilityPipelineConfigSourceDatadogAgentTlsPtrType ObservabilityPipelineConfigSourceDatadogAgentTlsArgs
+
+func ObservabilityPipelineConfigSourceDatadogAgentTlsPtr(v *ObservabilityPipelineConfigSourceDatadogAgentTlsArgs) ObservabilityPipelineConfigSourceDatadogAgentTlsPtrInput {
+	return (*observabilityPipelineConfigSourceDatadogAgentTlsPtrType)(v)
+}
+
+func (*observabilityPipelineConfigSourceDatadogAgentTlsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigSourceDatadogAgentTls)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigSourceDatadogAgentTlsPtrType) ToObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput() ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput {
+	return i.ToObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigSourceDatadogAgentTlsPtrType) ToObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput)
+}
+
+type ObservabilityPipelineConfigSourceDatadogAgentTlsOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigSourceDatadogAgentTlsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigSourceDatadogAgentTls)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigSourceDatadogAgentTlsOutput) ToObservabilityPipelineConfigSourceDatadogAgentTlsOutput() ObservabilityPipelineConfigSourceDatadogAgentTlsOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceDatadogAgentTlsOutput) ToObservabilityPipelineConfigSourceDatadogAgentTlsOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceDatadogAgentTlsOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceDatadogAgentTlsOutput) ToObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput() ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput {
+	return o.ToObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigSourceDatadogAgentTlsOutput) ToObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigSourceDatadogAgentTls) *ObservabilityPipelineConfigSourceDatadogAgentTls {
+		return &v
+	}).(ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput)
+}
+
+// Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+func (o ObservabilityPipelineConfigSourceDatadogAgentTlsOutput) CaFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceDatadogAgentTls) *string { return v.CaFile }).(pulumi.StringPtrOutput)
+}
+
+// Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+func (o ObservabilityPipelineConfigSourceDatadogAgentTlsOutput) CrtFile() pulumi.StringOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceDatadogAgentTls) string { return v.CrtFile }).(pulumi.StringOutput)
+}
+
+// Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+func (o ObservabilityPipelineConfigSourceDatadogAgentTlsOutput) KeyFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceDatadogAgentTls) *string { return v.KeyFile }).(pulumi.StringPtrOutput)
+}
+
+// Name of the environment variable or secret that holds the passphrase for the private key file.
+func (o ObservabilityPipelineConfigSourceDatadogAgentTlsOutput) KeyPassKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceDatadogAgentTls) *string { return v.KeyPassKey }).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigSourceDatadogAgentTls)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput) ToObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput() ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput) ToObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput) Elem() ObservabilityPipelineConfigSourceDatadogAgentTlsOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceDatadogAgentTls) ObservabilityPipelineConfigSourceDatadogAgentTls {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigSourceDatadogAgentTls
+		return ret
+	}).(ObservabilityPipelineConfigSourceDatadogAgentTlsOutput)
+}
+
+// Path to the Certificate Authority (CA) file used to validate the server's TLS certificate.
+func (o ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput) CaFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceDatadogAgentTls) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CaFile
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to the TLS client certificate file used to authenticate the pipeline component with upstream or downstream services.
+func (o ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput) CrtFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceDatadogAgentTls) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CrtFile
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to the private key file associated with the TLS client certificate. Used for mutual TLS authentication.
+func (o ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput) KeyFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceDatadogAgentTls) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyFile
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the environment variable or secret that holds the passphrase for the private key file.
+func (o ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput) KeyPassKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceDatadogAgentTls) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyPassKey
+	}).(pulumi.StringPtrOutput)
+}
+
+type ObservabilityPipelineConfigSourceFluentBit struct {
+	// Name of the environment variable or secret that holds the listen address.
+	AddressKey *string `pulumi:"addressKey"`
+	// Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
+	Tls *ObservabilityPipelineConfigSourceFluentBitTls `pulumi:"tls"`
+}
+
+// ObservabilityPipelineConfigSourceFluentBitInput is an input type that accepts ObservabilityPipelineConfigSourceFluentBitArgs and ObservabilityPipelineConfigSourceFluentBitOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigSourceFluentBitInput` via:
+//
+//	ObservabilityPipelineConfigSourceFluentBitArgs{...}
+type ObservabilityPipelineConfigSourceFluentBitInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigSourceFluentBitOutput() ObservabilityPipelineConfigSourceFluentBitOutput
+	ToObservabilityPipelineConfigSourceFluentBitOutputWithContext(context.Context) ObservabilityPipelineConfigSourceFluentBitOutput
+}
+
+type ObservabilityPipelineConfigSourceFluentBitArgs struct {
+	// Name of the environment variable or secret that holds the listen address.
+	AddressKey pulumi.StringPtrInput `pulumi:"addressKey"`
+	// Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
+	Tls ObservabilityPipelineConfigSourceFluentBitTlsPtrInput `pulumi:"tls"`
+}
+
+func (ObservabilityPipelineConfigSourceFluentBitArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigSourceFluentBit)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigSourceFluentBitArgs) ToObservabilityPipelineConfigSourceFluentBitOutput() ObservabilityPipelineConfigSourceFluentBitOutput {
+	return i.ToObservabilityPipelineConfigSourceFluentBitOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigSourceFluentBitArgs) ToObservabilityPipelineConfigSourceFluentBitOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentBitOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceFluentBitOutput)
+}
+
+// ObservabilityPipelineConfigSourceFluentBitArrayInput is an input type that accepts ObservabilityPipelineConfigSourceFluentBitArray and ObservabilityPipelineConfigSourceFluentBitArrayOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigSourceFluentBitArrayInput` via:
+//
+//	ObservabilityPipelineConfigSourceFluentBitArray{ ObservabilityPipelineConfigSourceFluentBitArgs{...} }
+type ObservabilityPipelineConfigSourceFluentBitArrayInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigSourceFluentBitArrayOutput() ObservabilityPipelineConfigSourceFluentBitArrayOutput
+	ToObservabilityPipelineConfigSourceFluentBitArrayOutputWithContext(context.Context) ObservabilityPipelineConfigSourceFluentBitArrayOutput
+}
+
+type ObservabilityPipelineConfigSourceFluentBitArray []ObservabilityPipelineConfigSourceFluentBitInput
+
+func (ObservabilityPipelineConfigSourceFluentBitArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ObservabilityPipelineConfigSourceFluentBit)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigSourceFluentBitArray) ToObservabilityPipelineConfigSourceFluentBitArrayOutput() ObservabilityPipelineConfigSourceFluentBitArrayOutput {
+	return i.ToObservabilityPipelineConfigSourceFluentBitArrayOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigSourceFluentBitArray) ToObservabilityPipelineConfigSourceFluentBitArrayOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentBitArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceFluentBitArrayOutput)
+}
+
+type ObservabilityPipelineConfigSourceFluentBitOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigSourceFluentBitOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigSourceFluentBit)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigSourceFluentBitOutput) ToObservabilityPipelineConfigSourceFluentBitOutput() ObservabilityPipelineConfigSourceFluentBitOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceFluentBitOutput) ToObservabilityPipelineConfigSourceFluentBitOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentBitOutput {
+	return o
+}
+
+// Name of the environment variable or secret that holds the listen address.
+func (o ObservabilityPipelineConfigSourceFluentBitOutput) AddressKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceFluentBit) *string { return v.AddressKey }).(pulumi.StringPtrOutput)
+}
+
+// Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
+func (o ObservabilityPipelineConfigSourceFluentBitOutput) Tls() ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceFluentBit) *ObservabilityPipelineConfigSourceFluentBitTls {
+		return v.Tls
+	}).(ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput)
+}
+
+type ObservabilityPipelineConfigSourceFluentBitArrayOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigSourceFluentBitArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ObservabilityPipelineConfigSourceFluentBit)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigSourceFluentBitArrayOutput) ToObservabilityPipelineConfigSourceFluentBitArrayOutput() ObservabilityPipelineConfigSourceFluentBitArrayOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceFluentBitArrayOutput) ToObservabilityPipelineConfigSourceFluentBitArrayOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentBitArrayOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceFluentBitArrayOutput) Index(i pulumi.IntInput) ObservabilityPipelineConfigSourceFluentBitOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ObservabilityPipelineConfigSourceFluentBit {
+		return vs[0].([]ObservabilityPipelineConfigSourceFluentBit)[vs[1].(int)]
+	}).(ObservabilityPipelineConfigSourceFluentBitOutput)
+}
+
+type ObservabilityPipelineConfigSourceFluentBitTls struct {
+	// Path to the Certificate Authority (CA) file used to validate connecting clients' TLS certificates.
+	CaFile *string `pulumi:"caFile"`
+	// Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
+	CrtFile string `pulumi:"crtFile"`
+	// Path to the private key file associated with the TLS server certificate.
+	KeyFile *string `pulumi:"keyFile"`
+	// Name of the environment variable or secret that holds the passphrase for the private key file.
+	KeyPassKey *string `pulumi:"keyPassKey"`
+	// When `true`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
+	VerifyCertificate *bool `pulumi:"verifyCertificate"`
+}
+
+// ObservabilityPipelineConfigSourceFluentBitTlsInput is an input type that accepts ObservabilityPipelineConfigSourceFluentBitTlsArgs and ObservabilityPipelineConfigSourceFluentBitTlsOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigSourceFluentBitTlsInput` via:
+//
+//	ObservabilityPipelineConfigSourceFluentBitTlsArgs{...}
+type ObservabilityPipelineConfigSourceFluentBitTlsInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigSourceFluentBitTlsOutput() ObservabilityPipelineConfigSourceFluentBitTlsOutput
+	ToObservabilityPipelineConfigSourceFluentBitTlsOutputWithContext(context.Context) ObservabilityPipelineConfigSourceFluentBitTlsOutput
+}
+
+type ObservabilityPipelineConfigSourceFluentBitTlsArgs struct {
+	// Path to the Certificate Authority (CA) file used to validate connecting clients' TLS certificates.
+	CaFile pulumi.StringPtrInput `pulumi:"caFile"`
+	// Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
+	CrtFile pulumi.StringInput `pulumi:"crtFile"`
+	// Path to the private key file associated with the TLS server certificate.
+	KeyFile pulumi.StringPtrInput `pulumi:"keyFile"`
+	// Name of the environment variable or secret that holds the passphrase for the private key file.
+	KeyPassKey pulumi.StringPtrInput `pulumi:"keyPassKey"`
+	// When `true`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
+	VerifyCertificate pulumi.BoolPtrInput `pulumi:"verifyCertificate"`
+}
+
+func (ObservabilityPipelineConfigSourceFluentBitTlsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigSourceFluentBitTls)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigSourceFluentBitTlsArgs) ToObservabilityPipelineConfigSourceFluentBitTlsOutput() ObservabilityPipelineConfigSourceFluentBitTlsOutput {
+	return i.ToObservabilityPipelineConfigSourceFluentBitTlsOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigSourceFluentBitTlsArgs) ToObservabilityPipelineConfigSourceFluentBitTlsOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentBitTlsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceFluentBitTlsOutput)
+}
+
+func (i ObservabilityPipelineConfigSourceFluentBitTlsArgs) ToObservabilityPipelineConfigSourceFluentBitTlsPtrOutput() ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput {
+	return i.ToObservabilityPipelineConfigSourceFluentBitTlsPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigSourceFluentBitTlsArgs) ToObservabilityPipelineConfigSourceFluentBitTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceFluentBitTlsOutput).ToObservabilityPipelineConfigSourceFluentBitTlsPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigSourceFluentBitTlsPtrInput is an input type that accepts ObservabilityPipelineConfigSourceFluentBitTlsArgs, ObservabilityPipelineConfigSourceFluentBitTlsPtr and ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigSourceFluentBitTlsPtrInput` via:
+//
+//	        ObservabilityPipelineConfigSourceFluentBitTlsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigSourceFluentBitTlsPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigSourceFluentBitTlsPtrOutput() ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput
+	ToObservabilityPipelineConfigSourceFluentBitTlsPtrOutputWithContext(context.Context) ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput
+}
+
+type observabilityPipelineConfigSourceFluentBitTlsPtrType ObservabilityPipelineConfigSourceFluentBitTlsArgs
+
+func ObservabilityPipelineConfigSourceFluentBitTlsPtr(v *ObservabilityPipelineConfigSourceFluentBitTlsArgs) ObservabilityPipelineConfigSourceFluentBitTlsPtrInput {
+	return (*observabilityPipelineConfigSourceFluentBitTlsPtrType)(v)
+}
+
+func (*observabilityPipelineConfigSourceFluentBitTlsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigSourceFluentBitTls)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigSourceFluentBitTlsPtrType) ToObservabilityPipelineConfigSourceFluentBitTlsPtrOutput() ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput {
+	return i.ToObservabilityPipelineConfigSourceFluentBitTlsPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigSourceFluentBitTlsPtrType) ToObservabilityPipelineConfigSourceFluentBitTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput)
+}
+
+type ObservabilityPipelineConfigSourceFluentBitTlsOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigSourceFluentBitTlsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigSourceFluentBitTls)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigSourceFluentBitTlsOutput) ToObservabilityPipelineConfigSourceFluentBitTlsOutput() ObservabilityPipelineConfigSourceFluentBitTlsOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceFluentBitTlsOutput) ToObservabilityPipelineConfigSourceFluentBitTlsOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentBitTlsOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceFluentBitTlsOutput) ToObservabilityPipelineConfigSourceFluentBitTlsPtrOutput() ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput {
+	return o.ToObservabilityPipelineConfigSourceFluentBitTlsPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigSourceFluentBitTlsOutput) ToObservabilityPipelineConfigSourceFluentBitTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigSourceFluentBitTls) *ObservabilityPipelineConfigSourceFluentBitTls {
+		return &v
+	}).(ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput)
+}
+
+// Path to the Certificate Authority (CA) file used to validate connecting clients' TLS certificates.
+func (o ObservabilityPipelineConfigSourceFluentBitTlsOutput) CaFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceFluentBitTls) *string { return v.CaFile }).(pulumi.StringPtrOutput)
+}
+
+// Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
+func (o ObservabilityPipelineConfigSourceFluentBitTlsOutput) CrtFile() pulumi.StringOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceFluentBitTls) string { return v.CrtFile }).(pulumi.StringOutput)
+}
+
+// Path to the private key file associated with the TLS server certificate.
+func (o ObservabilityPipelineConfigSourceFluentBitTlsOutput) KeyFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceFluentBitTls) *string { return v.KeyFile }).(pulumi.StringPtrOutput)
+}
+
+// Name of the environment variable or secret that holds the passphrase for the private key file.
+func (o ObservabilityPipelineConfigSourceFluentBitTlsOutput) KeyPassKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceFluentBitTls) *string { return v.KeyPassKey }).(pulumi.StringPtrOutput)
+}
+
+// When `true`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
+func (o ObservabilityPipelineConfigSourceFluentBitTlsOutput) VerifyCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceFluentBitTls) *bool { return v.VerifyCertificate }).(pulumi.BoolPtrOutput)
+}
+
+type ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigSourceFluentBitTls)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput) ToObservabilityPipelineConfigSourceFluentBitTlsPtrOutput() ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput) ToObservabilityPipelineConfigSourceFluentBitTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput) Elem() ObservabilityPipelineConfigSourceFluentBitTlsOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceFluentBitTls) ObservabilityPipelineConfigSourceFluentBitTls {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigSourceFluentBitTls
+		return ret
+	}).(ObservabilityPipelineConfigSourceFluentBitTlsOutput)
+}
+
+// Path to the Certificate Authority (CA) file used to validate connecting clients' TLS certificates.
+func (o ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput) CaFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceFluentBitTls) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CaFile
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
+func (o ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput) CrtFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceFluentBitTls) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CrtFile
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to the private key file associated with the TLS server certificate.
+func (o ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput) KeyFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceFluentBitTls) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyFile
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the environment variable or secret that holds the passphrase for the private key file.
+func (o ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput) KeyPassKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceFluentBitTls) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyPassKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// When `true`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
+func (o ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput) VerifyCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceFluentBitTls) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.VerifyCertificate
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ObservabilityPipelineConfigSourceFluentd struct {
+	// Name of the environment variable or secret that holds the listen address.
+	AddressKey *string `pulumi:"addressKey"`
+	// Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
+	Tls *ObservabilityPipelineConfigSourceFluentdTls `pulumi:"tls"`
+}
+
+// ObservabilityPipelineConfigSourceFluentdInput is an input type that accepts ObservabilityPipelineConfigSourceFluentdArgs and ObservabilityPipelineConfigSourceFluentdOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigSourceFluentdInput` via:
+//
+//	ObservabilityPipelineConfigSourceFluentdArgs{...}
+type ObservabilityPipelineConfigSourceFluentdInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigSourceFluentdOutput() ObservabilityPipelineConfigSourceFluentdOutput
+	ToObservabilityPipelineConfigSourceFluentdOutputWithContext(context.Context) ObservabilityPipelineConfigSourceFluentdOutput
+}
+
+type ObservabilityPipelineConfigSourceFluentdArgs struct {
+	// Name of the environment variable or secret that holds the listen address.
+	AddressKey pulumi.StringPtrInput `pulumi:"addressKey"`
+	// Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
+	Tls ObservabilityPipelineConfigSourceFluentdTlsPtrInput `pulumi:"tls"`
+}
+
+func (ObservabilityPipelineConfigSourceFluentdArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigSourceFluentd)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigSourceFluentdArgs) ToObservabilityPipelineConfigSourceFluentdOutput() ObservabilityPipelineConfigSourceFluentdOutput {
+	return i.ToObservabilityPipelineConfigSourceFluentdOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigSourceFluentdArgs) ToObservabilityPipelineConfigSourceFluentdOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentdOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceFluentdOutput)
+}
+
+// ObservabilityPipelineConfigSourceFluentdArrayInput is an input type that accepts ObservabilityPipelineConfigSourceFluentdArray and ObservabilityPipelineConfigSourceFluentdArrayOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigSourceFluentdArrayInput` via:
+//
+//	ObservabilityPipelineConfigSourceFluentdArray{ ObservabilityPipelineConfigSourceFluentdArgs{...} }
+type ObservabilityPipelineConfigSourceFluentdArrayInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigSourceFluentdArrayOutput() ObservabilityPipelineConfigSourceFluentdArrayOutput
+	ToObservabilityPipelineConfigSourceFluentdArrayOutputWithContext(context.Context) ObservabilityPipelineConfigSourceFluentdArrayOutput
+}
+
+type ObservabilityPipelineConfigSourceFluentdArray []ObservabilityPipelineConfigSourceFluentdInput
+
+func (ObservabilityPipelineConfigSourceFluentdArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ObservabilityPipelineConfigSourceFluentd)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigSourceFluentdArray) ToObservabilityPipelineConfigSourceFluentdArrayOutput() ObservabilityPipelineConfigSourceFluentdArrayOutput {
+	return i.ToObservabilityPipelineConfigSourceFluentdArrayOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigSourceFluentdArray) ToObservabilityPipelineConfigSourceFluentdArrayOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentdArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceFluentdArrayOutput)
+}
+
+type ObservabilityPipelineConfigSourceFluentdOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigSourceFluentdOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigSourceFluentd)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigSourceFluentdOutput) ToObservabilityPipelineConfigSourceFluentdOutput() ObservabilityPipelineConfigSourceFluentdOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceFluentdOutput) ToObservabilityPipelineConfigSourceFluentdOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentdOutput {
+	return o
+}
+
+// Name of the environment variable or secret that holds the listen address.
+func (o ObservabilityPipelineConfigSourceFluentdOutput) AddressKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceFluentd) *string { return v.AddressKey }).(pulumi.StringPtrOutput)
+}
+
+// Configuration for enabling TLS encryption between the pipeline component and external connecting clients.
+func (o ObservabilityPipelineConfigSourceFluentdOutput) Tls() ObservabilityPipelineConfigSourceFluentdTlsPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceFluentd) *ObservabilityPipelineConfigSourceFluentdTls {
+		return v.Tls
+	}).(ObservabilityPipelineConfigSourceFluentdTlsPtrOutput)
+}
+
+type ObservabilityPipelineConfigSourceFluentdArrayOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigSourceFluentdArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ObservabilityPipelineConfigSourceFluentd)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigSourceFluentdArrayOutput) ToObservabilityPipelineConfigSourceFluentdArrayOutput() ObservabilityPipelineConfigSourceFluentdArrayOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceFluentdArrayOutput) ToObservabilityPipelineConfigSourceFluentdArrayOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentdArrayOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceFluentdArrayOutput) Index(i pulumi.IntInput) ObservabilityPipelineConfigSourceFluentdOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ObservabilityPipelineConfigSourceFluentd {
+		return vs[0].([]ObservabilityPipelineConfigSourceFluentd)[vs[1].(int)]
+	}).(ObservabilityPipelineConfigSourceFluentdOutput)
+}
+
+type ObservabilityPipelineConfigSourceFluentdTls struct {
+	// Path to the Certificate Authority (CA) file used to validate connecting clients' TLS certificates.
+	CaFile *string `pulumi:"caFile"`
+	// Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
+	CrtFile string `pulumi:"crtFile"`
+	// Path to the private key file associated with the TLS server certificate.
+	KeyFile *string `pulumi:"keyFile"`
+	// Name of the environment variable or secret that holds the passphrase for the private key file.
+	KeyPassKey *string `pulumi:"keyPassKey"`
+	// When `true`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
+	VerifyCertificate *bool `pulumi:"verifyCertificate"`
+}
+
+// ObservabilityPipelineConfigSourceFluentdTlsInput is an input type that accepts ObservabilityPipelineConfigSourceFluentdTlsArgs and ObservabilityPipelineConfigSourceFluentdTlsOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigSourceFluentdTlsInput` via:
+//
+//	ObservabilityPipelineConfigSourceFluentdTlsArgs{...}
+type ObservabilityPipelineConfigSourceFluentdTlsInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigSourceFluentdTlsOutput() ObservabilityPipelineConfigSourceFluentdTlsOutput
+	ToObservabilityPipelineConfigSourceFluentdTlsOutputWithContext(context.Context) ObservabilityPipelineConfigSourceFluentdTlsOutput
+}
+
+type ObservabilityPipelineConfigSourceFluentdTlsArgs struct {
+	// Path to the Certificate Authority (CA) file used to validate connecting clients' TLS certificates.
+	CaFile pulumi.StringPtrInput `pulumi:"caFile"`
+	// Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
+	CrtFile pulumi.StringInput `pulumi:"crtFile"`
+	// Path to the private key file associated with the TLS server certificate.
+	KeyFile pulumi.StringPtrInput `pulumi:"keyFile"`
+	// Name of the environment variable or secret that holds the passphrase for the private key file.
+	KeyPassKey pulumi.StringPtrInput `pulumi:"keyPassKey"`
+	// When `true`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
+	VerifyCertificate pulumi.BoolPtrInput `pulumi:"verifyCertificate"`
+}
+
+func (ObservabilityPipelineConfigSourceFluentdTlsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigSourceFluentdTls)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigSourceFluentdTlsArgs) ToObservabilityPipelineConfigSourceFluentdTlsOutput() ObservabilityPipelineConfigSourceFluentdTlsOutput {
+	return i.ToObservabilityPipelineConfigSourceFluentdTlsOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigSourceFluentdTlsArgs) ToObservabilityPipelineConfigSourceFluentdTlsOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentdTlsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceFluentdTlsOutput)
+}
+
+func (i ObservabilityPipelineConfigSourceFluentdTlsArgs) ToObservabilityPipelineConfigSourceFluentdTlsPtrOutput() ObservabilityPipelineConfigSourceFluentdTlsPtrOutput {
+	return i.ToObservabilityPipelineConfigSourceFluentdTlsPtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigSourceFluentdTlsArgs) ToObservabilityPipelineConfigSourceFluentdTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentdTlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceFluentdTlsOutput).ToObservabilityPipelineConfigSourceFluentdTlsPtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigSourceFluentdTlsPtrInput is an input type that accepts ObservabilityPipelineConfigSourceFluentdTlsArgs, ObservabilityPipelineConfigSourceFluentdTlsPtr and ObservabilityPipelineConfigSourceFluentdTlsPtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigSourceFluentdTlsPtrInput` via:
+//
+//	        ObservabilityPipelineConfigSourceFluentdTlsArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigSourceFluentdTlsPtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigSourceFluentdTlsPtrOutput() ObservabilityPipelineConfigSourceFluentdTlsPtrOutput
+	ToObservabilityPipelineConfigSourceFluentdTlsPtrOutputWithContext(context.Context) ObservabilityPipelineConfigSourceFluentdTlsPtrOutput
+}
+
+type observabilityPipelineConfigSourceFluentdTlsPtrType ObservabilityPipelineConfigSourceFluentdTlsArgs
+
+func ObservabilityPipelineConfigSourceFluentdTlsPtr(v *ObservabilityPipelineConfigSourceFluentdTlsArgs) ObservabilityPipelineConfigSourceFluentdTlsPtrInput {
+	return (*observabilityPipelineConfigSourceFluentdTlsPtrType)(v)
+}
+
+func (*observabilityPipelineConfigSourceFluentdTlsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigSourceFluentdTls)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigSourceFluentdTlsPtrType) ToObservabilityPipelineConfigSourceFluentdTlsPtrOutput() ObservabilityPipelineConfigSourceFluentdTlsPtrOutput {
+	return i.ToObservabilityPipelineConfigSourceFluentdTlsPtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigSourceFluentdTlsPtrType) ToObservabilityPipelineConfigSourceFluentdTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentdTlsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigSourceFluentdTlsPtrOutput)
+}
+
+type ObservabilityPipelineConfigSourceFluentdTlsOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigSourceFluentdTlsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigSourceFluentdTls)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigSourceFluentdTlsOutput) ToObservabilityPipelineConfigSourceFluentdTlsOutput() ObservabilityPipelineConfigSourceFluentdTlsOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceFluentdTlsOutput) ToObservabilityPipelineConfigSourceFluentdTlsOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentdTlsOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceFluentdTlsOutput) ToObservabilityPipelineConfigSourceFluentdTlsPtrOutput() ObservabilityPipelineConfigSourceFluentdTlsPtrOutput {
+	return o.ToObservabilityPipelineConfigSourceFluentdTlsPtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigSourceFluentdTlsOutput) ToObservabilityPipelineConfigSourceFluentdTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentdTlsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigSourceFluentdTls) *ObservabilityPipelineConfigSourceFluentdTls {
+		return &v
+	}).(ObservabilityPipelineConfigSourceFluentdTlsPtrOutput)
+}
+
+// Path to the Certificate Authority (CA) file used to validate connecting clients' TLS certificates.
+func (o ObservabilityPipelineConfigSourceFluentdTlsOutput) CaFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceFluentdTls) *string { return v.CaFile }).(pulumi.StringPtrOutput)
+}
+
+// Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
+func (o ObservabilityPipelineConfigSourceFluentdTlsOutput) CrtFile() pulumi.StringOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceFluentdTls) string { return v.CrtFile }).(pulumi.StringOutput)
+}
+
+// Path to the private key file associated with the TLS server certificate.
+func (o ObservabilityPipelineConfigSourceFluentdTlsOutput) KeyFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceFluentdTls) *string { return v.KeyFile }).(pulumi.StringPtrOutput)
+}
+
+// Name of the environment variable or secret that holds the passphrase for the private key file.
+func (o ObservabilityPipelineConfigSourceFluentdTlsOutput) KeyPassKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceFluentdTls) *string { return v.KeyPassKey }).(pulumi.StringPtrOutput)
+}
+
+// When `true`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
+func (o ObservabilityPipelineConfigSourceFluentdTlsOutput) VerifyCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigSourceFluentdTls) *bool { return v.VerifyCertificate }).(pulumi.BoolPtrOutput)
+}
+
+type ObservabilityPipelineConfigSourceFluentdTlsPtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigSourceFluentdTlsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigSourceFluentdTls)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigSourceFluentdTlsPtrOutput) ToObservabilityPipelineConfigSourceFluentdTlsPtrOutput() ObservabilityPipelineConfigSourceFluentdTlsPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceFluentdTlsPtrOutput) ToObservabilityPipelineConfigSourceFluentdTlsPtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigSourceFluentdTlsPtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigSourceFluentdTlsPtrOutput) Elem() ObservabilityPipelineConfigSourceFluentdTlsOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceFluentdTls) ObservabilityPipelineConfigSourceFluentdTls {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigSourceFluentdTls
+		return ret
+	}).(ObservabilityPipelineConfigSourceFluentdTlsOutput)
+}
+
+// Path to the Certificate Authority (CA) file used to validate connecting clients' TLS certificates.
+func (o ObservabilityPipelineConfigSourceFluentdTlsPtrOutput) CaFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceFluentdTls) *string {
+		if v == nil {
+			return nil
+		}
+		return v.CaFile
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to the TLS server certificate file used to identify the pipeline component to connecting clients.
+func (o ObservabilityPipelineConfigSourceFluentdTlsPtrOutput) CrtFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceFluentdTls) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.CrtFile
+	}).(pulumi.StringPtrOutput)
+}
+
+// Path to the private key file associated with the TLS server certificate.
+func (o ObservabilityPipelineConfigSourceFluentdTlsPtrOutput) KeyFile() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceFluentdTls) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyFile
+	}).(pulumi.StringPtrOutput)
+}
+
+// Name of the environment variable or secret that holds the passphrase for the private key file.
+func (o ObservabilityPipelineConfigSourceFluentdTlsPtrOutput) KeyPassKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceFluentdTls) *string {
+		if v == nil {
+			return nil
+		}
+		return v.KeyPassKey
+	}).(pulumi.StringPtrOutput)
+}
+
+// When `true`, requires client connections to present a valid certificate, enabling mutual TLS authentication.
+func (o ObservabilityPipelineConfigSourceFluentdTlsPtrOutput) VerifyCertificate() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigSourceFluentdTls) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.VerifyCertificate
+	}).(pulumi.BoolPtrOutput)
+}
+
 type ObservabilityPipelineConfigSourceGooglePubsub struct {
 	// Google Cloud credentials used to authenticate with Google Cloud services.
 	Auth *ObservabilityPipelineConfigSourceGooglePubsubAuth `pulumi:"auth"`
@@ -84950,2589 +87365,35 @@ func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinK
 	}).(pulumi.StringArrayOutput)
 }
 
-type PowerpackV2WidgetProductAnalyticsFunnelDefinitionTime struct {
-	// A fixed time range with explicit start and end times.
-	Fixed *PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixed `pulumi:"fixed"`
-	// An arbitrary live time span, such as 17 minutes or 6 hours.
-	Live *PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLive `pulumi:"live"`
-}
-
-// PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeInput is an input type that accepts PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeArgs and PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeInput` via:
-//
-//	PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeArgs{...}
-type PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeOutput
-	ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeOutputWithContext(context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeOutput
-}
-
-type PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeArgs struct {
-	// A fixed time range with explicit start and end times.
-	Fixed PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrInput `pulumi:"fixed"`
-	// An arbitrary live time span, such as 17 minutes or 6 hours.
-	Live PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrInput `pulumi:"live"`
-}
-
-func (PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetProductAnalyticsFunnelDefinitionTime)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeArgs) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeOutput {
-	return i.ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeArgs) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeOutputWithContext(ctx context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeOutput)
-}
-
-func (i PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeArgs) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutput {
-	return i.ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeArgs) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeOutput).ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrInput is an input type that accepts PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeArgs, PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtr and PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrInput` via:
-//
-//	        PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutput
-	ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutputWithContext(context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutput
-}
-
-type powerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrType PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeArgs
-
-func PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtr(v *PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeArgs) PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrInput {
-	return (*powerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrType)(v)
-}
-
-func (*powerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetProductAnalyticsFunnelDefinitionTime)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrType) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutput {
-	return i.ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrType) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutput)
-}
-
-type PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetProductAnalyticsFunnelDefinitionTime)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeOutput) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeOutput) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeOutputWithContext(ctx context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeOutput) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutput {
-	return o.ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeOutput) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetProductAnalyticsFunnelDefinitionTime) *PowerpackV2WidgetProductAnalyticsFunnelDefinitionTime {
-		return &v
-	}).(PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutput)
-}
-
-// A fixed time range with explicit start and end times.
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeOutput) Fixed() PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetProductAnalyticsFunnelDefinitionTime) *PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixed {
-		return v.Fixed
-	}).(PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutput)
-}
-
-// An arbitrary live time span, such as 17 minutes or 6 hours.
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeOutput) Live() PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetProductAnalyticsFunnelDefinitionTime) *PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLive {
-		return v.Live
-	}).(PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutput)
-}
-
-type PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetProductAnalyticsFunnelDefinitionTime)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutput) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutput) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutput) Elem() PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetProductAnalyticsFunnelDefinitionTime) PowerpackV2WidgetProductAnalyticsFunnelDefinitionTime {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetProductAnalyticsFunnelDefinitionTime
-		return ret
-	}).(PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeOutput)
-}
-
-// A fixed time range with explicit start and end times.
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutput) Fixed() PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetProductAnalyticsFunnelDefinitionTime) *PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixed {
-		if v == nil {
-			return nil
-		}
-		return v.Fixed
-	}).(PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutput)
-}
-
-// An arbitrary live time span, such as 17 minutes or 6 hours.
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutput) Live() PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetProductAnalyticsFunnelDefinitionTime) *PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLive {
-		if v == nil {
-			return nil
-		}
-		return v.Live
-	}).(PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutput)
-}
-
-type PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixed struct {
-	// Start time in seconds since epoch.
-	From int `pulumi:"from"`
-	// End time in seconds since epoch.
-	To int `pulumi:"to"`
-}
-
-// PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedInput is an input type that accepts PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedArgs and PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedInput` via:
-//
-//	PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedArgs{...}
-type PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedOutput
-	ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedOutputWithContext(context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedOutput
-}
-
-type PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedArgs struct {
-	// Start time in seconds since epoch.
-	From pulumi.IntInput `pulumi:"from"`
-	// End time in seconds since epoch.
-	To pulumi.IntInput `pulumi:"to"`
-}
-
-func (PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedArgs) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedOutput {
-	return i.ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedArgs) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedOutputWithContext(ctx context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedOutput)
-}
-
-func (i PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedArgs) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutput {
-	return i.ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedArgs) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedOutput).ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrInput is an input type that accepts PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedArgs, PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtr and PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrInput` via:
-//
-//	        PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutput
-	ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutputWithContext(context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutput
-}
-
-type powerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrType PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedArgs
-
-func PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtr(v *PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedArgs) PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrInput {
-	return (*powerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrType)(v)
-}
-
-func (*powerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrType) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutput {
-	return i.ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrType) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutput)
-}
-
-type PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedOutput) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedOutput) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedOutputWithContext(ctx context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedOutput) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutput {
-	return o.ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedOutput) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixed) *PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixed {
-		return &v
-	}).(PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutput)
-}
-
-// Start time in seconds since epoch.
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedOutput) From() pulumi.IntOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixed) int { return v.From }).(pulumi.IntOutput)
-}
-
-// End time in seconds since epoch.
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedOutput) To() pulumi.IntOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixed) int { return v.To }).(pulumi.IntOutput)
-}
-
-type PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixed)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutput) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutput) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutput) Elem() PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixed) PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixed {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixed
-		return ret
-	}).(PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedOutput)
-}
-
-// Start time in seconds since epoch.
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutput) From() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixed) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.From
-	}).(pulumi.IntPtrOutput)
-}
-
-// End time in seconds since epoch.
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutput) To() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixed) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.To
-	}).(pulumi.IntPtrOutput)
-}
-
-type PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLive struct {
-	// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-	Unit string `pulumi:"unit"`
-	// Value of the time span.
-	Value int `pulumi:"value"`
-}
-
-// PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveInput is an input type that accepts PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveArgs and PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveInput` via:
-//
-//	PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveArgs{...}
-type PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveOutput
-	ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveOutputWithContext(context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveOutput
-}
-
-type PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveArgs struct {
-	// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-	Unit pulumi.StringInput `pulumi:"unit"`
-	// Value of the time span.
-	Value pulumi.IntInput `pulumi:"value"`
-}
-
-func (PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLive)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveArgs) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveOutput {
-	return i.ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveArgs) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveOutputWithContext(ctx context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveOutput)
-}
-
-func (i PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveArgs) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutput {
-	return i.ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveArgs) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveOutput).ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrInput is an input type that accepts PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveArgs, PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtr and PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrInput` via:
-//
-//	        PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutput
-	ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutputWithContext(context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutput
-}
-
-type powerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrType PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveArgs
-
-func PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtr(v *PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveArgs) PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrInput {
-	return (*powerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrType)(v)
-}
-
-func (*powerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLive)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrType) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutput {
-	return i.ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrType) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutput)
-}
-
-type PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLive)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveOutput) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveOutput) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveOutputWithContext(ctx context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveOutput) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutput {
-	return o.ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveOutput) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLive) *PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLive {
-		return &v
-	}).(PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutput)
-}
-
-// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveOutput) Unit() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLive) string { return v.Unit }).(pulumi.StringOutput)
-}
-
-// Value of the time span.
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveOutput) Value() pulumi.IntOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLive) int { return v.Value }).(pulumi.IntOutput)
-}
-
-type PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLive)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutput) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutput) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutput) Elem() PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLive) PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLive {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLive
-		return ret
-	}).(PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveOutput)
-}
-
-// Unit of the time span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutput) Unit() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLive) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Unit
-	}).(pulumi.StringPtrOutput)
-}
-
-// Value of the time span.
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutput) Value() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLive) *int {
-		if v == nil {
-			return nil
-		}
-		return &v.Value
-	}).(pulumi.IntPtrOutput)
-}
-
-type PowerpackV2WidgetQueryTableDefinition struct {
-	// A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
-	CustomLinks []PowerpackV2WidgetQueryTableDefinitionCustomLink `pulumi:"customLinks"`
-	// The description of the widget.
-	Description *string `pulumi:"description"`
-	// Controls the display of the search bar. Valid values are `always`, `never`, `auto`.
-	HasSearchBar *string `pulumi:"hasSearchBar"`
-	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-	HideIncompleteCostData *bool `pulumi:"hideIncompleteCostData"`
-	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-	LiveSpan *string `pulumi:"liveSpan"`
-	// A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery`, `apmStatsQuery` or `processQuery` is required within the `request` block).
-	Requests []PowerpackV2WidgetQueryTableDefinitionRequest `pulumi:"requests"`
-	// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-	Time *PowerpackV2WidgetQueryTableDefinitionTime `pulumi:"time"`
-	// The title of the widget.
-	Title *string `pulumi:"title"`
-	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-	TitleAlign *string `pulumi:"titleAlign"`
-	// The size of the widget's title (defaults to 16).
-	TitleSize *string `pulumi:"titleSize"`
-}
-
-// PowerpackV2WidgetQueryTableDefinitionInput is an input type that accepts PowerpackV2WidgetQueryTableDefinitionArgs and PowerpackV2WidgetQueryTableDefinitionOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryTableDefinitionInput` via:
-//
-//	PowerpackV2WidgetQueryTableDefinitionArgs{...}
-type PowerpackV2WidgetQueryTableDefinitionInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryTableDefinitionOutput() PowerpackV2WidgetQueryTableDefinitionOutput
-	ToPowerpackV2WidgetQueryTableDefinitionOutputWithContext(context.Context) PowerpackV2WidgetQueryTableDefinitionOutput
-}
-
-type PowerpackV2WidgetQueryTableDefinitionArgs struct {
-	// A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
-	CustomLinks PowerpackV2WidgetQueryTableDefinitionCustomLinkArrayInput `pulumi:"customLinks"`
-	// The description of the widget.
-	Description pulumi.StringPtrInput `pulumi:"description"`
-	// Controls the display of the search bar. Valid values are `always`, `never`, `auto`.
-	HasSearchBar pulumi.StringPtrInput `pulumi:"hasSearchBar"`
-	// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-	HideIncompleteCostData pulumi.BoolPtrInput `pulumi:"hideIncompleteCostData"`
-	// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-	LiveSpan pulumi.StringPtrInput `pulumi:"liveSpan"`
-	// A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery`, `apmStatsQuery` or `processQuery` is required within the `request` block).
-	Requests PowerpackV2WidgetQueryTableDefinitionRequestArrayInput `pulumi:"requests"`
-	// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-	Time PowerpackV2WidgetQueryTableDefinitionTimePtrInput `pulumi:"time"`
-	// The title of the widget.
-	Title pulumi.StringPtrInput `pulumi:"title"`
-	// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-	TitleAlign pulumi.StringPtrInput `pulumi:"titleAlign"`
-	// The size of the widget's title (defaults to 16).
-	TitleSize pulumi.StringPtrInput `pulumi:"titleSize"`
-}
-
-func (PowerpackV2WidgetQueryTableDefinitionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinition)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionArgs) ToPowerpackV2WidgetQueryTableDefinitionOutput() PowerpackV2WidgetQueryTableDefinitionOutput {
-	return i.ToPowerpackV2WidgetQueryTableDefinitionOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionArgs) ToPowerpackV2WidgetQueryTableDefinitionOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryTableDefinitionOutput)
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionArgs) ToPowerpackV2WidgetQueryTableDefinitionPtrOutput() PowerpackV2WidgetQueryTableDefinitionPtrOutput {
-	return i.ToPowerpackV2WidgetQueryTableDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionArgs) ToPowerpackV2WidgetQueryTableDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryTableDefinitionOutput).ToPowerpackV2WidgetQueryTableDefinitionPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetQueryTableDefinitionPtrInput is an input type that accepts PowerpackV2WidgetQueryTableDefinitionArgs, PowerpackV2WidgetQueryTableDefinitionPtr and PowerpackV2WidgetQueryTableDefinitionPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryTableDefinitionPtrInput` via:
-//
-//	        PowerpackV2WidgetQueryTableDefinitionArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetQueryTableDefinitionPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryTableDefinitionPtrOutput() PowerpackV2WidgetQueryTableDefinitionPtrOutput
-	ToPowerpackV2WidgetQueryTableDefinitionPtrOutputWithContext(context.Context) PowerpackV2WidgetQueryTableDefinitionPtrOutput
-}
-
-type powerpackV2WidgetQueryTableDefinitionPtrType PowerpackV2WidgetQueryTableDefinitionArgs
-
-func PowerpackV2WidgetQueryTableDefinitionPtr(v *PowerpackV2WidgetQueryTableDefinitionArgs) PowerpackV2WidgetQueryTableDefinitionPtrInput {
-	return (*powerpackV2WidgetQueryTableDefinitionPtrType)(v)
-}
-
-func (*powerpackV2WidgetQueryTableDefinitionPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetQueryTableDefinition)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetQueryTableDefinitionPtrType) ToPowerpackV2WidgetQueryTableDefinitionPtrOutput() PowerpackV2WidgetQueryTableDefinitionPtrOutput {
-	return i.ToPowerpackV2WidgetQueryTableDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetQueryTableDefinitionPtrType) ToPowerpackV2WidgetQueryTableDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryTableDefinitionPtrOutput)
-}
-
-type PowerpackV2WidgetQueryTableDefinitionOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryTableDefinitionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinition)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionOutput) ToPowerpackV2WidgetQueryTableDefinitionOutput() PowerpackV2WidgetQueryTableDefinitionOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionOutput) ToPowerpackV2WidgetQueryTableDefinitionOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionOutput) ToPowerpackV2WidgetQueryTableDefinitionPtrOutput() PowerpackV2WidgetQueryTableDefinitionPtrOutput {
-	return o.ToPowerpackV2WidgetQueryTableDefinitionPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionOutput) ToPowerpackV2WidgetQueryTableDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetQueryTableDefinition) *PowerpackV2WidgetQueryTableDefinition {
-		return &v
-	}).(PowerpackV2WidgetQueryTableDefinitionPtrOutput)
-}
-
-// A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
-func (o PowerpackV2WidgetQueryTableDefinitionOutput) CustomLinks() PowerpackV2WidgetQueryTableDefinitionCustomLinkArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinition) []PowerpackV2WidgetQueryTableDefinitionCustomLink {
-		return v.CustomLinks
-	}).(PowerpackV2WidgetQueryTableDefinitionCustomLinkArrayOutput)
-}
-
-// The description of the widget.
-func (o PowerpackV2WidgetQueryTableDefinitionOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinition) *string { return v.Description }).(pulumi.StringPtrOutput)
-}
-
-// Controls the display of the search bar. Valid values are `always`, `never`, `auto`.
-func (o PowerpackV2WidgetQueryTableDefinitionOutput) HasSearchBar() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinition) *string { return v.HasSearchBar }).(pulumi.StringPtrOutput)
-}
-
-// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-func (o PowerpackV2WidgetQueryTableDefinitionOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinition) *bool { return v.HideIncompleteCostData }).(pulumi.BoolPtrOutput)
-}
-
-// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-func (o PowerpackV2WidgetQueryTableDefinitionOutput) LiveSpan() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinition) *string { return v.LiveSpan }).(pulumi.StringPtrOutput)
-}
-
-// A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery`, `apmStatsQuery` or `processQuery` is required within the `request` block).
-func (o PowerpackV2WidgetQueryTableDefinitionOutput) Requests() PowerpackV2WidgetQueryTableDefinitionRequestArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinition) []PowerpackV2WidgetQueryTableDefinitionRequest {
-		return v.Requests
-	}).(PowerpackV2WidgetQueryTableDefinitionRequestArrayOutput)
-}
-
-// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-func (o PowerpackV2WidgetQueryTableDefinitionOutput) Time() PowerpackV2WidgetQueryTableDefinitionTimePtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinition) *PowerpackV2WidgetQueryTableDefinitionTime {
-		return v.Time
-	}).(PowerpackV2WidgetQueryTableDefinitionTimePtrOutput)
-}
-
-// The title of the widget.
-func (o PowerpackV2WidgetQueryTableDefinitionOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinition) *string { return v.Title }).(pulumi.StringPtrOutput)
-}
-
-// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-func (o PowerpackV2WidgetQueryTableDefinitionOutput) TitleAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinition) *string { return v.TitleAlign }).(pulumi.StringPtrOutput)
-}
-
-// The size of the widget's title (defaults to 16).
-func (o PowerpackV2WidgetQueryTableDefinitionOutput) TitleSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinition) *string { return v.TitleSize }).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetQueryTableDefinitionPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryTableDefinitionPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetQueryTableDefinition)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionPtrOutput) ToPowerpackV2WidgetQueryTableDefinitionPtrOutput() PowerpackV2WidgetQueryTableDefinitionPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionPtrOutput) ToPowerpackV2WidgetQueryTableDefinitionPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionPtrOutput) Elem() PowerpackV2WidgetQueryTableDefinitionOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryTableDefinition) PowerpackV2WidgetQueryTableDefinition {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetQueryTableDefinition
-		return ret
-	}).(PowerpackV2WidgetQueryTableDefinitionOutput)
-}
-
-// A nested block describing a custom link. Multiple `customLink` blocks are allowed using the structure below.
-func (o PowerpackV2WidgetQueryTableDefinitionPtrOutput) CustomLinks() PowerpackV2WidgetQueryTableDefinitionCustomLinkArrayOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryTableDefinition) []PowerpackV2WidgetQueryTableDefinitionCustomLink {
-		if v == nil {
-			return nil
-		}
-		return v.CustomLinks
-	}).(PowerpackV2WidgetQueryTableDefinitionCustomLinkArrayOutput)
-}
-
-// The description of the widget.
-func (o PowerpackV2WidgetQueryTableDefinitionPtrOutput) Description() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryTableDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Description
-	}).(pulumi.StringPtrOutput)
-}
-
-// Controls the display of the search bar. Valid values are `always`, `never`, `auto`.
-func (o PowerpackV2WidgetQueryTableDefinitionPtrOutput) HasSearchBar() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryTableDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.HasSearchBar
-	}).(pulumi.StringPtrOutput)
-}
-
-// Hide any portion of the widget's timeframe that is incomplete due to cost data not being available.
-func (o PowerpackV2WidgetQueryTableDefinitionPtrOutput) HideIncompleteCostData() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryTableDefinition) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.HideIncompleteCostData
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The timeframe to use when displaying the widget. Valid values are `1m`, `5m`, `10m`, `15m`, `30m`, `1h`, `4h`, `1d`, `2d`, `1w`, `1mo`, `3mo`, `6mo`, `weekToDate`, `monthToDate`, `1y`, `alert`.
-func (o PowerpackV2WidgetQueryTableDefinitionPtrOutput) LiveSpan() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryTableDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.LiveSpan
-	}).(pulumi.StringPtrOutput)
-}
-
-// A nested block describing the request to use when displaying the widget. Multiple `request` blocks are allowed using the structure below (exactly one of `q`, `apmQuery`, `logQuery`, `rumQuery`, `securityQuery`, `apmStatsQuery` or `processQuery` is required within the `request` block).
-func (o PowerpackV2WidgetQueryTableDefinitionPtrOutput) Requests() PowerpackV2WidgetQueryTableDefinitionRequestArrayOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryTableDefinition) []PowerpackV2WidgetQueryTableDefinitionRequest {
-		if v == nil {
-			return nil
-		}
-		return v.Requests
-	}).(PowerpackV2WidgetQueryTableDefinitionRequestArrayOutput)
-}
-
-// A nested block used to specify a time span for the widget. Use this or `liveSpan`, not both.
-func (o PowerpackV2WidgetQueryTableDefinitionPtrOutput) Time() PowerpackV2WidgetQueryTableDefinitionTimePtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryTableDefinition) *PowerpackV2WidgetQueryTableDefinitionTime {
-		if v == nil {
-			return nil
-		}
-		return v.Time
-	}).(PowerpackV2WidgetQueryTableDefinitionTimePtrOutput)
-}
-
-// The title of the widget.
-func (o PowerpackV2WidgetQueryTableDefinitionPtrOutput) Title() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryTableDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Title
-	}).(pulumi.StringPtrOutput)
-}
-
-// The alignment of the widget's title. Valid values are `center`, `left`, `right`.
-func (o PowerpackV2WidgetQueryTableDefinitionPtrOutput) TitleAlign() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryTableDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TitleAlign
-	}).(pulumi.StringPtrOutput)
-}
-
-// The size of the widget's title (defaults to 16).
-func (o PowerpackV2WidgetQueryTableDefinitionPtrOutput) TitleSize() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryTableDefinition) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TitleSize
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetQueryTableDefinitionCustomLink struct {
-	// The flag for toggling context menu link visibility.
-	IsHidden *bool `pulumi:"isHidden"`
-	// The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
-	Label *string `pulumi:"label"`
-	// The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
-	Link *string `pulumi:"link"`
-	// The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
-	OverrideLabel *string `pulumi:"overrideLabel"`
-}
-
-// PowerpackV2WidgetQueryTableDefinitionCustomLinkInput is an input type that accepts PowerpackV2WidgetQueryTableDefinitionCustomLinkArgs and PowerpackV2WidgetQueryTableDefinitionCustomLinkOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryTableDefinitionCustomLinkInput` via:
-//
-//	PowerpackV2WidgetQueryTableDefinitionCustomLinkArgs{...}
-type PowerpackV2WidgetQueryTableDefinitionCustomLinkInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryTableDefinitionCustomLinkOutput() PowerpackV2WidgetQueryTableDefinitionCustomLinkOutput
-	ToPowerpackV2WidgetQueryTableDefinitionCustomLinkOutputWithContext(context.Context) PowerpackV2WidgetQueryTableDefinitionCustomLinkOutput
-}
-
-type PowerpackV2WidgetQueryTableDefinitionCustomLinkArgs struct {
-	// The flag for toggling context menu link visibility.
-	IsHidden pulumi.BoolPtrInput `pulumi:"isHidden"`
-	// The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
-	Label pulumi.StringPtrInput `pulumi:"label"`
-	// The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
-	Link pulumi.StringPtrInput `pulumi:"link"`
-	// The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
-	OverrideLabel pulumi.StringPtrInput `pulumi:"overrideLabel"`
-}
-
-func (PowerpackV2WidgetQueryTableDefinitionCustomLinkArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionCustomLink)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionCustomLinkArgs) ToPowerpackV2WidgetQueryTableDefinitionCustomLinkOutput() PowerpackV2WidgetQueryTableDefinitionCustomLinkOutput {
-	return i.ToPowerpackV2WidgetQueryTableDefinitionCustomLinkOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionCustomLinkArgs) ToPowerpackV2WidgetQueryTableDefinitionCustomLinkOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionCustomLinkOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryTableDefinitionCustomLinkOutput)
-}
-
-// PowerpackV2WidgetQueryTableDefinitionCustomLinkArrayInput is an input type that accepts PowerpackV2WidgetQueryTableDefinitionCustomLinkArray and PowerpackV2WidgetQueryTableDefinitionCustomLinkArrayOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryTableDefinitionCustomLinkArrayInput` via:
-//
-//	PowerpackV2WidgetQueryTableDefinitionCustomLinkArray{ PowerpackV2WidgetQueryTableDefinitionCustomLinkArgs{...} }
-type PowerpackV2WidgetQueryTableDefinitionCustomLinkArrayInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryTableDefinitionCustomLinkArrayOutput() PowerpackV2WidgetQueryTableDefinitionCustomLinkArrayOutput
-	ToPowerpackV2WidgetQueryTableDefinitionCustomLinkArrayOutputWithContext(context.Context) PowerpackV2WidgetQueryTableDefinitionCustomLinkArrayOutput
-}
-
-type PowerpackV2WidgetQueryTableDefinitionCustomLinkArray []PowerpackV2WidgetQueryTableDefinitionCustomLinkInput
-
-func (PowerpackV2WidgetQueryTableDefinitionCustomLinkArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetQueryTableDefinitionCustomLink)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionCustomLinkArray) ToPowerpackV2WidgetQueryTableDefinitionCustomLinkArrayOutput() PowerpackV2WidgetQueryTableDefinitionCustomLinkArrayOutput {
-	return i.ToPowerpackV2WidgetQueryTableDefinitionCustomLinkArrayOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionCustomLinkArray) ToPowerpackV2WidgetQueryTableDefinitionCustomLinkArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionCustomLinkArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryTableDefinitionCustomLinkArrayOutput)
-}
-
-type PowerpackV2WidgetQueryTableDefinitionCustomLinkOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryTableDefinitionCustomLinkOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionCustomLink)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionCustomLinkOutput) ToPowerpackV2WidgetQueryTableDefinitionCustomLinkOutput() PowerpackV2WidgetQueryTableDefinitionCustomLinkOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionCustomLinkOutput) ToPowerpackV2WidgetQueryTableDefinitionCustomLinkOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionCustomLinkOutput {
-	return o
-}
-
-// The flag for toggling context menu link visibility.
-func (o PowerpackV2WidgetQueryTableDefinitionCustomLinkOutput) IsHidden() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionCustomLink) *bool { return v.IsHidden }).(pulumi.BoolPtrOutput)
-}
-
-// The label for the custom link URL. Keep the label short and descriptive. Use metrics and tags as variables.
-func (o PowerpackV2WidgetQueryTableDefinitionCustomLinkOutput) Label() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionCustomLink) *string { return v.Label }).(pulumi.StringPtrOutput)
-}
-
-// The URL of the custom link. URL must include `http` or `https`. A relative URL must start with `/`.
-func (o PowerpackV2WidgetQueryTableDefinitionCustomLinkOutput) Link() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionCustomLink) *string { return v.Link }).(pulumi.StringPtrOutput)
-}
-
-// The label ID that refers to a context menu link. Can be `logs`, `hosts`, `traces`, `profiles`, `processes`, `containers`, or `rum`.
-func (o PowerpackV2WidgetQueryTableDefinitionCustomLinkOutput) OverrideLabel() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionCustomLink) *string { return v.OverrideLabel }).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetQueryTableDefinitionCustomLinkArrayOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryTableDefinitionCustomLinkArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetQueryTableDefinitionCustomLink)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionCustomLinkArrayOutput) ToPowerpackV2WidgetQueryTableDefinitionCustomLinkArrayOutput() PowerpackV2WidgetQueryTableDefinitionCustomLinkArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionCustomLinkArrayOutput) ToPowerpackV2WidgetQueryTableDefinitionCustomLinkArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionCustomLinkArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionCustomLinkArrayOutput) Index(i pulumi.IntInput) PowerpackV2WidgetQueryTableDefinitionCustomLinkOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackV2WidgetQueryTableDefinitionCustomLink {
-		return vs[0].([]PowerpackV2WidgetQueryTableDefinitionCustomLink)[vs[1].(int)]
-	}).(PowerpackV2WidgetQueryTableDefinitionCustomLinkOutput)
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequest struct {
-	// The aggregator to use for time aggregation. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
-	Aggregator *string `pulumi:"aggregator"`
-	// The alias for the column name (defaults to metric name).
-	Alias *string `pulumi:"alias"`
-	// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	ApmQuery *PowerpackV2WidgetApmQuery `pulumi:"apmQuery"`
-	// The APM stats query for table and distribution widgets. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	ApmStatsQuery *PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQuery `pulumi:"apmStatsQuery"`
-	// A list of display modes for each table cell. Valid values are `number`, `bar`.
-	CellDisplayModes []string `pulumi:"cellDisplayModes"`
-	// Conditional formats allow you to set the color of your widget content or background, depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
-	ConditionalFormats []PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormat `pulumi:"conditionalFormats"`
-	// A list of formulas to use in the widget.
-	Formulas []PowerpackV2WidgetQueryTableDefinitionRequestFormula `pulumi:"formulas"`
-	// For metric queries, the number of lines to show in the table. Only one request should have this property.
-	Limit *int `pulumi:"limit"`
-	// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	LogQuery *PowerpackV2WidgetLogQuery `pulumi:"logQuery"`
-	// The sort order for the rows. Valid values are `asc`, `desc`.
-	Order *string `pulumi:"order"`
-	// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	ProcessQuery *PowerpackV2WidgetQueryTableDefinitionRequestProcessQuery `pulumi:"processQuery"`
-	// The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	Q *string `pulumi:"q"`
-	// A list of queries to use in the widget.
-	Queries []PowerpackV2WidgetQueryTableDefinitionRequestQuery `pulumi:"queries"`
-	// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	RumQuery *PowerpackV2WidgetRumQuery `pulumi:"rumQuery"`
-	// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	SecurityQuery *PowerpackV2WidgetSecurityQuery `pulumi:"securityQuery"`
-	// The controls for sorting the widget request.
-	Sort *PowerpackV2WidgetQueryTableDefinitionRequestSort `pulumi:"sort"`
-	// Text formats define how to format text in table widget content. Multiple `textFormats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
-	TextFormats []PowerpackV2WidgetQueryTableDefinitionRequestTextFormat `pulumi:"textFormats"`
-}
-
-// PowerpackV2WidgetQueryTableDefinitionRequestInput is an input type that accepts PowerpackV2WidgetQueryTableDefinitionRequestArgs and PowerpackV2WidgetQueryTableDefinitionRequestOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryTableDefinitionRequestInput` via:
-//
-//	PowerpackV2WidgetQueryTableDefinitionRequestArgs{...}
-type PowerpackV2WidgetQueryTableDefinitionRequestInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryTableDefinitionRequestOutput() PowerpackV2WidgetQueryTableDefinitionRequestOutput
-	ToPowerpackV2WidgetQueryTableDefinitionRequestOutputWithContext(context.Context) PowerpackV2WidgetQueryTableDefinitionRequestOutput
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestArgs struct {
-	// The aggregator to use for time aggregation. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
-	Aggregator pulumi.StringPtrInput `pulumi:"aggregator"`
-	// The alias for the column name (defaults to metric name).
-	Alias pulumi.StringPtrInput `pulumi:"alias"`
-	// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	ApmQuery PowerpackV2WidgetApmQueryPtrInput `pulumi:"apmQuery"`
-	// The APM stats query for table and distribution widgets. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	ApmStatsQuery PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrInput `pulumi:"apmStatsQuery"`
-	// A list of display modes for each table cell. Valid values are `number`, `bar`.
-	CellDisplayModes pulumi.StringArrayInput `pulumi:"cellDisplayModes"`
-	// Conditional formats allow you to set the color of your widget content or background, depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
-	ConditionalFormats PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArrayInput `pulumi:"conditionalFormats"`
-	// A list of formulas to use in the widget.
-	Formulas PowerpackV2WidgetQueryTableDefinitionRequestFormulaArrayInput `pulumi:"formulas"`
-	// For metric queries, the number of lines to show in the table. Only one request should have this property.
-	Limit pulumi.IntPtrInput `pulumi:"limit"`
-	// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	LogQuery PowerpackV2WidgetLogQueryPtrInput `pulumi:"logQuery"`
-	// The sort order for the rows. Valid values are `asc`, `desc`.
-	Order pulumi.StringPtrInput `pulumi:"order"`
-	// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	ProcessQuery PowerpackV2WidgetQueryTableDefinitionRequestProcessQueryPtrInput `pulumi:"processQuery"`
-	// The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	Q pulumi.StringPtrInput `pulumi:"q"`
-	// A list of queries to use in the widget.
-	Queries PowerpackV2WidgetQueryTableDefinitionRequestQueryArrayInput `pulumi:"queries"`
-	// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	RumQuery PowerpackV2WidgetRumQueryPtrInput `pulumi:"rumQuery"`
-	// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-	//
-	// Deprecated: Use queries and formulas instead.
-	SecurityQuery PowerpackV2WidgetSecurityQueryPtrInput `pulumi:"securityQuery"`
-	// The controls for sorting the widget request.
-	Sort PowerpackV2WidgetQueryTableDefinitionRequestSortPtrInput `pulumi:"sort"`
-	// Text formats define how to format text in table widget content. Multiple `textFormats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
-	TextFormats PowerpackV2WidgetQueryTableDefinitionRequestTextFormatArrayInput `pulumi:"textFormats"`
-}
-
-func (PowerpackV2WidgetQueryTableDefinitionRequestArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequest)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestArgs) ToPowerpackV2WidgetQueryTableDefinitionRequestOutput() PowerpackV2WidgetQueryTableDefinitionRequestOutput {
-	return i.ToPowerpackV2WidgetQueryTableDefinitionRequestOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestArgs) ToPowerpackV2WidgetQueryTableDefinitionRequestOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryTableDefinitionRequestOutput)
-}
-
-// PowerpackV2WidgetQueryTableDefinitionRequestArrayInput is an input type that accepts PowerpackV2WidgetQueryTableDefinitionRequestArray and PowerpackV2WidgetQueryTableDefinitionRequestArrayOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryTableDefinitionRequestArrayInput` via:
-//
-//	PowerpackV2WidgetQueryTableDefinitionRequestArray{ PowerpackV2WidgetQueryTableDefinitionRequestArgs{...} }
-type PowerpackV2WidgetQueryTableDefinitionRequestArrayInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryTableDefinitionRequestArrayOutput() PowerpackV2WidgetQueryTableDefinitionRequestArrayOutput
-	ToPowerpackV2WidgetQueryTableDefinitionRequestArrayOutputWithContext(context.Context) PowerpackV2WidgetQueryTableDefinitionRequestArrayOutput
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestArray []PowerpackV2WidgetQueryTableDefinitionRequestInput
-
-func (PowerpackV2WidgetQueryTableDefinitionRequestArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetQueryTableDefinitionRequest)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestArray) ToPowerpackV2WidgetQueryTableDefinitionRequestArrayOutput() PowerpackV2WidgetQueryTableDefinitionRequestArrayOutput {
-	return i.ToPowerpackV2WidgetQueryTableDefinitionRequestArrayOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestArray) ToPowerpackV2WidgetQueryTableDefinitionRequestArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryTableDefinitionRequestArrayOutput)
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryTableDefinitionRequestOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequest)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestOutput() PowerpackV2WidgetQueryTableDefinitionRequestOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestOutput {
-	return o
-}
-
-// The aggregator to use for time aggregation. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestOutput) Aggregator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequest) *string { return v.Aggregator }).(pulumi.StringPtrOutput)
-}
-
-// The alias for the column name (defaults to metric name).
-func (o PowerpackV2WidgetQueryTableDefinitionRequestOutput) Alias() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequest) *string { return v.Alias }).(pulumi.StringPtrOutput)
-}
-
-// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-//
-// Deprecated: Use queries and formulas instead.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestOutput) ApmQuery() PowerpackV2WidgetApmQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequest) *PowerpackV2WidgetApmQuery { return v.ApmQuery }).(PowerpackV2WidgetApmQueryPtrOutput)
-}
-
-// The APM stats query for table and distribution widgets. **Deprecated.** Use queries and formulas instead.
-//
-// Deprecated: Use queries and formulas instead.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestOutput) ApmStatsQuery() PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequest) *PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQuery {
-		return v.ApmStatsQuery
-	}).(PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutput)
-}
-
-// A list of display modes for each table cell. Valid values are `number`, `bar`.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestOutput) CellDisplayModes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequest) []string { return v.CellDisplayModes }).(pulumi.StringArrayOutput)
-}
-
-// Conditional formats allow you to set the color of your widget content or background, depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestOutput) ConditionalFormats() PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequest) []PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormat {
-		return v.ConditionalFormats
-	}).(PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArrayOutput)
-}
-
-// A list of formulas to use in the widget.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestOutput) Formulas() PowerpackV2WidgetQueryTableDefinitionRequestFormulaArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequest) []PowerpackV2WidgetQueryTableDefinitionRequestFormula {
-		return v.Formulas
-	}).(PowerpackV2WidgetQueryTableDefinitionRequestFormulaArrayOutput)
-}
-
-// For metric queries, the number of lines to show in the table. Only one request should have this property.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestOutput) Limit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequest) *int { return v.Limit }).(pulumi.IntPtrOutput)
-}
-
-// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-//
-// Deprecated: Use queries and formulas instead.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestOutput) LogQuery() PowerpackV2WidgetLogQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequest) *PowerpackV2WidgetLogQuery { return v.LogQuery }).(PowerpackV2WidgetLogQueryPtrOutput)
-}
-
-// The sort order for the rows. Valid values are `asc`, `desc`.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestOutput) Order() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequest) *string { return v.Order }).(pulumi.StringPtrOutput)
-}
-
-// The process query to use in the widget. The structure of this block is described below. **Deprecated.** Use queries and formulas instead.
-//
-// Deprecated: Use queries and formulas instead.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestOutput) ProcessQuery() PowerpackV2WidgetQueryTableDefinitionRequestProcessQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequest) *PowerpackV2WidgetQueryTableDefinitionRequestProcessQuery {
-		return v.ProcessQuery
-	}).(PowerpackV2WidgetQueryTableDefinitionRequestProcessQueryPtrOutput)
-}
-
-// The metric query to use for this widget. **Deprecated.** Use queries and formulas instead.
-//
-// Deprecated: Use queries and formulas instead.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestOutput) Q() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequest) *string { return v.Q }).(pulumi.StringPtrOutput)
-}
-
-// A list of queries to use in the widget.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestOutput) Queries() PowerpackV2WidgetQueryTableDefinitionRequestQueryArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequest) []PowerpackV2WidgetQueryTableDefinitionRequestQuery {
-		return v.Queries
-	}).(PowerpackV2WidgetQueryTableDefinitionRequestQueryArrayOutput)
-}
-
-// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-//
-// Deprecated: Use queries and formulas instead.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestOutput) RumQuery() PowerpackV2WidgetRumQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequest) *PowerpackV2WidgetRumQuery { return v.RumQuery }).(PowerpackV2WidgetRumQueryPtrOutput)
-}
-
-// The query to use for this widget. **Deprecated.** Use queries and formulas instead.
-//
-// Deprecated: Use queries and formulas instead.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestOutput) SecurityQuery() PowerpackV2WidgetSecurityQueryPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequest) *PowerpackV2WidgetSecurityQuery {
-		return v.SecurityQuery
-	}).(PowerpackV2WidgetSecurityQueryPtrOutput)
-}
-
-// The controls for sorting the widget request.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestOutput) Sort() PowerpackV2WidgetQueryTableDefinitionRequestSortPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequest) *PowerpackV2WidgetQueryTableDefinitionRequestSort {
-		return v.Sort
-	}).(PowerpackV2WidgetQueryTableDefinitionRequestSortPtrOutput)
-}
-
-// Text formats define how to format text in table widget content. Multiple `textFormats` blocks are allowed using the structure below. This resource is in beta and is subject to change.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestOutput) TextFormats() PowerpackV2WidgetQueryTableDefinitionRequestTextFormatArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequest) []PowerpackV2WidgetQueryTableDefinitionRequestTextFormat {
-		return v.TextFormats
-	}).(PowerpackV2WidgetQueryTableDefinitionRequestTextFormatArrayOutput)
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestArrayOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryTableDefinitionRequestArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetQueryTableDefinitionRequest)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestArrayOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestArrayOutput() PowerpackV2WidgetQueryTableDefinitionRequestArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestArrayOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestArrayOutput) Index(i pulumi.IntInput) PowerpackV2WidgetQueryTableDefinitionRequestOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackV2WidgetQueryTableDefinitionRequest {
-		return vs[0].([]PowerpackV2WidgetQueryTableDefinitionRequest)[vs[1].(int)]
-	}).(PowerpackV2WidgetQueryTableDefinitionRequestOutput)
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQuery struct {
-	// Column properties used by the front end for display.
-	Columns []PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumn `pulumi:"columns"`
-	// The environment name.
-	Env string `pulumi:"env"`
-	// The operation name associated with the service.
-	Name string `pulumi:"name"`
-	// The organization's host group name and value.
-	PrimaryTag string `pulumi:"primaryTag"`
-	// The resource name.
-	Resource *string `pulumi:"resource"`
-	// The level of detail for the request. Valid values are `service`, `resource`, `span`.
-	RowType string `pulumi:"rowType"`
-	// The service name.
-	Service string `pulumi:"service"`
-}
-
-// PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryInput is an input type that accepts PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryArgs and PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryInput` via:
-//
-//	PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryArgs{...}
-type PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryOutput() PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryOutput
-	ToPowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryOutputWithContext(context.Context) PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryOutput
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryArgs struct {
-	// Column properties used by the front end for display.
-	Columns PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArrayInput `pulumi:"columns"`
-	// The environment name.
-	Env pulumi.StringInput `pulumi:"env"`
-	// The operation name associated with the service.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The organization's host group name and value.
-	PrimaryTag pulumi.StringInput `pulumi:"primaryTag"`
-	// The resource name.
-	Resource pulumi.StringPtrInput `pulumi:"resource"`
-	// The level of detail for the request. Valid values are `service`, `resource`, `span`.
-	RowType pulumi.StringInput `pulumi:"rowType"`
-	// The service name.
-	Service pulumi.StringInput `pulumi:"service"`
-}
-
-func (PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQuery)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryArgs) ToPowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryOutput() PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryOutput {
-	return i.ToPowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryArgs) ToPowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryOutput)
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryArgs) ToPowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutput() PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutput {
-	return i.ToPowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryArgs) ToPowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryOutput).ToPowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrInput is an input type that accepts PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryArgs, PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtr and PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrInput` via:
-//
-//	        PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutput() PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutput
-	ToPowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutputWithContext(context.Context) PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutput
-}
-
-type powerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrType PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryArgs
-
-func PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtr(v *PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryArgs) PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrInput {
-	return (*powerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrType)(v)
-}
-
-func (*powerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQuery)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrType) ToPowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutput() PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutput {
-	return i.ToPowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrType) ToPowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutput)
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQuery)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryOutput() PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutput() PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutput {
-	return o.ToPowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQuery) *PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQuery {
-		return &v
-	}).(PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutput)
-}
-
-// Column properties used by the front end for display.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryOutput) Columns() PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQuery) []PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumn {
-		return v.Columns
-	}).(PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArrayOutput)
-}
-
-// The environment name.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryOutput) Env() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQuery) string { return v.Env }).(pulumi.StringOutput)
-}
-
-// The operation name associated with the service.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQuery) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The organization's host group name and value.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryOutput) PrimaryTag() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQuery) string { return v.PrimaryTag }).(pulumi.StringOutput)
-}
-
-// The resource name.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryOutput) Resource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQuery) *string { return v.Resource }).(pulumi.StringPtrOutput)
-}
-
-// The level of detail for the request. Valid values are `service`, `resource`, `span`.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryOutput) RowType() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQuery) string { return v.RowType }).(pulumi.StringOutput)
-}
-
-// The service name.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryOutput) Service() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQuery) string { return v.Service }).(pulumi.StringOutput)
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQuery)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutput() PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutput) Elem() PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQuery) PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQuery {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQuery
-		return ret
-	}).(PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryOutput)
-}
-
-// Column properties used by the front end for display.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutput) Columns() PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArrayOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQuery) []PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumn {
-		if v == nil {
-			return nil
-		}
-		return v.Columns
-	}).(PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArrayOutput)
-}
-
-// The environment name.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutput) Env() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Env
-	}).(pulumi.StringPtrOutput)
-}
-
-// The operation name associated with the service.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The organization's host group name and value.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutput) PrimaryTag() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.PrimaryTag
-	}).(pulumi.StringPtrOutput)
-}
-
-// The resource name.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutput) Resource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Resource
-	}).(pulumi.StringPtrOutput)
-}
-
-// The level of detail for the request. Valid values are `service`, `resource`, `span`.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutput) RowType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.RowType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The service name.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutput) Service() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Service
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumn struct {
-	// A user-assigned alias for the column.
-	Alias *string `pulumi:"alias"`
-	// A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
-	CellDisplayMode *string `pulumi:"cellDisplayMode"`
-	// The column name.
-	Name string `pulumi:"name"`
-	// Widget sorting methods. Valid values are `asc`, `desc`.
-	Order *string `pulumi:"order"`
-}
-
-// PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnInput is an input type that accepts PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArgs and PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnInput` via:
-//
-//	PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArgs{...}
-type PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnOutput() PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnOutput
-	ToPowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnOutputWithContext(context.Context) PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnOutput
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArgs struct {
-	// A user-assigned alias for the column.
-	Alias pulumi.StringPtrInput `pulumi:"alias"`
-	// A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
-	CellDisplayMode pulumi.StringPtrInput `pulumi:"cellDisplayMode"`
-	// The column name.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Widget sorting methods. Valid values are `asc`, `desc`.
-	Order pulumi.StringPtrInput `pulumi:"order"`
-}
-
-func (PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumn)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArgs) ToPowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnOutput() PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnOutput {
-	return i.ToPowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArgs) ToPowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnOutput)
-}
-
-// PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArrayInput is an input type that accepts PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArray and PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArrayOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArrayInput` via:
-//
-//	PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArray{ PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArgs{...} }
-type PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArrayInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArrayOutput() PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArrayOutput
-	ToPowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArrayOutputWithContext(context.Context) PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArrayOutput
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArray []PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnInput
-
-func (PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumn)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArray) ToPowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArrayOutput() PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArrayOutput {
-	return i.ToPowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArrayOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArray) ToPowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArrayOutput)
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumn)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnOutput() PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnOutput {
-	return o
-}
-
-// A user-assigned alias for the column.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnOutput) Alias() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumn) *string { return v.Alias }).(pulumi.StringPtrOutput)
-}
-
-// A list of display modes for each table cell. Valid values are `number`, `bar`, `trend`.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnOutput) CellDisplayMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumn) *string {
-		return v.CellDisplayMode
-	}).(pulumi.StringPtrOutput)
-}
-
-// The column name.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumn) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Widget sorting methods. Valid values are `asc`, `desc`.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnOutput) Order() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumn) *string { return v.Order }).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArrayOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumn)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArrayOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArrayOutput() PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArrayOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArrayOutput) Index(i pulumi.IntInput) PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumn {
-		return vs[0].([]PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumn)[vs[1].(int)]
-	}).(PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnOutput)
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormat struct {
-	// The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
-	Comparator string `pulumi:"comparator"`
-	// The color palette to apply to the background, same values available as palette.
-	CustomBgColor *string `pulumi:"customBgColor"`
-	// The color palette to apply to the foreground, same values available as palette.
-	CustomFgColor *string `pulumi:"customFgColor"`
-	// Setting this to True hides values.
-	HideValue *bool `pulumi:"hideValue"`
-	// Displays an image as the background.
-	ImageUrl *string `pulumi:"imageUrl"`
-	// The metric from the request to correlate with this conditional format.
-	Metric *string `pulumi:"metric"`
-	// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
-	Palette string `pulumi:"palette"`
-	// Defines the displayed timeframe.
-	Timeframe *string `pulumi:"timeframe"`
-	// A value for the comparator.
-	Value float64 `pulumi:"value"`
-}
-
-// PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatInput is an input type that accepts PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArgs and PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatInput` via:
-//
-//	PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArgs{...}
-type PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatOutput() PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatOutput
-	ToPowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatOutputWithContext(context.Context) PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatOutput
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArgs struct {
-	// The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
-	Comparator pulumi.StringInput `pulumi:"comparator"`
-	// The color palette to apply to the background, same values available as palette.
-	CustomBgColor pulumi.StringPtrInput `pulumi:"customBgColor"`
-	// The color palette to apply to the foreground, same values available as palette.
-	CustomFgColor pulumi.StringPtrInput `pulumi:"customFgColor"`
-	// Setting this to True hides values.
-	HideValue pulumi.BoolPtrInput `pulumi:"hideValue"`
-	// Displays an image as the background.
-	ImageUrl pulumi.StringPtrInput `pulumi:"imageUrl"`
-	// The metric from the request to correlate with this conditional format.
-	Metric pulumi.StringPtrInput `pulumi:"metric"`
-	// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
-	Palette pulumi.StringInput `pulumi:"palette"`
-	// Defines the displayed timeframe.
-	Timeframe pulumi.StringPtrInput `pulumi:"timeframe"`
-	// A value for the comparator.
-	Value pulumi.Float64Input `pulumi:"value"`
-}
-
-func (PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormat)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArgs) ToPowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatOutput() PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatOutput {
-	return i.ToPowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArgs) ToPowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatOutput)
-}
-
-// PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArrayInput is an input type that accepts PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArray and PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArrayOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArrayInput` via:
-//
-//	PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArray{ PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArgs{...} }
-type PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArrayInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArrayOutput() PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArrayOutput
-	ToPowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArrayOutputWithContext(context.Context) PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArrayOutput
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArray []PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatInput
-
-func (PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormat)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArray) ToPowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArrayOutput() PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArrayOutput {
-	return i.ToPowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArrayOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArray) ToPowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArrayOutput)
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormat)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatOutput() PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatOutput {
-	return o
-}
-
-// The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatOutput) Comparator() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormat) string { return v.Comparator }).(pulumi.StringOutput)
-}
-
-// The color palette to apply to the background, same values available as palette.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatOutput) CustomBgColor() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormat) *string { return v.CustomBgColor }).(pulumi.StringPtrOutput)
-}
-
-// The color palette to apply to the foreground, same values available as palette.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatOutput) CustomFgColor() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormat) *string { return v.CustomFgColor }).(pulumi.StringPtrOutput)
-}
-
-// Setting this to True hides values.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatOutput) HideValue() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormat) *bool { return v.HideValue }).(pulumi.BoolPtrOutput)
-}
-
-// Displays an image as the background.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatOutput) ImageUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormat) *string { return v.ImageUrl }).(pulumi.StringPtrOutput)
-}
-
-// The metric from the request to correlate with this conditional format.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatOutput) Metric() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormat) *string { return v.Metric }).(pulumi.StringPtrOutput)
-}
-
-// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatOutput) Palette() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormat) string { return v.Palette }).(pulumi.StringOutput)
-}
-
-// Defines the displayed timeframe.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatOutput) Timeframe() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormat) *string { return v.Timeframe }).(pulumi.StringPtrOutput)
-}
-
-// A value for the comparator.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatOutput) Value() pulumi.Float64Output {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormat) float64 { return v.Value }).(pulumi.Float64Output)
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArrayOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormat)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArrayOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArrayOutput() PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArrayOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArrayOutput) Index(i pulumi.IntInput) PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormat {
-		return vs[0].([]PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormat)[vs[1].(int)]
-	}).(PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatOutput)
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestFormula struct {
-	// An expression alias.
-	Alias *string `pulumi:"alias"`
-	// A list of display modes for each table cell. Valid values are `number`, `bar`, and `trend`.
-	CellDisplayMode *string `pulumi:"cellDisplayMode"`
-	// Options for the cell display mode. Only used when `cellDisplayMode` is set to `trend`.
-	CellDisplayModeOptions *PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions `pulumi:"cellDisplayModeOptions"`
-	// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
-	ConditionalFormats []PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormat `pulumi:"conditionalFormats"`
-	// A string expression built from queries, formulas, and functions.
-	FormulaExpression string `pulumi:"formulaExpression"`
-	// The options for limiting results returned.
-	Limit *PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimit `pulumi:"limit"`
-	// Number formatting options for the formula.
-	NumberFormat *PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormat `pulumi:"numberFormat"`
-	// Styling options for widget formulas.
-	Style *PowerpackV2WidgetQueryTableDefinitionRequestFormulaStyle `pulumi:"style"`
-}
-
-// PowerpackV2WidgetQueryTableDefinitionRequestFormulaInput is an input type that accepts PowerpackV2WidgetQueryTableDefinitionRequestFormulaArgs and PowerpackV2WidgetQueryTableDefinitionRequestFormulaOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryTableDefinitionRequestFormulaInput` via:
-//
-//	PowerpackV2WidgetQueryTableDefinitionRequestFormulaArgs{...}
-type PowerpackV2WidgetQueryTableDefinitionRequestFormulaInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaOutput
-	ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaOutputWithContext(context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaOutput
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestFormulaArgs struct {
-	// An expression alias.
-	Alias pulumi.StringPtrInput `pulumi:"alias"`
-	// A list of display modes for each table cell. Valid values are `number`, `bar`, and `trend`.
-	CellDisplayMode pulumi.StringPtrInput `pulumi:"cellDisplayMode"`
-	// Options for the cell display mode. Only used when `cellDisplayMode` is set to `trend`.
-	CellDisplayModeOptions PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrInput `pulumi:"cellDisplayModeOptions"`
-	// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
-	ConditionalFormats PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArrayInput `pulumi:"conditionalFormats"`
-	// A string expression built from queries, formulas, and functions.
-	FormulaExpression pulumi.StringInput `pulumi:"formulaExpression"`
-	// The options for limiting results returned.
-	Limit PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrInput `pulumi:"limit"`
-	// Number formatting options for the formula.
-	NumberFormat PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrInput `pulumi:"numberFormat"`
-	// Styling options for widget formulas.
-	Style PowerpackV2WidgetQueryTableDefinitionRequestFormulaStylePtrInput `pulumi:"style"`
-}
-
-func (PowerpackV2WidgetQueryTableDefinitionRequestFormulaArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequestFormula)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestFormulaArgs) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaOutput {
-	return i.ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestFormulaArgs) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryTableDefinitionRequestFormulaOutput)
-}
-
-// PowerpackV2WidgetQueryTableDefinitionRequestFormulaArrayInput is an input type that accepts PowerpackV2WidgetQueryTableDefinitionRequestFormulaArray and PowerpackV2WidgetQueryTableDefinitionRequestFormulaArrayOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryTableDefinitionRequestFormulaArrayInput` via:
-//
-//	PowerpackV2WidgetQueryTableDefinitionRequestFormulaArray{ PowerpackV2WidgetQueryTableDefinitionRequestFormulaArgs{...} }
-type PowerpackV2WidgetQueryTableDefinitionRequestFormulaArrayInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaArrayOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaArrayOutput
-	ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaArrayOutputWithContext(context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaArrayOutput
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestFormulaArray []PowerpackV2WidgetQueryTableDefinitionRequestFormulaInput
-
-func (PowerpackV2WidgetQueryTableDefinitionRequestFormulaArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetQueryTableDefinitionRequestFormula)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestFormulaArray) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaArrayOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaArrayOutput {
-	return i.ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaArrayOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestFormulaArray) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryTableDefinitionRequestFormulaArrayOutput)
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestFormulaOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryTableDefinitionRequestFormulaOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequestFormula)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaOutput {
-	return o
-}
-
-// An expression alias.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaOutput) Alias() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestFormula) *string { return v.Alias }).(pulumi.StringPtrOutput)
-}
-
-// A list of display modes for each table cell. Valid values are `number`, `bar`, and `trend`.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaOutput) CellDisplayMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestFormula) *string { return v.CellDisplayMode }).(pulumi.StringPtrOutput)
-}
-
-// Options for the cell display mode. Only used when `cellDisplayMode` is set to `trend`.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaOutput) CellDisplayModeOptions() PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestFormula) *PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions {
-		return v.CellDisplayModeOptions
-	}).(PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput)
-}
-
-// Conditional formats allow you to set the color of your widget content or background depending on the rule applied to your data. Multiple `conditionalFormats` blocks are allowed using the structure below.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaOutput) ConditionalFormats() PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestFormula) []PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormat {
-		return v.ConditionalFormats
-	}).(PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArrayOutput)
-}
-
-// A string expression built from queries, formulas, and functions.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaOutput) FormulaExpression() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestFormula) string { return v.FormulaExpression }).(pulumi.StringOutput)
-}
-
-// The options for limiting results returned.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaOutput) Limit() PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestFormula) *PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimit {
-		return v.Limit
-	}).(PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutput)
-}
-
-// Number formatting options for the formula.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaOutput) NumberFormat() PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestFormula) *PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormat {
-		return v.NumberFormat
-	}).(PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutput)
-}
-
-// Styling options for widget formulas.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaOutput) Style() PowerpackV2WidgetQueryTableDefinitionRequestFormulaStylePtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestFormula) *PowerpackV2WidgetQueryTableDefinitionRequestFormulaStyle {
-		return v.Style
-	}).(PowerpackV2WidgetQueryTableDefinitionRequestFormulaStylePtrOutput)
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestFormulaArrayOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryTableDefinitionRequestFormulaArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetQueryTableDefinitionRequestFormula)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaArrayOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaArrayOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaArrayOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaArrayOutput) Index(i pulumi.IntInput) PowerpackV2WidgetQueryTableDefinitionRequestFormulaOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackV2WidgetQueryTableDefinitionRequestFormula {
-		return vs[0].([]PowerpackV2WidgetQueryTableDefinitionRequestFormula)[vs[1].(int)]
-	}).(PowerpackV2WidgetQueryTableDefinitionRequestFormulaOutput)
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions struct {
-	// The type of trend line to display. Valid values are `area`, `line`, and `bars`.
-	TrendType *string `pulumi:"trendType"`
-	// The scale of the y-axis. Valid values are `shared` and `independent`.
-	YScale *string `pulumi:"yScale"`
-}
-
-// PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsInput is an input type that accepts PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsArgs and PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsInput` via:
-//
-//	PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsArgs{...}
-type PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsOutput
-	ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsOutputWithContext(context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsOutput
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsArgs struct {
-	// The type of trend line to display. Valid values are `area`, `line`, and `bars`.
-	TrendType pulumi.StringPtrInput `pulumi:"trendType"`
-	// The scale of the y-axis. Valid values are `shared` and `independent`.
-	YScale pulumi.StringPtrInput `pulumi:"yScale"`
-}
-
-func (PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsArgs) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsOutput {
-	return i.ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsArgs) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsOutput)
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsArgs) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput {
-	return i.ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsArgs) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsOutput).ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrInput is an input type that accepts PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsArgs, PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtr and PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrInput` via:
-//
-//	        PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput
-	ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput
-}
-
-type powerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrType PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsArgs
-
-func PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtr(v *PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsArgs) PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrInput {
-	return (*powerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrType)(v)
-}
-
-func (*powerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrType) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput {
-	return i.ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrType) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput)
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput {
-	return o.ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions) *PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions {
-		return &v
-	}).(PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput)
-}
-
-// The type of trend line to display. Valid values are `area`, `line`, and `bars`.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsOutput) TrendType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions) *string {
-		return v.TrendType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The scale of the y-axis. Valid values are `shared` and `independent`.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsOutput) YScale() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions) *string {
-		return v.YScale
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput) Elem() PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions) PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions
-		return ret
-	}).(PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsOutput)
-}
-
-// The type of trend line to display. Valid values are `area`, `line`, and `bars`.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput) TrendType() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return v.TrendType
-	}).(pulumi.StringPtrOutput)
-}
-
-// The scale of the y-axis. Valid values are `shared` and `independent`.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput) YScale() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptions) *string {
-		if v == nil {
-			return nil
-		}
-		return v.YScale
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormat struct {
-	// The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
-	Comparator string `pulumi:"comparator"`
-	// The color palette to apply to the background, same values available as palette.
-	CustomBgColor *string `pulumi:"customBgColor"`
-	// The color palette to apply to the foreground, same values available as palette.
-	CustomFgColor *string `pulumi:"customFgColor"`
-	// Setting this to True hides values.
-	HideValue *bool `pulumi:"hideValue"`
-	// Displays an image as the background.
-	ImageUrl *string `pulumi:"imageUrl"`
-	// The metric from the request to correlate with this conditional format.
-	Metric *string `pulumi:"metric"`
-	// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
-	Palette string `pulumi:"palette"`
-	// Defines the displayed timeframe.
-	Timeframe *string `pulumi:"timeframe"`
-	// A value for the comparator.
-	Value float64 `pulumi:"value"`
-}
-
-// PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatInput is an input type that accepts PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArgs and PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatInput` via:
-//
-//	PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArgs{...}
-type PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatOutput
-	ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatOutputWithContext(context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatOutput
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArgs struct {
-	// The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
-	Comparator pulumi.StringInput `pulumi:"comparator"`
-	// The color palette to apply to the background, same values available as palette.
-	CustomBgColor pulumi.StringPtrInput `pulumi:"customBgColor"`
-	// The color palette to apply to the foreground, same values available as palette.
-	CustomFgColor pulumi.StringPtrInput `pulumi:"customFgColor"`
-	// Setting this to True hides values.
-	HideValue pulumi.BoolPtrInput `pulumi:"hideValue"`
-	// Displays an image as the background.
-	ImageUrl pulumi.StringPtrInput `pulumi:"imageUrl"`
-	// The metric from the request to correlate with this conditional format.
-	Metric pulumi.StringPtrInput `pulumi:"metric"`
-	// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
-	Palette pulumi.StringInput `pulumi:"palette"`
-	// Defines the displayed timeframe.
-	Timeframe pulumi.StringPtrInput `pulumi:"timeframe"`
-	// A value for the comparator.
-	Value pulumi.Float64Input `pulumi:"value"`
-}
-
-func (PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormat)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArgs) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatOutput {
-	return i.ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArgs) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatOutput)
-}
-
-// PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArrayInput is an input type that accepts PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArray and PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArrayOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArrayInput` via:
-//
-//	PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArray{ PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArgs{...} }
-type PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArrayInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArrayOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArrayOutput
-	ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArrayOutputWithContext(context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArrayOutput
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArray []PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatInput
-
-func (PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormat)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArray) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArrayOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArrayOutput {
-	return i.ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArrayOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArray) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArrayOutput)
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormat)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatOutput {
-	return o
-}
-
-// The comparator to use. Valid values are `=`, `>`, `>=`, `<`, `<=`.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatOutput) Comparator() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormat) string {
-		return v.Comparator
-	}).(pulumi.StringOutput)
-}
-
-// The color palette to apply to the background, same values available as palette.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatOutput) CustomBgColor() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormat) *string {
-		return v.CustomBgColor
-	}).(pulumi.StringPtrOutput)
-}
-
-// The color palette to apply to the foreground, same values available as palette.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatOutput) CustomFgColor() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormat) *string {
-		return v.CustomFgColor
-	}).(pulumi.StringPtrOutput)
-}
-
-// Setting this to True hides values.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatOutput) HideValue() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormat) *bool { return v.HideValue }).(pulumi.BoolPtrOutput)
-}
-
-// Displays an image as the background.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatOutput) ImageUrl() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormat) *string {
-		return v.ImageUrl
-	}).(pulumi.StringPtrOutput)
-}
-
-// The metric from the request to correlate with this conditional format.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatOutput) Metric() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormat) *string { return v.Metric }).(pulumi.StringPtrOutput)
-}
-
-// The color palette to apply. Valid values are `blue`, `customBg`, `customImage`, `customText`, `grayOnWhite`, `grey`, `green`, `orange`, `red`, `redOnWhite`, `whiteOnGray`, `whiteOnGreen`, `greenOnWhite`, `whiteOnRed`, `whiteOnYellow`, `yellowOnWhite`, `blackOnLightYellow`, `blackOnLightGreen`, `blackOnLightRed`.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatOutput) Palette() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormat) string { return v.Palette }).(pulumi.StringOutput)
-}
-
-// Defines the displayed timeframe.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatOutput) Timeframe() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormat) *string {
-		return v.Timeframe
-	}).(pulumi.StringPtrOutput)
-}
-
-// A value for the comparator.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatOutput) Value() pulumi.Float64Output {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormat) float64 { return v.Value }).(pulumi.Float64Output)
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArrayOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormat)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArrayOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArrayOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArrayOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArrayOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArrayOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArrayOutput) Index(i pulumi.IntInput) PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormat {
-		return vs[0].([]PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormat)[vs[1].(int)]
-	}).(PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatOutput)
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimit struct {
-	// The number of results to return.
-	Count *int `pulumi:"count"`
-	// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
-	Order *string `pulumi:"order"`
-}
-
-// PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitInput is an input type that accepts PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitArgs and PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitInput` via:
-//
-//	PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitArgs{...}
-type PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitOutput
-	ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitOutputWithContext(context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitOutput
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitArgs struct {
-	// The number of results to return.
-	Count pulumi.IntPtrInput `pulumi:"count"`
-	// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
-	Order pulumi.StringPtrInput `pulumi:"order"`
-}
-
-func (PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimit)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitArgs) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitOutput {
-	return i.ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitArgs) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitOutput)
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitArgs) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutput {
-	return i.ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitArgs) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitOutput).ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrInput is an input type that accepts PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitArgs, PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtr and PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrInput` via:
-//
-//	        PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutput
-	ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutputWithContext(context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutput
-}
-
-type powerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrType PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitArgs
-
-func PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtr(v *PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitArgs) PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrInput {
-	return (*powerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrType)(v)
-}
-
-func (*powerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimit)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrType) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutput {
-	return i.ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrType) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutput)
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimit)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutput {
-	return o.ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimit) *PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimit {
-		return &v
-	}).(PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutput)
-}
-
-// The number of results to return.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitOutput) Count() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimit) *int { return v.Count }).(pulumi.IntPtrOutput)
-}
-
-// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitOutput) Order() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimit) *string { return v.Order }).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimit)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutput) Elem() PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimit) PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimit {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimit
-		return ret
-	}).(PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitOutput)
-}
-
-// The number of results to return.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutput) Count() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimit) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Count
-	}).(pulumi.IntPtrOutput)
-}
-
-// The direction of the sort. Valid values are `asc`, `desc`. Defaults to `"desc"`.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutput) Order() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimit) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Order
-	}).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormat struct {
-	// Unit of the number format.
-	Unit PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatUnit `pulumi:"unit"`
-	// The definition of `NumberFormatUnitScale` object.
-	UnitScale *PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScale `pulumi:"unitScale"`
-}
-
-// PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatInput is an input type that accepts PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatArgs and PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatInput` via:
-//
-//	PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatArgs{...}
-type PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatOutput
-	ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatOutputWithContext(context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatOutput
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatArgs struct {
-	// Unit of the number format.
-	Unit PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatUnitInput `pulumi:"unit"`
-	// The definition of `NumberFormatUnitScale` object.
-	UnitScale PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScalePtrInput `pulumi:"unitScale"`
-}
-
-func (PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormat)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatArgs) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatOutput {
-	return i.ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatArgs) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatOutput)
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatArgs) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutput {
-	return i.ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatArgs) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatOutput).ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrInput is an input type that accepts PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatArgs, PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtr and PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrInput` via:
-//
-//	        PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutput
-	ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutputWithContext(context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutput
-}
-
-type powerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrType PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatArgs
-
-func PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtr(v *PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatArgs) PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrInput {
-	return (*powerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrType)(v)
-}
-
-func (*powerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormat)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrType) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutput {
-	return i.ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrType) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutput)
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormat)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutput {
-	return o.ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormat) *PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormat {
-		return &v
-	}).(PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutput)
-}
-
-// Unit of the number format.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatOutput) Unit() PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatUnitOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormat) PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatUnit {
-		return v.Unit
-	}).(PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatUnitOutput)
-}
-
-// The definition of `NumberFormatUnitScale` object.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatOutput) UnitScale() PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormat) *PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScale {
-		return v.UnitScale
-	}).(PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScalePtrOutput)
-}
-
-type PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormat)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutput() PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutput) ToPowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutput) Elem() PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormat) PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormat {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormat
-		return ret
-	}).(PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatOutput)
-}
-
-// Unit of the number format.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutput) Unit() PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatUnitPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormat) *PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatUnit {
-		if v == nil {
-			return nil
-		}
-		return &v.Unit
-	}).(PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatUnitPtrOutput)
-}
-
-// The definition of `NumberFormatUnitScale` object.
-func (o PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutput) UnitScale() PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormat) *PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScale {
-		if v == nil {
-			return nil
-		}
-		return v.UnitScale
-	}).(PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScalePtrOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorThrottleInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorThrottleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorThrottleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceInput)(nil)).Elem(), ObservabilityPipelineConfigSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceArrayInput)(nil)).Elem(), ObservabilityPipelineConfigSourceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonDataFirehoseInput)(nil)).Elem(), ObservabilityPipelineConfigSourceAmazonDataFirehoseArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayInput)(nil)).Elem(), ObservabilityPipelineConfigSourceAmazonDataFirehoseArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthInput)(nil)).Elem(), ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrInput)(nil)).Elem(), ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsInput)(nil)).Elem(), ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrInput)(nil)).Elem(), ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonS3Input)(nil)).Elem(), ObservabilityPipelineConfigSourceAmazonS3Args{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonS3ArrayInput)(nil)).Elem(), ObservabilityPipelineConfigSourceAmazonS3Array{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonS3AuthInput)(nil)).Elem(), ObservabilityPipelineConfigSourceAmazonS3AuthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonS3AuthPtrInput)(nil)).Elem(), ObservabilityPipelineConfigSourceAmazonS3AuthArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonS3TlsInput)(nil)).Elem(), ObservabilityPipelineConfigSourceAmazonS3TlsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceAmazonS3TlsPtrInput)(nil)).Elem(), ObservabilityPipelineConfigSourceAmazonS3TlsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceDatadogAgentInput)(nil)).Elem(), ObservabilityPipelineConfigSourceDatadogAgentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceDatadogAgentArrayInput)(nil)).Elem(), ObservabilityPipelineConfigSourceDatadogAgentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceDatadogAgentTlsInput)(nil)).Elem(), ObservabilityPipelineConfigSourceDatadogAgentTlsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceDatadogAgentTlsPtrInput)(nil)).Elem(), ObservabilityPipelineConfigSourceDatadogAgentTlsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceFluentBitInput)(nil)).Elem(), ObservabilityPipelineConfigSourceFluentBitArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceFluentBitArrayInput)(nil)).Elem(), ObservabilityPipelineConfigSourceFluentBitArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceFluentBitTlsInput)(nil)).Elem(), ObservabilityPipelineConfigSourceFluentBitTlsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceFluentBitTlsPtrInput)(nil)).Elem(), ObservabilityPipelineConfigSourceFluentBitTlsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceFluentdInput)(nil)).Elem(), ObservabilityPipelineConfigSourceFluentdArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceFluentdArrayInput)(nil)).Elem(), ObservabilityPipelineConfigSourceFluentdArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceFluentdTlsInput)(nil)).Elem(), ObservabilityPipelineConfigSourceFluentdTlsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceFluentdTlsPtrInput)(nil)).Elem(), ObservabilityPipelineConfigSourceFluentdTlsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceGooglePubsubInput)(nil)).Elem(), ObservabilityPipelineConfigSourceGooglePubsubArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceGooglePubsubArrayInput)(nil)).Elem(), ObservabilityPipelineConfigSourceGooglePubsubArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceGooglePubsubAuthInput)(nil)).Elem(), ObservabilityPipelineConfigSourceGooglePubsubAuthArgs{})
@@ -88491,34 +88352,34 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchFiltersGraphFilterTargetPtrInput)(nil)).Elem(), PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchFiltersGraphFilterTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysInput)(nil)).Elem(), PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrInput)(nil)).Elem(), PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeInput)(nil)).Elem(), PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrInput)(nil)).Elem(), PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedInput)(nil)).Elem(), PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrInput)(nil)).Elem(), PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveInput)(nil)).Elem(), PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrInput)(nil)).Elem(), PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionInput)(nil)).Elem(), PowerpackV2WidgetQueryTableDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionPtrInput)(nil)).Elem(), PowerpackV2WidgetQueryTableDefinitionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionCustomLinkInput)(nil)).Elem(), PowerpackV2WidgetQueryTableDefinitionCustomLinkArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionCustomLinkArrayInput)(nil)).Elem(), PowerpackV2WidgetQueryTableDefinitionCustomLinkArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequestInput)(nil)).Elem(), PowerpackV2WidgetQueryTableDefinitionRequestArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequestArrayInput)(nil)).Elem(), PowerpackV2WidgetQueryTableDefinitionRequestArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryInput)(nil)).Elem(), PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrInput)(nil)).Elem(), PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnInput)(nil)).Elem(), PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArrayInput)(nil)).Elem(), PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatInput)(nil)).Elem(), PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArrayInput)(nil)).Elem(), PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequestFormulaInput)(nil)).Elem(), PowerpackV2WidgetQueryTableDefinitionRequestFormulaArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequestFormulaArrayInput)(nil)).Elem(), PowerpackV2WidgetQueryTableDefinitionRequestFormulaArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsInput)(nil)).Elem(), PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrInput)(nil)).Elem(), PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatInput)(nil)).Elem(), PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArrayInput)(nil)).Elem(), PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitInput)(nil)).Elem(), PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrInput)(nil)).Elem(), PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatInput)(nil)).Elem(), PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrInput)(nil)).Elem(), PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatArgs{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceArrayOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceAmazonDataFirehoseOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceAmazonDataFirehoseArrayOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceAmazonDataFirehoseAuthPtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceAmazonDataFirehoseTlsPtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceAmazonS3Output{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceAmazonS3ArrayOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceAmazonS3AuthOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceAmazonS3AuthPtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceAmazonS3TlsOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceAmazonS3TlsPtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceDatadogAgentOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceDatadogAgentArrayOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceDatadogAgentTlsOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceDatadogAgentTlsPtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceFluentBitOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceFluentBitArrayOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceFluentBitTlsOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceFluentBitTlsPtrOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceFluentdOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceFluentdArrayOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceFluentdTlsOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceFluentdTlsPtrOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceGooglePubsubOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceGooglePubsubArrayOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceGooglePubsubAuthOutput{})
@@ -89477,32 +89338,4 @@ func init() {
 	pulumi.RegisterOutputType(PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchFiltersGraphFilterTargetPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLiveOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeLivePtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryTableDefinitionOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryTableDefinitionPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryTableDefinitionCustomLinkOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryTableDefinitionCustomLinkArrayOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryTableDefinitionRequestOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryTableDefinitionRequestArrayOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryTableDefinitionRequestApmStatsQueryColumnArrayOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryTableDefinitionRequestConditionalFormatArrayOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryTableDefinitionRequestFormulaOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryTableDefinitionRequestFormulaArrayOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryTableDefinitionRequestFormulaCellDisplayModeOptionsPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryTableDefinitionRequestFormulaConditionalFormatArrayOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryTableDefinitionRequestFormulaLimitPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetQueryTableDefinitionRequestFormulaNumberFormatPtrOutput{})
 }

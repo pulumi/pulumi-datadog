@@ -31,6 +31,22 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &AgentlessScanningAzureScanOptions{}
 	case "datadog:index/agentlessScanningGcpScanOptions:AgentlessScanningGcpScanOptions":
 		r = &AgentlessScanningGcpScanOptions{}
+	case "datadog:index/aiGatewayBudget:AiGatewayBudget":
+		r = &AiGatewayBudget{}
+	case "datadog:index/aiGatewayDataCaptureOverride:AiGatewayDataCaptureOverride":
+		r = &AiGatewayDataCaptureOverride{}
+	case "datadog:index/aiGatewayGovernance:AiGatewayGovernance":
+		r = &AiGatewayGovernance{}
+	case "datadog:index/aiGatewayModelGroup:AiGatewayModelGroup":
+		r = &AiGatewayModelGroup{}
+	case "datadog:index/aiGatewayPolicy:AiGatewayPolicy":
+		r = &AiGatewayPolicy{}
+	case "datadog:index/aiGatewayProvider:AiGatewayProvider":
+		r = &AiGatewayProvider{}
+	case "datadog:index/aiGatewayRateLimit:AiGatewayRateLimit":
+		r = &AiGatewayRateLimit{}
+	case "datadog:index/aiGatewayRoutingRule:AiGatewayRoutingRule":
+		r = &AiGatewayRoutingRule{}
 	case "datadog:index/apiKey:ApiKey":
 		r = &ApiKey{}
 	case "datadog:index/apmRetentionFilter:ApmRetentionFilter":
@@ -281,6 +297,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &StatusPageComponent{}
 	case "datadog:index/statusPageDegradationTemplate:StatusPageDegradationTemplate":
 		r = &StatusPageDegradationTemplate{}
+	case "datadog:index/statusPageEmailAccessPolicy:StatusPageEmailAccessPolicy":
+		r = &StatusPageEmailAccessPolicy{}
 	case "datadog:index/statusPageMaintenanceTemplate:StatusPageMaintenanceTemplate":
 		r = &StatusPageMaintenanceTemplate{}
 	case "datadog:index/syntheticsConcurrencyCap:SyntheticsConcurrencyCap":
@@ -321,6 +339,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &TeamPermissionSetting{}
 	case "datadog:index/teamSync:TeamSync":
 		r = &TeamSync{}
+	case "datadog:index/usageQuota:UsageQuota":
+		r = &UsageQuota{}
 	case "datadog:index/user:User":
 		r = &User{}
 	case "datadog:index/userRole:UserRole":
@@ -387,6 +407,46 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/agentlessScanningGcpScanOptions",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/aiGatewayBudget",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/aiGatewayDataCaptureOverride",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/aiGatewayGovernance",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/aiGatewayModelGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/aiGatewayPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/aiGatewayProvider",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/aiGatewayRateLimit",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/aiGatewayRoutingRule",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -1016,6 +1076,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"datadog",
+		"index/statusPageEmailAccessPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
 		"index/statusPageMaintenanceTemplate",
 		&module{version},
 	)
@@ -1112,6 +1177,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"datadog",
 		"index/teamSync",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"datadog",
+		"index/usageQuota",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

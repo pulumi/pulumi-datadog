@@ -64,6 +64,10 @@ export interface GetStatusPageResult {
      */
     readonly emailHeaderImage: string;
     /**
+     * Whether email notifications are enabled for the status page.
+     */
+    readonly emailNotificationsEnabled: boolean;
+    /**
      * Whether the status page is published.
      */
     readonly enabled: boolean;
@@ -80,6 +84,10 @@ export interface GetStatusPageResult {
      */
     readonly modifiedAt: string;
     /**
+     * Whether Microsoft Teams subscriber notifications are enabled for the status page.
+     */
+    readonly msTeamsSubscriptionsEnabled: boolean;
+    /**
      * The name of the status page.
      */
     readonly name: string;
@@ -87,6 +95,10 @@ export interface GetStatusPageResult {
      * The URL of the status page.
      */
     readonly pageUrl: string;
+    /**
+     * Whether the RSS feed is enabled for the status page.
+     */
+    readonly rssFeedEnabled: boolean;
     /**
      * The icon used for the status page's Slack app integration.
      */
@@ -103,6 +115,10 @@ export interface GetStatusPageResult {
      * The type of the status page.
      */
     readonly type: string;
+    /**
+     * The layout of components on the status page. Possible values are: list, grid.
+     */
+    readonly visualizationLayout: string;
     /**
      * How component statuses are visualized on the page.
      */

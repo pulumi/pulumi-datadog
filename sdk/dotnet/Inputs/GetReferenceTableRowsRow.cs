@@ -22,7 +22,7 @@ namespace Pulumi.Datadog.Inputs
         private Dictionary<string, string>? _values;
 
         /// <summary>
-        /// Map of field names to values for this row. All values are returned as strings.
+        /// Map of field names to row values. Non-null values are returned as strings. API `Null` values are represented as Terraform `Null`. Empty strings are returned as `""`.
         /// </summary>
         public Dictionary<string, string> Values
         {

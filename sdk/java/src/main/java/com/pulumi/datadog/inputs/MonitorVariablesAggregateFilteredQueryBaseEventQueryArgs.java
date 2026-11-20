@@ -36,14 +36,14 @@ public final class MonitorVariablesAggregateFilteredQueryBaseEventQueryArgs exte
     }
 
     /**
-     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
+     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`, `llmObservability`.
      * 
      */
     @Import(name="dataSource", required=true)
     private Output<String> dataSource;
 
     /**
-     * @return The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
+     * @return The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`, `llmObservability`.
      * 
      */
     public Output<String> dataSource() {
@@ -171,7 +171,7 @@ public final class MonitorVariablesAggregateFilteredQueryBaseEventQueryArgs exte
         }
 
         /**
-         * @param dataSource The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
+         * @param dataSource The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`, `llmObservability`.
          * 
          * @return builder
          * 
@@ -182,7 +182,7 @@ public final class MonitorVariablesAggregateFilteredQueryBaseEventQueryArgs exte
         }
 
         /**
-         * @param dataSource The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
+         * @param dataSource The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`, `llmObservability`.
          * 
          * @return builder
          * 

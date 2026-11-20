@@ -19,6 +19,8 @@ import * as utilities from "./utilities";
  *     type: "public",
  *     domainPrefix: "acme-status",
  *     visualizationType: "bars_and_uptime_percentage",
+ *     visualizationLayout: "list",
+ *     rssFeedEnabled: true,
  * });
  * ```
  *
@@ -94,6 +96,10 @@ export class StatusPage extends pulumi.CustomResource {
      */
     declare public readonly emailHeaderImage: pulumi.Output<string>;
     /**
+     * Whether email notifications are enabled for the status page. Must be enabled when `subscriptionsEnabled` is `true`.
+     */
+    declare public readonly emailNotificationsEnabled: pulumi.Output<boolean>;
+    /**
      * Whether the status page is published. Managed by the publish/unpublish API operations, not by this resource; always reflects the page's current state.
      */
     declare public /*out*/ readonly enabled: pulumi.Output<boolean>;
@@ -106,6 +112,10 @@ export class StatusPage extends pulumi.CustomResource {
      */
     declare public /*out*/ readonly modifiedAt: pulumi.Output<string>;
     /**
+     * Whether Microsoft Teams subscriber notifications are enabled for the status page.
+     */
+    declare public readonly msTeamsSubscriptionsEnabled: pulumi.Output<boolean>;
+    /**
      * The name of the status page.
      */
     declare public readonly name: pulumi.Output<string>;
@@ -113,6 +123,10 @@ export class StatusPage extends pulumi.CustomResource {
      * The URL of the status page.
      */
     declare public /*out*/ readonly pageUrl: pulumi.Output<string>;
+    /**
+     * Whether the RSS feed is enabled for the status page.
+     */
+    declare public readonly rssFeedEnabled: pulumi.Output<boolean>;
     /**
      * The icon used for the status page's Slack app integration.
      */
@@ -126,9 +140,13 @@ export class StatusPage extends pulumi.CustomResource {
      */
     declare public readonly subscriptionsEnabled: pulumi.Output<boolean>;
     /**
-     * The type of the status page. Valid values are: public, internal.
+     * The type of the status page. Valid values are: public, internal, private. Private pages are only accessible to users allowed by the page's email access policies, managed with `datadog.StatusPageEmailAccessPolicy`.
      */
     declare public readonly type: pulumi.Output<string>;
+    /**
+     * The layout of components on the status page. Defaults to `list`. `grid` requires `visualizationType` to be `componentNameOnly`; changing `visualizationType` to any other value resets the layout to `list`. Valid values are `list`, `grid`.
+     */
+    declare public readonly visualizationLayout: pulumi.Output<string>;
     /**
      * How component statuses are visualized on the page. Valid values are: bars*and*uptime*percentage, bars*only, component*name*only.
      */
@@ -153,15 +171,19 @@ export class StatusPage extends pulumi.CustomResource {
             resourceInputs["customDomainEnabled"] = state?.customDomainEnabled;
             resourceInputs["domainPrefix"] = state?.domainPrefix;
             resourceInputs["emailHeaderImage"] = state?.emailHeaderImage;
+            resourceInputs["emailNotificationsEnabled"] = state?.emailNotificationsEnabled;
             resourceInputs["enabled"] = state?.enabled;
             resourceInputs["favicon"] = state?.favicon;
             resourceInputs["modifiedAt"] = state?.modifiedAt;
+            resourceInputs["msTeamsSubscriptionsEnabled"] = state?.msTeamsSubscriptionsEnabled;
             resourceInputs["name"] = state?.name;
             resourceInputs["pageUrl"] = state?.pageUrl;
+            resourceInputs["rssFeedEnabled"] = state?.rssFeedEnabled;
             resourceInputs["slackAppIcon"] = state?.slackAppIcon;
             resourceInputs["slackSubscriptionsEnabled"] = state?.slackSubscriptionsEnabled;
             resourceInputs["subscriptionsEnabled"] = state?.subscriptionsEnabled;
             resourceInputs["type"] = state?.type;
+            resourceInputs["visualizationLayout"] = state?.visualizationLayout;
             resourceInputs["visualizationType"] = state?.visualizationType;
         } else {
             const args = argsOrState as StatusPageArgs | undefined;
@@ -180,12 +202,16 @@ export class StatusPage extends pulumi.CustomResource {
             resourceInputs["companyLogo"] = args?.companyLogo;
             resourceInputs["domainPrefix"] = args?.domainPrefix;
             resourceInputs["emailHeaderImage"] = args?.emailHeaderImage;
+            resourceInputs["emailNotificationsEnabled"] = args?.emailNotificationsEnabled;
             resourceInputs["favicon"] = args?.favicon;
+            resourceInputs["msTeamsSubscriptionsEnabled"] = args?.msTeamsSubscriptionsEnabled;
             resourceInputs["name"] = args?.name;
+            resourceInputs["rssFeedEnabled"] = args?.rssFeedEnabled;
             resourceInputs["slackAppIcon"] = args?.slackAppIcon;
             resourceInputs["slackSubscriptionsEnabled"] = args?.slackSubscriptionsEnabled;
             resourceInputs["subscriptionsEnabled"] = args?.subscriptionsEnabled;
             resourceInputs["type"] = args?.type;
+            resourceInputs["visualizationLayout"] = args?.visualizationLayout;
             resourceInputs["visualizationType"] = args?.visualizationType;
             resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["customDomain"] = undefined /*out*/;
@@ -228,6 +254,10 @@ export interface StatusPageState {
      */
     emailHeaderImage?: pulumi.Input<string | undefined>;
     /**
+     * Whether email notifications are enabled for the status page. Must be enabled when `subscriptionsEnabled` is `true`.
+     */
+    emailNotificationsEnabled?: pulumi.Input<boolean | undefined>;
+    /**
      * Whether the status page is published. Managed by the publish/unpublish API operations, not by this resource; always reflects the page's current state.
      */
     enabled?: pulumi.Input<boolean | undefined>;
@@ -240,6 +270,10 @@ export interface StatusPageState {
      */
     modifiedAt?: pulumi.Input<string | undefined>;
     /**
+     * Whether Microsoft Teams subscriber notifications are enabled for the status page.
+     */
+    msTeamsSubscriptionsEnabled?: pulumi.Input<boolean | undefined>;
+    /**
      * The name of the status page.
      */
     name?: pulumi.Input<string | undefined>;
@@ -247,6 +281,10 @@ export interface StatusPageState {
      * The URL of the status page.
      */
     pageUrl?: pulumi.Input<string | undefined>;
+    /**
+     * Whether the RSS feed is enabled for the status page.
+     */
+    rssFeedEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The icon used for the status page's Slack app integration.
      */
@@ -260,9 +298,13 @@ export interface StatusPageState {
      */
     subscriptionsEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * The type of the status page. Valid values are: public, internal.
+     * The type of the status page. Valid values are: public, internal, private. Private pages are only accessible to users allowed by the page's email access policies, managed with `datadog.StatusPageEmailAccessPolicy`.
      */
     type?: pulumi.Input<string | undefined>;
+    /**
+     * The layout of components on the status page. Defaults to `list`. `grid` requires `visualizationType` to be `componentNameOnly`; changing `visualizationType` to any other value resets the layout to `list`. Valid values are `list`, `grid`.
+     */
+    visualizationLayout?: pulumi.Input<string | undefined>;
     /**
      * How component statuses are visualized on the page. Valid values are: bars*and*uptime*percentage, bars*only, component*name*only.
      */
@@ -286,13 +328,25 @@ export interface StatusPageArgs {
      */
     emailHeaderImage?: pulumi.Input<string | undefined>;
     /**
+     * Whether email notifications are enabled for the status page. Must be enabled when `subscriptionsEnabled` is `true`.
+     */
+    emailNotificationsEnabled?: pulumi.Input<boolean | undefined>;
+    /**
      * The favicon displayed for the status page.
      */
     favicon?: pulumi.Input<string | undefined>;
     /**
+     * Whether Microsoft Teams subscriber notifications are enabled for the status page.
+     */
+    msTeamsSubscriptionsEnabled?: pulumi.Input<boolean | undefined>;
+    /**
      * The name of the status page.
      */
     name: pulumi.Input<string>;
+    /**
+     * Whether the RSS feed is enabled for the status page.
+     */
+    rssFeedEnabled?: pulumi.Input<boolean | undefined>;
     /**
      * The icon used for the status page's Slack app integration.
      */
@@ -306,9 +360,13 @@ export interface StatusPageArgs {
      */
     subscriptionsEnabled?: pulumi.Input<boolean | undefined>;
     /**
-     * The type of the status page. Valid values are: public, internal.
+     * The type of the status page. Valid values are: public, internal, private. Private pages are only accessible to users allowed by the page's email access policies, managed with `datadog.StatusPageEmailAccessPolicy`.
      */
     type: pulumi.Input<string>;
+    /**
+     * The layout of components on the status page. Defaults to `list`. `grid` requires `visualizationType` to be `componentNameOnly`; changing `visualizationType` to any other value resets the layout to `list`. Valid values are `list`, `grid`.
+     */
+    visualizationLayout?: pulumi.Input<string | undefined>;
     /**
      * How component statuses are visualized on the page. Valid values are: bars*and*uptime*percentage, bars*only, component*name*only.
      */

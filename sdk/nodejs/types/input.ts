@@ -1378,6 +1378,131 @@ export interface ActionExecutionPolicyTarget {
     name?: pulumi.Input<string | undefined>;
 }
 
+export interface AiGatewayBudgetSelector {
+    /**
+     * Dimension to match: `userId`, `teamId`, `model`, `provider`, or `tag:<key>` with a lowercase key.
+     */
+    dim: pulumi.Input<string>;
+    /**
+     * Whether each matched value gets its own budget instance. When `false`, spend is pooled across all matched values. Defaults to `false`.
+     */
+    perValue?: pulumi.Input<boolean | undefined>;
+    /**
+     * Values the dimension must have. Omit to match any value, including requests that don't have the dimension.
+     */
+    values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AiGatewayPolicyTier {
+    /**
+     * Targets in the tier.
+     */
+    targets: pulumi.Input<pulumi.Input<inputs.AiGatewayPolicyTierTarget>[]>;
+}
+
+export interface AiGatewayPolicyTierTarget {
+    /**
+     * Model name, or a pattern with a trailing `*`.
+     */
+    model: pulumi.Input<string>;
+    /**
+     * Slug of the provider to route to, or `*` to fan out to every provider. When unset, the gateway resolves the provider from the model.
+     */
+    provider?: pulumi.Input<string | undefined>;
+}
+
+export interface AiGatewayProviderIntegrationConfig {
+    /**
+     * AWS region, for `bedrock` providers.
+     */
+    bedrockRegion?: pulumi.Input<string | undefined>;
+    /**
+     * Azure AI Foundry project name, for `azureFoundry` providers.
+     */
+    foundryProject?: pulumi.Input<string | undefined>;
+    /**
+     * ARM resource ID of the Azure AI Foundry resource, for `azureFoundry` providers.
+     */
+    foundryResourceId?: pulumi.Input<string | undefined>;
+    /**
+     * GCP location, for `gemini` providers.
+     */
+    location?: pulumi.Input<string | undefined>;
+    /**
+     * GCP project ID, for `gemini` providers.
+     */
+    projectId?: pulumi.Input<string | undefined>;
+    /**
+     * Operations that a `custom` provider discovered and manually added models support. The API defaults to `OPENAI_CHAT_COMPLETIONS`.
+     */
+    supportedOperations?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface AiGatewayRoutingRuleTier {
+    /**
+     * Decision model of a `classified` tier. Required on a `classified` tier and not allowed on others.
+     */
+    classifier?: pulumi.Input<inputs.AiGatewayRoutingRuleTierClassifier | undefined>;
+    /**
+     * How the tier orders its targets. `configured` tries them in the order listed. `weightedAffinity` spreads requests by each target's `weight`. `classified`, which lets a decision model pick one target by its `rubric`, is allowed only on the first tier. Valid values are `configured`, `weightedAffinity`, `classified`. Defaults to `"configured"`.
+     */
+    ordering?: pulumi.Input<string | undefined>;
+    /**
+     * Destinations in the tier, in order. A target is either a model, set with `provider` and `model`, or another routing rule, set with `routingRule`. A routing rule target must be the only target in its tier.
+     */
+    targets: pulumi.Input<pulumi.Input<inputs.AiGatewayRoutingRuleTierTarget>[]>;
+}
+
+export interface AiGatewayRoutingRuleTierClassifier {
+    /**
+     * Minimum confidence that the picked target must reach. If the confidence is lower, the request goes to the default target. Value must be between 0.000000 and 1.000000. Defaults to `0.5`.
+     */
+    confidenceThreshold?: pulumi.Input<number | undefined>;
+    /**
+     * Prompt that tells the decision model about the rule's traffic, up to 2000 characters.
+     */
+    context?: pulumi.Input<string | undefined>;
+    /**
+     * Canonical name of the decision model on that provider.
+     */
+    model: pulumi.Input<string>;
+    /**
+     * Slug of the provider that serves the decision model. It must be an OpenAI, Baseten, or TypeSafe provider.
+     */
+    provider: pulumi.Input<string>;
+}
+
+export interface AiGatewayRoutingRuleTierTarget {
+    /**
+     * Marks the default target of a `classified` tier, which receives requests that don't match any rubric. Each `classified` tier must have exactly one default target.
+     */
+    default?: pulumi.Input<boolean | undefined>;
+    /**
+     * Model to route to. Required for a model target.
+     */
+    model?: pulumi.Input<string | undefined>;
+    /**
+     * Slug of the provider to route to, or `*` to route to any provider that serves the model. Required for a model target.
+     */
+    provider?: pulumi.Input<string | undefined>;
+    /**
+     * Reasoning effort override for a model target. When unset, the caller's and provider's defaults apply. Valid values are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, `max`.
+     */
+    reasoningLevel?: pulumi.Input<string | undefined>;
+    /**
+     * Slug of another routing rule to route to.
+     */
+    routingRule?: pulumi.Input<string | undefined>;
+    /**
+     * Description of when the decision model should pick this target, up to 300 characters. Required on every target of a `classified` tier except the default one, and not allowed in other tiers.
+     */
+    rubric?: pulumi.Input<string | undefined>;
+    /**
+     * Relative weight of the target in a `weightedAffinity` tier. The API uses 1 when it's unset. Not allowed in other tiers. Value must be between 1 and 10000.
+     */
+    weight?: pulumi.Input<number | undefined>;
+}
+
 export interface ApmRetentionFilterFilter {
     /**
      * The search query - follow the span search syntax, use `AND` between tags and `\` to escape special characters, use nanosecond for duration. Defaults to `"*"`.
@@ -2027,6 +2152,39 @@ export interface CustomAllocationRuleStrategyEvaluateGroupedByFilter {
     values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
 }
 
+export interface DashboardDefaultTimeframe {
+    /**
+     * A fixed timeframe applied when opening the dashboard.
+     */
+    fixed?: pulumi.Input<inputs.DashboardDefaultTimeframeFixed | undefined>;
+    /**
+     * A live timeframe applied when opening the dashboard.
+     */
+    live?: pulumi.Input<inputs.DashboardDefaultTimeframeLive | undefined>;
+}
+
+export interface DashboardDefaultTimeframeFixed {
+    /**
+     * Start time in milliseconds since epoch.
+     */
+    from: pulumi.Input<number>;
+    /**
+     * End time in milliseconds since epoch.
+     */
+    to: pulumi.Input<number>;
+}
+
+export interface DashboardDefaultTimeframeLive {
+    /**
+     * Unit of the live timeframe span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+     */
+    unit: pulumi.Input<string>;
+    /**
+     * Value of the live timeframe span.
+     */
+    value: pulumi.Input<number>;
+}
+
 export interface DashboardListDashItem {
     /**
      * The ID of the dashboard to add
@@ -2108,6 +2266,39 @@ export interface DashboardTemplateVariablePresetTemplateVariable {
      * One or many template variable values within the saved view, which will be unioned together using `OR` if more than one is specified. Cannot be used in conjunction with `value`.
      */
     values?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+}
+
+export interface DashboardV2DefaultTimeframe {
+    /**
+     * A fixed timeframe applied when opening the dashboard.
+     */
+    fixed?: pulumi.Input<inputs.DashboardV2DefaultTimeframeFixed | undefined>;
+    /**
+     * A live timeframe applied when opening the dashboard.
+     */
+    live?: pulumi.Input<inputs.DashboardV2DefaultTimeframeLive | undefined>;
+}
+
+export interface DashboardV2DefaultTimeframeFixed {
+    /**
+     * Start time in milliseconds since epoch.
+     */
+    from: pulumi.Input<number>;
+    /**
+     * End time in milliseconds since epoch.
+     */
+    to: pulumi.Input<number>;
+}
+
+export interface DashboardV2DefaultTimeframeLive {
+    /**
+     * Unit of the live timeframe span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+     */
+    unit: pulumi.Input<string>;
+    /**
+     * Value of the live timeframe span.
+     */
+    value: pulumi.Input<number>;
 }
 
 export interface DashboardV2Tab {
@@ -59601,7 +59792,7 @@ export interface GetReferenceTableRowsRow {
      */
     id?: string;
     /**
-     * Map of field names to values for this row. All values are returned as strings.
+     * Map of field names to row values. Non-null values are returned as strings. API `null` values are represented as Terraform `null`. Empty strings are returned as `""`.
      */
     values?: {[key: string]: string};
 }
@@ -59612,7 +59803,7 @@ export interface GetReferenceTableRowsRowArgs {
      */
     id?: pulumi.Input<string | undefined>;
     /**
-     * Map of field names to values for this row. All values are returned as strings.
+     * Map of field names to row values. Non-null values are returned as strings. API `null` values are represented as Terraform `null`. Empty strings are returned as `""`.
      */
     values?: pulumi.Input<{[key: string]: pulumi.Input<string>} | undefined>;
 }
@@ -62770,6 +62961,10 @@ export interface MonitorVariables {
      * A timeseries formula and functions events query.
      */
     eventQueries?: pulumi.Input<pulumi.Input<inputs.MonitorVariablesEventQuery>[] | undefined>;
+    /**
+     * A metrics query for use in formulas in metric monitors. For cost monitors, use `cloudCostQuery` instead, which requires an aggregator.
+     */
+    metricQueries?: pulumi.Input<pulumi.Input<inputs.MonitorVariablesMetricQuery>[] | undefined>;
 }
 
 export interface MonitorVariablesAggregateAugmentedQuery {
@@ -62817,7 +63012,7 @@ export interface MonitorVariablesAggregateAugmentedQueryAugmentEventQuery {
      */
     computes: pulumi.Input<pulumi.Input<inputs.MonitorVariablesAggregateAugmentedQueryAugmentEventQueryCompute>[]>;
     /**
-     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
+     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -62938,7 +63133,7 @@ export interface MonitorVariablesAggregateAugmentedQueryBaseEventQuery {
      */
     computes: pulumi.Input<pulumi.Input<inputs.MonitorVariablesAggregateAugmentedQueryBaseEventQueryCompute>[]>;
     /**
-     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
+     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -63151,7 +63346,7 @@ export interface MonitorVariablesAggregateFilteredQueryBaseEventQuery {
      */
     computes: pulumi.Input<pulumi.Input<inputs.MonitorVariablesAggregateFilteredQueryBaseEventQueryCompute>[]>;
     /**
-     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
+     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -63291,7 +63486,7 @@ export interface MonitorVariablesAggregateFilteredQueryFilterEventQuery {
      */
     computes: pulumi.Input<pulumi.Input<inputs.MonitorVariablesAggregateFilteredQueryFilterEventQueryCompute>[]>;
     /**
-     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
+     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -63446,7 +63641,7 @@ export interface MonitorVariablesCloudCostQuery {
      */
     aggregator: pulumi.Input<string>;
     /**
-     * The data source for cloud cost queries. Valid values are `metrics`, `cloudCost`, `datadogUsage`.
+     * The data source for cloud cost queries. Valid values are `cloudCost`, `datadogUsage`, `metrics`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -63646,7 +63841,7 @@ export interface MonitorVariablesEventQuery {
      */
     computes: pulumi.Input<pulumi.Input<inputs.MonitorVariablesEventQueryCompute>[]>;
     /**
-     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
+     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`, `llmObservability`.
      */
     dataSource: pulumi.Input<string>;
     /**
@@ -63723,6 +63918,21 @@ export interface MonitorVariablesEventQueryGroupBySort {
 export interface MonitorVariablesEventQuerySearch {
     /**
      * The events search string.
+     */
+    query: pulumi.Input<string>;
+}
+
+export interface MonitorVariablesMetricQuery {
+    /**
+     * The data source for metrics queries. Valid values are `metrics`.
+     */
+    dataSource: pulumi.Input<string>;
+    /**
+     * The name of the query for use in formulas.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The metrics query definition.
      */
     query: pulumi.Input<string>;
 }

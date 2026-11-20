@@ -13,12 +13,41 @@ namespace Pulumi.Datadog.Outputs
     [OutputType]
     public sealed class GetStatusPagesStatusPageResult
     {
+        /// <summary>
+        /// The subdomain prefix used to build the status page's URL.
+        /// </summary>
         public readonly string DomainPrefix;
+        /// <summary>
+        /// Whether the status page is published.
+        /// </summary>
         public readonly bool Enabled;
+        /// <summary>
+        /// The ID of the status page.
+        /// </summary>
         public readonly string Id;
+        /// <summary>
+        /// The name of the status page.
+        /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// The URL of the status page.
+        /// </summary>
         public readonly string PageUrl;
+        /// <summary>
+        /// Whether the RSS feed is enabled for the status page.
+        /// </summary>
+        public readonly bool RssFeedEnabled;
+        /// <summary>
+        /// The type of the status page.
+        /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The layout of components on the status page. Possible values are: list, grid.
+        /// </summary>
+        public readonly string VisualizationLayout;
+        /// <summary>
+        /// How component statuses are visualized on the page.
+        /// </summary>
         public readonly string VisualizationType;
 
         [OutputConstructor]
@@ -33,7 +62,11 @@ namespace Pulumi.Datadog.Outputs
 
             string pageUrl,
 
+            bool rssFeedEnabled,
+
             string type,
+
+            string visualizationLayout,
 
             string visualizationType)
         {
@@ -42,7 +75,9 @@ namespace Pulumi.Datadog.Outputs
             Id = id;
             Name = name;
             PageUrl = pageUrl;
+            RssFeedEnabled = rssFeedEnabled;
             Type = type;
+            VisualizationLayout = visualizationLayout;
             VisualizationType = visualizationType;
         }
     }

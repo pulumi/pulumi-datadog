@@ -25,6 +25,7 @@ class DashboardV2Args:
                  title: pulumi.Input[_builtins.str],
                  dashboard_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  dashboard_lists_removeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 default_timeframe: pulumi.Input[Optional['DashboardV2DefaultTimeframeArgs']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  is_read_only: pulumi.Input[Optional[_builtins.bool]] = None,
                  notify_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
@@ -44,6 +45,7 @@ class DashboardV2Args:
         :param pulumi.Input[_builtins.str] title: The title of the dashboard.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dashboard_lists: A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dashboard_lists_removeds: A list of dashboard lists this dashboard should be removed from. Internal only.
+        :param pulumi.Input['DashboardV2DefaultTimeframeArgs'] default_timeframe: The default timeframe applied when opening the dashboard. Set to `null` to disable after it has been configured.
         :param pulumi.Input[_builtins.str] description: The description of the dashboard.
         :param pulumi.Input[_builtins.bool] is_read_only: Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] notify_lists: The list of handles for the users to notify when changes are made to this dashboard.
@@ -63,6 +65,8 @@ class DashboardV2Args:
             pulumi.set(__self__, "dashboard_lists", dashboard_lists)
         if dashboard_lists_removeds is not None:
             pulumi.set(__self__, "dashboard_lists_removeds", dashboard_lists_removeds)
+        if default_timeframe is not None:
+            pulumi.set(__self__, "default_timeframe", default_timeframe)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if is_read_only is not None:
@@ -138,6 +142,18 @@ class DashboardV2Args:
     @dashboard_lists_removeds.setter
     def dashboard_lists_removeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "dashboard_lists_removeds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultTimeframe")
+    def default_timeframe(self) -> pulumi.Input[Optional['DashboardV2DefaultTimeframeArgs']]:
+        """
+        The default timeframe applied when opening the dashboard. Set to `null` to disable after it has been configured.
+        """
+        return pulumi.get(self, "default_timeframe")
+
+    @default_timeframe.setter
+    def default_timeframe(self, value: pulumi.Input[Optional['DashboardV2DefaultTimeframeArgs']]):
+        pulumi.set(self, "default_timeframe", value)
 
     @_builtins.property
     @pulumi.getter
@@ -290,6 +306,7 @@ class _DashboardV2State:
     def __init__(__self__, *,
                  dashboard_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  dashboard_lists_removeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 default_timeframe: pulumi.Input[Optional['DashboardV2DefaultTimeframeArgs']] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  is_read_only: pulumi.Input[Optional[_builtins.bool]] = None,
                  layout_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -309,6 +326,7 @@ class _DashboardV2State:
 
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dashboard_lists: A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dashboard_lists_removeds: A list of dashboard lists this dashboard should be removed from. Internal only.
+        :param pulumi.Input['DashboardV2DefaultTimeframeArgs'] default_timeframe: The default timeframe applied when opening the dashboard. Set to `null` to disable after it has been configured.
         :param pulumi.Input[_builtins.str] description: The description of the dashboard.
         :param pulumi.Input[_builtins.bool] is_read_only: Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
         :param pulumi.Input[_builtins.str] layout_type: The layout type of the dashboard. Valid values are `ordered`, `free`.
@@ -328,6 +346,8 @@ class _DashboardV2State:
             pulumi.set(__self__, "dashboard_lists", dashboard_lists)
         if dashboard_lists_removeds is not None:
             pulumi.set(__self__, "dashboard_lists_removeds", dashboard_lists_removeds)
+        if default_timeframe is not None:
+            pulumi.set(__self__, "default_timeframe", default_timeframe)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if is_read_only is not None:
@@ -383,6 +403,18 @@ class _DashboardV2State:
     @dashboard_lists_removeds.setter
     def dashboard_lists_removeds(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]]):
         pulumi.set(self, "dashboard_lists_removeds", value)
+
+    @_builtins.property
+    @pulumi.getter(name="defaultTimeframe")
+    def default_timeframe(self) -> pulumi.Input[Optional['DashboardV2DefaultTimeframeArgs']]:
+        """
+        The default timeframe applied when opening the dashboard. Set to `null` to disable after it has been configured.
+        """
+        return pulumi.get(self, "default_timeframe")
+
+    @default_timeframe.setter
+    def default_timeframe(self, value: pulumi.Input[Optional['DashboardV2DefaultTimeframeArgs']]):
+        pulumi.set(self, "default_timeframe", value)
 
     @_builtins.property
     @pulumi.getter
@@ -562,6 +594,7 @@ class DashboardV2(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dashboard_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  dashboard_lists_removeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 default_timeframe: pulumi.Input[Optional[Union['DashboardV2DefaultTimeframeArgs', 'DashboardV2DefaultTimeframeArgsDict', 'outputs.DashboardV2DefaultTimeframe']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  is_read_only: pulumi.Input[Optional[_builtins.bool]] = None,
                  layout_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -664,6 +697,12 @@ class DashboardV2(pulumi.CustomResource):
                     },
                 },
             ],
+            default_timeframe={
+                "live": {
+                    "unit": "week",
+                    "value": 1,
+                },
+            },
             template_variables=[{
                 "name": "var_1",
                 "prefix": "host",
@@ -717,6 +756,7 @@ class DashboardV2(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dashboard_lists: A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dashboard_lists_removeds: A list of dashboard lists this dashboard should be removed from. Internal only.
+        :param pulumi.Input[Union['DashboardV2DefaultTimeframeArgs', 'DashboardV2DefaultTimeframeArgsDict', 'outputs.DashboardV2DefaultTimeframe']] default_timeframe: The default timeframe applied when opening the dashboard. Set to `null` to disable after it has been configured.
         :param pulumi.Input[_builtins.str] description: The description of the dashboard.
         :param pulumi.Input[_builtins.bool] is_read_only: Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
         :param pulumi.Input[_builtins.str] layout_type: The layout type of the dashboard. Valid values are `ordered`, `free`.
@@ -825,6 +865,12 @@ class DashboardV2(pulumi.CustomResource):
                     },
                 },
             ],
+            default_timeframe={
+                "live": {
+                    "unit": "week",
+                    "value": 1,
+                },
+            },
             template_variables=[{
                 "name": "var_1",
                 "prefix": "host",
@@ -891,6 +937,7 @@ class DashboardV2(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  dashboard_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
                  dashboard_lists_removeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+                 default_timeframe: pulumi.Input[Optional[Union['DashboardV2DefaultTimeframeArgs', 'DashboardV2DefaultTimeframeArgsDict', 'outputs.DashboardV2DefaultTimeframe']]] = None,
                  description: pulumi.Input[Optional[_builtins.str]] = None,
                  is_read_only: pulumi.Input[Optional[_builtins.bool]] = None,
                  layout_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -916,6 +963,7 @@ class DashboardV2(pulumi.CustomResource):
 
             __props__.__dict__["dashboard_lists"] = dashboard_lists
             __props__.__dict__["dashboard_lists_removeds"] = dashboard_lists_removeds
+            __props__.__dict__["default_timeframe"] = default_timeframe
             __props__.__dict__["description"] = description
             __props__.__dict__["is_read_only"] = is_read_only
             if layout_type is None and not opts.urn:
@@ -946,6 +994,7 @@ class DashboardV2(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             dashboard_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
             dashboard_lists_removeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            default_timeframe: pulumi.Input[Optional[Union['DashboardV2DefaultTimeframeArgs', 'DashboardV2DefaultTimeframeArgsDict', 'outputs.DashboardV2DefaultTimeframe']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             is_read_only: pulumi.Input[Optional[_builtins.bool]] = None,
             layout_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -969,6 +1018,7 @@ class DashboardV2(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dashboard_lists: A list of dashboard lists this dashboard belongs to. This attribute should not be set if managing the corresponding dashboard lists using Terraform as it causes inconsistent behavior.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.int]]] dashboard_lists_removeds: A list of dashboard lists this dashboard should be removed from. Internal only.
+        :param pulumi.Input[Union['DashboardV2DefaultTimeframeArgs', 'DashboardV2DefaultTimeframeArgsDict', 'outputs.DashboardV2DefaultTimeframe']] default_timeframe: The default timeframe applied when opening the dashboard. Set to `null` to disable after it has been configured.
         :param pulumi.Input[_builtins.str] description: The description of the dashboard.
         :param pulumi.Input[_builtins.bool] is_read_only: Whether this dashboard is read-only. **Deprecated.** This field is deprecated and non-functional. Use `restricted_roles` instead to define which roles are required to edit the dashboard. Defaults to `false`.
         :param pulumi.Input[_builtins.str] layout_type: The layout type of the dashboard. Valid values are `ordered`, `free`.
@@ -990,6 +1040,7 @@ class DashboardV2(pulumi.CustomResource):
 
         __props__.__dict__["dashboard_lists"] = dashboard_lists
         __props__.__dict__["dashboard_lists_removeds"] = dashboard_lists_removeds
+        __props__.__dict__["default_timeframe"] = default_timeframe
         __props__.__dict__["description"] = description
         __props__.__dict__["is_read_only"] = is_read_only
         __props__.__dict__["layout_type"] = layout_type
@@ -1011,6 +1062,7 @@ class DashboardV2(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             dashboard_lists: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
             dashboard_lists_removeds: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.int]]]] = None,
+            default_timeframe: pulumi.Input[Optional[Union['DashboardV2DefaultTimeframeArgs', 'DashboardV2DefaultTimeframeArgsDict', 'outputs.DashboardV2DefaultTimeframe']]] = None,
             description: pulumi.Input[Optional[_builtins.str]] = None,
             is_read_only: pulumi.Input[Optional[_builtins.bool]] = None,
             layout_type: pulumi.Input[Optional[_builtins.str]] = None,
@@ -1028,6 +1080,7 @@ class DashboardV2(pulumi.CustomResource):
         __props__: dict = {}
         __props__["dashboardLists"] = dashboard_lists
         __props__["dashboardListsRemoveds"] = dashboard_lists_removeds
+        __props__["defaultTimeframe"] = default_timeframe
         __props__["description"] = description
         __props__["isReadOnly"] = is_read_only
         __props__["layoutType"] = layout_type
@@ -1059,6 +1112,14 @@ class DashboardV2(pulumi.CustomResource):
         A list of dashboard lists this dashboard should be removed from. Internal only.
         """
         return pulumi.get(self, "dashboard_lists_removeds")
+
+    @_builtins.property
+    @pulumi.getter(name="defaultTimeframe")
+    def default_timeframe(self) -> pulumi.Output[Optional['outputs.DashboardV2DefaultTimeframe']]:
+        """
+        The default timeframe applied when opening the dashboard. Set to `null` to disable after it has been configured.
+        """
+        return pulumi.get(self, "default_timeframe")
 
     @_builtins.property
     @pulumi.getter

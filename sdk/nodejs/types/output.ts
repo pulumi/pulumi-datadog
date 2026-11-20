@@ -1378,6 +1378,131 @@ export interface ActionExecutionPolicyTarget {
     name?: string;
 }
 
+export interface AiGatewayBudgetSelector {
+    /**
+     * Dimension to match: `userId`, `teamId`, `model`, `provider`, or `tag:<key>` with a lowercase key.
+     */
+    dim: string;
+    /**
+     * Whether each matched value gets its own budget instance. When `false`, spend is pooled across all matched values. Defaults to `false`.
+     */
+    perValue: boolean;
+    /**
+     * Values the dimension must have. Omit to match any value, including requests that don't have the dimension.
+     */
+    values?: string[];
+}
+
+export interface AiGatewayPolicyTier {
+    /**
+     * Targets in the tier.
+     */
+    targets: outputs.AiGatewayPolicyTierTarget[];
+}
+
+export interface AiGatewayPolicyTierTarget {
+    /**
+     * Model name, or a pattern with a trailing `*`.
+     */
+    model: string;
+    /**
+     * Slug of the provider to route to, or `*` to fan out to every provider. When unset, the gateway resolves the provider from the model.
+     */
+    provider?: string;
+}
+
+export interface AiGatewayProviderIntegrationConfig {
+    /**
+     * AWS region, for `bedrock` providers.
+     */
+    bedrockRegion?: string;
+    /**
+     * Azure AI Foundry project name, for `azureFoundry` providers.
+     */
+    foundryProject?: string;
+    /**
+     * ARM resource ID of the Azure AI Foundry resource, for `azureFoundry` providers.
+     */
+    foundryResourceId?: string;
+    /**
+     * GCP location, for `gemini` providers.
+     */
+    location?: string;
+    /**
+     * GCP project ID, for `gemini` providers.
+     */
+    projectId?: string;
+    /**
+     * Operations that a `custom` provider discovered and manually added models support. The API defaults to `OPENAI_CHAT_COMPLETIONS`.
+     */
+    supportedOperations: string[];
+}
+
+export interface AiGatewayRoutingRuleTier {
+    /**
+     * Decision model of a `classified` tier. Required on a `classified` tier and not allowed on others.
+     */
+    classifier?: outputs.AiGatewayRoutingRuleTierClassifier;
+    /**
+     * How the tier orders its targets. `configured` tries them in the order listed. `weightedAffinity` spreads requests by each target's `weight`. `classified`, which lets a decision model pick one target by its `rubric`, is allowed only on the first tier. Valid values are `configured`, `weightedAffinity`, `classified`. Defaults to `"configured"`.
+     */
+    ordering: string;
+    /**
+     * Destinations in the tier, in order. A target is either a model, set with `provider` and `model`, or another routing rule, set with `routingRule`. A routing rule target must be the only target in its tier.
+     */
+    targets: outputs.AiGatewayRoutingRuleTierTarget[];
+}
+
+export interface AiGatewayRoutingRuleTierClassifier {
+    /**
+     * Minimum confidence that the picked target must reach. If the confidence is lower, the request goes to the default target. Value must be between 0.000000 and 1.000000. Defaults to `0.5`.
+     */
+    confidenceThreshold: number;
+    /**
+     * Prompt that tells the decision model about the rule's traffic, up to 2000 characters.
+     */
+    context?: string;
+    /**
+     * Canonical name of the decision model on that provider.
+     */
+    model: string;
+    /**
+     * Slug of the provider that serves the decision model. It must be an OpenAI, Baseten, or TypeSafe provider.
+     */
+    provider: string;
+}
+
+export interface AiGatewayRoutingRuleTierTarget {
+    /**
+     * Marks the default target of a `classified` tier, which receives requests that don't match any rubric. Each `classified` tier must have exactly one default target.
+     */
+    default?: boolean;
+    /**
+     * Model to route to. Required for a model target.
+     */
+    model?: string;
+    /**
+     * Slug of the provider to route to, or `*` to route to any provider that serves the model. Required for a model target.
+     */
+    provider?: string;
+    /**
+     * Reasoning effort override for a model target. When unset, the caller's and provider's defaults apply. Valid values are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, `max`.
+     */
+    reasoningLevel?: string;
+    /**
+     * Slug of another routing rule to route to.
+     */
+    routingRule?: string;
+    /**
+     * Description of when the decision model should pick this target, up to 300 characters. Required on every target of a `classified` tier except the default one, and not allowed in other tiers.
+     */
+    rubric?: string;
+    /**
+     * Relative weight of the target in a `weightedAffinity` tier. The API uses 1 when it's unset. Not allowed in other tiers. Value must be between 1 and 10000.
+     */
+    weight?: number;
+}
+
 export interface ApmRetentionFilterFilter {
     /**
      * The search query - follow the span search syntax, use `AND` between tags and `\` to escape special characters, use nanosecond for duration. Defaults to `"*"`.
@@ -2027,6 +2152,39 @@ export interface CustomAllocationRuleStrategyEvaluateGroupedByFilter {
     values?: string[];
 }
 
+export interface DashboardDefaultTimeframe {
+    /**
+     * A fixed timeframe applied when opening the dashboard.
+     */
+    fixed?: outputs.DashboardDefaultTimeframeFixed;
+    /**
+     * A live timeframe applied when opening the dashboard.
+     */
+    live?: outputs.DashboardDefaultTimeframeLive;
+}
+
+export interface DashboardDefaultTimeframeFixed {
+    /**
+     * Start time in milliseconds since epoch.
+     */
+    from: number;
+    /**
+     * End time in milliseconds since epoch.
+     */
+    to: number;
+}
+
+export interface DashboardDefaultTimeframeLive {
+    /**
+     * Unit of the live timeframe span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+     */
+    unit: string;
+    /**
+     * Value of the live timeframe span.
+     */
+    value: number;
+}
+
 export interface DashboardListDashItem {
     /**
      * The ID of the dashboard to add
@@ -2108,6 +2266,39 @@ export interface DashboardTemplateVariablePresetTemplateVariable {
      * One or many template variable values within the saved view, which will be unioned together using `OR` if more than one is specified. Cannot be used in conjunction with `value`.
      */
     values?: string[];
+}
+
+export interface DashboardV2DefaultTimeframe {
+    /**
+     * A fixed timeframe applied when opening the dashboard.
+     */
+    fixed?: outputs.DashboardV2DefaultTimeframeFixed;
+    /**
+     * A live timeframe applied when opening the dashboard.
+     */
+    live?: outputs.DashboardV2DefaultTimeframeLive;
+}
+
+export interface DashboardV2DefaultTimeframeFixed {
+    /**
+     * Start time in milliseconds since epoch.
+     */
+    from: number;
+    /**
+     * End time in milliseconds since epoch.
+     */
+    to: number;
+}
+
+export interface DashboardV2DefaultTimeframeLive {
+    /**
+     * Unit of the live timeframe span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+     */
+    unit: string;
+    /**
+     * Value of the live timeframe span.
+     */
+    value: number;
 }
 
 export interface DashboardV2Tab {
@@ -58472,7 +58663,7 @@ export interface GetReferenceTableRowsRow {
      */
     id: string;
     /**
-     * Map of field names to values for this row. All values are returned as strings.
+     * Map of field names to row values. Non-null values are returned as strings. API `null` values are represented as Terraform `null`. Empty strings are returned as `""`.
      */
     values: {[key: string]: string};
 }
@@ -59147,12 +59338,41 @@ export interface GetStatusPageMaintenanceTemplatesMaintenanceTemplate {
 }
 
 export interface GetStatusPagesStatusPage {
+    /**
+     * The subdomain prefix used to build the status page's URL.
+     */
     domainPrefix: string;
+    /**
+     * Whether the status page is published.
+     */
     enabled: boolean;
+    /**
+     * The ID of the status page.
+     */
     id: string;
+    /**
+     * The name of the status page.
+     */
     name: string;
+    /**
+     * The URL of the status page.
+     */
     pageUrl: string;
+    /**
+     * Whether the RSS feed is enabled for the status page.
+     */
+    rssFeedEnabled: boolean;
+    /**
+     * The type of the status page.
+     */
     type: string;
+    /**
+     * The layout of components on the status page. Possible values are: list, grid.
+     */
+    visualizationLayout: string;
+    /**
+     * How component statuses are visualized on the page.
+     */
     visualizationType: string;
 }
 
@@ -62376,6 +62596,10 @@ export interface MonitorVariables {
      * A timeseries formula and functions events query.
      */
     eventQueries?: outputs.MonitorVariablesEventQuery[];
+    /**
+     * A metrics query for use in formulas in metric monitors. For cost monitors, use `cloudCostQuery` instead, which requires an aggregator.
+     */
+    metricQueries?: outputs.MonitorVariablesMetricQuery[];
 }
 
 export interface MonitorVariablesAggregateAugmentedQuery {
@@ -62423,7 +62647,7 @@ export interface MonitorVariablesAggregateAugmentedQueryAugmentEventQuery {
      */
     computes: outputs.MonitorVariablesAggregateAugmentedQueryAugmentEventQueryCompute[];
     /**
-     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
+     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -62544,7 +62768,7 @@ export interface MonitorVariablesAggregateAugmentedQueryBaseEventQuery {
      */
     computes: outputs.MonitorVariablesAggregateAugmentedQueryBaseEventQueryCompute[];
     /**
-     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
+     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -62757,7 +62981,7 @@ export interface MonitorVariablesAggregateFilteredQueryBaseEventQuery {
      */
     computes: outputs.MonitorVariablesAggregateFilteredQueryBaseEventQueryCompute[];
     /**
-     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
+     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -62897,7 +63121,7 @@ export interface MonitorVariablesAggregateFilteredQueryFilterEventQuery {
      */
     computes: outputs.MonitorVariablesAggregateFilteredQueryFilterEventQueryCompute[];
     /**
-     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
+     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -63052,7 +63276,7 @@ export interface MonitorVariablesCloudCostQuery {
      */
     aggregator: string;
     /**
-     * The data source for cloud cost queries. Valid values are `metrics`, `cloudCost`, `datadogUsage`.
+     * The data source for cloud cost queries. Valid values are `cloudCost`, `datadogUsage`, `metrics`.
      */
     dataSource: string;
     /**
@@ -63252,7 +63476,7 @@ export interface MonitorVariablesEventQuery {
      */
     computes: outputs.MonitorVariablesEventQueryCompute[];
     /**
-     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
+     * The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`, `llmObservability`.
      */
     dataSource: string;
     /**
@@ -63329,6 +63553,21 @@ export interface MonitorVariablesEventQueryGroupBySort {
 export interface MonitorVariablesEventQuerySearch {
     /**
      * The events search string.
+     */
+    query: string;
+}
+
+export interface MonitorVariablesMetricQuery {
+    /**
+     * The data source for metrics queries. Valid values are `metrics`.
+     */
+    dataSource: string;
+    /**
+     * The name of the query for use in formulas.
+     */
+    name: string;
+    /**
+     * The metrics query definition.
      */
     query: string;
 }

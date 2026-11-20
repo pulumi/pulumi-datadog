@@ -11,6 +11,14 @@ from .action_execution_policy import *
 from .agentless_scanning_aws_scan_options import *
 from .agentless_scanning_azure_scan_options import *
 from .agentless_scanning_gcp_scan_options import *
+from .ai_gateway_budget import *
+from .ai_gateway_data_capture_override import *
+from .ai_gateway_governance import *
+from .ai_gateway_model_group import *
+from .ai_gateway_policy import *
+from .ai_gateway_provider import *
+from .ai_gateway_rate_limit import *
+from .ai_gateway_routing_rule import *
 from .api_key import *
 from .apm_retention_filter import *
 from .apm_retention_filter_order import *
@@ -221,6 +229,7 @@ from .spans_metric import *
 from .status_page import *
 from .status_page_component import *
 from .status_page_degradation_template import *
+from .status_page_email_access_policy import *
 from .status_page_maintenance_template import *
 from .synthetics_concurrency_cap import *
 from .synthetics_global_variable import *
@@ -241,6 +250,7 @@ from .team_membership import *
 from .team_notification_rule import *
 from .team_permission_setting import *
 from .team_sync import *
+from .usage_quota import *
 from .user import *
 from .user_role import *
 from .webhook import *
@@ -452,6 +462,70 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/agentlessScanningGcpScanOptions:AgentlessScanningGcpScanOptions": "AgentlessScanningGcpScanOptions"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/aiGatewayBudget",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/aiGatewayBudget:AiGatewayBudget": "AiGatewayBudget"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/aiGatewayDataCaptureOverride",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/aiGatewayDataCaptureOverride:AiGatewayDataCaptureOverride": "AiGatewayDataCaptureOverride"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/aiGatewayGovernance",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/aiGatewayGovernance:AiGatewayGovernance": "AiGatewayGovernance"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/aiGatewayModelGroup",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/aiGatewayModelGroup:AiGatewayModelGroup": "AiGatewayModelGroup"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/aiGatewayPolicy",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/aiGatewayPolicy:AiGatewayPolicy": "AiGatewayPolicy"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/aiGatewayProvider",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/aiGatewayProvider:AiGatewayProvider": "AiGatewayProvider"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/aiGatewayRateLimit",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/aiGatewayRateLimit:AiGatewayRateLimit": "AiGatewayRateLimit"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/aiGatewayRoutingRule",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/aiGatewayRoutingRule:AiGatewayRoutingRule": "AiGatewayRoutingRule"
   }
  },
  {
@@ -1456,6 +1530,14 @@ _utilities.register(
  },
  {
   "pkg": "datadog",
+  "mod": "index/statusPageEmailAccessPolicy",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/statusPageEmailAccessPolicy:StatusPageEmailAccessPolicy": "StatusPageEmailAccessPolicy"
+  }
+ },
+ {
+  "pkg": "datadog",
   "mod": "index/statusPageMaintenanceTemplate",
   "fqn": "pulumi_datadog",
   "classes": {
@@ -1612,6 +1694,14 @@ _utilities.register(
   "fqn": "pulumi_datadog",
   "classes": {
    "datadog:index/teamSync:TeamSync": "TeamSync"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "index/usageQuota",
+  "fqn": "pulumi_datadog",
+  "classes": {
+   "datadog:index/usageQuota:UsageQuota": "UsageQuota"
   }
  },
  {

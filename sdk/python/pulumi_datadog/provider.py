@@ -38,6 +38,7 @@ class ProviderArgs:
                  http_client_retry_timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  ignore_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  org_uuid: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_pup: pulumi.Input[Optional[_builtins.bool]] = None,
                  validate: pulumi.Input[Optional[_builtins.str]] = None,
                  workload_identity_token_tag: pulumi.Input[Optional[_builtins.str]] = None):
         """
@@ -60,7 +61,8 @@ class ProviderArgs:
         :param pulumi.Input[_builtins.int] http_client_retry_max_retries: The HTTP request maximum retry number. Defaults to 3.
         :param pulumi.Input[_builtins.int] http_client_retry_timeout: The HTTP request retry timeout period. Defaults to 60 seconds.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ignore_tag_keys: [Experimental - Monitors and Service Level Objectives only] Tag keys whose drift Terraform should ignore across all resources that support `ignore_tag_keys`. A resource's own `ignore_tag_keys` is merged with this list for that resource. Any `:value` suffix is ignored.
-        :param pulumi.Input[_builtins.str] org_uuid: The organization UUID; required for AWS WIF. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+        :param pulumi.Input[_builtins.str] org_uuid: The organization UUID; required for AWS WIF and for `use_pup`. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+        :param pulumi.Input[_builtins.bool] use_pup: Get a bearer token from the pup CLI (pup auth token) after you run pup auth login, so you don't need to store an API key, application key, or access token. Used only when api_key, app_key, bearer_token, cloud provider authentication, and HCP Terraform dynamic provider credentials are all absent. The provider requests a new token when the current one expires, and fails if pup is then logged in as a different user. Requires org_uuid, and every token must belong to that organization. You can also set this with the `DD_USE_PUP` environment variable.
         :param pulumi.Input[_builtins.str] validate: Enables credential validation during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, initial credential validation is skipped.
         :param pulumi.Input[_builtins.str] workload_identity_token_tag: Selects the HCP Terraform workload identity token tag for this provider configuration, for example DATADOG_ORG_A selects TFC_WORKLOAD_IDENTITY_TOKEN_DATADOG_ORG_A. When set, that token must be present and have a valid Datadog audience; no other token or environment authentication is used as fallback. Explicit API/application keys, bearer_token, or cloud_provider_type take precedence. When unset or empty, automatically tries the DATADOG tag and then the untagged token. Tags may contain only letters, numbers, and underscores; TYPE is reserved.
         """
@@ -100,6 +102,8 @@ class ProviderArgs:
             pulumi.set(__self__, "ignore_tag_keys", ignore_tag_keys)
         if org_uuid is not None:
             pulumi.set(__self__, "org_uuid", org_uuid)
+        if use_pup is not None:
+            pulumi.set(__self__, "use_pup", use_pup)
         if validate is not None:
             pulumi.set(__self__, "validate", validate)
         if workload_identity_token_tag is not None:
@@ -313,13 +317,25 @@ class ProviderArgs:
     @pulumi.getter(name="orgUuid")
     def org_uuid(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The organization UUID; required for AWS WIF. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+        The organization UUID; required for AWS WIF and for `use_pup`. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
         """
         return pulumi.get(self, "org_uuid")
 
     @org_uuid.setter
     def org_uuid(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "org_uuid", value)
+
+    @_builtins.property
+    @pulumi.getter(name="usePup")
+    def use_pup(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Get a bearer token from the pup CLI (pup auth token) after you run pup auth login, so you don't need to store an API key, application key, or access token. Used only when api_key, app_key, bearer_token, cloud provider authentication, and HCP Terraform dynamic provider credentials are all absent. The provider requests a new token when the current one expires, and fails if pup is then logged in as a different user. Requires org_uuid, and every token must belong to that organization. You can also set this with the `DD_USE_PUP` environment variable.
+        """
+        return pulumi.get(self, "use_pup")
+
+    @use_pup.setter
+    def use_pup(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "use_pup", value)
 
     @_builtins.property
     @pulumi.getter
@@ -370,6 +386,7 @@ class Provider(pulumi.ProviderResource):
                  http_client_retry_timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  ignore_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  org_uuid: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_pup: pulumi.Input[Optional[_builtins.bool]] = None,
                  validate: pulumi.Input[Optional[_builtins.str]] = None,
                  workload_identity_token_tag: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -399,7 +416,8 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[_builtins.int] http_client_retry_max_retries: The HTTP request maximum retry number. Defaults to 3.
         :param pulumi.Input[_builtins.int] http_client_retry_timeout: The HTTP request retry timeout period. Defaults to 60 seconds.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] ignore_tag_keys: [Experimental - Monitors and Service Level Objectives only] Tag keys whose drift Terraform should ignore across all resources that support `ignore_tag_keys`. A resource's own `ignore_tag_keys` is merged with this list for that resource. Any `:value` suffix is ignored.
-        :param pulumi.Input[_builtins.str] org_uuid: The organization UUID; required for AWS WIF. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+        :param pulumi.Input[_builtins.str] org_uuid: The organization UUID; required for AWS WIF and for `use_pup`. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+        :param pulumi.Input[_builtins.bool] use_pup: Get a bearer token from the pup CLI (pup auth token) after you run pup auth login, so you don't need to store an API key, application key, or access token. Used only when api_key, app_key, bearer_token, cloud provider authentication, and HCP Terraform dynamic provider credentials are all absent. The provider requests a new token when the current one expires, and fails if pup is then logged in as a different user. Requires org_uuid, and every token must belong to that organization. You can also set this with the `DD_USE_PUP` environment variable.
         :param pulumi.Input[_builtins.str] validate: Enables credential validation during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, initial credential validation is skipped.
         :param pulumi.Input[_builtins.str] workload_identity_token_tag: Selects the HCP Terraform workload identity token tag for this provider configuration, for example DATADOG_ORG_A selects TFC_WORKLOAD_IDENTITY_TOKEN_DATADOG_ORG_A. When set, that token must be present and have a valid Datadog audience; no other token or environment authentication is used as fallback. Explicit API/application keys, bearer_token, or cloud_provider_type take precedence. When unset or empty, automatically tries the DATADOG tag and then the untagged token. Tags may contain only letters, numbers, and underscores; TYPE is reserved.
         """
@@ -449,6 +467,7 @@ class Provider(pulumi.ProviderResource):
                  http_client_retry_timeout: pulumi.Input[Optional[_builtins.int]] = None,
                  ignore_tag_keys: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  org_uuid: pulumi.Input[Optional[_builtins.str]] = None,
+                 use_pup: pulumi.Input[Optional[_builtins.bool]] = None,
                  validate: pulumi.Input[Optional[_builtins.str]] = None,
                  workload_identity_token_tag: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
@@ -478,6 +497,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["http_client_retry_timeout"] = pulumi.Output.from_input(http_client_retry_timeout).apply(pulumi.runtime.to_json) if http_client_retry_timeout is not None else None
             __props__.__dict__["ignore_tag_keys"] = pulumi.Output.from_input(ignore_tag_keys).apply(pulumi.runtime.to_json) if ignore_tag_keys is not None else None
             __props__.__dict__["org_uuid"] = org_uuid
+            __props__.__dict__["use_pup"] = pulumi.Output.from_input(use_pup).apply(pulumi.runtime.to_json) if use_pup is not None else None
             __props__.__dict__["validate"] = validate
             __props__.__dict__["workload_identity_token_tag"] = workload_identity_token_tag
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["apiKey", "appKey", "awsAccessKeyId", "awsSecretAccessKey", "awsSessionToken", "bearerToken"])
@@ -572,7 +592,7 @@ class Provider(pulumi.ProviderResource):
     @pulumi.getter(name="orgUuid")
     def org_uuid(self) -> pulumi.Output[Optional[_builtins.str]]:
         """
-        The organization UUID; required for AWS WIF. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+        The organization UUID; required for AWS WIF and for `use_pup`. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
         """
         return pulumi.get(self, "org_uuid")
 

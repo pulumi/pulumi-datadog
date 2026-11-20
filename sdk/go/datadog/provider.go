@@ -38,7 +38,7 @@ type Provider struct {
 	CloudProviderType pulumi.StringPtrOutput `pulumi:"cloudProviderType"`
 	// Enables request retries on HTTP status codes 429 and 5xx. Valid values are [`true`, `false`]. Defaults to `true`.
 	HttpClientRetryEnabled pulumi.StringPtrOutput `pulumi:"httpClientRetryEnabled"`
-	// The organization UUID; required for AWS WIF. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+	// The organization UUID; required for AWS WIF and for `usePup`. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
 	OrgUuid pulumi.StringPtrOutput `pulumi:"orgUuid"`
 	// Enables credential validation during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, initial credential validation is skipped.
 	Validate pulumi.StringPtrOutput `pulumi:"validate"`
@@ -124,8 +124,10 @@ type providerArgs struct {
 	HttpClientRetryTimeout *int `pulumi:"httpClientRetryTimeout"`
 	// [Experimental - Monitors and Service Level Objectives only] Tag keys whose drift Terraform should ignore across all resources that support `ignoreTagKeys`. A resource's own `ignoreTagKeys` is merged with this list for that resource. Any `:value` suffix is ignored.
 	IgnoreTagKeys []string `pulumi:"ignoreTagKeys"`
-	// The organization UUID; required for AWS WIF. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+	// The organization UUID; required for AWS WIF and for `usePup`. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
 	OrgUuid *string `pulumi:"orgUuid"`
+	// Get a bearer token from the pup CLI (pup auth token) after you run pup auth login, so you don't need to store an API key, application key, or access token. Used only when api_key, app_key, bearer_token, cloud provider authentication, and HCP Terraform dynamic provider credentials are all absent. The provider requests a new token when the current one expires, and fails if pup is then logged in as a different user. Requires org_uuid, and every token must belong to that organization. You can also set this with the `DD_USE_PUP` environment variable.
+	UsePup *bool `pulumi:"usePup"`
 	// Enables credential validation during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, initial credential validation is skipped.
 	Validate *string `pulumi:"validate"`
 	// Selects the HCP Terraform workload identity token tag for this provider configuration, for example DATADOG_ORG_A selects TFC_WORKLOAD_IDENTITY_TOKEN_DATADOG_ORG_A. When set, that token must be present and have a valid Datadog audience; no other token or environment authentication is used as fallback. Explicit API/application keys, bearer_token, or cloudProviderType take precedence. When unset or empty, automatically tries the DATADOG tag and then the untagged token. Tags may contain only letters, numbers, and underscores; TYPE is reserved.
@@ -168,8 +170,10 @@ type ProviderArgs struct {
 	HttpClientRetryTimeout pulumi.IntPtrInput
 	// [Experimental - Monitors and Service Level Objectives only] Tag keys whose drift Terraform should ignore across all resources that support `ignoreTagKeys`. A resource's own `ignoreTagKeys` is merged with this list for that resource. Any `:value` suffix is ignored.
 	IgnoreTagKeys pulumi.StringArrayInput
-	// The organization UUID; required for AWS WIF. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+	// The organization UUID; required for AWS WIF and for `usePup`. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
 	OrgUuid pulumi.StringPtrInput
+	// Get a bearer token from the pup CLI (pup auth token) after you run pup auth login, so you don't need to store an API key, application key, or access token. Used only when api_key, app_key, bearer_token, cloud provider authentication, and HCP Terraform dynamic provider credentials are all absent. The provider requests a new token when the current one expires, and fails if pup is then logged in as a different user. Requires org_uuid, and every token must belong to that organization. You can also set this with the `DD_USE_PUP` environment variable.
+	UsePup pulumi.BoolPtrInput
 	// Enables credential validation during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, initial credential validation is skipped.
 	Validate pulumi.StringPtrInput
 	// Selects the HCP Terraform workload identity token tag for this provider configuration, for example DATADOG_ORG_A selects TFC_WORKLOAD_IDENTITY_TOKEN_DATADOG_ORG_A. When set, that token must be present and have a valid Datadog audience; no other token or environment authentication is used as fallback. Explicit API/application keys, bearer_token, or cloudProviderType take precedence. When unset or empty, automatically tries the DATADOG tag and then the untagged token. Tags may contain only letters, numbers, and underscores; TYPE is reserved.
@@ -286,7 +290,7 @@ func (o ProviderOutput) HttpClientRetryEnabled() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.HttpClientRetryEnabled }).(pulumi.StringPtrOutput)
 }
 
-// The organization UUID; required for AWS WIF. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+// The organization UUID; required for AWS WIF and for `usePup`. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
 func (o ProviderOutput) OrgUuid() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Provider) pulumi.StringPtrOutput { return v.OrgUuid }).(pulumi.StringPtrOutput)
 }

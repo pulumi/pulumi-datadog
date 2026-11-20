@@ -5,6 +5,7 @@ package com.pulumi.datadog;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.DashboardDefaultTimeframeArgs;
 import com.pulumi.datadog.inputs.DashboardTabArgs;
 import com.pulumi.datadog.inputs.DashboardTemplateVariableArgs;
 import com.pulumi.datadog.inputs.DashboardTemplateVariablePresetArgs;
@@ -51,6 +52,21 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<List<Integer>>> dashboardListsRemoveds() {
         return Optional.ofNullable(this.dashboardListsRemoveds);
+    }
+
+    /**
+     * The default timeframe applied when opening the dashboard. Set to `null` to disable after it has been configured.
+     * 
+     */
+    @Import(name="defaultTimeframe")
+    private @Nullable Output<DashboardDefaultTimeframeArgs> defaultTimeframe;
+
+    /**
+     * @return The default timeframe applied when opening the dashboard. Set to `null` to disable after it has been configured.
+     * 
+     */
+    public Optional<Output<DashboardDefaultTimeframeArgs>> defaultTimeframe() {
+        return Optional.ofNullable(this.defaultTimeframe);
     }
 
     /**
@@ -274,6 +290,7 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
     private DashboardArgs(DashboardArgs $) {
         this.dashboardLists = $.dashboardLists;
         this.dashboardListsRemoveds = $.dashboardListsRemoveds;
+        this.defaultTimeframe = $.defaultTimeframe;
         this.description = $.description;
         this.isReadOnly = $.isReadOnly;
         this.layoutType = $.layoutType;
@@ -368,6 +385,27 @@ public final class DashboardArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder dashboardListsRemoveds(Integer... dashboardListsRemoveds) {
             return dashboardListsRemoveds(List.of(dashboardListsRemoveds));
+        }
+
+        /**
+         * @param defaultTimeframe The default timeframe applied when opening the dashboard. Set to `null` to disable after it has been configured.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultTimeframe(@Nullable Output<DashboardDefaultTimeframeArgs> defaultTimeframe) {
+            $.defaultTimeframe = defaultTimeframe;
+            return this;
+        }
+
+        /**
+         * @param defaultTimeframe The default timeframe applied when opening the dashboard. Set to `null` to disable after it has been configured.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder defaultTimeframe(DashboardDefaultTimeframeArgs defaultTimeframe) {
+            return defaultTimeframe(Output.of(defaultTimeframe));
         }
 
         /**

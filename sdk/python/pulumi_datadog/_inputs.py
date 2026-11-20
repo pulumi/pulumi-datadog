@@ -213,6 +213,20 @@ __all__ = [
     'ActionExecutionPolicyScopeSlackRuleArgsDict',
     'ActionExecutionPolicyTargetArgs',
     'ActionExecutionPolicyTargetArgsDict',
+    'AiGatewayBudgetSelectorArgs',
+    'AiGatewayBudgetSelectorArgsDict',
+    'AiGatewayPolicyTierArgs',
+    'AiGatewayPolicyTierArgsDict',
+    'AiGatewayPolicyTierTargetArgs',
+    'AiGatewayPolicyTierTargetArgsDict',
+    'AiGatewayProviderIntegrationConfigArgs',
+    'AiGatewayProviderIntegrationConfigArgsDict',
+    'AiGatewayRoutingRuleTierArgs',
+    'AiGatewayRoutingRuleTierArgsDict',
+    'AiGatewayRoutingRuleTierClassifierArgs',
+    'AiGatewayRoutingRuleTierClassifierArgsDict',
+    'AiGatewayRoutingRuleTierTargetArgs',
+    'AiGatewayRoutingRuleTierTargetArgsDict',
     'ApmRetentionFilterFilterArgs',
     'ApmRetentionFilterFilterArgsDict',
     'AppsecWafCustomRuleActionArgs',
@@ -307,6 +321,12 @@ __all__ = [
     'CustomAllocationRuleStrategyBasedOnTimeseriesArgsDict',
     'CustomAllocationRuleStrategyEvaluateGroupedByFilterArgs',
     'CustomAllocationRuleStrategyEvaluateGroupedByFilterArgsDict',
+    'DashboardDefaultTimeframeArgs',
+    'DashboardDefaultTimeframeArgsDict',
+    'DashboardDefaultTimeframeFixedArgs',
+    'DashboardDefaultTimeframeFixedArgsDict',
+    'DashboardDefaultTimeframeLiveArgs',
+    'DashboardDefaultTimeframeLiveArgsDict',
     'DashboardListDashItemArgs',
     'DashboardListDashItemArgsDict',
     'DashboardTabArgs',
@@ -317,6 +337,12 @@ __all__ = [
     'DashboardTemplateVariablePresetArgsDict',
     'DashboardTemplateVariablePresetTemplateVariableArgs',
     'DashboardTemplateVariablePresetTemplateVariableArgsDict',
+    'DashboardV2DefaultTimeframeArgs',
+    'DashboardV2DefaultTimeframeArgsDict',
+    'DashboardV2DefaultTimeframeFixedArgs',
+    'DashboardV2DefaultTimeframeFixedArgsDict',
+    'DashboardV2DefaultTimeframeLiveArgs',
+    'DashboardV2DefaultTimeframeLiveArgsDict',
     'DashboardV2TabArgs',
     'DashboardV2TabArgsDict',
     'DashboardV2TemplateVariableArgs',
@@ -6441,6 +6467,8 @@ __all__ = [
     'MonitorVariablesEventQueryGroupBySortArgsDict',
     'MonitorVariablesEventQuerySearchArgs',
     'MonitorVariablesEventQuerySearchArgsDict',
+    'MonitorVariablesMetricQueryArgs',
+    'MonitorVariablesMetricQueryArgsDict',
     'ObservabilityPipelineConfigArgs',
     'ObservabilityPipelineConfigArgsDict',
     'ObservabilityPipelineConfigDestinationArgs',
@@ -17094,6 +17122,583 @@ class ActionExecutionPolicyTargetArgs:
         pulumi.set(self, "name", value)
 
 
+class AiGatewayBudgetSelectorArgsDict(TypedDict):
+    dim: pulumi.Input[_builtins.str]
+    """
+    Dimension to match: `user_id`, `team_id`, `model`, `provider`, or `tag:<key>` with a lowercase key.
+    """
+    per_value: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Whether each matched value gets its own budget instance. When `false`, spend is pooled across all matched values. Defaults to `false`.
+    """
+    values: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Values the dimension must have. Omit to match any value, including requests that don't have the dimension.
+    """
+
+@pulumi.input_type
+class AiGatewayBudgetSelectorArgs:
+    def __init__(__self__, *,
+                 dim: pulumi.Input[_builtins.str],
+                 per_value: pulumi.Input[Optional[_builtins.bool]] = None,
+                 values: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] dim: Dimension to match: `user_id`, `team_id`, `model`, `provider`, or `tag:<key>` with a lowercase key.
+        :param pulumi.Input[_builtins.bool] per_value: Whether each matched value gets its own budget instance. When `false`, spend is pooled across all matched values. Defaults to `false`.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] values: Values the dimension must have. Omit to match any value, including requests that don't have the dimension.
+        """
+        pulumi.set(__self__, "dim", dim)
+        if per_value is not None:
+            pulumi.set(__self__, "per_value", per_value)
+        if values is not None:
+            pulumi.set(__self__, "values", values)
+
+    @_builtins.property
+    @pulumi.getter
+    def dim(self) -> pulumi.Input[_builtins.str]:
+        """
+        Dimension to match: `user_id`, `team_id`, `model`, `provider`, or `tag:<key>` with a lowercase key.
+        """
+        return pulumi.get(self, "dim")
+
+    @dim.setter
+    def dim(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "dim", value)
+
+    @_builtins.property
+    @pulumi.getter(name="perValue")
+    def per_value(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether each matched value gets its own budget instance. When `false`, spend is pooled across all matched values. Defaults to `false`.
+        """
+        return pulumi.get(self, "per_value")
+
+    @per_value.setter
+    def per_value(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "per_value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Values the dimension must have. Omit to match any value, including requests that don't have the dimension.
+        """
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "values", value)
+
+
+class AiGatewayPolicyTierArgsDict(TypedDict):
+    targets: pulumi.Input[Sequence[pulumi.Input['AiGatewayPolicyTierTargetArgsDict']]]
+    """
+    Targets in the tier.
+    """
+
+@pulumi.input_type
+class AiGatewayPolicyTierArgs:
+    def __init__(__self__, *,
+                 targets: pulumi.Input[Sequence[pulumi.Input['AiGatewayPolicyTierTargetArgs']]]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AiGatewayPolicyTierTargetArgs']]] targets: Targets in the tier.
+        """
+        pulumi.set(__self__, "targets", targets)
+
+    @_builtins.property
+    @pulumi.getter
+    def targets(self) -> pulumi.Input[Sequence[pulumi.Input['AiGatewayPolicyTierTargetArgs']]]:
+        """
+        Targets in the tier.
+        """
+        return pulumi.get(self, "targets")
+
+    @targets.setter
+    def targets(self, value: pulumi.Input[Sequence[pulumi.Input['AiGatewayPolicyTierTargetArgs']]]):
+        pulumi.set(self, "targets", value)
+
+
+class AiGatewayPolicyTierTargetArgsDict(TypedDict):
+    model: pulumi.Input[_builtins.str]
+    """
+    Model name, or a pattern with a trailing `*`.
+    """
+    provider: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Slug of the provider to route to, or `*` to fan out to every provider. When unset, the gateway resolves the provider from the model.
+    """
+
+@pulumi.input_type
+class AiGatewayPolicyTierTargetArgs:
+    def __init__(__self__, *,
+                 model: pulumi.Input[_builtins.str],
+                 provider: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] model: Model name, or a pattern with a trailing `*`.
+        :param pulumi.Input[_builtins.str] provider: Slug of the provider to route to, or `*` to fan out to every provider. When unset, the gateway resolves the provider from the model.
+        """
+        pulumi.set(__self__, "model", model)
+        if provider is not None:
+            pulumi.set(__self__, "provider", provider)
+
+    @_builtins.property
+    @pulumi.getter
+    def model(self) -> pulumi.Input[_builtins.str]:
+        """
+        Model name, or a pattern with a trailing `*`.
+        """
+        return pulumi.get(self, "model")
+
+    @model.setter
+    def model(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "model", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def provider(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Slug of the provider to route to, or `*` to fan out to every provider. When unset, the gateway resolves the provider from the model.
+        """
+        return pulumi.get(self, "provider")
+
+    @provider.setter
+    def provider(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "provider", value)
+
+
+class AiGatewayProviderIntegrationConfigArgsDict(TypedDict):
+    bedrock_region: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    AWS region, for `bedrock` providers.
+    """
+    foundry_project: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Azure AI Foundry project name, for `azure_foundry` providers.
+    """
+    foundry_resource_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    ARM resource ID of the Azure AI Foundry resource, for `azure_foundry` providers.
+    """
+    location: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    GCP location, for `gemini` providers.
+    """
+    project_id: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    GCP project ID, for `gemini` providers.
+    """
+    supported_operations: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
+    """
+    Operations that a `custom` provider discovered and manually added models support. The API defaults to `OPENAI_CHAT_COMPLETIONS`.
+    """
+
+@pulumi.input_type
+class AiGatewayProviderIntegrationConfigArgs:
+    def __init__(__self__, *,
+                 bedrock_region: pulumi.Input[Optional[_builtins.str]] = None,
+                 foundry_project: pulumi.Input[Optional[_builtins.str]] = None,
+                 foundry_resource_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 location: pulumi.Input[Optional[_builtins.str]] = None,
+                 project_id: pulumi.Input[Optional[_builtins.str]] = None,
+                 supported_operations: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
+        """
+        :param pulumi.Input[_builtins.str] bedrock_region: AWS region, for `bedrock` providers.
+        :param pulumi.Input[_builtins.str] foundry_project: Azure AI Foundry project name, for `azure_foundry` providers.
+        :param pulumi.Input[_builtins.str] foundry_resource_id: ARM resource ID of the Azure AI Foundry resource, for `azure_foundry` providers.
+        :param pulumi.Input[_builtins.str] location: GCP location, for `gemini` providers.
+        :param pulumi.Input[_builtins.str] project_id: GCP project ID, for `gemini` providers.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] supported_operations: Operations that a `custom` provider discovered and manually added models support. The API defaults to `OPENAI_CHAT_COMPLETIONS`.
+        """
+        if bedrock_region is not None:
+            pulumi.set(__self__, "bedrock_region", bedrock_region)
+        if foundry_project is not None:
+            pulumi.set(__self__, "foundry_project", foundry_project)
+        if foundry_resource_id is not None:
+            pulumi.set(__self__, "foundry_resource_id", foundry_resource_id)
+        if location is not None:
+            pulumi.set(__self__, "location", location)
+        if project_id is not None:
+            pulumi.set(__self__, "project_id", project_id)
+        if supported_operations is not None:
+            pulumi.set(__self__, "supported_operations", supported_operations)
+
+    @_builtins.property
+    @pulumi.getter(name="bedrockRegion")
+    def bedrock_region(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        AWS region, for `bedrock` providers.
+        """
+        return pulumi.get(self, "bedrock_region")
+
+    @bedrock_region.setter
+    def bedrock_region(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "bedrock_region", value)
+
+    @_builtins.property
+    @pulumi.getter(name="foundryProject")
+    def foundry_project(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Azure AI Foundry project name, for `azure_foundry` providers.
+        """
+        return pulumi.get(self, "foundry_project")
+
+    @foundry_project.setter
+    def foundry_project(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "foundry_project", value)
+
+    @_builtins.property
+    @pulumi.getter(name="foundryResourceId")
+    def foundry_resource_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        ARM resource ID of the Azure AI Foundry resource, for `azure_foundry` providers.
+        """
+        return pulumi.get(self, "foundry_resource_id")
+
+    @foundry_resource_id.setter
+    def foundry_resource_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "foundry_resource_id", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def location(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        GCP location, for `gemini` providers.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "location", value)
+
+    @_builtins.property
+    @pulumi.getter(name="projectId")
+    def project_id(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        GCP project ID, for `gemini` providers.
+        """
+        return pulumi.get(self, "project_id")
+
+    @project_id.setter
+    def project_id(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "project_id", value)
+
+    @_builtins.property
+    @pulumi.getter(name="supportedOperations")
+    def supported_operations(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
+        """
+        Operations that a `custom` provider discovered and manually added models support. The API defaults to `OPENAI_CHAT_COMPLETIONS`.
+        """
+        return pulumi.get(self, "supported_operations")
+
+    @supported_operations.setter
+    def supported_operations(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
+        pulumi.set(self, "supported_operations", value)
+
+
+class AiGatewayRoutingRuleTierArgsDict(TypedDict):
+    targets: pulumi.Input[Sequence[pulumi.Input['AiGatewayRoutingRuleTierTargetArgsDict']]]
+    """
+    Destinations in the tier, in order. A target is either a model, set with `provider` and `model`, or another routing rule, set with `routing_rule`. A routing rule target must be the only target in its tier.
+    """
+    classifier: NotRequired[pulumi.Input[Optional['AiGatewayRoutingRuleTierClassifierArgsDict']]]
+    """
+    Decision model of a `classified` tier. Required on a `classified` tier and not allowed on others.
+    """
+    ordering: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    How the tier orders its targets. `configured` tries them in the order listed. `weighted_affinity` spreads requests by each target's `weight`. `classified`, which lets a decision model pick one target by its `rubric`, is allowed only on the first tier. Valid values are `configured`, `weighted_affinity`, `classified`. Defaults to `"configured"`.
+    """
+
+@pulumi.input_type
+class AiGatewayRoutingRuleTierArgs:
+    def __init__(__self__, *,
+                 targets: pulumi.Input[Sequence[pulumi.Input['AiGatewayRoutingRuleTierTargetArgs']]],
+                 classifier: pulumi.Input[Optional['AiGatewayRoutingRuleTierClassifierArgs']] = None,
+                 ordering: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['AiGatewayRoutingRuleTierTargetArgs']]] targets: Destinations in the tier, in order. A target is either a model, set with `provider` and `model`, or another routing rule, set with `routing_rule`. A routing rule target must be the only target in its tier.
+        :param pulumi.Input['AiGatewayRoutingRuleTierClassifierArgs'] classifier: Decision model of a `classified` tier. Required on a `classified` tier and not allowed on others.
+        :param pulumi.Input[_builtins.str] ordering: How the tier orders its targets. `configured` tries them in the order listed. `weighted_affinity` spreads requests by each target's `weight`. `classified`, which lets a decision model pick one target by its `rubric`, is allowed only on the first tier. Valid values are `configured`, `weighted_affinity`, `classified`. Defaults to `"configured"`.
+        """
+        pulumi.set(__self__, "targets", targets)
+        if classifier is not None:
+            pulumi.set(__self__, "classifier", classifier)
+        if ordering is not None:
+            pulumi.set(__self__, "ordering", ordering)
+
+    @_builtins.property
+    @pulumi.getter
+    def targets(self) -> pulumi.Input[Sequence[pulumi.Input['AiGatewayRoutingRuleTierTargetArgs']]]:
+        """
+        Destinations in the tier, in order. A target is either a model, set with `provider` and `model`, or another routing rule, set with `routing_rule`. A routing rule target must be the only target in its tier.
+        """
+        return pulumi.get(self, "targets")
+
+    @targets.setter
+    def targets(self, value: pulumi.Input[Sequence[pulumi.Input['AiGatewayRoutingRuleTierTargetArgs']]]):
+        pulumi.set(self, "targets", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def classifier(self) -> pulumi.Input[Optional['AiGatewayRoutingRuleTierClassifierArgs']]:
+        """
+        Decision model of a `classified` tier. Required on a `classified` tier and not allowed on others.
+        """
+        return pulumi.get(self, "classifier")
+
+    @classifier.setter
+    def classifier(self, value: pulumi.Input[Optional['AiGatewayRoutingRuleTierClassifierArgs']]):
+        pulumi.set(self, "classifier", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def ordering(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        How the tier orders its targets. `configured` tries them in the order listed. `weighted_affinity` spreads requests by each target's `weight`. `classified`, which lets a decision model pick one target by its `rubric`, is allowed only on the first tier. Valid values are `configured`, `weighted_affinity`, `classified`. Defaults to `"configured"`.
+        """
+        return pulumi.get(self, "ordering")
+
+    @ordering.setter
+    def ordering(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "ordering", value)
+
+
+class AiGatewayRoutingRuleTierClassifierArgsDict(TypedDict):
+    model: pulumi.Input[_builtins.str]
+    """
+    Canonical name of the decision model on that provider.
+    """
+    provider: pulumi.Input[_builtins.str]
+    """
+    Slug of the provider that serves the decision model. It must be an OpenAI, Baseten, or TypeSafe provider.
+    """
+    confidence_threshold: NotRequired[pulumi.Input[Optional[_builtins.float]]]
+    """
+    Minimum confidence that the picked target must reach. If the confidence is lower, the request goes to the default target. Value must be between 0.000000 and 1.000000. Defaults to `0.5`.
+    """
+    context: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Prompt that tells the decision model about the rule's traffic, up to 2000 characters.
+    """
+
+@pulumi.input_type
+class AiGatewayRoutingRuleTierClassifierArgs:
+    def __init__(__self__, *,
+                 model: pulumi.Input[_builtins.str],
+                 provider: pulumi.Input[_builtins.str],
+                 confidence_threshold: pulumi.Input[Optional[_builtins.float]] = None,
+                 context: pulumi.Input[Optional[_builtins.str]] = None):
+        """
+        :param pulumi.Input[_builtins.str] model: Canonical name of the decision model on that provider.
+        :param pulumi.Input[_builtins.str] provider: Slug of the provider that serves the decision model. It must be an OpenAI, Baseten, or TypeSafe provider.
+        :param pulumi.Input[_builtins.float] confidence_threshold: Minimum confidence that the picked target must reach. If the confidence is lower, the request goes to the default target. Value must be between 0.000000 and 1.000000. Defaults to `0.5`.
+        :param pulumi.Input[_builtins.str] context: Prompt that tells the decision model about the rule's traffic, up to 2000 characters.
+        """
+        pulumi.set(__self__, "model", model)
+        pulumi.set(__self__, "provider", provider)
+        if confidence_threshold is not None:
+            pulumi.set(__self__, "confidence_threshold", confidence_threshold)
+        if context is not None:
+            pulumi.set(__self__, "context", context)
+
+    @_builtins.property
+    @pulumi.getter
+    def model(self) -> pulumi.Input[_builtins.str]:
+        """
+        Canonical name of the decision model on that provider.
+        """
+        return pulumi.get(self, "model")
+
+    @model.setter
+    def model(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "model", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def provider(self) -> pulumi.Input[_builtins.str]:
+        """
+        Slug of the provider that serves the decision model. It must be an OpenAI, Baseten, or TypeSafe provider.
+        """
+        return pulumi.get(self, "provider")
+
+    @provider.setter
+    def provider(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "provider", value)
+
+    @_builtins.property
+    @pulumi.getter(name="confidenceThreshold")
+    def confidence_threshold(self) -> pulumi.Input[Optional[_builtins.float]]:
+        """
+        Minimum confidence that the picked target must reach. If the confidence is lower, the request goes to the default target. Value must be between 0.000000 and 1.000000. Defaults to `0.5`.
+        """
+        return pulumi.get(self, "confidence_threshold")
+
+    @confidence_threshold.setter
+    def confidence_threshold(self, value: pulumi.Input[Optional[_builtins.float]]):
+        pulumi.set(self, "confidence_threshold", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def context(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Prompt that tells the decision model about the rule's traffic, up to 2000 characters.
+        """
+        return pulumi.get(self, "context")
+
+    @context.setter
+    def context(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "context", value)
+
+
+class AiGatewayRoutingRuleTierTargetArgsDict(TypedDict):
+    default: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Marks the default target of a `classified` tier, which receives requests that don't match any rubric. Each `classified` tier must have exactly one default target.
+    """
+    model: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Model to route to. Required for a model target.
+    """
+    provider: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Slug of the provider to route to, or `*` to route to any provider that serves the model. Required for a model target.
+    """
+    reasoning_level: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Reasoning effort override for a model target. When unset, the caller's and provider's defaults apply. Valid values are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, `max`.
+    """
+    routing_rule: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Slug of another routing rule to route to.
+    """
+    rubric: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Description of when the decision model should pick this target, up to 300 characters. Required on every target of a `classified` tier except the default one, and not allowed in other tiers.
+    """
+    weight: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Relative weight of the target in a `weighted_affinity` tier. The API uses 1 when it's unset. Not allowed in other tiers. Value must be between 1 and 10000.
+    """
+
+@pulumi.input_type
+class AiGatewayRoutingRuleTierTargetArgs:
+    def __init__(__self__, *,
+                 default: pulumi.Input[Optional[_builtins.bool]] = None,
+                 model: pulumi.Input[Optional[_builtins.str]] = None,
+                 provider: pulumi.Input[Optional[_builtins.str]] = None,
+                 reasoning_level: pulumi.Input[Optional[_builtins.str]] = None,
+                 routing_rule: pulumi.Input[Optional[_builtins.str]] = None,
+                 rubric: pulumi.Input[Optional[_builtins.str]] = None,
+                 weight: pulumi.Input[Optional[_builtins.int]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] default: Marks the default target of a `classified` tier, which receives requests that don't match any rubric. Each `classified` tier must have exactly one default target.
+        :param pulumi.Input[_builtins.str] model: Model to route to. Required for a model target.
+        :param pulumi.Input[_builtins.str] provider: Slug of the provider to route to, or `*` to route to any provider that serves the model. Required for a model target.
+        :param pulumi.Input[_builtins.str] reasoning_level: Reasoning effort override for a model target. When unset, the caller's and provider's defaults apply. Valid values are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, `max`.
+        :param pulumi.Input[_builtins.str] routing_rule: Slug of another routing rule to route to.
+        :param pulumi.Input[_builtins.str] rubric: Description of when the decision model should pick this target, up to 300 characters. Required on every target of a `classified` tier except the default one, and not allowed in other tiers.
+        :param pulumi.Input[_builtins.int] weight: Relative weight of the target in a `weighted_affinity` tier. The API uses 1 when it's unset. Not allowed in other tiers. Value must be between 1 and 10000.
+        """
+        if default is not None:
+            pulumi.set(__self__, "default", default)
+        if model is not None:
+            pulumi.set(__self__, "model", model)
+        if provider is not None:
+            pulumi.set(__self__, "provider", provider)
+        if reasoning_level is not None:
+            pulumi.set(__self__, "reasoning_level", reasoning_level)
+        if routing_rule is not None:
+            pulumi.set(__self__, "routing_rule", routing_rule)
+        if rubric is not None:
+            pulumi.set(__self__, "rubric", rubric)
+        if weight is not None:
+            pulumi.set(__self__, "weight", weight)
+
+    @_builtins.property
+    @pulumi.getter
+    def default(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Marks the default target of a `classified` tier, which receives requests that don't match any rubric. Each `classified` tier must have exactly one default target.
+        """
+        return pulumi.get(self, "default")
+
+    @default.setter
+    def default(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "default", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def model(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Model to route to. Required for a model target.
+        """
+        return pulumi.get(self, "model")
+
+    @model.setter
+    def model(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "model", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def provider(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Slug of the provider to route to, or `*` to route to any provider that serves the model. Required for a model target.
+        """
+        return pulumi.get(self, "provider")
+
+    @provider.setter
+    def provider(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "provider", value)
+
+    @_builtins.property
+    @pulumi.getter(name="reasoningLevel")
+    def reasoning_level(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Reasoning effort override for a model target. When unset, the caller's and provider's defaults apply. Valid values are `none`, `minimal`, `low`, `medium`, `high`, `xhigh`, `max`.
+        """
+        return pulumi.get(self, "reasoning_level")
+
+    @reasoning_level.setter
+    def reasoning_level(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "reasoning_level", value)
+
+    @_builtins.property
+    @pulumi.getter(name="routingRule")
+    def routing_rule(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Slug of another routing rule to route to.
+        """
+        return pulumi.get(self, "routing_rule")
+
+    @routing_rule.setter
+    def routing_rule(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "routing_rule", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def rubric(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Description of when the decision model should pick this target, up to 300 characters. Required on every target of a `classified` tier except the default one, and not allowed in other tiers.
+        """
+        return pulumi.get(self, "rubric")
+
+    @rubric.setter
+    def rubric(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "rubric", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def weight(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Relative weight of the target in a `weighted_affinity` tier. The API uses 1 when it's unset. Not allowed in other tiers. Value must be between 1 and 10000.
+        """
+        return pulumi.get(self, "weight")
+
+    @weight.setter
+    def weight(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "weight", value)
+
+
 class ApmRetentionFilterFilterArgsDict(TypedDict):
     query: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -20184,6 +20789,149 @@ class CustomAllocationRuleStrategyEvaluateGroupedByFilterArgs:
         pulumi.set(self, "values", value)
 
 
+class DashboardDefaultTimeframeArgsDict(TypedDict):
+    fixed: NotRequired[pulumi.Input[Optional['DashboardDefaultTimeframeFixedArgsDict']]]
+    """
+    A fixed timeframe applied when opening the dashboard.
+    """
+    live: NotRequired[pulumi.Input[Optional['DashboardDefaultTimeframeLiveArgsDict']]]
+    """
+    A live timeframe applied when opening the dashboard.
+    """
+
+@pulumi.input_type
+class DashboardDefaultTimeframeArgs:
+    def __init__(__self__, *,
+                 fixed: pulumi.Input[Optional['DashboardDefaultTimeframeFixedArgs']] = None,
+                 live: pulumi.Input[Optional['DashboardDefaultTimeframeLiveArgs']] = None):
+        """
+        :param pulumi.Input['DashboardDefaultTimeframeFixedArgs'] fixed: A fixed timeframe applied when opening the dashboard.
+        :param pulumi.Input['DashboardDefaultTimeframeLiveArgs'] live: A live timeframe applied when opening the dashboard.
+        """
+        if fixed is not None:
+            pulumi.set(__self__, "fixed", fixed)
+        if live is not None:
+            pulumi.set(__self__, "live", live)
+
+    @_builtins.property
+    @pulumi.getter
+    def fixed(self) -> pulumi.Input[Optional['DashboardDefaultTimeframeFixedArgs']]:
+        """
+        A fixed timeframe applied when opening the dashboard.
+        """
+        return pulumi.get(self, "fixed")
+
+    @fixed.setter
+    def fixed(self, value: pulumi.Input[Optional['DashboardDefaultTimeframeFixedArgs']]):
+        pulumi.set(self, "fixed", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def live(self) -> pulumi.Input[Optional['DashboardDefaultTimeframeLiveArgs']]:
+        """
+        A live timeframe applied when opening the dashboard.
+        """
+        return pulumi.get(self, "live")
+
+    @live.setter
+    def live(self, value: pulumi.Input[Optional['DashboardDefaultTimeframeLiveArgs']]):
+        pulumi.set(self, "live", value)
+
+
+class DashboardDefaultTimeframeFixedArgsDict(TypedDict):
+    from_: pulumi.Input[_builtins.int]
+    """
+    Start time in milliseconds since epoch.
+    """
+    to: pulumi.Input[_builtins.int]
+    """
+    End time in milliseconds since epoch.
+    """
+
+@pulumi.input_type
+class DashboardDefaultTimeframeFixedArgs:
+    def __init__(__self__, *,
+                 from_: pulumi.Input[_builtins.int],
+                 to: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.int] from_: Start time in milliseconds since epoch.
+        :param pulumi.Input[_builtins.int] to: End time in milliseconds since epoch.
+        """
+        pulumi.set(__self__, "from_", from_)
+        pulumi.set(__self__, "to", to)
+
+    @_builtins.property
+    @pulumi.getter(name="from")
+    def from_(self) -> pulumi.Input[_builtins.int]:
+        """
+        Start time in milliseconds since epoch.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "from_", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def to(self) -> pulumi.Input[_builtins.int]:
+        """
+        End time in milliseconds since epoch.
+        """
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "to", value)
+
+
+class DashboardDefaultTimeframeLiveArgsDict(TypedDict):
+    unit: pulumi.Input[_builtins.str]
+    """
+    Unit of the live timeframe span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+    """
+    value: pulumi.Input[_builtins.int]
+    """
+    Value of the live timeframe span.
+    """
+
+@pulumi.input_type
+class DashboardDefaultTimeframeLiveArgs:
+    def __init__(__self__, *,
+                 unit: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.str] unit: Unit of the live timeframe span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+        :param pulumi.Input[_builtins.int] value: Value of the live timeframe span.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input[_builtins.str]:
+        """
+        Unit of the live timeframe span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "unit", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.int]:
+        """
+        Value of the live timeframe span.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "value", value)
+
+
 class DashboardListDashItemArgsDict(TypedDict):
     dash_id: pulumi.Input[_builtins.str]
     """
@@ -20550,6 +21298,149 @@ class DashboardTemplateVariablePresetTemplateVariableArgs:
     @values.setter
     def values(self, value: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]):
         pulumi.set(self, "values", value)
+
+
+class DashboardV2DefaultTimeframeArgsDict(TypedDict):
+    fixed: NotRequired[pulumi.Input[Optional['DashboardV2DefaultTimeframeFixedArgsDict']]]
+    """
+    A fixed timeframe applied when opening the dashboard.
+    """
+    live: NotRequired[pulumi.Input[Optional['DashboardV2DefaultTimeframeLiveArgsDict']]]
+    """
+    A live timeframe applied when opening the dashboard.
+    """
+
+@pulumi.input_type
+class DashboardV2DefaultTimeframeArgs:
+    def __init__(__self__, *,
+                 fixed: pulumi.Input[Optional['DashboardV2DefaultTimeframeFixedArgs']] = None,
+                 live: pulumi.Input[Optional['DashboardV2DefaultTimeframeLiveArgs']] = None):
+        """
+        :param pulumi.Input['DashboardV2DefaultTimeframeFixedArgs'] fixed: A fixed timeframe applied when opening the dashboard.
+        :param pulumi.Input['DashboardV2DefaultTimeframeLiveArgs'] live: A live timeframe applied when opening the dashboard.
+        """
+        if fixed is not None:
+            pulumi.set(__self__, "fixed", fixed)
+        if live is not None:
+            pulumi.set(__self__, "live", live)
+
+    @_builtins.property
+    @pulumi.getter
+    def fixed(self) -> pulumi.Input[Optional['DashboardV2DefaultTimeframeFixedArgs']]:
+        """
+        A fixed timeframe applied when opening the dashboard.
+        """
+        return pulumi.get(self, "fixed")
+
+    @fixed.setter
+    def fixed(self, value: pulumi.Input[Optional['DashboardV2DefaultTimeframeFixedArgs']]):
+        pulumi.set(self, "fixed", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def live(self) -> pulumi.Input[Optional['DashboardV2DefaultTimeframeLiveArgs']]:
+        """
+        A live timeframe applied when opening the dashboard.
+        """
+        return pulumi.get(self, "live")
+
+    @live.setter
+    def live(self, value: pulumi.Input[Optional['DashboardV2DefaultTimeframeLiveArgs']]):
+        pulumi.set(self, "live", value)
+
+
+class DashboardV2DefaultTimeframeFixedArgsDict(TypedDict):
+    from_: pulumi.Input[_builtins.int]
+    """
+    Start time in milliseconds since epoch.
+    """
+    to: pulumi.Input[_builtins.int]
+    """
+    End time in milliseconds since epoch.
+    """
+
+@pulumi.input_type
+class DashboardV2DefaultTimeframeFixedArgs:
+    def __init__(__self__, *,
+                 from_: pulumi.Input[_builtins.int],
+                 to: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.int] from_: Start time in milliseconds since epoch.
+        :param pulumi.Input[_builtins.int] to: End time in milliseconds since epoch.
+        """
+        pulumi.set(__self__, "from_", from_)
+        pulumi.set(__self__, "to", to)
+
+    @_builtins.property
+    @pulumi.getter(name="from")
+    def from_(self) -> pulumi.Input[_builtins.int]:
+        """
+        Start time in milliseconds since epoch.
+        """
+        return pulumi.get(self, "from_")
+
+    @from_.setter
+    def from_(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "from_", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def to(self) -> pulumi.Input[_builtins.int]:
+        """
+        End time in milliseconds since epoch.
+        """
+        return pulumi.get(self, "to")
+
+    @to.setter
+    def to(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "to", value)
+
+
+class DashboardV2DefaultTimeframeLiveArgsDict(TypedDict):
+    unit: pulumi.Input[_builtins.str]
+    """
+    Unit of the live timeframe span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+    """
+    value: pulumi.Input[_builtins.int]
+    """
+    Value of the live timeframe span.
+    """
+
+@pulumi.input_type
+class DashboardV2DefaultTimeframeLiveArgs:
+    def __init__(__self__, *,
+                 unit: pulumi.Input[_builtins.str],
+                 value: pulumi.Input[_builtins.int]):
+        """
+        :param pulumi.Input[_builtins.str] unit: Unit of the live timeframe span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+        :param pulumi.Input[_builtins.int] value: Value of the live timeframe span.
+        """
+        pulumi.set(__self__, "unit", unit)
+        pulumi.set(__self__, "value", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def unit(self) -> pulumi.Input[_builtins.str]:
+        """
+        Unit of the live timeframe span. Valid values are `minute`, `hour`, `day`, `week`, `month`, `year`.
+        """
+        return pulumi.get(self, "unit")
+
+    @unit.setter
+    def unit(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "unit", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[_builtins.int]:
+        """
+        Value of the live timeframe span.
+        """
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[_builtins.int]):
+        pulumi.set(self, "value", value)
 
 
 class DashboardV2TabArgsDict(TypedDict):
@@ -281055,6 +281946,10 @@ class MonitorVariablesArgsDict(TypedDict):
     """
     A timeseries formula and functions events query.
     """
+    metric_queries: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['MonitorVariablesMetricQueryArgsDict']]]]]
+    """
+    A metrics query for use in formulas in metric monitors. For cost monitors, use `cloud_cost_query` instead, which requires an aggregator.
+    """
 
 @pulumi.input_type
 class MonitorVariablesArgs:
@@ -281064,7 +281959,8 @@ class MonitorVariablesArgs:
                  cloud_cost_queries: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorVariablesCloudCostQueryArgs']]]] = None,
                  data_jobs_queries: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorVariablesDataJobsQueryArgs']]]] = None,
                  data_quality_queries: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorVariablesDataQualityQueryArgs']]]] = None,
-                 event_queries: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorVariablesEventQueryArgs']]]] = None):
+                 event_queries: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorVariablesEventQueryArgs']]]] = None,
+                 metric_queries: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorVariablesMetricQueryArgs']]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['MonitorVariablesAggregateAugmentedQueryArgs']]] aggregate_augmented_queries: Aggregate-augmented composite query variables (reference table augment joined to a metrics or events base query).
         :param pulumi.Input[Sequence[pulumi.Input['MonitorVariablesAggregateFilteredQueryArgs']]] aggregate_filtered_queries: Aggregate-filtered composite query variables (filter base query results using a reference table or events filter query).
@@ -281072,6 +281968,7 @@ class MonitorVariablesArgs:
         :param pulumi.Input[Sequence[pulumi.Input['MonitorVariablesDataJobsQueryArgs']]] data_jobs_queries: The Data Jobs query using formulas and functions.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorVariablesDataQualityQueryArgs']]] data_quality_queries: The Data Quality query using formulas and functions.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorVariablesEventQueryArgs']]] event_queries: A timeseries formula and functions events query.
+        :param pulumi.Input[Sequence[pulumi.Input['MonitorVariablesMetricQueryArgs']]] metric_queries: A metrics query for use in formulas in metric monitors. For cost monitors, use `cloud_cost_query` instead, which requires an aggregator.
         """
         if aggregate_augmented_queries is not None:
             pulumi.set(__self__, "aggregate_augmented_queries", aggregate_augmented_queries)
@@ -281085,6 +281982,8 @@ class MonitorVariablesArgs:
             pulumi.set(__self__, "data_quality_queries", data_quality_queries)
         if event_queries is not None:
             pulumi.set(__self__, "event_queries", event_queries)
+        if metric_queries is not None:
+            pulumi.set(__self__, "metric_queries", metric_queries)
 
     @_builtins.property
     @pulumi.getter(name="aggregateAugmentedQueries")
@@ -281157,6 +282056,18 @@ class MonitorVariablesArgs:
     @event_queries.setter
     def event_queries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorVariablesEventQueryArgs']]]]):
         pulumi.set(self, "event_queries", value)
+
+    @_builtins.property
+    @pulumi.getter(name="metricQueries")
+    def metric_queries(self) -> pulumi.Input[Optional[Sequence[pulumi.Input['MonitorVariablesMetricQueryArgs']]]]:
+        """
+        A metrics query for use in formulas in metric monitors. For cost monitors, use `cloud_cost_query` instead, which requires an aggregator.
+        """
+        return pulumi.get(self, "metric_queries")
+
+    @metric_queries.setter
+    def metric_queries(self, value: pulumi.Input[Optional[Sequence[pulumi.Input['MonitorVariablesMetricQueryArgs']]]]):
+        pulumi.set(self, "metric_queries", value)
 
 
 class MonitorVariablesAggregateAugmentedQueryArgsDict(TypedDict):
@@ -281351,7 +282262,7 @@ class MonitorVariablesAggregateAugmentedQueryAugmentEventQueryArgsDict(TypedDict
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network`, `network_path`.
+    The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network`, `network_path`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -281381,7 +282292,7 @@ class MonitorVariablesAggregateAugmentedQueryAugmentEventQueryArgs:
                  indexes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['MonitorVariablesAggregateAugmentedQueryAugmentEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network`, `network_path`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network`, `network_path`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input['MonitorVariablesAggregateAugmentedQueryAugmentEventQuerySearchArgs'] search: The search options.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorVariablesAggregateAugmentedQueryAugmentEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -281412,7 +282323,7 @@ class MonitorVariablesAggregateAugmentedQueryAugmentEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network`, `network_path`.
+        The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network`, `network_path`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -281903,7 +282814,7 @@ class MonitorVariablesAggregateAugmentedQueryBaseEventQueryArgsDict(TypedDict):
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network`, `network_path`.
+    The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network`, `network_path`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -281933,7 +282844,7 @@ class MonitorVariablesAggregateAugmentedQueryBaseEventQueryArgs:
                  indexes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['MonitorVariablesAggregateAugmentedQueryBaseEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network`, `network_path`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network`, `network_path`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input['MonitorVariablesAggregateAugmentedQueryBaseEventQuerySearchArgs'] search: The search options.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorVariablesAggregateAugmentedQueryBaseEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -281964,7 +282875,7 @@ class MonitorVariablesAggregateAugmentedQueryBaseEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network`, `network_path`.
+        The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network`, `network_path`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -282884,7 +283795,7 @@ class MonitorVariablesAggregateFilteredQueryBaseEventQueryArgsDict(TypedDict):
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network`, `network_path`.
+    The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network`, `network_path`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -282914,7 +283825,7 @@ class MonitorVariablesAggregateFilteredQueryBaseEventQueryArgs:
                  indexes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['MonitorVariablesAggregateFilteredQueryBaseEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network`, `network_path`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network`, `network_path`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input['MonitorVariablesAggregateFilteredQueryBaseEventQuerySearchArgs'] search: The search options.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorVariablesAggregateFilteredQueryBaseEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -282945,7 +283856,7 @@ class MonitorVariablesAggregateFilteredQueryBaseEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network`, `network_path`.
+        The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network`, `network_path`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -283523,7 +284434,7 @@ class MonitorVariablesAggregateFilteredQueryFilterEventQueryArgsDict(TypedDict):
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network`, `network_path`.
+    The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network`, `network_path`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -283553,7 +284464,7 @@ class MonitorVariablesAggregateFilteredQueryFilterEventQueryArgs:
                  indexes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['MonitorVariablesAggregateFilteredQueryFilterEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network`, `network_path`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network`, `network_path`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input['MonitorVariablesAggregateFilteredQueryFilterEventQuerySearchArgs'] search: The search options.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorVariablesAggregateFilteredQueryFilterEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -283584,7 +284495,7 @@ class MonitorVariablesAggregateFilteredQueryFilterEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network`, `network_path`.
+        The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network`, `network_path`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -284231,7 +285142,7 @@ class MonitorVariablesCloudCostQueryArgsDict(TypedDict):
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for cloud cost queries. Valid values are `metrics`, `cloud_cost`, `datadog_usage`.
+    The data source for cloud cost queries. Valid values are `cloud_cost`, `datadog_usage`, `metrics`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -284251,7 +285162,7 @@ class MonitorVariablesCloudCostQueryArgs:
                  query: pulumi.Input[_builtins.str]):
         """
         :param pulumi.Input[_builtins.str] aggregator: The aggregation methods available for cloud cost queries. Valid values are `avg`, `sum`, `max`, `min`, `last`, `area`, `l2norm`, `percentile`, `stddev`.
-        :param pulumi.Input[_builtins.str] data_source: The data source for cloud cost queries. Valid values are `metrics`, `cloud_cost`, `datadog_usage`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for cloud cost queries. Valid values are `cloud_cost`, `datadog_usage`, `metrics`.
         :param pulumi.Input[_builtins.str] name: The name of the query for use in formulas.
         :param pulumi.Input[_builtins.str] query: The cloud cost query definition.
         """
@@ -284276,7 +285187,7 @@ class MonitorVariablesCloudCostQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for cloud cost queries. Valid values are `metrics`, `cloud_cost`, `datadog_usage`.
+        The data source for cloud cost queries. Valid values are `cloud_cost`, `datadog_usage`, `metrics`.
         """
         return pulumi.get(self, "data_source")
 
@@ -285163,7 +286074,7 @@ class MonitorVariablesEventQueryArgsDict(TypedDict):
     """
     data_source: pulumi.Input[_builtins.str]
     """
-    The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network`, `network_path`.
+    The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network`, `network_path`, `llm_observability`.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -285193,7 +286104,7 @@ class MonitorVariablesEventQueryArgs:
                  indexes: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         :param pulumi.Input[Sequence[pulumi.Input['MonitorVariablesEventQueryComputeArgs']]] computes: The compute options.
-        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network`, `network_path`.
+        :param pulumi.Input[_builtins.str] data_source: The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network`, `network_path`, `llm_observability`.
         :param pulumi.Input[_builtins.str] name: The name of query for use in formulas.
         :param pulumi.Input['MonitorVariablesEventQuerySearchArgs'] search: The search options.
         :param pulumi.Input[Sequence[pulumi.Input['MonitorVariablesEventQueryGroupByArgs']]] group_bies: Group by options.
@@ -285224,7 +286135,7 @@ class MonitorVariablesEventQueryArgs:
     @pulumi.getter(name="dataSource")
     def data_source(self) -> pulumi.Input[_builtins.str]:
         """
-        The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network`, `network_path`.
+        The data source for event platform-based queries. Valid values are `rum`, `ci_pipelines`, `ci_tests`, `audit`, `events`, `logs`, `spans`, `database_queries`, `network`, `network_path`, `llm_observability`.
         """
         return pulumi.get(self, "data_source")
 
@@ -285545,6 +286456,72 @@ class MonitorVariablesEventQuerySearchArgs:
     def query(self) -> pulumi.Input[_builtins.str]:
         """
         The events search string.
+        """
+        return pulumi.get(self, "query")
+
+    @query.setter
+    def query(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "query", value)
+
+
+class MonitorVariablesMetricQueryArgsDict(TypedDict):
+    data_source: pulumi.Input[_builtins.str]
+    """
+    The data source for metrics queries. Valid values are `metrics`.
+    """
+    name: pulumi.Input[_builtins.str]
+    """
+    The name of the query for use in formulas.
+    """
+    query: pulumi.Input[_builtins.str]
+    """
+    The metrics query definition.
+    """
+
+@pulumi.input_type
+class MonitorVariablesMetricQueryArgs:
+    def __init__(__self__, *,
+                 data_source: pulumi.Input[_builtins.str],
+                 name: pulumi.Input[_builtins.str],
+                 query: pulumi.Input[_builtins.str]):
+        """
+        :param pulumi.Input[_builtins.str] data_source: The data source for metrics queries. Valid values are `metrics`.
+        :param pulumi.Input[_builtins.str] name: The name of the query for use in formulas.
+        :param pulumi.Input[_builtins.str] query: The metrics query definition.
+        """
+        pulumi.set(__self__, "data_source", data_source)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "query", query)
+
+    @_builtins.property
+    @pulumi.getter(name="dataSource")
+    def data_source(self) -> pulumi.Input[_builtins.str]:
+        """
+        The data source for metrics queries. Valid values are `metrics`.
+        """
+        return pulumi.get(self, "data_source")
+
+    @data_source.setter
+    def data_source(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "data_source", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[_builtins.str]:
+        """
+        The name of the query for use in formulas.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[_builtins.str]):
+        pulumi.set(self, "name", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def query(self) -> pulumi.Input[_builtins.str]:
+        """
+        The metrics query definition.
         """
         return pulumi.get(self, "query")
 
@@ -476377,7 +477354,7 @@ class GetReferenceTableRowsRowArgsDict(TypedDict):
     """
     values: Mapping[str, _builtins.str]
     """
-    Map of field names to values for this row. All values are returned as strings.
+    Map of field names to row values. Non-null values are returned as strings. API `null` values are represented as Terraform `null`. Empty strings are returned as `""`.
     """
 
 @pulumi.input_type
@@ -476387,7 +477364,7 @@ class GetReferenceTableRowsRowArgs:
                  values: Mapping[str, _builtins.str]):
         """
         :param _builtins.str id: The primary key value of the row.
-        :param Mapping[str, _builtins.str] values: Map of field names to values for this row. All values are returned as strings.
+        :param Mapping[str, _builtins.str] values: Map of field names to row values. Non-null values are returned as strings. API `null` values are represented as Terraform `null`. Empty strings are returned as `""`.
         """
         pulumi.set(__self__, "id", id)
         pulumi.set(__self__, "values", values)
@@ -476408,7 +477385,7 @@ class GetReferenceTableRowsRowArgs:
     @pulumi.getter
     def values(self) -> Mapping[str, _builtins.str]:
         """
-        Map of field names to values for this row. All values are returned as strings.
+        Map of field names to row values. Non-null values are returned as strings. API `null` values are represented as Terraform `null`. Empty strings are returned as `""`.
         """
         return pulumi.get(self, "values")
 
