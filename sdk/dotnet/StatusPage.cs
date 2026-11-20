@@ -29,6 +29,8 @@ namespace Pulumi.Datadog
     ///         Type = "public",
     ///         DomainPrefix = "acme-status",
     ///         VisualizationType = "bars_and_uptime_percentage",
+    ///         VisualizationLayout = "list",
+    ///         RssFeedEnabled = true,
     ///     });
     /// 
     /// });
@@ -82,6 +84,12 @@ namespace Pulumi.Datadog
         public Output<string> EmailHeaderImage { get; private set; } = null!;
 
         /// <summary>
+        /// Whether email notifications are enabled for the status page. Must be enabled when `SubscriptionsEnabled` is `True`.
+        /// </summary>
+        [Output("emailNotificationsEnabled")]
+        public Output<bool> EmailNotificationsEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// Whether the status page is published. Managed by the publish/unpublish API operations, not by this resource; always reflects the page's current state.
         /// </summary>
         [Output("enabled")]
@@ -100,6 +108,12 @@ namespace Pulumi.Datadog
         public Output<string> ModifiedAt { get; private set; } = null!;
 
         /// <summary>
+        /// Whether Microsoft Teams subscriber notifications are enabled for the status page.
+        /// </summary>
+        [Output("msTeamsSubscriptionsEnabled")]
+        public Output<bool> MsTeamsSubscriptionsEnabled { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the status page.
         /// </summary>
         [Output("name")]
@@ -110,6 +124,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Output("pageUrl")]
         public Output<string> PageUrl { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether the RSS feed is enabled for the status page.
+        /// </summary>
+        [Output("rssFeedEnabled")]
+        public Output<bool> RssFeedEnabled { get; private set; } = null!;
 
         /// <summary>
         /// The icon used for the status page's Slack app integration.
@@ -130,10 +150,16 @@ namespace Pulumi.Datadog
         public Output<bool> SubscriptionsEnabled { get; private set; } = null!;
 
         /// <summary>
-        /// The type of the status page. Valid values are: public, internal.
+        /// The type of the status page. Valid values are: public, internal, private. Private pages are only accessible to users allowed by the page's email access policies, managed with `datadog.StatusPageEmailAccessPolicy`.
         /// </summary>
         [Output("type")]
         public Output<string> Type { get; private set; } = null!;
+
+        /// <summary>
+        /// The layout of components on the status page. Defaults to `List`. `Grid` requires `VisualizationType` to be `ComponentNameOnly`; changing `VisualizationType` to any other value resets the layout to `List`. Valid values are `List`, `Grid`.
+        /// </summary>
+        [Output("visualizationLayout")]
+        public Output<string> VisualizationLayout { get; private set; } = null!;
 
         /// <summary>
         /// How component statuses are visualized on the page. Valid values are: bars*and*uptime*percentage, bars*only, component*name*only.
@@ -206,16 +232,34 @@ namespace Pulumi.Datadog
         public Input<string>? EmailHeaderImage { get; set; }
 
         /// <summary>
+        /// Whether email notifications are enabled for the status page. Must be enabled when `SubscriptionsEnabled` is `True`.
+        /// </summary>
+        [Input("emailNotificationsEnabled")]
+        public Input<bool>? EmailNotificationsEnabled { get; set; }
+
+        /// <summary>
         /// The favicon displayed for the status page.
         /// </summary>
         [Input("favicon")]
         public Input<string>? Favicon { get; set; }
 
         /// <summary>
+        /// Whether Microsoft Teams subscriber notifications are enabled for the status page.
+        /// </summary>
+        [Input("msTeamsSubscriptionsEnabled")]
+        public Input<bool>? MsTeamsSubscriptionsEnabled { get; set; }
+
+        /// <summary>
         /// The name of the status page.
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Whether the RSS feed is enabled for the status page.
+        /// </summary>
+        [Input("rssFeedEnabled")]
+        public Input<bool>? RssFeedEnabled { get; set; }
 
         /// <summary>
         /// The icon used for the status page's Slack app integration.
@@ -236,10 +280,16 @@ namespace Pulumi.Datadog
         public Input<bool>? SubscriptionsEnabled { get; set; }
 
         /// <summary>
-        /// The type of the status page. Valid values are: public, internal.
+        /// The type of the status page. Valid values are: public, internal, private. Private pages are only accessible to users allowed by the page's email access policies, managed with `datadog.StatusPageEmailAccessPolicy`.
         /// </summary>
         [Input("type", required: true)]
         public Input<string> Type { get; set; } = null!;
+
+        /// <summary>
+        /// The layout of components on the status page. Defaults to `List`. `Grid` requires `VisualizationType` to be `ComponentNameOnly`; changing `VisualizationType` to any other value resets the layout to `List`. Valid values are `List`, `Grid`.
+        /// </summary>
+        [Input("visualizationLayout")]
+        public Input<string>? VisualizationLayout { get; set; }
 
         /// <summary>
         /// How component statuses are visualized on the page. Valid values are: bars*and*uptime*percentage, bars*only, component*name*only.
@@ -292,6 +342,12 @@ namespace Pulumi.Datadog
         public Input<string>? EmailHeaderImage { get; set; }
 
         /// <summary>
+        /// Whether email notifications are enabled for the status page. Must be enabled when `SubscriptionsEnabled` is `True`.
+        /// </summary>
+        [Input("emailNotificationsEnabled")]
+        public Input<bool>? EmailNotificationsEnabled { get; set; }
+
+        /// <summary>
         /// Whether the status page is published. Managed by the publish/unpublish API operations, not by this resource; always reflects the page's current state.
         /// </summary>
         [Input("enabled")]
@@ -310,6 +366,12 @@ namespace Pulumi.Datadog
         public Input<string>? ModifiedAt { get; set; }
 
         /// <summary>
+        /// Whether Microsoft Teams subscriber notifications are enabled for the status page.
+        /// </summary>
+        [Input("msTeamsSubscriptionsEnabled")]
+        public Input<bool>? MsTeamsSubscriptionsEnabled { get; set; }
+
+        /// <summary>
         /// The name of the status page.
         /// </summary>
         [Input("name")]
@@ -320,6 +382,12 @@ namespace Pulumi.Datadog
         /// </summary>
         [Input("pageUrl")]
         public Input<string>? PageUrl { get; set; }
+
+        /// <summary>
+        /// Whether the RSS feed is enabled for the status page.
+        /// </summary>
+        [Input("rssFeedEnabled")]
+        public Input<bool>? RssFeedEnabled { get; set; }
 
         /// <summary>
         /// The icon used for the status page's Slack app integration.
@@ -340,10 +408,16 @@ namespace Pulumi.Datadog
         public Input<bool>? SubscriptionsEnabled { get; set; }
 
         /// <summary>
-        /// The type of the status page. Valid values are: public, internal.
+        /// The type of the status page. Valid values are: public, internal, private. Private pages are only accessible to users allowed by the page's email access policies, managed with `datadog.StatusPageEmailAccessPolicy`.
         /// </summary>
         [Input("type")]
         public Input<string>? Type { get; set; }
+
+        /// <summary>
+        /// The layout of components on the status page. Defaults to `List`. `Grid` requires `VisualizationType` to be `ComponentNameOnly`; changing `VisualizationType` to any other value resets the layout to `List`. Valid values are `List`, `Grid`.
+        /// </summary>
+        [Input("visualizationLayout")]
+        public Input<string>? VisualizationLayout { get; set; }
 
         /// <summary>
         /// How component statuses are visualized on the page. Valid values are: bars*and*uptime*percentage, bars*only, component*name*only.

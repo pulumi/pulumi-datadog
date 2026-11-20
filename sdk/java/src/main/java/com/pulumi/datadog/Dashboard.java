@@ -10,6 +10,7 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.datadog.DashboardArgs;
 import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.inputs.DashboardState;
+import com.pulumi.datadog.outputs.DashboardDefaultTimeframe;
 import com.pulumi.datadog.outputs.DashboardTab;
 import com.pulumi.datadog.outputs.DashboardTemplateVariable;
 import com.pulumi.datadog.outputs.DashboardTemplateVariablePreset;
@@ -226,6 +227,20 @@ public class Dashboard extends com.pulumi.resources.CustomResource {
      */
     public Output<List<Integer>> dashboardListsRemoveds() {
         return this.dashboardListsRemoveds;
+    }
+    /**
+     * The default timeframe applied when opening the dashboard. Set to `null` to disable after it has been configured.
+     * 
+     */
+    @Export(name="defaultTimeframe", refs={DashboardDefaultTimeframe.class}, tree="[0]")
+    private Output</* @Nullable */ DashboardDefaultTimeframe> defaultTimeframe;
+
+    /**
+     * @return The default timeframe applied when opening the dashboard. Set to `null` to disable after it has been configured.
+     * 
+     */
+    public Output<Optional<DashboardDefaultTimeframe>> defaultTimeframe() {
+        return Codegen.optional(this.defaultTimeframe);
     }
     /**
      * The description of the dashboard.

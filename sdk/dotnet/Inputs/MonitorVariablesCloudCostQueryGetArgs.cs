@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Aggregator { get; set; } = null!;
 
         /// <summary>
-        /// The data source for cloud cost queries. Valid values are `Metrics`, `CloudCost`, `DatadogUsage`.
+        /// The data source for cloud cost queries. Valid values are `CloudCost`, `DatadogUsage`, `Metrics`.
         /// </summary>
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;

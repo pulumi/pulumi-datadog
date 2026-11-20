@@ -17,7 +17,7 @@ public final class GetReferenceTableRowsRow {
      */
     private String id;
     /**
-     * @return Map of field names to values for this row. All values are returned as strings.
+     * @return Map of field names to row values. Non-null values are returned as strings. API `null` values are represented as Terraform `null`. Empty strings are returned as `&#34;&#34;`.
      * 
      */
     private Map<String,String> values;
@@ -31,7 +31,7 @@ public final class GetReferenceTableRowsRow {
         return this.id;
     }
     /**
-     * @return Map of field names to values for this row. All values are returned as strings.
+     * @return Map of field names to row values. Non-null values are returned as strings. API `null` values are represented as Terraform `null`. Empty strings are returned as `&#34;&#34;`.
      * 
      */
     public Map<String,String> values() {

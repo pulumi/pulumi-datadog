@@ -142,6 +142,10 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly string EmailHeaderImage;
         /// <summary>
+        /// Whether email notifications are enabled for the status page.
+        /// </summary>
+        public readonly bool EmailNotificationsEnabled;
+        /// <summary>
         /// Whether the status page is published.
         /// </summary>
         public readonly bool Enabled;
@@ -158,6 +162,10 @@ namespace Pulumi.Datadog
         /// </summary>
         public readonly string ModifiedAt;
         /// <summary>
+        /// Whether Microsoft Teams subscriber notifications are enabled for the status page.
+        /// </summary>
+        public readonly bool MsTeamsSubscriptionsEnabled;
+        /// <summary>
         /// The name of the status page.
         /// </summary>
         public readonly string Name;
@@ -165,6 +173,10 @@ namespace Pulumi.Datadog
         /// The URL of the status page.
         /// </summary>
         public readonly string PageUrl;
+        /// <summary>
+        /// Whether the RSS feed is enabled for the status page.
+        /// </summary>
+        public readonly bool RssFeedEnabled;
         /// <summary>
         /// The icon used for the status page's Slack app integration.
         /// </summary>
@@ -181,6 +193,10 @@ namespace Pulumi.Datadog
         /// The type of the status page.
         /// </summary>
         public readonly string Type;
+        /// <summary>
+        /// The layout of components on the status page. Possible values are: list, grid.
+        /// </summary>
+        public readonly string VisualizationLayout;
         /// <summary>
         /// How component statuses are visualized on the page.
         /// </summary>
@@ -200,6 +216,8 @@ namespace Pulumi.Datadog
 
             string emailHeaderImage,
 
+            bool emailNotificationsEnabled,
+
             bool enabled,
 
             string favicon,
@@ -208,9 +226,13 @@ namespace Pulumi.Datadog
 
             string modifiedAt,
 
+            bool msTeamsSubscriptionsEnabled,
+
             string name,
 
             string pageUrl,
+
+            bool rssFeedEnabled,
 
             string slackAppIcon,
 
@@ -220,6 +242,8 @@ namespace Pulumi.Datadog
 
             string type,
 
+            string visualizationLayout,
+
             string visualizationType)
         {
             CompanyLogo = companyLogo;
@@ -228,16 +252,20 @@ namespace Pulumi.Datadog
             CustomDomainEnabled = customDomainEnabled;
             DomainPrefix = domainPrefix;
             EmailHeaderImage = emailHeaderImage;
+            EmailNotificationsEnabled = emailNotificationsEnabled;
             Enabled = enabled;
             Favicon = favicon;
             Id = id;
             ModifiedAt = modifiedAt;
+            MsTeamsSubscriptionsEnabled = msTeamsSubscriptionsEnabled;
             Name = name;
             PageUrl = pageUrl;
+            RssFeedEnabled = rssFeedEnabled;
             SlackAppIcon = slackAppIcon;
             SlackSubscriptionsEnabled = slackSubscriptionsEnabled;
             SubscriptionsEnabled = subscriptionsEnabled;
             Type = type;
+            VisualizationLayout = visualizationLayout;
             VisualizationType = visualizationType;
         }
     }

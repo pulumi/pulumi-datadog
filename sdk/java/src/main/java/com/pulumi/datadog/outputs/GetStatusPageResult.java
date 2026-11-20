@@ -42,6 +42,11 @@ public final class GetStatusPageResult {
      */
     private String emailHeaderImage;
     /**
+     * @return Whether email notifications are enabled for the status page.
+     * 
+     */
+    private Boolean emailNotificationsEnabled;
+    /**
      * @return Whether the status page is published.
      * 
      */
@@ -62,6 +67,11 @@ public final class GetStatusPageResult {
      */
     private String modifiedAt;
     /**
+     * @return Whether Microsoft Teams subscriber notifications are enabled for the status page.
+     * 
+     */
+    private Boolean msTeamsSubscriptionsEnabled;
+    /**
      * @return The name of the status page.
      * 
      */
@@ -71,6 +81,11 @@ public final class GetStatusPageResult {
      * 
      */
     private String pageUrl;
+    /**
+     * @return Whether the RSS feed is enabled for the status page.
+     * 
+     */
+    private Boolean rssFeedEnabled;
     /**
      * @return The icon used for the status page&#39;s Slack app integration.
      * 
@@ -91,6 +106,11 @@ public final class GetStatusPageResult {
      * 
      */
     private String type;
+    /**
+     * @return The layout of components on the status page. Possible values are: list, grid.
+     * 
+     */
+    private String visualizationLayout;
     /**
      * @return How component statuses are visualized on the page.
      * 
@@ -141,6 +161,13 @@ public final class GetStatusPageResult {
         return this.emailHeaderImage;
     }
     /**
+     * @return Whether email notifications are enabled for the status page.
+     * 
+     */
+    public Boolean emailNotificationsEnabled() {
+        return this.emailNotificationsEnabled;
+    }
+    /**
      * @return Whether the status page is published.
      * 
      */
@@ -169,6 +196,13 @@ public final class GetStatusPageResult {
         return this.modifiedAt;
     }
     /**
+     * @return Whether Microsoft Teams subscriber notifications are enabled for the status page.
+     * 
+     */
+    public Boolean msTeamsSubscriptionsEnabled() {
+        return this.msTeamsSubscriptionsEnabled;
+    }
+    /**
      * @return The name of the status page.
      * 
      */
@@ -181,6 +215,13 @@ public final class GetStatusPageResult {
      */
     public String pageUrl() {
         return this.pageUrl;
+    }
+    /**
+     * @return Whether the RSS feed is enabled for the status page.
+     * 
+     */
+    public Boolean rssFeedEnabled() {
+        return this.rssFeedEnabled;
     }
     /**
      * @return The icon used for the status page&#39;s Slack app integration.
@@ -211,6 +252,13 @@ public final class GetStatusPageResult {
         return this.type;
     }
     /**
+     * @return The layout of components on the status page. Possible values are: list, grid.
+     * 
+     */
+    public String visualizationLayout() {
+        return this.visualizationLayout;
+    }
+    /**
      * @return How component statuses are visualized on the page.
      * 
      */
@@ -233,16 +281,20 @@ public final class GetStatusPageResult {
         private Boolean customDomainEnabled;
         private String domainPrefix;
         private String emailHeaderImage;
+        private Boolean emailNotificationsEnabled;
         private Boolean enabled;
         private String favicon;
         private String id;
         private String modifiedAt;
+        private Boolean msTeamsSubscriptionsEnabled;
         private String name;
         private String pageUrl;
+        private Boolean rssFeedEnabled;
         private String slackAppIcon;
         private Boolean slackSubscriptionsEnabled;
         private Boolean subscriptionsEnabled;
         private String type;
+        private String visualizationLayout;
         private String visualizationType;
         public Builder() {}
         public Builder(GetStatusPageResult defaults) {
@@ -253,16 +305,20 @@ public final class GetStatusPageResult {
     	      this.customDomainEnabled = defaults.customDomainEnabled;
     	      this.domainPrefix = defaults.domainPrefix;
     	      this.emailHeaderImage = defaults.emailHeaderImage;
+    	      this.emailNotificationsEnabled = defaults.emailNotificationsEnabled;
     	      this.enabled = defaults.enabled;
     	      this.favicon = defaults.favicon;
     	      this.id = defaults.id;
     	      this.modifiedAt = defaults.modifiedAt;
+    	      this.msTeamsSubscriptionsEnabled = defaults.msTeamsSubscriptionsEnabled;
     	      this.name = defaults.name;
     	      this.pageUrl = defaults.pageUrl;
+    	      this.rssFeedEnabled = defaults.rssFeedEnabled;
     	      this.slackAppIcon = defaults.slackAppIcon;
     	      this.slackSubscriptionsEnabled = defaults.slackSubscriptionsEnabled;
     	      this.subscriptionsEnabled = defaults.subscriptionsEnabled;
     	      this.type = defaults.type;
+    	      this.visualizationLayout = defaults.visualizationLayout;
     	      this.visualizationType = defaults.visualizationType;
         }
 
@@ -315,6 +371,14 @@ public final class GetStatusPageResult {
             return this;
         }
         @CustomType.Setter
+        public Builder emailNotificationsEnabled(Boolean emailNotificationsEnabled) {
+            if (emailNotificationsEnabled == null) {
+              throw new MissingRequiredPropertyException("GetStatusPageResult", "emailNotificationsEnabled");
+            }
+            this.emailNotificationsEnabled = emailNotificationsEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder enabled(Boolean enabled) {
             if (enabled == null) {
               throw new MissingRequiredPropertyException("GetStatusPageResult", "enabled");
@@ -347,6 +411,14 @@ public final class GetStatusPageResult {
             return this;
         }
         @CustomType.Setter
+        public Builder msTeamsSubscriptionsEnabled(Boolean msTeamsSubscriptionsEnabled) {
+            if (msTeamsSubscriptionsEnabled == null) {
+              throw new MissingRequiredPropertyException("GetStatusPageResult", "msTeamsSubscriptionsEnabled");
+            }
+            this.msTeamsSubscriptionsEnabled = msTeamsSubscriptionsEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
               throw new MissingRequiredPropertyException("GetStatusPageResult", "name");
@@ -360,6 +432,14 @@ public final class GetStatusPageResult {
               throw new MissingRequiredPropertyException("GetStatusPageResult", "pageUrl");
             }
             this.pageUrl = pageUrl;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder rssFeedEnabled(Boolean rssFeedEnabled) {
+            if (rssFeedEnabled == null) {
+              throw new MissingRequiredPropertyException("GetStatusPageResult", "rssFeedEnabled");
+            }
+            this.rssFeedEnabled = rssFeedEnabled;
             return this;
         }
         @CustomType.Setter
@@ -395,6 +475,14 @@ public final class GetStatusPageResult {
             return this;
         }
         @CustomType.Setter
+        public Builder visualizationLayout(String visualizationLayout) {
+            if (visualizationLayout == null) {
+              throw new MissingRequiredPropertyException("GetStatusPageResult", "visualizationLayout");
+            }
+            this.visualizationLayout = visualizationLayout;
+            return this;
+        }
+        @CustomType.Setter
         public Builder visualizationType(String visualizationType) {
             if (visualizationType == null) {
               throw new MissingRequiredPropertyException("GetStatusPageResult", "visualizationType");
@@ -410,16 +498,20 @@ public final class GetStatusPageResult {
             _resultValue.customDomainEnabled = customDomainEnabled;
             _resultValue.domainPrefix = domainPrefix;
             _resultValue.emailHeaderImage = emailHeaderImage;
+            _resultValue.emailNotificationsEnabled = emailNotificationsEnabled;
             _resultValue.enabled = enabled;
             _resultValue.favicon = favicon;
             _resultValue.id = id;
             _resultValue.modifiedAt = modifiedAt;
+            _resultValue.msTeamsSubscriptionsEnabled = msTeamsSubscriptionsEnabled;
             _resultValue.name = name;
             _resultValue.pageUrl = pageUrl;
+            _resultValue.rssFeedEnabled = rssFeedEnabled;
             _resultValue.slackAppIcon = slackAppIcon;
             _resultValue.slackSubscriptionsEnabled = slackSubscriptionsEnabled;
             _resultValue.subscriptionsEnabled = subscriptionsEnabled;
             _resultValue.type = type;
+            _resultValue.visualizationLayout = visualizationLayout;
             _resultValue.visualizationType = visualizationType;
             return _resultValue;
         }

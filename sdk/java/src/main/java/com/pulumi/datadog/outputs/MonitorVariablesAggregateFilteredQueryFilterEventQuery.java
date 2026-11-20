@@ -21,7 +21,7 @@ public final class MonitorVariablesAggregateFilteredQueryFilterEventQuery {
      */
     private List<MonitorVariablesAggregateFilteredQueryFilterEventQueryCompute> computes;
     /**
-     * @return The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
+     * @return The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`, `llmObservability`.
      * 
      */
     private String dataSource;
@@ -55,7 +55,7 @@ public final class MonitorVariablesAggregateFilteredQueryFilterEventQuery {
         return this.computes;
     }
     /**
-     * @return The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`.
+     * @return The data source for event platform-based queries. Valid values are `rum`, `ciPipelines`, `ciTests`, `audit`, `events`, `logs`, `spans`, `databaseQueries`, `network`, `networkPath`, `llmObservability`.
      * 
      */
     public String dataSource() {

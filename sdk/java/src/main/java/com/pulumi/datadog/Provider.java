@@ -164,14 +164,14 @@ public class Provider extends com.pulumi.resources.ProviderResource {
         return Codegen.optional(this.httpClientRetryEnabled);
     }
     /**
-     * The organization UUID; required for AWS WIF. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+     * The organization UUID; required for AWS WIF and for `usePup`. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
      * 
      */
     @Export(name="orgUuid", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> orgUuid;
 
     /**
-     * @return The organization UUID; required for AWS WIF. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+     * @return The organization UUID; required for AWS WIF and for `usePup`. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
      * 
      */
     public Output<Optional<String>> orgUuid() {

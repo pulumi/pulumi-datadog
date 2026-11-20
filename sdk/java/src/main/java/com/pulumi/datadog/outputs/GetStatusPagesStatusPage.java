@@ -11,33 +11,113 @@ import java.util.Objects;
 
 @CustomType
 public final class GetStatusPagesStatusPage {
+    /**
+     * @return The subdomain prefix used to build the status page&#39;s URL.
+     * 
+     */
     private String domainPrefix;
+    /**
+     * @return Whether the status page is published.
+     * 
+     */
     private Boolean enabled;
+    /**
+     * @return The ID of the status page.
+     * 
+     */
     private String id;
+    /**
+     * @return The name of the status page.
+     * 
+     */
     private String name;
+    /**
+     * @return The URL of the status page.
+     * 
+     */
     private String pageUrl;
+    /**
+     * @return Whether the RSS feed is enabled for the status page.
+     * 
+     */
+    private Boolean rssFeedEnabled;
+    /**
+     * @return The type of the status page.
+     * 
+     */
     private String type;
+    /**
+     * @return The layout of components on the status page. Possible values are: list, grid.
+     * 
+     */
+    private String visualizationLayout;
+    /**
+     * @return How component statuses are visualized on the page.
+     * 
+     */
     private String visualizationType;
 
     private GetStatusPagesStatusPage() {}
+    /**
+     * @return The subdomain prefix used to build the status page&#39;s URL.
+     * 
+     */
     public String domainPrefix() {
         return this.domainPrefix;
     }
+    /**
+     * @return Whether the status page is published.
+     * 
+     */
     public Boolean enabled() {
         return this.enabled;
     }
+    /**
+     * @return The ID of the status page.
+     * 
+     */
     public String id() {
         return this.id;
     }
+    /**
+     * @return The name of the status page.
+     * 
+     */
     public String name() {
         return this.name;
     }
+    /**
+     * @return The URL of the status page.
+     * 
+     */
     public String pageUrl() {
         return this.pageUrl;
     }
+    /**
+     * @return Whether the RSS feed is enabled for the status page.
+     * 
+     */
+    public Boolean rssFeedEnabled() {
+        return this.rssFeedEnabled;
+    }
+    /**
+     * @return The type of the status page.
+     * 
+     */
     public String type() {
         return this.type;
     }
+    /**
+     * @return The layout of components on the status page. Possible values are: list, grid.
+     * 
+     */
+    public String visualizationLayout() {
+        return this.visualizationLayout;
+    }
+    /**
+     * @return How component statuses are visualized on the page.
+     * 
+     */
     public String visualizationType() {
         return this.visualizationType;
     }
@@ -56,7 +136,9 @@ public final class GetStatusPagesStatusPage {
         private String id;
         private String name;
         private String pageUrl;
+        private Boolean rssFeedEnabled;
         private String type;
+        private String visualizationLayout;
         private String visualizationType;
         public Builder() {}
         public Builder(GetStatusPagesStatusPage defaults) {
@@ -66,7 +148,9 @@ public final class GetStatusPagesStatusPage {
     	      this.id = defaults.id;
     	      this.name = defaults.name;
     	      this.pageUrl = defaults.pageUrl;
+    	      this.rssFeedEnabled = defaults.rssFeedEnabled;
     	      this.type = defaults.type;
+    	      this.visualizationLayout = defaults.visualizationLayout;
     	      this.visualizationType = defaults.visualizationType;
         }
 
@@ -111,11 +195,27 @@ public final class GetStatusPagesStatusPage {
             return this;
         }
         @CustomType.Setter
+        public Builder rssFeedEnabled(Boolean rssFeedEnabled) {
+            if (rssFeedEnabled == null) {
+              throw new MissingRequiredPropertyException("GetStatusPagesStatusPage", "rssFeedEnabled");
+            }
+            this.rssFeedEnabled = rssFeedEnabled;
+            return this;
+        }
+        @CustomType.Setter
         public Builder type(String type) {
             if (type == null) {
               throw new MissingRequiredPropertyException("GetStatusPagesStatusPage", "type");
             }
             this.type = type;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder visualizationLayout(String visualizationLayout) {
+            if (visualizationLayout == null) {
+              throw new MissingRequiredPropertyException("GetStatusPagesStatusPage", "visualizationLayout");
+            }
+            this.visualizationLayout = visualizationLayout;
             return this;
         }
         @CustomType.Setter
@@ -133,7 +233,9 @@ public final class GetStatusPagesStatusPage {
             _resultValue.id = id;
             _resultValue.name = name;
             _resultValue.pageUrl = pageUrl;
+            _resultValue.rssFeedEnabled = rssFeedEnabled;
             _resultValue.type = type;
+            _resultValue.visualizationLayout = visualizationLayout;
             _resultValue.visualizationType = visualizationType;
             return _resultValue;
         }

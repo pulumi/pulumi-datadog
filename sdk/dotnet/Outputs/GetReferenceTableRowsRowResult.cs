@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Id;
         /// <summary>
-        /// Map of field names to values for this row. All values are returned as strings.
+        /// Map of field names to row values. Non-null values are returned as strings. API `Null` values are represented as Terraform `Null`. Empty strings are returned as `""`.
         /// </summary>
         public readonly ImmutableDictionary<string, string> Values;
 

@@ -84,6 +84,18 @@ namespace Pulumi.Datadog.Inputs
             set => _eventQueries = value;
         }
 
+        [Input("metricQueries")]
+        private InputList<Inputs.MonitorVariablesMetricQueryArgs>? _metricQueries;
+
+        /// <summary>
+        /// A metrics query for use in formulas in metric monitors. For cost monitors, use `CloudCostQuery` instead, which requires an aggregator.
+        /// </summary>
+        public InputList<Inputs.MonitorVariablesMetricQueryArgs> MetricQueries
+        {
+            get => _metricQueries ?? (_metricQueries = new InputList<Inputs.MonitorVariablesMetricQueryArgs>());
+            set => _metricQueries = value;
+        }
+
         public MonitorVariablesArgs()
         {
         }

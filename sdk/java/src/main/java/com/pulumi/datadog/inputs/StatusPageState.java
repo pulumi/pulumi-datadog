@@ -107,6 +107,21 @@ public final class StatusPageState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether email notifications are enabled for the status page. Must be enabled when `subscriptionsEnabled` is `true`.
+     * 
+     */
+    @Import(name="emailNotificationsEnabled")
+    private @Nullable Output<Boolean> emailNotificationsEnabled;
+
+    /**
+     * @return Whether email notifications are enabled for the status page. Must be enabled when `subscriptionsEnabled` is `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> emailNotificationsEnabled() {
+        return Optional.ofNullable(this.emailNotificationsEnabled);
+    }
+
+    /**
      * Whether the status page is published. Managed by the publish/unpublish API operations, not by this resource; always reflects the page&#39;s current state.
      * 
      */
@@ -152,6 +167,21 @@ public final class StatusPageState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * Whether Microsoft Teams subscriber notifications are enabled for the status page.
+     * 
+     */
+    @Import(name="msTeamsSubscriptionsEnabled")
+    private @Nullable Output<Boolean> msTeamsSubscriptionsEnabled;
+
+    /**
+     * @return Whether Microsoft Teams subscriber notifications are enabled for the status page.
+     * 
+     */
+    public Optional<Output<Boolean>> msTeamsSubscriptionsEnabled() {
+        return Optional.ofNullable(this.msTeamsSubscriptionsEnabled);
+    }
+
+    /**
      * The name of the status page.
      * 
      */
@@ -179,6 +209,21 @@ public final class StatusPageState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<String>> pageUrl() {
         return Optional.ofNullable(this.pageUrl);
+    }
+
+    /**
+     * Whether the RSS feed is enabled for the status page.
+     * 
+     */
+    @Import(name="rssFeedEnabled")
+    private @Nullable Output<Boolean> rssFeedEnabled;
+
+    /**
+     * @return Whether the RSS feed is enabled for the status page.
+     * 
+     */
+    public Optional<Output<Boolean>> rssFeedEnabled() {
+        return Optional.ofNullable(this.rssFeedEnabled);
     }
 
     /**
@@ -227,18 +272,33 @@ public final class StatusPageState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The type of the status page. Valid values are: public, internal.
+     * The type of the status page. Valid values are: public, internal, private. Private pages are only accessible to users allowed by the page&#39;s email access policies, managed with `datadog.StatusPageEmailAccessPolicy`.
      * 
      */
     @Import(name="type")
     private @Nullable Output<String> type;
 
     /**
-     * @return The type of the status page. Valid values are: public, internal.
+     * @return The type of the status page. Valid values are: public, internal, private. Private pages are only accessible to users allowed by the page&#39;s email access policies, managed with `datadog.StatusPageEmailAccessPolicy`.
      * 
      */
     public Optional<Output<String>> type() {
         return Optional.ofNullable(this.type);
+    }
+
+    /**
+     * The layout of components on the status page. Defaults to `list`. `grid` requires `visualizationType` to be `componentNameOnly`; changing `visualizationType` to any other value resets the layout to `list`. Valid values are `list`, `grid`.
+     * 
+     */
+    @Import(name="visualizationLayout")
+    private @Nullable Output<String> visualizationLayout;
+
+    /**
+     * @return The layout of components on the status page. Defaults to `list`. `grid` requires `visualizationType` to be `componentNameOnly`; changing `visualizationType` to any other value resets the layout to `list`. Valid values are `list`, `grid`.
+     * 
+     */
+    public Optional<Output<String>> visualizationLayout() {
+        return Optional.ofNullable(this.visualizationLayout);
     }
 
     /**
@@ -265,15 +325,19 @@ public final class StatusPageState extends com.pulumi.resources.ResourceArgs {
         this.customDomainEnabled = $.customDomainEnabled;
         this.domainPrefix = $.domainPrefix;
         this.emailHeaderImage = $.emailHeaderImage;
+        this.emailNotificationsEnabled = $.emailNotificationsEnabled;
         this.enabled = $.enabled;
         this.favicon = $.favicon;
         this.modifiedAt = $.modifiedAt;
+        this.msTeamsSubscriptionsEnabled = $.msTeamsSubscriptionsEnabled;
         this.name = $.name;
         this.pageUrl = $.pageUrl;
+        this.rssFeedEnabled = $.rssFeedEnabled;
         this.slackAppIcon = $.slackAppIcon;
         this.slackSubscriptionsEnabled = $.slackSubscriptionsEnabled;
         this.subscriptionsEnabled = $.subscriptionsEnabled;
         this.type = $.type;
+        this.visualizationLayout = $.visualizationLayout;
         this.visualizationType = $.visualizationType;
     }
 
@@ -422,6 +486,27 @@ public final class StatusPageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param emailNotificationsEnabled Whether email notifications are enabled for the status page. Must be enabled when `subscriptionsEnabled` is `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder emailNotificationsEnabled(@Nullable Output<Boolean> emailNotificationsEnabled) {
+            $.emailNotificationsEnabled = emailNotificationsEnabled;
+            return this;
+        }
+
+        /**
+         * @param emailNotificationsEnabled Whether email notifications are enabled for the status page. Must be enabled when `subscriptionsEnabled` is `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder emailNotificationsEnabled(Boolean emailNotificationsEnabled) {
+            return emailNotificationsEnabled(Output.of(emailNotificationsEnabled));
+        }
+
+        /**
          * @param enabled Whether the status page is published. Managed by the publish/unpublish API operations, not by this resource; always reflects the page&#39;s current state.
          * 
          * @return builder
@@ -485,6 +570,27 @@ public final class StatusPageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
+         * @param msTeamsSubscriptionsEnabled Whether Microsoft Teams subscriber notifications are enabled for the status page.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder msTeamsSubscriptionsEnabled(@Nullable Output<Boolean> msTeamsSubscriptionsEnabled) {
+            $.msTeamsSubscriptionsEnabled = msTeamsSubscriptionsEnabled;
+            return this;
+        }
+
+        /**
+         * @param msTeamsSubscriptionsEnabled Whether Microsoft Teams subscriber notifications are enabled for the status page.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder msTeamsSubscriptionsEnabled(Boolean msTeamsSubscriptionsEnabled) {
+            return msTeamsSubscriptionsEnabled(Output.of(msTeamsSubscriptionsEnabled));
+        }
+
+        /**
          * @param name The name of the status page.
          * 
          * @return builder
@@ -524,6 +630,27 @@ public final class StatusPageState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder pageUrl(String pageUrl) {
             return pageUrl(Output.of(pageUrl));
+        }
+
+        /**
+         * @param rssFeedEnabled Whether the RSS feed is enabled for the status page.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rssFeedEnabled(@Nullable Output<Boolean> rssFeedEnabled) {
+            $.rssFeedEnabled = rssFeedEnabled;
+            return this;
+        }
+
+        /**
+         * @param rssFeedEnabled Whether the RSS feed is enabled for the status page.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder rssFeedEnabled(Boolean rssFeedEnabled) {
+            return rssFeedEnabled(Output.of(rssFeedEnabled));
         }
 
         /**
@@ -590,7 +717,7 @@ public final class StatusPageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of the status page. Valid values are: public, internal.
+         * @param type The type of the status page. Valid values are: public, internal, private. Private pages are only accessible to users allowed by the page&#39;s email access policies, managed with `datadog.StatusPageEmailAccessPolicy`.
          * 
          * @return builder
          * 
@@ -601,13 +728,34 @@ public final class StatusPageState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param type The type of the status page. Valid values are: public, internal.
+         * @param type The type of the status page. Valid values are: public, internal, private. Private pages are only accessible to users allowed by the page&#39;s email access policies, managed with `datadog.StatusPageEmailAccessPolicy`.
          * 
          * @return builder
          * 
          */
         public Builder type(String type) {
             return type(Output.of(type));
+        }
+
+        /**
+         * @param visualizationLayout The layout of components on the status page. Defaults to `list`. `grid` requires `visualizationType` to be `componentNameOnly`; changing `visualizationType` to any other value resets the layout to `list`. Valid values are `list`, `grid`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder visualizationLayout(@Nullable Output<String> visualizationLayout) {
+            $.visualizationLayout = visualizationLayout;
+            return this;
+        }
+
+        /**
+         * @param visualizationLayout The layout of components on the status page. Defaults to `list`. `grid` requires `visualizationType` to be `componentNameOnly`; changing `visualizationType` to any other value resets the layout to `list`. Valid values are `list`, `grid`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder visualizationLayout(String visualizationLayout) {
+            return visualizationLayout(Output.of(visualizationLayout));
         }
 
         /**

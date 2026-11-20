@@ -96,9 +96,14 @@ func GetIgnoreTagKeys(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:ignoreTagKeys")
 }
 
-// The organization UUID; required for AWS WIF. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+// The organization UUID; required for AWS WIF and for `usePup`. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
 func GetOrgUuid(ctx *pulumi.Context) string {
 	return config.Get(ctx, "datadog:orgUuid")
+}
+
+// Get a bearer token from the pup CLI (pup auth token) after you run pup auth login, so you don't need to store an API key, application key, or access token. Used only when api_key, app_key, bearer_token, cloud provider authentication, and HCP Terraform dynamic provider credentials are all absent. The provider requests a new token when the current one expires, and fails if pup is then logged in as a different user. Requires org_uuid, and every token must belong to that organization. You can also set this with the `DD_USE_PUP` environment variable.
+func GetUsePup(ctx *pulumi.Context) bool {
+	return config.GetBool(ctx, "datadog:usePup")
 }
 
 // Enables credential validation during provider initialization. Valid values are [`true`, `false`]. Default is true. When false, initial credential validation is skipped.

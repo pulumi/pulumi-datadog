@@ -13,6 +13,2150 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom struct {
+	// Unit label
+	Label string `pulumi:"label"`
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomArgs and PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomInput` via:
+//
+//	PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomArgs{...}
+type PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomOutput
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomArgs struct {
+	// Unit label
+	Label pulumi.StringInput `pulumi:"label"`
+}
+
+func (PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomArgs) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomArgs) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomOutput)
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomArgs) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomArgs) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomOutput).ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomArgs, PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtr and PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrInput` via:
+//
+//	        PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput
+}
+
+type powerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrType PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomArgs
+
+func PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtr(v *PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomArgs) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrInput {
+	return (*powerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrType)(v)
+}
+
+func (*powerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom)(nil)).Elem()
+}
+
+func (i *powerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrType) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrType) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomOutput) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomOutput) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomOutput) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return o.ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomOutput) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom) *PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom {
+		return &v
+	}).(PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput)
+}
+
+// Unit label
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomOutput) Label() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom) string { return v.Label }).(pulumi.StringOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) Elem() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom
+		return ret
+	}).(PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomOutput)
+}
+
+// Unit label
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput) Label() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Label
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale struct {
+	UnitName string `pulumi:"unitName"`
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleArgs and PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleInput` via:
+//
+//	PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleArgs{...}
+type PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleOutput
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleArgs struct {
+	UnitName pulumi.StringInput `pulumi:"unitName"`
+}
+
+func (PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleArgs) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleArgs) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleOutput)
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleArgs) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleArgs) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleOutput).ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleArgs, PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtr and PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrInput` via:
+//
+//	        PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrOutput
+}
+
+type powerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrType PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleArgs
+
+func PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtr(v *PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleArgs) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrInput {
+	return (*powerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrType)(v)
+}
+
+func (*powerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale)(nil)).Elem()
+}
+
+func (i *powerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrType) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrType) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleOutput) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleOutput) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleOutput) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return o.ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleOutput) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale) *PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale {
+		return &v
+	}).(PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrOutput)
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleOutput) UnitName() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale) string {
+		return v.UnitName
+	}).(pulumi.StringOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) Elem() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale
+		return ret
+	}).(PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleOutput)
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrOutput) UnitName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScale) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UnitName
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestFormulaStyle struct {
+	// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+	Palette *string `pulumi:"palette"`
+	// Index specifying which color to use within the palette.
+	PaletteIndex *int `pulumi:"paletteIndex"`
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleArgs and PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleInput` via:
+//
+//	PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleArgs{...}
+type PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestFormulaStyleOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestFormulaStyleOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleOutput
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleArgs struct {
+	// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+	Palette pulumi.StringPtrInput `pulumi:"palette"`
+	// Index specifying which color to use within the palette.
+	PaletteIndex pulumi.IntPtrInput `pulumi:"paletteIndex"`
+}
+
+func (PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestFormulaStyle)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleArgs) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaStyleOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestFormulaStyleOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleArgs) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaStyleOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleOutput)
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleArgs) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleArgs) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleOutput).ToPowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleArgs, PowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtr and PowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrInput` via:
+//
+//	        PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrOutput
+}
+
+type powerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrType PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleArgs
+
+func PowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtr(v *PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleArgs) PowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrInput {
+	return (*powerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrType)(v)
+}
+
+func (*powerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTimeseriesDefinitionRequestFormulaStyle)(nil)).Elem()
+}
+
+func (i *powerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrType) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrType) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestFormulaStyle)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleOutput) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaStyleOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleOutput) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaStyleOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleOutput) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrOutput {
+	return o.ToPowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleOutput) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetTimeseriesDefinitionRequestFormulaStyle) *PowerpackWidgetTimeseriesDefinitionRequestFormulaStyle {
+		return &v
+	}).(PowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrOutput)
+}
+
+// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleOutput) Palette() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestFormulaStyle) *string { return v.Palette }).(pulumi.StringPtrOutput)
+}
+
+// Index specifying which color to use within the palette.
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleOutput) PaletteIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestFormulaStyle) *int { return v.PaletteIndex }).(pulumi.IntPtrOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTimeseriesDefinitionRequestFormulaStyle)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrOutput) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrOutput) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrOutput) Elem() PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestFormulaStyle) PowerpackWidgetTimeseriesDefinitionRequestFormulaStyle {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetTimeseriesDefinitionRequestFormulaStyle
+		return ret
+	}).(PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleOutput)
+}
+
+// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrOutput) Palette() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestFormulaStyle) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Palette
+	}).(pulumi.StringPtrOutput)
+}
+
+// Index specifying which color to use within the palette.
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrOutput) PaletteIndex() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestFormulaStyle) *int {
+		if v == nil {
+			return nil
+		}
+		return v.PaletteIndex
+	}).(pulumi.IntPtrOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestLogQuery struct {
+	// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+	ComputeQuery *PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQuery `pulumi:"computeQuery"`
+	// Multiple `groupBy` blocks are allowed using the structure below.
+	GroupBies []PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBy `pulumi:"groupBies"`
+	// The name of the index to query.
+	Index string `pulumi:"index"`
+	// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+	MultiComputes []PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiCompute `pulumi:"multiComputes"`
+	// The search query to use.
+	SearchQuery *string `pulumi:"searchQuery"`
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestLogQueryInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestLogQueryArgs and PowerpackWidgetTimeseriesDefinitionRequestLogQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestLogQueryInput` via:
+//
+//	PowerpackWidgetTimeseriesDefinitionRequestLogQueryArgs{...}
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryOutput
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryArgs struct {
+	// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+	ComputeQuery PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrInput `pulumi:"computeQuery"`
+	// Multiple `groupBy` blocks are allowed using the structure below.
+	GroupBies PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayInput `pulumi:"groupBies"`
+	// The name of the index to query.
+	Index pulumi.StringInput `pulumi:"index"`
+	// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+	MultiComputes PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArrayInput `pulumi:"multiComputes"`
+	// The search query to use.
+	SearchQuery pulumi.StringPtrInput `pulumi:"searchQuery"`
+}
+
+func (PowerpackWidgetTimeseriesDefinitionRequestLogQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryOutput)
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryOutput).ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestLogQueryArgs, PowerpackWidgetTimeseriesDefinitionRequestLogQueryPtr and PowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrInput` via:
+//
+//	        PowerpackWidgetTimeseriesDefinitionRequestLogQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutput
+}
+
+type powerpackWidgetTimeseriesDefinitionRequestLogQueryPtrType PowerpackWidgetTimeseriesDefinitionRequestLogQueryArgs
+
+func PowerpackWidgetTimeseriesDefinitionRequestLogQueryPtr(v *PowerpackWidgetTimeseriesDefinitionRequestLogQueryArgs) PowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrInput {
+	return (*powerpackWidgetTimeseriesDefinitionRequestLogQueryPtrType)(v)
+}
+
+func (*powerpackWidgetTimeseriesDefinitionRequestLogQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTimeseriesDefinitionRequestLogQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetTimeseriesDefinitionRequestLogQueryPtrType) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetTimeseriesDefinitionRequestLogQueryPtrType) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestLogQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutput {
+	return o.ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetTimeseriesDefinitionRequestLogQuery) *PowerpackWidgetTimeseriesDefinitionRequestLogQuery {
+		return &v
+	}).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryOutput) ComputeQuery() PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestLogQuery) *PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQuery {
+		return v.ComputeQuery
+	}).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutput)
+}
+
+// Multiple `groupBy` blocks are allowed using the structure below.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryOutput) GroupBies() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestLogQuery) []PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBy {
+		return v.GroupBies
+	}).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput)
+}
+
+// The name of the index to query.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryOutput) Index() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestLogQuery) string { return v.Index }).(pulumi.StringOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryOutput) MultiComputes() PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArrayOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestLogQuery) []PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiCompute {
+		return v.MultiComputes
+	}).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArrayOutput)
+}
+
+// The search query to use.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryOutput) SearchQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestLogQuery) *string { return v.SearchQuery }).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTimeseriesDefinitionRequestLogQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutput) Elem() PowerpackWidgetTimeseriesDefinitionRequestLogQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestLogQuery) PowerpackWidgetTimeseriesDefinitionRequestLogQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetTimeseriesDefinitionRequestLogQuery
+		return ret
+	}).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutput) ComputeQuery() PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestLogQuery) *PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQuery {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeQuery
+	}).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutput)
+}
+
+// Multiple `groupBy` blocks are allowed using the structure below.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutput) GroupBies() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestLogQuery) []PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBy {
+		if v == nil {
+			return nil
+		}
+		return v.GroupBies
+	}).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput)
+}
+
+// The name of the index to query.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutput) Index() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestLogQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Index
+	}).(pulumi.StringPtrOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutput) MultiComputes() PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArrayOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestLogQuery) []PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiCompute {
+		if v == nil {
+			return nil
+		}
+		return v.MultiComputes
+	}).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArrayOutput)
+}
+
+// The search query to use.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutput) SearchQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestLogQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SearchQuery
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQuery struct {
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval *int `pulumi:"interval"`
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryArgs and PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryInput` via:
+//
+//	PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryArgs{...}
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryOutput
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryArgs struct {
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+}
+
+func (PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryOutput)
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryOutput).ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryArgs, PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtr and PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrInput` via:
+//
+//	        PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutput
+}
+
+type powerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrType PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryArgs
+
+func PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtr(v *PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryArgs) PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrInput {
+	return (*powerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrType)(v)
+}
+
+func (*powerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrType) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrType) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutput {
+	return o.ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQuery) *PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQuery {
+		return &v
+	}).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQuery) string { return v.Aggregation }).(pulumi.StringOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// Define the time interval in seconds.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQuery) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutput) Elem() PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQuery) PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQuery
+		return ret
+	}).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Aggregation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Facet
+	}).(pulumi.StringPtrOutput)
+}
+
+// Define the time interval in seconds.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQuery) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBy struct {
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit *int `pulumi:"limit"`
+	// A list of exactly one element describing the sort query to use.
+	SortQuery *PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery `pulumi:"sortQuery"`
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArgs and PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByInput` via:
+//
+//	PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArgs{...}
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArgs struct {
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// A list of exactly one element describing the sort query to use.
+	SortQuery PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrInput `pulumi:"sortQuery"`
+}
+
+func (PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBy)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArgs) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArgs) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput)
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArray and PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayInput` via:
+//
+//	PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArray{ PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArgs{...} }
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArray []PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByInput
+
+func (PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBy)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArray) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArray) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBy)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput {
+	return o
+}
+
+// The facet name.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBy) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// The maximum number of items in the group.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBy) *int { return v.Limit }).(pulumi.IntPtrOutput)
+}
+
+// A list of exactly one element describing the sort query to use.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput) SortQuery() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBy) *PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery {
+		return v.SortQuery
+	}).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBy)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBy {
+		return vs[0].([]PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBy)[vs[1].(int)]
+	}).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery struct {
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order string `pulumi:"order"`
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs and PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryInput` via:
+//
+//	PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs{...}
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs struct {
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order pulumi.StringInput `pulumi:"order"`
+}
+
+func (PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput)
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput).ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs, PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtr and PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrInput` via:
+//
+//	        PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput
+}
+
+type powerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrType PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs
+
+func PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtr(v *PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrInput {
+	return (*powerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrType)(v)
+}
+
+func (*powerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrType) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrType) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
+	return o.ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery) *PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery {
+		return &v
+	}).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery) string {
+		return v.Aggregation
+	}).(pulumi.StringOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// Widget sorting methods. Valid values are `asc`, `desc`.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput) Order() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery) string { return v.Order }).(pulumi.StringOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput) Elem() PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery) PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery
+		return ret
+	}).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Aggregation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Facet
+	}).(pulumi.StringPtrOutput)
+}
+
+// Widget sorting methods. Valid values are `asc`, `desc`.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput) Order() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Order
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiCompute struct {
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval *int `pulumi:"interval"`
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArgs and PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeInput` via:
+//
+//	PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArgs{...}
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeOutput
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArgs struct {
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+}
+
+func (PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiCompute)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArgs) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArgs) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeOutput)
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArrayInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArray and PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArrayOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArrayInput` via:
+//
+//	PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArray{ PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArgs{...} }
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArrayOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArrayOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArrayOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArrayOutput
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArray []PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeInput
+
+func (PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiCompute)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArray) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArrayOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArrayOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArray) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArrayOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArrayOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiCompute)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeOutput {
+	return o
+}
+
+// The aggregation method.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiCompute) string { return v.Aggregation }).(pulumi.StringOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiCompute) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// Define the time interval in seconds.
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiCompute) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiCompute)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArrayOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArrayOutput() PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArrayOutput) ToPowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArrayOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiCompute {
+		return vs[0].([]PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiCompute)[vs[1].(int)]
+	}).(PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestMetadata struct {
+	// The expression alias.
+	AliasName *string `pulumi:"aliasName"`
+	// The expression name.
+	Expression string `pulumi:"expression"`
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestMetadataInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestMetadataArgs and PowerpackWidgetTimeseriesDefinitionRequestMetadataOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestMetadataInput` via:
+//
+//	PowerpackWidgetTimeseriesDefinitionRequestMetadataArgs{...}
+type PowerpackWidgetTimeseriesDefinitionRequestMetadataInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestMetadataOutput() PowerpackWidgetTimeseriesDefinitionRequestMetadataOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestMetadataOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestMetadataOutput
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestMetadataArgs struct {
+	// The expression alias.
+	AliasName pulumi.StringPtrInput `pulumi:"aliasName"`
+	// The expression name.
+	Expression pulumi.StringInput `pulumi:"expression"`
+}
+
+func (PowerpackWidgetTimeseriesDefinitionRequestMetadataArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestMetadata)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestMetadataArgs) ToPowerpackWidgetTimeseriesDefinitionRequestMetadataOutput() PowerpackWidgetTimeseriesDefinitionRequestMetadataOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestMetadataOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestMetadataArgs) ToPowerpackWidgetTimeseriesDefinitionRequestMetadataOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestMetadataOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestMetadataOutput)
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestMetadataArrayInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestMetadataArray and PowerpackWidgetTimeseriesDefinitionRequestMetadataArrayOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestMetadataArrayInput` via:
+//
+//	PowerpackWidgetTimeseriesDefinitionRequestMetadataArray{ PowerpackWidgetTimeseriesDefinitionRequestMetadataArgs{...} }
+type PowerpackWidgetTimeseriesDefinitionRequestMetadataArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestMetadataArrayOutput() PowerpackWidgetTimeseriesDefinitionRequestMetadataArrayOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestMetadataArrayOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestMetadataArrayOutput
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestMetadataArray []PowerpackWidgetTimeseriesDefinitionRequestMetadataInput
+
+func (PowerpackWidgetTimeseriesDefinitionRequestMetadataArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetTimeseriesDefinitionRequestMetadata)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestMetadataArray) ToPowerpackWidgetTimeseriesDefinitionRequestMetadataArrayOutput() PowerpackWidgetTimeseriesDefinitionRequestMetadataArrayOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestMetadataArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestMetadataArray) ToPowerpackWidgetTimeseriesDefinitionRequestMetadataArrayOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestMetadataArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestMetadataArrayOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestMetadataOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestMetadataOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestMetadata)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestMetadataOutput) ToPowerpackWidgetTimeseriesDefinitionRequestMetadataOutput() PowerpackWidgetTimeseriesDefinitionRequestMetadataOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestMetadataOutput) ToPowerpackWidgetTimeseriesDefinitionRequestMetadataOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestMetadataOutput {
+	return o
+}
+
+// The expression alias.
+func (o PowerpackWidgetTimeseriesDefinitionRequestMetadataOutput) AliasName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestMetadata) *string { return v.AliasName }).(pulumi.StringPtrOutput)
+}
+
+// The expression name.
+func (o PowerpackWidgetTimeseriesDefinitionRequestMetadataOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestMetadata) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestMetadataArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestMetadataArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetTimeseriesDefinitionRequestMetadata)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestMetadataArrayOutput) ToPowerpackWidgetTimeseriesDefinitionRequestMetadataArrayOutput() PowerpackWidgetTimeseriesDefinitionRequestMetadataArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestMetadataArrayOutput) ToPowerpackWidgetTimeseriesDefinitionRequestMetadataArrayOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestMetadataArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestMetadataArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetTimeseriesDefinitionRequestMetadataOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackWidgetTimeseriesDefinitionRequestMetadata {
+		return vs[0].([]PowerpackWidgetTimeseriesDefinitionRequestMetadata)[vs[1].(int)]
+	}).(PowerpackWidgetTimeseriesDefinitionRequestMetadataOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestNetworkQuery struct {
+	// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+	ComputeQuery *PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQuery `pulumi:"computeQuery"`
+	// Multiple `groupBy` blocks are allowed using the structure below.
+	GroupBies []PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy `pulumi:"groupBies"`
+	// The name of the index to query.
+	Index string `pulumi:"index"`
+	// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+	MultiComputes []PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute `pulumi:"multiComputes"`
+	// The search query to use.
+	SearchQuery *string `pulumi:"searchQuery"`
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryArgs and PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryInput` via:
+//
+//	PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryArgs{...}
+type PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryOutput
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryArgs struct {
+	// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+	ComputeQuery PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrInput `pulumi:"computeQuery"`
+	// Multiple `groupBy` blocks are allowed using the structure below.
+	GroupBies PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArrayInput `pulumi:"groupBies"`
+	// The name of the index to query.
+	Index pulumi.StringInput `pulumi:"index"`
+	// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+	MultiComputes PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArrayInput `pulumi:"multiComputes"`
+	// The search query to use.
+	SearchQuery pulumi.StringPtrInput `pulumi:"searchQuery"`
+}
+
+func (PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestNetworkQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryOutput)
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryOutput).ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryArgs, PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtr and PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrInput` via:
+//
+//	        PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutput
+}
+
+type powerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrType PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryArgs
+
+func PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtr(v *PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryArgs) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrInput {
+	return (*powerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrType)(v)
+}
+
+func (*powerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTimeseriesDefinitionRequestNetworkQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrType) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrType) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestNetworkQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutput {
+	return o.ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetTimeseriesDefinitionRequestNetworkQuery) *PowerpackWidgetTimeseriesDefinitionRequestNetworkQuery {
+		return &v
+	}).(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryOutput) ComputeQuery() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestNetworkQuery) *PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQuery {
+		return v.ComputeQuery
+	}).(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutput)
+}
+
+// Multiple `groupBy` blocks are allowed using the structure below.
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryOutput) GroupBies() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArrayOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestNetworkQuery) []PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy {
+		return v.GroupBies
+	}).(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArrayOutput)
+}
+
+// The name of the index to query.
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryOutput) Index() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestNetworkQuery) string { return v.Index }).(pulumi.StringOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryOutput) MultiComputes() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArrayOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestNetworkQuery) []PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute {
+		return v.MultiComputes
+	}).(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArrayOutput)
+}
+
+// The search query to use.
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryOutput) SearchQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestNetworkQuery) *string { return v.SearchQuery }).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTimeseriesDefinitionRequestNetworkQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutput) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutput) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutput) Elem() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestNetworkQuery) PowerpackWidgetTimeseriesDefinitionRequestNetworkQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetTimeseriesDefinitionRequestNetworkQuery
+		return ret
+	}).(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. The map keys are listed below.
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutput) ComputeQuery() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestNetworkQuery) *PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQuery {
+		if v == nil {
+			return nil
+		}
+		return v.ComputeQuery
+	}).(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutput)
+}
+
+// Multiple `groupBy` blocks are allowed using the structure below.
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutput) GroupBies() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArrayOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestNetworkQuery) []PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy {
+		if v == nil {
+			return nil
+		}
+		return v.GroupBies
+	}).(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArrayOutput)
+}
+
+// The name of the index to query.
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutput) Index() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestNetworkQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Index
+	}).(pulumi.StringPtrOutput)
+}
+
+// `computeQuery` or `multiCompute` is required. Multiple `multiCompute` blocks are allowed using the structure below.
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutput) MultiComputes() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArrayOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestNetworkQuery) []PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute {
+		if v == nil {
+			return nil
+		}
+		return v.MultiComputes
+	}).(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArrayOutput)
+}
+
+// The search query to use.
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutput) SearchQuery() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestNetworkQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.SearchQuery
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQuery struct {
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval *int `pulumi:"interval"`
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryArgs and PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryInput` via:
+//
+//	PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryArgs{...}
+type PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryOutput
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryArgs struct {
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+}
+
+func (PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryOutput)
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryOutput).ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryArgs, PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtr and PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrInput` via:
+//
+//	        PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutput
+}
+
+type powerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrType PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryArgs
+
+func PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtr(v *PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryArgs) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrInput {
+	return (*powerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrType)(v)
+}
+
+func (*powerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrType) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrType) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutput {
+	return o.ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQuery) *PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQuery {
+		return &v
+	}).(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQuery) string {
+		return v.Aggregation
+	}).(pulumi.StringOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// Define the time interval in seconds.
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQuery) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutput) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutput) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutput) Elem() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQuery) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQuery
+		return ret
+	}).(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Aggregation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Facet
+	}).(pulumi.StringPtrOutput)
+}
+
+// Define the time interval in seconds.
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQuery) *int {
+		if v == nil {
+			return nil
+		}
+		return v.Interval
+	}).(pulumi.IntPtrOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy struct {
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit *int `pulumi:"limit"`
+	// A list of exactly one element describing the sort query to use.
+	SortQuery *PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery `pulumi:"sortQuery"`
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArgs and PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByInput` via:
+//
+//	PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArgs{...}
+type PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByOutput
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArgs struct {
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// The maximum number of items in the group.
+	Limit pulumi.IntPtrInput `pulumi:"limit"`
+	// A list of exactly one element describing the sort query to use.
+	SortQuery PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrInput `pulumi:"sortQuery"`
+}
+
+func (PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArgs) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArgs) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByOutput)
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArrayInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArray and PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArrayOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArrayInput` via:
+//
+//	PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArray{ PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArgs{...} }
+type PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArrayOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArrayOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArrayOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArrayOutput
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArray []PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByInput
+
+func (PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArray) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArrayOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArrayOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArray) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArrayOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByOutput) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByOutput) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByOutput {
+	return o
+}
+
+// The facet name.
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// The maximum number of items in the group.
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByOutput) Limit() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy) *int { return v.Limit }).(pulumi.IntPtrOutput)
+}
+
+// A list of exactly one element describing the sort query to use.
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByOutput) SortQuery() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy) *PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery {
+		return v.SortQuery
+	}).(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArrayOutput) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArrayOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArrayOutput) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArrayOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy {
+		return vs[0].([]PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBy)[vs[1].(int)]
+	}).(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery struct {
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order string `pulumi:"order"`
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryArgs and PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryInput` via:
+//
+//	PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryArgs{...}
+type PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryOutput
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryArgs struct {
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Widget sorting methods. Valid values are `asc`, `desc`.
+	Order pulumi.StringInput `pulumi:"order"`
+}
+
+func (PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryOutput)
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryArgs) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryOutput).ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryArgs, PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtr and PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrInput` via:
+//
+//	        PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutput
+}
+
+type powerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrType PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryArgs
+
+func PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtr(v *PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryArgs) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrInput {
+	return (*powerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrType)(v)
+}
+
+func (*powerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (i *powerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrType) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrType) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutput {
+	return o.ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryOutput) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery) *PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery {
+		return &v
+	}).(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery) string {
+		return v.Aggregation
+	}).(pulumi.StringOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// Widget sorting methods. Valid values are `asc`, `desc`.
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryOutput) Order() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery) string { return v.Order }).(pulumi.StringOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutput) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutput) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutput) Elem() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery
+		return ret
+	}).(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryOutput)
+}
+
+// The aggregation method.
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Aggregation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Facet
+	}).(pulumi.StringPtrOutput)
+}
+
+// Widget sorting methods. Valid values are `asc`, `desc`.
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutput) Order() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQuery) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Order
+	}).(pulumi.StringPtrOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute struct {
+	// The aggregation method.
+	Aggregation string `pulumi:"aggregation"`
+	// The facet name.
+	Facet *string `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval *int `pulumi:"interval"`
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArgs and PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeInput` via:
+//
+//	PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArgs{...}
+type PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeOutput
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArgs struct {
+	// The aggregation method.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The facet name.
+	Facet pulumi.StringPtrInput `pulumi:"facet"`
+	// Define the time interval in seconds.
+	Interval pulumi.IntPtrInput `pulumi:"interval"`
+}
+
+func (PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArgs) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArgs) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeOutput)
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArrayInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArray and PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArrayOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArrayInput` via:
+//
+//	PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArray{ PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArgs{...} }
+type PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArrayInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArrayOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArrayOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArrayOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArrayOutput
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArray []PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeInput
+
+func (PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArray) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArrayOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArrayOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArrayOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArray) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArrayOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArrayOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeOutput) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeOutput) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeOutput {
+	return o
+}
+
+// The aggregation method.
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute) string {
+		return v.Aggregation
+	}).(pulumi.StringOutput)
+}
+
+// The facet name.
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeOutput) Facet() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute) *string { return v.Facet }).(pulumi.StringPtrOutput)
+}
+
+// Define the time interval in seconds.
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeOutput) Interval() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute) *int { return v.Interval }).(pulumi.IntPtrOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArrayOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArrayOutput) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArrayOutput() PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArrayOutput) ToPowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArrayOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArrayOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArrayOutput) Index(i pulumi.IntInput) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute {
+		return vs[0].([]PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiCompute)[vs[1].(int)]
+	}).(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeOutput)
+}
+
 type PowerpackWidgetTimeseriesDefinitionRequestProcessQuery struct {
 	// A list of processes.
 	FilterBies []string `pulumi:"filterBies"`
@@ -73693,7 +75837,7 @@ func (o GetReferenceTableFileMetadataAccessDetailsGcpDetailPtrOutput) GcpService
 type GetReferenceTableRowsRow struct {
 	// The primary key value of the row.
 	Id string `pulumi:"id"`
-	// Map of field names to values for this row. All values are returned as strings.
+	// Map of field names to row values. Non-null values are returned as strings. API `null` values are represented as Terraform `null`. Empty strings are returned as `""`.
 	Values map[string]string `pulumi:"values"`
 }
 
@@ -73711,7 +75855,7 @@ type GetReferenceTableRowsRowInput interface {
 type GetReferenceTableRowsRowArgs struct {
 	// The primary key value of the row.
 	Id pulumi.StringInput `pulumi:"id"`
-	// Map of field names to values for this row. All values are returned as strings.
+	// Map of field names to row values. Non-null values are returned as strings. API `null` values are represented as Terraform `null`. Empty strings are returned as `""`.
 	Values pulumi.StringMapInput `pulumi:"values"`
 }
 
@@ -73771,7 +75915,7 @@ func (o GetReferenceTableRowsRowOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReferenceTableRowsRow) string { return v.Id }).(pulumi.StringOutput)
 }
 
-// Map of field names to values for this row. All values are returned as strings.
+// Map of field names to row values. Non-null values are returned as strings. API `null` values are represented as Terraform `null`. Empty strings are returned as `""`.
 func (o GetReferenceTableRowsRowOutput) Values() pulumi.StringMapOutput {
 	return o.ApplyT(func(v GetReferenceTableRowsRow) map[string]string { return v.Values }).(pulumi.StringMapOutput)
 }
@@ -79390,12 +81534,23 @@ func (o GetStatusPageMaintenanceTemplatesMaintenanceTemplateArrayOutput) Index(i
 }
 
 type GetStatusPagesStatusPage struct {
-	DomainPrefix      string `pulumi:"domainPrefix"`
-	Enabled           bool   `pulumi:"enabled"`
-	Id                string `pulumi:"id"`
-	Name              string `pulumi:"name"`
-	PageUrl           string `pulumi:"pageUrl"`
-	Type              string `pulumi:"type"`
+	// The subdomain prefix used to build the status page's URL.
+	DomainPrefix string `pulumi:"domainPrefix"`
+	// Whether the status page is published.
+	Enabled bool `pulumi:"enabled"`
+	// The ID of the status page.
+	Id string `pulumi:"id"`
+	// The name of the status page.
+	Name string `pulumi:"name"`
+	// The URL of the status page.
+	PageUrl string `pulumi:"pageUrl"`
+	// Whether the RSS feed is enabled for the status page.
+	RssFeedEnabled bool `pulumi:"rssFeedEnabled"`
+	// The type of the status page.
+	Type string `pulumi:"type"`
+	// The layout of components on the status page. Possible values are: list, grid.
+	VisualizationLayout string `pulumi:"visualizationLayout"`
+	// How component statuses are visualized on the page.
 	VisualizationType string `pulumi:"visualizationType"`
 }
 
@@ -79411,12 +81566,23 @@ type GetStatusPagesStatusPageInput interface {
 }
 
 type GetStatusPagesStatusPageArgs struct {
-	DomainPrefix      pulumi.StringInput `pulumi:"domainPrefix"`
-	Enabled           pulumi.BoolInput   `pulumi:"enabled"`
-	Id                pulumi.StringInput `pulumi:"id"`
-	Name              pulumi.StringInput `pulumi:"name"`
-	PageUrl           pulumi.StringInput `pulumi:"pageUrl"`
-	Type              pulumi.StringInput `pulumi:"type"`
+	// The subdomain prefix used to build the status page's URL.
+	DomainPrefix pulumi.StringInput `pulumi:"domainPrefix"`
+	// Whether the status page is published.
+	Enabled pulumi.BoolInput `pulumi:"enabled"`
+	// The ID of the status page.
+	Id pulumi.StringInput `pulumi:"id"`
+	// The name of the status page.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The URL of the status page.
+	PageUrl pulumi.StringInput `pulumi:"pageUrl"`
+	// Whether the RSS feed is enabled for the status page.
+	RssFeedEnabled pulumi.BoolInput `pulumi:"rssFeedEnabled"`
+	// The type of the status page.
+	Type pulumi.StringInput `pulumi:"type"`
+	// The layout of components on the status page. Possible values are: list, grid.
+	VisualizationLayout pulumi.StringInput `pulumi:"visualizationLayout"`
+	// How component statuses are visualized on the page.
 	VisualizationType pulumi.StringInput `pulumi:"visualizationType"`
 }
 
@@ -79471,30 +81637,47 @@ func (o GetStatusPagesStatusPageOutput) ToGetStatusPagesStatusPageOutputWithCont
 	return o
 }
 
+// The subdomain prefix used to build the status page's URL.
 func (o GetStatusPagesStatusPageOutput) DomainPrefix() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStatusPagesStatusPage) string { return v.DomainPrefix }).(pulumi.StringOutput)
 }
 
+// Whether the status page is published.
 func (o GetStatusPagesStatusPageOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v GetStatusPagesStatusPage) bool { return v.Enabled }).(pulumi.BoolOutput)
 }
 
+// The ID of the status page.
 func (o GetStatusPagesStatusPageOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStatusPagesStatusPage) string { return v.Id }).(pulumi.StringOutput)
 }
 
+// The name of the status page.
 func (o GetStatusPagesStatusPageOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStatusPagesStatusPage) string { return v.Name }).(pulumi.StringOutput)
 }
 
+// The URL of the status page.
 func (o GetStatusPagesStatusPageOutput) PageUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStatusPagesStatusPage) string { return v.PageUrl }).(pulumi.StringOutput)
 }
 
+// Whether the RSS feed is enabled for the status page.
+func (o GetStatusPagesStatusPageOutput) RssFeedEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetStatusPagesStatusPage) bool { return v.RssFeedEnabled }).(pulumi.BoolOutput)
+}
+
+// The type of the status page.
 func (o GetStatusPagesStatusPageOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStatusPagesStatusPage) string { return v.Type }).(pulumi.StringOutput)
 }
 
+// The layout of components on the status page. Possible values are: list, grid.
+func (o GetStatusPagesStatusPageOutput) VisualizationLayout() pulumi.StringOutput {
+	return o.ApplyT(func(v GetStatusPagesStatusPage) string { return v.VisualizationLayout }).(pulumi.StringOutput)
+}
+
+// How component statuses are visualized on the page.
 func (o GetStatusPagesStatusPageOutput) VisualizationType() pulumi.StringOutput {
 	return o.ApplyT(func(v GetStatusPagesStatusPage) string { return v.VisualizationType }).(pulumi.StringOutput)
 }
@@ -79871,1809 +82054,35 @@ func (o GetSyntheticsTestMobileOptionsListBindingArrayOutput) Index(i pulumi.Int
 	}).(GetSyntheticsTestMobileOptionsListBindingOutput)
 }
 
-type GetSyntheticsTestMobileOptionsListCi struct {
-	// Execution rule for a Synthetics test.
-	ExecutionRule string `pulumi:"executionRule"`
-}
-
-// GetSyntheticsTestMobileOptionsListCiInput is an input type that accepts GetSyntheticsTestMobileOptionsListCiArgs and GetSyntheticsTestMobileOptionsListCiOutput values.
-// You can construct a concrete instance of `GetSyntheticsTestMobileOptionsListCiInput` via:
-//
-//	GetSyntheticsTestMobileOptionsListCiArgs{...}
-type GetSyntheticsTestMobileOptionsListCiInput interface {
-	pulumi.Input
-
-	ToGetSyntheticsTestMobileOptionsListCiOutput() GetSyntheticsTestMobileOptionsListCiOutput
-	ToGetSyntheticsTestMobileOptionsListCiOutputWithContext(context.Context) GetSyntheticsTestMobileOptionsListCiOutput
-}
-
-type GetSyntheticsTestMobileOptionsListCiArgs struct {
-	// Execution rule for a Synthetics test.
-	ExecutionRule pulumi.StringInput `pulumi:"executionRule"`
-}
-
-func (GetSyntheticsTestMobileOptionsListCiArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSyntheticsTestMobileOptionsListCi)(nil)).Elem()
-}
-
-func (i GetSyntheticsTestMobileOptionsListCiArgs) ToGetSyntheticsTestMobileOptionsListCiOutput() GetSyntheticsTestMobileOptionsListCiOutput {
-	return i.ToGetSyntheticsTestMobileOptionsListCiOutputWithContext(context.Background())
-}
-
-func (i GetSyntheticsTestMobileOptionsListCiArgs) ToGetSyntheticsTestMobileOptionsListCiOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListCiOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestMobileOptionsListCiOutput)
-}
-
-// GetSyntheticsTestMobileOptionsListCiArrayInput is an input type that accepts GetSyntheticsTestMobileOptionsListCiArray and GetSyntheticsTestMobileOptionsListCiArrayOutput values.
-// You can construct a concrete instance of `GetSyntheticsTestMobileOptionsListCiArrayInput` via:
-//
-//	GetSyntheticsTestMobileOptionsListCiArray{ GetSyntheticsTestMobileOptionsListCiArgs{...} }
-type GetSyntheticsTestMobileOptionsListCiArrayInput interface {
-	pulumi.Input
-
-	ToGetSyntheticsTestMobileOptionsListCiArrayOutput() GetSyntheticsTestMobileOptionsListCiArrayOutput
-	ToGetSyntheticsTestMobileOptionsListCiArrayOutputWithContext(context.Context) GetSyntheticsTestMobileOptionsListCiArrayOutput
-}
-
-type GetSyntheticsTestMobileOptionsListCiArray []GetSyntheticsTestMobileOptionsListCiInput
-
-func (GetSyntheticsTestMobileOptionsListCiArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSyntheticsTestMobileOptionsListCi)(nil)).Elem()
-}
-
-func (i GetSyntheticsTestMobileOptionsListCiArray) ToGetSyntheticsTestMobileOptionsListCiArrayOutput() GetSyntheticsTestMobileOptionsListCiArrayOutput {
-	return i.ToGetSyntheticsTestMobileOptionsListCiArrayOutputWithContext(context.Background())
-}
-
-func (i GetSyntheticsTestMobileOptionsListCiArray) ToGetSyntheticsTestMobileOptionsListCiArrayOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListCiArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestMobileOptionsListCiArrayOutput)
-}
-
-type GetSyntheticsTestMobileOptionsListCiOutput struct{ *pulumi.OutputState }
-
-func (GetSyntheticsTestMobileOptionsListCiOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSyntheticsTestMobileOptionsListCi)(nil)).Elem()
-}
-
-func (o GetSyntheticsTestMobileOptionsListCiOutput) ToGetSyntheticsTestMobileOptionsListCiOutput() GetSyntheticsTestMobileOptionsListCiOutput {
-	return o
-}
-
-func (o GetSyntheticsTestMobileOptionsListCiOutput) ToGetSyntheticsTestMobileOptionsListCiOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListCiOutput {
-	return o
-}
-
-// Execution rule for a Synthetics test.
-func (o GetSyntheticsTestMobileOptionsListCiOutput) ExecutionRule() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSyntheticsTestMobileOptionsListCi) string { return v.ExecutionRule }).(pulumi.StringOutput)
-}
-
-type GetSyntheticsTestMobileOptionsListCiArrayOutput struct{ *pulumi.OutputState }
-
-func (GetSyntheticsTestMobileOptionsListCiArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSyntheticsTestMobileOptionsListCi)(nil)).Elem()
-}
-
-func (o GetSyntheticsTestMobileOptionsListCiArrayOutput) ToGetSyntheticsTestMobileOptionsListCiArrayOutput() GetSyntheticsTestMobileOptionsListCiArrayOutput {
-	return o
-}
-
-func (o GetSyntheticsTestMobileOptionsListCiArrayOutput) ToGetSyntheticsTestMobileOptionsListCiArrayOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListCiArrayOutput {
-	return o
-}
-
-func (o GetSyntheticsTestMobileOptionsListCiArrayOutput) Index(i pulumi.IntInput) GetSyntheticsTestMobileOptionsListCiOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSyntheticsTestMobileOptionsListCi {
-		return vs[0].([]GetSyntheticsTestMobileOptionsListCi)[vs[1].(int)]
-	}).(GetSyntheticsTestMobileOptionsListCiOutput)
-}
-
-type GetSyntheticsTestMobileOptionsListMobileApplication struct {
-	// The ID of the mobile application.
-	ApplicationId string `pulumi:"applicationId"`
-	// The reference ID of the mobile application.
-	ReferenceId string `pulumi:"referenceId"`
-	// The reference type of the mobile application.
-	ReferenceType string `pulumi:"referenceType"`
-}
-
-// GetSyntheticsTestMobileOptionsListMobileApplicationInput is an input type that accepts GetSyntheticsTestMobileOptionsListMobileApplicationArgs and GetSyntheticsTestMobileOptionsListMobileApplicationOutput values.
-// You can construct a concrete instance of `GetSyntheticsTestMobileOptionsListMobileApplicationInput` via:
-//
-//	GetSyntheticsTestMobileOptionsListMobileApplicationArgs{...}
-type GetSyntheticsTestMobileOptionsListMobileApplicationInput interface {
-	pulumi.Input
-
-	ToGetSyntheticsTestMobileOptionsListMobileApplicationOutput() GetSyntheticsTestMobileOptionsListMobileApplicationOutput
-	ToGetSyntheticsTestMobileOptionsListMobileApplicationOutputWithContext(context.Context) GetSyntheticsTestMobileOptionsListMobileApplicationOutput
-}
-
-type GetSyntheticsTestMobileOptionsListMobileApplicationArgs struct {
-	// The ID of the mobile application.
-	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
-	// The reference ID of the mobile application.
-	ReferenceId pulumi.StringInput `pulumi:"referenceId"`
-	// The reference type of the mobile application.
-	ReferenceType pulumi.StringInput `pulumi:"referenceType"`
-}
-
-func (GetSyntheticsTestMobileOptionsListMobileApplicationArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSyntheticsTestMobileOptionsListMobileApplication)(nil)).Elem()
-}
-
-func (i GetSyntheticsTestMobileOptionsListMobileApplicationArgs) ToGetSyntheticsTestMobileOptionsListMobileApplicationOutput() GetSyntheticsTestMobileOptionsListMobileApplicationOutput {
-	return i.ToGetSyntheticsTestMobileOptionsListMobileApplicationOutputWithContext(context.Background())
-}
-
-func (i GetSyntheticsTestMobileOptionsListMobileApplicationArgs) ToGetSyntheticsTestMobileOptionsListMobileApplicationOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListMobileApplicationOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestMobileOptionsListMobileApplicationOutput)
-}
-
-// GetSyntheticsTestMobileOptionsListMobileApplicationArrayInput is an input type that accepts GetSyntheticsTestMobileOptionsListMobileApplicationArray and GetSyntheticsTestMobileOptionsListMobileApplicationArrayOutput values.
-// You can construct a concrete instance of `GetSyntheticsTestMobileOptionsListMobileApplicationArrayInput` via:
-//
-//	GetSyntheticsTestMobileOptionsListMobileApplicationArray{ GetSyntheticsTestMobileOptionsListMobileApplicationArgs{...} }
-type GetSyntheticsTestMobileOptionsListMobileApplicationArrayInput interface {
-	pulumi.Input
-
-	ToGetSyntheticsTestMobileOptionsListMobileApplicationArrayOutput() GetSyntheticsTestMobileOptionsListMobileApplicationArrayOutput
-	ToGetSyntheticsTestMobileOptionsListMobileApplicationArrayOutputWithContext(context.Context) GetSyntheticsTestMobileOptionsListMobileApplicationArrayOutput
-}
-
-type GetSyntheticsTestMobileOptionsListMobileApplicationArray []GetSyntheticsTestMobileOptionsListMobileApplicationInput
-
-func (GetSyntheticsTestMobileOptionsListMobileApplicationArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSyntheticsTestMobileOptionsListMobileApplication)(nil)).Elem()
-}
-
-func (i GetSyntheticsTestMobileOptionsListMobileApplicationArray) ToGetSyntheticsTestMobileOptionsListMobileApplicationArrayOutput() GetSyntheticsTestMobileOptionsListMobileApplicationArrayOutput {
-	return i.ToGetSyntheticsTestMobileOptionsListMobileApplicationArrayOutputWithContext(context.Background())
-}
-
-func (i GetSyntheticsTestMobileOptionsListMobileApplicationArray) ToGetSyntheticsTestMobileOptionsListMobileApplicationArrayOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListMobileApplicationArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestMobileOptionsListMobileApplicationArrayOutput)
-}
-
-type GetSyntheticsTestMobileOptionsListMobileApplicationOutput struct{ *pulumi.OutputState }
-
-func (GetSyntheticsTestMobileOptionsListMobileApplicationOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSyntheticsTestMobileOptionsListMobileApplication)(nil)).Elem()
-}
-
-func (o GetSyntheticsTestMobileOptionsListMobileApplicationOutput) ToGetSyntheticsTestMobileOptionsListMobileApplicationOutput() GetSyntheticsTestMobileOptionsListMobileApplicationOutput {
-	return o
-}
-
-func (o GetSyntheticsTestMobileOptionsListMobileApplicationOutput) ToGetSyntheticsTestMobileOptionsListMobileApplicationOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListMobileApplicationOutput {
-	return o
-}
-
-// The ID of the mobile application.
-func (o GetSyntheticsTestMobileOptionsListMobileApplicationOutput) ApplicationId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSyntheticsTestMobileOptionsListMobileApplication) string { return v.ApplicationId }).(pulumi.StringOutput)
-}
-
-// The reference ID of the mobile application.
-func (o GetSyntheticsTestMobileOptionsListMobileApplicationOutput) ReferenceId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSyntheticsTestMobileOptionsListMobileApplication) string { return v.ReferenceId }).(pulumi.StringOutput)
-}
-
-// The reference type of the mobile application.
-func (o GetSyntheticsTestMobileOptionsListMobileApplicationOutput) ReferenceType() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSyntheticsTestMobileOptionsListMobileApplication) string { return v.ReferenceType }).(pulumi.StringOutput)
-}
-
-type GetSyntheticsTestMobileOptionsListMobileApplicationArrayOutput struct{ *pulumi.OutputState }
-
-func (GetSyntheticsTestMobileOptionsListMobileApplicationArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSyntheticsTestMobileOptionsListMobileApplication)(nil)).Elem()
-}
-
-func (o GetSyntheticsTestMobileOptionsListMobileApplicationArrayOutput) ToGetSyntheticsTestMobileOptionsListMobileApplicationArrayOutput() GetSyntheticsTestMobileOptionsListMobileApplicationArrayOutput {
-	return o
-}
-
-func (o GetSyntheticsTestMobileOptionsListMobileApplicationArrayOutput) ToGetSyntheticsTestMobileOptionsListMobileApplicationArrayOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListMobileApplicationArrayOutput {
-	return o
-}
-
-func (o GetSyntheticsTestMobileOptionsListMobileApplicationArrayOutput) Index(i pulumi.IntInput) GetSyntheticsTestMobileOptionsListMobileApplicationOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSyntheticsTestMobileOptionsListMobileApplication {
-		return vs[0].([]GetSyntheticsTestMobileOptionsListMobileApplication)[vs[1].(int)]
-	}).(GetSyntheticsTestMobileOptionsListMobileApplicationOutput)
-}
-
-type GetSyntheticsTestMobileOptionsListMonitorOption struct {
-	// A message to include with a re-notification.
-	EscalationMessage string `pulumi:"escalationMessage"`
-	// The name of the preset for the notification for the monitor.
-	NotificationPresetName string `pulumi:"notificationPresetName"`
-	// Specify a renotification frequency in minutes.
-	RenotifyInterval int `pulumi:"renotifyInterval"`
-	// The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
-	RenotifyOccurrences int `pulumi:"renotifyOccurrences"`
-}
-
-// GetSyntheticsTestMobileOptionsListMonitorOptionInput is an input type that accepts GetSyntheticsTestMobileOptionsListMonitorOptionArgs and GetSyntheticsTestMobileOptionsListMonitorOptionOutput values.
-// You can construct a concrete instance of `GetSyntheticsTestMobileOptionsListMonitorOptionInput` via:
-//
-//	GetSyntheticsTestMobileOptionsListMonitorOptionArgs{...}
-type GetSyntheticsTestMobileOptionsListMonitorOptionInput interface {
-	pulumi.Input
-
-	ToGetSyntheticsTestMobileOptionsListMonitorOptionOutput() GetSyntheticsTestMobileOptionsListMonitorOptionOutput
-	ToGetSyntheticsTestMobileOptionsListMonitorOptionOutputWithContext(context.Context) GetSyntheticsTestMobileOptionsListMonitorOptionOutput
-}
-
-type GetSyntheticsTestMobileOptionsListMonitorOptionArgs struct {
-	// A message to include with a re-notification.
-	EscalationMessage pulumi.StringInput `pulumi:"escalationMessage"`
-	// The name of the preset for the notification for the monitor.
-	NotificationPresetName pulumi.StringInput `pulumi:"notificationPresetName"`
-	// Specify a renotification frequency in minutes.
-	RenotifyInterval pulumi.IntInput `pulumi:"renotifyInterval"`
-	// The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
-	RenotifyOccurrences pulumi.IntInput `pulumi:"renotifyOccurrences"`
-}
-
-func (GetSyntheticsTestMobileOptionsListMonitorOptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSyntheticsTestMobileOptionsListMonitorOption)(nil)).Elem()
-}
-
-func (i GetSyntheticsTestMobileOptionsListMonitorOptionArgs) ToGetSyntheticsTestMobileOptionsListMonitorOptionOutput() GetSyntheticsTestMobileOptionsListMonitorOptionOutput {
-	return i.ToGetSyntheticsTestMobileOptionsListMonitorOptionOutputWithContext(context.Background())
-}
-
-func (i GetSyntheticsTestMobileOptionsListMonitorOptionArgs) ToGetSyntheticsTestMobileOptionsListMonitorOptionOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListMonitorOptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestMobileOptionsListMonitorOptionOutput)
-}
-
-// GetSyntheticsTestMobileOptionsListMonitorOptionArrayInput is an input type that accepts GetSyntheticsTestMobileOptionsListMonitorOptionArray and GetSyntheticsTestMobileOptionsListMonitorOptionArrayOutput values.
-// You can construct a concrete instance of `GetSyntheticsTestMobileOptionsListMonitorOptionArrayInput` via:
-//
-//	GetSyntheticsTestMobileOptionsListMonitorOptionArray{ GetSyntheticsTestMobileOptionsListMonitorOptionArgs{...} }
-type GetSyntheticsTestMobileOptionsListMonitorOptionArrayInput interface {
-	pulumi.Input
-
-	ToGetSyntheticsTestMobileOptionsListMonitorOptionArrayOutput() GetSyntheticsTestMobileOptionsListMonitorOptionArrayOutput
-	ToGetSyntheticsTestMobileOptionsListMonitorOptionArrayOutputWithContext(context.Context) GetSyntheticsTestMobileOptionsListMonitorOptionArrayOutput
-}
-
-type GetSyntheticsTestMobileOptionsListMonitorOptionArray []GetSyntheticsTestMobileOptionsListMonitorOptionInput
-
-func (GetSyntheticsTestMobileOptionsListMonitorOptionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSyntheticsTestMobileOptionsListMonitorOption)(nil)).Elem()
-}
-
-func (i GetSyntheticsTestMobileOptionsListMonitorOptionArray) ToGetSyntheticsTestMobileOptionsListMonitorOptionArrayOutput() GetSyntheticsTestMobileOptionsListMonitorOptionArrayOutput {
-	return i.ToGetSyntheticsTestMobileOptionsListMonitorOptionArrayOutputWithContext(context.Background())
-}
-
-func (i GetSyntheticsTestMobileOptionsListMonitorOptionArray) ToGetSyntheticsTestMobileOptionsListMonitorOptionArrayOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListMonitorOptionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestMobileOptionsListMonitorOptionArrayOutput)
-}
-
-type GetSyntheticsTestMobileOptionsListMonitorOptionOutput struct{ *pulumi.OutputState }
-
-func (GetSyntheticsTestMobileOptionsListMonitorOptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSyntheticsTestMobileOptionsListMonitorOption)(nil)).Elem()
-}
-
-func (o GetSyntheticsTestMobileOptionsListMonitorOptionOutput) ToGetSyntheticsTestMobileOptionsListMonitorOptionOutput() GetSyntheticsTestMobileOptionsListMonitorOptionOutput {
-	return o
-}
-
-func (o GetSyntheticsTestMobileOptionsListMonitorOptionOutput) ToGetSyntheticsTestMobileOptionsListMonitorOptionOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListMonitorOptionOutput {
-	return o
-}
-
-// A message to include with a re-notification.
-func (o GetSyntheticsTestMobileOptionsListMonitorOptionOutput) EscalationMessage() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSyntheticsTestMobileOptionsListMonitorOption) string { return v.EscalationMessage }).(pulumi.StringOutput)
-}
-
-// The name of the preset for the notification for the monitor.
-func (o GetSyntheticsTestMobileOptionsListMonitorOptionOutput) NotificationPresetName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSyntheticsTestMobileOptionsListMonitorOption) string { return v.NotificationPresetName }).(pulumi.StringOutput)
-}
-
-// Specify a renotification frequency in minutes.
-func (o GetSyntheticsTestMobileOptionsListMonitorOptionOutput) RenotifyInterval() pulumi.IntOutput {
-	return o.ApplyT(func(v GetSyntheticsTestMobileOptionsListMonitorOption) int { return v.RenotifyInterval }).(pulumi.IntOutput)
-}
-
-// The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
-func (o GetSyntheticsTestMobileOptionsListMonitorOptionOutput) RenotifyOccurrences() pulumi.IntOutput {
-	return o.ApplyT(func(v GetSyntheticsTestMobileOptionsListMonitorOption) int { return v.RenotifyOccurrences }).(pulumi.IntOutput)
-}
-
-type GetSyntheticsTestMobileOptionsListMonitorOptionArrayOutput struct{ *pulumi.OutputState }
-
-func (GetSyntheticsTestMobileOptionsListMonitorOptionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSyntheticsTestMobileOptionsListMonitorOption)(nil)).Elem()
-}
-
-func (o GetSyntheticsTestMobileOptionsListMonitorOptionArrayOutput) ToGetSyntheticsTestMobileOptionsListMonitorOptionArrayOutput() GetSyntheticsTestMobileOptionsListMonitorOptionArrayOutput {
-	return o
-}
-
-func (o GetSyntheticsTestMobileOptionsListMonitorOptionArrayOutput) ToGetSyntheticsTestMobileOptionsListMonitorOptionArrayOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListMonitorOptionArrayOutput {
-	return o
-}
-
-func (o GetSyntheticsTestMobileOptionsListMonitorOptionArrayOutput) Index(i pulumi.IntInput) GetSyntheticsTestMobileOptionsListMonitorOptionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSyntheticsTestMobileOptionsListMonitorOption {
-		return vs[0].([]GetSyntheticsTestMobileOptionsListMonitorOption)[vs[1].(int)]
-	}).(GetSyntheticsTestMobileOptionsListMonitorOptionOutput)
-}
-
-type GetSyntheticsTestMobileOptionsListRetry struct {
-	// Number of retries needed to consider a location as failed before sending a notification alert.
-	Count int `pulumi:"count"`
-	// Interval between a failed test and the next retry in milliseconds.
-	Interval int `pulumi:"interval"`
-}
-
-// GetSyntheticsTestMobileOptionsListRetryInput is an input type that accepts GetSyntheticsTestMobileOptionsListRetryArgs and GetSyntheticsTestMobileOptionsListRetryOutput values.
-// You can construct a concrete instance of `GetSyntheticsTestMobileOptionsListRetryInput` via:
-//
-//	GetSyntheticsTestMobileOptionsListRetryArgs{...}
-type GetSyntheticsTestMobileOptionsListRetryInput interface {
-	pulumi.Input
-
-	ToGetSyntheticsTestMobileOptionsListRetryOutput() GetSyntheticsTestMobileOptionsListRetryOutput
-	ToGetSyntheticsTestMobileOptionsListRetryOutputWithContext(context.Context) GetSyntheticsTestMobileOptionsListRetryOutput
-}
-
-type GetSyntheticsTestMobileOptionsListRetryArgs struct {
-	// Number of retries needed to consider a location as failed before sending a notification alert.
-	Count pulumi.IntInput `pulumi:"count"`
-	// Interval between a failed test and the next retry in milliseconds.
-	Interval pulumi.IntInput `pulumi:"interval"`
-}
-
-func (GetSyntheticsTestMobileOptionsListRetryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSyntheticsTestMobileOptionsListRetry)(nil)).Elem()
-}
-
-func (i GetSyntheticsTestMobileOptionsListRetryArgs) ToGetSyntheticsTestMobileOptionsListRetryOutput() GetSyntheticsTestMobileOptionsListRetryOutput {
-	return i.ToGetSyntheticsTestMobileOptionsListRetryOutputWithContext(context.Background())
-}
-
-func (i GetSyntheticsTestMobileOptionsListRetryArgs) ToGetSyntheticsTestMobileOptionsListRetryOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListRetryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestMobileOptionsListRetryOutput)
-}
-
-// GetSyntheticsTestMobileOptionsListRetryArrayInput is an input type that accepts GetSyntheticsTestMobileOptionsListRetryArray and GetSyntheticsTestMobileOptionsListRetryArrayOutput values.
-// You can construct a concrete instance of `GetSyntheticsTestMobileOptionsListRetryArrayInput` via:
-//
-//	GetSyntheticsTestMobileOptionsListRetryArray{ GetSyntheticsTestMobileOptionsListRetryArgs{...} }
-type GetSyntheticsTestMobileOptionsListRetryArrayInput interface {
-	pulumi.Input
-
-	ToGetSyntheticsTestMobileOptionsListRetryArrayOutput() GetSyntheticsTestMobileOptionsListRetryArrayOutput
-	ToGetSyntheticsTestMobileOptionsListRetryArrayOutputWithContext(context.Context) GetSyntheticsTestMobileOptionsListRetryArrayOutput
-}
-
-type GetSyntheticsTestMobileOptionsListRetryArray []GetSyntheticsTestMobileOptionsListRetryInput
-
-func (GetSyntheticsTestMobileOptionsListRetryArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSyntheticsTestMobileOptionsListRetry)(nil)).Elem()
-}
-
-func (i GetSyntheticsTestMobileOptionsListRetryArray) ToGetSyntheticsTestMobileOptionsListRetryArrayOutput() GetSyntheticsTestMobileOptionsListRetryArrayOutput {
-	return i.ToGetSyntheticsTestMobileOptionsListRetryArrayOutputWithContext(context.Background())
-}
-
-func (i GetSyntheticsTestMobileOptionsListRetryArray) ToGetSyntheticsTestMobileOptionsListRetryArrayOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListRetryArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestMobileOptionsListRetryArrayOutput)
-}
-
-type GetSyntheticsTestMobileOptionsListRetryOutput struct{ *pulumi.OutputState }
-
-func (GetSyntheticsTestMobileOptionsListRetryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSyntheticsTestMobileOptionsListRetry)(nil)).Elem()
-}
-
-func (o GetSyntheticsTestMobileOptionsListRetryOutput) ToGetSyntheticsTestMobileOptionsListRetryOutput() GetSyntheticsTestMobileOptionsListRetryOutput {
-	return o
-}
-
-func (o GetSyntheticsTestMobileOptionsListRetryOutput) ToGetSyntheticsTestMobileOptionsListRetryOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListRetryOutput {
-	return o
-}
-
-// Number of retries needed to consider a location as failed before sending a notification alert.
-func (o GetSyntheticsTestMobileOptionsListRetryOutput) Count() pulumi.IntOutput {
-	return o.ApplyT(func(v GetSyntheticsTestMobileOptionsListRetry) int { return v.Count }).(pulumi.IntOutput)
-}
-
-// Interval between a failed test and the next retry in milliseconds.
-func (o GetSyntheticsTestMobileOptionsListRetryOutput) Interval() pulumi.IntOutput {
-	return o.ApplyT(func(v GetSyntheticsTestMobileOptionsListRetry) int { return v.Interval }).(pulumi.IntOutput)
-}
-
-type GetSyntheticsTestMobileOptionsListRetryArrayOutput struct{ *pulumi.OutputState }
-
-func (GetSyntheticsTestMobileOptionsListRetryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSyntheticsTestMobileOptionsListRetry)(nil)).Elem()
-}
-
-func (o GetSyntheticsTestMobileOptionsListRetryArrayOutput) ToGetSyntheticsTestMobileOptionsListRetryArrayOutput() GetSyntheticsTestMobileOptionsListRetryArrayOutput {
-	return o
-}
-
-func (o GetSyntheticsTestMobileOptionsListRetryArrayOutput) ToGetSyntheticsTestMobileOptionsListRetryArrayOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListRetryArrayOutput {
-	return o
-}
-
-func (o GetSyntheticsTestMobileOptionsListRetryArrayOutput) Index(i pulumi.IntInput) GetSyntheticsTestMobileOptionsListRetryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSyntheticsTestMobileOptionsListRetry {
-		return vs[0].([]GetSyntheticsTestMobileOptionsListRetry)[vs[1].(int)]
-	}).(GetSyntheticsTestMobileOptionsListRetryOutput)
-}
-
-type GetSyntheticsTestMobileOptionsListScheduling struct {
-	// Array containing objects describing the scheduling pattern to apply to each day.
-	Timeframes []GetSyntheticsTestMobileOptionsListSchedulingTimeframe `pulumi:"timeframes"`
-	// Timezone in which the timeframe is based.
-	Timezone string `pulumi:"timezone"`
-}
-
-// GetSyntheticsTestMobileOptionsListSchedulingInput is an input type that accepts GetSyntheticsTestMobileOptionsListSchedulingArgs and GetSyntheticsTestMobileOptionsListSchedulingOutput values.
-// You can construct a concrete instance of `GetSyntheticsTestMobileOptionsListSchedulingInput` via:
-//
-//	GetSyntheticsTestMobileOptionsListSchedulingArgs{...}
-type GetSyntheticsTestMobileOptionsListSchedulingInput interface {
-	pulumi.Input
-
-	ToGetSyntheticsTestMobileOptionsListSchedulingOutput() GetSyntheticsTestMobileOptionsListSchedulingOutput
-	ToGetSyntheticsTestMobileOptionsListSchedulingOutputWithContext(context.Context) GetSyntheticsTestMobileOptionsListSchedulingOutput
-}
-
-type GetSyntheticsTestMobileOptionsListSchedulingArgs struct {
-	// Array containing objects describing the scheduling pattern to apply to each day.
-	Timeframes GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayInput `pulumi:"timeframes"`
-	// Timezone in which the timeframe is based.
-	Timezone pulumi.StringInput `pulumi:"timezone"`
-}
-
-func (GetSyntheticsTestMobileOptionsListSchedulingArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSyntheticsTestMobileOptionsListScheduling)(nil)).Elem()
-}
-
-func (i GetSyntheticsTestMobileOptionsListSchedulingArgs) ToGetSyntheticsTestMobileOptionsListSchedulingOutput() GetSyntheticsTestMobileOptionsListSchedulingOutput {
-	return i.ToGetSyntheticsTestMobileOptionsListSchedulingOutputWithContext(context.Background())
-}
-
-func (i GetSyntheticsTestMobileOptionsListSchedulingArgs) ToGetSyntheticsTestMobileOptionsListSchedulingOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListSchedulingOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestMobileOptionsListSchedulingOutput)
-}
-
-// GetSyntheticsTestMobileOptionsListSchedulingArrayInput is an input type that accepts GetSyntheticsTestMobileOptionsListSchedulingArray and GetSyntheticsTestMobileOptionsListSchedulingArrayOutput values.
-// You can construct a concrete instance of `GetSyntheticsTestMobileOptionsListSchedulingArrayInput` via:
-//
-//	GetSyntheticsTestMobileOptionsListSchedulingArray{ GetSyntheticsTestMobileOptionsListSchedulingArgs{...} }
-type GetSyntheticsTestMobileOptionsListSchedulingArrayInput interface {
-	pulumi.Input
-
-	ToGetSyntheticsTestMobileOptionsListSchedulingArrayOutput() GetSyntheticsTestMobileOptionsListSchedulingArrayOutput
-	ToGetSyntheticsTestMobileOptionsListSchedulingArrayOutputWithContext(context.Context) GetSyntheticsTestMobileOptionsListSchedulingArrayOutput
-}
-
-type GetSyntheticsTestMobileOptionsListSchedulingArray []GetSyntheticsTestMobileOptionsListSchedulingInput
-
-func (GetSyntheticsTestMobileOptionsListSchedulingArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSyntheticsTestMobileOptionsListScheduling)(nil)).Elem()
-}
-
-func (i GetSyntheticsTestMobileOptionsListSchedulingArray) ToGetSyntheticsTestMobileOptionsListSchedulingArrayOutput() GetSyntheticsTestMobileOptionsListSchedulingArrayOutput {
-	return i.ToGetSyntheticsTestMobileOptionsListSchedulingArrayOutputWithContext(context.Background())
-}
-
-func (i GetSyntheticsTestMobileOptionsListSchedulingArray) ToGetSyntheticsTestMobileOptionsListSchedulingArrayOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListSchedulingArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestMobileOptionsListSchedulingArrayOutput)
-}
-
-type GetSyntheticsTestMobileOptionsListSchedulingOutput struct{ *pulumi.OutputState }
-
-func (GetSyntheticsTestMobileOptionsListSchedulingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSyntheticsTestMobileOptionsListScheduling)(nil)).Elem()
-}
-
-func (o GetSyntheticsTestMobileOptionsListSchedulingOutput) ToGetSyntheticsTestMobileOptionsListSchedulingOutput() GetSyntheticsTestMobileOptionsListSchedulingOutput {
-	return o
-}
-
-func (o GetSyntheticsTestMobileOptionsListSchedulingOutput) ToGetSyntheticsTestMobileOptionsListSchedulingOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListSchedulingOutput {
-	return o
-}
-
-// Array containing objects describing the scheduling pattern to apply to each day.
-func (o GetSyntheticsTestMobileOptionsListSchedulingOutput) Timeframes() GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput {
-	return o.ApplyT(func(v GetSyntheticsTestMobileOptionsListScheduling) []GetSyntheticsTestMobileOptionsListSchedulingTimeframe {
-		return v.Timeframes
-	}).(GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput)
-}
-
-// Timezone in which the timeframe is based.
-func (o GetSyntheticsTestMobileOptionsListSchedulingOutput) Timezone() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSyntheticsTestMobileOptionsListScheduling) string { return v.Timezone }).(pulumi.StringOutput)
-}
-
-type GetSyntheticsTestMobileOptionsListSchedulingArrayOutput struct{ *pulumi.OutputState }
-
-func (GetSyntheticsTestMobileOptionsListSchedulingArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSyntheticsTestMobileOptionsListScheduling)(nil)).Elem()
-}
-
-func (o GetSyntheticsTestMobileOptionsListSchedulingArrayOutput) ToGetSyntheticsTestMobileOptionsListSchedulingArrayOutput() GetSyntheticsTestMobileOptionsListSchedulingArrayOutput {
-	return o
-}
-
-func (o GetSyntheticsTestMobileOptionsListSchedulingArrayOutput) ToGetSyntheticsTestMobileOptionsListSchedulingArrayOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListSchedulingArrayOutput {
-	return o
-}
-
-func (o GetSyntheticsTestMobileOptionsListSchedulingArrayOutput) Index(i pulumi.IntInput) GetSyntheticsTestMobileOptionsListSchedulingOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSyntheticsTestMobileOptionsListScheduling {
-		return vs[0].([]GetSyntheticsTestMobileOptionsListScheduling)[vs[1].(int)]
-	}).(GetSyntheticsTestMobileOptionsListSchedulingOutput)
-}
-
-type GetSyntheticsTestMobileOptionsListSchedulingTimeframe struct {
-	// Number representing the day of the week.
-	Day int `pulumi:"day"`
-	// The hour of the day on which scheduling starts.
-	From string `pulumi:"from"`
-	// The hour of the day on which scheduling ends.
-	To string `pulumi:"to"`
-}
-
-// GetSyntheticsTestMobileOptionsListSchedulingTimeframeInput is an input type that accepts GetSyntheticsTestMobileOptionsListSchedulingTimeframeArgs and GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput values.
-// You can construct a concrete instance of `GetSyntheticsTestMobileOptionsListSchedulingTimeframeInput` via:
-//
-//	GetSyntheticsTestMobileOptionsListSchedulingTimeframeArgs{...}
-type GetSyntheticsTestMobileOptionsListSchedulingTimeframeInput interface {
-	pulumi.Input
-
-	ToGetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput() GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput
-	ToGetSyntheticsTestMobileOptionsListSchedulingTimeframeOutputWithContext(context.Context) GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput
-}
-
-type GetSyntheticsTestMobileOptionsListSchedulingTimeframeArgs struct {
-	// Number representing the day of the week.
-	Day pulumi.IntInput `pulumi:"day"`
-	// The hour of the day on which scheduling starts.
-	From pulumi.StringInput `pulumi:"from"`
-	// The hour of the day on which scheduling ends.
-	To pulumi.StringInput `pulumi:"to"`
-}
-
-func (GetSyntheticsTestMobileOptionsListSchedulingTimeframeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSyntheticsTestMobileOptionsListSchedulingTimeframe)(nil)).Elem()
-}
-
-func (i GetSyntheticsTestMobileOptionsListSchedulingTimeframeArgs) ToGetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput() GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput {
-	return i.ToGetSyntheticsTestMobileOptionsListSchedulingTimeframeOutputWithContext(context.Background())
-}
-
-func (i GetSyntheticsTestMobileOptionsListSchedulingTimeframeArgs) ToGetSyntheticsTestMobileOptionsListSchedulingTimeframeOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput)
-}
-
-// GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayInput is an input type that accepts GetSyntheticsTestMobileOptionsListSchedulingTimeframeArray and GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput values.
-// You can construct a concrete instance of `GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayInput` via:
-//
-//	GetSyntheticsTestMobileOptionsListSchedulingTimeframeArray{ GetSyntheticsTestMobileOptionsListSchedulingTimeframeArgs{...} }
-type GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayInput interface {
-	pulumi.Input
-
-	ToGetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput() GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput
-	ToGetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutputWithContext(context.Context) GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput
-}
-
-type GetSyntheticsTestMobileOptionsListSchedulingTimeframeArray []GetSyntheticsTestMobileOptionsListSchedulingTimeframeInput
-
-func (GetSyntheticsTestMobileOptionsListSchedulingTimeframeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSyntheticsTestMobileOptionsListSchedulingTimeframe)(nil)).Elem()
-}
-
-func (i GetSyntheticsTestMobileOptionsListSchedulingTimeframeArray) ToGetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput() GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput {
-	return i.ToGetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutputWithContext(context.Background())
-}
-
-func (i GetSyntheticsTestMobileOptionsListSchedulingTimeframeArray) ToGetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput)
-}
-
-type GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput struct{ *pulumi.OutputState }
-
-func (GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSyntheticsTestMobileOptionsListSchedulingTimeframe)(nil)).Elem()
-}
-
-func (o GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput) ToGetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput() GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput {
-	return o
-}
-
-func (o GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput) ToGetSyntheticsTestMobileOptionsListSchedulingTimeframeOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput {
-	return o
-}
-
-// Number representing the day of the week.
-func (o GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput) Day() pulumi.IntOutput {
-	return o.ApplyT(func(v GetSyntheticsTestMobileOptionsListSchedulingTimeframe) int { return v.Day }).(pulumi.IntOutput)
-}
-
-// The hour of the day on which scheduling starts.
-func (o GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput) From() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSyntheticsTestMobileOptionsListSchedulingTimeframe) string { return v.From }).(pulumi.StringOutput)
-}
-
-// The hour of the day on which scheduling ends.
-func (o GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput) To() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSyntheticsTestMobileOptionsListSchedulingTimeframe) string { return v.To }).(pulumi.StringOutput)
-}
-
-type GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput struct{ *pulumi.OutputState }
-
-func (GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSyntheticsTestMobileOptionsListSchedulingTimeframe)(nil)).Elem()
-}
-
-func (o GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput) ToGetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput() GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput {
-	return o
-}
-
-func (o GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput) ToGetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput {
-	return o
-}
-
-func (o GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput) Index(i pulumi.IntInput) GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSyntheticsTestMobileOptionsListSchedulingTimeframe {
-		return vs[0].([]GetSyntheticsTestMobileOptionsListSchedulingTimeframe)[vs[1].(int)]
-	}).(GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput)
-}
-
-type GetSyntheticsTestOptionsList struct {
-	// For SSL tests, whether or not the test should allow self signed certificates.
-	AcceptSelfSigned bool `pulumi:"acceptSelfSigned"`
-	// Allows loading insecure content for a request in an API test or in a multistep API test step.
-	AllowInsecure bool `pulumi:"allowInsecure"`
-	// Whether Bits AI automatically investigates alerts from the test monitor.
-	BitsAiAutoInvestigate bool `pulumi:"bitsAiAutoInvestigate"`
-	// Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
-	BlockedRequestPatterns []string `pulumi:"blockedRequestPatterns"`
-	// Capture HTTP request/response headers and bodies for Fetch/XHR calls made during browser tests.
-	CaptureNetworkPayloads bool `pulumi:"captureNetworkPayloads"`
-	// For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
-	CheckCertificateRevocation bool `pulumi:"checkCertificateRevocation"`
-	// CI/CD options for a Synthetic test.
-	Cis []GetSyntheticsTestOptionsListCi `pulumi:"cis"`
-	// For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA.
-	DisableAiaIntermediateFetching bool `pulumi:"disableAiaIntermediateFetching"`
-	// Disable Cross-Origin Resource Sharing for browser tests.
-	DisableCors bool `pulumi:"disableCors"`
-	// Disable Content Security Policy for browser tests.
-	DisableCsp bool `pulumi:"disableCsp"`
-	// Determines whether or not the API HTTP test should follow redirects.
-	FollowRedirects bool `pulumi:"followRedirects"`
-	// HTTP version to use for an HTTP request in an API test or step.
-	HttpVersion string `pulumi:"httpVersion"`
-	// Ignore server certificate error for SSL tests.
-	IgnoreCertificateValidation bool `pulumi:"ignoreCertificateValidation"`
-	// Ignore server certificate error for browser tests.
-	IgnoreServerCertificateError bool `pulumi:"ignoreServerCertificateError"`
-	// Timeout before declaring the initial step as failed (in seconds) for browser tests.
-	InitialNavigationTimeout int `pulumi:"initialNavigationTimeout"`
-	// Minimum amount of time in failure required to trigger an alert (in seconds).
-	MinFailureDuration int `pulumi:"minFailureDuration"`
-	// Minimum number of locations in failure required to trigger an alert.
-	MinLocationFailed int `pulumi:"minLocationFailed"`
-	// The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
-	MonitorName string `pulumi:"monitorName"`
-	// Object containing the options for a Synthetic test as a monitor (for example, renotification).
-	MonitorOptions []GetSyntheticsTestOptionsListMonitorOption `pulumi:"monitorOptions"`
-	// Integer from 1 (high) to 5 (low) indicating alert severity.
-	MonitorPriority int `pulumi:"monitorPriority"`
-	// Prevents saving screenshots of the steps.
-	NoScreenshot bool `pulumi:"noScreenshot"`
-	// A list of role identifiers pulled from the Roles API to restrict read and write access. Included for parity with the `SyntheticsTest` resource.
-	//
-	// Deprecated: This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
-	RestrictedRoles []string `pulumi:"restrictedRoles"`
-	// Object describing the retry strategy to apply to a Synthetic test.
-	Retries []GetSyntheticsTestOptionsListRetry `pulumi:"retries"`
-	// The RUM data collection settings for the Synthetic browser test.
-	RumSettings []GetSyntheticsTestOptionsListRumSetting `pulumi:"rumSettings"`
-	// Object containing timeframes and timezone used for advanced scheduling.
-	Schedulings []GetSyntheticsTestOptionsListScheduling `pulumi:"schedulings"`
-	// How often the test should run (in seconds).
-	TickEvery int `pulumi:"tickEvery"`
-}
-
-// GetSyntheticsTestOptionsListInput is an input type that accepts GetSyntheticsTestOptionsListArgs and GetSyntheticsTestOptionsListOutput values.
-// You can construct a concrete instance of `GetSyntheticsTestOptionsListInput` via:
-//
-//	GetSyntheticsTestOptionsListArgs{...}
-type GetSyntheticsTestOptionsListInput interface {
-	pulumi.Input
-
-	ToGetSyntheticsTestOptionsListOutput() GetSyntheticsTestOptionsListOutput
-	ToGetSyntheticsTestOptionsListOutputWithContext(context.Context) GetSyntheticsTestOptionsListOutput
-}
-
-type GetSyntheticsTestOptionsListArgs struct {
-	// For SSL tests, whether or not the test should allow self signed certificates.
-	AcceptSelfSigned pulumi.BoolInput `pulumi:"acceptSelfSigned"`
-	// Allows loading insecure content for a request in an API test or in a multistep API test step.
-	AllowInsecure pulumi.BoolInput `pulumi:"allowInsecure"`
-	// Whether Bits AI automatically investigates alerts from the test monitor.
-	BitsAiAutoInvestigate pulumi.BoolInput `pulumi:"bitsAiAutoInvestigate"`
-	// Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
-	BlockedRequestPatterns pulumi.StringArrayInput `pulumi:"blockedRequestPatterns"`
-	// Capture HTTP request/response headers and bodies for Fetch/XHR calls made during browser tests.
-	CaptureNetworkPayloads pulumi.BoolInput `pulumi:"captureNetworkPayloads"`
-	// For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
-	CheckCertificateRevocation pulumi.BoolInput `pulumi:"checkCertificateRevocation"`
-	// CI/CD options for a Synthetic test.
-	Cis GetSyntheticsTestOptionsListCiArrayInput `pulumi:"cis"`
-	// For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA.
-	DisableAiaIntermediateFetching pulumi.BoolInput `pulumi:"disableAiaIntermediateFetching"`
-	// Disable Cross-Origin Resource Sharing for browser tests.
-	DisableCors pulumi.BoolInput `pulumi:"disableCors"`
-	// Disable Content Security Policy for browser tests.
-	DisableCsp pulumi.BoolInput `pulumi:"disableCsp"`
-	// Determines whether or not the API HTTP test should follow redirects.
-	FollowRedirects pulumi.BoolInput `pulumi:"followRedirects"`
-	// HTTP version to use for an HTTP request in an API test or step.
-	HttpVersion pulumi.StringInput `pulumi:"httpVersion"`
-	// Ignore server certificate error for SSL tests.
-	IgnoreCertificateValidation pulumi.BoolInput `pulumi:"ignoreCertificateValidation"`
-	// Ignore server certificate error for browser tests.
-	IgnoreServerCertificateError pulumi.BoolInput `pulumi:"ignoreServerCertificateError"`
-	// Timeout before declaring the initial step as failed (in seconds) for browser tests.
-	InitialNavigationTimeout pulumi.IntInput `pulumi:"initialNavigationTimeout"`
-	// Minimum amount of time in failure required to trigger an alert (in seconds).
-	MinFailureDuration pulumi.IntInput `pulumi:"minFailureDuration"`
-	// Minimum number of locations in failure required to trigger an alert.
-	MinLocationFailed pulumi.IntInput `pulumi:"minLocationFailed"`
-	// The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
-	MonitorName pulumi.StringInput `pulumi:"monitorName"`
-	// Object containing the options for a Synthetic test as a monitor (for example, renotification).
-	MonitorOptions GetSyntheticsTestOptionsListMonitorOptionArrayInput `pulumi:"monitorOptions"`
-	// Integer from 1 (high) to 5 (low) indicating alert severity.
-	MonitorPriority pulumi.IntInput `pulumi:"monitorPriority"`
-	// Prevents saving screenshots of the steps.
-	NoScreenshot pulumi.BoolInput `pulumi:"noScreenshot"`
-	// A list of role identifiers pulled from the Roles API to restrict read and write access. Included for parity with the `SyntheticsTest` resource.
-	//
-	// Deprecated: This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
-	RestrictedRoles pulumi.StringArrayInput `pulumi:"restrictedRoles"`
-	// Object describing the retry strategy to apply to a Synthetic test.
-	Retries GetSyntheticsTestOptionsListRetryArrayInput `pulumi:"retries"`
-	// The RUM data collection settings for the Synthetic browser test.
-	RumSettings GetSyntheticsTestOptionsListRumSettingArrayInput `pulumi:"rumSettings"`
-	// Object containing timeframes and timezone used for advanced scheduling.
-	Schedulings GetSyntheticsTestOptionsListSchedulingArrayInput `pulumi:"schedulings"`
-	// How often the test should run (in seconds).
-	TickEvery pulumi.IntInput `pulumi:"tickEvery"`
-}
-
-func (GetSyntheticsTestOptionsListArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSyntheticsTestOptionsList)(nil)).Elem()
-}
-
-func (i GetSyntheticsTestOptionsListArgs) ToGetSyntheticsTestOptionsListOutput() GetSyntheticsTestOptionsListOutput {
-	return i.ToGetSyntheticsTestOptionsListOutputWithContext(context.Background())
-}
-
-func (i GetSyntheticsTestOptionsListArgs) ToGetSyntheticsTestOptionsListOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestOptionsListOutput)
-}
-
-// GetSyntheticsTestOptionsListArrayInput is an input type that accepts GetSyntheticsTestOptionsListArray and GetSyntheticsTestOptionsListArrayOutput values.
-// You can construct a concrete instance of `GetSyntheticsTestOptionsListArrayInput` via:
-//
-//	GetSyntheticsTestOptionsListArray{ GetSyntheticsTestOptionsListArgs{...} }
-type GetSyntheticsTestOptionsListArrayInput interface {
-	pulumi.Input
-
-	ToGetSyntheticsTestOptionsListArrayOutput() GetSyntheticsTestOptionsListArrayOutput
-	ToGetSyntheticsTestOptionsListArrayOutputWithContext(context.Context) GetSyntheticsTestOptionsListArrayOutput
-}
-
-type GetSyntheticsTestOptionsListArray []GetSyntheticsTestOptionsListInput
-
-func (GetSyntheticsTestOptionsListArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSyntheticsTestOptionsList)(nil)).Elem()
-}
-
-func (i GetSyntheticsTestOptionsListArray) ToGetSyntheticsTestOptionsListArrayOutput() GetSyntheticsTestOptionsListArrayOutput {
-	return i.ToGetSyntheticsTestOptionsListArrayOutputWithContext(context.Background())
-}
-
-func (i GetSyntheticsTestOptionsListArray) ToGetSyntheticsTestOptionsListArrayOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestOptionsListArrayOutput)
-}
-
-type GetSyntheticsTestOptionsListOutput struct{ *pulumi.OutputState }
-
-func (GetSyntheticsTestOptionsListOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSyntheticsTestOptionsList)(nil)).Elem()
-}
-
-func (o GetSyntheticsTestOptionsListOutput) ToGetSyntheticsTestOptionsListOutput() GetSyntheticsTestOptionsListOutput {
-	return o
-}
-
-func (o GetSyntheticsTestOptionsListOutput) ToGetSyntheticsTestOptionsListOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListOutput {
-	return o
-}
-
-// For SSL tests, whether or not the test should allow self signed certificates.
-func (o GetSyntheticsTestOptionsListOutput) AcceptSelfSigned() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsList) bool { return v.AcceptSelfSigned }).(pulumi.BoolOutput)
-}
-
-// Allows loading insecure content for a request in an API test or in a multistep API test step.
-func (o GetSyntheticsTestOptionsListOutput) AllowInsecure() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsList) bool { return v.AllowInsecure }).(pulumi.BoolOutput)
-}
-
-// Whether Bits AI automatically investigates alerts from the test monitor.
-func (o GetSyntheticsTestOptionsListOutput) BitsAiAutoInvestigate() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsList) bool { return v.BitsAiAutoInvestigate }).(pulumi.BoolOutput)
-}
-
-// Blocked URL patterns. Requests made to URLs matching any of the patterns listed here will be blocked.
-func (o GetSyntheticsTestOptionsListOutput) BlockedRequestPatterns() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsList) []string { return v.BlockedRequestPatterns }).(pulumi.StringArrayOutput)
-}
-
-// Capture HTTP request/response headers and bodies for Fetch/XHR calls made during browser tests.
-func (o GetSyntheticsTestOptionsListOutput) CaptureNetworkPayloads() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsList) bool { return v.CaptureNetworkPayloads }).(pulumi.BoolOutput)
-}
-
-// For SSL tests, whether or not the test should fail on revoked certificate in stapled OCSP.
-func (o GetSyntheticsTestOptionsListOutput) CheckCertificateRevocation() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsList) bool { return v.CheckCertificateRevocation }).(pulumi.BoolOutput)
-}
-
-// CI/CD options for a Synthetic test.
-func (o GetSyntheticsTestOptionsListOutput) Cis() GetSyntheticsTestOptionsListCiArrayOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsList) []GetSyntheticsTestOptionsListCi { return v.Cis }).(GetSyntheticsTestOptionsListCiArrayOutput)
-}
-
-// For SSL tests, whether or not the test should disable fetching intermediate certificates from AIA.
-func (o GetSyntheticsTestOptionsListOutput) DisableAiaIntermediateFetching() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsList) bool { return v.DisableAiaIntermediateFetching }).(pulumi.BoolOutput)
-}
-
-// Disable Cross-Origin Resource Sharing for browser tests.
-func (o GetSyntheticsTestOptionsListOutput) DisableCors() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsList) bool { return v.DisableCors }).(pulumi.BoolOutput)
-}
-
-// Disable Content Security Policy for browser tests.
-func (o GetSyntheticsTestOptionsListOutput) DisableCsp() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsList) bool { return v.DisableCsp }).(pulumi.BoolOutput)
-}
-
-// Determines whether or not the API HTTP test should follow redirects.
-func (o GetSyntheticsTestOptionsListOutput) FollowRedirects() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsList) bool { return v.FollowRedirects }).(pulumi.BoolOutput)
-}
-
-// HTTP version to use for an HTTP request in an API test or step.
-func (o GetSyntheticsTestOptionsListOutput) HttpVersion() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsList) string { return v.HttpVersion }).(pulumi.StringOutput)
-}
-
-// Ignore server certificate error for SSL tests.
-func (o GetSyntheticsTestOptionsListOutput) IgnoreCertificateValidation() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsList) bool { return v.IgnoreCertificateValidation }).(pulumi.BoolOutput)
-}
-
-// Ignore server certificate error for browser tests.
-func (o GetSyntheticsTestOptionsListOutput) IgnoreServerCertificateError() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsList) bool { return v.IgnoreServerCertificateError }).(pulumi.BoolOutput)
-}
-
-// Timeout before declaring the initial step as failed (in seconds) for browser tests.
-func (o GetSyntheticsTestOptionsListOutput) InitialNavigationTimeout() pulumi.IntOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsList) int { return v.InitialNavigationTimeout }).(pulumi.IntOutput)
-}
-
-// Minimum amount of time in failure required to trigger an alert (in seconds).
-func (o GetSyntheticsTestOptionsListOutput) MinFailureDuration() pulumi.IntOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsList) int { return v.MinFailureDuration }).(pulumi.IntOutput)
-}
-
-// Minimum number of locations in failure required to trigger an alert.
-func (o GetSyntheticsTestOptionsListOutput) MinLocationFailed() pulumi.IntOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsList) int { return v.MinLocationFailed }).(pulumi.IntOutput)
-}
-
-// The monitor name is used for the alert title as well as for all monitor dashboard widgets and SLOs.
-func (o GetSyntheticsTestOptionsListOutput) MonitorName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsList) string { return v.MonitorName }).(pulumi.StringOutput)
-}
-
-// Object containing the options for a Synthetic test as a monitor (for example, renotification).
-func (o GetSyntheticsTestOptionsListOutput) MonitorOptions() GetSyntheticsTestOptionsListMonitorOptionArrayOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsList) []GetSyntheticsTestOptionsListMonitorOption {
-		return v.MonitorOptions
-	}).(GetSyntheticsTestOptionsListMonitorOptionArrayOutput)
-}
-
-// Integer from 1 (high) to 5 (low) indicating alert severity.
-func (o GetSyntheticsTestOptionsListOutput) MonitorPriority() pulumi.IntOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsList) int { return v.MonitorPriority }).(pulumi.IntOutput)
-}
-
-// Prevents saving screenshots of the steps.
-func (o GetSyntheticsTestOptionsListOutput) NoScreenshot() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsList) bool { return v.NoScreenshot }).(pulumi.BoolOutput)
-}
-
-// A list of role identifiers pulled from the Roles API to restrict read and write access. Included for parity with the `SyntheticsTest` resource.
-//
-// Deprecated: This field is no longer supported by the Datadog API. Please use `RestrictionPolicy` instead.
-func (o GetSyntheticsTestOptionsListOutput) RestrictedRoles() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsList) []string { return v.RestrictedRoles }).(pulumi.StringArrayOutput)
-}
-
-// Object describing the retry strategy to apply to a Synthetic test.
-func (o GetSyntheticsTestOptionsListOutput) Retries() GetSyntheticsTestOptionsListRetryArrayOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsList) []GetSyntheticsTestOptionsListRetry { return v.Retries }).(GetSyntheticsTestOptionsListRetryArrayOutput)
-}
-
-// The RUM data collection settings for the Synthetic browser test.
-func (o GetSyntheticsTestOptionsListOutput) RumSettings() GetSyntheticsTestOptionsListRumSettingArrayOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsList) []GetSyntheticsTestOptionsListRumSetting { return v.RumSettings }).(GetSyntheticsTestOptionsListRumSettingArrayOutput)
-}
-
-// Object containing timeframes and timezone used for advanced scheduling.
-func (o GetSyntheticsTestOptionsListOutput) Schedulings() GetSyntheticsTestOptionsListSchedulingArrayOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsList) []GetSyntheticsTestOptionsListScheduling { return v.Schedulings }).(GetSyntheticsTestOptionsListSchedulingArrayOutput)
-}
-
-// How often the test should run (in seconds).
-func (o GetSyntheticsTestOptionsListOutput) TickEvery() pulumi.IntOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsList) int { return v.TickEvery }).(pulumi.IntOutput)
-}
-
-type GetSyntheticsTestOptionsListArrayOutput struct{ *pulumi.OutputState }
-
-func (GetSyntheticsTestOptionsListArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSyntheticsTestOptionsList)(nil)).Elem()
-}
-
-func (o GetSyntheticsTestOptionsListArrayOutput) ToGetSyntheticsTestOptionsListArrayOutput() GetSyntheticsTestOptionsListArrayOutput {
-	return o
-}
-
-func (o GetSyntheticsTestOptionsListArrayOutput) ToGetSyntheticsTestOptionsListArrayOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListArrayOutput {
-	return o
-}
-
-func (o GetSyntheticsTestOptionsListArrayOutput) Index(i pulumi.IntInput) GetSyntheticsTestOptionsListOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSyntheticsTestOptionsList {
-		return vs[0].([]GetSyntheticsTestOptionsList)[vs[1].(int)]
-	}).(GetSyntheticsTestOptionsListOutput)
-}
-
-type GetSyntheticsTestOptionsListCi struct {
-	// Execution rule for a Synthetics test.
-	ExecutionRule string `pulumi:"executionRule"`
-}
-
-// GetSyntheticsTestOptionsListCiInput is an input type that accepts GetSyntheticsTestOptionsListCiArgs and GetSyntheticsTestOptionsListCiOutput values.
-// You can construct a concrete instance of `GetSyntheticsTestOptionsListCiInput` via:
-//
-//	GetSyntheticsTestOptionsListCiArgs{...}
-type GetSyntheticsTestOptionsListCiInput interface {
-	pulumi.Input
-
-	ToGetSyntheticsTestOptionsListCiOutput() GetSyntheticsTestOptionsListCiOutput
-	ToGetSyntheticsTestOptionsListCiOutputWithContext(context.Context) GetSyntheticsTestOptionsListCiOutput
-}
-
-type GetSyntheticsTestOptionsListCiArgs struct {
-	// Execution rule for a Synthetics test.
-	ExecutionRule pulumi.StringInput `pulumi:"executionRule"`
-}
-
-func (GetSyntheticsTestOptionsListCiArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSyntheticsTestOptionsListCi)(nil)).Elem()
-}
-
-func (i GetSyntheticsTestOptionsListCiArgs) ToGetSyntheticsTestOptionsListCiOutput() GetSyntheticsTestOptionsListCiOutput {
-	return i.ToGetSyntheticsTestOptionsListCiOutputWithContext(context.Background())
-}
-
-func (i GetSyntheticsTestOptionsListCiArgs) ToGetSyntheticsTestOptionsListCiOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListCiOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestOptionsListCiOutput)
-}
-
-// GetSyntheticsTestOptionsListCiArrayInput is an input type that accepts GetSyntheticsTestOptionsListCiArray and GetSyntheticsTestOptionsListCiArrayOutput values.
-// You can construct a concrete instance of `GetSyntheticsTestOptionsListCiArrayInput` via:
-//
-//	GetSyntheticsTestOptionsListCiArray{ GetSyntheticsTestOptionsListCiArgs{...} }
-type GetSyntheticsTestOptionsListCiArrayInput interface {
-	pulumi.Input
-
-	ToGetSyntheticsTestOptionsListCiArrayOutput() GetSyntheticsTestOptionsListCiArrayOutput
-	ToGetSyntheticsTestOptionsListCiArrayOutputWithContext(context.Context) GetSyntheticsTestOptionsListCiArrayOutput
-}
-
-type GetSyntheticsTestOptionsListCiArray []GetSyntheticsTestOptionsListCiInput
-
-func (GetSyntheticsTestOptionsListCiArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSyntheticsTestOptionsListCi)(nil)).Elem()
-}
-
-func (i GetSyntheticsTestOptionsListCiArray) ToGetSyntheticsTestOptionsListCiArrayOutput() GetSyntheticsTestOptionsListCiArrayOutput {
-	return i.ToGetSyntheticsTestOptionsListCiArrayOutputWithContext(context.Background())
-}
-
-func (i GetSyntheticsTestOptionsListCiArray) ToGetSyntheticsTestOptionsListCiArrayOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListCiArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestOptionsListCiArrayOutput)
-}
-
-type GetSyntheticsTestOptionsListCiOutput struct{ *pulumi.OutputState }
-
-func (GetSyntheticsTestOptionsListCiOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSyntheticsTestOptionsListCi)(nil)).Elem()
-}
-
-func (o GetSyntheticsTestOptionsListCiOutput) ToGetSyntheticsTestOptionsListCiOutput() GetSyntheticsTestOptionsListCiOutput {
-	return o
-}
-
-func (o GetSyntheticsTestOptionsListCiOutput) ToGetSyntheticsTestOptionsListCiOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListCiOutput {
-	return o
-}
-
-// Execution rule for a Synthetics test.
-func (o GetSyntheticsTestOptionsListCiOutput) ExecutionRule() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsListCi) string { return v.ExecutionRule }).(pulumi.StringOutput)
-}
-
-type GetSyntheticsTestOptionsListCiArrayOutput struct{ *pulumi.OutputState }
-
-func (GetSyntheticsTestOptionsListCiArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSyntheticsTestOptionsListCi)(nil)).Elem()
-}
-
-func (o GetSyntheticsTestOptionsListCiArrayOutput) ToGetSyntheticsTestOptionsListCiArrayOutput() GetSyntheticsTestOptionsListCiArrayOutput {
-	return o
-}
-
-func (o GetSyntheticsTestOptionsListCiArrayOutput) ToGetSyntheticsTestOptionsListCiArrayOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListCiArrayOutput {
-	return o
-}
-
-func (o GetSyntheticsTestOptionsListCiArrayOutput) Index(i pulumi.IntInput) GetSyntheticsTestOptionsListCiOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSyntheticsTestOptionsListCi {
-		return vs[0].([]GetSyntheticsTestOptionsListCi)[vs[1].(int)]
-	}).(GetSyntheticsTestOptionsListCiOutput)
-}
-
-type GetSyntheticsTestOptionsListMonitorOption struct {
-	// A message to include with a re-notification.
-	EscalationMessage string `pulumi:"escalationMessage"`
-	// The name of the preset for the notification for the monitor.
-	NotificationPresetName string `pulumi:"notificationPresetName"`
-	// Specify a renotification frequency in minutes.
-	RenotifyInterval int `pulumi:"renotifyInterval"`
-	// The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
-	RenotifyOccurrences int `pulumi:"renotifyOccurrences"`
-}
-
-// GetSyntheticsTestOptionsListMonitorOptionInput is an input type that accepts GetSyntheticsTestOptionsListMonitorOptionArgs and GetSyntheticsTestOptionsListMonitorOptionOutput values.
-// You can construct a concrete instance of `GetSyntheticsTestOptionsListMonitorOptionInput` via:
-//
-//	GetSyntheticsTestOptionsListMonitorOptionArgs{...}
-type GetSyntheticsTestOptionsListMonitorOptionInput interface {
-	pulumi.Input
-
-	ToGetSyntheticsTestOptionsListMonitorOptionOutput() GetSyntheticsTestOptionsListMonitorOptionOutput
-	ToGetSyntheticsTestOptionsListMonitorOptionOutputWithContext(context.Context) GetSyntheticsTestOptionsListMonitorOptionOutput
-}
-
-type GetSyntheticsTestOptionsListMonitorOptionArgs struct {
-	// A message to include with a re-notification.
-	EscalationMessage pulumi.StringInput `pulumi:"escalationMessage"`
-	// The name of the preset for the notification for the monitor.
-	NotificationPresetName pulumi.StringInput `pulumi:"notificationPresetName"`
-	// Specify a renotification frequency in minutes.
-	RenotifyInterval pulumi.IntInput `pulumi:"renotifyInterval"`
-	// The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
-	RenotifyOccurrences pulumi.IntInput `pulumi:"renotifyOccurrences"`
-}
-
-func (GetSyntheticsTestOptionsListMonitorOptionArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSyntheticsTestOptionsListMonitorOption)(nil)).Elem()
-}
-
-func (i GetSyntheticsTestOptionsListMonitorOptionArgs) ToGetSyntheticsTestOptionsListMonitorOptionOutput() GetSyntheticsTestOptionsListMonitorOptionOutput {
-	return i.ToGetSyntheticsTestOptionsListMonitorOptionOutputWithContext(context.Background())
-}
-
-func (i GetSyntheticsTestOptionsListMonitorOptionArgs) ToGetSyntheticsTestOptionsListMonitorOptionOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListMonitorOptionOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestOptionsListMonitorOptionOutput)
-}
-
-// GetSyntheticsTestOptionsListMonitorOptionArrayInput is an input type that accepts GetSyntheticsTestOptionsListMonitorOptionArray and GetSyntheticsTestOptionsListMonitorOptionArrayOutput values.
-// You can construct a concrete instance of `GetSyntheticsTestOptionsListMonitorOptionArrayInput` via:
-//
-//	GetSyntheticsTestOptionsListMonitorOptionArray{ GetSyntheticsTestOptionsListMonitorOptionArgs{...} }
-type GetSyntheticsTestOptionsListMonitorOptionArrayInput interface {
-	pulumi.Input
-
-	ToGetSyntheticsTestOptionsListMonitorOptionArrayOutput() GetSyntheticsTestOptionsListMonitorOptionArrayOutput
-	ToGetSyntheticsTestOptionsListMonitorOptionArrayOutputWithContext(context.Context) GetSyntheticsTestOptionsListMonitorOptionArrayOutput
-}
-
-type GetSyntheticsTestOptionsListMonitorOptionArray []GetSyntheticsTestOptionsListMonitorOptionInput
-
-func (GetSyntheticsTestOptionsListMonitorOptionArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSyntheticsTestOptionsListMonitorOption)(nil)).Elem()
-}
-
-func (i GetSyntheticsTestOptionsListMonitorOptionArray) ToGetSyntheticsTestOptionsListMonitorOptionArrayOutput() GetSyntheticsTestOptionsListMonitorOptionArrayOutput {
-	return i.ToGetSyntheticsTestOptionsListMonitorOptionArrayOutputWithContext(context.Background())
-}
-
-func (i GetSyntheticsTestOptionsListMonitorOptionArray) ToGetSyntheticsTestOptionsListMonitorOptionArrayOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListMonitorOptionArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestOptionsListMonitorOptionArrayOutput)
-}
-
-type GetSyntheticsTestOptionsListMonitorOptionOutput struct{ *pulumi.OutputState }
-
-func (GetSyntheticsTestOptionsListMonitorOptionOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSyntheticsTestOptionsListMonitorOption)(nil)).Elem()
-}
-
-func (o GetSyntheticsTestOptionsListMonitorOptionOutput) ToGetSyntheticsTestOptionsListMonitorOptionOutput() GetSyntheticsTestOptionsListMonitorOptionOutput {
-	return o
-}
-
-func (o GetSyntheticsTestOptionsListMonitorOptionOutput) ToGetSyntheticsTestOptionsListMonitorOptionOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListMonitorOptionOutput {
-	return o
-}
-
-// A message to include with a re-notification.
-func (o GetSyntheticsTestOptionsListMonitorOptionOutput) EscalationMessage() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsListMonitorOption) string { return v.EscalationMessage }).(pulumi.StringOutput)
-}
-
-// The name of the preset for the notification for the monitor.
-func (o GetSyntheticsTestOptionsListMonitorOptionOutput) NotificationPresetName() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsListMonitorOption) string { return v.NotificationPresetName }).(pulumi.StringOutput)
-}
-
-// Specify a renotification frequency in minutes.
-func (o GetSyntheticsTestOptionsListMonitorOptionOutput) RenotifyInterval() pulumi.IntOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsListMonitorOption) int { return v.RenotifyInterval }).(pulumi.IntOutput)
-}
-
-// The number of times a monitor renotifies. It can only be set if `renotifyInterval` is set.
-func (o GetSyntheticsTestOptionsListMonitorOptionOutput) RenotifyOccurrences() pulumi.IntOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsListMonitorOption) int { return v.RenotifyOccurrences }).(pulumi.IntOutput)
-}
-
-type GetSyntheticsTestOptionsListMonitorOptionArrayOutput struct{ *pulumi.OutputState }
-
-func (GetSyntheticsTestOptionsListMonitorOptionArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSyntheticsTestOptionsListMonitorOption)(nil)).Elem()
-}
-
-func (o GetSyntheticsTestOptionsListMonitorOptionArrayOutput) ToGetSyntheticsTestOptionsListMonitorOptionArrayOutput() GetSyntheticsTestOptionsListMonitorOptionArrayOutput {
-	return o
-}
-
-func (o GetSyntheticsTestOptionsListMonitorOptionArrayOutput) ToGetSyntheticsTestOptionsListMonitorOptionArrayOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListMonitorOptionArrayOutput {
-	return o
-}
-
-func (o GetSyntheticsTestOptionsListMonitorOptionArrayOutput) Index(i pulumi.IntInput) GetSyntheticsTestOptionsListMonitorOptionOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSyntheticsTestOptionsListMonitorOption {
-		return vs[0].([]GetSyntheticsTestOptionsListMonitorOption)[vs[1].(int)]
-	}).(GetSyntheticsTestOptionsListMonitorOptionOutput)
-}
-
-type GetSyntheticsTestOptionsListRetry struct {
-	// Number of retries needed to consider a location as failed before sending a notification alert.
-	Count int `pulumi:"count"`
-	// Interval between a failed test and the next retry in milliseconds.
-	Interval int `pulumi:"interval"`
-}
-
-// GetSyntheticsTestOptionsListRetryInput is an input type that accepts GetSyntheticsTestOptionsListRetryArgs and GetSyntheticsTestOptionsListRetryOutput values.
-// You can construct a concrete instance of `GetSyntheticsTestOptionsListRetryInput` via:
-//
-//	GetSyntheticsTestOptionsListRetryArgs{...}
-type GetSyntheticsTestOptionsListRetryInput interface {
-	pulumi.Input
-
-	ToGetSyntheticsTestOptionsListRetryOutput() GetSyntheticsTestOptionsListRetryOutput
-	ToGetSyntheticsTestOptionsListRetryOutputWithContext(context.Context) GetSyntheticsTestOptionsListRetryOutput
-}
-
-type GetSyntheticsTestOptionsListRetryArgs struct {
-	// Number of retries needed to consider a location as failed before sending a notification alert.
-	Count pulumi.IntInput `pulumi:"count"`
-	// Interval between a failed test and the next retry in milliseconds.
-	Interval pulumi.IntInput `pulumi:"interval"`
-}
-
-func (GetSyntheticsTestOptionsListRetryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSyntheticsTestOptionsListRetry)(nil)).Elem()
-}
-
-func (i GetSyntheticsTestOptionsListRetryArgs) ToGetSyntheticsTestOptionsListRetryOutput() GetSyntheticsTestOptionsListRetryOutput {
-	return i.ToGetSyntheticsTestOptionsListRetryOutputWithContext(context.Background())
-}
-
-func (i GetSyntheticsTestOptionsListRetryArgs) ToGetSyntheticsTestOptionsListRetryOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListRetryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestOptionsListRetryOutput)
-}
-
-// GetSyntheticsTestOptionsListRetryArrayInput is an input type that accepts GetSyntheticsTestOptionsListRetryArray and GetSyntheticsTestOptionsListRetryArrayOutput values.
-// You can construct a concrete instance of `GetSyntheticsTestOptionsListRetryArrayInput` via:
-//
-//	GetSyntheticsTestOptionsListRetryArray{ GetSyntheticsTestOptionsListRetryArgs{...} }
-type GetSyntheticsTestOptionsListRetryArrayInput interface {
-	pulumi.Input
-
-	ToGetSyntheticsTestOptionsListRetryArrayOutput() GetSyntheticsTestOptionsListRetryArrayOutput
-	ToGetSyntheticsTestOptionsListRetryArrayOutputWithContext(context.Context) GetSyntheticsTestOptionsListRetryArrayOutput
-}
-
-type GetSyntheticsTestOptionsListRetryArray []GetSyntheticsTestOptionsListRetryInput
-
-func (GetSyntheticsTestOptionsListRetryArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSyntheticsTestOptionsListRetry)(nil)).Elem()
-}
-
-func (i GetSyntheticsTestOptionsListRetryArray) ToGetSyntheticsTestOptionsListRetryArrayOutput() GetSyntheticsTestOptionsListRetryArrayOutput {
-	return i.ToGetSyntheticsTestOptionsListRetryArrayOutputWithContext(context.Background())
-}
-
-func (i GetSyntheticsTestOptionsListRetryArray) ToGetSyntheticsTestOptionsListRetryArrayOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListRetryArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestOptionsListRetryArrayOutput)
-}
-
-type GetSyntheticsTestOptionsListRetryOutput struct{ *pulumi.OutputState }
-
-func (GetSyntheticsTestOptionsListRetryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSyntheticsTestOptionsListRetry)(nil)).Elem()
-}
-
-func (o GetSyntheticsTestOptionsListRetryOutput) ToGetSyntheticsTestOptionsListRetryOutput() GetSyntheticsTestOptionsListRetryOutput {
-	return o
-}
-
-func (o GetSyntheticsTestOptionsListRetryOutput) ToGetSyntheticsTestOptionsListRetryOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListRetryOutput {
-	return o
-}
-
-// Number of retries needed to consider a location as failed before sending a notification alert.
-func (o GetSyntheticsTestOptionsListRetryOutput) Count() pulumi.IntOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsListRetry) int { return v.Count }).(pulumi.IntOutput)
-}
-
-// Interval between a failed test and the next retry in milliseconds.
-func (o GetSyntheticsTestOptionsListRetryOutput) Interval() pulumi.IntOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsListRetry) int { return v.Interval }).(pulumi.IntOutput)
-}
-
-type GetSyntheticsTestOptionsListRetryArrayOutput struct{ *pulumi.OutputState }
-
-func (GetSyntheticsTestOptionsListRetryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSyntheticsTestOptionsListRetry)(nil)).Elem()
-}
-
-func (o GetSyntheticsTestOptionsListRetryArrayOutput) ToGetSyntheticsTestOptionsListRetryArrayOutput() GetSyntheticsTestOptionsListRetryArrayOutput {
-	return o
-}
-
-func (o GetSyntheticsTestOptionsListRetryArrayOutput) ToGetSyntheticsTestOptionsListRetryArrayOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListRetryArrayOutput {
-	return o
-}
-
-func (o GetSyntheticsTestOptionsListRetryArrayOutput) Index(i pulumi.IntInput) GetSyntheticsTestOptionsListRetryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSyntheticsTestOptionsListRetry {
-		return vs[0].([]GetSyntheticsTestOptionsListRetry)[vs[1].(int)]
-	}).(GetSyntheticsTestOptionsListRetryOutput)
-}
-
-type GetSyntheticsTestOptionsListRumSetting struct {
-	// RUM application ID used to collect RUM data for the browser test.
-	ApplicationId string `pulumi:"applicationId"`
-	// RUM application API key ID used to collect RUM data for the browser test.
-	ClientTokenId int `pulumi:"clientTokenId"`
-	// Determines whether RUM data is collected during test runs.
-	IsEnabled bool `pulumi:"isEnabled"`
-}
-
-// GetSyntheticsTestOptionsListRumSettingInput is an input type that accepts GetSyntheticsTestOptionsListRumSettingArgs and GetSyntheticsTestOptionsListRumSettingOutput values.
-// You can construct a concrete instance of `GetSyntheticsTestOptionsListRumSettingInput` via:
-//
-//	GetSyntheticsTestOptionsListRumSettingArgs{...}
-type GetSyntheticsTestOptionsListRumSettingInput interface {
-	pulumi.Input
-
-	ToGetSyntheticsTestOptionsListRumSettingOutput() GetSyntheticsTestOptionsListRumSettingOutput
-	ToGetSyntheticsTestOptionsListRumSettingOutputWithContext(context.Context) GetSyntheticsTestOptionsListRumSettingOutput
-}
-
-type GetSyntheticsTestOptionsListRumSettingArgs struct {
-	// RUM application ID used to collect RUM data for the browser test.
-	ApplicationId pulumi.StringInput `pulumi:"applicationId"`
-	// RUM application API key ID used to collect RUM data for the browser test.
-	ClientTokenId pulumi.IntInput `pulumi:"clientTokenId"`
-	// Determines whether RUM data is collected during test runs.
-	IsEnabled pulumi.BoolInput `pulumi:"isEnabled"`
-}
-
-func (GetSyntheticsTestOptionsListRumSettingArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSyntheticsTestOptionsListRumSetting)(nil)).Elem()
-}
-
-func (i GetSyntheticsTestOptionsListRumSettingArgs) ToGetSyntheticsTestOptionsListRumSettingOutput() GetSyntheticsTestOptionsListRumSettingOutput {
-	return i.ToGetSyntheticsTestOptionsListRumSettingOutputWithContext(context.Background())
-}
-
-func (i GetSyntheticsTestOptionsListRumSettingArgs) ToGetSyntheticsTestOptionsListRumSettingOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListRumSettingOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestOptionsListRumSettingOutput)
-}
-
-// GetSyntheticsTestOptionsListRumSettingArrayInput is an input type that accepts GetSyntheticsTestOptionsListRumSettingArray and GetSyntheticsTestOptionsListRumSettingArrayOutput values.
-// You can construct a concrete instance of `GetSyntheticsTestOptionsListRumSettingArrayInput` via:
-//
-//	GetSyntheticsTestOptionsListRumSettingArray{ GetSyntheticsTestOptionsListRumSettingArgs{...} }
-type GetSyntheticsTestOptionsListRumSettingArrayInput interface {
-	pulumi.Input
-
-	ToGetSyntheticsTestOptionsListRumSettingArrayOutput() GetSyntheticsTestOptionsListRumSettingArrayOutput
-	ToGetSyntheticsTestOptionsListRumSettingArrayOutputWithContext(context.Context) GetSyntheticsTestOptionsListRumSettingArrayOutput
-}
-
-type GetSyntheticsTestOptionsListRumSettingArray []GetSyntheticsTestOptionsListRumSettingInput
-
-func (GetSyntheticsTestOptionsListRumSettingArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSyntheticsTestOptionsListRumSetting)(nil)).Elem()
-}
-
-func (i GetSyntheticsTestOptionsListRumSettingArray) ToGetSyntheticsTestOptionsListRumSettingArrayOutput() GetSyntheticsTestOptionsListRumSettingArrayOutput {
-	return i.ToGetSyntheticsTestOptionsListRumSettingArrayOutputWithContext(context.Background())
-}
-
-func (i GetSyntheticsTestOptionsListRumSettingArray) ToGetSyntheticsTestOptionsListRumSettingArrayOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListRumSettingArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestOptionsListRumSettingArrayOutput)
-}
-
-type GetSyntheticsTestOptionsListRumSettingOutput struct{ *pulumi.OutputState }
-
-func (GetSyntheticsTestOptionsListRumSettingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSyntheticsTestOptionsListRumSetting)(nil)).Elem()
-}
-
-func (o GetSyntheticsTestOptionsListRumSettingOutput) ToGetSyntheticsTestOptionsListRumSettingOutput() GetSyntheticsTestOptionsListRumSettingOutput {
-	return o
-}
-
-func (o GetSyntheticsTestOptionsListRumSettingOutput) ToGetSyntheticsTestOptionsListRumSettingOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListRumSettingOutput {
-	return o
-}
-
-// RUM application ID used to collect RUM data for the browser test.
-func (o GetSyntheticsTestOptionsListRumSettingOutput) ApplicationId() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsListRumSetting) string { return v.ApplicationId }).(pulumi.StringOutput)
-}
-
-// RUM application API key ID used to collect RUM data for the browser test.
-func (o GetSyntheticsTestOptionsListRumSettingOutput) ClientTokenId() pulumi.IntOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsListRumSetting) int { return v.ClientTokenId }).(pulumi.IntOutput)
-}
-
-// Determines whether RUM data is collected during test runs.
-func (o GetSyntheticsTestOptionsListRumSettingOutput) IsEnabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsListRumSetting) bool { return v.IsEnabled }).(pulumi.BoolOutput)
-}
-
-type GetSyntheticsTestOptionsListRumSettingArrayOutput struct{ *pulumi.OutputState }
-
-func (GetSyntheticsTestOptionsListRumSettingArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSyntheticsTestOptionsListRumSetting)(nil)).Elem()
-}
-
-func (o GetSyntheticsTestOptionsListRumSettingArrayOutput) ToGetSyntheticsTestOptionsListRumSettingArrayOutput() GetSyntheticsTestOptionsListRumSettingArrayOutput {
-	return o
-}
-
-func (o GetSyntheticsTestOptionsListRumSettingArrayOutput) ToGetSyntheticsTestOptionsListRumSettingArrayOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListRumSettingArrayOutput {
-	return o
-}
-
-func (o GetSyntheticsTestOptionsListRumSettingArrayOutput) Index(i pulumi.IntInput) GetSyntheticsTestOptionsListRumSettingOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSyntheticsTestOptionsListRumSetting {
-		return vs[0].([]GetSyntheticsTestOptionsListRumSetting)[vs[1].(int)]
-	}).(GetSyntheticsTestOptionsListRumSettingOutput)
-}
-
-type GetSyntheticsTestOptionsListScheduling struct {
-	// Array containing objects describing the scheduling pattern to apply to each day.
-	Timeframes []GetSyntheticsTestOptionsListSchedulingTimeframe `pulumi:"timeframes"`
-	// Timezone in which the timeframe is based.
-	Timezone string `pulumi:"timezone"`
-}
-
-// GetSyntheticsTestOptionsListSchedulingInput is an input type that accepts GetSyntheticsTestOptionsListSchedulingArgs and GetSyntheticsTestOptionsListSchedulingOutput values.
-// You can construct a concrete instance of `GetSyntheticsTestOptionsListSchedulingInput` via:
-//
-//	GetSyntheticsTestOptionsListSchedulingArgs{...}
-type GetSyntheticsTestOptionsListSchedulingInput interface {
-	pulumi.Input
-
-	ToGetSyntheticsTestOptionsListSchedulingOutput() GetSyntheticsTestOptionsListSchedulingOutput
-	ToGetSyntheticsTestOptionsListSchedulingOutputWithContext(context.Context) GetSyntheticsTestOptionsListSchedulingOutput
-}
-
-type GetSyntheticsTestOptionsListSchedulingArgs struct {
-	// Array containing objects describing the scheduling pattern to apply to each day.
-	Timeframes GetSyntheticsTestOptionsListSchedulingTimeframeArrayInput `pulumi:"timeframes"`
-	// Timezone in which the timeframe is based.
-	Timezone pulumi.StringInput `pulumi:"timezone"`
-}
-
-func (GetSyntheticsTestOptionsListSchedulingArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSyntheticsTestOptionsListScheduling)(nil)).Elem()
-}
-
-func (i GetSyntheticsTestOptionsListSchedulingArgs) ToGetSyntheticsTestOptionsListSchedulingOutput() GetSyntheticsTestOptionsListSchedulingOutput {
-	return i.ToGetSyntheticsTestOptionsListSchedulingOutputWithContext(context.Background())
-}
-
-func (i GetSyntheticsTestOptionsListSchedulingArgs) ToGetSyntheticsTestOptionsListSchedulingOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListSchedulingOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestOptionsListSchedulingOutput)
-}
-
-// GetSyntheticsTestOptionsListSchedulingArrayInput is an input type that accepts GetSyntheticsTestOptionsListSchedulingArray and GetSyntheticsTestOptionsListSchedulingArrayOutput values.
-// You can construct a concrete instance of `GetSyntheticsTestOptionsListSchedulingArrayInput` via:
-//
-//	GetSyntheticsTestOptionsListSchedulingArray{ GetSyntheticsTestOptionsListSchedulingArgs{...} }
-type GetSyntheticsTestOptionsListSchedulingArrayInput interface {
-	pulumi.Input
-
-	ToGetSyntheticsTestOptionsListSchedulingArrayOutput() GetSyntheticsTestOptionsListSchedulingArrayOutput
-	ToGetSyntheticsTestOptionsListSchedulingArrayOutputWithContext(context.Context) GetSyntheticsTestOptionsListSchedulingArrayOutput
-}
-
-type GetSyntheticsTestOptionsListSchedulingArray []GetSyntheticsTestOptionsListSchedulingInput
-
-func (GetSyntheticsTestOptionsListSchedulingArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSyntheticsTestOptionsListScheduling)(nil)).Elem()
-}
-
-func (i GetSyntheticsTestOptionsListSchedulingArray) ToGetSyntheticsTestOptionsListSchedulingArrayOutput() GetSyntheticsTestOptionsListSchedulingArrayOutput {
-	return i.ToGetSyntheticsTestOptionsListSchedulingArrayOutputWithContext(context.Background())
-}
-
-func (i GetSyntheticsTestOptionsListSchedulingArray) ToGetSyntheticsTestOptionsListSchedulingArrayOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListSchedulingArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestOptionsListSchedulingArrayOutput)
-}
-
-type GetSyntheticsTestOptionsListSchedulingOutput struct{ *pulumi.OutputState }
-
-func (GetSyntheticsTestOptionsListSchedulingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSyntheticsTestOptionsListScheduling)(nil)).Elem()
-}
-
-func (o GetSyntheticsTestOptionsListSchedulingOutput) ToGetSyntheticsTestOptionsListSchedulingOutput() GetSyntheticsTestOptionsListSchedulingOutput {
-	return o
-}
-
-func (o GetSyntheticsTestOptionsListSchedulingOutput) ToGetSyntheticsTestOptionsListSchedulingOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListSchedulingOutput {
-	return o
-}
-
-// Array containing objects describing the scheduling pattern to apply to each day.
-func (o GetSyntheticsTestOptionsListSchedulingOutput) Timeframes() GetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsListScheduling) []GetSyntheticsTestOptionsListSchedulingTimeframe {
-		return v.Timeframes
-	}).(GetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput)
-}
-
-// Timezone in which the timeframe is based.
-func (o GetSyntheticsTestOptionsListSchedulingOutput) Timezone() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsListScheduling) string { return v.Timezone }).(pulumi.StringOutput)
-}
-
-type GetSyntheticsTestOptionsListSchedulingArrayOutput struct{ *pulumi.OutputState }
-
-func (GetSyntheticsTestOptionsListSchedulingArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSyntheticsTestOptionsListScheduling)(nil)).Elem()
-}
-
-func (o GetSyntheticsTestOptionsListSchedulingArrayOutput) ToGetSyntheticsTestOptionsListSchedulingArrayOutput() GetSyntheticsTestOptionsListSchedulingArrayOutput {
-	return o
-}
-
-func (o GetSyntheticsTestOptionsListSchedulingArrayOutput) ToGetSyntheticsTestOptionsListSchedulingArrayOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListSchedulingArrayOutput {
-	return o
-}
-
-func (o GetSyntheticsTestOptionsListSchedulingArrayOutput) Index(i pulumi.IntInput) GetSyntheticsTestOptionsListSchedulingOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSyntheticsTestOptionsListScheduling {
-		return vs[0].([]GetSyntheticsTestOptionsListScheduling)[vs[1].(int)]
-	}).(GetSyntheticsTestOptionsListSchedulingOutput)
-}
-
-type GetSyntheticsTestOptionsListSchedulingTimeframe struct {
-	// Number representing the day of the week.
-	Day int `pulumi:"day"`
-	// The hour of the day on which scheduling starts.
-	From string `pulumi:"from"`
-	// The hour of the day on which scheduling ends.
-	To string `pulumi:"to"`
-}
-
-// GetSyntheticsTestOptionsListSchedulingTimeframeInput is an input type that accepts GetSyntheticsTestOptionsListSchedulingTimeframeArgs and GetSyntheticsTestOptionsListSchedulingTimeframeOutput values.
-// You can construct a concrete instance of `GetSyntheticsTestOptionsListSchedulingTimeframeInput` via:
-//
-//	GetSyntheticsTestOptionsListSchedulingTimeframeArgs{...}
-type GetSyntheticsTestOptionsListSchedulingTimeframeInput interface {
-	pulumi.Input
-
-	ToGetSyntheticsTestOptionsListSchedulingTimeframeOutput() GetSyntheticsTestOptionsListSchedulingTimeframeOutput
-	ToGetSyntheticsTestOptionsListSchedulingTimeframeOutputWithContext(context.Context) GetSyntheticsTestOptionsListSchedulingTimeframeOutput
-}
-
-type GetSyntheticsTestOptionsListSchedulingTimeframeArgs struct {
-	// Number representing the day of the week.
-	Day pulumi.IntInput `pulumi:"day"`
-	// The hour of the day on which scheduling starts.
-	From pulumi.StringInput `pulumi:"from"`
-	// The hour of the day on which scheduling ends.
-	To pulumi.StringInput `pulumi:"to"`
-}
-
-func (GetSyntheticsTestOptionsListSchedulingTimeframeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSyntheticsTestOptionsListSchedulingTimeframe)(nil)).Elem()
-}
-
-func (i GetSyntheticsTestOptionsListSchedulingTimeframeArgs) ToGetSyntheticsTestOptionsListSchedulingTimeframeOutput() GetSyntheticsTestOptionsListSchedulingTimeframeOutput {
-	return i.ToGetSyntheticsTestOptionsListSchedulingTimeframeOutputWithContext(context.Background())
-}
-
-func (i GetSyntheticsTestOptionsListSchedulingTimeframeArgs) ToGetSyntheticsTestOptionsListSchedulingTimeframeOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListSchedulingTimeframeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestOptionsListSchedulingTimeframeOutput)
-}
-
-// GetSyntheticsTestOptionsListSchedulingTimeframeArrayInput is an input type that accepts GetSyntheticsTestOptionsListSchedulingTimeframeArray and GetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput values.
-// You can construct a concrete instance of `GetSyntheticsTestOptionsListSchedulingTimeframeArrayInput` via:
-//
-//	GetSyntheticsTestOptionsListSchedulingTimeframeArray{ GetSyntheticsTestOptionsListSchedulingTimeframeArgs{...} }
-type GetSyntheticsTestOptionsListSchedulingTimeframeArrayInput interface {
-	pulumi.Input
-
-	ToGetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput() GetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput
-	ToGetSyntheticsTestOptionsListSchedulingTimeframeArrayOutputWithContext(context.Context) GetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput
-}
-
-type GetSyntheticsTestOptionsListSchedulingTimeframeArray []GetSyntheticsTestOptionsListSchedulingTimeframeInput
-
-func (GetSyntheticsTestOptionsListSchedulingTimeframeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSyntheticsTestOptionsListSchedulingTimeframe)(nil)).Elem()
-}
-
-func (i GetSyntheticsTestOptionsListSchedulingTimeframeArray) ToGetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput() GetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput {
-	return i.ToGetSyntheticsTestOptionsListSchedulingTimeframeArrayOutputWithContext(context.Background())
-}
-
-func (i GetSyntheticsTestOptionsListSchedulingTimeframeArray) ToGetSyntheticsTestOptionsListSchedulingTimeframeArrayOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput)
-}
-
-type GetSyntheticsTestOptionsListSchedulingTimeframeOutput struct{ *pulumi.OutputState }
-
-func (GetSyntheticsTestOptionsListSchedulingTimeframeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSyntheticsTestOptionsListSchedulingTimeframe)(nil)).Elem()
-}
-
-func (o GetSyntheticsTestOptionsListSchedulingTimeframeOutput) ToGetSyntheticsTestOptionsListSchedulingTimeframeOutput() GetSyntheticsTestOptionsListSchedulingTimeframeOutput {
-	return o
-}
-
-func (o GetSyntheticsTestOptionsListSchedulingTimeframeOutput) ToGetSyntheticsTestOptionsListSchedulingTimeframeOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListSchedulingTimeframeOutput {
-	return o
-}
-
-// Number representing the day of the week.
-func (o GetSyntheticsTestOptionsListSchedulingTimeframeOutput) Day() pulumi.IntOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsListSchedulingTimeframe) int { return v.Day }).(pulumi.IntOutput)
-}
-
-// The hour of the day on which scheduling starts.
-func (o GetSyntheticsTestOptionsListSchedulingTimeframeOutput) From() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsListSchedulingTimeframe) string { return v.From }).(pulumi.StringOutput)
-}
-
-// The hour of the day on which scheduling ends.
-func (o GetSyntheticsTestOptionsListSchedulingTimeframeOutput) To() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSyntheticsTestOptionsListSchedulingTimeframe) string { return v.To }).(pulumi.StringOutput)
-}
-
-type GetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput struct{ *pulumi.OutputState }
-
-func (GetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSyntheticsTestOptionsListSchedulingTimeframe)(nil)).Elem()
-}
-
-func (o GetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput) ToGetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput() GetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput {
-	return o
-}
-
-func (o GetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput) ToGetSyntheticsTestOptionsListSchedulingTimeframeArrayOutputWithContext(ctx context.Context) GetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput {
-	return o
-}
-
-func (o GetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput) Index(i pulumi.IntInput) GetSyntheticsTestOptionsListSchedulingTimeframeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSyntheticsTestOptionsListSchedulingTimeframe {
-		return vs[0].([]GetSyntheticsTestOptionsListSchedulingTimeframe)[vs[1].(int)]
-	}).(GetSyntheticsTestOptionsListSchedulingTimeframeOutput)
-}
-
-type GetTagPipelineRulesetRule struct {
-	// Whether the rule is enabled.
-	Enabled bool `pulumi:"enabled"`
-	// The mapping configuration for the rule.
-	Mapping *GetTagPipelineRulesetRuleMapping `pulumi:"mapping"`
-	// Rule metadata key-value pairs.
-	Metadata map[string]string `pulumi:"metadata"`
-	// The name of the rule.
-	Name string `pulumi:"name"`
-	// The query configuration for the rule.
-	Query *GetTagPipelineRulesetRuleQuery `pulumi:"query"`
-	// The reference table configuration for the rule.
-	ReferenceTable *GetTagPipelineRulesetRuleReferenceTable `pulumi:"referenceTable"`
-}
-
-// GetTagPipelineRulesetRuleInput is an input type that accepts GetTagPipelineRulesetRuleArgs and GetTagPipelineRulesetRuleOutput values.
-// You can construct a concrete instance of `GetTagPipelineRulesetRuleInput` via:
-//
-//	GetTagPipelineRulesetRuleArgs{...}
-type GetTagPipelineRulesetRuleInput interface {
-	pulumi.Input
-
-	ToGetTagPipelineRulesetRuleOutput() GetTagPipelineRulesetRuleOutput
-	ToGetTagPipelineRulesetRuleOutputWithContext(context.Context) GetTagPipelineRulesetRuleOutput
-}
-
-type GetTagPipelineRulesetRuleArgs struct {
-	// Whether the rule is enabled.
-	Enabled pulumi.BoolInput `pulumi:"enabled"`
-	// The mapping configuration for the rule.
-	Mapping GetTagPipelineRulesetRuleMappingPtrInput `pulumi:"mapping"`
-	// Rule metadata key-value pairs.
-	Metadata pulumi.StringMapInput `pulumi:"metadata"`
-	// The name of the rule.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The query configuration for the rule.
-	Query GetTagPipelineRulesetRuleQueryPtrInput `pulumi:"query"`
-	// The reference table configuration for the rule.
-	ReferenceTable GetTagPipelineRulesetRuleReferenceTablePtrInput `pulumi:"referenceTable"`
-}
-
-func (GetTagPipelineRulesetRuleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetTagPipelineRulesetRule)(nil)).Elem()
-}
-
-func (i GetTagPipelineRulesetRuleArgs) ToGetTagPipelineRulesetRuleOutput() GetTagPipelineRulesetRuleOutput {
-	return i.ToGetTagPipelineRulesetRuleOutputWithContext(context.Background())
-}
-
-func (i GetTagPipelineRulesetRuleArgs) ToGetTagPipelineRulesetRuleOutputWithContext(ctx context.Context) GetTagPipelineRulesetRuleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetTagPipelineRulesetRuleOutput)
-}
-
-// GetTagPipelineRulesetRuleArrayInput is an input type that accepts GetTagPipelineRulesetRuleArray and GetTagPipelineRulesetRuleArrayOutput values.
-// You can construct a concrete instance of `GetTagPipelineRulesetRuleArrayInput` via:
-//
-//	GetTagPipelineRulesetRuleArray{ GetTagPipelineRulesetRuleArgs{...} }
-type GetTagPipelineRulesetRuleArrayInput interface {
-	pulumi.Input
-
-	ToGetTagPipelineRulesetRuleArrayOutput() GetTagPipelineRulesetRuleArrayOutput
-	ToGetTagPipelineRulesetRuleArrayOutputWithContext(context.Context) GetTagPipelineRulesetRuleArrayOutput
-}
-
-type GetTagPipelineRulesetRuleArray []GetTagPipelineRulesetRuleInput
-
-func (GetTagPipelineRulesetRuleArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetTagPipelineRulesetRule)(nil)).Elem()
-}
-
-func (i GetTagPipelineRulesetRuleArray) ToGetTagPipelineRulesetRuleArrayOutput() GetTagPipelineRulesetRuleArrayOutput {
-	return i.ToGetTagPipelineRulesetRuleArrayOutputWithContext(context.Background())
-}
-
-func (i GetTagPipelineRulesetRuleArray) ToGetTagPipelineRulesetRuleArrayOutputWithContext(ctx context.Context) GetTagPipelineRulesetRuleArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetTagPipelineRulesetRuleArrayOutput)
-}
-
-type GetTagPipelineRulesetRuleOutput struct{ *pulumi.OutputState }
-
-func (GetTagPipelineRulesetRuleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetTagPipelineRulesetRule)(nil)).Elem()
-}
-
-func (o GetTagPipelineRulesetRuleOutput) ToGetTagPipelineRulesetRuleOutput() GetTagPipelineRulesetRuleOutput {
-	return o
-}
-
-func (o GetTagPipelineRulesetRuleOutput) ToGetTagPipelineRulesetRuleOutputWithContext(ctx context.Context) GetTagPipelineRulesetRuleOutput {
-	return o
-}
-
-// Whether the rule is enabled.
-func (o GetTagPipelineRulesetRuleOutput) Enabled() pulumi.BoolOutput {
-	return o.ApplyT(func(v GetTagPipelineRulesetRule) bool { return v.Enabled }).(pulumi.BoolOutput)
-}
-
-// The mapping configuration for the rule.
-func (o GetTagPipelineRulesetRuleOutput) Mapping() GetTagPipelineRulesetRuleMappingPtrOutput {
-	return o.ApplyT(func(v GetTagPipelineRulesetRule) *GetTagPipelineRulesetRuleMapping { return v.Mapping }).(GetTagPipelineRulesetRuleMappingPtrOutput)
-}
-
-// Rule metadata key-value pairs.
-func (o GetTagPipelineRulesetRuleOutput) Metadata() pulumi.StringMapOutput {
-	return o.ApplyT(func(v GetTagPipelineRulesetRule) map[string]string { return v.Metadata }).(pulumi.StringMapOutput)
-}
-
-// The name of the rule.
-func (o GetTagPipelineRulesetRuleOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v GetTagPipelineRulesetRule) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The query configuration for the rule.
-func (o GetTagPipelineRulesetRuleOutput) Query() GetTagPipelineRulesetRuleQueryPtrOutput {
-	return o.ApplyT(func(v GetTagPipelineRulesetRule) *GetTagPipelineRulesetRuleQuery { return v.Query }).(GetTagPipelineRulesetRuleQueryPtrOutput)
-}
-
-// The reference table configuration for the rule.
-func (o GetTagPipelineRulesetRuleOutput) ReferenceTable() GetTagPipelineRulesetRuleReferenceTablePtrOutput {
-	return o.ApplyT(func(v GetTagPipelineRulesetRule) *GetTagPipelineRulesetRuleReferenceTable { return v.ReferenceTable }).(GetTagPipelineRulesetRuleReferenceTablePtrOutput)
-}
-
-type GetTagPipelineRulesetRuleArrayOutput struct{ *pulumi.OutputState }
-
-func (GetTagPipelineRulesetRuleArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetTagPipelineRulesetRule)(nil)).Elem()
-}
-
-func (o GetTagPipelineRulesetRuleArrayOutput) ToGetTagPipelineRulesetRuleArrayOutput() GetTagPipelineRulesetRuleArrayOutput {
-	return o
-}
-
-func (o GetTagPipelineRulesetRuleArrayOutput) ToGetTagPipelineRulesetRuleArrayOutputWithContext(ctx context.Context) GetTagPipelineRulesetRuleArrayOutput {
-	return o
-}
-
-func (o GetTagPipelineRulesetRuleArrayOutput) Index(i pulumi.IntInput) GetTagPipelineRulesetRuleOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetTagPipelineRulesetRule {
-		return vs[0].([]GetTagPipelineRulesetRule)[vs[1].(int)]
-	}).(GetTagPipelineRulesetRuleOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestLogQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestLogQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArrayInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestMetadataInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestMetadataArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestMetadataArrayInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestMetadataArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArrayInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArrayInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestProcessQueryInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestProcessQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestProcessQueryPtrInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestProcessQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestQueryInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestQueryArgs{})
@@ -82630,34 +83039,34 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListArrayInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListBindingInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListBindingArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListBindingArrayInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListBindingArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListCiInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListCiArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListCiArrayInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListCiArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListMobileApplicationInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListMobileApplicationArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListMobileApplicationArrayInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListMobileApplicationArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListMonitorOptionInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListMonitorOptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListMonitorOptionArrayInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListMonitorOptionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListRetryInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListRetryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListRetryArrayInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListRetryArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListSchedulingInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListSchedulingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListSchedulingArrayInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListSchedulingArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListSchedulingTimeframeInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListSchedulingTimeframeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListSchedulingTimeframeArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestOptionsListInput)(nil)).Elem(), GetSyntheticsTestOptionsListArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestOptionsListArrayInput)(nil)).Elem(), GetSyntheticsTestOptionsListArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestOptionsListCiInput)(nil)).Elem(), GetSyntheticsTestOptionsListCiArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestOptionsListCiArrayInput)(nil)).Elem(), GetSyntheticsTestOptionsListCiArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestOptionsListMonitorOptionInput)(nil)).Elem(), GetSyntheticsTestOptionsListMonitorOptionArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestOptionsListMonitorOptionArrayInput)(nil)).Elem(), GetSyntheticsTestOptionsListMonitorOptionArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestOptionsListRetryInput)(nil)).Elem(), GetSyntheticsTestOptionsListRetryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestOptionsListRetryArrayInput)(nil)).Elem(), GetSyntheticsTestOptionsListRetryArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestOptionsListRumSettingInput)(nil)).Elem(), GetSyntheticsTestOptionsListRumSettingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestOptionsListRumSettingArrayInput)(nil)).Elem(), GetSyntheticsTestOptionsListRumSettingArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestOptionsListSchedulingInput)(nil)).Elem(), GetSyntheticsTestOptionsListSchedulingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestOptionsListSchedulingArrayInput)(nil)).Elem(), GetSyntheticsTestOptionsListSchedulingArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestOptionsListSchedulingTimeframeInput)(nil)).Elem(), GetSyntheticsTestOptionsListSchedulingTimeframeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestOptionsListSchedulingTimeframeArrayInput)(nil)).Elem(), GetSyntheticsTestOptionsListSchedulingTimeframeArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetTagPipelineRulesetRuleInput)(nil)).Elem(), GetTagPipelineRulesetRuleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetTagPipelineRulesetRuleArrayInput)(nil)).Elem(), GetTagPipelineRulesetRuleArray{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScalePtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestFormulaStyleOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestFormulaStylePtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestLogQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestLogQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestLogQueryComputeQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupByArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestLogQueryGroupBySortQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestLogQueryMultiComputeArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestMetadataOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestMetadataArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryComputeQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupByArrayOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryGroupBySortQueryPtrOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestNetworkQueryMultiComputeArrayOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestProcessQueryOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestProcessQueryPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestQueryOutput{})
@@ -83614,32 +84023,4 @@ func init() {
 	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListArrayOutput{})
 	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListBindingOutput{})
 	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListBindingArrayOutput{})
-	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListCiOutput{})
-	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListCiArrayOutput{})
-	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListMobileApplicationOutput{})
-	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListMobileApplicationArrayOutput{})
-	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListMonitorOptionOutput{})
-	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListMonitorOptionArrayOutput{})
-	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListRetryOutput{})
-	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListRetryArrayOutput{})
-	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListSchedulingOutput{})
-	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListSchedulingArrayOutput{})
-	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListSchedulingTimeframeOutput{})
-	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListSchedulingTimeframeArrayOutput{})
-	pulumi.RegisterOutputType(GetSyntheticsTestOptionsListOutput{})
-	pulumi.RegisterOutputType(GetSyntheticsTestOptionsListArrayOutput{})
-	pulumi.RegisterOutputType(GetSyntheticsTestOptionsListCiOutput{})
-	pulumi.RegisterOutputType(GetSyntheticsTestOptionsListCiArrayOutput{})
-	pulumi.RegisterOutputType(GetSyntheticsTestOptionsListMonitorOptionOutput{})
-	pulumi.RegisterOutputType(GetSyntheticsTestOptionsListMonitorOptionArrayOutput{})
-	pulumi.RegisterOutputType(GetSyntheticsTestOptionsListRetryOutput{})
-	pulumi.RegisterOutputType(GetSyntheticsTestOptionsListRetryArrayOutput{})
-	pulumi.RegisterOutputType(GetSyntheticsTestOptionsListRumSettingOutput{})
-	pulumi.RegisterOutputType(GetSyntheticsTestOptionsListRumSettingArrayOutput{})
-	pulumi.RegisterOutputType(GetSyntheticsTestOptionsListSchedulingOutput{})
-	pulumi.RegisterOutputType(GetSyntheticsTestOptionsListSchedulingArrayOutput{})
-	pulumi.RegisterOutputType(GetSyntheticsTestOptionsListSchedulingTimeframeOutput{})
-	pulumi.RegisterOutputType(GetSyntheticsTestOptionsListSchedulingTimeframeArrayOutput{})
-	pulumi.RegisterOutputType(GetTagPipelineRulesetRuleOutput{})
-	pulumi.RegisterOutputType(GetTagPipelineRulesetRuleArrayOutput{})
 }

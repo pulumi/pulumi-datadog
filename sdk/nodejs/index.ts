@@ -30,6 +30,46 @@ export type AgentlessScanningGcpScanOptions = import("./agentlessScanningGcpScan
 export const AgentlessScanningGcpScanOptions: typeof import("./agentlessScanningGcpScanOptions").AgentlessScanningGcpScanOptions = null as any;
 utilities.lazyLoad(exports, ["AgentlessScanningGcpScanOptions"], () => require("./agentlessScanningGcpScanOptions"));
 
+export { AiGatewayBudgetArgs, AiGatewayBudgetState } from "./aiGatewayBudget";
+export type AiGatewayBudget = import("./aiGatewayBudget").AiGatewayBudget;
+export const AiGatewayBudget: typeof import("./aiGatewayBudget").AiGatewayBudget = null as any;
+utilities.lazyLoad(exports, ["AiGatewayBudget"], () => require("./aiGatewayBudget"));
+
+export { AiGatewayDataCaptureOverrideArgs, AiGatewayDataCaptureOverrideState } from "./aiGatewayDataCaptureOverride";
+export type AiGatewayDataCaptureOverride = import("./aiGatewayDataCaptureOverride").AiGatewayDataCaptureOverride;
+export const AiGatewayDataCaptureOverride: typeof import("./aiGatewayDataCaptureOverride").AiGatewayDataCaptureOverride = null as any;
+utilities.lazyLoad(exports, ["AiGatewayDataCaptureOverride"], () => require("./aiGatewayDataCaptureOverride"));
+
+export { AiGatewayGovernanceArgs, AiGatewayGovernanceState } from "./aiGatewayGovernance";
+export type AiGatewayGovernance = import("./aiGatewayGovernance").AiGatewayGovernance;
+export const AiGatewayGovernance: typeof import("./aiGatewayGovernance").AiGatewayGovernance = null as any;
+utilities.lazyLoad(exports, ["AiGatewayGovernance"], () => require("./aiGatewayGovernance"));
+
+export { AiGatewayModelGroupArgs, AiGatewayModelGroupState } from "./aiGatewayModelGroup";
+export type AiGatewayModelGroup = import("./aiGatewayModelGroup").AiGatewayModelGroup;
+export const AiGatewayModelGroup: typeof import("./aiGatewayModelGroup").AiGatewayModelGroup = null as any;
+utilities.lazyLoad(exports, ["AiGatewayModelGroup"], () => require("./aiGatewayModelGroup"));
+
+export { AiGatewayPolicyArgs, AiGatewayPolicyState } from "./aiGatewayPolicy";
+export type AiGatewayPolicy = import("./aiGatewayPolicy").AiGatewayPolicy;
+export const AiGatewayPolicy: typeof import("./aiGatewayPolicy").AiGatewayPolicy = null as any;
+utilities.lazyLoad(exports, ["AiGatewayPolicy"], () => require("./aiGatewayPolicy"));
+
+export { AiGatewayProviderArgs, AiGatewayProviderState } from "./aiGatewayProvider";
+export type AiGatewayProvider = import("./aiGatewayProvider").AiGatewayProvider;
+export const AiGatewayProvider: typeof import("./aiGatewayProvider").AiGatewayProvider = null as any;
+utilities.lazyLoad(exports, ["AiGatewayProvider"], () => require("./aiGatewayProvider"));
+
+export { AiGatewayRateLimitArgs, AiGatewayRateLimitState } from "./aiGatewayRateLimit";
+export type AiGatewayRateLimit = import("./aiGatewayRateLimit").AiGatewayRateLimit;
+export const AiGatewayRateLimit: typeof import("./aiGatewayRateLimit").AiGatewayRateLimit = null as any;
+utilities.lazyLoad(exports, ["AiGatewayRateLimit"], () => require("./aiGatewayRateLimit"));
+
+export { AiGatewayRoutingRuleArgs, AiGatewayRoutingRuleState } from "./aiGatewayRoutingRule";
+export type AiGatewayRoutingRule = import("./aiGatewayRoutingRule").AiGatewayRoutingRule;
+export const AiGatewayRoutingRule: typeof import("./aiGatewayRoutingRule").AiGatewayRoutingRule = null as any;
+utilities.lazyLoad(exports, ["AiGatewayRoutingRule"], () => require("./aiGatewayRoutingRule"));
+
 export { ApiKeyArgs, ApiKeyState } from "./apiKey";
 export type ApiKey = import("./apiKey").ApiKey;
 export const ApiKey: typeof import("./apiKey").ApiKey = null as any;
@@ -1078,6 +1118,11 @@ export type StatusPageDegradationTemplate = import("./statusPageDegradationTempl
 export const StatusPageDegradationTemplate: typeof import("./statusPageDegradationTemplate").StatusPageDegradationTemplate = null as any;
 utilities.lazyLoad(exports, ["StatusPageDegradationTemplate"], () => require("./statusPageDegradationTemplate"));
 
+export { StatusPageEmailAccessPolicyArgs, StatusPageEmailAccessPolicyState } from "./statusPageEmailAccessPolicy";
+export type StatusPageEmailAccessPolicy = import("./statusPageEmailAccessPolicy").StatusPageEmailAccessPolicy;
+export const StatusPageEmailAccessPolicy: typeof import("./statusPageEmailAccessPolicy").StatusPageEmailAccessPolicy = null as any;
+utilities.lazyLoad(exports, ["StatusPageEmailAccessPolicy"], () => require("./statusPageEmailAccessPolicy"));
+
 export { StatusPageMaintenanceTemplateArgs, StatusPageMaintenanceTemplateState } from "./statusPageMaintenanceTemplate";
 export type StatusPageMaintenanceTemplate = import("./statusPageMaintenanceTemplate").StatusPageMaintenanceTemplate;
 export const StatusPageMaintenanceTemplate: typeof import("./statusPageMaintenanceTemplate").StatusPageMaintenanceTemplate = null as any;
@@ -1178,6 +1223,11 @@ export type TeamSync = import("./teamSync").TeamSync;
 export const TeamSync: typeof import("./teamSync").TeamSync = null as any;
 utilities.lazyLoad(exports, ["TeamSync"], () => require("./teamSync"));
 
+export { UsageQuotaArgs, UsageQuotaState } from "./usageQuota";
+export type UsageQuota = import("./usageQuota").UsageQuota;
+export const UsageQuota: typeof import("./usageQuota").UsageQuota = null as any;
+utilities.lazyLoad(exports, ["UsageQuota"], () => require("./usageQuota"));
+
 export { UserArgs, UserState } from "./user";
 export type User = import("./user").User;
 export const User: typeof import("./user").User = null as any;
@@ -1260,6 +1310,22 @@ const _module = {
                 return new AgentlessScanningAzureScanOptions(name, <any>undefined, { urn })
             case "datadog:index/agentlessScanningGcpScanOptions:AgentlessScanningGcpScanOptions":
                 return new AgentlessScanningGcpScanOptions(name, <any>undefined, { urn })
+            case "datadog:index/aiGatewayBudget:AiGatewayBudget":
+                return new AiGatewayBudget(name, <any>undefined, { urn })
+            case "datadog:index/aiGatewayDataCaptureOverride:AiGatewayDataCaptureOverride":
+                return new AiGatewayDataCaptureOverride(name, <any>undefined, { urn })
+            case "datadog:index/aiGatewayGovernance:AiGatewayGovernance":
+                return new AiGatewayGovernance(name, <any>undefined, { urn })
+            case "datadog:index/aiGatewayModelGroup:AiGatewayModelGroup":
+                return new AiGatewayModelGroup(name, <any>undefined, { urn })
+            case "datadog:index/aiGatewayPolicy:AiGatewayPolicy":
+                return new AiGatewayPolicy(name, <any>undefined, { urn })
+            case "datadog:index/aiGatewayProvider:AiGatewayProvider":
+                return new AiGatewayProvider(name, <any>undefined, { urn })
+            case "datadog:index/aiGatewayRateLimit:AiGatewayRateLimit":
+                return new AiGatewayRateLimit(name, <any>undefined, { urn })
+            case "datadog:index/aiGatewayRoutingRule:AiGatewayRoutingRule":
+                return new AiGatewayRoutingRule(name, <any>undefined, { urn })
             case "datadog:index/apiKey:ApiKey":
                 return new ApiKey(name, <any>undefined, { urn })
             case "datadog:index/apmRetentionFilter:ApmRetentionFilter":
@@ -1510,6 +1576,8 @@ const _module = {
                 return new StatusPageComponent(name, <any>undefined, { urn })
             case "datadog:index/statusPageDegradationTemplate:StatusPageDegradationTemplate":
                 return new StatusPageDegradationTemplate(name, <any>undefined, { urn })
+            case "datadog:index/statusPageEmailAccessPolicy:StatusPageEmailAccessPolicy":
+                return new StatusPageEmailAccessPolicy(name, <any>undefined, { urn })
             case "datadog:index/statusPageMaintenanceTemplate:StatusPageMaintenanceTemplate":
                 return new StatusPageMaintenanceTemplate(name, <any>undefined, { urn })
             case "datadog:index/syntheticsConcurrencyCap:SyntheticsConcurrencyCap":
@@ -1550,6 +1618,8 @@ const _module = {
                 return new TeamPermissionSetting(name, <any>undefined, { urn })
             case "datadog:index/teamSync:TeamSync":
                 return new TeamSync(name, <any>undefined, { urn })
+            case "datadog:index/usageQuota:UsageQuota":
+                return new UsageQuota(name, <any>undefined, { urn })
             case "datadog:index/user:User":
                 return new User(name, <any>undefined, { urn })
             case "datadog:index/userRole:UserRole":
@@ -1572,6 +1642,14 @@ pulumi.runtime.registerResourceModule("datadog", "index/actionExecutionPolicy", 
 pulumi.runtime.registerResourceModule("datadog", "index/agentlessScanningAwsScanOptions", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/agentlessScanningAzureScanOptions", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/agentlessScanningGcpScanOptions", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/aiGatewayBudget", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/aiGatewayDataCaptureOverride", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/aiGatewayGovernance", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/aiGatewayModelGroup", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/aiGatewayPolicy", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/aiGatewayProvider", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/aiGatewayRateLimit", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/aiGatewayRoutingRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/apiKey", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/apmRetentionFilter", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/apmRetentionFilterOrder", _module)
@@ -1697,6 +1775,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/spansMetric", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/statusPage", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/statusPageComponent", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/statusPageDegradationTemplate", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/statusPageEmailAccessPolicy", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/statusPageMaintenanceTemplate", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/syntheticsConcurrencyCap", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/syntheticsGlobalVariable", _module)
@@ -1717,6 +1796,7 @@ pulumi.runtime.registerResourceModule("datadog", "index/teamMembership", _module
 pulumi.runtime.registerResourceModule("datadog", "index/teamNotificationRule", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/teamPermissionSetting", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/teamSync", _module)
+pulumi.runtime.registerResourceModule("datadog", "index/usageQuota", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/user", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/userRole", _module)
 pulumi.runtime.registerResourceModule("datadog", "index/webhook", _module)

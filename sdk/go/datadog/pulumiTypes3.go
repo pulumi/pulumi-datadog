@@ -13,6 +13,2121 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySort struct {
+	// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+	Aggregation string `pulumi:"aggregation"`
+	// The metric used for sorting group by results.
+	Metric *string `pulumi:"metric"`
+	// Direction of sort. Valid values are `asc`, `desc`.
+	Order *string `pulumi:"order"`
+}
+
+// DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortInput is an input type that accepts DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortArgs and DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortOutput values.
+// You can construct a concrete instance of `DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortInput` via:
+//
+//	DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortArgs{...}
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortOutput
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortOutputWithContext(context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortOutput
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortArgs struct {
+	// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+	Aggregation pulumi.StringInput `pulumi:"aggregation"`
+	// The metric used for sorting group by results.
+	Metric pulumi.StringPtrInput `pulumi:"metric"`
+	// Direction of sort. Valid values are `asc`, `desc`.
+	Order pulumi.StringPtrInput `pulumi:"order"`
+}
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySort)(nil)).Elem()
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortOutput {
+	return i.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortOutput)
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutput {
+	return i.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortOutput).ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutputWithContext(ctx)
+}
+
+// DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrInput is an input type that accepts DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortArgs, DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtr and DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutput values.
+// You can construct a concrete instance of `DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrInput` via:
+//
+//	        DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutput
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutputWithContext(context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutput
+}
+
+type dashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrType DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortArgs
+
+func DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtr(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortArgs) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrInput {
+	return (*dashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrType)(v)
+}
+
+func (*dashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySort)(nil)).Elem()
+}
+
+func (i *dashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrType) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutput {
+	return i.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrType) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutput)
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySort)(nil)).Elem()
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutput {
+	return o.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySort) *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySort {
+		return &v
+	}).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutput)
+}
+
+// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortOutput) Aggregation() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySort) string {
+		return v.Aggregation
+	}).(pulumi.StringOutput)
+}
+
+// The metric used for sorting group by results.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortOutput) Metric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySort) *string {
+		return v.Metric
+	}).(pulumi.StringPtrOutput)
+}
+
+// Direction of sort. Valid values are `asc`, `desc`.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortOutput) Order() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySort) *string { return v.Order }).(pulumi.StringPtrOutput)
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySort)(nil)).Elem()
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutput) Elem() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySort) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySort {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySort
+		return ret
+	}).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortOutput)
+}
+
+// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutput) Aggregation() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySort) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Aggregation
+	}).(pulumi.StringPtrOutput)
+}
+
+// The metric used for sorting group by results.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutput) Metric() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySort) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Metric
+	}).(pulumi.StringPtrOutput)
+}
+
+// Direction of sort. Valid values are `asc`, `desc`.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutput) Order() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySort) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Order
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTarget struct {
+	// End node of the target range.
+	End *string `pulumi:"end"`
+	// Start node of the target range.
+	Start *string `pulumi:"start"`
+	// Target type.
+	Type string `pulumi:"type"`
+	// Target node value.
+	Value *string `pulumi:"value"`
+}
+
+// DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetInput is an input type that accepts DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetArgs and DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetOutput values.
+// You can construct a concrete instance of `DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetInput` via:
+//
+//	DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetArgs{...}
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetOutput
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetOutputWithContext(context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetOutput
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetArgs struct {
+	// End node of the target range.
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// Start node of the target range.
+	Start pulumi.StringPtrInput `pulumi:"start"`
+	// Target type.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Target node value.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTarget)(nil)).Elem()
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetOutput {
+	return i.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetOutput)
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutput {
+	return i.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetOutput).ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutputWithContext(ctx)
+}
+
+// DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrInput is an input type that accepts DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetArgs, DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtr and DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutput values.
+// You can construct a concrete instance of `DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrInput` via:
+//
+//	        DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutput
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutputWithContext(context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutput
+}
+
+type dashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrType DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetArgs
+
+func DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtr(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetArgs) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrInput {
+	return (*dashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrType)(v)
+}
+
+func (*dashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTarget)(nil)).Elem()
+}
+
+func (i *dashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrType) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutput {
+	return i.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrType) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutput)
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTarget)(nil)).Elem()
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutput {
+	return o.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTarget) *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTarget {
+		return &v
+	}).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutput)
+}
+
+// End node of the target range.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTarget) *string { return v.End }).(pulumi.StringPtrOutput)
+}
+
+// Start node of the target range.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTarget) *string {
+		return v.Start
+	}).(pulumi.StringPtrOutput)
+}
+
+// Target type.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTarget) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// Target node value.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTarget) *string {
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTarget)(nil)).Elem()
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutput) Elem() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTarget) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTarget {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTarget
+		return ret
+	}).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetOutput)
+}
+
+// End node of the target range.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.End
+	}).(pulumi.StringPtrOutput)
+}
+
+// Start node of the target range.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Start
+	}).(pulumi.StringPtrOutput)
+}
+
+// Target type.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Target node value.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearch struct {
+	// Expression describing the journey between nodes.
+	Expression string `pulumi:"expression"`
+	// Filters for the user journey search.
+	Filters *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFilters `pulumi:"filters"`
+	// Join keys for the user journey query.
+	JoinKeys *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeys `pulumi:"joinKeys"`
+	// JSON object mapping journey node names to Product Analytics base queries.
+	NodeObjects string `pulumi:"nodeObjects"`
+	// JSON object mapping journey step names to display aliases.
+	StepAliases *string `pulumi:"stepAliases"`
+}
+
+// DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchInput is an input type that accepts DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchArgs and DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchOutput values.
+// You can construct a concrete instance of `DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchInput` via:
+//
+//	DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchArgs{...}
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchOutput
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchOutputWithContext(context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchOutput
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchArgs struct {
+	// Expression describing the journey between nodes.
+	Expression pulumi.StringInput `pulumi:"expression"`
+	// Filters for the user journey search.
+	Filters DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrInput `pulumi:"filters"`
+	// Join keys for the user journey query.
+	JoinKeys DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrInput `pulumi:"joinKeys"`
+	// JSON object mapping journey node names to Product Analytics base queries.
+	NodeObjects pulumi.StringInput `pulumi:"nodeObjects"`
+	// JSON object mapping journey step names to display aliases.
+	StepAliases pulumi.StringPtrInput `pulumi:"stepAliases"`
+}
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearch)(nil)).Elem()
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchOutput {
+	return i.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchOutput)
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutput {
+	return i.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchOutput).ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutputWithContext(ctx)
+}
+
+// DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrInput is an input type that accepts DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchArgs, DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtr and DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutput values.
+// You can construct a concrete instance of `DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrInput` via:
+//
+//	        DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutput
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutputWithContext(context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutput
+}
+
+type dashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrType DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchArgs
+
+func DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtr(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchArgs) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrInput {
+	return (*dashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrType)(v)
+}
+
+func (*dashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearch)(nil)).Elem()
+}
+
+func (i *dashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrType) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutput {
+	return i.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrType) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutput)
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearch)(nil)).Elem()
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutput {
+	return o.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearch) *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearch {
+		return &v
+	}).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutput)
+}
+
+// Expression describing the journey between nodes.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchOutput) Expression() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearch) string { return v.Expression }).(pulumi.StringOutput)
+}
+
+// Filters for the user journey search.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchOutput) Filters() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearch) *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFilters {
+		return v.Filters
+	}).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutput)
+}
+
+// Join keys for the user journey query.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchOutput) JoinKeys() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearch) *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeys {
+		return v.JoinKeys
+	}).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput)
+}
+
+// JSON object mapping journey node names to Product Analytics base queries.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchOutput) NodeObjects() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearch) string { return v.NodeObjects }).(pulumi.StringOutput)
+}
+
+// JSON object mapping journey step names to display aliases.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchOutput) StepAliases() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearch) *string {
+		return v.StepAliases
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearch)(nil)).Elem()
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutput) Elem() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearch) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearch {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearch
+		return ret
+	}).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchOutput)
+}
+
+// Expression describing the journey between nodes.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutput) Expression() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearch) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Expression
+	}).(pulumi.StringPtrOutput)
+}
+
+// Filters for the user journey search.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutput) Filters() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearch) *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFilters {
+		if v == nil {
+			return nil
+		}
+		return v.Filters
+	}).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutput)
+}
+
+// Join keys for the user journey query.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutput) JoinKeys() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearch) *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeys {
+		if v == nil {
+			return nil
+		}
+		return v.JoinKeys
+	}).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput)
+}
+
+// JSON object mapping journey node names to Product Analytics base queries.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutput) NodeObjects() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearch) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.NodeObjects
+	}).(pulumi.StringPtrOutput)
+}
+
+// JSON object mapping journey step names to display aliases.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutput) StepAliases() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearch) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StepAliases
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFilters struct {
+	// Product Analytics audience filters.
+	AudienceFilters *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFilters `pulumi:"audienceFilters"`
+	// Graph filters for the user journey search.
+	GraphFilters []DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilter `pulumi:"graphFilters"`
+	// String filter for the user journey search.
+	StringFilter *string `pulumi:"stringFilter"`
+}
+
+// DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersInput is an input type that accepts DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersArgs and DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersOutput values.
+// You can construct a concrete instance of `DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersInput` via:
+//
+//	DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersArgs{...}
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersOutput
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersOutputWithContext(context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersOutput
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersArgs struct {
+	// Product Analytics audience filters.
+	AudienceFilters DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrInput `pulumi:"audienceFilters"`
+	// Graph filters for the user journey search.
+	GraphFilters DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArrayInput `pulumi:"graphFilters"`
+	// String filter for the user journey search.
+	StringFilter pulumi.StringPtrInput `pulumi:"stringFilter"`
+}
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFilters)(nil)).Elem()
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersOutput {
+	return i.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersOutput)
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutput {
+	return i.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersOutput).ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutputWithContext(ctx)
+}
+
+// DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrInput is an input type that accepts DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersArgs, DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtr and DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutput values.
+// You can construct a concrete instance of `DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrInput` via:
+//
+//	        DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutput
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutputWithContext(context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutput
+}
+
+type dashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrType DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersArgs
+
+func DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtr(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersArgs) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrInput {
+	return (*dashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrType)(v)
+}
+
+func (*dashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFilters)(nil)).Elem()
+}
+
+func (i *dashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrType) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutput {
+	return i.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrType) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutput)
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFilters)(nil)).Elem()
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutput {
+	return o.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFilters) *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFilters {
+		return &v
+	}).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutput)
+}
+
+// Product Analytics audience filters.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersOutput) AudienceFilters() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFilters) *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFilters {
+		return v.AudienceFilters
+	}).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput)
+}
+
+// Graph filters for the user journey search.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersOutput) GraphFilters() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArrayOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFilters) []DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilter {
+		return v.GraphFilters
+	}).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArrayOutput)
+}
+
+// String filter for the user journey search.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersOutput) StringFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFilters) *string {
+		return v.StringFilter
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFilters)(nil)).Elem()
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutput) Elem() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFilters) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFilters {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFilters
+		return ret
+	}).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersOutput)
+}
+
+// Product Analytics audience filters.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutput) AudienceFilters() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFilters) *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFilters {
+		if v == nil {
+			return nil
+		}
+		return v.AudienceFilters
+	}).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput)
+}
+
+// Graph filters for the user journey search.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutput) GraphFilters() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArrayOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFilters) []DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilter {
+		if v == nil {
+			return nil
+		}
+		return v.GraphFilters
+	}).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArrayOutput)
+}
+
+// String filter for the user journey search.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutput) StringFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFilters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.StringFilter
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFilters struct {
+	// Product Analytics audience account subqueries.
+	Accounts []DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccount `pulumi:"accounts"`
+	// An optional filter condition applied to the audience subquery.
+	FilterCondition *string `pulumi:"filterCondition"`
+	// Product Analytics audience segment subqueries.
+	Segments []DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegment `pulumi:"segments"`
+	// Product Analytics audience user subqueries.
+	Users []DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUser `pulumi:"users"`
+}
+
+// DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersInput is an input type that accepts DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersArgs and DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput values.
+// You can construct a concrete instance of `DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersInput` via:
+//
+//	DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersArgs{...}
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutputWithContext(context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersArgs struct {
+	// Product Analytics audience account subqueries.
+	Accounts DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayInput `pulumi:"accounts"`
+	// An optional filter condition applied to the audience subquery.
+	FilterCondition pulumi.StringPtrInput `pulumi:"filterCondition"`
+	// Product Analytics audience segment subqueries.
+	Segments DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayInput `pulumi:"segments"`
+	// Product Analytics audience user subqueries.
+	Users DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayInput `pulumi:"users"`
+}
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFilters)(nil)).Elem()
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput {
+	return i.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput)
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput {
+	return i.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput).ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutputWithContext(ctx)
+}
+
+// DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrInput is an input type that accepts DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersArgs, DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtr and DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput values.
+// You can construct a concrete instance of `DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrInput` via:
+//
+//	        DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutputWithContext(context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput
+}
+
+type dashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrType DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersArgs
+
+func DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtr(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersArgs) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrInput {
+	return (*dashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrType)(v)
+}
+
+func (*dashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFilters)(nil)).Elem()
+}
+
+func (i *dashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrType) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput {
+	return i.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrType) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput)
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFilters)(nil)).Elem()
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput {
+	return o.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFilters) *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFilters {
+		return &v
+	}).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput)
+}
+
+// Product Analytics audience account subqueries.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput) Accounts() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFilters) []DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccount {
+		return v.Accounts
+	}).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput)
+}
+
+// An optional filter condition applied to the audience subquery.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput) FilterCondition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFilters) *string {
+		return v.FilterCondition
+	}).(pulumi.StringPtrOutput)
+}
+
+// Product Analytics audience segment subqueries.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput) Segments() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFilters) []DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegment {
+		return v.Segments
+	}).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput)
+}
+
+// Product Analytics audience user subqueries.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput) Users() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFilters) []DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUser {
+		return v.Users
+	}).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayOutput)
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFilters)(nil)).Elem()
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput) Elem() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFilters) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFilters {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFilters
+		return ret
+	}).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput)
+}
+
+// Product Analytics audience account subqueries.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput) Accounts() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFilters) []DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccount {
+		if v == nil {
+			return nil
+		}
+		return v.Accounts
+	}).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput)
+}
+
+// An optional filter condition applied to the audience subquery.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput) FilterCondition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFilters) *string {
+		if v == nil {
+			return nil
+		}
+		return v.FilterCondition
+	}).(pulumi.StringPtrOutput)
+}
+
+// Product Analytics audience segment subqueries.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput) Segments() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFilters) []DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegment {
+		if v == nil {
+			return nil
+		}
+		return v.Segments
+	}).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput)
+}
+
+// Product Analytics audience user subqueries.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput) Users() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFilters) []DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUser {
+		if v == nil {
+			return nil
+		}
+		return v.Users
+	}).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayOutput)
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccount struct {
+	// The name of the account subquery.
+	Name *string `pulumi:"name"`
+	// The query string for the account subquery.
+	Query *string `pulumi:"query"`
+}
+
+// DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountInput is an input type that accepts DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArgs and DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput values.
+// You can construct a concrete instance of `DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountInput` via:
+//
+//	DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArgs{...}
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutputWithContext(context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArgs struct {
+	// The name of the account subquery.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The query string for the account subquery.
+	Query pulumi.StringPtrInput `pulumi:"query"`
+}
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccount)(nil)).Elem()
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput {
+	return i.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput)
+}
+
+// DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayInput is an input type that accepts DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArray and DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput values.
+// You can construct a concrete instance of `DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayInput` via:
+//
+//	DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArray{ DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArgs{...} }
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutputWithContext(context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArray []DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountInput
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccount)(nil)).Elem()
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArray) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput {
+	return i.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArray) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput)
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccount)(nil)).Elem()
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput {
+	return o
+}
+
+// The name of the account subquery.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccount) *string {
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The query string for the account subquery.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccount) *string {
+		return v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccount)(nil)).Elem()
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput) Index(i pulumi.IntInput) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccount {
+		return vs[0].([]DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccount)[vs[1].(int)]
+	}).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput)
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegment struct {
+	// The name of the segment subquery.
+	Name *string `pulumi:"name"`
+	// The unique identifier of the segment.
+	SegmentId *string `pulumi:"segmentId"`
+}
+
+// DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentInput is an input type that accepts DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArgs and DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput values.
+// You can construct a concrete instance of `DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentInput` via:
+//
+//	DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArgs{...}
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutputWithContext(context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArgs struct {
+	// The name of the segment subquery.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The unique identifier of the segment.
+	SegmentId pulumi.StringPtrInput `pulumi:"segmentId"`
+}
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegment)(nil)).Elem()
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput {
+	return i.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput)
+}
+
+// DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayInput is an input type that accepts DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArray and DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput values.
+// You can construct a concrete instance of `DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayInput` via:
+//
+//	DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArray{ DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArgs{...} }
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutputWithContext(context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArray []DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentInput
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegment)(nil)).Elem()
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArray) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput {
+	return i.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArray) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput)
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegment)(nil)).Elem()
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput {
+	return o
+}
+
+// The name of the segment subquery.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegment) *string {
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The unique identifier of the segment.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput) SegmentId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegment) *string {
+		return v.SegmentId
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegment)(nil)).Elem()
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput) Index(i pulumi.IntInput) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegment {
+		return vs[0].([]DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegment)[vs[1].(int)]
+	}).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput)
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUser struct {
+	// The name of the user subquery.
+	Name *string `pulumi:"name"`
+	// The query string for the user subquery.
+	Query *string `pulumi:"query"`
+}
+
+// DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserInput is an input type that accepts DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArgs and DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserOutput values.
+// You can construct a concrete instance of `DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserInput` via:
+//
+//	DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArgs{...}
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserOutput
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserOutputWithContext(context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserOutput
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArgs struct {
+	// The name of the user subquery.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// The query string for the user subquery.
+	Query pulumi.StringPtrInput `pulumi:"query"`
+}
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUser)(nil)).Elem()
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserOutput {
+	return i.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserOutput)
+}
+
+// DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayInput is an input type that accepts DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArray and DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayOutput values.
+// You can construct a concrete instance of `DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayInput` via:
+//
+//	DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArray{ DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArgs{...} }
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayOutput
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayOutputWithContext(context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayOutput
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArray []DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserInput
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUser)(nil)).Elem()
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArray) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayOutput {
+	return i.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArray) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayOutput)
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUser)(nil)).Elem()
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserOutput {
+	return o
+}
+
+// The name of the user subquery.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUser) *string {
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// The query string for the user subquery.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserOutput) Query() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUser) *string {
+		return v.Query
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUser)(nil)).Elem()
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayOutput) Index(i pulumi.IntInput) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUser {
+		return vs[0].([]DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUser)[vs[1].(int)]
+	}).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserOutput)
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilter struct {
+	// Graph filter name.
+	Name *string `pulumi:"name"`
+	// Graph filter operator.
+	Operator *string `pulumi:"operator"`
+	// Target for the graph filter.
+	Target *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTarget `pulumi:"target"`
+	// Graph filter value.
+	Value *int `pulumi:"value"`
+}
+
+// DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterInput is an input type that accepts DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArgs and DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterOutput values.
+// You can construct a concrete instance of `DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterInput` via:
+//
+//	DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArgs{...}
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterOutput
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterOutputWithContext(context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterOutput
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArgs struct {
+	// Graph filter name.
+	Name pulumi.StringPtrInput `pulumi:"name"`
+	// Graph filter operator.
+	Operator pulumi.StringPtrInput `pulumi:"operator"`
+	// Target for the graph filter.
+	Target DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrInput `pulumi:"target"`
+	// Graph filter value.
+	Value pulumi.IntPtrInput `pulumi:"value"`
+}
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilter)(nil)).Elem()
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterOutput {
+	return i.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterOutput)
+}
+
+// DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArrayInput is an input type that accepts DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArray and DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArrayOutput values.
+// You can construct a concrete instance of `DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArrayInput` via:
+//
+//	DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArray{ DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArgs{...} }
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArrayInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArrayOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArrayOutput
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArrayOutputWithContext(context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArrayOutput
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArray []DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterInput
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilter)(nil)).Elem()
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArray) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArrayOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArrayOutput {
+	return i.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArrayOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArray) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArrayOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArrayOutput)
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilter)(nil)).Elem()
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterOutput {
+	return o
+}
+
+// Graph filter name.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilter) *string {
+		return v.Name
+	}).(pulumi.StringPtrOutput)
+}
+
+// Graph filter operator.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterOutput) Operator() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilter) *string {
+		return v.Operator
+	}).(pulumi.StringPtrOutput)
+}
+
+// Target for the graph filter.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterOutput) Target() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilter) *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTarget {
+		return v.Target
+	}).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutput)
+}
+
+// Graph filter value.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilter) *int {
+		return v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArrayOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilter)(nil)).Elem()
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArrayOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArrayOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArrayOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArrayOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArrayOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArrayOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArrayOutput) Index(i pulumi.IntInput) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilter {
+		return vs[0].([]DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilter)[vs[1].(int)]
+	}).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterOutput)
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTarget struct {
+	// End node of the target range.
+	End *string `pulumi:"end"`
+	// Start node of the target range.
+	Start *string `pulumi:"start"`
+	// Target type.
+	Type string `pulumi:"type"`
+	// Target node value.
+	Value *string `pulumi:"value"`
+}
+
+// DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetInput is an input type that accepts DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetArgs and DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetOutput values.
+// You can construct a concrete instance of `DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetInput` via:
+//
+//	DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetArgs{...}
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetOutput
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetOutputWithContext(context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetOutput
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetArgs struct {
+	// End node of the target range.
+	End pulumi.StringPtrInput `pulumi:"end"`
+	// Start node of the target range.
+	Start pulumi.StringPtrInput `pulumi:"start"`
+	// Target type.
+	Type pulumi.StringInput `pulumi:"type"`
+	// Target node value.
+	Value pulumi.StringPtrInput `pulumi:"value"`
+}
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTarget)(nil)).Elem()
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetOutput {
+	return i.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetOutput)
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutput {
+	return i.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetOutput).ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutputWithContext(ctx)
+}
+
+// DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrInput is an input type that accepts DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetArgs, DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtr and DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutput values.
+// You can construct a concrete instance of `DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrInput` via:
+//
+//	        DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutput
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutputWithContext(context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutput
+}
+
+type dashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrType DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetArgs
+
+func DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtr(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetArgs) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrInput {
+	return (*dashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrType)(v)
+}
+
+func (*dashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTarget)(nil)).Elem()
+}
+
+func (i *dashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrType) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutput {
+	return i.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrType) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutput)
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTarget)(nil)).Elem()
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutput {
+	return o.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTarget) *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTarget {
+		return &v
+	}).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutput)
+}
+
+// End node of the target range.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTarget) *string {
+		return v.End
+	}).(pulumi.StringPtrOutput)
+}
+
+// Start node of the target range.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTarget) *string {
+		return v.Start
+	}).(pulumi.StringPtrOutput)
+}
+
+// Target type.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTarget) string {
+		return v.Type
+	}).(pulumi.StringOutput)
+}
+
+// Target node value.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTarget) *string {
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTarget)(nil)).Elem()
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutput) Elem() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTarget) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTarget {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTarget
+		return ret
+	}).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetOutput)
+}
+
+// End node of the target range.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutput) End() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.End
+	}).(pulumi.StringPtrOutput)
+}
+
+// Start node of the target range.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutput) Start() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Start
+	}).(pulumi.StringPtrOutput)
+}
+
+// Target type.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutput) Type() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Type
+	}).(pulumi.StringPtrOutput)
+}
+
+// Target node value.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTarget) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeys struct {
+	// Primary join key.
+	Primary string `pulumi:"primary"`
+	// Secondary join keys.
+	Secondaries []string `pulumi:"secondaries"`
+}
+
+// DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysInput is an input type that accepts DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysArgs and DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysOutput values.
+// You can construct a concrete instance of `DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysInput` via:
+//
+//	DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysArgs{...}
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysOutput
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysOutputWithContext(context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysOutput
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysArgs struct {
+	// Primary join key.
+	Primary pulumi.StringInput `pulumi:"primary"`
+	// Secondary join keys.
+	Secondaries pulumi.StringArrayInput `pulumi:"secondaries"`
+}
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeys)(nil)).Elem()
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysOutput {
+	return i.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysOutput)
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput {
+	return i.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysArgs) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysOutput).ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutputWithContext(ctx)
+}
+
+// DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrInput is an input type that accepts DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysArgs, DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtr and DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput values.
+// You can construct a concrete instance of `DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrInput` via:
+//
+//	        DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput
+	ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutputWithContext(context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput
+}
+
+type dashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrType DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysArgs
+
+func DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtr(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysArgs) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrInput {
+	return (*dashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrType)(v)
+}
+
+func (*dashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeys)(nil)).Elem()
+}
+
+func (i *dashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrType) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput {
+	return i.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrType) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput)
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeys)(nil)).Elem()
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput {
+	return o.ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutputWithContext(context.Background())
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeys) *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeys {
+		return &v
+	}).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput)
+}
+
+// Primary join key.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysOutput) Primary() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeys) string {
+		return v.Primary
+	}).(pulumi.StringOutput)
+}
+
+// Secondary join keys.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysOutput) Secondaries() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeys) []string {
+		return v.Secondaries
+	}).(pulumi.StringArrayOutput)
+}
+
+type DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeys)(nil)).Elem()
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput) ToDashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput) Elem() DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeys) DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeys {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeys
+		return ret
+	}).(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysOutput)
+}
+
+// Primary join key.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput) Primary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeys) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Primary
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secondary join keys.
+func (o DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput) Secondaries() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeys) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Secondaries
+	}).(pulumi.StringArrayOutput)
+}
+
+type DashboardWidgetGeomapDefinitionStyle struct {
+	// The color palette to apply to the widget.
+	Palette string `pulumi:"palette"`
+	// A Boolean indicating whether to flip the palette tones.
+	PaletteFlip bool `pulumi:"paletteFlip"`
+}
+
+// DashboardWidgetGeomapDefinitionStyleInput is an input type that accepts DashboardWidgetGeomapDefinitionStyleArgs and DashboardWidgetGeomapDefinitionStyleOutput values.
+// You can construct a concrete instance of `DashboardWidgetGeomapDefinitionStyleInput` via:
+//
+//	DashboardWidgetGeomapDefinitionStyleArgs{...}
+type DashboardWidgetGeomapDefinitionStyleInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetGeomapDefinitionStyleOutput() DashboardWidgetGeomapDefinitionStyleOutput
+	ToDashboardWidgetGeomapDefinitionStyleOutputWithContext(context.Context) DashboardWidgetGeomapDefinitionStyleOutput
+}
+
+type DashboardWidgetGeomapDefinitionStyleArgs struct {
+	// The color palette to apply to the widget.
+	Palette pulumi.StringInput `pulumi:"palette"`
+	// A Boolean indicating whether to flip the palette tones.
+	PaletteFlip pulumi.BoolInput `pulumi:"paletteFlip"`
+}
+
+func (DashboardWidgetGeomapDefinitionStyleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetGeomapDefinitionStyle)(nil)).Elem()
+}
+
+func (i DashboardWidgetGeomapDefinitionStyleArgs) ToDashboardWidgetGeomapDefinitionStyleOutput() DashboardWidgetGeomapDefinitionStyleOutput {
+	return i.ToDashboardWidgetGeomapDefinitionStyleOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetGeomapDefinitionStyleArgs) ToDashboardWidgetGeomapDefinitionStyleOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionStyleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetGeomapDefinitionStyleOutput)
+}
+
+func (i DashboardWidgetGeomapDefinitionStyleArgs) ToDashboardWidgetGeomapDefinitionStylePtrOutput() DashboardWidgetGeomapDefinitionStylePtrOutput {
+	return i.ToDashboardWidgetGeomapDefinitionStylePtrOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetGeomapDefinitionStyleArgs) ToDashboardWidgetGeomapDefinitionStylePtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionStylePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetGeomapDefinitionStyleOutput).ToDashboardWidgetGeomapDefinitionStylePtrOutputWithContext(ctx)
+}
+
+// DashboardWidgetGeomapDefinitionStylePtrInput is an input type that accepts DashboardWidgetGeomapDefinitionStyleArgs, DashboardWidgetGeomapDefinitionStylePtr and DashboardWidgetGeomapDefinitionStylePtrOutput values.
+// You can construct a concrete instance of `DashboardWidgetGeomapDefinitionStylePtrInput` via:
+//
+//	        DashboardWidgetGeomapDefinitionStyleArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardWidgetGeomapDefinitionStylePtrInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetGeomapDefinitionStylePtrOutput() DashboardWidgetGeomapDefinitionStylePtrOutput
+	ToDashboardWidgetGeomapDefinitionStylePtrOutputWithContext(context.Context) DashboardWidgetGeomapDefinitionStylePtrOutput
+}
+
+type dashboardWidgetGeomapDefinitionStylePtrType DashboardWidgetGeomapDefinitionStyleArgs
+
+func DashboardWidgetGeomapDefinitionStylePtr(v *DashboardWidgetGeomapDefinitionStyleArgs) DashboardWidgetGeomapDefinitionStylePtrInput {
+	return (*dashboardWidgetGeomapDefinitionStylePtrType)(v)
+}
+
+func (*dashboardWidgetGeomapDefinitionStylePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetGeomapDefinitionStyle)(nil)).Elem()
+}
+
+func (i *dashboardWidgetGeomapDefinitionStylePtrType) ToDashboardWidgetGeomapDefinitionStylePtrOutput() DashboardWidgetGeomapDefinitionStylePtrOutput {
+	return i.ToDashboardWidgetGeomapDefinitionStylePtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardWidgetGeomapDefinitionStylePtrType) ToDashboardWidgetGeomapDefinitionStylePtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionStylePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetGeomapDefinitionStylePtrOutput)
+}
+
+type DashboardWidgetGeomapDefinitionStyleOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetGeomapDefinitionStyleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetGeomapDefinitionStyle)(nil)).Elem()
+}
+
+func (o DashboardWidgetGeomapDefinitionStyleOutput) ToDashboardWidgetGeomapDefinitionStyleOutput() DashboardWidgetGeomapDefinitionStyleOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionStyleOutput) ToDashboardWidgetGeomapDefinitionStyleOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionStyleOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionStyleOutput) ToDashboardWidgetGeomapDefinitionStylePtrOutput() DashboardWidgetGeomapDefinitionStylePtrOutput {
+	return o.ToDashboardWidgetGeomapDefinitionStylePtrOutputWithContext(context.Background())
+}
+
+func (o DashboardWidgetGeomapDefinitionStyleOutput) ToDashboardWidgetGeomapDefinitionStylePtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionStylePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardWidgetGeomapDefinitionStyle) *DashboardWidgetGeomapDefinitionStyle {
+		return &v
+	}).(DashboardWidgetGeomapDefinitionStylePtrOutput)
+}
+
+// The color palette to apply to the widget.
+func (o DashboardWidgetGeomapDefinitionStyleOutput) Palette() pulumi.StringOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionStyle) string { return v.Palette }).(pulumi.StringOutput)
+}
+
+// A Boolean indicating whether to flip the palette tones.
+func (o DashboardWidgetGeomapDefinitionStyleOutput) PaletteFlip() pulumi.BoolOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionStyle) bool { return v.PaletteFlip }).(pulumi.BoolOutput)
+}
+
+type DashboardWidgetGeomapDefinitionStylePtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetGeomapDefinitionStylePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetGeomapDefinitionStyle)(nil)).Elem()
+}
+
+func (o DashboardWidgetGeomapDefinitionStylePtrOutput) ToDashboardWidgetGeomapDefinitionStylePtrOutput() DashboardWidgetGeomapDefinitionStylePtrOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionStylePtrOutput) ToDashboardWidgetGeomapDefinitionStylePtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionStylePtrOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionStylePtrOutput) Elem() DashboardWidgetGeomapDefinitionStyleOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionStyle) DashboardWidgetGeomapDefinitionStyle {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardWidgetGeomapDefinitionStyle
+		return ret
+	}).(DashboardWidgetGeomapDefinitionStyleOutput)
+}
+
+// The color palette to apply to the widget.
+func (o DashboardWidgetGeomapDefinitionStylePtrOutput) Palette() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionStyle) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Palette
+	}).(pulumi.StringPtrOutput)
+}
+
+// A Boolean indicating whether to flip the palette tones.
+func (o DashboardWidgetGeomapDefinitionStylePtrOutput) PaletteFlip() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionStyle) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.PaletteFlip
+	}).(pulumi.BoolPtrOutput)
+}
+
+type DashboardWidgetGeomapDefinitionTime struct {
+	// A fixed time range with explicit start and end times.
+	Fixed *DashboardWidgetGeomapDefinitionTimeFixed `pulumi:"fixed"`
+	// An arbitrary live time span, such as 17 minutes or 6 hours.
+	Live *DashboardWidgetGeomapDefinitionTimeLive `pulumi:"live"`
+}
+
+// DashboardWidgetGeomapDefinitionTimeInput is an input type that accepts DashboardWidgetGeomapDefinitionTimeArgs and DashboardWidgetGeomapDefinitionTimeOutput values.
+// You can construct a concrete instance of `DashboardWidgetGeomapDefinitionTimeInput` via:
+//
+//	DashboardWidgetGeomapDefinitionTimeArgs{...}
+type DashboardWidgetGeomapDefinitionTimeInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetGeomapDefinitionTimeOutput() DashboardWidgetGeomapDefinitionTimeOutput
+	ToDashboardWidgetGeomapDefinitionTimeOutputWithContext(context.Context) DashboardWidgetGeomapDefinitionTimeOutput
+}
+
+type DashboardWidgetGeomapDefinitionTimeArgs struct {
+	// A fixed time range with explicit start and end times.
+	Fixed DashboardWidgetGeomapDefinitionTimeFixedPtrInput `pulumi:"fixed"`
+	// An arbitrary live time span, such as 17 minutes or 6 hours.
+	Live DashboardWidgetGeomapDefinitionTimeLivePtrInput `pulumi:"live"`
+}
+
+func (DashboardWidgetGeomapDefinitionTimeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetGeomapDefinitionTime)(nil)).Elem()
+}
+
+func (i DashboardWidgetGeomapDefinitionTimeArgs) ToDashboardWidgetGeomapDefinitionTimeOutput() DashboardWidgetGeomapDefinitionTimeOutput {
+	return i.ToDashboardWidgetGeomapDefinitionTimeOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetGeomapDefinitionTimeArgs) ToDashboardWidgetGeomapDefinitionTimeOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionTimeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetGeomapDefinitionTimeOutput)
+}
+
+func (i DashboardWidgetGeomapDefinitionTimeArgs) ToDashboardWidgetGeomapDefinitionTimePtrOutput() DashboardWidgetGeomapDefinitionTimePtrOutput {
+	return i.ToDashboardWidgetGeomapDefinitionTimePtrOutputWithContext(context.Background())
+}
+
+func (i DashboardWidgetGeomapDefinitionTimeArgs) ToDashboardWidgetGeomapDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetGeomapDefinitionTimeOutput).ToDashboardWidgetGeomapDefinitionTimePtrOutputWithContext(ctx)
+}
+
+// DashboardWidgetGeomapDefinitionTimePtrInput is an input type that accepts DashboardWidgetGeomapDefinitionTimeArgs, DashboardWidgetGeomapDefinitionTimePtr and DashboardWidgetGeomapDefinitionTimePtrOutput values.
+// You can construct a concrete instance of `DashboardWidgetGeomapDefinitionTimePtrInput` via:
+//
+//	        DashboardWidgetGeomapDefinitionTimeArgs{...}
+//
+//	or:
+//
+//	        nil
+type DashboardWidgetGeomapDefinitionTimePtrInput interface {
+	pulumi.Input
+
+	ToDashboardWidgetGeomapDefinitionTimePtrOutput() DashboardWidgetGeomapDefinitionTimePtrOutput
+	ToDashboardWidgetGeomapDefinitionTimePtrOutputWithContext(context.Context) DashboardWidgetGeomapDefinitionTimePtrOutput
+}
+
+type dashboardWidgetGeomapDefinitionTimePtrType DashboardWidgetGeomapDefinitionTimeArgs
+
+func DashboardWidgetGeomapDefinitionTimePtr(v *DashboardWidgetGeomapDefinitionTimeArgs) DashboardWidgetGeomapDefinitionTimePtrInput {
+	return (*dashboardWidgetGeomapDefinitionTimePtrType)(v)
+}
+
+func (*dashboardWidgetGeomapDefinitionTimePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetGeomapDefinitionTime)(nil)).Elem()
+}
+
+func (i *dashboardWidgetGeomapDefinitionTimePtrType) ToDashboardWidgetGeomapDefinitionTimePtrOutput() DashboardWidgetGeomapDefinitionTimePtrOutput {
+	return i.ToDashboardWidgetGeomapDefinitionTimePtrOutputWithContext(context.Background())
+}
+
+func (i *dashboardWidgetGeomapDefinitionTimePtrType) ToDashboardWidgetGeomapDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionTimePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetGeomapDefinitionTimePtrOutput)
+}
+
+type DashboardWidgetGeomapDefinitionTimeOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetGeomapDefinitionTimeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*DashboardWidgetGeomapDefinitionTime)(nil)).Elem()
+}
+
+func (o DashboardWidgetGeomapDefinitionTimeOutput) ToDashboardWidgetGeomapDefinitionTimeOutput() DashboardWidgetGeomapDefinitionTimeOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionTimeOutput) ToDashboardWidgetGeomapDefinitionTimeOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionTimeOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionTimeOutput) ToDashboardWidgetGeomapDefinitionTimePtrOutput() DashboardWidgetGeomapDefinitionTimePtrOutput {
+	return o.ToDashboardWidgetGeomapDefinitionTimePtrOutputWithContext(context.Background())
+}
+
+func (o DashboardWidgetGeomapDefinitionTimeOutput) ToDashboardWidgetGeomapDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionTimePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardWidgetGeomapDefinitionTime) *DashboardWidgetGeomapDefinitionTime {
+		return &v
+	}).(DashboardWidgetGeomapDefinitionTimePtrOutput)
+}
+
+// A fixed time range with explicit start and end times.
+func (o DashboardWidgetGeomapDefinitionTimeOutput) Fixed() DashboardWidgetGeomapDefinitionTimeFixedPtrOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionTime) *DashboardWidgetGeomapDefinitionTimeFixed { return v.Fixed }).(DashboardWidgetGeomapDefinitionTimeFixedPtrOutput)
+}
+
+// An arbitrary live time span, such as 17 minutes or 6 hours.
+func (o DashboardWidgetGeomapDefinitionTimeOutput) Live() DashboardWidgetGeomapDefinitionTimeLivePtrOutput {
+	return o.ApplyT(func(v DashboardWidgetGeomapDefinitionTime) *DashboardWidgetGeomapDefinitionTimeLive { return v.Live }).(DashboardWidgetGeomapDefinitionTimeLivePtrOutput)
+}
+
+type DashboardWidgetGeomapDefinitionTimePtrOutput struct{ *pulumi.OutputState }
+
+func (DashboardWidgetGeomapDefinitionTimePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**DashboardWidgetGeomapDefinitionTime)(nil)).Elem()
+}
+
+func (o DashboardWidgetGeomapDefinitionTimePtrOutput) ToDashboardWidgetGeomapDefinitionTimePtrOutput() DashboardWidgetGeomapDefinitionTimePtrOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionTimePtrOutput) ToDashboardWidgetGeomapDefinitionTimePtrOutputWithContext(ctx context.Context) DashboardWidgetGeomapDefinitionTimePtrOutput {
+	return o
+}
+
+func (o DashboardWidgetGeomapDefinitionTimePtrOutput) Elem() DashboardWidgetGeomapDefinitionTimeOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionTime) DashboardWidgetGeomapDefinitionTime {
+		if v != nil {
+			return *v
+		}
+		var ret DashboardWidgetGeomapDefinitionTime
+		return ret
+	}).(DashboardWidgetGeomapDefinitionTimeOutput)
+}
+
+// A fixed time range with explicit start and end times.
+func (o DashboardWidgetGeomapDefinitionTimePtrOutput) Fixed() DashboardWidgetGeomapDefinitionTimeFixedPtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionTime) *DashboardWidgetGeomapDefinitionTimeFixed {
+		if v == nil {
+			return nil
+		}
+		return v.Fixed
+	}).(DashboardWidgetGeomapDefinitionTimeFixedPtrOutput)
+}
+
+// An arbitrary live time span, such as 17 minutes or 6 hours.
+func (o DashboardWidgetGeomapDefinitionTimePtrOutput) Live() DashboardWidgetGeomapDefinitionTimeLivePtrOutput {
+	return o.ApplyT(func(v *DashboardWidgetGeomapDefinitionTime) *DashboardWidgetGeomapDefinitionTimeLive {
+		if v == nil {
+			return nil
+		}
+		return v.Live
+	}).(DashboardWidgetGeomapDefinitionTimeLivePtrOutput)
+}
+
 type DashboardWidgetGeomapDefinitionTimeFixed struct {
 	// Start time in seconds since epoch.
 	From int `pulumi:"from"`
@@ -87195,2875 +89310,33 @@ func (o DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScalePt
 	}).(pulumi.StringPtrOutput)
 }
 
-type DashboardWidgetQueryTableDefinitionRequestFormulaStyle struct {
-	// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
-	Palette *string `pulumi:"palette"`
-	// Index specifying which color to use within the palette.
-	PaletteIndex *int `pulumi:"paletteIndex"`
-}
-
-// DashboardWidgetQueryTableDefinitionRequestFormulaStyleInput is an input type that accepts DashboardWidgetQueryTableDefinitionRequestFormulaStyleArgs and DashboardWidgetQueryTableDefinitionRequestFormulaStyleOutput values.
-// You can construct a concrete instance of `DashboardWidgetQueryTableDefinitionRequestFormulaStyleInput` via:
-//
-//	DashboardWidgetQueryTableDefinitionRequestFormulaStyleArgs{...}
-type DashboardWidgetQueryTableDefinitionRequestFormulaStyleInput interface {
-	pulumi.Input
-
-	ToDashboardWidgetQueryTableDefinitionRequestFormulaStyleOutput() DashboardWidgetQueryTableDefinitionRequestFormulaStyleOutput
-	ToDashboardWidgetQueryTableDefinitionRequestFormulaStyleOutputWithContext(context.Context) DashboardWidgetQueryTableDefinitionRequestFormulaStyleOutput
-}
-
-type DashboardWidgetQueryTableDefinitionRequestFormulaStyleArgs struct {
-	// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
-	Palette pulumi.StringPtrInput `pulumi:"palette"`
-	// Index specifying which color to use within the palette.
-	PaletteIndex pulumi.IntPtrInput `pulumi:"paletteIndex"`
-}
-
-func (DashboardWidgetQueryTableDefinitionRequestFormulaStyleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestFormulaStyle)(nil)).Elem()
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestFormulaStyleArgs) ToDashboardWidgetQueryTableDefinitionRequestFormulaStyleOutput() DashboardWidgetQueryTableDefinitionRequestFormulaStyleOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestFormulaStyleOutputWithContext(context.Background())
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestFormulaStyleArgs) ToDashboardWidgetQueryTableDefinitionRequestFormulaStyleOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestFormulaStyleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestFormulaStyleOutput)
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestFormulaStyleArgs) ToDashboardWidgetQueryTableDefinitionRequestFormulaStylePtrOutput() DashboardWidgetQueryTableDefinitionRequestFormulaStylePtrOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestFormulaStylePtrOutputWithContext(context.Background())
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestFormulaStyleArgs) ToDashboardWidgetQueryTableDefinitionRequestFormulaStylePtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestFormulaStylePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestFormulaStyleOutput).ToDashboardWidgetQueryTableDefinitionRequestFormulaStylePtrOutputWithContext(ctx)
-}
-
-// DashboardWidgetQueryTableDefinitionRequestFormulaStylePtrInput is an input type that accepts DashboardWidgetQueryTableDefinitionRequestFormulaStyleArgs, DashboardWidgetQueryTableDefinitionRequestFormulaStylePtr and DashboardWidgetQueryTableDefinitionRequestFormulaStylePtrOutput values.
-// You can construct a concrete instance of `DashboardWidgetQueryTableDefinitionRequestFormulaStylePtrInput` via:
-//
-//	        DashboardWidgetQueryTableDefinitionRequestFormulaStyleArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardWidgetQueryTableDefinitionRequestFormulaStylePtrInput interface {
-	pulumi.Input
-
-	ToDashboardWidgetQueryTableDefinitionRequestFormulaStylePtrOutput() DashboardWidgetQueryTableDefinitionRequestFormulaStylePtrOutput
-	ToDashboardWidgetQueryTableDefinitionRequestFormulaStylePtrOutputWithContext(context.Context) DashboardWidgetQueryTableDefinitionRequestFormulaStylePtrOutput
-}
-
-type dashboardWidgetQueryTableDefinitionRequestFormulaStylePtrType DashboardWidgetQueryTableDefinitionRequestFormulaStyleArgs
-
-func DashboardWidgetQueryTableDefinitionRequestFormulaStylePtr(v *DashboardWidgetQueryTableDefinitionRequestFormulaStyleArgs) DashboardWidgetQueryTableDefinitionRequestFormulaStylePtrInput {
-	return (*dashboardWidgetQueryTableDefinitionRequestFormulaStylePtrType)(v)
-}
-
-func (*dashboardWidgetQueryTableDefinitionRequestFormulaStylePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardWidgetQueryTableDefinitionRequestFormulaStyle)(nil)).Elem()
-}
-
-func (i *dashboardWidgetQueryTableDefinitionRequestFormulaStylePtrType) ToDashboardWidgetQueryTableDefinitionRequestFormulaStylePtrOutput() DashboardWidgetQueryTableDefinitionRequestFormulaStylePtrOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestFormulaStylePtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardWidgetQueryTableDefinitionRequestFormulaStylePtrType) ToDashboardWidgetQueryTableDefinitionRequestFormulaStylePtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestFormulaStylePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestFormulaStylePtrOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestFormulaStyleOutput struct{ *pulumi.OutputState }
-
-func (DashboardWidgetQueryTableDefinitionRequestFormulaStyleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestFormulaStyle)(nil)).Elem()
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestFormulaStyleOutput) ToDashboardWidgetQueryTableDefinitionRequestFormulaStyleOutput() DashboardWidgetQueryTableDefinitionRequestFormulaStyleOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestFormulaStyleOutput) ToDashboardWidgetQueryTableDefinitionRequestFormulaStyleOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestFormulaStyleOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestFormulaStyleOutput) ToDashboardWidgetQueryTableDefinitionRequestFormulaStylePtrOutput() DashboardWidgetQueryTableDefinitionRequestFormulaStylePtrOutput {
-	return o.ToDashboardWidgetQueryTableDefinitionRequestFormulaStylePtrOutputWithContext(context.Background())
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestFormulaStyleOutput) ToDashboardWidgetQueryTableDefinitionRequestFormulaStylePtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestFormulaStylePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardWidgetQueryTableDefinitionRequestFormulaStyle) *DashboardWidgetQueryTableDefinitionRequestFormulaStyle {
-		return &v
-	}).(DashboardWidgetQueryTableDefinitionRequestFormulaStylePtrOutput)
-}
-
-// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
-func (o DashboardWidgetQueryTableDefinitionRequestFormulaStyleOutput) Palette() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestFormulaStyle) *string { return v.Palette }).(pulumi.StringPtrOutput)
-}
-
-// Index specifying which color to use within the palette.
-func (o DashboardWidgetQueryTableDefinitionRequestFormulaStyleOutput) PaletteIndex() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestFormulaStyle) *int { return v.PaletteIndex }).(pulumi.IntPtrOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestFormulaStylePtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardWidgetQueryTableDefinitionRequestFormulaStylePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardWidgetQueryTableDefinitionRequestFormulaStyle)(nil)).Elem()
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestFormulaStylePtrOutput) ToDashboardWidgetQueryTableDefinitionRequestFormulaStylePtrOutput() DashboardWidgetQueryTableDefinitionRequestFormulaStylePtrOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestFormulaStylePtrOutput) ToDashboardWidgetQueryTableDefinitionRequestFormulaStylePtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestFormulaStylePtrOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestFormulaStylePtrOutput) Elem() DashboardWidgetQueryTableDefinitionRequestFormulaStyleOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestFormulaStyle) DashboardWidgetQueryTableDefinitionRequestFormulaStyle {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardWidgetQueryTableDefinitionRequestFormulaStyle
-		return ret
-	}).(DashboardWidgetQueryTableDefinitionRequestFormulaStyleOutput)
-}
-
-// The color palette used to display the formula. A guide to the available color palettes can be found at https://docs.datadoghq.com/dashboards/guide/widget_colors.
-func (o DashboardWidgetQueryTableDefinitionRequestFormulaStylePtrOutput) Palette() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestFormulaStyle) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Palette
-	}).(pulumi.StringPtrOutput)
-}
-
-// Index specifying which color to use within the palette.
-func (o DashboardWidgetQueryTableDefinitionRequestFormulaStylePtrOutput) PaletteIndex() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestFormulaStyle) *int {
-		if v == nil {
-			return nil
-		}
-		return v.PaletteIndex
-	}).(pulumi.IntPtrOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestProcessQuery struct {
-	// A list of processes.
-	FilterBies []string `pulumi:"filterBies"`
-	// The max number of items in the filter list.
-	Limit *int `pulumi:"limit"`
-	// Your chosen metric.
-	Metric string `pulumi:"metric"`
-	// Your chosen search term.
-	SearchBy *string `pulumi:"searchBy"`
-}
-
-// DashboardWidgetQueryTableDefinitionRequestProcessQueryInput is an input type that accepts DashboardWidgetQueryTableDefinitionRequestProcessQueryArgs and DashboardWidgetQueryTableDefinitionRequestProcessQueryOutput values.
-// You can construct a concrete instance of `DashboardWidgetQueryTableDefinitionRequestProcessQueryInput` via:
-//
-//	DashboardWidgetQueryTableDefinitionRequestProcessQueryArgs{...}
-type DashboardWidgetQueryTableDefinitionRequestProcessQueryInput interface {
-	pulumi.Input
-
-	ToDashboardWidgetQueryTableDefinitionRequestProcessQueryOutput() DashboardWidgetQueryTableDefinitionRequestProcessQueryOutput
-	ToDashboardWidgetQueryTableDefinitionRequestProcessQueryOutputWithContext(context.Context) DashboardWidgetQueryTableDefinitionRequestProcessQueryOutput
-}
-
-type DashboardWidgetQueryTableDefinitionRequestProcessQueryArgs struct {
-	// A list of processes.
-	FilterBies pulumi.StringArrayInput `pulumi:"filterBies"`
-	// The max number of items in the filter list.
-	Limit pulumi.IntPtrInput `pulumi:"limit"`
-	// Your chosen metric.
-	Metric pulumi.StringInput `pulumi:"metric"`
-	// Your chosen search term.
-	SearchBy pulumi.StringPtrInput `pulumi:"searchBy"`
-}
-
-func (DashboardWidgetQueryTableDefinitionRequestProcessQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestProcessQuery)(nil)).Elem()
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestProcessQueryArgs) ToDashboardWidgetQueryTableDefinitionRequestProcessQueryOutput() DashboardWidgetQueryTableDefinitionRequestProcessQueryOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestProcessQueryOutputWithContext(context.Background())
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestProcessQueryArgs) ToDashboardWidgetQueryTableDefinitionRequestProcessQueryOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestProcessQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestProcessQueryOutput)
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestProcessQueryArgs) ToDashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutput() DashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestProcessQueryArgs) ToDashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestProcessQueryOutput).ToDashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutputWithContext(ctx)
-}
-
-// DashboardWidgetQueryTableDefinitionRequestProcessQueryPtrInput is an input type that accepts DashboardWidgetQueryTableDefinitionRequestProcessQueryArgs, DashboardWidgetQueryTableDefinitionRequestProcessQueryPtr and DashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutput values.
-// You can construct a concrete instance of `DashboardWidgetQueryTableDefinitionRequestProcessQueryPtrInput` via:
-//
-//	        DashboardWidgetQueryTableDefinitionRequestProcessQueryArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardWidgetQueryTableDefinitionRequestProcessQueryPtrInput interface {
-	pulumi.Input
-
-	ToDashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutput() DashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutput
-	ToDashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutputWithContext(context.Context) DashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutput
-}
-
-type dashboardWidgetQueryTableDefinitionRequestProcessQueryPtrType DashboardWidgetQueryTableDefinitionRequestProcessQueryArgs
-
-func DashboardWidgetQueryTableDefinitionRequestProcessQueryPtr(v *DashboardWidgetQueryTableDefinitionRequestProcessQueryArgs) DashboardWidgetQueryTableDefinitionRequestProcessQueryPtrInput {
-	return (*dashboardWidgetQueryTableDefinitionRequestProcessQueryPtrType)(v)
-}
-
-func (*dashboardWidgetQueryTableDefinitionRequestProcessQueryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardWidgetQueryTableDefinitionRequestProcessQuery)(nil)).Elem()
-}
-
-func (i *dashboardWidgetQueryTableDefinitionRequestProcessQueryPtrType) ToDashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutput() DashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardWidgetQueryTableDefinitionRequestProcessQueryPtrType) ToDashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestProcessQueryOutput struct{ *pulumi.OutputState }
-
-func (DashboardWidgetQueryTableDefinitionRequestProcessQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestProcessQuery)(nil)).Elem()
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestProcessQueryOutput) ToDashboardWidgetQueryTableDefinitionRequestProcessQueryOutput() DashboardWidgetQueryTableDefinitionRequestProcessQueryOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestProcessQueryOutput) ToDashboardWidgetQueryTableDefinitionRequestProcessQueryOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestProcessQueryOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestProcessQueryOutput) ToDashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutput() DashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutput {
-	return o.ToDashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestProcessQueryOutput) ToDashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardWidgetQueryTableDefinitionRequestProcessQuery) *DashboardWidgetQueryTableDefinitionRequestProcessQuery {
-		return &v
-	}).(DashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutput)
-}
-
-// A list of processes.
-func (o DashboardWidgetQueryTableDefinitionRequestProcessQueryOutput) FilterBies() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestProcessQuery) []string { return v.FilterBies }).(pulumi.StringArrayOutput)
-}
-
-// The max number of items in the filter list.
-func (o DashboardWidgetQueryTableDefinitionRequestProcessQueryOutput) Limit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestProcessQuery) *int { return v.Limit }).(pulumi.IntPtrOutput)
-}
-
-// Your chosen metric.
-func (o DashboardWidgetQueryTableDefinitionRequestProcessQueryOutput) Metric() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestProcessQuery) string { return v.Metric }).(pulumi.StringOutput)
-}
-
-// Your chosen search term.
-func (o DashboardWidgetQueryTableDefinitionRequestProcessQueryOutput) SearchBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestProcessQuery) *string { return v.SearchBy }).(pulumi.StringPtrOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardWidgetQueryTableDefinitionRequestProcessQuery)(nil)).Elem()
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutput) ToDashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutput() DashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutput) ToDashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutput) Elem() DashboardWidgetQueryTableDefinitionRequestProcessQueryOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestProcessQuery) DashboardWidgetQueryTableDefinitionRequestProcessQuery {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardWidgetQueryTableDefinitionRequestProcessQuery
-		return ret
-	}).(DashboardWidgetQueryTableDefinitionRequestProcessQueryOutput)
-}
-
-// A list of processes.
-func (o DashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutput) FilterBies() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestProcessQuery) []string {
-		if v == nil {
-			return nil
-		}
-		return v.FilterBies
-	}).(pulumi.StringArrayOutput)
-}
-
-// The max number of items in the filter list.
-func (o DashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutput) Limit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestProcessQuery) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Limit
-	}).(pulumi.IntPtrOutput)
-}
-
-// Your chosen metric.
-func (o DashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutput) Metric() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestProcessQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Metric
-	}).(pulumi.StringPtrOutput)
-}
-
-// Your chosen search term.
-func (o DashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutput) SearchBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestProcessQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SearchBy
-	}).(pulumi.StringPtrOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQuery struct {
-	// The APM Dependency Stats query using formulas and functions.
-	ApmDependencyStatsQuery *DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery `pulumi:"apmDependencyStatsQuery"`
-	// The APM metrics query using formulas and functions.
-	ApmMetricsQuery *DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery `pulumi:"apmMetricsQuery"`
-	// The APM Resource Stats query using formulas and functions.
-	ApmResourceStatsQuery *DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery `pulumi:"apmResourceStatsQuery"`
-	// The Cloud Cost query using formulas and functions.
-	CloudCostQuery *DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery `pulumi:"cloudCostQuery"`
-	// A timeseries formula and functions events query.
-	EventQuery *DashboardWidgetQueryTableDefinitionRequestQueryEventQuery `pulumi:"eventQuery"`
-	// A timeseries formula and functions metrics query.
-	MetricQuery *DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery `pulumi:"metricQuery"`
-	// The process query using formulas and functions.
-	ProcessQuery *DashboardWidgetQueryTableDefinitionRequestQueryProcessQuery `pulumi:"processQuery"`
-	// The Product Analytics Extended query using formulas and functions.
-	ProductAnalyticsExtendedQuery *DashboardWidgetQueryTableDefinitionRequestQueryProductAnalyticsExtendedQuery `pulumi:"productAnalyticsExtendedQuery"`
-	// The retention query using formulas and functions.
-	RetentionQuery *DashboardWidgetQueryTableDefinitionRequestQueryRetentionQuery `pulumi:"retentionQuery"`
-	// The SLO query using formulas and functions.
-	SloQuery *DashboardWidgetQueryTableDefinitionRequestQuerySloQuery `pulumi:"sloQuery"`
-	// The User Journey query using formulas and functions.
-	UserJourneyQuery *DashboardWidgetQueryTableDefinitionRequestQueryUserJourneyQuery `pulumi:"userJourneyQuery"`
-}
-
-// DashboardWidgetQueryTableDefinitionRequestQueryInput is an input type that accepts DashboardWidgetQueryTableDefinitionRequestQueryArgs and DashboardWidgetQueryTableDefinitionRequestQueryOutput values.
-// You can construct a concrete instance of `DashboardWidgetQueryTableDefinitionRequestQueryInput` via:
-//
-//	DashboardWidgetQueryTableDefinitionRequestQueryArgs{...}
-type DashboardWidgetQueryTableDefinitionRequestQueryInput interface {
-	pulumi.Input
-
-	ToDashboardWidgetQueryTableDefinitionRequestQueryOutput() DashboardWidgetQueryTableDefinitionRequestQueryOutput
-	ToDashboardWidgetQueryTableDefinitionRequestQueryOutputWithContext(context.Context) DashboardWidgetQueryTableDefinitionRequestQueryOutput
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryArgs struct {
-	// The APM Dependency Stats query using formulas and functions.
-	ApmDependencyStatsQuery DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrInput `pulumi:"apmDependencyStatsQuery"`
-	// The APM metrics query using formulas and functions.
-	ApmMetricsQuery DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrInput `pulumi:"apmMetricsQuery"`
-	// The APM Resource Stats query using formulas and functions.
-	ApmResourceStatsQuery DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrInput `pulumi:"apmResourceStatsQuery"`
-	// The Cloud Cost query using formulas and functions.
-	CloudCostQuery DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrInput `pulumi:"cloudCostQuery"`
-	// A timeseries formula and functions events query.
-	EventQuery DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrInput `pulumi:"eventQuery"`
-	// A timeseries formula and functions metrics query.
-	MetricQuery DashboardWidgetQueryTableDefinitionRequestQueryMetricQueryPtrInput `pulumi:"metricQuery"`
-	// The process query using formulas and functions.
-	ProcessQuery DashboardWidgetQueryTableDefinitionRequestQueryProcessQueryPtrInput `pulumi:"processQuery"`
-	// The Product Analytics Extended query using formulas and functions.
-	ProductAnalyticsExtendedQuery DashboardWidgetQueryTableDefinitionRequestQueryProductAnalyticsExtendedQueryPtrInput `pulumi:"productAnalyticsExtendedQuery"`
-	// The retention query using formulas and functions.
-	RetentionQuery DashboardWidgetQueryTableDefinitionRequestQueryRetentionQueryPtrInput `pulumi:"retentionQuery"`
-	// The SLO query using formulas and functions.
-	SloQuery DashboardWidgetQueryTableDefinitionRequestQuerySloQueryPtrInput `pulumi:"sloQuery"`
-	// The User Journey query using formulas and functions.
-	UserJourneyQuery DashboardWidgetQueryTableDefinitionRequestQueryUserJourneyQueryPtrInput `pulumi:"userJourneyQuery"`
-}
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQuery)(nil)).Elem()
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryOutput() DashboardWidgetQueryTableDefinitionRequestQueryOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestQueryOutputWithContext(context.Background())
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestQueryOutput)
-}
-
-// DashboardWidgetQueryTableDefinitionRequestQueryArrayInput is an input type that accepts DashboardWidgetQueryTableDefinitionRequestQueryArray and DashboardWidgetQueryTableDefinitionRequestQueryArrayOutput values.
-// You can construct a concrete instance of `DashboardWidgetQueryTableDefinitionRequestQueryArrayInput` via:
-//
-//	DashboardWidgetQueryTableDefinitionRequestQueryArray{ DashboardWidgetQueryTableDefinitionRequestQueryArgs{...} }
-type DashboardWidgetQueryTableDefinitionRequestQueryArrayInput interface {
-	pulumi.Input
-
-	ToDashboardWidgetQueryTableDefinitionRequestQueryArrayOutput() DashboardWidgetQueryTableDefinitionRequestQueryArrayOutput
-	ToDashboardWidgetQueryTableDefinitionRequestQueryArrayOutputWithContext(context.Context) DashboardWidgetQueryTableDefinitionRequestQueryArrayOutput
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryArray []DashboardWidgetQueryTableDefinitionRequestQueryInput
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardWidgetQueryTableDefinitionRequestQuery)(nil)).Elem()
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryArray) ToDashboardWidgetQueryTableDefinitionRequestQueryArrayOutput() DashboardWidgetQueryTableDefinitionRequestQueryArrayOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestQueryArrayOutputWithContext(context.Background())
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryArray) ToDashboardWidgetQueryTableDefinitionRequestQueryArrayOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestQueryArrayOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryOutput struct{ *pulumi.OutputState }
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQuery)(nil)).Elem()
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryOutput() DashboardWidgetQueryTableDefinitionRequestQueryOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryOutput {
-	return o
-}
-
-// The APM Dependency Stats query using formulas and functions.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryOutput) ApmDependencyStatsQuery() DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQuery) *DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery {
-		return v.ApmDependencyStatsQuery
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput)
-}
-
-// The APM metrics query using formulas and functions.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryOutput) ApmMetricsQuery() DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQuery) *DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery {
-		return v.ApmMetricsQuery
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput)
-}
-
-// The APM Resource Stats query using formulas and functions.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryOutput) ApmResourceStatsQuery() DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQuery) *DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery {
-		return v.ApmResourceStatsQuery
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput)
-}
-
-// The Cloud Cost query using formulas and functions.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryOutput) CloudCostQuery() DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQuery) *DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery {
-		return v.CloudCostQuery
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutput)
-}
-
-// A timeseries formula and functions events query.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryOutput) EventQuery() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQuery) *DashboardWidgetQueryTableDefinitionRequestQueryEventQuery {
-		return v.EventQuery
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput)
-}
-
-// A timeseries formula and functions metrics query.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryOutput) MetricQuery() DashboardWidgetQueryTableDefinitionRequestQueryMetricQueryPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQuery) *DashboardWidgetQueryTableDefinitionRequestQueryMetricQuery {
-		return v.MetricQuery
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryMetricQueryPtrOutput)
-}
-
-// The process query using formulas and functions.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryOutput) ProcessQuery() DashboardWidgetQueryTableDefinitionRequestQueryProcessQueryPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQuery) *DashboardWidgetQueryTableDefinitionRequestQueryProcessQuery {
-		return v.ProcessQuery
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryProcessQueryPtrOutput)
-}
-
-// The Product Analytics Extended query using formulas and functions.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryOutput) ProductAnalyticsExtendedQuery() DashboardWidgetQueryTableDefinitionRequestQueryProductAnalyticsExtendedQueryPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQuery) *DashboardWidgetQueryTableDefinitionRequestQueryProductAnalyticsExtendedQuery {
-		return v.ProductAnalyticsExtendedQuery
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryProductAnalyticsExtendedQueryPtrOutput)
-}
-
-// The retention query using formulas and functions.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryOutput) RetentionQuery() DashboardWidgetQueryTableDefinitionRequestQueryRetentionQueryPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQuery) *DashboardWidgetQueryTableDefinitionRequestQueryRetentionQuery {
-		return v.RetentionQuery
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryRetentionQueryPtrOutput)
-}
-
-// The SLO query using formulas and functions.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryOutput) SloQuery() DashboardWidgetQueryTableDefinitionRequestQuerySloQueryPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQuery) *DashboardWidgetQueryTableDefinitionRequestQuerySloQuery {
-		return v.SloQuery
-	}).(DashboardWidgetQueryTableDefinitionRequestQuerySloQueryPtrOutput)
-}
-
-// The User Journey query using formulas and functions.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryOutput) UserJourneyQuery() DashboardWidgetQueryTableDefinitionRequestQueryUserJourneyQueryPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQuery) *DashboardWidgetQueryTableDefinitionRequestQueryUserJourneyQuery {
-		return v.UserJourneyQuery
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryUserJourneyQueryPtrOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryArrayOutput struct{ *pulumi.OutputState }
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardWidgetQueryTableDefinitionRequestQuery)(nil)).Elem()
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryArrayOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryArrayOutput() DashboardWidgetQueryTableDefinitionRequestQueryArrayOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryArrayOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryArrayOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryArrayOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryArrayOutput) Index(i pulumi.IntInput) DashboardWidgetQueryTableDefinitionRequestQueryOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardWidgetQueryTableDefinitionRequestQuery {
-		return vs[0].([]DashboardWidgetQueryTableDefinitionRequestQuery)[vs[1].(int)]
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery struct {
-	// The source organization UUID for cross organization queries. Feature in Private Beta.
-	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
-	DataSource string `pulumi:"dataSource"`
-	// APM environment.
-	Env string `pulumi:"env"`
-	// Determines whether stats for upstream or downstream dependencies should be queried.
-	IsUpstream *bool `pulumi:"isUpstream"`
-	// The name of query for use in formulas.
-	Name string `pulumi:"name"`
-	// Name of operation on service.
-	OperationName string `pulumi:"operationName"`
-	// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
-	PrimaryTagName *string `pulumi:"primaryTagName"`
-	// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
-	PrimaryTagValue *string `pulumi:"primaryTagValue"`
-	// APM resource.
-	ResourceName string `pulumi:"resourceName"`
-	// APM service.
-	Service string `pulumi:"service"`
-	// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
-	Stat string `pulumi:"stat"`
-}
-
-// DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryInput is an input type that accepts DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryArgs and DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutput values.
-// You can construct a concrete instance of `DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryInput` via:
-//
-//	DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryArgs{...}
-type DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryInput interface {
-	pulumi.Input
-
-	ToDashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutput() DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutput
-	ToDashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutputWithContext(context.Context) DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutput
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryArgs struct {
-	// The source organization UUID for cross organization queries. Feature in Private Beta.
-	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
-	DataSource pulumi.StringInput `pulumi:"dataSource"`
-	// APM environment.
-	Env pulumi.StringInput `pulumi:"env"`
-	// Determines whether stats for upstream or downstream dependencies should be queried.
-	IsUpstream pulumi.BoolPtrInput `pulumi:"isUpstream"`
-	// The name of query for use in formulas.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Name of operation on service.
-	OperationName pulumi.StringInput `pulumi:"operationName"`
-	// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
-	PrimaryTagName pulumi.StringPtrInput `pulumi:"primaryTagName"`
-	// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
-	PrimaryTagValue pulumi.StringPtrInput `pulumi:"primaryTagValue"`
-	// APM resource.
-	ResourceName pulumi.StringInput `pulumi:"resourceName"`
-	// APM service.
-	Service pulumi.StringInput `pulumi:"service"`
-	// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
-	Stat pulumi.StringInput `pulumi:"stat"`
-}
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery)(nil)).Elem()
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutput() DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutputWithContext(context.Background())
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutput)
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutput).ToDashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutputWithContext(ctx)
-}
-
-// DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrInput is an input type that accepts DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryArgs, DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtr and DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput values.
-// You can construct a concrete instance of `DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrInput` via:
-//
-//	        DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrInput interface {
-	pulumi.Input
-
-	ToDashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput
-	ToDashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutputWithContext(context.Context) DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput
-}
-
-type dashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrType DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryArgs
-
-func DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtr(v *DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryArgs) DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrInput {
-	return (*dashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrType)(v)
-}
-
-func (*dashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery)(nil)).Elem()
-}
-
-func (i *dashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrType) ToDashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrType) ToDashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutput struct{ *pulumi.OutputState }
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery)(nil)).Elem()
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutput() DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput {
-	return o.ToDashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery) *DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery {
-		return &v
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput)
-}
-
-// The source organization UUID for cross organization queries. Feature in Private Beta.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutput) CrossOrgUuids() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery) *string {
-		return v.CrossOrgUuids
-	}).(pulumi.StringPtrOutput)
-}
-
-// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutput) DataSource() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery) string {
-		return v.DataSource
-	}).(pulumi.StringOutput)
-}
-
-// APM environment.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutput) Env() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery) string { return v.Env }).(pulumi.StringOutput)
-}
-
-// Determines whether stats for upstream or downstream dependencies should be queried.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutput) IsUpstream() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery) *bool {
-		return v.IsUpstream
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The name of query for use in formulas.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Name of operation on service.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutput) OperationName() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery) string {
-		return v.OperationName
-	}).(pulumi.StringOutput)
-}
-
-// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutput) PrimaryTagName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery) *string {
-		return v.PrimaryTagName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutput) PrimaryTagValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery) *string {
-		return v.PrimaryTagValue
-	}).(pulumi.StringPtrOutput)
-}
-
-// APM resource.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutput) ResourceName() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery) string {
-		return v.ResourceName
-	}).(pulumi.StringOutput)
-}
-
-// APM service.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutput) Service() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery) string {
-		return v.Service
-	}).(pulumi.StringOutput)
-}
-
-// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutput) Stat() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery) string { return v.Stat }).(pulumi.StringOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery)(nil)).Elem()
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) Elem() DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery) DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery
-		return ret
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutput)
-}
-
-// The source organization UUID for cross organization queries. Feature in Private Beta.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) CrossOrgUuids() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CrossOrgUuids
-	}).(pulumi.StringPtrOutput)
-}
-
-// The data source for APM Dependency Stats queries. Valid values are `apmDependencyStats`.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DataSource
-	}).(pulumi.StringPtrOutput)
-}
-
-// APM environment.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) Env() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Env
-	}).(pulumi.StringPtrOutput)
-}
-
-// Determines whether stats for upstream or downstream dependencies should be queried.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) IsUpstream() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery) *bool {
-		if v == nil {
-			return nil
-		}
-		return v.IsUpstream
-	}).(pulumi.BoolPtrOutput)
-}
-
-// The name of query for use in formulas.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Name of operation on service.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) OperationName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.OperationName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) PrimaryTagName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PrimaryTagName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) PrimaryTagValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PrimaryTagValue
-	}).(pulumi.StringPtrOutput)
-}
-
-// APM resource.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) ResourceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.ResourceName
-	}).(pulumi.StringPtrOutput)
-}
-
-// APM service.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) Service() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Service
-	}).(pulumi.StringPtrOutput)
-}
-
-// APM statistic. Valid values are `avgDuration`, `avgRootDuration`, `avgSpansPerTrace`, `errorRate`, `pctExecTime`, `pctOfTraces`, `totalTracesCount`.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput) Stat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Stat
-	}).(pulumi.StringPtrOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery struct {
-	// The data source for APM metrics queries. Valid values are `apmMetrics`.
-	DataSource string `pulumi:"dataSource"`
-	// Optional fields to group the query results by.
-	GroupBies []string `pulumi:"groupBies"`
-	// Name of this query to use in formulas.
-	Name string `pulumi:"name"`
-	// Optional operation mode used to aggregate across operation names.
-	OperationMode *string `pulumi:"operationMode"`
-	// Name of the operation on the service. If omitted, the primary operation name is used.
-	OperationName *string `pulumi:"operationName"`
-	// Tags to query for a specific downstream entity, such as `peer.service` or `peer.db_instance`.
-	PeerTags []string `pulumi:"peerTags"`
-	// Additional filters for the query using metrics query syntax.
-	QueryFilter *string `pulumi:"queryFilter"`
-	// The hash of a specific resource to filter by.
-	ResourceHash *string `pulumi:"resourceHash"`
-	// The full name of a specific resource to filter by.
-	ResourceName *string `pulumi:"resourceName"`
-	// APM service name.
-	Service *string `pulumi:"service"`
-	// The relationship between the span, its parents, and its children in a trace. Valid values are `consumer`, `server`, `client`, `producer`, `internal`.
-	SpanKind *string `pulumi:"spanKind"`
-	// APM metric stat name. Valid values are `errors`, `errorRate`, `errorsPerSecond`, `latencyAvg`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`, `latencyP999`, `latencyDistribution`, `hits`, `hitsPerSecond`, `totalTime`, `apdex`.
-	Stat string `pulumi:"stat"`
-}
-
-// DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryInput is an input type that accepts DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryArgs and DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutput values.
-// You can construct a concrete instance of `DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryInput` via:
-//
-//	DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryArgs{...}
-type DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryInput interface {
-	pulumi.Input
-
-	ToDashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutput() DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutput
-	ToDashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutputWithContext(context.Context) DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutput
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryArgs struct {
-	// The data source for APM metrics queries. Valid values are `apmMetrics`.
-	DataSource pulumi.StringInput `pulumi:"dataSource"`
-	// Optional fields to group the query results by.
-	GroupBies pulumi.StringArrayInput `pulumi:"groupBies"`
-	// Name of this query to use in formulas.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Optional operation mode used to aggregate across operation names.
-	OperationMode pulumi.StringPtrInput `pulumi:"operationMode"`
-	// Name of the operation on the service. If omitted, the primary operation name is used.
-	OperationName pulumi.StringPtrInput `pulumi:"operationName"`
-	// Tags to query for a specific downstream entity, such as `peer.service` or `peer.db_instance`.
-	PeerTags pulumi.StringArrayInput `pulumi:"peerTags"`
-	// Additional filters for the query using metrics query syntax.
-	QueryFilter pulumi.StringPtrInput `pulumi:"queryFilter"`
-	// The hash of a specific resource to filter by.
-	ResourceHash pulumi.StringPtrInput `pulumi:"resourceHash"`
-	// The full name of a specific resource to filter by.
-	ResourceName pulumi.StringPtrInput `pulumi:"resourceName"`
-	// APM service name.
-	Service pulumi.StringPtrInput `pulumi:"service"`
-	// The relationship between the span, its parents, and its children in a trace. Valid values are `consumer`, `server`, `client`, `producer`, `internal`.
-	SpanKind pulumi.StringPtrInput `pulumi:"spanKind"`
-	// APM metric stat name. Valid values are `errors`, `errorRate`, `errorsPerSecond`, `latencyAvg`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`, `latencyP999`, `latencyDistribution`, `hits`, `hitsPerSecond`, `totalTime`, `apdex`.
-	Stat pulumi.StringInput `pulumi:"stat"`
-}
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery)(nil)).Elem()
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutput() DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutputWithContext(context.Background())
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutput)
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutput).ToDashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutputWithContext(ctx)
-}
-
-// DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrInput is an input type that accepts DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryArgs, DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtr and DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput values.
-// You can construct a concrete instance of `DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrInput` via:
-//
-//	        DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrInput interface {
-	pulumi.Input
-
-	ToDashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput
-	ToDashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutputWithContext(context.Context) DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput
-}
-
-type dashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrType DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryArgs
-
-func DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtr(v *DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryArgs) DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrInput {
-	return (*dashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrType)(v)
-}
-
-func (*dashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery)(nil)).Elem()
-}
-
-func (i *dashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrType) ToDashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrType) ToDashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutput struct{ *pulumi.OutputState }
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery)(nil)).Elem()
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutput() DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput {
-	return o.ToDashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery) *DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery {
-		return &v
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput)
-}
-
-// The data source for APM metrics queries. Valid values are `apmMetrics`.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutput) DataSource() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery) string { return v.DataSource }).(pulumi.StringOutput)
-}
-
-// Optional fields to group the query results by.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutput) GroupBies() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery) []string { return v.GroupBies }).(pulumi.StringArrayOutput)
-}
-
-// Name of this query to use in formulas.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Optional operation mode used to aggregate across operation names.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutput) OperationMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery) *string { return v.OperationMode }).(pulumi.StringPtrOutput)
-}
-
-// Name of the operation on the service. If omitted, the primary operation name is used.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutput) OperationName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery) *string { return v.OperationName }).(pulumi.StringPtrOutput)
-}
-
-// Tags to query for a specific downstream entity, such as `peer.service` or `peer.db_instance`.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutput) PeerTags() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery) []string { return v.PeerTags }).(pulumi.StringArrayOutput)
-}
-
-// Additional filters for the query using metrics query syntax.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutput) QueryFilter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery) *string { return v.QueryFilter }).(pulumi.StringPtrOutput)
-}
-
-// The hash of a specific resource to filter by.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutput) ResourceHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery) *string { return v.ResourceHash }).(pulumi.StringPtrOutput)
-}
-
-// The full name of a specific resource to filter by.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutput) ResourceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery) *string { return v.ResourceName }).(pulumi.StringPtrOutput)
-}
-
-// APM service name.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutput) Service() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery) *string { return v.Service }).(pulumi.StringPtrOutput)
-}
-
-// The relationship between the span, its parents, and its children in a trace. Valid values are `consumer`, `server`, `client`, `producer`, `internal`.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutput) SpanKind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery) *string { return v.SpanKind }).(pulumi.StringPtrOutput)
-}
-
-// APM metric stat name. Valid values are `errors`, `errorRate`, `errorsPerSecond`, `latencyAvg`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`, `latencyP999`, `latencyDistribution`, `hits`, `hitsPerSecond`, `totalTime`, `apdex`.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutput) Stat() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery) string { return v.Stat }).(pulumi.StringOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery)(nil)).Elem()
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput) Elem() DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery) DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery
-		return ret
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutput)
-}
-
-// The data source for APM metrics queries. Valid values are `apmMetrics`.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DataSource
-	}).(pulumi.StringPtrOutput)
-}
-
-// Optional fields to group the query results by.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput) GroupBies() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery) []string {
-		if v == nil {
-			return nil
-		}
-		return v.GroupBies
-	}).(pulumi.StringArrayOutput)
-}
-
-// Name of this query to use in formulas.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Optional operation mode used to aggregate across operation names.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput) OperationMode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OperationMode
-	}).(pulumi.StringPtrOutput)
-}
-
-// Name of the operation on the service. If omitted, the primary operation name is used.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput) OperationName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OperationName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Tags to query for a specific downstream entity, such as `peer.service` or `peer.db_instance`.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput) PeerTags() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery) []string {
-		if v == nil {
-			return nil
-		}
-		return v.PeerTags
-	}).(pulumi.StringArrayOutput)
-}
-
-// Additional filters for the query using metrics query syntax.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput) QueryFilter() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.QueryFilter
-	}).(pulumi.StringPtrOutput)
-}
-
-// The hash of a specific resource to filter by.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput) ResourceHash() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceHash
-	}).(pulumi.StringPtrOutput)
-}
-
-// The full name of a specific resource to filter by.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput) ResourceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceName
-	}).(pulumi.StringPtrOutput)
-}
-
-// APM service name.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput) Service() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Service
-	}).(pulumi.StringPtrOutput)
-}
-
-// The relationship between the span, its parents, and its children in a trace. Valid values are `consumer`, `server`, `client`, `producer`, `internal`.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput) SpanKind() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.SpanKind
-	}).(pulumi.StringPtrOutput)
-}
-
-// APM metric stat name. Valid values are `errors`, `errorRate`, `errorsPerSecond`, `latencyAvg`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`, `latencyP999`, `latencyDistribution`, `hits`, `hitsPerSecond`, `totalTime`, `apdex`.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput) Stat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Stat
-	}).(pulumi.StringPtrOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery struct {
-	// The source organization UUID for cross organization queries. Feature in Private Beta.
-	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
-	DataSource string `pulumi:"dataSource"`
-	// APM environment.
-	Env string `pulumi:"env"`
-	// Array of fields to group results by.
-	GroupBies []string `pulumi:"groupBies"`
-	// The name of query for use in formulas.
-	Name string `pulumi:"name"`
-	// Name of operation on service.
-	OperationName *string `pulumi:"operationName"`
-	// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
-	PrimaryTagName *string `pulumi:"primaryTagName"`
-	// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
-	PrimaryTagValue *string `pulumi:"primaryTagValue"`
-	// APM resource.
-	ResourceName *string `pulumi:"resourceName"`
-	// APM service.
-	Service string `pulumi:"service"`
-	// APM statistic. Valid values are `errors`, `errorRate`, `hits`, `latencyAvg`, `latencyDistribution`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`.
-	Stat string `pulumi:"stat"`
-}
-
-// DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryInput is an input type that accepts DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryArgs and DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutput values.
-// You can construct a concrete instance of `DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryInput` via:
-//
-//	DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryArgs{...}
-type DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryInput interface {
-	pulumi.Input
-
-	ToDashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutput() DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutput
-	ToDashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutputWithContext(context.Context) DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutput
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryArgs struct {
-	// The source organization UUID for cross organization queries. Feature in Private Beta.
-	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
-	DataSource pulumi.StringInput `pulumi:"dataSource"`
-	// APM environment.
-	Env pulumi.StringInput `pulumi:"env"`
-	// Array of fields to group results by.
-	GroupBies pulumi.StringArrayInput `pulumi:"groupBies"`
-	// The name of query for use in formulas.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Name of operation on service.
-	OperationName pulumi.StringPtrInput `pulumi:"operationName"`
-	// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
-	PrimaryTagName pulumi.StringPtrInput `pulumi:"primaryTagName"`
-	// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
-	PrimaryTagValue pulumi.StringPtrInput `pulumi:"primaryTagValue"`
-	// APM resource.
-	ResourceName pulumi.StringPtrInput `pulumi:"resourceName"`
-	// APM service.
-	Service pulumi.StringInput `pulumi:"service"`
-	// APM statistic. Valid values are `errors`, `errorRate`, `hits`, `latencyAvg`, `latencyDistribution`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`.
-	Stat pulumi.StringInput `pulumi:"stat"`
-}
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery)(nil)).Elem()
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutput() DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutputWithContext(context.Background())
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutput)
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutput).ToDashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutputWithContext(ctx)
-}
-
-// DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrInput is an input type that accepts DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryArgs, DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtr and DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput values.
-// You can construct a concrete instance of `DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrInput` via:
-//
-//	        DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrInput interface {
-	pulumi.Input
-
-	ToDashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput
-	ToDashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutputWithContext(context.Context) DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput
-}
-
-type dashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrType DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryArgs
-
-func DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtr(v *DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryArgs) DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrInput {
-	return (*dashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrType)(v)
-}
-
-func (*dashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery)(nil)).Elem()
-}
-
-func (i *dashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrType) ToDashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrType) ToDashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutput struct{ *pulumi.OutputState }
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery)(nil)).Elem()
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutput() DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput {
-	return o.ToDashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery) *DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery {
-		return &v
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput)
-}
-
-// The source organization UUID for cross organization queries. Feature in Private Beta.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutput) CrossOrgUuids() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery) *string {
-		return v.CrossOrgUuids
-	}).(pulumi.StringPtrOutput)
-}
-
-// The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutput) DataSource() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery) string {
-		return v.DataSource
-	}).(pulumi.StringOutput)
-}
-
-// APM environment.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutput) Env() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery) string { return v.Env }).(pulumi.StringOutput)
-}
-
-// Array of fields to group results by.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutput) GroupBies() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery) []string {
-		return v.GroupBies
-	}).(pulumi.StringArrayOutput)
-}
-
-// The name of query for use in formulas.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Name of operation on service.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutput) OperationName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery) *string {
-		return v.OperationName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutput) PrimaryTagName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery) *string {
-		return v.PrimaryTagName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutput) PrimaryTagValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery) *string {
-		return v.PrimaryTagValue
-	}).(pulumi.StringPtrOutput)
-}
-
-// APM resource.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutput) ResourceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery) *string {
-		return v.ResourceName
-	}).(pulumi.StringPtrOutput)
-}
-
-// APM service.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutput) Service() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery) string { return v.Service }).(pulumi.StringOutput)
-}
-
-// APM statistic. Valid values are `errors`, `errorRate`, `hits`, `latencyAvg`, `latencyDistribution`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutput) Stat() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery) string { return v.Stat }).(pulumi.StringOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery)(nil)).Elem()
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput) Elem() DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery) DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery
-		return ret
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutput)
-}
-
-// The source organization UUID for cross organization queries. Feature in Private Beta.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput) CrossOrgUuids() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CrossOrgUuids
-	}).(pulumi.StringPtrOutput)
-}
-
-// The data source for APM Resource Stats queries. Valid values are `apmResourceStats`.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DataSource
-	}).(pulumi.StringPtrOutput)
-}
-
-// APM environment.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput) Env() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Env
-	}).(pulumi.StringPtrOutput)
-}
-
-// Array of fields to group results by.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput) GroupBies() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery) []string {
-		if v == nil {
-			return nil
-		}
-		return v.GroupBies
-	}).(pulumi.StringArrayOutput)
-}
-
-// The name of query for use in formulas.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Name of operation on service.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput) OperationName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OperationName
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the second primary tag used within APM; required when `primaryTagValue` is specified. See https://docs.datadoghq.com/tracing/guide/setting*primary*tags*to*scope/#add-a-second-primary-tag-in-datadog.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput) PrimaryTagName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PrimaryTagName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Filter APM data by the second primary tag. `primaryTagName` must also be specified.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput) PrimaryTagValue() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PrimaryTagValue
-	}).(pulumi.StringPtrOutput)
-}
-
-// APM resource.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput) ResourceName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.ResourceName
-	}).(pulumi.StringPtrOutput)
-}
-
-// APM service.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput) Service() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Service
-	}).(pulumi.StringPtrOutput)
-}
-
-// APM statistic. Valid values are `errors`, `errorRate`, `hits`, `latencyAvg`, `latencyDistribution`, `latencyMax`, `latencyP50`, `latencyP75`, `latencyP90`, `latencyP95`, `latencyP99`.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput) Stat() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Stat
-	}).(pulumi.StringPtrOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery struct {
-	// The aggregation methods available for cloud cost queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
-	Aggregator *string `pulumi:"aggregator"`
-	// The source organization UUID for cross organization queries. Feature in Private Beta.
-	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for cloud cost queries. Valid values are `cloudCost`.
-	DataSource string `pulumi:"dataSource"`
-	// The name of the query for use in formulas.
-	Name string `pulumi:"name"`
-	// Query for Cloud Cost data.
-	Query string `pulumi:"query"`
-}
-
-// DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryInput is an input type that accepts DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryArgs and DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryOutput values.
-// You can construct a concrete instance of `DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryInput` via:
-//
-//	DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryArgs{...}
-type DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryInput interface {
-	pulumi.Input
-
-	ToDashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryOutput() DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryOutput
-	ToDashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryOutputWithContext(context.Context) DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryOutput
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryArgs struct {
-	// The aggregation methods available for cloud cost queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
-	Aggregator pulumi.StringPtrInput `pulumi:"aggregator"`
-	// The source organization UUID for cross organization queries. Feature in Private Beta.
-	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for cloud cost queries. Valid values are `cloudCost`.
-	DataSource pulumi.StringInput `pulumi:"dataSource"`
-	// The name of the query for use in formulas.
-	Name pulumi.StringInput `pulumi:"name"`
-	// Query for Cloud Cost data.
-	Query pulumi.StringInput `pulumi:"query"`
-}
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery)(nil)).Elem()
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryOutput() DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryOutputWithContext(context.Background())
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryOutput)
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryOutput).ToDashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutputWithContext(ctx)
-}
-
-// DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrInput is an input type that accepts DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryArgs, DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtr and DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutput values.
-// You can construct a concrete instance of `DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrInput` via:
-//
-//	        DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrInput interface {
-	pulumi.Input
-
-	ToDashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutput
-	ToDashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutputWithContext(context.Context) DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutput
-}
-
-type dashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrType DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryArgs
-
-func DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtr(v *DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryArgs) DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrInput {
-	return (*dashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrType)(v)
-}
-
-func (*dashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery)(nil)).Elem()
-}
-
-func (i *dashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrType) ToDashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrType) ToDashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryOutput struct{ *pulumi.OutputState }
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery)(nil)).Elem()
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryOutput() DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutput {
-	return o.ToDashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery) *DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery {
-		return &v
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutput)
-}
-
-// The aggregation methods available for cloud cost queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryOutput) Aggregator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery) *string { return v.Aggregator }).(pulumi.StringPtrOutput)
-}
-
-// The source organization UUID for cross organization queries. Feature in Private Beta.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryOutput) CrossOrgUuids() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
-}
-
-// The data source for cloud cost queries. Valid values are `cloudCost`.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryOutput) DataSource() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery) string { return v.DataSource }).(pulumi.StringOutput)
-}
-
-// The name of the query for use in formulas.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// Query for Cloud Cost data.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryOutput) Query() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery) string { return v.Query }).(pulumi.StringOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery)(nil)).Elem()
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutput) Elem() DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery) DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery
-		return ret
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryOutput)
-}
-
-// The aggregation methods available for cloud cost queries. Valid values are `avg`, `min`, `max`, `sum`, `last`, `area`, `l2norm`, `percentile`.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutput) Aggregator() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Aggregator
-	}).(pulumi.StringPtrOutput)
-}
-
-// The source organization UUID for cross organization queries. Feature in Private Beta.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutput) CrossOrgUuids() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CrossOrgUuids
-	}).(pulumi.StringPtrOutput)
-}
-
-// The data source for cloud cost queries. Valid values are `cloudCost`.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DataSource
-	}).(pulumi.StringPtrOutput)
-}
-
-// The name of the query for use in formulas.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// Query for Cloud Cost data.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutput) Query() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Query
-	}).(pulumi.StringPtrOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQuery struct {
-	// The compute options.
-	Computes []DashboardWidgetQueryTableDefinitionRequestQueryEventQueryCompute `pulumi:"computes"`
-	// The source organization UUID for cross organization queries. Feature in Private Beta.
-	CrossOrgUuids *string `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
-	DataSource string `pulumi:"dataSource"`
-	// Group by options.
-	GroupBies []DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy `pulumi:"groupBies"`
-	// Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
-	GroupByFields *DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFields `pulumi:"groupByFields"`
-	// An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
-	Indexes []string `pulumi:"indexes"`
-	// The name of query for use in formulas.
-	Name string `pulumi:"name"`
-	// The search options.
-	Search *DashboardWidgetQueryTableDefinitionRequestQueryEventQuerySearch `pulumi:"search"`
-	// Option for storage location. Feature in Private Beta.
-	Storage *string `pulumi:"storage"`
-}
-
-// DashboardWidgetQueryTableDefinitionRequestQueryEventQueryInput is an input type that accepts DashboardWidgetQueryTableDefinitionRequestQueryEventQueryArgs and DashboardWidgetQueryTableDefinitionRequestQueryEventQueryOutput values.
-// You can construct a concrete instance of `DashboardWidgetQueryTableDefinitionRequestQueryEventQueryInput` via:
-//
-//	DashboardWidgetQueryTableDefinitionRequestQueryEventQueryArgs{...}
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryInput interface {
-	pulumi.Input
-
-	ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryOutput
-	ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryOutputWithContext(context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryOutput
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryArgs struct {
-	// The compute options.
-	Computes DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArrayInput `pulumi:"computes"`
-	// The source organization UUID for cross organization queries. Feature in Private Beta.
-	CrossOrgUuids pulumi.StringPtrInput `pulumi:"crossOrgUuids"`
-	// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
-	DataSource pulumi.StringInput `pulumi:"dataSource"`
-	// Group by options.
-	GroupBies DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArrayInput `pulumi:"groupBies"`
-	// Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
-	GroupByFields DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrInput `pulumi:"groupByFields"`
-	// An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
-	Indexes pulumi.StringArrayInput `pulumi:"indexes"`
-	// The name of query for use in formulas.
-	Name pulumi.StringInput `pulumi:"name"`
-	// The search options.
-	Search DashboardWidgetQueryTableDefinitionRequestQueryEventQuerySearchPtrInput `pulumi:"search"`
-	// Option for storage location. Feature in Private Beta.
-	Storage pulumi.StringPtrInput `pulumi:"storage"`
-}
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryEventQueryArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryEventQuery)(nil)).Elem()
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryEventQueryArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryOutputWithContext(context.Background())
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryEventQueryArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryOutput)
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryEventQueryArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryEventQueryArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryOutput).ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutputWithContext(ctx)
-}
-
-// DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrInput is an input type that accepts DashboardWidgetQueryTableDefinitionRequestQueryEventQueryArgs, DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtr and DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput values.
-// You can construct a concrete instance of `DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrInput` via:
-//
-//	        DashboardWidgetQueryTableDefinitionRequestQueryEventQueryArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrInput interface {
-	pulumi.Input
-
-	ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput
-	ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutputWithContext(context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput
-}
-
-type dashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrType DashboardWidgetQueryTableDefinitionRequestQueryEventQueryArgs
-
-func DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtr(v *DashboardWidgetQueryTableDefinitionRequestQueryEventQueryArgs) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrInput {
-	return (*dashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrType)(v)
-}
-
-func (*dashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardWidgetQueryTableDefinitionRequestQueryEventQuery)(nil)).Elem()
-}
-
-func (i *dashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrType) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrType) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryOutput struct{ *pulumi.OutputState }
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryEventQueryOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryEventQuery)(nil)).Elem()
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput {
-	return o.ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardWidgetQueryTableDefinitionRequestQueryEventQuery) *DashboardWidgetQueryTableDefinitionRequestQueryEventQuery {
-		return &v
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput)
-}
-
-// The compute options.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryOutput) Computes() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArrayOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryEventQuery) []DashboardWidgetQueryTableDefinitionRequestQueryEventQueryCompute {
-		return v.Computes
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArrayOutput)
-}
-
-// The source organization UUID for cross organization queries. Feature in Private Beta.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryOutput) CrossOrgUuids() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryEventQuery) *string { return v.CrossOrgUuids }).(pulumi.StringPtrOutput)
-}
-
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryOutput) DataSource() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryEventQuery) string { return v.DataSource }).(pulumi.StringOutput)
-}
-
-// Group by options.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryOutput) GroupBies() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArrayOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryEventQuery) []DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy {
-		return v.GroupBies
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArrayOutput)
-}
-
-// Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryOutput) GroupByFields() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryEventQuery) *DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFields {
-		return v.GroupByFields
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput)
-}
-
-// An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryOutput) Indexes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryEventQuery) []string { return v.Indexes }).(pulumi.StringArrayOutput)
-}
-
-// The name of query for use in formulas.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryOutput) Name() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryEventQuery) string { return v.Name }).(pulumi.StringOutput)
-}
-
-// The search options.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryOutput) Search() DashboardWidgetQueryTableDefinitionRequestQueryEventQuerySearchPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryEventQuery) *DashboardWidgetQueryTableDefinitionRequestQueryEventQuerySearch {
-		return v.Search
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryEventQuerySearchPtrOutput)
-}
-
-// Option for storage location. Feature in Private Beta.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryOutput) Storage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryEventQuery) *string { return v.Storage }).(pulumi.StringPtrOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardWidgetQueryTableDefinitionRequestQueryEventQuery)(nil)).Elem()
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput) Elem() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryEventQuery) DashboardWidgetQueryTableDefinitionRequestQueryEventQuery {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardWidgetQueryTableDefinitionRequestQueryEventQuery
-		return ret
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryOutput)
-}
-
-// The compute options.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput) Computes() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArrayOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryEventQuery) []DashboardWidgetQueryTableDefinitionRequestQueryEventQueryCompute {
-		if v == nil {
-			return nil
-		}
-		return v.Computes
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArrayOutput)
-}
-
-// The source organization UUID for cross organization queries. Feature in Private Beta.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput) CrossOrgUuids() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryEventQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.CrossOrgUuids
-	}).(pulumi.StringPtrOutput)
-}
-
-// The data source for event platform-based queries. Valid values are `logs`, `spans`, `network`, `networkDeviceFlows`, `rum`, `securitySignals`, `profiles`, `audit`, `events`, `ciTests`, `ciPipelines`, `incidentAnalytics`, `productAnalytics`, `onCallEvents`, `errors`, `llmObservability`.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput) DataSource() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryEventQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.DataSource
-	}).(pulumi.StringPtrOutput)
-}
-
-// Group by options.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput) GroupBies() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArrayOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryEventQuery) []DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy {
-		if v == nil {
-			return nil
-		}
-		return v.GroupBies
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArrayOutput)
-}
-
-// Alternative group-by configuration that groups by multiple event facet fields. Use this or `groupBy`, not both.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput) GroupByFields() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryEventQuery) *DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFields {
-		if v == nil {
-			return nil
-		}
-		return v.GroupByFields
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput)
-}
-
-// An array of index names to query in the stream. Omit or use `[]` to query all indexes at once.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput) Indexes() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryEventQuery) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Indexes
-	}).(pulumi.StringArrayOutput)
-}
-
-// The name of query for use in formulas.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput) Name() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryEventQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Name
-	}).(pulumi.StringPtrOutput)
-}
-
-// The search options.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput) Search() DashboardWidgetQueryTableDefinitionRequestQueryEventQuerySearchPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryEventQuery) *DashboardWidgetQueryTableDefinitionRequestQueryEventQuerySearch {
-		if v == nil {
-			return nil
-		}
-		return v.Search
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryEventQuerySearchPtrOutput)
-}
-
-// Option for storage location. Feature in Private Beta.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput) Storage() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryEventQuery) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Storage
-	}).(pulumi.StringPtrOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryCompute struct {
-	// The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-	Aggregation string `pulumi:"aggregation"`
-	// A time interval in milliseconds.
-	Interval *int `pulumi:"interval"`
-	// The measurable attribute to compute.
-	Metric *string `pulumi:"metric"`
-}
-
-// DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeInput is an input type that accepts DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArgs and DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeOutput values.
-// You can construct a concrete instance of `DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeInput` via:
-//
-//	DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArgs{...}
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeInput interface {
-	pulumi.Input
-
-	ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeOutput
-	ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeOutputWithContext(context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeOutput
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArgs struct {
-	// The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-	Aggregation pulumi.StringInput `pulumi:"aggregation"`
-	// A time interval in milliseconds.
-	Interval pulumi.IntPtrInput `pulumi:"interval"`
-	// The measurable attribute to compute.
-	Metric pulumi.StringPtrInput `pulumi:"metric"`
-}
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryEventQueryCompute)(nil)).Elem()
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeOutputWithContext(context.Background())
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeOutput)
-}
-
-// DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArrayInput is an input type that accepts DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArray and DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArrayOutput values.
-// You can construct a concrete instance of `DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArrayInput` via:
-//
-//	DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArray{ DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArgs{...} }
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArrayInput interface {
-	pulumi.Input
-
-	ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArrayOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArrayOutput
-	ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArrayOutputWithContext(context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArrayOutput
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArray []DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeInput
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardWidgetQueryTableDefinitionRequestQueryEventQueryCompute)(nil)).Elem()
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArray) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArrayOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArrayOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArrayOutputWithContext(context.Background())
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArray) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArrayOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArrayOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeOutput struct{ *pulumi.OutputState }
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryEventQueryCompute)(nil)).Elem()
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeOutput {
-	return o
-}
-
-// The aggregation methods for event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeOutput) Aggregation() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryEventQueryCompute) string { return v.Aggregation }).(pulumi.StringOutput)
-}
-
-// A time interval in milliseconds.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeOutput) Interval() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryEventQueryCompute) *int { return v.Interval }).(pulumi.IntPtrOutput)
-}
-
-// The measurable attribute to compute.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeOutput) Metric() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryEventQueryCompute) *string { return v.Metric }).(pulumi.StringPtrOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArrayOutput struct{ *pulumi.OutputState }
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardWidgetQueryTableDefinitionRequestQueryEventQueryCompute)(nil)).Elem()
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArrayOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArrayOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArrayOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArrayOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArrayOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArrayOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArrayOutput) Index(i pulumi.IntInput) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryCompute {
-		return vs[0].([]DashboardWidgetQueryTableDefinitionRequestQueryEventQueryCompute)[vs[1].(int)]
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy struct {
-	// The event facet.
-	Facet string `pulumi:"facet"`
-	// The number of groups to return.
-	Limit *int `pulumi:"limit"`
-	// The options for sorting group by results.
-	Sort *DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort `pulumi:"sort"`
-}
-
-// DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByInput is an input type that accepts DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArgs and DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByOutput values.
-// You can construct a concrete instance of `DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByInput` via:
-//
-//	DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArgs{...}
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByInput interface {
-	pulumi.Input
-
-	ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByOutput
-	ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByOutputWithContext(context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByOutput
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArgs struct {
-	// The event facet.
-	Facet pulumi.StringInput `pulumi:"facet"`
-	// The number of groups to return.
-	Limit pulumi.IntPtrInput `pulumi:"limit"`
-	// The options for sorting group by results.
-	Sort DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrInput `pulumi:"sort"`
-}
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy)(nil)).Elem()
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByOutputWithContext(context.Background())
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByOutput)
-}
-
-// DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArrayInput is an input type that accepts DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArray and DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArrayOutput values.
-// You can construct a concrete instance of `DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArrayInput` via:
-//
-//	DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArray{ DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArgs{...} }
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArrayInput interface {
-	pulumi.Input
-
-	ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArrayOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArrayOutput
-	ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArrayOutputWithContext(context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArrayOutput
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArray []DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByInput
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy)(nil)).Elem()
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArray) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArrayOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArrayOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArrayOutputWithContext(context.Background())
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArray) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArrayOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArrayOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByOutput struct{ *pulumi.OutputState }
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy)(nil)).Elem()
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByOutput {
-	return o
-}
-
-// The event facet.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByOutput) Facet() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy) string { return v.Facet }).(pulumi.StringOutput)
-}
-
-// The number of groups to return.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByOutput) Limit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy) *int { return v.Limit }).(pulumi.IntPtrOutput)
-}
-
-// The options for sorting group by results.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByOutput) Sort() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy) *DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort {
-		return v.Sort
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArrayOutput struct{ *pulumi.OutputState }
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy)(nil)).Elem()
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArrayOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArrayOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArrayOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArrayOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArrayOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArrayOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArrayOutput) Index(i pulumi.IntInput) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy {
-		return vs[0].([]DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBy)[vs[1].(int)]
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFields struct {
-	// List of event facets to group by.
-	Fields []string `pulumi:"fields"`
-	// The number of groups to return.
-	Limit *int `pulumi:"limit"`
-	// The options for sorting group by results.
-	Sort *DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSort `pulumi:"sort"`
-}
-
-// DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsInput is an input type that accepts DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsArgs and DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsOutput values.
-// You can construct a concrete instance of `DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsInput` via:
-//
-//	DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsArgs{...}
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsInput interface {
-	pulumi.Input
-
-	ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsOutput
-	ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsOutputWithContext(context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsOutput
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsArgs struct {
-	// List of event facets to group by.
-	Fields pulumi.StringArrayInput `pulumi:"fields"`
-	// The number of groups to return.
-	Limit pulumi.IntPtrInput `pulumi:"limit"`
-	// The options for sorting group by results.
-	Sort DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrInput `pulumi:"sort"`
-}
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFields)(nil)).Elem()
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsOutputWithContext(context.Background())
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsOutput)
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsOutput).ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(ctx)
-}
-
-// DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrInput is an input type that accepts DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsArgs, DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtr and DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput values.
-// You can construct a concrete instance of `DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrInput` via:
-//
-//	        DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrInput interface {
-	pulumi.Input
-
-	ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput
-	ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput
-}
-
-type dashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrType DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsArgs
-
-func DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtr(v *DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsArgs) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrInput {
-	return (*dashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrType)(v)
-}
-
-func (*dashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFields)(nil)).Elem()
-}
-
-func (i *dashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrType) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrType) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsOutput struct{ *pulumi.OutputState }
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFields)(nil)).Elem()
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
-	return o.ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFields) *DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFields {
-		return &v
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput)
-}
-
-// List of event facets to group by.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsOutput) Fields() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFields) []string {
-		return v.Fields
-	}).(pulumi.StringArrayOutput)
-}
-
-// The number of groups to return.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsOutput) Limit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFields) *int { return v.Limit }).(pulumi.IntPtrOutput)
-}
-
-// The options for sorting group by results.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsOutput) Sort() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFields) *DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSort {
-		return v.Sort
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFields)(nil)).Elem()
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput) Elem() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFields) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFields {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFields
-		return ret
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsOutput)
-}
-
-// List of event facets to group by.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput) Fields() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFields) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Fields
-	}).(pulumi.StringArrayOutput)
-}
-
-// The number of groups to return.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput) Limit() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFields) *int {
-		if v == nil {
-			return nil
-		}
-		return v.Limit
-	}).(pulumi.IntPtrOutput)
-}
-
-// The options for sorting group by results.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput) Sort() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFields) *DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSort {
-		if v == nil {
-			return nil
-		}
-		return v.Sort
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSort struct {
-	// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-	Aggregation string `pulumi:"aggregation"`
-	// The metric used for sorting group by results.
-	Metric *string `pulumi:"metric"`
-	// Direction of sort. Valid values are `asc`, `desc`.
-	Order *string `pulumi:"order"`
-}
-
-// DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortInput is an input type that accepts DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortArgs and DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortOutput values.
-// You can construct a concrete instance of `DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortInput` via:
-//
-//	DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortArgs{...}
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortInput interface {
-	pulumi.Input
-
-	ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortOutput
-	ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortOutputWithContext(context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortOutput
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortArgs struct {
-	// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-	Aggregation pulumi.StringInput `pulumi:"aggregation"`
-	// The metric used for sorting group by results.
-	Metric pulumi.StringPtrInput `pulumi:"metric"`
-	// Direction of sort. Valid values are `asc`, `desc`.
-	Order pulumi.StringPtrInput `pulumi:"order"`
-}
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSort)(nil)).Elem()
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortOutputWithContext(context.Background())
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortOutput)
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortOutput).ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutputWithContext(ctx)
-}
-
-// DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrInput is an input type that accepts DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortArgs, DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtr and DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput values.
-// You can construct a concrete instance of `DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrInput` via:
-//
-//	        DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrInput interface {
-	pulumi.Input
-
-	ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput
-	ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutputWithContext(context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput
-}
-
-type dashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrType DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortArgs
-
-func DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtr(v *DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortArgs) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrInput {
-	return (*dashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrType)(v)
-}
-
-func (*dashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSort)(nil)).Elem()
-}
-
-func (i *dashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrType) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrType) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortOutput struct{ *pulumi.OutputState }
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSort)(nil)).Elem()
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput {
-	return o.ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSort) *DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSort {
-		return &v
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput)
-}
-
-// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortOutput) Aggregation() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSort) string {
-		return v.Aggregation
-	}).(pulumi.StringOutput)
-}
-
-// The metric used for sorting group by results.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortOutput) Metric() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSort) *string {
-		return v.Metric
-	}).(pulumi.StringPtrOutput)
-}
-
-// Direction of sort. Valid values are `asc`, `desc`.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortOutput) Order() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSort) *string {
-		return v.Order
-	}).(pulumi.StringPtrOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSort)(nil)).Elem()
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput) Elem() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSort) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSort {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSort
-		return ret
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortOutput)
-}
-
-// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput) Aggregation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSort) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Aggregation
-	}).(pulumi.StringPtrOutput)
-}
-
-// The metric used for sorting group by results.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput) Metric() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSort) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Metric
-	}).(pulumi.StringPtrOutput)
-}
-
-// Direction of sort. Valid values are `asc`, `desc`.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput) Order() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSort) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Order
-	}).(pulumi.StringPtrOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort struct {
-	// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-	Aggregation string `pulumi:"aggregation"`
-	// The metric used for sorting group by results.
-	Metric *string `pulumi:"metric"`
-	// Direction of sort. Valid values are `asc`, `desc`.
-	Order *string `pulumi:"order"`
-}
-
-// DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortInput is an input type that accepts DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortArgs and DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortOutput values.
-// You can construct a concrete instance of `DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortInput` via:
-//
-//	DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortArgs{...}
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortInput interface {
-	pulumi.Input
-
-	ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortOutput
-	ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortOutputWithContext(context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortOutput
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortArgs struct {
-	// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-	Aggregation pulumi.StringInput `pulumi:"aggregation"`
-	// The metric used for sorting group by results.
-	Metric pulumi.StringPtrInput `pulumi:"metric"`
-	// Direction of sort. Valid values are `asc`, `desc`.
-	Order pulumi.StringPtrInput `pulumi:"order"`
-}
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort)(nil)).Elem()
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortOutputWithContext(context.Background())
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortOutput)
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(context.Background())
-}
-
-func (i DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortArgs) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortOutput).ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(ctx)
-}
-
-// DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrInput is an input type that accepts DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortArgs, DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtr and DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutput values.
-// You can construct a concrete instance of `DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrInput` via:
-//
-//	        DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortArgs{...}
-//
-//	or:
-//
-//	        nil
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrInput interface {
-	pulumi.Input
-
-	ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutput
-	ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutput
-}
-
-type dashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrType DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortArgs
-
-func DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtr(v *DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortArgs) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrInput {
-	return (*dashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrType)(v)
-}
-
-func (*dashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort)(nil)).Elem()
-}
-
-func (i *dashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrType) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
-	return i.ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(context.Background())
-}
-
-func (i *dashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrType) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortOutput struct{ *pulumi.OutputState }
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort)(nil)).Elem()
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
-	return o.ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(context.Background())
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort) *DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort {
-		return &v
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutput)
-}
-
-// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortOutput) Aggregation() pulumi.StringOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort) string {
-		return v.Aggregation
-	}).(pulumi.StringOutput)
-}
-
-// The metric used for sorting group by results.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortOutput) Metric() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort) *string { return v.Metric }).(pulumi.StringPtrOutput)
-}
-
-// Direction of sort. Valid values are `asc`, `desc`.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortOutput) Order() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort) *string { return v.Order }).(pulumi.StringPtrOutput)
-}
-
-type DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutput struct{ *pulumi.OutputState }
-
-func (DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort)(nil)).Elem()
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutput() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutput) ToDashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutputWithContext(ctx context.Context) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutput {
-	return o
-}
-
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutput) Elem() DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort) DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort {
-		if v != nil {
-			return *v
-		}
-		var ret DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort
-		return ret
-	}).(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortOutput)
-}
-
-// The aggregation methods for the event platform queries. Valid values are `count`, `cardinality`, `median`, `pc75`, `pc90`, `pc95`, `pc98`, `pc99`, `sum`, `min`, `max`, `avg`.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutput) Aggregation() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Aggregation
-	}).(pulumi.StringPtrOutput)
-}
-
-// The metric used for sorting group by results.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutput) Metric() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Metric
-	}).(pulumi.StringPtrOutput)
-}
-
-// Direction of sort. Valid values are `asc`, `desc`.
-func (o DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutput) Order() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySort) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Order
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortInput)(nil)).Elem(), DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrInput)(nil)).Elem(), DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetInput)(nil)).Elem(), DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrInput)(nil)).Elem(), DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchInput)(nil)).Elem(), DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrInput)(nil)).Elem(), DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersInput)(nil)).Elem(), DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrInput)(nil)).Elem(), DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersInput)(nil)).Elem(), DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrInput)(nil)).Elem(), DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountInput)(nil)).Elem(), DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayInput)(nil)).Elem(), DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentInput)(nil)).Elem(), DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayInput)(nil)).Elem(), DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserInput)(nil)).Elem(), DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayInput)(nil)).Elem(), DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterInput)(nil)).Elem(), DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArrayInput)(nil)).Elem(), DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetInput)(nil)).Elem(), DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrInput)(nil)).Elem(), DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysInput)(nil)).Elem(), DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrInput)(nil)).Elem(), DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetGeomapDefinitionStyleInput)(nil)).Elem(), DashboardWidgetGeomapDefinitionStyleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetGeomapDefinitionStylePtrInput)(nil)).Elem(), DashboardWidgetGeomapDefinitionStyleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetGeomapDefinitionTimeInput)(nil)).Elem(), DashboardWidgetGeomapDefinitionTimeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetGeomapDefinitionTimePtrInput)(nil)).Elem(), DashboardWidgetGeomapDefinitionTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetGeomapDefinitionTimeFixedInput)(nil)).Elem(), DashboardWidgetGeomapDefinitionTimeFixedArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetGeomapDefinitionTimeFixedPtrInput)(nil)).Elem(), DashboardWidgetGeomapDefinitionTimeFixedArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetGeomapDefinitionTimeLiveInput)(nil)).Elem(), DashboardWidgetGeomapDefinitionTimeLiveArgs{})
@@ -91033,32 +90306,32 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCustomPtrInput)(nil)).Elem(), DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCustomArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScaleInput)(nil)).Elem(), DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScaleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScalePtrInput)(nil)).Elem(), DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScaleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestFormulaStyleInput)(nil)).Elem(), DashboardWidgetQueryTableDefinitionRequestFormulaStyleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestFormulaStylePtrInput)(nil)).Elem(), DashboardWidgetQueryTableDefinitionRequestFormulaStyleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestProcessQueryInput)(nil)).Elem(), DashboardWidgetQueryTableDefinitionRequestProcessQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestProcessQueryPtrInput)(nil)).Elem(), DashboardWidgetQueryTableDefinitionRequestProcessQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryInput)(nil)).Elem(), DashboardWidgetQueryTableDefinitionRequestQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryArrayInput)(nil)).Elem(), DashboardWidgetQueryTableDefinitionRequestQueryArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryInput)(nil)).Elem(), DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrInput)(nil)).Elem(), DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryInput)(nil)).Elem(), DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrInput)(nil)).Elem(), DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryInput)(nil)).Elem(), DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrInput)(nil)).Elem(), DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryInput)(nil)).Elem(), DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrInput)(nil)).Elem(), DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryEventQueryInput)(nil)).Elem(), DashboardWidgetQueryTableDefinitionRequestQueryEventQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrInput)(nil)).Elem(), DashboardWidgetQueryTableDefinitionRequestQueryEventQueryArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeInput)(nil)).Elem(), DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArrayInput)(nil)).Elem(), DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByInput)(nil)).Elem(), DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArrayInput)(nil)).Elem(), DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsInput)(nil)).Elem(), DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrInput)(nil)).Elem(), DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortInput)(nil)).Elem(), DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrInput)(nil)).Elem(), DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortInput)(nil)).Elem(), DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrInput)(nil)).Elem(), DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortArgs{})
+	pulumi.RegisterOutputType(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupBySortPtrOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQueryGroupByTargetPtrOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchPtrOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersPtrOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersPtrOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersAccountArrayOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersSegmentArrayOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersAudienceFiltersUserArrayOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterArrayOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchFiltersGraphFilterTargetPtrOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetGeomapDefinitionRequestQueryUserJourneyQuerySearchJoinKeysPtrOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetGeomapDefinitionStyleOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetGeomapDefinitionStylePtrOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetGeomapDefinitionTimeOutput{})
+	pulumi.RegisterOutputType(DashboardWidgetGeomapDefinitionTimePtrOutput{})
 	pulumi.RegisterOutputType(DashboardWidgetGeomapDefinitionTimeFixedOutput{})
 	pulumi.RegisterOutputType(DashboardWidgetGeomapDefinitionTimeFixedPtrOutput{})
 	pulumi.RegisterOutputType(DashboardWidgetGeomapDefinitionTimeLiveOutput{})
@@ -92028,30 +91301,4 @@ func init() {
 	pulumi.RegisterOutputType(DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput{})
 	pulumi.RegisterOutputType(DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScaleOutput{})
 	pulumi.RegisterOutputType(DashboardWidgetQueryTableDefinitionRequestFormulaNumberFormatUnitScalePtrOutput{})
-	pulumi.RegisterOutputType(DashboardWidgetQueryTableDefinitionRequestFormulaStyleOutput{})
-	pulumi.RegisterOutputType(DashboardWidgetQueryTableDefinitionRequestFormulaStylePtrOutput{})
-	pulumi.RegisterOutputType(DashboardWidgetQueryTableDefinitionRequestProcessQueryOutput{})
-	pulumi.RegisterOutputType(DashboardWidgetQueryTableDefinitionRequestProcessQueryPtrOutput{})
-	pulumi.RegisterOutputType(DashboardWidgetQueryTableDefinitionRequestQueryOutput{})
-	pulumi.RegisterOutputType(DashboardWidgetQueryTableDefinitionRequestQueryArrayOutput{})
-	pulumi.RegisterOutputType(DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryOutput{})
-	pulumi.RegisterOutputType(DashboardWidgetQueryTableDefinitionRequestQueryApmDependencyStatsQueryPtrOutput{})
-	pulumi.RegisterOutputType(DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryOutput{})
-	pulumi.RegisterOutputType(DashboardWidgetQueryTableDefinitionRequestQueryApmMetricsQueryPtrOutput{})
-	pulumi.RegisterOutputType(DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryOutput{})
-	pulumi.RegisterOutputType(DashboardWidgetQueryTableDefinitionRequestQueryApmResourceStatsQueryPtrOutput{})
-	pulumi.RegisterOutputType(DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryOutput{})
-	pulumi.RegisterOutputType(DashboardWidgetQueryTableDefinitionRequestQueryCloudCostQueryPtrOutput{})
-	pulumi.RegisterOutputType(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryOutput{})
-	pulumi.RegisterOutputType(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryPtrOutput{})
-	pulumi.RegisterOutputType(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeOutput{})
-	pulumi.RegisterOutputType(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryComputeArrayOutput{})
-	pulumi.RegisterOutputType(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByOutput{})
-	pulumi.RegisterOutputType(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByArrayOutput{})
-	pulumi.RegisterOutputType(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsOutput{})
-	pulumi.RegisterOutputType(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsPtrOutput{})
-	pulumi.RegisterOutputType(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortOutput{})
-	pulumi.RegisterOutputType(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupByFieldsSortPtrOutput{})
-	pulumi.RegisterOutputType(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortOutput{})
-	pulumi.RegisterOutputType(DashboardWidgetQueryTableDefinitionRequestQueryEventQueryGroupBySortPtrOutput{})
 }

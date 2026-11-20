@@ -6,6 +6,7 @@ package com.pulumi.datadog;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.ProviderDefaultTagsArgs;
+import java.lang.Boolean;
 import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
@@ -274,18 +275,33 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The organization UUID; required for AWS WIF. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+     * The organization UUID; required for AWS WIF and for `usePup`. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
      * 
      */
     @Import(name="orgUuid")
     private @Nullable Output<String> orgUuid;
 
     /**
-     * @return The organization UUID; required for AWS WIF. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+     * @return The organization UUID; required for AWS WIF and for `usePup`. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
      * 
      */
     public Optional<Output<String>> orgUuid() {
         return Optional.ofNullable(this.orgUuid);
+    }
+
+    /**
+     * Get a bearer token from the pup CLI (pup auth token) after you run pup auth login, so you don&#39;t need to store an API key, application key, or access token. Used only when api_key, app_key, bearer_token, cloud provider authentication, and HCP Terraform dynamic provider credentials are all absent. The provider requests a new token when the current one expires, and fails if pup is then logged in as a different user. Requires org_uuid, and every token must belong to that organization. You can also set this with the `DD_USE_PUP` environment variable.
+     * 
+     */
+    @Import(name="usePup", json=true)
+    private @Nullable Output<Boolean> usePup;
+
+    /**
+     * @return Get a bearer token from the pup CLI (pup auth token) after you run pup auth login, so you don&#39;t need to store an API key, application key, or access token. Used only when api_key, app_key, bearer_token, cloud provider authentication, and HCP Terraform dynamic provider credentials are all absent. The provider requests a new token when the current one expires, and fails if pup is then logged in as a different user. Requires org_uuid, and every token must belong to that organization. You can also set this with the `DD_USE_PUP` environment variable.
+     * 
+     */
+    public Optional<Output<Boolean>> usePup() {
+        return Optional.ofNullable(this.usePup);
     }
 
     /**
@@ -339,6 +355,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         this.httpClientRetryTimeout = $.httpClientRetryTimeout;
         this.ignoreTagKeys = $.ignoreTagKeys;
         this.orgUuid = $.orgUuid;
+        this.usePup = $.usePup;
         this.validate = $.validate;
         this.workloadIdentityTokenTag = $.workloadIdentityTokenTag;
     }
@@ -729,7 +746,7 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param orgUuid The organization UUID; required for AWS WIF. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+         * @param orgUuid The organization UUID; required for AWS WIF and for `usePup`. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
          * 
          * @return builder
          * 
@@ -740,13 +757,34 @@ public final class ProviderArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param orgUuid The organization UUID; required for AWS WIF. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
+         * @param orgUuid The organization UUID; required for AWS WIF and for `usePup`. Optional for Terraform Dynamic Provider Credentials, but when configured it must match the organization UUID in the token audience. This can also be set using the `DD_ORG_UUID` environment variable. See the [Datadog API documentation](https://docs.datadoghq.com/api/v1/organizations/) for more information.
          * 
          * @return builder
          * 
          */
         public Builder orgUuid(String orgUuid) {
             return orgUuid(Output.of(orgUuid));
+        }
+
+        /**
+         * @param usePup Get a bearer token from the pup CLI (pup auth token) after you run pup auth login, so you don&#39;t need to store an API key, application key, or access token. Used only when api_key, app_key, bearer_token, cloud provider authentication, and HCP Terraform dynamic provider credentials are all absent. The provider requests a new token when the current one expires, and fails if pup is then logged in as a different user. Requires org_uuid, and every token must belong to that organization. You can also set this with the `DD_USE_PUP` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder usePup(@Nullable Output<Boolean> usePup) {
+            $.usePup = usePup;
+            return this;
+        }
+
+        /**
+         * @param usePup Get a bearer token from the pup CLI (pup auth token) after you run pup auth login, so you don&#39;t need to store an API key, application key, or access token. Used only when api_key, app_key, bearer_token, cloud provider authentication, and HCP Terraform dynamic provider credentials are all absent. The provider requests a new token when the current one expires, and fails if pup is then logged in as a different user. Requires org_uuid, and every token must belong to that organization. You can also set this with the `DD_USE_PUP` environment variable.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder usePup(Boolean usePup) {
+            return usePup(Output.of(usePup));
         }
 
         /**

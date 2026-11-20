@@ -25,23 +25,31 @@ class StatusPageArgs:
                  visualization_type: pulumi.Input[_builtins.str],
                  company_logo: pulumi.Input[Optional[_builtins.str]] = None,
                  email_header_image: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  favicon: pulumi.Input[Optional[_builtins.str]] = None,
+                 ms_teams_subscriptions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 rss_feed_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  slack_app_icon: pulumi.Input[Optional[_builtins.str]] = None,
                  slack_subscriptions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
-                 subscriptions_enabled: pulumi.Input[Optional[_builtins.bool]] = None):
+                 subscriptions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
+                 visualization_layout: pulumi.Input[Optional[_builtins.str]] = None):
         """
         The set of arguments for constructing a StatusPage resource.
 
         :param pulumi.Input[_builtins.str] domain_prefix: The subdomain prefix used to build the status page's URL.
         :param pulumi.Input[_builtins.str] name: The name of the status page.
-        :param pulumi.Input[_builtins.str] type: The type of the status page. Valid values are: public, internal.
+        :param pulumi.Input[_builtins.str] type: The type of the status page. Valid values are: public, internal, private. Private pages are only accessible to users allowed by the page's email access policies, managed with `StatusPageEmailAccessPolicy`.
         :param pulumi.Input[_builtins.str] visualization_type: How component statuses are visualized on the page. Valid values are: bars*and*uptime*percentage, bars*only, component*name*only.
         :param pulumi.Input[_builtins.str] company_logo: The company logo displayed on the status page.
         :param pulumi.Input[_builtins.str] email_header_image: The header image included in subscriber emails.
+        :param pulumi.Input[_builtins.bool] email_notifications_enabled: Whether email notifications are enabled for the status page. Must be enabled when `subscriptions_enabled` is `true`.
         :param pulumi.Input[_builtins.str] favicon: The favicon displayed for the status page.
+        :param pulumi.Input[_builtins.bool] ms_teams_subscriptions_enabled: Whether Microsoft Teams subscriber notifications are enabled for the status page.
+        :param pulumi.Input[_builtins.bool] rss_feed_enabled: Whether the RSS feed is enabled for the status page.
         :param pulumi.Input[_builtins.str] slack_app_icon: The icon used for the status page's Slack app integration.
         :param pulumi.Input[_builtins.bool] slack_subscriptions_enabled: Whether Slack subscriber notifications are enabled for the status page.
         :param pulumi.Input[_builtins.bool] subscriptions_enabled: Whether subscriber notifications are enabled for the status page.
+        :param pulumi.Input[_builtins.str] visualization_layout: The layout of components on the status page. Defaults to `list`. `grid` requires `visualization_type` to be `component_name_only`; changing `visualization_type` to any other value resets the layout to `list`. Valid values are `list`, `grid`.
         """
         pulumi.set(__self__, "domain_prefix", domain_prefix)
         pulumi.set(__self__, "name", name)
@@ -51,14 +59,22 @@ class StatusPageArgs:
             pulumi.set(__self__, "company_logo", company_logo)
         if email_header_image is not None:
             pulumi.set(__self__, "email_header_image", email_header_image)
+        if email_notifications_enabled is not None:
+            pulumi.set(__self__, "email_notifications_enabled", email_notifications_enabled)
         if favicon is not None:
             pulumi.set(__self__, "favicon", favicon)
+        if ms_teams_subscriptions_enabled is not None:
+            pulumi.set(__self__, "ms_teams_subscriptions_enabled", ms_teams_subscriptions_enabled)
+        if rss_feed_enabled is not None:
+            pulumi.set(__self__, "rss_feed_enabled", rss_feed_enabled)
         if slack_app_icon is not None:
             pulumi.set(__self__, "slack_app_icon", slack_app_icon)
         if slack_subscriptions_enabled is not None:
             pulumi.set(__self__, "slack_subscriptions_enabled", slack_subscriptions_enabled)
         if subscriptions_enabled is not None:
             pulumi.set(__self__, "subscriptions_enabled", subscriptions_enabled)
+        if visualization_layout is not None:
+            pulumi.set(__self__, "visualization_layout", visualization_layout)
 
     @_builtins.property
     @pulumi.getter(name="domainPrefix")
@@ -88,7 +104,7 @@ class StatusPageArgs:
     @pulumi.getter
     def type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of the status page. Valid values are: public, internal.
+        The type of the status page. Valid values are: public, internal, private. Private pages are only accessible to users allowed by the page's email access policies, managed with `StatusPageEmailAccessPolicy`.
         """
         return pulumi.get(self, "type")
 
@@ -133,6 +149,18 @@ class StatusPageArgs:
         pulumi.set(self, "email_header_image", value)
 
     @_builtins.property
+    @pulumi.getter(name="emailNotificationsEnabled")
+    def email_notifications_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether email notifications are enabled for the status page. Must be enabled when `subscriptions_enabled` is `true`.
+        """
+        return pulumi.get(self, "email_notifications_enabled")
+
+    @email_notifications_enabled.setter
+    def email_notifications_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "email_notifications_enabled", value)
+
+    @_builtins.property
     @pulumi.getter
     def favicon(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -143,6 +171,30 @@ class StatusPageArgs:
     @favicon.setter
     def favicon(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "favicon", value)
+
+    @_builtins.property
+    @pulumi.getter(name="msTeamsSubscriptionsEnabled")
+    def ms_teams_subscriptions_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether Microsoft Teams subscriber notifications are enabled for the status page.
+        """
+        return pulumi.get(self, "ms_teams_subscriptions_enabled")
+
+    @ms_teams_subscriptions_enabled.setter
+    def ms_teams_subscriptions_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "ms_teams_subscriptions_enabled", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rssFeedEnabled")
+    def rss_feed_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether the RSS feed is enabled for the status page.
+        """
+        return pulumi.get(self, "rss_feed_enabled")
+
+    @rss_feed_enabled.setter
+    def rss_feed_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "rss_feed_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="slackAppIcon")
@@ -180,6 +232,18 @@ class StatusPageArgs:
     def subscriptions_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
         pulumi.set(self, "subscriptions_enabled", value)
 
+    @_builtins.property
+    @pulumi.getter(name="visualizationLayout")
+    def visualization_layout(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The layout of components on the status page. Defaults to `list`. `grid` requires `visualization_type` to be `component_name_only`; changing `visualization_type` to any other value resets the layout to `list`. Valid values are `list`, `grid`.
+        """
+        return pulumi.get(self, "visualization_layout")
+
+    @visualization_layout.setter
+    def visualization_layout(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "visualization_layout", value)
+
 
 @pulumi.input_type
 class _StatusPageState:
@@ -190,15 +254,19 @@ class _StatusPageState:
                  custom_domain_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  domain_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  email_header_image: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  favicon: pulumi.Input[Optional[_builtins.str]] = None,
                  modified_at: pulumi.Input[Optional[_builtins.str]] = None,
+                 ms_teams_subscriptions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  page_url: pulumi.Input[Optional[_builtins.str]] = None,
+                 rss_feed_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  slack_app_icon: pulumi.Input[Optional[_builtins.str]] = None,
                  slack_subscriptions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  subscriptions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
+                 visualization_layout: pulumi.Input[Optional[_builtins.str]] = None,
                  visualization_type: pulumi.Input[Optional[_builtins.str]] = None):
         """
         Input properties used for looking up and filtering StatusPage resources.
@@ -209,15 +277,19 @@ class _StatusPageState:
         :param pulumi.Input[_builtins.bool] custom_domain_enabled: Whether the custom domain is enabled for the status page. Managed through a separate custom-domain flow, not by this resource.
         :param pulumi.Input[_builtins.str] domain_prefix: The subdomain prefix used to build the status page's URL.
         :param pulumi.Input[_builtins.str] email_header_image: The header image included in subscriber emails.
+        :param pulumi.Input[_builtins.bool] email_notifications_enabled: Whether email notifications are enabled for the status page. Must be enabled when `subscriptions_enabled` is `true`.
         :param pulumi.Input[_builtins.bool] enabled: Whether the status page is published. Managed by the publish/unpublish API operations, not by this resource; always reflects the page's current state.
         :param pulumi.Input[_builtins.str] favicon: The favicon displayed for the status page.
         :param pulumi.Input[_builtins.str] modified_at: Timestamp when the status page was last modified.
+        :param pulumi.Input[_builtins.bool] ms_teams_subscriptions_enabled: Whether Microsoft Teams subscriber notifications are enabled for the status page.
         :param pulumi.Input[_builtins.str] name: The name of the status page.
         :param pulumi.Input[_builtins.str] page_url: The URL of the status page.
+        :param pulumi.Input[_builtins.bool] rss_feed_enabled: Whether the RSS feed is enabled for the status page.
         :param pulumi.Input[_builtins.str] slack_app_icon: The icon used for the status page's Slack app integration.
         :param pulumi.Input[_builtins.bool] slack_subscriptions_enabled: Whether Slack subscriber notifications are enabled for the status page.
         :param pulumi.Input[_builtins.bool] subscriptions_enabled: Whether subscriber notifications are enabled for the status page.
-        :param pulumi.Input[_builtins.str] type: The type of the status page. Valid values are: public, internal.
+        :param pulumi.Input[_builtins.str] type: The type of the status page. Valid values are: public, internal, private. Private pages are only accessible to users allowed by the page's email access policies, managed with `StatusPageEmailAccessPolicy`.
+        :param pulumi.Input[_builtins.str] visualization_layout: The layout of components on the status page. Defaults to `list`. `grid` requires `visualization_type` to be `component_name_only`; changing `visualization_type` to any other value resets the layout to `list`. Valid values are `list`, `grid`.
         :param pulumi.Input[_builtins.str] visualization_type: How component statuses are visualized on the page. Valid values are: bars*and*uptime*percentage, bars*only, component*name*only.
         """
         if company_logo is not None:
@@ -232,16 +304,22 @@ class _StatusPageState:
             pulumi.set(__self__, "domain_prefix", domain_prefix)
         if email_header_image is not None:
             pulumi.set(__self__, "email_header_image", email_header_image)
+        if email_notifications_enabled is not None:
+            pulumi.set(__self__, "email_notifications_enabled", email_notifications_enabled)
         if enabled is not None:
             pulumi.set(__self__, "enabled", enabled)
         if favicon is not None:
             pulumi.set(__self__, "favicon", favicon)
         if modified_at is not None:
             pulumi.set(__self__, "modified_at", modified_at)
+        if ms_teams_subscriptions_enabled is not None:
+            pulumi.set(__self__, "ms_teams_subscriptions_enabled", ms_teams_subscriptions_enabled)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if page_url is not None:
             pulumi.set(__self__, "page_url", page_url)
+        if rss_feed_enabled is not None:
+            pulumi.set(__self__, "rss_feed_enabled", rss_feed_enabled)
         if slack_app_icon is not None:
             pulumi.set(__self__, "slack_app_icon", slack_app_icon)
         if slack_subscriptions_enabled is not None:
@@ -250,6 +328,8 @@ class _StatusPageState:
             pulumi.set(__self__, "subscriptions_enabled", subscriptions_enabled)
         if type is not None:
             pulumi.set(__self__, "type", type)
+        if visualization_layout is not None:
+            pulumi.set(__self__, "visualization_layout", visualization_layout)
         if visualization_type is not None:
             pulumi.set(__self__, "visualization_type", visualization_type)
 
@@ -326,6 +406,18 @@ class _StatusPageState:
         pulumi.set(self, "email_header_image", value)
 
     @_builtins.property
+    @pulumi.getter(name="emailNotificationsEnabled")
+    def email_notifications_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether email notifications are enabled for the status page. Must be enabled when `subscriptions_enabled` is `true`.
+        """
+        return pulumi.get(self, "email_notifications_enabled")
+
+    @email_notifications_enabled.setter
+    def email_notifications_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "email_notifications_enabled", value)
+
+    @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
         """
@@ -362,6 +454,18 @@ class _StatusPageState:
         pulumi.set(self, "modified_at", value)
 
     @_builtins.property
+    @pulumi.getter(name="msTeamsSubscriptionsEnabled")
+    def ms_teams_subscriptions_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether Microsoft Teams subscriber notifications are enabled for the status page.
+        """
+        return pulumi.get(self, "ms_teams_subscriptions_enabled")
+
+    @ms_teams_subscriptions_enabled.setter
+    def ms_teams_subscriptions_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "ms_teams_subscriptions_enabled", value)
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -384,6 +488,18 @@ class _StatusPageState:
     @page_url.setter
     def page_url(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "page_url", value)
+
+    @_builtins.property
+    @pulumi.getter(name="rssFeedEnabled")
+    def rss_feed_enabled(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Whether the RSS feed is enabled for the status page.
+        """
+        return pulumi.get(self, "rss_feed_enabled")
+
+    @rss_feed_enabled.setter
+    def rss_feed_enabled(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "rss_feed_enabled", value)
 
     @_builtins.property
     @pulumi.getter(name="slackAppIcon")
@@ -425,13 +541,25 @@ class _StatusPageState:
     @pulumi.getter
     def type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The type of the status page. Valid values are: public, internal.
+        The type of the status page. Valid values are: public, internal, private. Private pages are only accessible to users allowed by the page's email access policies, managed with `StatusPageEmailAccessPolicy`.
         """
         return pulumi.get(self, "type")
 
     @type.setter
     def type(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "type", value)
+
+    @_builtins.property
+    @pulumi.getter(name="visualizationLayout")
+    def visualization_layout(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        The layout of components on the status page. Defaults to `list`. `grid` requires `visualization_type` to be `component_name_only`; changing `visualization_type` to any other value resets the layout to `list`. Valid values are `list`, `grid`.
+        """
+        return pulumi.get(self, "visualization_layout")
+
+    @visualization_layout.setter
+    def visualization_layout(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "visualization_layout", value)
 
     @_builtins.property
     @pulumi.getter(name="visualizationType")
@@ -455,12 +583,16 @@ class StatusPage(pulumi.CustomResource):
                  company_logo: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  email_header_image: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  favicon: pulumi.Input[Optional[_builtins.str]] = None,
+                 ms_teams_subscriptions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rss_feed_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  slack_app_icon: pulumi.Input[Optional[_builtins.str]] = None,
                  slack_subscriptions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  subscriptions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
+                 visualization_layout: pulumi.Input[Optional[_builtins.str]] = None,
                  visualization_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         """
@@ -477,7 +609,9 @@ class StatusPage(pulumi.CustomResource):
             name="Acme Status",
             type="public",
             domain_prefix="acme-status",
-            visualization_type="bars_and_uptime_percentage")
+            visualization_type="bars_and_uptime_percentage",
+            visualization_layout="list",
+            rss_feed_enabled=True)
         ```
 
         ## Import
@@ -494,12 +628,16 @@ class StatusPage(pulumi.CustomResource):
         :param pulumi.Input[_builtins.str] company_logo: The company logo displayed on the status page.
         :param pulumi.Input[_builtins.str] domain_prefix: The subdomain prefix used to build the status page's URL.
         :param pulumi.Input[_builtins.str] email_header_image: The header image included in subscriber emails.
+        :param pulumi.Input[_builtins.bool] email_notifications_enabled: Whether email notifications are enabled for the status page. Must be enabled when `subscriptions_enabled` is `true`.
         :param pulumi.Input[_builtins.str] favicon: The favicon displayed for the status page.
+        :param pulumi.Input[_builtins.bool] ms_teams_subscriptions_enabled: Whether Microsoft Teams subscriber notifications are enabled for the status page.
         :param pulumi.Input[_builtins.str] name: The name of the status page.
+        :param pulumi.Input[_builtins.bool] rss_feed_enabled: Whether the RSS feed is enabled for the status page.
         :param pulumi.Input[_builtins.str] slack_app_icon: The icon used for the status page's Slack app integration.
         :param pulumi.Input[_builtins.bool] slack_subscriptions_enabled: Whether Slack subscriber notifications are enabled for the status page.
         :param pulumi.Input[_builtins.bool] subscriptions_enabled: Whether subscriber notifications are enabled for the status page.
-        :param pulumi.Input[_builtins.str] type: The type of the status page. Valid values are: public, internal.
+        :param pulumi.Input[_builtins.str] type: The type of the status page. Valid values are: public, internal, private. Private pages are only accessible to users allowed by the page's email access policies, managed with `StatusPageEmailAccessPolicy`.
+        :param pulumi.Input[_builtins.str] visualization_layout: The layout of components on the status page. Defaults to `list`. `grid` requires `visualization_type` to be `component_name_only`; changing `visualization_type` to any other value resets the layout to `list`. Valid values are `list`, `grid`.
         :param pulumi.Input[_builtins.str] visualization_type: How component statuses are visualized on the page. Valid values are: bars*and*uptime*percentage, bars*only, component*name*only.
         """
         ...
@@ -522,7 +660,9 @@ class StatusPage(pulumi.CustomResource):
             name="Acme Status",
             type="public",
             domain_prefix="acme-status",
-            visualization_type="bars_and_uptime_percentage")
+            visualization_type="bars_and_uptime_percentage",
+            visualization_layout="list",
+            rss_feed_enabled=True)
         ```
 
         ## Import
@@ -552,12 +692,16 @@ class StatusPage(pulumi.CustomResource):
                  company_logo: pulumi.Input[Optional[_builtins.str]] = None,
                  domain_prefix: pulumi.Input[Optional[_builtins.str]] = None,
                  email_header_image: pulumi.Input[Optional[_builtins.str]] = None,
+                 email_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  favicon: pulumi.Input[Optional[_builtins.str]] = None,
+                 ms_teams_subscriptions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
+                 rss_feed_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  slack_app_icon: pulumi.Input[Optional[_builtins.str]] = None,
                  slack_subscriptions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  subscriptions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
                  type: pulumi.Input[Optional[_builtins.str]] = None,
+                 visualization_layout: pulumi.Input[Optional[_builtins.str]] = None,
                  visualization_type: pulumi.Input[Optional[_builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -573,16 +717,20 @@ class StatusPage(pulumi.CustomResource):
                 raise TypeError("Missing required property 'domain_prefix'")
             __props__.__dict__["domain_prefix"] = domain_prefix
             __props__.__dict__["email_header_image"] = email_header_image
+            __props__.__dict__["email_notifications_enabled"] = email_notifications_enabled
             __props__.__dict__["favicon"] = favicon
+            __props__.__dict__["ms_teams_subscriptions_enabled"] = ms_teams_subscriptions_enabled
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
+            __props__.__dict__["rss_feed_enabled"] = rss_feed_enabled
             __props__.__dict__["slack_app_icon"] = slack_app_icon
             __props__.__dict__["slack_subscriptions_enabled"] = slack_subscriptions_enabled
             __props__.__dict__["subscriptions_enabled"] = subscriptions_enabled
             if type is None and not opts.urn:
                 raise TypeError("Missing required property 'type'")
             __props__.__dict__["type"] = type
+            __props__.__dict__["visualization_layout"] = visualization_layout
             if visualization_type is None and not opts.urn:
                 raise TypeError("Missing required property 'visualization_type'")
             __props__.__dict__["visualization_type"] = visualization_type
@@ -608,15 +756,19 @@ class StatusPage(pulumi.CustomResource):
             custom_domain_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             domain_prefix: pulumi.Input[Optional[_builtins.str]] = None,
             email_header_image: pulumi.Input[Optional[_builtins.str]] = None,
+            email_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             favicon: pulumi.Input[Optional[_builtins.str]] = None,
             modified_at: pulumi.Input[Optional[_builtins.str]] = None,
+            ms_teams_subscriptions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             page_url: pulumi.Input[Optional[_builtins.str]] = None,
+            rss_feed_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             slack_app_icon: pulumi.Input[Optional[_builtins.str]] = None,
             slack_subscriptions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             subscriptions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None,
+            visualization_layout: pulumi.Input[Optional[_builtins.str]] = None,
             visualization_type: pulumi.Input[Optional[_builtins.str]] = None) -> 'StatusPage':
         """
         Get an existing StatusPage resource's state with the given name, id, and optional extra
@@ -631,15 +783,19 @@ class StatusPage(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] custom_domain_enabled: Whether the custom domain is enabled for the status page. Managed through a separate custom-domain flow, not by this resource.
         :param pulumi.Input[_builtins.str] domain_prefix: The subdomain prefix used to build the status page's URL.
         :param pulumi.Input[_builtins.str] email_header_image: The header image included in subscriber emails.
+        :param pulumi.Input[_builtins.bool] email_notifications_enabled: Whether email notifications are enabled for the status page. Must be enabled when `subscriptions_enabled` is `true`.
         :param pulumi.Input[_builtins.bool] enabled: Whether the status page is published. Managed by the publish/unpublish API operations, not by this resource; always reflects the page's current state.
         :param pulumi.Input[_builtins.str] favicon: The favicon displayed for the status page.
         :param pulumi.Input[_builtins.str] modified_at: Timestamp when the status page was last modified.
+        :param pulumi.Input[_builtins.bool] ms_teams_subscriptions_enabled: Whether Microsoft Teams subscriber notifications are enabled for the status page.
         :param pulumi.Input[_builtins.str] name: The name of the status page.
         :param pulumi.Input[_builtins.str] page_url: The URL of the status page.
+        :param pulumi.Input[_builtins.bool] rss_feed_enabled: Whether the RSS feed is enabled for the status page.
         :param pulumi.Input[_builtins.str] slack_app_icon: The icon used for the status page's Slack app integration.
         :param pulumi.Input[_builtins.bool] slack_subscriptions_enabled: Whether Slack subscriber notifications are enabled for the status page.
         :param pulumi.Input[_builtins.bool] subscriptions_enabled: Whether subscriber notifications are enabled for the status page.
-        :param pulumi.Input[_builtins.str] type: The type of the status page. Valid values are: public, internal.
+        :param pulumi.Input[_builtins.str] type: The type of the status page. Valid values are: public, internal, private. Private pages are only accessible to users allowed by the page's email access policies, managed with `StatusPageEmailAccessPolicy`.
+        :param pulumi.Input[_builtins.str] visualization_layout: The layout of components on the status page. Defaults to `list`. `grid` requires `visualization_type` to be `component_name_only`; changing `visualization_type` to any other value resets the layout to `list`. Valid values are `list`, `grid`.
         :param pulumi.Input[_builtins.str] visualization_type: How component statuses are visualized on the page. Valid values are: bars*and*uptime*percentage, bars*only, component*name*only.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -652,15 +808,19 @@ class StatusPage(pulumi.CustomResource):
         __props__.__dict__["custom_domain_enabled"] = custom_domain_enabled
         __props__.__dict__["domain_prefix"] = domain_prefix
         __props__.__dict__["email_header_image"] = email_header_image
+        __props__.__dict__["email_notifications_enabled"] = email_notifications_enabled
         __props__.__dict__["enabled"] = enabled
         __props__.__dict__["favicon"] = favicon
         __props__.__dict__["modified_at"] = modified_at
+        __props__.__dict__["ms_teams_subscriptions_enabled"] = ms_teams_subscriptions_enabled
         __props__.__dict__["name"] = name
         __props__.__dict__["page_url"] = page_url
+        __props__.__dict__["rss_feed_enabled"] = rss_feed_enabled
         __props__.__dict__["slack_app_icon"] = slack_app_icon
         __props__.__dict__["slack_subscriptions_enabled"] = slack_subscriptions_enabled
         __props__.__dict__["subscriptions_enabled"] = subscriptions_enabled
         __props__.__dict__["type"] = type
+        __props__.__dict__["visualization_layout"] = visualization_layout
         __props__.__dict__["visualization_type"] = visualization_type
         return StatusPage(resource_name, opts=opts, __props__=__props__)
 
@@ -673,15 +833,19 @@ class StatusPage(pulumi.CustomResource):
             custom_domain_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             domain_prefix: pulumi.Input[Optional[_builtins.str]] = None,
             email_header_image: pulumi.Input[Optional[_builtins.str]] = None,
+            email_notifications_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             favicon: pulumi.Input[Optional[_builtins.str]] = None,
             modified_at: pulumi.Input[Optional[_builtins.str]] = None,
+            ms_teams_subscriptions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             page_url: pulumi.Input[Optional[_builtins.str]] = None,
+            rss_feed_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             slack_app_icon: pulumi.Input[Optional[_builtins.str]] = None,
             slack_subscriptions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             subscriptions_enabled: pulumi.Input[Optional[_builtins.bool]] = None,
             type: pulumi.Input[Optional[_builtins.str]] = None,
+            visualization_layout: pulumi.Input[Optional[_builtins.str]] = None,
             visualization_type: pulumi.Input[Optional[_builtins.str]] = None) -> pulumi.Output[bool]:
         __props__: dict = {}
         __props__["companyLogo"] = company_logo
@@ -690,15 +854,19 @@ class StatusPage(pulumi.CustomResource):
         __props__["customDomainEnabled"] = custom_domain_enabled
         __props__["domainPrefix"] = domain_prefix
         __props__["emailHeaderImage"] = email_header_image
+        __props__["emailNotificationsEnabled"] = email_notifications_enabled
         __props__["enabled"] = enabled
         __props__["favicon"] = favicon
         __props__["modifiedAt"] = modified_at
+        __props__["msTeamsSubscriptionsEnabled"] = ms_teams_subscriptions_enabled
         __props__["name"] = name
         __props__["pageUrl"] = page_url
+        __props__["rssFeedEnabled"] = rss_feed_enabled
         __props__["slackAppIcon"] = slack_app_icon
         __props__["slackSubscriptionsEnabled"] = slack_subscriptions_enabled
         __props__["subscriptionsEnabled"] = subscriptions_enabled
         __props__["type"] = type
+        __props__["visualizationLayout"] = visualization_layout
         __props__["visualizationType"] = visualization_type
         return pulumi.runtime.exists_resource(None, 'datadog:index/statusPage:StatusPage', id, __props__, opts or pulumi.ResourceOptions())
 
@@ -751,6 +919,14 @@ class StatusPage(pulumi.CustomResource):
         return pulumi.get(self, "email_header_image")
 
     @_builtins.property
+    @pulumi.getter(name="emailNotificationsEnabled")
+    def email_notifications_enabled(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Whether email notifications are enabled for the status page. Must be enabled when `subscriptions_enabled` is `true`.
+        """
+        return pulumi.get(self, "email_notifications_enabled")
+
+    @_builtins.property
     @pulumi.getter
     def enabled(self) -> pulumi.Output[_builtins.bool]:
         """
@@ -775,6 +951,14 @@ class StatusPage(pulumi.CustomResource):
         return pulumi.get(self, "modified_at")
 
     @_builtins.property
+    @pulumi.getter(name="msTeamsSubscriptionsEnabled")
+    def ms_teams_subscriptions_enabled(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Whether Microsoft Teams subscriber notifications are enabled for the status page.
+        """
+        return pulumi.get(self, "ms_teams_subscriptions_enabled")
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> pulumi.Output[_builtins.str]:
         """
@@ -789,6 +973,14 @@ class StatusPage(pulumi.CustomResource):
         The URL of the status page.
         """
         return pulumi.get(self, "page_url")
+
+    @_builtins.property
+    @pulumi.getter(name="rssFeedEnabled")
+    def rss_feed_enabled(self) -> pulumi.Output[_builtins.bool]:
+        """
+        Whether the RSS feed is enabled for the status page.
+        """
+        return pulumi.get(self, "rss_feed_enabled")
 
     @_builtins.property
     @pulumi.getter(name="slackAppIcon")
@@ -818,9 +1010,17 @@ class StatusPage(pulumi.CustomResource):
     @pulumi.getter
     def type(self) -> pulumi.Output[_builtins.str]:
         """
-        The type of the status page. Valid values are: public, internal.
+        The type of the status page. Valid values are: public, internal, private. Private pages are only accessible to users allowed by the page's email access policies, managed with `StatusPageEmailAccessPolicy`.
         """
         return pulumi.get(self, "type")
+
+    @_builtins.property
+    @pulumi.getter(name="visualizationLayout")
+    def visualization_layout(self) -> pulumi.Output[_builtins.str]:
+        """
+        The layout of components on the status page. Defaults to `list`. `grid` requires `visualization_type` to be `component_name_only`; changing `visualization_type` to any other value resets the layout to `list`. Valid values are `list`, `grid`.
+        """
+        return pulumi.get(self, "visualization_layout")
 
     @_builtins.property
     @pulumi.getter(name="visualizationType")

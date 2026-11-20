@@ -26,7 +26,7 @@ class GetStatusPageResult:
     """
     A collection of values returned by getStatusPage.
     """
-    def __init__(__self__, company_logo=None, created_at=None, custom_domain=None, custom_domain_enabled=None, domain_prefix=None, email_header_image=None, enabled=None, favicon=None, id=None, modified_at=None, name=None, page_url=None, slack_app_icon=None, slack_subscriptions_enabled=None, subscriptions_enabled=None, type=None, visualization_type=None):
+    def __init__(__self__, company_logo=None, created_at=None, custom_domain=None, custom_domain_enabled=None, domain_prefix=None, email_header_image=None, email_notifications_enabled=None, enabled=None, favicon=None, id=None, modified_at=None, ms_teams_subscriptions_enabled=None, name=None, page_url=None, rss_feed_enabled=None, slack_app_icon=None, slack_subscriptions_enabled=None, subscriptions_enabled=None, type=None, visualization_layout=None, visualization_type=None):
         if company_logo and not isinstance(company_logo, str):
             raise TypeError("Expected argument 'company_logo' to be a str")
         pulumi.set(__self__, "company_logo", company_logo)
@@ -45,6 +45,9 @@ class GetStatusPageResult:
         if email_header_image and not isinstance(email_header_image, str):
             raise TypeError("Expected argument 'email_header_image' to be a str")
         pulumi.set(__self__, "email_header_image", email_header_image)
+        if email_notifications_enabled and not isinstance(email_notifications_enabled, bool):
+            raise TypeError("Expected argument 'email_notifications_enabled' to be a bool")
+        pulumi.set(__self__, "email_notifications_enabled", email_notifications_enabled)
         if enabled and not isinstance(enabled, bool):
             raise TypeError("Expected argument 'enabled' to be a bool")
         pulumi.set(__self__, "enabled", enabled)
@@ -57,12 +60,18 @@ class GetStatusPageResult:
         if modified_at and not isinstance(modified_at, str):
             raise TypeError("Expected argument 'modified_at' to be a str")
         pulumi.set(__self__, "modified_at", modified_at)
+        if ms_teams_subscriptions_enabled and not isinstance(ms_teams_subscriptions_enabled, bool):
+            raise TypeError("Expected argument 'ms_teams_subscriptions_enabled' to be a bool")
+        pulumi.set(__self__, "ms_teams_subscriptions_enabled", ms_teams_subscriptions_enabled)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
         if page_url and not isinstance(page_url, str):
             raise TypeError("Expected argument 'page_url' to be a str")
         pulumi.set(__self__, "page_url", page_url)
+        if rss_feed_enabled and not isinstance(rss_feed_enabled, bool):
+            raise TypeError("Expected argument 'rss_feed_enabled' to be a bool")
+        pulumi.set(__self__, "rss_feed_enabled", rss_feed_enabled)
         if slack_app_icon and not isinstance(slack_app_icon, str):
             raise TypeError("Expected argument 'slack_app_icon' to be a str")
         pulumi.set(__self__, "slack_app_icon", slack_app_icon)
@@ -75,6 +84,9 @@ class GetStatusPageResult:
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
+        if visualization_layout and not isinstance(visualization_layout, str):
+            raise TypeError("Expected argument 'visualization_layout' to be a str")
+        pulumi.set(__self__, "visualization_layout", visualization_layout)
         if visualization_type and not isinstance(visualization_type, str):
             raise TypeError("Expected argument 'visualization_type' to be a str")
         pulumi.set(__self__, "visualization_type", visualization_type)
@@ -128,6 +140,14 @@ class GetStatusPageResult:
         return pulumi.get(self, "email_header_image")
 
     @_builtins.property
+    @pulumi.getter(name="emailNotificationsEnabled")
+    def email_notifications_enabled(self) -> _builtins.bool:
+        """
+        Whether email notifications are enabled for the status page.
+        """
+        return pulumi.get(self, "email_notifications_enabled")
+
+    @_builtins.property
     @pulumi.getter
     def enabled(self) -> _builtins.bool:
         """
@@ -160,6 +180,14 @@ class GetStatusPageResult:
         return pulumi.get(self, "modified_at")
 
     @_builtins.property
+    @pulumi.getter(name="msTeamsSubscriptionsEnabled")
+    def ms_teams_subscriptions_enabled(self) -> _builtins.bool:
+        """
+        Whether Microsoft Teams subscriber notifications are enabled for the status page.
+        """
+        return pulumi.get(self, "ms_teams_subscriptions_enabled")
+
+    @_builtins.property
     @pulumi.getter
     def name(self) -> _builtins.str:
         """
@@ -174,6 +202,14 @@ class GetStatusPageResult:
         The URL of the status page.
         """
         return pulumi.get(self, "page_url")
+
+    @_builtins.property
+    @pulumi.getter(name="rssFeedEnabled")
+    def rss_feed_enabled(self) -> _builtins.bool:
+        """
+        Whether the RSS feed is enabled for the status page.
+        """
+        return pulumi.get(self, "rss_feed_enabled")
 
     @_builtins.property
     @pulumi.getter(name="slackAppIcon")
@@ -208,6 +244,14 @@ class GetStatusPageResult:
         return pulumi.get(self, "type")
 
     @_builtins.property
+    @pulumi.getter(name="visualizationLayout")
+    def visualization_layout(self) -> _builtins.str:
+        """
+        The layout of components on the status page. Possible values are: list, grid.
+        """
+        return pulumi.get(self, "visualization_layout")
+
+    @_builtins.property
     @pulumi.getter(name="visualizationType")
     def visualization_type(self) -> _builtins.str:
         """
@@ -228,16 +272,20 @@ class AwaitableGetStatusPageResult(GetStatusPageResult):
             custom_domain_enabled=self.custom_domain_enabled,
             domain_prefix=self.domain_prefix,
             email_header_image=self.email_header_image,
+            email_notifications_enabled=self.email_notifications_enabled,
             enabled=self.enabled,
             favicon=self.favicon,
             id=self.id,
             modified_at=self.modified_at,
+            ms_teams_subscriptions_enabled=self.ms_teams_subscriptions_enabled,
             name=self.name,
             page_url=self.page_url,
+            rss_feed_enabled=self.rss_feed_enabled,
             slack_app_icon=self.slack_app_icon,
             slack_subscriptions_enabled=self.slack_subscriptions_enabled,
             subscriptions_enabled=self.subscriptions_enabled,
             type=self.type,
+            visualization_layout=self.visualization_layout,
             visualization_type=self.visualization_type)
 
 
@@ -270,16 +318,20 @@ def get_status_page(id: Optional[_builtins.str] = None,
         custom_domain_enabled=pulumi.get(__ret__, 'custom_domain_enabled'),
         domain_prefix=pulumi.get(__ret__, 'domain_prefix'),
         email_header_image=pulumi.get(__ret__, 'email_header_image'),
+        email_notifications_enabled=pulumi.get(__ret__, 'email_notifications_enabled'),
         enabled=pulumi.get(__ret__, 'enabled'),
         favicon=pulumi.get(__ret__, 'favicon'),
         id=pulumi.get(__ret__, 'id'),
         modified_at=pulumi.get(__ret__, 'modified_at'),
+        ms_teams_subscriptions_enabled=pulumi.get(__ret__, 'ms_teams_subscriptions_enabled'),
         name=pulumi.get(__ret__, 'name'),
         page_url=pulumi.get(__ret__, 'page_url'),
+        rss_feed_enabled=pulumi.get(__ret__, 'rss_feed_enabled'),
         slack_app_icon=pulumi.get(__ret__, 'slack_app_icon'),
         slack_subscriptions_enabled=pulumi.get(__ret__, 'slack_subscriptions_enabled'),
         subscriptions_enabled=pulumi.get(__ret__, 'subscriptions_enabled'),
         type=pulumi.get(__ret__, 'type'),
+        visualization_layout=pulumi.get(__ret__, 'visualization_layout'),
         visualization_type=pulumi.get(__ret__, 'visualization_type'))
 def get_status_page_output(id: pulumi.Input[Optional[_builtins.str]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetStatusPageResult]:
@@ -309,14 +361,18 @@ def get_status_page_output(id: pulumi.Input[Optional[_builtins.str]] = None,
         custom_domain_enabled=pulumi.get(__response__, 'custom_domain_enabled'),
         domain_prefix=pulumi.get(__response__, 'domain_prefix'),
         email_header_image=pulumi.get(__response__, 'email_header_image'),
+        email_notifications_enabled=pulumi.get(__response__, 'email_notifications_enabled'),
         enabled=pulumi.get(__response__, 'enabled'),
         favicon=pulumi.get(__response__, 'favicon'),
         id=pulumi.get(__response__, 'id'),
         modified_at=pulumi.get(__response__, 'modified_at'),
+        ms_teams_subscriptions_enabled=pulumi.get(__response__, 'ms_teams_subscriptions_enabled'),
         name=pulumi.get(__response__, 'name'),
         page_url=pulumi.get(__response__, 'page_url'),
+        rss_feed_enabled=pulumi.get(__response__, 'rss_feed_enabled'),
         slack_app_icon=pulumi.get(__response__, 'slack_app_icon'),
         slack_subscriptions_enabled=pulumi.get(__response__, 'slack_subscriptions_enabled'),
         subscriptions_enabled=pulumi.get(__response__, 'subscriptions_enabled'),
         type=pulumi.get(__response__, 'type'),
+        visualization_layout=pulumi.get(__response__, 'visualization_layout'),
         visualization_type=pulumi.get(__response__, 'visualization_type')))

@@ -16,7 +16,7 @@ import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Datadog Cloud Workload Security Agent Rule API resource for agent rules. Deprecated, use datadog.getCsmThreatsAgentRules resource instead: https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/csm_threats_agent_rule
+ * Provides a Datadog Cloud Workload Security Agent Rule API resource for agent rules. Deprecated, use datadog.CsmThreatsAgentRule resource instead: https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/csm_threats_agent_rule. The API no longer creates, updates or deletes these agent rules, so this resource can only read and import existing ones.
  * 
  * ## Example Usage
  * 

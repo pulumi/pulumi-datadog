@@ -68,6 +68,8 @@ type LookupStatusPageResult struct {
 	DomainPrefix string `pulumi:"domainPrefix"`
 	// The header image included in subscriber emails.
 	EmailHeaderImage string `pulumi:"emailHeaderImage"`
+	// Whether email notifications are enabled for the status page.
+	EmailNotificationsEnabled bool `pulumi:"emailNotificationsEnabled"`
 	// Whether the status page is published.
 	Enabled bool `pulumi:"enabled"`
 	// The favicon displayed for the status page.
@@ -76,10 +78,14 @@ type LookupStatusPageResult struct {
 	Id string `pulumi:"id"`
 	// Timestamp when the status page was last modified.
 	ModifiedAt string `pulumi:"modifiedAt"`
+	// Whether Microsoft Teams subscriber notifications are enabled for the status page.
+	MsTeamsSubscriptionsEnabled bool `pulumi:"msTeamsSubscriptionsEnabled"`
 	// The name of the status page.
 	Name string `pulumi:"name"`
 	// The URL of the status page.
 	PageUrl string `pulumi:"pageUrl"`
+	// Whether the RSS feed is enabled for the status page.
+	RssFeedEnabled bool `pulumi:"rssFeedEnabled"`
 	// The icon used for the status page's Slack app integration.
 	SlackAppIcon string `pulumi:"slackAppIcon"`
 	// Whether Slack subscriber notifications are enabled for the status page.
@@ -88,6 +94,8 @@ type LookupStatusPageResult struct {
 	SubscriptionsEnabled bool `pulumi:"subscriptionsEnabled"`
 	// The type of the status page.
 	Type string `pulumi:"type"`
+	// The layout of components on the status page. Possible values are: list, grid.
+	VisualizationLayout string `pulumi:"visualizationLayout"`
 	// How component statuses are visualized on the page.
 	VisualizationType string `pulumi:"visualizationType"`
 }
@@ -152,6 +160,11 @@ func (o LookupStatusPageResultOutput) EmailHeaderImage() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStatusPageResult) string { return v.EmailHeaderImage }).(pulumi.StringOutput)
 }
 
+// Whether email notifications are enabled for the status page.
+func (o LookupStatusPageResultOutput) EmailNotificationsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupStatusPageResult) bool { return v.EmailNotificationsEnabled }).(pulumi.BoolOutput)
+}
+
 // Whether the status page is published.
 func (o LookupStatusPageResultOutput) Enabled() pulumi.BoolOutput {
 	return o.ApplyT(func(v LookupStatusPageResult) bool { return v.Enabled }).(pulumi.BoolOutput)
@@ -172,6 +185,11 @@ func (o LookupStatusPageResultOutput) ModifiedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStatusPageResult) string { return v.ModifiedAt }).(pulumi.StringOutput)
 }
 
+// Whether Microsoft Teams subscriber notifications are enabled for the status page.
+func (o LookupStatusPageResultOutput) MsTeamsSubscriptionsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupStatusPageResult) bool { return v.MsTeamsSubscriptionsEnabled }).(pulumi.BoolOutput)
+}
+
 // The name of the status page.
 func (o LookupStatusPageResultOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStatusPageResult) string { return v.Name }).(pulumi.StringOutput)
@@ -180,6 +198,11 @@ func (o LookupStatusPageResultOutput) Name() pulumi.StringOutput {
 // The URL of the status page.
 func (o LookupStatusPageResultOutput) PageUrl() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStatusPageResult) string { return v.PageUrl }).(pulumi.StringOutput)
+}
+
+// Whether the RSS feed is enabled for the status page.
+func (o LookupStatusPageResultOutput) RssFeedEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v LookupStatusPageResult) bool { return v.RssFeedEnabled }).(pulumi.BoolOutput)
 }
 
 // The icon used for the status page's Slack app integration.
@@ -200,6 +223,11 @@ func (o LookupStatusPageResultOutput) SubscriptionsEnabled() pulumi.BoolOutput {
 // The type of the status page.
 func (o LookupStatusPageResultOutput) Type() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupStatusPageResult) string { return v.Type }).(pulumi.StringOutput)
+}
+
+// The layout of components on the status page. Possible values are: list, grid.
+func (o LookupStatusPageResultOutput) VisualizationLayout() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupStatusPageResult) string { return v.VisualizationLayout }).(pulumi.StringOutput)
 }
 
 // How component statuses are visualized on the page.

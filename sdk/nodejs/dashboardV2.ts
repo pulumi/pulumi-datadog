@@ -93,6 +93,12 @@ import * as utilities from "./utilities";
  *             },
  *         },
  *     ],
+ *     defaultTimeframe: {
+ *         live: {
+ *             unit: "week",
+ *             value: 1,
+ *         },
+ *     },
  *     templateVariables: [{
  *         name: "var_1",
  *         prefix: "host",
@@ -191,6 +197,10 @@ export class DashboardV2 extends pulumi.CustomResource {
      */
     declare public readonly dashboardListsRemoveds: pulumi.Output<number[]>;
     /**
+     * The default timeframe applied when opening the dashboard. Set to `null` to disable after it has been configured.
+     */
+    declare public readonly defaultTimeframe: pulumi.Output<outputs.DashboardV2DefaultTimeframe | undefined>;
+    /**
      * The description of the dashboard.
      */
     declare public readonly description: pulumi.Output<string | undefined>;
@@ -264,6 +274,7 @@ export class DashboardV2 extends pulumi.CustomResource {
             const state = argsOrState as DashboardV2State | undefined;
             resourceInputs["dashboardLists"] = state?.dashboardLists;
             resourceInputs["dashboardListsRemoveds"] = state?.dashboardListsRemoveds;
+            resourceInputs["defaultTimeframe"] = state?.defaultTimeframe;
             resourceInputs["description"] = state?.description;
             resourceInputs["isReadOnly"] = state?.isReadOnly;
             resourceInputs["layoutType"] = state?.layoutType;
@@ -288,6 +299,7 @@ export class DashboardV2 extends pulumi.CustomResource {
             }
             resourceInputs["dashboardLists"] = args?.dashboardLists;
             resourceInputs["dashboardListsRemoveds"] = args?.dashboardListsRemoveds;
+            resourceInputs["defaultTimeframe"] = args?.defaultTimeframe;
             resourceInputs["description"] = args?.description;
             resourceInputs["isReadOnly"] = args?.isReadOnly;
             resourceInputs["layoutType"] = args?.layoutType;
@@ -320,6 +332,10 @@ export interface DashboardV2State {
      * A list of dashboard lists this dashboard should be removed from. Internal only.
      */
     dashboardListsRemoveds?: pulumi.Input<pulumi.Input<number>[] | undefined>;
+    /**
+     * The default timeframe applied when opening the dashboard. Set to `null` to disable after it has been configured.
+     */
+    defaultTimeframe?: pulumi.Input<inputs.DashboardV2DefaultTimeframe | undefined>;
     /**
      * The description of the dashboard.
      */
@@ -392,6 +408,10 @@ export interface DashboardV2Args {
      * A list of dashboard lists this dashboard should be removed from. Internal only.
      */
     dashboardListsRemoveds?: pulumi.Input<pulumi.Input<number>[] | undefined>;
+    /**
+     * The default timeframe applied when opening the dashboard. Set to `null` to disable after it has been configured.
+     */
+    defaultTimeframe?: pulumi.Input<inputs.DashboardV2DefaultTimeframe | undefined>;
     /**
      * The description of the dashboard.
      */

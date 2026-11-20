@@ -25,7 +25,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The data source for event platform-based queries. Valid values are `Rum`, `CiPipelines`, `CiTests`, `Audit`, `Events`, `Logs`, `Spans`, `DatabaseQueries`, `Network`, `NetworkPath`.
+        /// The data source for event platform-based queries. Valid values are `Rum`, `CiPipelines`, `CiTests`, `Audit`, `Events`, `Logs`, `Spans`, `DatabaseQueries`, `Network`, `NetworkPath`, `LlmObservability`.
         /// </summary>
         [Input("dataSource", required: true)]
         public Input<string> DataSource { get; set; } = null!;

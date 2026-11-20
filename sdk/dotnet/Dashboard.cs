@@ -239,6 +239,12 @@ namespace Pulumi.Datadog
         public Output<ImmutableArray<int>> DashboardListsRemoveds { get; private set; } = null!;
 
         /// <summary>
+        /// The default timeframe applied when opening the dashboard. Set to `Null` to disable after it has been configured.
+        /// </summary>
+        [Output("defaultTimeframe")]
+        public Output<Outputs.DashboardDefaultTimeframe?> DefaultTimeframe { get; private set; } = null!;
+
+        /// <summary>
         /// The description of the dashboard.
         /// </summary>
         [Output("description")]
@@ -391,6 +397,12 @@ namespace Pulumi.Datadog
             get => _dashboardListsRemoveds ?? (_dashboardListsRemoveds = new InputList<int>());
             set => _dashboardListsRemoveds = value;
         }
+
+        /// <summary>
+        /// The default timeframe applied when opening the dashboard. Set to `Null` to disable after it has been configured.
+        /// </summary>
+        [Input("defaultTimeframe")]
+        public Input<Inputs.DashboardDefaultTimeframeArgs>? DefaultTimeframe { get; set; }
 
         /// <summary>
         /// The description of the dashboard.
@@ -549,6 +561,12 @@ namespace Pulumi.Datadog
             get => _dashboardListsRemoveds ?? (_dashboardListsRemoveds = new InputList<int>());
             set => _dashboardListsRemoveds = value;
         }
+
+        /// <summary>
+        /// The default timeframe applied when opening the dashboard. Set to `Null` to disable after it has been configured.
+        /// </summary>
+        [Input("defaultTimeframe")]
+        public Input<Inputs.DashboardDefaultTimeframeGetArgs>? DefaultTimeframe { get; set; }
 
         /// <summary>
         /// The description of the dashboard.
