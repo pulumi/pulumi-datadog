@@ -256,7 +256,18 @@ func docEditRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 			},
 		},
 		removeTutorialLink,
+		fixOrganizationsAPILink,
 	)
+}
+
+// Datadog no longer serves versioned API reference pages, so the upstream v1 link returns a 404.
+var fixOrganizationsAPILink = tfbridge.DocsEdit{
+	Path: "*",
+	Edit: func(_ string, b []byte) ([]byte, error) {
+		return bytes.ReplaceAll(b,
+			[]byte("https://docs.datadoghq.com/api/v1/organizations/"),
+			[]byte("https://docs.datadoghq.com/api/latest/organizations/")), nil
+	},
 }
 
 const tutorialLink = "Try the hands-on tutorial on the Datadog provider on the HashiCorp Learn site."
