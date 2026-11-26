@@ -140,14 +140,14 @@ public class MetricTagConfiguration extends com.pulumi.resources.CustomResource 
         return this.metricName;
     }
     /**
-     * The metric&#39;s type. This field can&#39;t be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
+     * The metric&#39;s type. This field can&#39;t be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`, `exponentialHistogram`, `explicitHistogram`.
      * 
      */
     @Export(name="metricType", refs={String.class}, tree="[0]")
     private Output<String> metricType;
 
     /**
-     * @return The metric&#39;s type. This field can&#39;t be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
+     * @return The metric&#39;s type. This field can&#39;t be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`, `exponentialHistogram`, `explicitHistogram`.
      * 
      */
     public Output<String> metricType() {

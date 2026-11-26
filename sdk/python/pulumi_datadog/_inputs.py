@@ -6445,6 +6445,8 @@ __all__ = [
     'MonitorVariablesCloudCostQueryArgsDict',
     'MonitorVariablesDataJobsQueryArgs',
     'MonitorVariablesDataJobsQueryArgsDict',
+    'MonitorVariablesDataJobsQueryMonitorOptionsArgs',
+    'MonitorVariablesDataJobsQueryMonitorOptionsArgsDict',
     'MonitorVariablesDataQualityQueryArgs',
     'MonitorVariablesDataQualityQueryArgsDict',
     'MonitorVariablesDataQualityQueryMonitorOptionsArgs',
@@ -285223,11 +285225,11 @@ class MonitorVariablesCloudCostQueryArgs:
 class MonitorVariablesDataJobsQueryArgsDict(TypedDict):
     job_type: pulumi.Input[_builtins.str]
     """
-    The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
+    The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`, `adf.pipeline`. The `aastra` dialect also accepts `airflow.job`, `dbt.model`, `dbt.test`. Custom job types are supported with the `custom.ol.` prefix.
     """
     jobs_query: pulumi.Input[_builtins.str]
     """
-    Filter expression used to select the jobs to monitor.
+    Filter expression used to select the jobs to monitor. A metric tag filter such as `job_name:smoke*` with the `metric` dialect, or an Aastra entity search such as ` search for databricks_job where  `@team:data-eng`` with the `aastra` dialect.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -285235,7 +285237,15 @@ class MonitorVariablesDataJobsQueryArgsDict(TypedDict):
     """
     query_dialect: pulumi.Input[_builtins.str]
     """
-    Query dialect for data jobs queries. Currently only `metric` is supported.
+    Query dialect for data jobs queries. Valid values are `metric` and `aastra`.
+    """
+    monitor_options: NotRequired[pulumi.Input[Optional['MonitorVariablesDataJobsQueryMonitorOptionsArgsDict']]]
+    """
+    Monitor configuration options for data jobs queries.
+    """
+    run_filter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Filter on individual runs, using metrics filter syntax, for example `env:prod`. Only supported with the `aastra` query dialect.
     """
 
 @pulumi.input_type
@@ -285244,23 +285254,31 @@ class MonitorVariablesDataJobsQueryArgs:
                  job_type: pulumi.Input[_builtins.str],
                  jobs_query: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 query_dialect: pulumi.Input[_builtins.str]):
+                 query_dialect: pulumi.Input[_builtins.str],
+                 monitor_options: pulumi.Input[Optional['MonitorVariablesDataJobsQueryMonitorOptionsArgs']] = None,
+                 run_filter: pulumi.Input[Optional[_builtins.str]] = None):
         """
-        :param pulumi.Input[_builtins.str] job_type: The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
-        :param pulumi.Input[_builtins.str] jobs_query: Filter expression used to select the jobs to monitor.
+        :param pulumi.Input[_builtins.str] job_type: The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`, `adf.pipeline`. The `aastra` dialect also accepts `airflow.job`, `dbt.model`, `dbt.test`. Custom job types are supported with the `custom.ol.` prefix.
+        :param pulumi.Input[_builtins.str] jobs_query: Filter expression used to select the jobs to monitor. A metric tag filter such as `job_name:smoke*` with the `metric` dialect, or an Aastra entity search such as ` search for databricks_job where  `@team:data-eng`` with the `aastra` dialect.
         :param pulumi.Input[_builtins.str] name: Name of the query for use in formulas. Must be `run_query`.
-        :param pulumi.Input[_builtins.str] query_dialect: Query dialect for data jobs queries. Currently only `metric` is supported.
+        :param pulumi.Input[_builtins.str] query_dialect: Query dialect for data jobs queries. Valid values are `metric` and `aastra`.
+        :param pulumi.Input['MonitorVariablesDataJobsQueryMonitorOptionsArgs'] monitor_options: Monitor configuration options for data jobs queries.
+        :param pulumi.Input[_builtins.str] run_filter: Filter on individual runs, using metrics filter syntax, for example `env:prod`. Only supported with the `aastra` query dialect.
         """
         pulumi.set(__self__, "job_type", job_type)
         pulumi.set(__self__, "jobs_query", jobs_query)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "query_dialect", query_dialect)
+        if monitor_options is not None:
+            pulumi.set(__self__, "monitor_options", monitor_options)
+        if run_filter is not None:
+            pulumi.set(__self__, "run_filter", run_filter)
 
     @_builtins.property
     @pulumi.getter(name="jobType")
     def job_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
+        The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`, `adf.pipeline`. The `aastra` dialect also accepts `airflow.job`, `dbt.model`, `dbt.test`. Custom job types are supported with the `custom.ol.` prefix.
         """
         return pulumi.get(self, "job_type")
 
@@ -285272,7 +285290,7 @@ class MonitorVariablesDataJobsQueryArgs:
     @pulumi.getter(name="jobsQuery")
     def jobs_query(self) -> pulumi.Input[_builtins.str]:
         """
-        Filter expression used to select the jobs to monitor.
+        Filter expression used to select the jobs to monitor. A metric tag filter such as `job_name:smoke*` with the `metric` dialect, or an Aastra entity search such as ` search for databricks_job where  `@team:data-eng`` with the `aastra` dialect.
         """
         return pulumi.get(self, "jobs_query")
 
@@ -285296,13 +285314,66 @@ class MonitorVariablesDataJobsQueryArgs:
     @pulumi.getter(name="queryDialect")
     def query_dialect(self) -> pulumi.Input[_builtins.str]:
         """
-        Query dialect for data jobs queries. Currently only `metric` is supported.
+        Query dialect for data jobs queries. Valid values are `metric` and `aastra`.
         """
         return pulumi.get(self, "query_dialect")
 
     @query_dialect.setter
     def query_dialect(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "query_dialect", value)
+
+    @_builtins.property
+    @pulumi.getter(name="monitorOptions")
+    def monitor_options(self) -> pulumi.Input[Optional['MonitorVariablesDataJobsQueryMonitorOptionsArgs']]:
+        """
+        Monitor configuration options for data jobs queries.
+        """
+        return pulumi.get(self, "monitor_options")
+
+    @monitor_options.setter
+    def monitor_options(self, value: pulumi.Input[Optional['MonitorVariablesDataJobsQueryMonitorOptionsArgs']]):
+        pulumi.set(self, "monitor_options", value)
+
+    @_builtins.property
+    @pulumi.getter(name="runFilter")
+    def run_filter(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Filter on individual runs, using metrics filter syntax, for example `env:prod`. Only supported with the `aastra` query dialect.
+        """
+        return pulumi.get(self, "run_filter")
+
+    @run_filter.setter
+    def run_filter(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "run_filter", value)
+
+
+class MonitorVariablesDataJobsQueryMonitorOptionsArgsDict(TypedDict):
+    alert_on_every_failure: NotRequired[pulumi.Input[Optional[_builtins.bool]]]
+    """
+    Alert separately for each failed run instead of on the count of trailing failures. Only supported for `failed_runs` monitors with the `aastra` query dialect, a `> 0` threshold with no warning threshold, an evaluation window of at most two days, and renotification disabled.
+    """
+
+@pulumi.input_type
+class MonitorVariablesDataJobsQueryMonitorOptionsArgs:
+    def __init__(__self__, *,
+                 alert_on_every_failure: pulumi.Input[Optional[_builtins.bool]] = None):
+        """
+        :param pulumi.Input[_builtins.bool] alert_on_every_failure: Alert separately for each failed run instead of on the count of trailing failures. Only supported for `failed_runs` monitors with the `aastra` query dialect, a `> 0` threshold with no warning threshold, an evaluation window of at most two days, and renotification disabled.
+        """
+        if alert_on_every_failure is not None:
+            pulumi.set(__self__, "alert_on_every_failure", alert_on_every_failure)
+
+    @_builtins.property
+    @pulumi.getter(name="alertOnEveryFailure")
+    def alert_on_every_failure(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        Alert separately for each failed run instead of on the count of trailing failures. Only supported for `failed_runs` monitors with the `aastra` query dialect, a `> 0` threshold with no warning threshold, an evaluation window of at most two days, and renotification disabled.
+        """
+        return pulumi.get(self, "alert_on_every_failure")
+
+    @alert_on_every_failure.setter
+    def alert_on_every_failure(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "alert_on_every_failure", value)
 
 
 class MonitorVariablesDataQualityQueryArgsDict(TypedDict):
@@ -285312,11 +285383,11 @@ class MonitorVariablesDataQualityQueryArgsDict(TypedDict):
     """
     filter: pulumi.Input[_builtins.str]
     """
-    Filter expression used to match on data entities. Uses AAstra query syntax.
+    Filter expression used to match on data entities. Uses Aastra query syntax.
     """
     measure: pulumi.Input[_builtins.str]
     """
-    The measure to query. Common values include `bytes`, `cardinality`, `custom`, `freshness`, `max`, `mean`, `min`, `nullness`, `percent_negative`, `percent_zero`, `row_count`, `stddev`, `sum`, `uniqueness`. Additional values may be supported.
+    The measure to query. Common values include `bytes`, `cardinality`, `custom`, `freshness`, `max`, `mean`, `min`, `nullness`, `percent_negative`, `percent_zero`, `row_count`, `stddev`, `sum`, `uniqueness`. `data-jobs alert` job duration monitors use `duration`. Additional values may be supported.
     """
     name: pulumi.Input[_builtins.str]
     """
@@ -285329,6 +285400,10 @@ class MonitorVariablesDataQualityQueryArgsDict(TypedDict):
     monitor_options: NotRequired[pulumi.Input[Optional['MonitorVariablesDataQualityQueryMonitorOptionsArgsDict']]]
     """
     Monitor configuration options for data quality queries.
+    """
+    run_filter: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Filter on individual runs, using metrics filter syntax, for example `env:prod`. Only supported by `data-jobs alert` job duration monitors.
     """
     schema_version: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
@@ -285348,15 +285423,17 @@ class MonitorVariablesDataQualityQueryArgs:
                  name: pulumi.Input[_builtins.str],
                  group_bies: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  monitor_options: pulumi.Input[Optional['MonitorVariablesDataQualityQueryMonitorOptionsArgs']] = None,
+                 run_filter: pulumi.Input[Optional[_builtins.str]] = None,
                  schema_version: pulumi.Input[Optional[_builtins.str]] = None,
                  scope: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] data_source: The data source for data quality queries. Valid value is `data_quality_metrics`. Valid values are `data_quality_metrics`.
-        :param pulumi.Input[_builtins.str] filter: Filter expression used to match on data entities. Uses AAstra query syntax.
-        :param pulumi.Input[_builtins.str] measure: The measure to query. Common values include `bytes`, `cardinality`, `custom`, `freshness`, `max`, `mean`, `min`, `nullness`, `percent_negative`, `percent_zero`, `row_count`, `stddev`, `sum`, `uniqueness`. Additional values may be supported.
+        :param pulumi.Input[_builtins.str] filter: Filter expression used to match on data entities. Uses Aastra query syntax.
+        :param pulumi.Input[_builtins.str] measure: The measure to query. Common values include `bytes`, `cardinality`, `custom`, `freshness`, `max`, `mean`, `min`, `nullness`, `percent_negative`, `percent_zero`, `row_count`, `stddev`, `sum`, `uniqueness`. `data-jobs alert` job duration monitors use `duration`. Additional values may be supported.
         :param pulumi.Input[_builtins.str] name: The name of the query for use in formulas.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_bies: Optional grouping fields for aggregation.
         :param pulumi.Input['MonitorVariablesDataQualityQueryMonitorOptionsArgs'] monitor_options: Monitor configuration options for data quality queries.
+        :param pulumi.Input[_builtins.str] run_filter: Filter on individual runs, using metrics filter syntax, for example `env:prod`. Only supported by `data-jobs alert` job duration monitors.
         :param pulumi.Input[_builtins.str] schema_version: Schema version for the data quality query.
         :param pulumi.Input[_builtins.str] scope: Optional scoping expression to further filter metrics.
         """
@@ -285368,6 +285445,8 @@ class MonitorVariablesDataQualityQueryArgs:
             pulumi.set(__self__, "group_bies", group_bies)
         if monitor_options is not None:
             pulumi.set(__self__, "monitor_options", monitor_options)
+        if run_filter is not None:
+            pulumi.set(__self__, "run_filter", run_filter)
         if schema_version is not None:
             pulumi.set(__self__, "schema_version", schema_version)
         if scope is not None:
@@ -285389,7 +285468,7 @@ class MonitorVariablesDataQualityQueryArgs:
     @pulumi.getter
     def filter(self) -> pulumi.Input[_builtins.str]:
         """
-        Filter expression used to match on data entities. Uses AAstra query syntax.
+        Filter expression used to match on data entities. Uses Aastra query syntax.
         """
         return pulumi.get(self, "filter")
 
@@ -285401,7 +285480,7 @@ class MonitorVariablesDataQualityQueryArgs:
     @pulumi.getter
     def measure(self) -> pulumi.Input[_builtins.str]:
         """
-        The measure to query. Common values include `bytes`, `cardinality`, `custom`, `freshness`, `max`, `mean`, `min`, `nullness`, `percent_negative`, `percent_zero`, `row_count`, `stddev`, `sum`, `uniqueness`. Additional values may be supported.
+        The measure to query. Common values include `bytes`, `cardinality`, `custom`, `freshness`, `max`, `mean`, `min`, `nullness`, `percent_negative`, `percent_zero`, `row_count`, `stddev`, `sum`, `uniqueness`. `data-jobs alert` job duration monitors use `duration`. Additional values may be supported.
         """
         return pulumi.get(self, "measure")
 
@@ -285446,6 +285525,18 @@ class MonitorVariablesDataQualityQueryArgs:
         pulumi.set(self, "monitor_options", value)
 
     @_builtins.property
+    @pulumi.getter(name="runFilter")
+    def run_filter(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Filter on individual runs, using metrics filter syntax, for example `env:prod`. Only supported by `data-jobs alert` job duration monitors.
+        """
+        return pulumi.get(self, "run_filter")
+
+    @run_filter.setter
+    def run_filter(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "run_filter", value)
+
+    @_builtins.property
     @pulumi.getter(name="schemaVersion")
     def schema_version(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
@@ -285471,6 +285562,10 @@ class MonitorVariablesDataQualityQueryArgs:
 
 
 class MonitorVariablesDataQualityQueryMonitorOptionsArgsDict(TypedDict):
+    consecutive_runs: NotRequired[pulumi.Input[Optional[_builtins.int]]]
+    """
+    Number of consecutive runs that must breach before a `data-jobs alert` job duration monitor alerts. Defaults to `1`.
+    """
     crontab_override: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Crontab expression to override the default schedule.
@@ -285482,6 +285577,10 @@ class MonitorVariablesDataQualityQueryMonitorOptionsArgsDict(TypedDict):
     custom_where: NotRequired[pulumi.Input[Optional[_builtins.str]]]
     """
     Custom WHERE clause for the query.
+    """
+    detection_type: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    How a `data-jobs alert` job duration monitor detects a breach. Must match the `.detection()` call in the monitor query. Valid values are `static`, `anomaly`. Required for job duration monitors.
     """
     group_by_columns: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]]
     """
@@ -285507,30 +285606,38 @@ class MonitorVariablesDataQualityQueryMonitorOptionsArgsDict(TypedDict):
 @pulumi.input_type
 class MonitorVariablesDataQualityQueryMonitorOptionsArgs:
     def __init__(__self__, *,
+                 consecutive_runs: pulumi.Input[Optional[_builtins.int]] = None,
                  crontab_override: pulumi.Input[Optional[_builtins.str]] = None,
                  custom_sql: pulumi.Input[Optional[_builtins.str]] = None,
                  custom_where: pulumi.Input[Optional[_builtins.str]] = None,
+                 detection_type: pulumi.Input[Optional[_builtins.str]] = None,
                  group_by_columns: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  model_configuration: pulumi.Input[Optional['MonitorVariablesDataQualityQueryMonitorOptionsModelConfigurationArgs']] = None,
                  model_type_override: pulumi.Input[Optional[_builtins.str]] = None,
                  sensitivity: pulumi.Input[Optional[_builtins.float]] = None,
                  source_to_target_config: pulumi.Input[Optional['MonitorVariablesDataQualityQueryMonitorOptionsSourceToTargetConfigArgs']] = None):
         """
+        :param pulumi.Input[_builtins.int] consecutive_runs: Number of consecutive runs that must breach before a `data-jobs alert` job duration monitor alerts. Defaults to `1`.
         :param pulumi.Input[_builtins.str] crontab_override: Crontab expression to override the default schedule.
         :param pulumi.Input[_builtins.str] custom_sql: Custom SQL query for the monitor.
         :param pulumi.Input[_builtins.str] custom_where: Custom WHERE clause for the query.
+        :param pulumi.Input[_builtins.str] detection_type: How a `data-jobs alert` job duration monitor detects a breach. Must match the `.detection()` call in the monitor query. Valid values are `static`, `anomaly`. Required for job duration monitors.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] group_by_columns: Columns to group results by.
         :param pulumi.Input['MonitorVariablesDataQualityQueryMonitorOptionsModelConfigurationArgs'] model_configuration: Tuning options for the anomaly detection model used by the monitor.
         :param pulumi.Input[_builtins.str] model_type_override: Override for the model type. Valid values are `freshness`, `percentage`, `any`.
         :param pulumi.Input[_builtins.float] sensitivity: Sensitivity of the anomaly detection model, expressed as a multiplier on the width of the predicted bounds. Higher values widen the bounds and produce fewer alerts; lower values tighten them and produce more alerts. Defaults to `3.0`.
         :param pulumi.Input['MonitorVariablesDataQualityQueryMonitorOptionsSourceToTargetConfigArgs'] source_to_target_config: Compare the same measure across two data entities and alert on the difference between them.
         """
+        if consecutive_runs is not None:
+            pulumi.set(__self__, "consecutive_runs", consecutive_runs)
         if crontab_override is not None:
             pulumi.set(__self__, "crontab_override", crontab_override)
         if custom_sql is not None:
             pulumi.set(__self__, "custom_sql", custom_sql)
         if custom_where is not None:
             pulumi.set(__self__, "custom_where", custom_where)
+        if detection_type is not None:
+            pulumi.set(__self__, "detection_type", detection_type)
         if group_by_columns is not None:
             pulumi.set(__self__, "group_by_columns", group_by_columns)
         if model_configuration is not None:
@@ -285541,6 +285648,18 @@ class MonitorVariablesDataQualityQueryMonitorOptionsArgs:
             pulumi.set(__self__, "sensitivity", sensitivity)
         if source_to_target_config is not None:
             pulumi.set(__self__, "source_to_target_config", source_to_target_config)
+
+    @_builtins.property
+    @pulumi.getter(name="consecutiveRuns")
+    def consecutive_runs(self) -> pulumi.Input[Optional[_builtins.int]]:
+        """
+        Number of consecutive runs that must breach before a `data-jobs alert` job duration monitor alerts. Defaults to `1`.
+        """
+        return pulumi.get(self, "consecutive_runs")
+
+    @consecutive_runs.setter
+    def consecutive_runs(self, value: pulumi.Input[Optional[_builtins.int]]):
+        pulumi.set(self, "consecutive_runs", value)
 
     @_builtins.property
     @pulumi.getter(name="crontabOverride")
@@ -285577,6 +285696,18 @@ class MonitorVariablesDataQualityQueryMonitorOptionsArgs:
     @custom_where.setter
     def custom_where(self, value: pulumi.Input[Optional[_builtins.str]]):
         pulumi.set(self, "custom_where", value)
+
+    @_builtins.property
+    @pulumi.getter(name="detectionType")
+    def detection_type(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        How a `data-jobs alert` job duration monitor detects a breach. Must match the `.detection()` call in the monitor query. Valid values are `static`, `anomaly`. Required for job duration monitors.
+        """
+        return pulumi.get(self, "detection_type")
+
+    @detection_type.setter
+    def detection_type(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "detection_type", value)
 
     @_builtins.property
     @pulumi.getter(name="groupByColumns")
@@ -292452,6 +292583,10 @@ class ObservabilityPipelineConfigDestinationDatadogLogRouteArgsDict(TypedDict):
     """
     Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
     """
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A human-readable name for this route.
+    """
 
 @pulumi.input_type
 class ObservabilityPipelineConfigDestinationDatadogLogRouteArgs:
@@ -292460,13 +292595,15 @@ class ObservabilityPipelineConfigDestinationDatadogLogRouteArgs:
                  include: pulumi.Input[_builtins.str],
                  route_id: pulumi.Input[_builtins.str],
                  site: pulumi.Input[_builtins.str],
-                 buffer: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationDatadogLogRouteBufferArgs']] = None):
+                 buffer: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationDatadogLogRouteBufferArgs']] = None,
+                 name: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.str] api_key_key: Name of the environment variable or secret that stores the Datadog API key used by this route.
         :param pulumi.Input[_builtins.str] include: A Datadog search query that determines which logs are forwarded using this route.
         :param pulumi.Input[_builtins.str] route_id: Unique identifier for this route within the destination.
         :param pulumi.Input[_builtins.str] site: Datadog site where matching logs are sent (for example, `us1`).
         :param pulumi.Input['ObservabilityPipelineConfigDestinationDatadogLogRouteBufferArgs'] buffer: Configuration for buffer settings on destination components. Exactly one of `disk` or `memory` must be specified.
+        :param pulumi.Input[_builtins.str] name: A human-readable name for this route.
         """
         pulumi.set(__self__, "api_key_key", api_key_key)
         pulumi.set(__self__, "include", include)
@@ -292474,6 +292611,8 @@ class ObservabilityPipelineConfigDestinationDatadogLogRouteArgs:
         pulumi.set(__self__, "site", site)
         if buffer is not None:
             pulumi.set(__self__, "buffer", buffer)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
 
     @_builtins.property
     @pulumi.getter(name="apiKeyKey")
@@ -292534,6 +292673,18 @@ class ObservabilityPipelineConfigDestinationDatadogLogRouteArgs:
     @buffer.setter
     def buffer(self, value: pulumi.Input[Optional['ObservabilityPipelineConfigDestinationDatadogLogRouteBufferArgs']]):
         pulumi.set(self, "buffer", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A human-readable name for this route.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
 
 
 class ObservabilityPipelineConfigDestinationDatadogLogRouteBufferArgsDict(TypedDict):
@@ -301737,6 +301888,10 @@ class ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemapArgs
     """
     The VRL script source code that defines the transformation logic.
     """
+    sample: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    A sample event used to test the VRL script in the pipeline editor.
+    """
 
 @pulumi.input_type
 class ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemapArgs:
@@ -301745,19 +301900,23 @@ class ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemapArgs
                  enabled: pulumi.Input[_builtins.bool],
                  include: pulumi.Input[_builtins.str],
                  name: pulumi.Input[_builtins.str],
-                 source: pulumi.Input[_builtins.str]):
+                 source: pulumi.Input[_builtins.str],
+                 sample: pulumi.Input[Optional[_builtins.str]] = None):
         """
         :param pulumi.Input[_builtins.bool] drop_on_error: Whether to drop events that cause errors during transformation.
         :param pulumi.Input[_builtins.bool] enabled: Whether this remap rule is enabled.
         :param pulumi.Input[_builtins.str] include: A Datadog search query used to filter events for this specific remap rule.
         :param pulumi.Input[_builtins.str] name: A descriptive name for this remap rule.
         :param pulumi.Input[_builtins.str] source: The VRL script source code that defines the transformation logic.
+        :param pulumi.Input[_builtins.str] sample: A sample event used to test the VRL script in the pipeline editor.
         """
         pulumi.set(__self__, "drop_on_error", drop_on_error)
         pulumi.set(__self__, "enabled", enabled)
         pulumi.set(__self__, "include", include)
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "source", source)
+        if sample is not None:
+            pulumi.set(__self__, "sample", sample)
 
     @_builtins.property
     @pulumi.getter(name="dropOnError")
@@ -301818,6 +301977,18 @@ class ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemapArgs
     @source.setter
     def source(self, value: pulumi.Input[_builtins.str]):
         pulumi.set(self, "source", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def sample(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        A sample event used to test the VRL script in the pipeline editor.
+        """
+        return pulumi.get(self, "sample")
+
+    @sample.setter
+    def sample(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "sample", value)
 
 
 class ObservabilityPipelineConfigProcessorGroupProcessorDatadogTagsArgsDict(TypedDict):
@@ -304056,6 +304227,10 @@ class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleArgs
     """
     A list of Grok parsing rules that define how to extract fields. Each rule must contain a name and a valid Grok pattern.
     """
+    name: NotRequired[pulumi.Input[Optional[_builtins.str]]]
+    """
+    Optional name identifying this Grok rule in worker diagnostics. Names must be unique within the processor.
+    """
     support_rules: NotRequired[pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleSupportRuleArgsDict']]]]]
     """
     A list of helper Grok rules that can be referenced by the parsing rules.
@@ -304066,14 +304241,18 @@ class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleArgs
     def __init__(__self__, *,
                  include: pulumi.Input[_builtins.str],
                  match_rules: pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleMatchRuleArgs']]],
+                 name: pulumi.Input[Optional[_builtins.str]] = None,
                  support_rules: pulumi.Input[Optional[Sequence[pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleSupportRuleArgs']]]] = None):
         """
         :param pulumi.Input[_builtins.str] include: A Datadog search query used to determine which logs this Grok rule targets.
         :param pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleMatchRuleArgs']]] match_rules: A list of Grok parsing rules that define how to extract fields. Each rule must contain a name and a valid Grok pattern.
+        :param pulumi.Input[_builtins.str] name: Optional name identifying this Grok rule in worker diagnostics. Names must be unique within the processor.
         :param pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleSupportRuleArgs']]] support_rules: A list of helper Grok rules that can be referenced by the parsing rules.
         """
         pulumi.set(__self__, "include", include)
         pulumi.set(__self__, "match_rules", match_rules)
+        if name is not None:
+            pulumi.set(__self__, "name", name)
         if support_rules is not None:
             pulumi.set(__self__, "support_rules", support_rules)
 
@@ -304100,6 +304279,18 @@ class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleArgs
     @match_rules.setter
     def match_rules(self, value: pulumi.Input[Sequence[pulumi.Input['ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleMatchRuleArgs']]]):
         pulumi.set(self, "match_rules", value)
+
+    @_builtins.property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[Optional[_builtins.str]]:
+        """
+        Optional name identifying this Grok rule in worker diagnostics. Names must be unique within the processor.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[Optional[_builtins.str]]):
+        pulumi.set(self, "name", value)
 
     @_builtins.property
     @pulumi.getter(name="supportRules")

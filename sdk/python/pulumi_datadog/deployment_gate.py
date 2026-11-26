@@ -29,7 +29,7 @@ class DeploymentGateArgs:
         """
         The set of arguments for constructing a DeploymentGate resource.
 
-        :param pulumi.Input[_builtins.str] env: The target environment (example: dev).
+        :param pulumi.Input[_builtins.str] env: The target environment (example: dev). Use `*` to apply this gate to all environments. A gate for all environments cannot coexist with environment-specific gates for the same service and identifier. Changing env replaces the gate.
         :param pulumi.Input[_builtins.str] service: The service name (example: transaction-backend).
         :param pulumi.Input[_builtins.bool] dry_run: Enable Dry Run to test gate behavior without impacting deployments. The evaluation of a dry run gate always responds with a pass status, but the in-app result is the real status based on rules evaluation. This is particularly useful when performing an initial evaluation of the gate behavior without impacting the deployment pipeline.
         :param pulumi.Input[_builtins.str] identifier: Unique name for multiple gates on the same service/environment.
@@ -48,7 +48,7 @@ class DeploymentGateArgs:
     @pulumi.getter
     def env(self) -> pulumi.Input[_builtins.str]:
         """
-        The target environment (example: dev).
+        The target environment (example: dev). Use `*` to apply this gate to all environments. A gate for all environments cannot coexist with environment-specific gates for the same service and identifier. Changing env replaces the gate.
         """
         return pulumi.get(self, "env")
 
@@ -120,7 +120,7 @@ class _DeploymentGateState:
 
         :param pulumi.Input[_builtins.str] created_at: Creation timestamp of the deployment gate.
         :param pulumi.Input[_builtins.bool] dry_run: Enable Dry Run to test gate behavior without impacting deployments. The evaluation of a dry run gate always responds with a pass status, but the in-app result is the real status based on rules evaluation. This is particularly useful when performing an initial evaluation of the gate behavior without impacting the deployment pipeline.
-        :param pulumi.Input[_builtins.str] env: The target environment (example: dev).
+        :param pulumi.Input[_builtins.str] env: The target environment (example: dev). Use `*` to apply this gate to all environments. A gate for all environments cannot coexist with environment-specific gates for the same service and identifier. Changing env replaces the gate.
         :param pulumi.Input[_builtins.str] identifier: Unique name for multiple gates on the same service/environment.
         :param pulumi.Input[Sequence[pulumi.Input['DeploymentGateRuleArgs']]] rules: Deployment rules for this gate.
         :param pulumi.Input[_builtins.str] service: The service name (example: transaction-backend).
@@ -169,7 +169,7 @@ class _DeploymentGateState:
     @pulumi.getter
     def env(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The target environment (example: dev).
+        The target environment (example: dev). Use `*` to apply this gate to all environments. A gate for all environments cannot coexist with environment-specific gates for the same service and identifier. Changing env replaces the gate.
         """
         return pulumi.get(self, "env")
 
@@ -275,6 +275,32 @@ class DeploymentGate(pulumi.CustomResource):
             ])
         ```
 
+        ### Gate for all environments
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        all_environments = datadog.DeploymentGate("all_environments",
+            service="my-service",
+            identifier="my-gate",
+            env="*",
+            rules=[{
+                "name": "monitor",
+                "type": "monitor",
+                "options": [{
+                    "query": "service:my-service",
+                    "duration": 300,
+                }],
+            }])
+        ```
+
+        ## Changing the environment
+
+        `env` is required. Set it to a concrete environment for an environment-specific gate or to `"*"` for a gate that applies to all environments. A gate with `env = "*"` cannot coexist with environment-specific gates for the same service and identifier. Evaluations still use a concrete environment.
+
+        Replacing one resource does not coordinate deletion of other environment-specific resources. To consolidate several gates with the same service and identifier into one all-environments gate, first remove all conflicting environment-specific gates and apply. Then add the `env = "*"` gate and its rules in a second apply. This leaves an evaluation gap until the new gate and its rules are ready. If evaluations must continue during migration, create the all-environments gate with a new identifier first, update evaluation callers to use it, and then remove the old gates.
+
         ## Import
 
         The `pulumi import` command can be used, for example:
@@ -287,7 +313,7 @@ class DeploymentGate(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.bool] dry_run: Enable Dry Run to test gate behavior without impacting deployments. The evaluation of a dry run gate always responds with a pass status, but the in-app result is the real status based on rules evaluation. This is particularly useful when performing an initial evaluation of the gate behavior without impacting the deployment pipeline.
-        :param pulumi.Input[_builtins.str] env: The target environment (example: dev).
+        :param pulumi.Input[_builtins.str] env: The target environment (example: dev). Use `*` to apply this gate to all environments. A gate for all environments cannot coexist with environment-specific gates for the same service and identifier. Changing env replaces the gate.
         :param pulumi.Input[_builtins.str] identifier: Unique name for multiple gates on the same service/environment.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentGateRuleArgs', 'DeploymentGateRuleArgsDict', 'outputs.DeploymentGateRule']]]] rules: Deployment rules for this gate.
         :param pulumi.Input[_builtins.str] service: The service name (example: transaction-backend).
@@ -334,6 +360,32 @@ class DeploymentGate(pulumi.CustomResource):
                 },
             ])
         ```
+
+        ### Gate for all environments
+
+        ```python
+        import pulumi
+        import pulumi_datadog as datadog
+
+        all_environments = datadog.DeploymentGate("all_environments",
+            service="my-service",
+            identifier="my-gate",
+            env="*",
+            rules=[{
+                "name": "monitor",
+                "type": "monitor",
+                "options": [{
+                    "query": "service:my-service",
+                    "duration": 300,
+                }],
+            }])
+        ```
+
+        ## Changing the environment
+
+        `env` is required. Set it to a concrete environment for an environment-specific gate or to `"*"` for a gate that applies to all environments. A gate with `env = "*"` cannot coexist with environment-specific gates for the same service and identifier. Evaluations still use a concrete environment.
+
+        Replacing one resource does not coordinate deletion of other environment-specific resources. To consolidate several gates with the same service and identifier into one all-environments gate, first remove all conflicting environment-specific gates and apply. Then add the `env = "*"` gate and its rules in a second apply. This leaves an evaluation gap until the new gate and its rules are ready. If evaluations must continue during migration, create the all-environments gate with a new identifier first, update evaluation callers to use it, and then remove the old gates.
 
         ## Import
 
@@ -410,7 +462,7 @@ class DeploymentGate(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[_builtins.str] created_at: Creation timestamp of the deployment gate.
         :param pulumi.Input[_builtins.bool] dry_run: Enable Dry Run to test gate behavior without impacting deployments. The evaluation of a dry run gate always responds with a pass status, but the in-app result is the real status based on rules evaluation. This is particularly useful when performing an initial evaluation of the gate behavior without impacting the deployment pipeline.
-        :param pulumi.Input[_builtins.str] env: The target environment (example: dev).
+        :param pulumi.Input[_builtins.str] env: The target environment (example: dev). Use `*` to apply this gate to all environments. A gate for all environments cannot coexist with environment-specific gates for the same service and identifier. Changing env replaces the gate.
         :param pulumi.Input[_builtins.str] identifier: Unique name for multiple gates on the same service/environment.
         :param pulumi.Input[Sequence[pulumi.Input[Union['DeploymentGateRuleArgs', 'DeploymentGateRuleArgsDict', 'outputs.DeploymentGateRule']]]] rules: Deployment rules for this gate.
         :param pulumi.Input[_builtins.str] service: The service name (example: transaction-backend).
@@ -469,7 +521,7 @@ class DeploymentGate(pulumi.CustomResource):
     @pulumi.getter
     def env(self) -> pulumi.Output[_builtins.str]:
         """
-        The target environment (example: dev).
+        The target environment (example: dev). Use `*` to apply this gate to all environments. A gate for all environments cannot coexist with environment-specific gates for the same service and identifier. Changing env replaces the gate.
         """
         return pulumi.get(self, "env")
 

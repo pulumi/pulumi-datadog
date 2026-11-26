@@ -12,7 +12,7 @@ import (
 	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
 )
 
-// Provides a Datadog Logs Pipeline API resource, which is used to manage Datadog log pipelines order.
+// Manages the order in which Datadog processes log pipelines. Use at most one pipeline order resource per organization. Each update replaces the entire order, so this resource can overwrite changes made at the same time in the Datadog UI, by automation, or by another Terraform run, even when `ignoreUnlistedPipelines` is `true`.
 //
 // ## Example Usage
 //
@@ -56,9 +56,11 @@ import (
 type LogsPipelineOrder struct {
 	pulumi.CustomResourceState
 
+	// When `true`, the resource manages only the relative order of the pipelines listed in `pipelines`. Each listed ID must be unique and match an existing pipeline. Unlisted pipelines keep their current positions, and pipelines added outside Terraform do not cause drift. For example, if the current order is `[A, X, B]` and you configure `[B, A]`, the result is `[B, X, A]`: pipeline `X` stays second but runs before `A` instead of after it. Leave this setting `false` to manage the full order, including which pipelines run first and last. Defaults to `false`.
+	IgnoreUnlistedPipelines pulumi.BoolPtrOutput `pulumi:"ignoreUnlistedPipelines"`
 	// The name attribute in the resource `LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
 	Name pulumi.StringOutput `pulumi:"name"`
-	// The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
+	// The pipeline IDs in execution order. Include every pipeline in the organization unless `ignoreUnlistedPipelines` is `true`.
 	Pipelines pulumi.StringArrayOutput `pulumi:"pipelines"`
 }
 
@@ -98,16 +100,20 @@ func GetLogsPipelineOrder(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LogsPipelineOrder resources.
 type logsPipelineOrderState struct {
+	// When `true`, the resource manages only the relative order of the pipelines listed in `pipelines`. Each listed ID must be unique and match an existing pipeline. Unlisted pipelines keep their current positions, and pipelines added outside Terraform do not cause drift. For example, if the current order is `[A, X, B]` and you configure `[B, A]`, the result is `[B, X, A]`: pipeline `X` stays second but runs before `A` instead of after it. Leave this setting `false` to manage the full order, including which pipelines run first and last. Defaults to `false`.
+	IgnoreUnlistedPipelines *bool `pulumi:"ignoreUnlistedPipelines"`
 	// The name attribute in the resource `LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
 	Name *string `pulumi:"name"`
-	// The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
+	// The pipeline IDs in execution order. Include every pipeline in the organization unless `ignoreUnlistedPipelines` is `true`.
 	Pipelines []string `pulumi:"pipelines"`
 }
 
 type LogsPipelineOrderState struct {
+	// When `true`, the resource manages only the relative order of the pipelines listed in `pipelines`. Each listed ID must be unique and match an existing pipeline. Unlisted pipelines keep their current positions, and pipelines added outside Terraform do not cause drift. For example, if the current order is `[A, X, B]` and you configure `[B, A]`, the result is `[B, X, A]`: pipeline `X` stays second but runs before `A` instead of after it. Leave this setting `false` to manage the full order, including which pipelines run first and last. Defaults to `false`.
+	IgnoreUnlistedPipelines pulumi.BoolPtrInput
 	// The name attribute in the resource `LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
 	Name pulumi.StringPtrInput
-	// The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
+	// The pipeline IDs in execution order. Include every pipeline in the organization unless `ignoreUnlistedPipelines` is `true`.
 	Pipelines pulumi.StringArrayInput
 }
 
@@ -122,17 +128,21 @@ func LogsPipelineOrderExists(ctx *pulumi.Context,
 }
 
 type logsPipelineOrderArgs struct {
+	// When `true`, the resource manages only the relative order of the pipelines listed in `pipelines`. Each listed ID must be unique and match an existing pipeline. Unlisted pipelines keep their current positions, and pipelines added outside Terraform do not cause drift. For example, if the current order is `[A, X, B]` and you configure `[B, A]`, the result is `[B, X, A]`: pipeline `X` stays second but runs before `A` instead of after it. Leave this setting `false` to manage the full order, including which pipelines run first and last. Defaults to `false`.
+	IgnoreUnlistedPipelines *bool `pulumi:"ignoreUnlistedPipelines"`
 	// The name attribute in the resource `LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
 	Name string `pulumi:"name"`
-	// The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
+	// The pipeline IDs in execution order. Include every pipeline in the organization unless `ignoreUnlistedPipelines` is `true`.
 	Pipelines []string `pulumi:"pipelines"`
 }
 
 // The set of arguments for constructing a LogsPipelineOrder resource.
 type LogsPipelineOrderArgs struct {
+	// When `true`, the resource manages only the relative order of the pipelines listed in `pipelines`. Each listed ID must be unique and match an existing pipeline. Unlisted pipelines keep their current positions, and pipelines added outside Terraform do not cause drift. For example, if the current order is `[A, X, B]` and you configure `[B, A]`, the result is `[B, X, A]`: pipeline `X` stays second but runs before `A` instead of after it. Leave this setting `false` to manage the full order, including which pipelines run first and last. Defaults to `false`.
+	IgnoreUnlistedPipelines pulumi.BoolPtrInput
 	// The name attribute in the resource `LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
 	Name pulumi.StringInput
-	// The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
+	// The pipeline IDs in execution order. Include every pipeline in the organization unless `ignoreUnlistedPipelines` is `true`.
 	Pipelines pulumi.StringArrayInput
 }
 
@@ -223,12 +233,17 @@ func (o LogsPipelineOrderOutput) ToLogsPipelineOrderOutputWithContext(ctx contex
 	return o
 }
 
+// When `true`, the resource manages only the relative order of the pipelines listed in `pipelines`. Each listed ID must be unique and match an existing pipeline. Unlisted pipelines keep their current positions, and pipelines added outside Terraform do not cause drift. For example, if the current order is `[A, X, B]` and you configure `[B, A]`, the result is `[B, X, A]`: pipeline `X` stays second but runs before `A` instead of after it. Leave this setting `false` to manage the full order, including which pipelines run first and last. Defaults to `false`.
+func (o LogsPipelineOrderOutput) IgnoreUnlistedPipelines() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LogsPipelineOrder) pulumi.BoolPtrOutput { return v.IgnoreUnlistedPipelines }).(pulumi.BoolPtrOutput)
+}
+
 // The name attribute in the resource `LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
 func (o LogsPipelineOrderOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LogsPipelineOrder) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
-// The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
+// The pipeline IDs in execution order. Include every pipeline in the organization unless `ignoreUnlistedPipelines` is `true`.
 func (o LogsPipelineOrderOutput) Pipelines() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *LogsPipelineOrder) pulumi.StringArrayOutput { return v.Pipelines }).(pulumi.StringArrayOutput)
 }

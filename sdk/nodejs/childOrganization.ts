@@ -121,6 +121,8 @@ export class ChildOrganization extends pulumi.CustomResource {
             resourceInputs["users"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["apiKeys", "applicationKeys"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(ChildOrganization.__pulumiType, name, resourceInputs, opts);
     }
 }

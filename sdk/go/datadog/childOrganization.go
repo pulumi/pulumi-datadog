@@ -69,6 +69,11 @@ func NewChildOrganization(ctx *pulumi.Context,
 	if args.Name == nil {
 		return nil, errors.New("invalid value for required argument 'Name'")
 	}
+	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"apiKeys",
+		"applicationKeys",
+	})
+	opts = append(opts, secrets)
 	opts = internal.PkgResourceDefaultOpts(opts)
 	var resource ChildOrganization
 	err := ctx.RegisterResource("datadog:index/childOrganization:ChildOrganization", name, args, &resource, opts...)

@@ -10,12 +10,14 @@ import com.pulumi.core.internal.Codegen;
 import com.pulumi.datadog.LogsPipelineOrderArgs;
 import com.pulumi.datadog.Utilities;
 import com.pulumi.datadog.inputs.LogsPipelineOrderState;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 /**
- * Provides a Datadog Logs Pipeline API resource, which is used to manage Datadog log pipelines order.
+ * Manages the order in which Datadog processes log pipelines. Use at most one pipeline order resource per organization. Each update replaces the entire order, so this resource can overwrite changes made at the same time in the Datadog UI, by automation, or by another Terraform run, even when `ignoreUnlistedPipelines` is `true`.
  * 
  * ## Example Usage
  * 
@@ -67,6 +69,20 @@ import javax.annotation.Nullable;
 @ResourceType(type="datadog:index/logsPipelineOrder:LogsPipelineOrder")
 public class LogsPipelineOrder extends com.pulumi.resources.CustomResource {
     /**
+     * When `true`, the resource manages only the relative order of the pipelines listed in `pipelines`. Each listed ID must be unique and match an existing pipeline. Unlisted pipelines keep their current positions, and pipelines added outside Terraform do not cause drift. For example, if the current order is `[A, X, B]` and you configure `[B, A]`, the result is `[B, X, A]`: pipeline `X` stays second but runs before `A` instead of after it. Leave this setting `false` to manage the full order, including which pipelines run first and last. Defaults to `false`.
+     * 
+     */
+    @Export(name="ignoreUnlistedPipelines", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> ignoreUnlistedPipelines;
+
+    /**
+     * @return When `true`, the resource manages only the relative order of the pipelines listed in `pipelines`. Each listed ID must be unique and match an existing pipeline. Unlisted pipelines keep their current positions, and pipelines added outside Terraform do not cause drift. For example, if the current order is `[A, X, B]` and you configure `[B, A]`, the result is `[B, X, A]`: pipeline `X` stays second but runs before `A` instead of after it. Leave this setting `false` to manage the full order, including which pipelines run first and last. Defaults to `false`.
+     * 
+     */
+    public Output<Optional<Boolean>> ignoreUnlistedPipelines() {
+        return Codegen.optional(this.ignoreUnlistedPipelines);
+    }
+    /**
      * The name attribute in the resource `datadog.LogsPipelineOrder` needs to be unique. It&#39;s recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
      * 
      */
@@ -81,14 +97,14 @@ public class LogsPipelineOrder extends com.pulumi.resources.CustomResource {
         return this.name;
     }
     /**
-     * The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
+     * The pipeline IDs in execution order. Include every pipeline in the organization unless `ignoreUnlistedPipelines` is `true`.
      * 
      */
     @Export(name="pipelines", refs={List.class,String.class}, tree="[0,1]")
     private Output<List<String>> pipelines;
 
     /**
-     * @return The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
+     * @return The pipeline IDs in execution order. Include every pipeline in the organization unless `ignoreUnlistedPipelines` is `true`.
      * 
      */
     public Output<List<String>> pipelines() {

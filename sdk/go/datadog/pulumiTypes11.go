@@ -13,6 +13,112 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type GetSyntheticsTestMobileOptionsListBinding struct {
+	// List of principals for the binding.
+	Principals []string `pulumi:"principals"`
+	// The relation restriction for the binding.
+	Relation string `pulumi:"relation"`
+}
+
+// GetSyntheticsTestMobileOptionsListBindingInput is an input type that accepts GetSyntheticsTestMobileOptionsListBindingArgs and GetSyntheticsTestMobileOptionsListBindingOutput values.
+// You can construct a concrete instance of `GetSyntheticsTestMobileOptionsListBindingInput` via:
+//
+//	GetSyntheticsTestMobileOptionsListBindingArgs{...}
+type GetSyntheticsTestMobileOptionsListBindingInput interface {
+	pulumi.Input
+
+	ToGetSyntheticsTestMobileOptionsListBindingOutput() GetSyntheticsTestMobileOptionsListBindingOutput
+	ToGetSyntheticsTestMobileOptionsListBindingOutputWithContext(context.Context) GetSyntheticsTestMobileOptionsListBindingOutput
+}
+
+type GetSyntheticsTestMobileOptionsListBindingArgs struct {
+	// List of principals for the binding.
+	Principals pulumi.StringArrayInput `pulumi:"principals"`
+	// The relation restriction for the binding.
+	Relation pulumi.StringInput `pulumi:"relation"`
+}
+
+func (GetSyntheticsTestMobileOptionsListBindingArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSyntheticsTestMobileOptionsListBinding)(nil)).Elem()
+}
+
+func (i GetSyntheticsTestMobileOptionsListBindingArgs) ToGetSyntheticsTestMobileOptionsListBindingOutput() GetSyntheticsTestMobileOptionsListBindingOutput {
+	return i.ToGetSyntheticsTestMobileOptionsListBindingOutputWithContext(context.Background())
+}
+
+func (i GetSyntheticsTestMobileOptionsListBindingArgs) ToGetSyntheticsTestMobileOptionsListBindingOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListBindingOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestMobileOptionsListBindingOutput)
+}
+
+// GetSyntheticsTestMobileOptionsListBindingArrayInput is an input type that accepts GetSyntheticsTestMobileOptionsListBindingArray and GetSyntheticsTestMobileOptionsListBindingArrayOutput values.
+// You can construct a concrete instance of `GetSyntheticsTestMobileOptionsListBindingArrayInput` via:
+//
+//	GetSyntheticsTestMobileOptionsListBindingArray{ GetSyntheticsTestMobileOptionsListBindingArgs{...} }
+type GetSyntheticsTestMobileOptionsListBindingArrayInput interface {
+	pulumi.Input
+
+	ToGetSyntheticsTestMobileOptionsListBindingArrayOutput() GetSyntheticsTestMobileOptionsListBindingArrayOutput
+	ToGetSyntheticsTestMobileOptionsListBindingArrayOutputWithContext(context.Context) GetSyntheticsTestMobileOptionsListBindingArrayOutput
+}
+
+type GetSyntheticsTestMobileOptionsListBindingArray []GetSyntheticsTestMobileOptionsListBindingInput
+
+func (GetSyntheticsTestMobileOptionsListBindingArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSyntheticsTestMobileOptionsListBinding)(nil)).Elem()
+}
+
+func (i GetSyntheticsTestMobileOptionsListBindingArray) ToGetSyntheticsTestMobileOptionsListBindingArrayOutput() GetSyntheticsTestMobileOptionsListBindingArrayOutput {
+	return i.ToGetSyntheticsTestMobileOptionsListBindingArrayOutputWithContext(context.Background())
+}
+
+func (i GetSyntheticsTestMobileOptionsListBindingArray) ToGetSyntheticsTestMobileOptionsListBindingArrayOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListBindingArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestMobileOptionsListBindingArrayOutput)
+}
+
+type GetSyntheticsTestMobileOptionsListBindingOutput struct{ *pulumi.OutputState }
+
+func (GetSyntheticsTestMobileOptionsListBindingOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetSyntheticsTestMobileOptionsListBinding)(nil)).Elem()
+}
+
+func (o GetSyntheticsTestMobileOptionsListBindingOutput) ToGetSyntheticsTestMobileOptionsListBindingOutput() GetSyntheticsTestMobileOptionsListBindingOutput {
+	return o
+}
+
+func (o GetSyntheticsTestMobileOptionsListBindingOutput) ToGetSyntheticsTestMobileOptionsListBindingOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListBindingOutput {
+	return o
+}
+
+// List of principals for the binding.
+func (o GetSyntheticsTestMobileOptionsListBindingOutput) Principals() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v GetSyntheticsTestMobileOptionsListBinding) []string { return v.Principals }).(pulumi.StringArrayOutput)
+}
+
+// The relation restriction for the binding.
+func (o GetSyntheticsTestMobileOptionsListBindingOutput) Relation() pulumi.StringOutput {
+	return o.ApplyT(func(v GetSyntheticsTestMobileOptionsListBinding) string { return v.Relation }).(pulumi.StringOutput)
+}
+
+type GetSyntheticsTestMobileOptionsListBindingArrayOutput struct{ *pulumi.OutputState }
+
+func (GetSyntheticsTestMobileOptionsListBindingArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetSyntheticsTestMobileOptionsListBinding)(nil)).Elem()
+}
+
+func (o GetSyntheticsTestMobileOptionsListBindingArrayOutput) ToGetSyntheticsTestMobileOptionsListBindingArrayOutput() GetSyntheticsTestMobileOptionsListBindingArrayOutput {
+	return o
+}
+
+func (o GetSyntheticsTestMobileOptionsListBindingArrayOutput) ToGetSyntheticsTestMobileOptionsListBindingArrayOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListBindingArrayOutput {
+	return o
+}
+
+func (o GetSyntheticsTestMobileOptionsListBindingArrayOutput) Index(i pulumi.IntInput) GetSyntheticsTestMobileOptionsListBindingOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSyntheticsTestMobileOptionsListBinding {
+		return vs[0].([]GetSyntheticsTestMobileOptionsListBinding)[vs[1].(int)]
+	}).(GetSyntheticsTestMobileOptionsListBindingOutput)
+}
+
 type GetSyntheticsTestMobileOptionsListCi struct {
 	// Execution rule for a Synthetics test.
 	ExecutionRule string `pulumi:"executionRule"`
@@ -4831,6 +4937,8 @@ func (o GetWorkflowAutomationRunAsOutput) Type() pulumi.StringOutput {
 }
 
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListBindingInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListBindingArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListBindingArrayInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListBindingArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListCiInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListCiArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListCiArrayInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListCiArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListMobileApplicationInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListMobileApplicationArgs{})
@@ -4898,6 +5006,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserInput)(nil)).Elem(), GetUsersUserArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetUsersUserArrayInput)(nil)).Elem(), GetUsersUserArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetWorkflowAutomationRunAsInput)(nil)).Elem(), GetWorkflowAutomationRunAsArgs{})
+	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListBindingOutput{})
+	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListBindingArrayOutput{})
 	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListCiOutput{})
 	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListCiArrayOutput{})
 	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListMobileApplicationOutput{})

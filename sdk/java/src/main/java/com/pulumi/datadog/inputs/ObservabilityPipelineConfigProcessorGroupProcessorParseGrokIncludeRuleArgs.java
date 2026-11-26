@@ -50,6 +50,21 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIn
     }
 
     /**
+     * Optional name identifying this Grok rule in worker diagnostics. Names must be unique within the processor.
+     * 
+     */
+    @Import(name="name")
+    private @Nullable Output<String> name;
+
+    /**
+     * @return Optional name identifying this Grok rule in worker diagnostics. Names must be unique within the processor.
+     * 
+     */
+    public Optional<Output<String>> name() {
+        return Optional.ofNullable(this.name);
+    }
+
+    /**
      * A list of helper Grok rules that can be referenced by the parsing rules.
      * 
      */
@@ -69,6 +84,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIn
     private ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleArgs(ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleArgs $) {
         this.include = $.include;
         this.matchRules = $.matchRules;
+        this.name = $.name;
         this.supportRules = $.supportRules;
     }
 
@@ -140,6 +156,27 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIn
          */
         public Builder matchRules(ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleMatchRuleArgs... matchRules) {
             return matchRules(List.of(matchRules));
+        }
+
+        /**
+         * @param name Optional name identifying this Grok rule in worker diagnostics. Names must be unique within the processor.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder name(@Nullable Output<String> name) {
+            $.name = name;
+            return this;
+        }
+
+        /**
+         * @param name Optional name identifying this Grok rule in worker diagnostics. Names must be unique within the processor.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder name(String name) {
+            return name(Output.of(name));
         }
 
         /**

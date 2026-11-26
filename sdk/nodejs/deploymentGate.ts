@@ -44,6 +44,33 @@ import * as utilities from "./utilities";
  * });
  * ```
  *
+ * ### Gate for all environments
+ *
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as datadog from "@pulumi/datadog";
+ *
+ * const allEnvironments = new datadog.DeploymentGate("all_environments", {
+ *     service: "my-service",
+ *     identifier: "my-gate",
+ *     env: "*",
+ *     rules: [{
+ *         name: "monitor",
+ *         type: "monitor",
+ *         options: [{
+ *             query: "service:my-service",
+ *             duration: 300,
+ *         }],
+ *     }],
+ * });
+ * ```
+ *
+ * ## Changing the environment
+ *
+ * `env` is required. Set it to a concrete environment for an environment-specific gate or to `"*"` for a gate that applies to all environments. A gate with `env = "*"` cannot coexist with environment-specific gates for the same service and identifier. Evaluations still use a concrete environment.
+ *
+ * Replacing one resource does not coordinate deletion of other environment-specific resources. To consolidate several gates with the same service and identifier into one all-environments gate, first remove all conflicting environment-specific gates and apply. Then add the `env = "*"` gate and its rules in a second apply. This leaves an evaluation gap until the new gate and its rules are ready. If evaluations must continue during migration, create the all-environments gate with a new identifier first, update evaluation callers to use it, and then remove the old gates.
+ *
  * ## Import
  *
  * The `pulumi import` command can be used, for example:
@@ -100,7 +127,7 @@ export class DeploymentGate extends pulumi.CustomResource {
      */
     declare public readonly dryRun: pulumi.Output<boolean>;
     /**
-     * The target environment (example: dev).
+     * The target environment (example: dev). Use `*` to apply this gate to all environments. A gate for all environments cannot coexist with environment-specific gates for the same service and identifier. Changing env replaces the gate.
      */
     declare public readonly env: pulumi.Output<string>;
     /**
@@ -174,7 +201,7 @@ export interface DeploymentGateState {
      */
     dryRun?: pulumi.Input<boolean | undefined>;
     /**
-     * The target environment (example: dev).
+     * The target environment (example: dev). Use `*` to apply this gate to all environments. A gate for all environments cannot coexist with environment-specific gates for the same service and identifier. Changing env replaces the gate.
      */
     env?: pulumi.Input<string | undefined>;
     /**
@@ -204,7 +231,7 @@ export interface DeploymentGateArgs {
      */
     dryRun?: pulumi.Input<boolean | undefined>;
     /**
-     * The target environment (example: dev).
+     * The target environment (example: dev). Use `*` to apply this gate to all environments. A gate for all environments cannot coexist with environment-specific gates for the same service and identifier. Changing env replaces the gate.
      */
     env: pulumi.Input<string>;
     /**

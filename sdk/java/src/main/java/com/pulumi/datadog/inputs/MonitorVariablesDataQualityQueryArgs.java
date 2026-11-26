@@ -34,14 +34,14 @@ public final class MonitorVariablesDataQualityQueryArgs extends com.pulumi.resou
     }
 
     /**
-     * Filter expression used to match on data entities. Uses AAstra query syntax.
+     * Filter expression used to match on data entities. Uses Aastra query syntax.
      * 
      */
     @Import(name="filter", required=true)
     private Output<String> filter;
 
     /**
-     * @return Filter expression used to match on data entities. Uses AAstra query syntax.
+     * @return Filter expression used to match on data entities. Uses Aastra query syntax.
      * 
      */
     public Output<String> filter() {
@@ -64,14 +64,14 @@ public final class MonitorVariablesDataQualityQueryArgs extends com.pulumi.resou
     }
 
     /**
-     * The measure to query. Common values include `bytes`, `cardinality`, `custom`, `freshness`, `max`, `mean`, `min`, `nullness`, `percentNegative`, `percentZero`, `rowCount`, `stddev`, `sum`, `uniqueness`. Additional values may be supported.
+     * The measure to query. Common values include `bytes`, `cardinality`, `custom`, `freshness`, `max`, `mean`, `min`, `nullness`, `percentNegative`, `percentZero`, `rowCount`, `stddev`, `sum`, `uniqueness`. `data-jobs alert` job duration monitors use `duration`. Additional values may be supported.
      * 
      */
     @Import(name="measure", required=true)
     private Output<String> measure;
 
     /**
-     * @return The measure to query. Common values include `bytes`, `cardinality`, `custom`, `freshness`, `max`, `mean`, `min`, `nullness`, `percentNegative`, `percentZero`, `rowCount`, `stddev`, `sum`, `uniqueness`. Additional values may be supported.
+     * @return The measure to query. Common values include `bytes`, `cardinality`, `custom`, `freshness`, `max`, `mean`, `min`, `nullness`, `percentNegative`, `percentZero`, `rowCount`, `stddev`, `sum`, `uniqueness`. `data-jobs alert` job duration monitors use `duration`. Additional values may be supported.
      * 
      */
     public Output<String> measure() {
@@ -106,6 +106,21 @@ public final class MonitorVariablesDataQualityQueryArgs extends com.pulumi.resou
      */
     public Output<String> name() {
         return this.name;
+    }
+
+    /**
+     * Filter on individual runs, using metrics filter syntax, for example `env:prod`. Only supported by `data-jobs alert` job duration monitors.
+     * 
+     */
+    @Import(name="runFilter")
+    private @Nullable Output<String> runFilter;
+
+    /**
+     * @return Filter on individual runs, using metrics filter syntax, for example `env:prod`. Only supported by `data-jobs alert` job duration monitors.
+     * 
+     */
+    public Optional<Output<String>> runFilter() {
+        return Optional.ofNullable(this.runFilter);
     }
 
     /**
@@ -147,6 +162,7 @@ public final class MonitorVariablesDataQualityQueryArgs extends com.pulumi.resou
         this.measure = $.measure;
         this.monitorOptions = $.monitorOptions;
         this.name = $.name;
+        this.runFilter = $.runFilter;
         this.schemaVersion = $.schemaVersion;
         this.scope = $.scope;
     }
@@ -191,7 +207,7 @@ public final class MonitorVariablesDataQualityQueryArgs extends com.pulumi.resou
         }
 
         /**
-         * @param filter Filter expression used to match on data entities. Uses AAstra query syntax.
+         * @param filter Filter expression used to match on data entities. Uses Aastra query syntax.
          * 
          * @return builder
          * 
@@ -202,7 +218,7 @@ public final class MonitorVariablesDataQualityQueryArgs extends com.pulumi.resou
         }
 
         /**
-         * @param filter Filter expression used to match on data entities. Uses AAstra query syntax.
+         * @param filter Filter expression used to match on data entities. Uses Aastra query syntax.
          * 
          * @return builder
          * 
@@ -243,7 +259,7 @@ public final class MonitorVariablesDataQualityQueryArgs extends com.pulumi.resou
         }
 
         /**
-         * @param measure The measure to query. Common values include `bytes`, `cardinality`, `custom`, `freshness`, `max`, `mean`, `min`, `nullness`, `percentNegative`, `percentZero`, `rowCount`, `stddev`, `sum`, `uniqueness`. Additional values may be supported.
+         * @param measure The measure to query. Common values include `bytes`, `cardinality`, `custom`, `freshness`, `max`, `mean`, `min`, `nullness`, `percentNegative`, `percentZero`, `rowCount`, `stddev`, `sum`, `uniqueness`. `data-jobs alert` job duration monitors use `duration`. Additional values may be supported.
          * 
          * @return builder
          * 
@@ -254,7 +270,7 @@ public final class MonitorVariablesDataQualityQueryArgs extends com.pulumi.resou
         }
 
         /**
-         * @param measure The measure to query. Common values include `bytes`, `cardinality`, `custom`, `freshness`, `max`, `mean`, `min`, `nullness`, `percentNegative`, `percentZero`, `rowCount`, `stddev`, `sum`, `uniqueness`. Additional values may be supported.
+         * @param measure The measure to query. Common values include `bytes`, `cardinality`, `custom`, `freshness`, `max`, `mean`, `min`, `nullness`, `percentNegative`, `percentZero`, `rowCount`, `stddev`, `sum`, `uniqueness`. `data-jobs alert` job duration monitors use `duration`. Additional values may be supported.
          * 
          * @return builder
          * 
@@ -303,6 +319,27 @@ public final class MonitorVariablesDataQualityQueryArgs extends com.pulumi.resou
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param runFilter Filter on individual runs, using metrics filter syntax, for example `env:prod`. Only supported by `data-jobs alert` job duration monitors.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder runFilter(@Nullable Output<String> runFilter) {
+            $.runFilter = runFilter;
+            return this;
+        }
+
+        /**
+         * @param runFilter Filter on individual runs, using metrics filter syntax, for example `env:prod`. Only supported by `data-jobs alert` job duration monitors.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder runFilter(String runFilter) {
+            return runFilter(Output.of(runFilter));
         }
 
         /**

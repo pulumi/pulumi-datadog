@@ -4,47 +4,67 @@
 package com.pulumi.datadog.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.datadog.outputs.MonitorVariablesDataJobsQueryMonitorOptions;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class MonitorVariablesDataJobsQuery {
     /**
-     * @return The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
+     * @return The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`, `adf.pipeline`. The `aastra` dialect also accepts `airflow.job`, `dbt.model`, `dbt.test`. Custom job types are supported with the `custom.ol.` prefix.
      * 
      */
     private String jobType;
     /**
-     * @return Filter expression used to select the jobs to monitor.
+     * @return Filter expression used to select the jobs to monitor. A metric tag filter such as `job_name:smoke*` with the `metric` dialect, or an Aastra entity search such as ` search for databricksJob where  `{@literal @}team:data-eng`` with the `aastra` dialect.
      * 
      */
     private String jobsQuery;
+    /**
+     * @return Monitor configuration options for data jobs queries.
+     * 
+     */
+    private @Nullable MonitorVariablesDataJobsQueryMonitorOptions monitorOptions;
     /**
      * @return Name of the query for use in formulas. Must be `runQuery`.
      * 
      */
     private String name;
     /**
-     * @return Query dialect for data jobs queries. Currently only `metric` is supported.
+     * @return Query dialect for data jobs queries. Valid values are `metric` and `aastra`.
      * 
      */
     private String queryDialect;
+    /**
+     * @return Filter on individual runs, using metrics filter syntax, for example `env:prod`. Only supported with the `aastra` query dialect.
+     * 
+     */
+    private @Nullable String runFilter;
 
     private MonitorVariablesDataJobsQuery() {}
     /**
-     * @return The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
+     * @return The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`, `adf.pipeline`. The `aastra` dialect also accepts `airflow.job`, `dbt.model`, `dbt.test`. Custom job types are supported with the `custom.ol.` prefix.
      * 
      */
     public String jobType() {
         return this.jobType;
     }
     /**
-     * @return Filter expression used to select the jobs to monitor.
+     * @return Filter expression used to select the jobs to monitor. A metric tag filter such as `job_name:smoke*` with the `metric` dialect, or an Aastra entity search such as ` search for databricksJob where  `{@literal @}team:data-eng`` with the `aastra` dialect.
      * 
      */
     public String jobsQuery() {
         return this.jobsQuery;
+    }
+    /**
+     * @return Monitor configuration options for data jobs queries.
+     * 
+     */
+    public Optional<MonitorVariablesDataJobsQueryMonitorOptions> monitorOptions() {
+        return Optional.ofNullable(this.monitorOptions);
     }
     /**
      * @return Name of the query for use in formulas. Must be `runQuery`.
@@ -54,11 +74,18 @@ public final class MonitorVariablesDataJobsQuery {
         return this.name;
     }
     /**
-     * @return Query dialect for data jobs queries. Currently only `metric` is supported.
+     * @return Query dialect for data jobs queries. Valid values are `metric` and `aastra`.
      * 
      */
     public String queryDialect() {
         return this.queryDialect;
+    }
+    /**
+     * @return Filter on individual runs, using metrics filter syntax, for example `env:prod`. Only supported with the `aastra` query dialect.
+     * 
+     */
+    public Optional<String> runFilter() {
+        return Optional.ofNullable(this.runFilter);
     }
 
     public static Builder builder() {
@@ -72,15 +99,19 @@ public final class MonitorVariablesDataJobsQuery {
     public static final class Builder {
         private String jobType;
         private String jobsQuery;
+        private @Nullable MonitorVariablesDataJobsQueryMonitorOptions monitorOptions;
         private String name;
         private String queryDialect;
+        private @Nullable String runFilter;
         public Builder() {}
         public Builder(MonitorVariablesDataJobsQuery defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.jobType = defaults.jobType;
     	      this.jobsQuery = defaults.jobsQuery;
+    	      this.monitorOptions = defaults.monitorOptions;
     	      this.name = defaults.name;
     	      this.queryDialect = defaults.queryDialect;
+    	      this.runFilter = defaults.runFilter;
         }
 
         @CustomType.Setter
@@ -100,6 +131,12 @@ public final class MonitorVariablesDataJobsQuery {
             return this;
         }
         @CustomType.Setter
+        public Builder monitorOptions(@Nullable MonitorVariablesDataJobsQueryMonitorOptions monitorOptions) {
+
+            this.monitorOptions = monitorOptions;
+            return this;
+        }
+        @CustomType.Setter
         public Builder name(String name) {
             if (name == null) {
               throw new MissingRequiredPropertyException("MonitorVariablesDataJobsQuery", "name");
@@ -115,12 +152,20 @@ public final class MonitorVariablesDataJobsQuery {
             this.queryDialect = queryDialect;
             return this;
         }
+        @CustomType.Setter
+        public Builder runFilter(@Nullable String runFilter) {
+
+            this.runFilter = runFilter;
+            return this;
+        }
         public MonitorVariablesDataJobsQuery build() {
             final var _resultValue = new MonitorVariablesDataJobsQuery();
             _resultValue.jobType = jobType;
             _resultValue.jobsQuery = jobsQuery;
+            _resultValue.monitorOptions = monitorOptions;
             _resultValue.name = name;
             _resultValue.queryDialect = queryDialect;
+            _resultValue.runFilter = runFilter;
             return _resultValue;
         }
     }

@@ -26,6 +26,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Include;
         /// <summary>
+        /// A human-readable name for this route.
+        /// </summary>
+        public readonly string? Name;
+        /// <summary>
         /// Unique identifier for this route within the destination.
         /// </summary>
         public readonly string RouteId;
@@ -42,6 +46,8 @@ namespace Pulumi.Datadog.Outputs
 
             string include,
 
+            string? name,
+
             string routeId,
 
             string site)
@@ -49,6 +55,7 @@ namespace Pulumi.Datadog.Outputs
             ApiKeyKey = apiKeyKey;
             Buffer = buffer;
             Include = include;
+            Name = name;
             RouteId = routeId;
             Site = site;
         }

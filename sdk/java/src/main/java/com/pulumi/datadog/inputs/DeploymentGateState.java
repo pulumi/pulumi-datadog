@@ -49,14 +49,14 @@ public final class DeploymentGateState extends com.pulumi.resources.ResourceArgs
     }
 
     /**
-     * The target environment (example: dev).
+     * The target environment (example: dev). Use `*` to apply this gate to all environments. A gate for all environments cannot coexist with environment-specific gates for the same service and identifier. Changing env replaces the gate.
      * 
      */
     @Import(name="env")
     private @Nullable Output<String> env;
 
     /**
-     * @return The target environment (example: dev).
+     * @return The target environment (example: dev). Use `*` to apply this gate to all environments. A gate for all environments cannot coexist with environment-specific gates for the same service and identifier. Changing env replaces the gate.
      * 
      */
     public Optional<Output<String>> env() {
@@ -196,7 +196,7 @@ public final class DeploymentGateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param env The target environment (example: dev).
+         * @param env The target environment (example: dev). Use `*` to apply this gate to all environments. A gate for all environments cannot coexist with environment-specific gates for the same service and identifier. Changing env replaces the gate.
          * 
          * @return builder
          * 
@@ -207,7 +207,7 @@ public final class DeploymentGateState extends com.pulumi.resources.ResourceArgs
         }
 
         /**
-         * @param env The target environment (example: dev).
+         * @param env The target environment (example: dev). Use `*` to apply this gate to all environments. A gate for all environments cannot coexist with environment-specific gates for the same service and identifier. Changing env replaces the gate.
          * 
          * @return builder
          * 

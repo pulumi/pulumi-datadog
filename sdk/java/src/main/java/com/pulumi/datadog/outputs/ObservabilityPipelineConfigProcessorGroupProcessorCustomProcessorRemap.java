@@ -8,6 +8,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemap {
@@ -31,6 +33,11 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorCustomProce
      * 
      */
     private String name;
+    /**
+     * @return A sample event used to test the VRL script in the pipeline editor.
+     * 
+     */
+    private @Nullable String sample;
     /**
      * @return The VRL script source code that defines the transformation logic.
      * 
@@ -67,6 +74,13 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorCustomProce
         return this.name;
     }
     /**
+     * @return A sample event used to test the VRL script in the pipeline editor.
+     * 
+     */
+    public Optional<String> sample() {
+        return Optional.ofNullable(this.sample);
+    }
+    /**
      * @return The VRL script source code that defines the transformation logic.
      * 
      */
@@ -87,6 +101,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorCustomProce
         private Boolean enabled;
         private String include;
         private String name;
+        private @Nullable String sample;
         private String source;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemap defaults) {
@@ -95,6 +110,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorCustomProce
     	      this.enabled = defaults.enabled;
     	      this.include = defaults.include;
     	      this.name = defaults.name;
+    	      this.sample = defaults.sample;
     	      this.source = defaults.source;
         }
 
@@ -131,6 +147,12 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorCustomProce
             return this;
         }
         @CustomType.Setter
+        public Builder sample(@Nullable String sample) {
+
+            this.sample = sample;
+            return this;
+        }
+        @CustomType.Setter
         public Builder source(String source) {
             if (source == null) {
               throw new MissingRequiredPropertyException("ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemap", "source");
@@ -144,6 +166,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorCustomProce
             _resultValue.enabled = enabled;
             _resultValue.include = include;
             _resultValue.name = name;
+            _resultValue.sample = sample;
             _resultValue.source = source;
             return _resultValue;
         }

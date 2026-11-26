@@ -1260,16 +1260,23 @@ utilities.lazyLoad(exports, ["WorkflowAutomation"], () => require("./workflowAut
 
 
 // Export sub-modules:
+import * as anthropic from "./anthropic";
 import * as aws from "./aws";
 import * as azure from "./azure";
+import * as chatgpt from "./chatgpt";
+import * as claude from "./claude";
 import * as cloudflare from "./cloudflare";
 import * as config from "./config";
 import * as confluent from "./confluent";
+import * as coreweave from "./coreweave";
 import * as databricks from "./databricks";
 import * as elastic from "./elastic";
 import * as fastly from "./fastly";
 import * as gcp from "./gcp";
+import * as github from "./github";
 import * as ms from "./ms";
+import * as nebius from "./nebius";
+import * as openai from "./openai";
 import * as opsgenie from "./opsgenie";
 import * as pagerduty from "./pagerduty";
 import * as slack from "./slack";
@@ -1278,16 +1285,23 @@ import * as twilio from "./twilio";
 import * as types from "./types";
 
 export {
+    anthropic,
     aws,
     azure,
+    chatgpt,
+    claude,
     cloudflare,
     config,
     confluent,
+    coreweave,
     databricks,
     elastic,
     fastly,
     gcp,
+    github,
     ms,
+    nebius,
+    openai,
     opsgenie,
     pagerduty,
     slack,

@@ -243,6 +243,8 @@ class ChildOrganization(pulumi.CustomResource):
             __props__.__dict__["public_id"] = None
             __props__.__dict__["settings"] = None
             __props__.__dict__["users"] = None
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["apiKeys", "applicationKeys"])
+        opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(ChildOrganization, __self__).__init__(
             'datadog:index/childOrganization:ChildOrganization',
             resource_name,

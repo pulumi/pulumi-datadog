@@ -5,6 +5,7 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -15,6 +16,21 @@ import javax.annotation.Nullable;
 public final class LogsPipelineOrderState extends com.pulumi.resources.ResourceArgs {
 
     public static final LogsPipelineOrderState Empty = new LogsPipelineOrderState();
+
+    /**
+     * When `true`, the resource manages only the relative order of the pipelines listed in `pipelines`. Each listed ID must be unique and match an existing pipeline. Unlisted pipelines keep their current positions, and pipelines added outside Terraform do not cause drift. For example, if the current order is `[A, X, B]` and you configure `[B, A]`, the result is `[B, X, A]`: pipeline `X` stays second but runs before `A` instead of after it. Leave this setting `false` to manage the full order, including which pipelines run first and last. Defaults to `false`.
+     * 
+     */
+    @Import(name="ignoreUnlistedPipelines")
+    private @Nullable Output<Boolean> ignoreUnlistedPipelines;
+
+    /**
+     * @return When `true`, the resource manages only the relative order of the pipelines listed in `pipelines`. Each listed ID must be unique and match an existing pipeline. Unlisted pipelines keep their current positions, and pipelines added outside Terraform do not cause drift. For example, if the current order is `[A, X, B]` and you configure `[B, A]`, the result is `[B, X, A]`: pipeline `X` stays second but runs before `A` instead of after it. Leave this setting `false` to manage the full order, including which pipelines run first and last. Defaults to `false`.
+     * 
+     */
+    public Optional<Output<Boolean>> ignoreUnlistedPipelines() {
+        return Optional.ofNullable(this.ignoreUnlistedPipelines);
+    }
 
     /**
      * The name attribute in the resource `datadog.LogsPipelineOrder` needs to be unique. It&#39;s recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
@@ -32,14 +48,14 @@ public final class LogsPipelineOrderState extends com.pulumi.resources.ResourceA
     }
 
     /**
-     * The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
+     * The pipeline IDs in execution order. Include every pipeline in the organization unless `ignoreUnlistedPipelines` is `true`.
      * 
      */
     @Import(name="pipelines")
     private @Nullable Output<List<String>> pipelines;
 
     /**
-     * @return The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
+     * @return The pipeline IDs in execution order. Include every pipeline in the organization unless `ignoreUnlistedPipelines` is `true`.
      * 
      */
     public Optional<Output<List<String>>> pipelines() {
@@ -49,6 +65,7 @@ public final class LogsPipelineOrderState extends com.pulumi.resources.ResourceA
     private LogsPipelineOrderState() {}
 
     private LogsPipelineOrderState(LogsPipelineOrderState $) {
+        this.ignoreUnlistedPipelines = $.ignoreUnlistedPipelines;
         this.name = $.name;
         this.pipelines = $.pipelines;
     }
@@ -69,6 +86,27 @@ public final class LogsPipelineOrderState extends com.pulumi.resources.ResourceA
 
         public Builder(LogsPipelineOrderState defaults) {
             $ = new LogsPipelineOrderState(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param ignoreUnlistedPipelines When `true`, the resource manages only the relative order of the pipelines listed in `pipelines`. Each listed ID must be unique and match an existing pipeline. Unlisted pipelines keep their current positions, and pipelines added outside Terraform do not cause drift. For example, if the current order is `[A, X, B]` and you configure `[B, A]`, the result is `[B, X, A]`: pipeline `X` stays second but runs before `A` instead of after it. Leave this setting `false` to manage the full order, including which pipelines run first and last. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ignoreUnlistedPipelines(@Nullable Output<Boolean> ignoreUnlistedPipelines) {
+            $.ignoreUnlistedPipelines = ignoreUnlistedPipelines;
+            return this;
+        }
+
+        /**
+         * @param ignoreUnlistedPipelines When `true`, the resource manages only the relative order of the pipelines listed in `pipelines`. Each listed ID must be unique and match an existing pipeline. Unlisted pipelines keep their current positions, and pipelines added outside Terraform do not cause drift. For example, if the current order is `[A, X, B]` and you configure `[B, A]`, the result is `[B, X, A]`: pipeline `X` stays second but runs before `A` instead of after it. Leave this setting `false` to manage the full order, including which pipelines run first and last. Defaults to `false`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder ignoreUnlistedPipelines(Boolean ignoreUnlistedPipelines) {
+            return ignoreUnlistedPipelines(Output.of(ignoreUnlistedPipelines));
         }
 
         /**
@@ -93,7 +131,7 @@ public final class LogsPipelineOrderState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param pipelines The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
+         * @param pipelines The pipeline IDs in execution order. Include every pipeline in the organization unless `ignoreUnlistedPipelines` is `true`.
          * 
          * @return builder
          * 
@@ -104,7 +142,7 @@ public final class LogsPipelineOrderState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param pipelines The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
+         * @param pipelines The pipeline IDs in execution order. Include every pipeline in the organization unless `ignoreUnlistedPipelines` is `true`.
          * 
          * @return builder
          * 
@@ -114,7 +152,7 @@ public final class LogsPipelineOrderState extends com.pulumi.resources.ResourceA
         }
 
         /**
-         * @param pipelines The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
+         * @param pipelines The pipeline IDs in execution order. Include every pipeline in the organization unless `ignoreUnlistedPipelines` is `true`.
          * 
          * @return builder
          * 

@@ -9,6 +9,8 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemapArgs extends com.pulumi.resources.ResourceArgs {
@@ -76,6 +78,21 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorCustomProce
     }
 
     /**
+     * A sample event used to test the VRL script in the pipeline editor.
+     * 
+     */
+    @Import(name="sample")
+    private @Nullable Output<String> sample;
+
+    /**
+     * @return A sample event used to test the VRL script in the pipeline editor.
+     * 
+     */
+    public Optional<Output<String>> sample() {
+        return Optional.ofNullable(this.sample);
+    }
+
+    /**
      * The VRL script source code that defines the transformation logic.
      * 
      */
@@ -97,6 +114,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorCustomProce
         this.enabled = $.enabled;
         this.include = $.include;
         this.name = $.name;
+        this.sample = $.sample;
         this.source = $.source;
     }
 
@@ -200,6 +218,27 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorCustomProce
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param sample A sample event used to test the VRL script in the pipeline editor.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sample(@Nullable Output<String> sample) {
+            $.sample = sample;
+            return this;
+        }
+
+        /**
+         * @param sample A sample event used to test the VRL script in the pipeline editor.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder sample(String sample) {
+            return sample(Output.of(sample));
         }
 
         /**

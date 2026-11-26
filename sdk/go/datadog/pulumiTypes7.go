@@ -13,6 +13,145 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode struct {
+	// The cardinality tracking algorithm to use. One of `exactFingerprint`, `probabilistic`. Valid values are `exactFingerprint`, `probabilistic`.
+	Mode string `pulumi:"mode"`
+}
+
+// ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeInput is an input type that accepts ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs and ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeInput` via:
+//
+//	ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs{...}
+type ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput() ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput
+	ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutputWithContext(context.Context) ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs struct {
+	// The cardinality tracking algorithm to use. One of `exactFingerprint`, `probabilistic`. Valid values are `exactFingerprint`, `probabilistic`.
+	Mode pulumi.StringInput `pulumi:"mode"`
+}
+
+func (ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode)(nil)).Elem()
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs) ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput() ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput {
+	return i.ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs) ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput)
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs) ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput {
+	return i.ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutputWithContext(context.Background())
+}
+
+func (i ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs) ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput).ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutputWithContext(ctx)
+}
+
+// ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrInput is an input type that accepts ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs, ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtr and ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput values.
+// You can construct a concrete instance of `ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrInput` via:
+//
+//	        ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs{...}
+//
+//	or:
+//
+//	        nil
+type ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrInput interface {
+	pulumi.Input
+
+	ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput
+	ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutputWithContext(context.Context) ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput
+}
+
+type observabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrType ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs
+
+func ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtr(v *ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs) ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrInput {
+	return (*observabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrType)(v)
+}
+
+func (*observabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode)(nil)).Elem()
+}
+
+func (i *observabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrType) ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput {
+	return i.ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutputWithContext(context.Background())
+}
+
+func (i *observabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrType) ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput)
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput) ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput() ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput) ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput) ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput {
+	return o.ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutputWithContext(context.Background())
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput) ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode) *ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode {
+		return &v
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput)
+}
+
+// The cardinality tracking algorithm to use. One of `exactFingerprint`, `probabilistic`. Valid values are `exactFingerprint`, `probabilistic`.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput) Mode() pulumi.StringOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode) string {
+		return v.Mode
+	}).(pulumi.StringOutput)
+}
+
+type ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput struct{ *pulumi.OutputState }
+
+func (ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode)(nil)).Elem()
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput) ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput) ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput {
+	return o
+}
+
+func (o ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput) Elem() ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode) ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode {
+		if v != nil {
+			return *v
+		}
+		var ret ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode
+		return ret
+	}).(ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput)
+}
+
+// The cardinality tracking algorithm to use. One of `exactFingerprint`, `probabilistic`. Valid values are `exactFingerprint`, `probabilistic`.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput) Mode() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Mode
+	}).(pulumi.StringPtrOutput)
+}
+
 type ObservabilityPipelineConfigProcessorGroupProcessorThrottle struct {
 	// Optional list of fields used to group events before applying throttling.
 	GroupBies []string `pulumi:"groupBies"`
@@ -87205,167 +87344,9 @@ func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchFilte
 	}).(pulumi.StringPtrOutput)
 }
 
-type PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeys struct {
-	// Primary join key.
-	Primary string `pulumi:"primary"`
-	// Secondary join keys.
-	Secondaries []string `pulumi:"secondaries"`
-}
-
-// PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysInput is an input type that accepts PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysArgs and PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysInput` via:
-//
-//	PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysArgs{...}
-type PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput
-	ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutputWithContext(context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput
-}
-
-type PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysArgs struct {
-	// Primary join key.
-	Primary pulumi.StringInput `pulumi:"primary"`
-	// Secondary join keys.
-	Secondaries pulumi.StringArrayInput `pulumi:"secondaries"`
-}
-
-func (PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeys)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysArgs) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput {
-	return i.ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysArgs) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutputWithContext(ctx context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput)
-}
-
-func (i PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysArgs) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput {
-	return i.ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysArgs) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput).ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrInput is an input type that accepts PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysArgs, PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtr and PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrInput` via:
-//
-//	        PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput
-	ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutputWithContext(context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput
-}
-
-type powerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrType PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysArgs
-
-func PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtr(v *PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysArgs) PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrInput {
-	return (*powerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrType)(v)
-}
-
-func (*powerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeys)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrType) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput {
-	return i.ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrType) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput)
-}
-
-type PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeys)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutputWithContext(ctx context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput {
-	return o.ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeys) *PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeys {
-		return &v
-	}).(PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput)
-}
-
-// Primary join key.
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput) Primary() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeys) string {
-		return v.Primary
-	}).(pulumi.StringOutput)
-}
-
-// Secondary join keys.
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput) Secondaries() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeys) []string {
-		return v.Secondaries
-	}).(pulumi.StringArrayOutput)
-}
-
-type PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeys)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput) Elem() PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeys) PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeys {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeys
-		return ret
-	}).(PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput)
-}
-
-// Primary join key.
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput) Primary() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeys) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Primary
-	}).(pulumi.StringPtrOutput)
-}
-
-// Secondary join keys.
-func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput) Secondaries() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeys) []string {
-		if v == nil {
-			return nil
-		}
-		return v.Secondaries
-	}).(pulumi.StringArrayOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorThrottleInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorThrottleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorThrottleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigSourceInput)(nil)).Elem(), ObservabilityPipelineConfigSourceArgs{})
@@ -88350,8 +88331,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchFiltersGraphFilterArrayInput)(nil)).Elem(), PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchFiltersGraphFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchFiltersGraphFilterTargetInput)(nil)).Elem(), PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchFiltersGraphFilterTargetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchFiltersGraphFilterTargetPtrInput)(nil)).Elem(), PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchFiltersGraphFilterTargetArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysInput)(nil)).Elem(), PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrInput)(nil)).Elem(), PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysArgs{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput{})
+	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorThrottleOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorThrottlePtrOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigSourceOutput{})
@@ -89336,6 +89317,4 @@ func init() {
 	pulumi.RegisterOutputType(PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchFiltersGraphFilterArrayOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchFiltersGraphFilterTargetOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchFiltersGraphFilterTargetPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput{})
 }

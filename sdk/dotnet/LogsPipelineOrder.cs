@@ -10,7 +10,7 @@ using Pulumi.Serialization;
 namespace Pulumi.Datadog
 {
     /// <summary>
-    /// Provides a Datadog Logs Pipeline API resource, which is used to manage Datadog log pipelines order.
+    /// Manages the order in which Datadog processes log pipelines. Use at most one pipeline order resource per organization. Each update replaces the entire order, so this resource can overwrite changes made at the same time in the Datadog UI, by automation, or by another Terraform run, even when `IgnoreUnlistedPipelines` is `True`.
     /// 
     /// ## Example Usage
     /// 
@@ -49,13 +49,19 @@ namespace Pulumi.Datadog
     public partial class LogsPipelineOrder : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// When `True`, the resource manages only the relative order of the pipelines listed in `Pipelines`. Each listed ID must be unique and match an existing pipeline. Unlisted pipelines keep their current positions, and pipelines added outside Terraform do not cause drift. For example, if the current order is `[A, X, B]` and you configure `[B, A]`, the result is `[B, X, A]`: pipeline `X` stays second but runs before `A` instead of after it. Leave this setting `False` to manage the full order, including which pipelines run first and last. Defaults to `False`.
+        /// </summary>
+        [Output("ignoreUnlistedPipelines")]
+        public Output<bool?> IgnoreUnlistedPipelines { get; private set; } = null!;
+
+        /// <summary>
         /// The name attribute in the resource `datadog.LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
         /// </summary>
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
+        /// The pipeline IDs in execution order. Include every pipeline in the organization unless `IgnoreUnlistedPipelines` is `True`.
         /// </summary>
         [Output("pipelines")]
         public Output<ImmutableArray<string>> Pipelines { get; private set; } = null!;
@@ -107,6 +113,12 @@ namespace Pulumi.Datadog
     public sealed class LogsPipelineOrderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// When `True`, the resource manages only the relative order of the pipelines listed in `Pipelines`. Each listed ID must be unique and match an existing pipeline. Unlisted pipelines keep their current positions, and pipelines added outside Terraform do not cause drift. For example, if the current order is `[A, X, B]` and you configure `[B, A]`, the result is `[B, X, A]`: pipeline `X` stays second but runs before `A` instead of after it. Leave this setting `False` to manage the full order, including which pipelines run first and last. Defaults to `False`.
+        /// </summary>
+        [Input("ignoreUnlistedPipelines")]
+        public Input<bool>? IgnoreUnlistedPipelines { get; set; }
+
+        /// <summary>
         /// The name attribute in the resource `datadog.LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
         /// </summary>
         [Input("name", required: true)]
@@ -116,7 +128,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _pipelines;
 
         /// <summary>
-        /// The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
+        /// The pipeline IDs in execution order. Include every pipeline in the organization unless `IgnoreUnlistedPipelines` is `True`.
         /// </summary>
         public InputList<string> Pipelines
         {
@@ -133,6 +145,12 @@ namespace Pulumi.Datadog
     public sealed class LogsPipelineOrderState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// When `True`, the resource manages only the relative order of the pipelines listed in `Pipelines`. Each listed ID must be unique and match an existing pipeline. Unlisted pipelines keep their current positions, and pipelines added outside Terraform do not cause drift. For example, if the current order is `[A, X, B]` and you configure `[B, A]`, the result is `[B, X, A]`: pipeline `X` stays second but runs before `A` instead of after it. Leave this setting `False` to manage the full order, including which pipelines run first and last. Defaults to `False`.
+        /// </summary>
+        [Input("ignoreUnlistedPipelines")]
+        public Input<bool>? IgnoreUnlistedPipelines { get; set; }
+
+        /// <summary>
         /// The name attribute in the resource `datadog.LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
         /// </summary>
         [Input("name")]
@@ -142,7 +160,7 @@ namespace Pulumi.Datadog
         private InputList<string>? _pipelines;
 
         /// <summary>
-        /// The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
+        /// The pipeline IDs in execution order. Include every pipeline in the organization unless `IgnoreUnlistedPipelines` is `True`.
         /// </summary>
         public InputList<string> Pipelines
         {

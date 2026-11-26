@@ -13,6 +13,12 @@ namespace Pulumi.Datadog.Inputs
     public sealed class MonitorVariablesDataQualityQueryMonitorOptionsGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Number of consecutive runs that must breach before a `data-jobs alert` job duration monitor alerts. Defaults to `1`.
+        /// </summary>
+        [Input("consecutiveRuns")]
+        public Input<int>? ConsecutiveRuns { get; set; }
+
+        /// <summary>
         /// Crontab expression to override the default schedule.
         /// </summary>
         [Input("crontabOverride")]
@@ -29,6 +35,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("customWhere")]
         public Input<string>? CustomWhere { get; set; }
+
+        /// <summary>
+        /// How a `data-jobs alert` job duration monitor detects a breach. Must match the `.detection()` call in the monitor query. Valid values are `Static`, `Anomaly`. Required for job duration monitors.
+        /// </summary>
+        [Input("detectionType")]
+        public Input<string>? DetectionType { get; set; }
 
         [Input("groupByColumns")]
         private InputList<string>? _groupByColumns;

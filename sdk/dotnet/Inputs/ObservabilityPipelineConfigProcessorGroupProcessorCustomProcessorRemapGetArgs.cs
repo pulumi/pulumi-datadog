@@ -37,6 +37,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
+        /// A sample event used to test the VRL script in the pipeline editor.
+        /// </summary>
+        [Input("sample")]
+        public Input<string>? Sample { get; set; }
+
+        /// <summary>
         /// The VRL script source code that defines the transformation logic.
         /// </summary>
         [Input("source", required: true)]

@@ -30,6 +30,12 @@ namespace Pulumi.Datadog.Inputs
             set => _matchRules = value;
         }
 
+        /// <summary>
+        /// Optional name identifying this Grok rule in worker diagnostics. Names must be unique within the processor.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
         [Input("supportRules")]
         private InputList<Inputs.ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleSupportRuleArgs>? _supportRules;
 

@@ -20,7 +20,7 @@ public final class MonitorVariablesDataQualityQuery {
      */
     private String dataSource;
     /**
-     * @return Filter expression used to match on data entities. Uses AAstra query syntax.
+     * @return Filter expression used to match on data entities. Uses Aastra query syntax.
      * 
      */
     private String filter;
@@ -30,7 +30,7 @@ public final class MonitorVariablesDataQualityQuery {
      */
     private @Nullable List<String> groupBies;
     /**
-     * @return The measure to query. Common values include `bytes`, `cardinality`, `custom`, `freshness`, `max`, `mean`, `min`, `nullness`, `percentNegative`, `percentZero`, `rowCount`, `stddev`, `sum`, `uniqueness`. Additional values may be supported.
+     * @return The measure to query. Common values include `bytes`, `cardinality`, `custom`, `freshness`, `max`, `mean`, `min`, `nullness`, `percentNegative`, `percentZero`, `rowCount`, `stddev`, `sum`, `uniqueness`. `data-jobs alert` job duration monitors use `duration`. Additional values may be supported.
      * 
      */
     private String measure;
@@ -44,6 +44,11 @@ public final class MonitorVariablesDataQualityQuery {
      * 
      */
     private String name;
+    /**
+     * @return Filter on individual runs, using metrics filter syntax, for example `env:prod`. Only supported by `data-jobs alert` job duration monitors.
+     * 
+     */
+    private @Nullable String runFilter;
     /**
      * @return Schema version for the data quality query.
      * 
@@ -64,7 +69,7 @@ public final class MonitorVariablesDataQualityQuery {
         return this.dataSource;
     }
     /**
-     * @return Filter expression used to match on data entities. Uses AAstra query syntax.
+     * @return Filter expression used to match on data entities. Uses Aastra query syntax.
      * 
      */
     public String filter() {
@@ -78,7 +83,7 @@ public final class MonitorVariablesDataQualityQuery {
         return this.groupBies == null ? List.of() : this.groupBies;
     }
     /**
-     * @return The measure to query. Common values include `bytes`, `cardinality`, `custom`, `freshness`, `max`, `mean`, `min`, `nullness`, `percentNegative`, `percentZero`, `rowCount`, `stddev`, `sum`, `uniqueness`. Additional values may be supported.
+     * @return The measure to query. Common values include `bytes`, `cardinality`, `custom`, `freshness`, `max`, `mean`, `min`, `nullness`, `percentNegative`, `percentZero`, `rowCount`, `stddev`, `sum`, `uniqueness`. `data-jobs alert` job duration monitors use `duration`. Additional values may be supported.
      * 
      */
     public String measure() {
@@ -97,6 +102,13 @@ public final class MonitorVariablesDataQualityQuery {
      */
     public String name() {
         return this.name;
+    }
+    /**
+     * @return Filter on individual runs, using metrics filter syntax, for example `env:prod`. Only supported by `data-jobs alert` job duration monitors.
+     * 
+     */
+    public Optional<String> runFilter() {
+        return Optional.ofNullable(this.runFilter);
     }
     /**
      * @return Schema version for the data quality query.
@@ -128,6 +140,7 @@ public final class MonitorVariablesDataQualityQuery {
         private String measure;
         private @Nullable MonitorVariablesDataQualityQueryMonitorOptions monitorOptions;
         private String name;
+        private @Nullable String runFilter;
         private @Nullable String schemaVersion;
         private @Nullable String scope;
         public Builder() {}
@@ -139,6 +152,7 @@ public final class MonitorVariablesDataQualityQuery {
     	      this.measure = defaults.measure;
     	      this.monitorOptions = defaults.monitorOptions;
     	      this.name = defaults.name;
+    	      this.runFilter = defaults.runFilter;
     	      this.schemaVersion = defaults.schemaVersion;
     	      this.scope = defaults.scope;
         }
@@ -191,6 +205,12 @@ public final class MonitorVariablesDataQualityQuery {
             return this;
         }
         @CustomType.Setter
+        public Builder runFilter(@Nullable String runFilter) {
+
+            this.runFilter = runFilter;
+            return this;
+        }
+        @CustomType.Setter
         public Builder schemaVersion(@Nullable String schemaVersion) {
 
             this.schemaVersion = schemaVersion;
@@ -210,6 +230,7 @@ public final class MonitorVariablesDataQualityQuery {
             _resultValue.measure = measure;
             _resultValue.monitorOptions = monitorOptions;
             _resultValue.name = name;
+            _resultValue.runFilter = runFilter;
             _resultValue.schemaVersion = schemaVersion;
             _resultValue.scope = scope;
             return _resultValue;

@@ -5,9 +5,12 @@ package com.pulumi.datadog.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.datadog.inputs.MonitorVariablesDataJobsQueryMonitorOptionsArgs;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class MonitorVariablesDataJobsQueryArgs extends com.pulumi.resources.ResourceArgs {
@@ -15,14 +18,14 @@ public final class MonitorVariablesDataJobsQueryArgs extends com.pulumi.resource
     public static final MonitorVariablesDataJobsQueryArgs Empty = new MonitorVariablesDataJobsQueryArgs();
 
     /**
-     * The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
+     * The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`, `adf.pipeline`. The `aastra` dialect also accepts `airflow.job`, `dbt.model`, `dbt.test`. Custom job types are supported with the `custom.ol.` prefix.
      * 
      */
     @Import(name="jobType", required=true)
     private Output<String> jobType;
 
     /**
-     * @return The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
+     * @return The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`, `adf.pipeline`. The `aastra` dialect also accepts `airflow.job`, `dbt.model`, `dbt.test`. Custom job types are supported with the `custom.ol.` prefix.
      * 
      */
     public Output<String> jobType() {
@@ -30,18 +33,33 @@ public final class MonitorVariablesDataJobsQueryArgs extends com.pulumi.resource
     }
 
     /**
-     * Filter expression used to select the jobs to monitor.
+     * Filter expression used to select the jobs to monitor. A metric tag filter such as `job_name:smoke*` with the `metric` dialect, or an Aastra entity search such as ` search for databricksJob where  `{@literal @}team:data-eng`` with the `aastra` dialect.
      * 
      */
     @Import(name="jobsQuery", required=true)
     private Output<String> jobsQuery;
 
     /**
-     * @return Filter expression used to select the jobs to monitor.
+     * @return Filter expression used to select the jobs to monitor. A metric tag filter such as `job_name:smoke*` with the `metric` dialect, or an Aastra entity search such as ` search for databricksJob where  `{@literal @}team:data-eng`` with the `aastra` dialect.
      * 
      */
     public Output<String> jobsQuery() {
         return this.jobsQuery;
+    }
+
+    /**
+     * Monitor configuration options for data jobs queries.
+     * 
+     */
+    @Import(name="monitorOptions")
+    private @Nullable Output<MonitorVariablesDataJobsQueryMonitorOptionsArgs> monitorOptions;
+
+    /**
+     * @return Monitor configuration options for data jobs queries.
+     * 
+     */
+    public Optional<Output<MonitorVariablesDataJobsQueryMonitorOptionsArgs>> monitorOptions() {
+        return Optional.ofNullable(this.monitorOptions);
     }
 
     /**
@@ -60,18 +78,33 @@ public final class MonitorVariablesDataJobsQueryArgs extends com.pulumi.resource
     }
 
     /**
-     * Query dialect for data jobs queries. Currently only `metric` is supported.
+     * Query dialect for data jobs queries. Valid values are `metric` and `aastra`.
      * 
      */
     @Import(name="queryDialect", required=true)
     private Output<String> queryDialect;
 
     /**
-     * @return Query dialect for data jobs queries. Currently only `metric` is supported.
+     * @return Query dialect for data jobs queries. Valid values are `metric` and `aastra`.
      * 
      */
     public Output<String> queryDialect() {
         return this.queryDialect;
+    }
+
+    /**
+     * Filter on individual runs, using metrics filter syntax, for example `env:prod`. Only supported with the `aastra` query dialect.
+     * 
+     */
+    @Import(name="runFilter")
+    private @Nullable Output<String> runFilter;
+
+    /**
+     * @return Filter on individual runs, using metrics filter syntax, for example `env:prod`. Only supported with the `aastra` query dialect.
+     * 
+     */
+    public Optional<Output<String>> runFilter() {
+        return Optional.ofNullable(this.runFilter);
     }
 
     private MonitorVariablesDataJobsQueryArgs() {}
@@ -79,8 +112,10 @@ public final class MonitorVariablesDataJobsQueryArgs extends com.pulumi.resource
     private MonitorVariablesDataJobsQueryArgs(MonitorVariablesDataJobsQueryArgs $) {
         this.jobType = $.jobType;
         this.jobsQuery = $.jobsQuery;
+        this.monitorOptions = $.monitorOptions;
         this.name = $.name;
         this.queryDialect = $.queryDialect;
+        this.runFilter = $.runFilter;
     }
 
     public static Builder builder() {
@@ -102,7 +137,7 @@ public final class MonitorVariablesDataJobsQueryArgs extends com.pulumi.resource
         }
 
         /**
-         * @param jobType The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
+         * @param jobType The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`, `adf.pipeline`. The `aastra` dialect also accepts `airflow.job`, `dbt.model`, `dbt.test`. Custom job types are supported with the `custom.ol.` prefix.
          * 
          * @return builder
          * 
@@ -113,7 +148,7 @@ public final class MonitorVariablesDataJobsQueryArgs extends com.pulumi.resource
         }
 
         /**
-         * @param jobType The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
+         * @param jobType The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`, `adf.pipeline`. The `aastra` dialect also accepts `airflow.job`, `dbt.model`, `dbt.test`. Custom job types are supported with the `custom.ol.` prefix.
          * 
          * @return builder
          * 
@@ -123,7 +158,7 @@ public final class MonitorVariablesDataJobsQueryArgs extends com.pulumi.resource
         }
 
         /**
-         * @param jobsQuery Filter expression used to select the jobs to monitor.
+         * @param jobsQuery Filter expression used to select the jobs to monitor. A metric tag filter such as `job_name:smoke*` with the `metric` dialect, or an Aastra entity search such as ` search for databricksJob where  `{@literal @}team:data-eng`` with the `aastra` dialect.
          * 
          * @return builder
          * 
@@ -134,13 +169,34 @@ public final class MonitorVariablesDataJobsQueryArgs extends com.pulumi.resource
         }
 
         /**
-         * @param jobsQuery Filter expression used to select the jobs to monitor.
+         * @param jobsQuery Filter expression used to select the jobs to monitor. A metric tag filter such as `job_name:smoke*` with the `metric` dialect, or an Aastra entity search such as ` search for databricksJob where  `{@literal @}team:data-eng`` with the `aastra` dialect.
          * 
          * @return builder
          * 
          */
         public Builder jobsQuery(String jobsQuery) {
             return jobsQuery(Output.of(jobsQuery));
+        }
+
+        /**
+         * @param monitorOptions Monitor configuration options for data jobs queries.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitorOptions(@Nullable Output<MonitorVariablesDataJobsQueryMonitorOptionsArgs> monitorOptions) {
+            $.monitorOptions = monitorOptions;
+            return this;
+        }
+
+        /**
+         * @param monitorOptions Monitor configuration options for data jobs queries.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder monitorOptions(MonitorVariablesDataJobsQueryMonitorOptionsArgs monitorOptions) {
+            return monitorOptions(Output.of(monitorOptions));
         }
 
         /**
@@ -165,7 +221,7 @@ public final class MonitorVariablesDataJobsQueryArgs extends com.pulumi.resource
         }
 
         /**
-         * @param queryDialect Query dialect for data jobs queries. Currently only `metric` is supported.
+         * @param queryDialect Query dialect for data jobs queries. Valid values are `metric` and `aastra`.
          * 
          * @return builder
          * 
@@ -176,13 +232,34 @@ public final class MonitorVariablesDataJobsQueryArgs extends com.pulumi.resource
         }
 
         /**
-         * @param queryDialect Query dialect for data jobs queries. Currently only `metric` is supported.
+         * @param queryDialect Query dialect for data jobs queries. Valid values are `metric` and `aastra`.
          * 
          * @return builder
          * 
          */
         public Builder queryDialect(String queryDialect) {
             return queryDialect(Output.of(queryDialect));
+        }
+
+        /**
+         * @param runFilter Filter on individual runs, using metrics filter syntax, for example `env:prod`. Only supported with the `aastra` query dialect.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder runFilter(@Nullable Output<String> runFilter) {
+            $.runFilter = runFilter;
+            return this;
+        }
+
+        /**
+         * @param runFilter Filter on individual runs, using metrics filter syntax, for example `env:prod`. Only supported with the `aastra` query dialect.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder runFilter(String runFilter) {
+            return runFilter(Output.of(runFilter));
         }
 
         public MonitorVariablesDataJobsQueryArgs build() {

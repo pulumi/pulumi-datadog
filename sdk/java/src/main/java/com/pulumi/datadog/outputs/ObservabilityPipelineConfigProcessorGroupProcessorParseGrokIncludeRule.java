@@ -10,6 +10,7 @@ import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 import javax.annotation.Nullable;
 
 @CustomType
@@ -24,6 +25,11 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIn
      * 
      */
     private List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleMatchRule> matchRules;
+    /**
+     * @return Optional name identifying this Grok rule in worker diagnostics. Names must be unique within the processor.
+     * 
+     */
+    private @Nullable String name;
     /**
      * @return A list of helper Grok rules that can be referenced by the parsing rules.
      * 
@@ -46,6 +52,13 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIn
         return this.matchRules;
     }
     /**
+     * @return Optional name identifying this Grok rule in worker diagnostics. Names must be unique within the processor.
+     * 
+     */
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
+    }
+    /**
      * @return A list of helper Grok rules that can be referenced by the parsing rules.
      * 
      */
@@ -64,12 +77,14 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIn
     public static final class Builder {
         private String include;
         private List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleMatchRule> matchRules;
+        private @Nullable String name;
         private @Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleSupportRule> supportRules;
         public Builder() {}
         public Builder(ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRule defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.include = defaults.include;
     	      this.matchRules = defaults.matchRules;
+    	      this.name = defaults.name;
     	      this.supportRules = defaults.supportRules;
         }
 
@@ -93,6 +108,12 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIn
             return matchRules(List.of(matchRules));
         }
         @CustomType.Setter
+        public Builder name(@Nullable String name) {
+
+            this.name = name;
+            return this;
+        }
+        @CustomType.Setter
         public Builder supportRules(@Nullable List<ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleSupportRule> supportRules) {
 
             this.supportRules = supportRules;
@@ -105,6 +126,7 @@ public final class ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIn
             final var _resultValue = new ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRule();
             _resultValue.include = include;
             _resultValue.matchRules = matchRules;
+            _resultValue.name = name;
             _resultValue.supportRules = supportRules;
             return _resultValue;
         }

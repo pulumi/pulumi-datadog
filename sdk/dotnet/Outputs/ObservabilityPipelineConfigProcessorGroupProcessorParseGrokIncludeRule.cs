@@ -22,6 +22,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleMatchRule> MatchRules;
         /// <summary>
+        /// Optional name identifying this Grok rule in worker diagnostics. Names must be unique within the processor.
+        /// </summary>
+        public readonly string? Name;
+        /// <summary>
         /// A list of helper Grok rules that can be referenced by the parsing rules.
         /// </summary>
         public readonly ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleSupportRule> SupportRules;
@@ -32,10 +36,13 @@ namespace Pulumi.Datadog.Outputs
 
             ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleMatchRule> matchRules,
 
+            string? name,
+
             ImmutableArray<Outputs.ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleSupportRule> supportRules)
         {
             Include = include;
             MatchRules = matchRules;
+            Name = name;
             SupportRules = supportRules;
         }
     }

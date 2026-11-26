@@ -13,16 +13,22 @@ namespace Pulumi.Datadog.Inputs
     public sealed class MonitorVariablesDataJobsQueryArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
+        /// The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`, `adf.pipeline`. The `Aastra` dialect also accepts `airflow.job`, `dbt.model`, `dbt.test`. Custom job types are supported with the `custom.ol.` prefix.
         /// </summary>
         [Input("jobType", required: true)]
         public Input<string> JobType { get; set; } = null!;
 
         /// <summary>
-        /// Filter expression used to select the jobs to monitor.
+        /// Filter expression used to select the jobs to monitor. A metric tag filter such as `job_name:smoke*` with the `Metric` dialect, or an Aastra entity search such as ` search for DatabricksJob where  `@team:data-eng`` with the `Aastra` dialect.
         /// </summary>
         [Input("jobsQuery", required: true)]
         public Input<string> JobsQuery { get; set; } = null!;
+
+        /// <summary>
+        /// Monitor configuration options for data jobs queries.
+        /// </summary>
+        [Input("monitorOptions")]
+        public Input<Inputs.MonitorVariablesDataJobsQueryMonitorOptionsArgs>? MonitorOptions { get; set; }
 
         /// <summary>
         /// Name of the query for use in formulas. Must be `RunQuery`.
@@ -31,10 +37,16 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Name { get; set; } = null!;
 
         /// <summary>
-        /// Query dialect for data jobs queries. Currently only `Metric` is supported.
+        /// Query dialect for data jobs queries. Valid values are `Metric` and `Aastra`.
         /// </summary>
         [Input("queryDialect", required: true)]
         public Input<string> QueryDialect { get; set; } = null!;
+
+        /// <summary>
+        /// Filter on individual runs, using metrics filter syntax, for example `env:prod`. Only supported with the `Aastra` query dialect.
+        /// </summary>
+        [Input("runFilter")]
+        public Input<string>? RunFilter { get; set; }
 
         public MonitorVariablesDataJobsQueryArgs()
         {
