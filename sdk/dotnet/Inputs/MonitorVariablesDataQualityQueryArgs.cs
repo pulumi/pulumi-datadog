@@ -19,7 +19,7 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> DataSource { get; set; } = null!;
 
         /// <summary>
-        /// Filter expression used to match on data entities. Uses AAstra query syntax.
+        /// Filter expression used to match on data entities. Uses Aastra query syntax.
         /// </summary>
         [Input("filter", required: true)]
         public Input<string> Filter { get; set; } = null!;
@@ -37,7 +37,7 @@ namespace Pulumi.Datadog.Inputs
         }
 
         /// <summary>
-        /// The measure to query. Common values include `Bytes`, `Cardinality`, `Custom`, `Freshness`, `Max`, `Mean`, `Min`, `Nullness`, `PercentNegative`, `PercentZero`, `RowCount`, `Stddev`, `Sum`, `Uniqueness`. Additional values may be supported.
+        /// The measure to query. Common values include `Bytes`, `Cardinality`, `Custom`, `Freshness`, `Max`, `Mean`, `Min`, `Nullness`, `PercentNegative`, `PercentZero`, `RowCount`, `Stddev`, `Sum`, `Uniqueness`. `data-jobs alert` job duration monitors use `Duration`. Additional values may be supported.
         /// </summary>
         [Input("measure", required: true)]
         public Input<string> Measure { get; set; } = null!;
@@ -53,6 +53,12 @@ namespace Pulumi.Datadog.Inputs
         /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
+
+        /// <summary>
+        /// Filter on individual runs, using metrics filter syntax, for example `env:prod`. Only supported by `data-jobs alert` job duration monitors.
+        /// </summary>
+        [Input("runFilter")]
+        public Input<string>? RunFilter { get; set; }
 
         /// <summary>
         /// Schema version for the data quality query.

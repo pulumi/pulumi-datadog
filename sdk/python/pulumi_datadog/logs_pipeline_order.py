@@ -20,15 +20,19 @@ __all__ = ['LogsPipelineOrderArgs', 'LogsPipelineOrder']
 class LogsPipelineOrderArgs:
     def __init__(__self__, *,
                  name: pulumi.Input[_builtins.str],
-                 pipelines: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
+                 pipelines: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]],
+                 ignore_unlisted_pipelines: pulumi.Input[Optional[_builtins.bool]] = None):
         """
         The set of arguments for constructing a LogsPipelineOrder resource.
 
         :param pulumi.Input[_builtins.str] name: The name attribute in the resource `LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] pipelines: The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] pipelines: The pipeline IDs in execution order. Include every pipeline in the organization unless `ignore_unlisted_pipelines` is `true`.
+        :param pulumi.Input[_builtins.bool] ignore_unlisted_pipelines: When `true`, the resource manages only the relative order of the pipelines listed in `pipelines`. Each listed ID must be unique and match an existing pipeline. Unlisted pipelines keep their current positions, and pipelines added outside Terraform do not cause drift. For example, if the current order is `[A, X, B]` and you configure `[B, A]`, the result is `[B, X, A]`: pipeline `X` stays second but runs before `A` instead of after it. Leave this setting `false` to manage the full order, including which pipelines run first and last. Defaults to `false`.
         """
         pulumi.set(__self__, "name", name)
         pulumi.set(__self__, "pipelines", pipelines)
+        if ignore_unlisted_pipelines is not None:
+            pulumi.set(__self__, "ignore_unlisted_pipelines", ignore_unlisted_pipelines)
 
     @_builtins.property
     @pulumi.getter
@@ -46,7 +50,7 @@ class LogsPipelineOrderArgs:
     @pulumi.getter
     def pipelines(self) -> pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]:
         """
-        The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
+        The pipeline IDs in execution order. Include every pipeline in the organization unless `ignore_unlisted_pipelines` is `true`.
         """
         return pulumi.get(self, "pipelines")
 
@@ -54,22 +58,50 @@ class LogsPipelineOrderArgs:
     def pipelines(self, value: pulumi.Input[Sequence[pulumi.Input[_builtins.str]]]):
         pulumi.set(self, "pipelines", value)
 
+    @_builtins.property
+    @pulumi.getter(name="ignoreUnlistedPipelines")
+    def ignore_unlisted_pipelines(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When `true`, the resource manages only the relative order of the pipelines listed in `pipelines`. Each listed ID must be unique and match an existing pipeline. Unlisted pipelines keep their current positions, and pipelines added outside Terraform do not cause drift. For example, if the current order is `[A, X, B]` and you configure `[B, A]`, the result is `[B, X, A]`: pipeline `X` stays second but runs before `A` instead of after it. Leave this setting `false` to manage the full order, including which pipelines run first and last. Defaults to `false`.
+        """
+        return pulumi.get(self, "ignore_unlisted_pipelines")
+
+    @ignore_unlisted_pipelines.setter
+    def ignore_unlisted_pipelines(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "ignore_unlisted_pipelines", value)
+
 
 @pulumi.input_type
 class _LogsPipelineOrderState:
     def __init__(__self__, *,
+                 ignore_unlisted_pipelines: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  pipelines: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None):
         """
         Input properties used for looking up and filtering LogsPipelineOrder resources.
 
+        :param pulumi.Input[_builtins.bool] ignore_unlisted_pipelines: When `true`, the resource manages only the relative order of the pipelines listed in `pipelines`. Each listed ID must be unique and match an existing pipeline. Unlisted pipelines keep their current positions, and pipelines added outside Terraform do not cause drift. For example, if the current order is `[A, X, B]` and you configure `[B, A]`, the result is `[B, X, A]`: pipeline `X` stays second but runs before `A` instead of after it. Leave this setting `false` to manage the full order, including which pipelines run first and last. Defaults to `false`.
         :param pulumi.Input[_builtins.str] name: The name attribute in the resource `LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] pipelines: The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] pipelines: The pipeline IDs in execution order. Include every pipeline in the organization unless `ignore_unlisted_pipelines` is `true`.
         """
+        if ignore_unlisted_pipelines is not None:
+            pulumi.set(__self__, "ignore_unlisted_pipelines", ignore_unlisted_pipelines)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if pipelines is not None:
             pulumi.set(__self__, "pipelines", pipelines)
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreUnlistedPipelines")
+    def ignore_unlisted_pipelines(self) -> pulumi.Input[Optional[_builtins.bool]]:
+        """
+        When `true`, the resource manages only the relative order of the pipelines listed in `pipelines`. Each listed ID must be unique and match an existing pipeline. Unlisted pipelines keep their current positions, and pipelines added outside Terraform do not cause drift. For example, if the current order is `[A, X, B]` and you configure `[B, A]`, the result is `[B, X, A]`: pipeline `X` stays second but runs before `A` instead of after it. Leave this setting `false` to manage the full order, including which pipelines run first and last. Defaults to `false`.
+        """
+        return pulumi.get(self, "ignore_unlisted_pipelines")
+
+    @ignore_unlisted_pipelines.setter
+    def ignore_unlisted_pipelines(self, value: pulumi.Input[Optional[_builtins.bool]]):
+        pulumi.set(self, "ignore_unlisted_pipelines", value)
 
     @_builtins.property
     @pulumi.getter
@@ -87,7 +119,7 @@ class _LogsPipelineOrderState:
     @pulumi.getter
     def pipelines(self) -> pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]]:
         """
-        The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
+        The pipeline IDs in execution order. Include every pipeline in the organization unless `ignore_unlisted_pipelines` is `true`.
         """
         return pulumi.get(self, "pipelines")
 
@@ -102,11 +134,12 @@ class LogsPipelineOrder(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 ignore_unlisted_pipelines: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  pipelines: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
         """
-        Provides a Datadog Logs Pipeline API resource, which is used to manage Datadog log pipelines order.
+        Manages the order in which Datadog processes log pipelines. Use at most one pipeline order resource per organization. Each update replaces the entire order, so this resource can overwrite changes made at the same time in the Datadog UI, by automation, or by another Terraform run, even when `ignore_unlisted_pipelines` is `true`.
 
         ## Example Usage
 
@@ -135,8 +168,9 @@ class LogsPipelineOrder(pulumi.CustomResource):
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] ignore_unlisted_pipelines: When `true`, the resource manages only the relative order of the pipelines listed in `pipelines`. Each listed ID must be unique and match an existing pipeline. Unlisted pipelines keep their current positions, and pipelines added outside Terraform do not cause drift. For example, if the current order is `[A, X, B]` and you configure `[B, A]`, the result is `[B, X, A]`: pipeline `X` stays second but runs before `A` instead of after it. Leave this setting `false` to manage the full order, including which pipelines run first and last. Defaults to `false`.
         :param pulumi.Input[_builtins.str] name: The name attribute in the resource `LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] pipelines: The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] pipelines: The pipeline IDs in execution order. Include every pipeline in the organization unless `ignore_unlisted_pipelines` is `true`.
         """
         ...
     @overload
@@ -145,7 +179,7 @@ class LogsPipelineOrder(pulumi.CustomResource):
                  args: LogsPipelineOrderArgs,
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
-        Provides a Datadog Logs Pipeline API resource, which is used to manage Datadog log pipelines order.
+        Manages the order in which Datadog processes log pipelines. Use at most one pipeline order resource per organization. Each update replaces the entire order, so this resource can overwrite changes made at the same time in the Datadog UI, by automation, or by another Terraform run, even when `ignore_unlisted_pipelines` is `true`.
 
         ## Example Usage
 
@@ -187,6 +221,7 @@ class LogsPipelineOrder(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 ignore_unlisted_pipelines: pulumi.Input[Optional[_builtins.bool]] = None,
                  name: pulumi.Input[Optional[_builtins.str]] = None,
                  pipelines: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None,
                  __props__=None):
@@ -198,6 +233,7 @@ class LogsPipelineOrder(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = LogsPipelineOrderArgs.__new__(LogsPipelineOrderArgs)
 
+            __props__.__dict__["ignore_unlisted_pipelines"] = ignore_unlisted_pipelines
             if name is None and not opts.urn:
                 raise TypeError("Missing required property 'name'")
             __props__.__dict__["name"] = name
@@ -214,6 +250,7 @@ class LogsPipelineOrder(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            ignore_unlisted_pipelines: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             pipelines: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> 'LogsPipelineOrder':
         """
@@ -223,13 +260,15 @@ class LogsPipelineOrder(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[_builtins.bool] ignore_unlisted_pipelines: When `true`, the resource manages only the relative order of the pipelines listed in `pipelines`. Each listed ID must be unique and match an existing pipeline. Unlisted pipelines keep their current positions, and pipelines added outside Terraform do not cause drift. For example, if the current order is `[A, X, B]` and you configure `[B, A]`, the result is `[B, X, A]`: pipeline `X` stays second but runs before `A` instead of after it. Leave this setting `false` to manage the full order, including which pipelines run first and last. Defaults to `false`.
         :param pulumi.Input[_builtins.str] name: The name attribute in the resource `LogsPipelineOrder` needs to be unique. It's recommended to use the same value as the resource name. No related field is available in [Logs Pipeline API](https://docs.datadoghq.com/api/v1/logs-pipelines/#get-pipeline-order).
-        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] pipelines: The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
+        :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] pipelines: The pipeline IDs in execution order. Include every pipeline in the organization unless `ignore_unlisted_pipelines` is `true`.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _LogsPipelineOrderState.__new__(_LogsPipelineOrderState)
 
+        __props__.__dict__["ignore_unlisted_pipelines"] = ignore_unlisted_pipelines
         __props__.__dict__["name"] = name
         __props__.__dict__["pipelines"] = pipelines
         return LogsPipelineOrder(resource_name, opts=opts, __props__=__props__)
@@ -237,12 +276,22 @@ class LogsPipelineOrder(pulumi.CustomResource):
     @staticmethod
     def exists(id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            ignore_unlisted_pipelines: pulumi.Input[Optional[_builtins.bool]] = None,
             name: pulumi.Input[Optional[_builtins.str]] = None,
             pipelines: pulumi.Input[Optional[Sequence[pulumi.Input[_builtins.str]]]] = None) -> pulumi.Output[bool]:
         __props__: dict = {}
+        __props__["ignoreUnlistedPipelines"] = ignore_unlisted_pipelines
         __props__["name"] = name
         __props__["pipelines"] = pipelines
         return pulumi.runtime.exists_resource(None, 'datadog:index/logsPipelineOrder:LogsPipelineOrder', id, __props__, opts or pulumi.ResourceOptions())
+
+    @_builtins.property
+    @pulumi.getter(name="ignoreUnlistedPipelines")
+    def ignore_unlisted_pipelines(self) -> pulumi.Output[Optional[_builtins.bool]]:
+        """
+        When `true`, the resource manages only the relative order of the pipelines listed in `pipelines`. Each listed ID must be unique and match an existing pipeline. Unlisted pipelines keep their current positions, and pipelines added outside Terraform do not cause drift. For example, if the current order is `[A, X, B]` and you configure `[B, A]`, the result is `[B, X, A]`: pipeline `X` stays second but runs before `A` instead of after it. Leave this setting `false` to manage the full order, including which pipelines run first and last. Defaults to `false`.
+        """
+        return pulumi.get(self, "ignore_unlisted_pipelines")
 
     @_builtins.property
     @pulumi.getter
@@ -256,7 +305,7 @@ class LogsPipelineOrder(pulumi.CustomResource):
     @pulumi.getter
     def pipelines(self) -> pulumi.Output[Sequence[_builtins.str]]:
         """
-        The pipeline IDs list. The order of pipeline IDs in this attribute defines the overall pipeline order for logs.
+        The pipeline IDs in execution order. Include every pipeline in the organization unless `ignore_unlisted_pipelines` is `true`.
         """
         return pulumi.get(self, "pipelines")
 

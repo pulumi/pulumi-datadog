@@ -70,6 +70,52 @@ import (
 //
 // ```
 //
+// ### Gate for all environments
+//
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-datadog/sdk/v5/go/datadog"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := datadog.NewDeploymentGate(ctx, "all_environments", &datadog.DeploymentGateArgs{
+//				Service:    pulumi.String("my-service"),
+//				Identifier: pulumi.String("my-gate"),
+//				Env:        pulumi.String("*"),
+//				Rules: datadog.DeploymentGateRuleArray{
+//					&datadog.DeploymentGateRuleArgs{
+//						Name: pulumi.String("monitor"),
+//						Type: pulumi.String("monitor"),
+//						Options: datadog.DeploymentGateRuleOptionsArgs{
+//							map[string]interface{}{
+//								"query":    "service:my-service",
+//								"duration": 300,
+//							},
+//						},
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+//
+// ## Changing the environment
+//
+// `env` is required. Set it to a concrete environment for an environment-specific gate or to `"*"` for a gate that applies to all environments. A gate with `env = "*"` cannot coexist with environment-specific gates for the same service and identifier. Evaluations still use a concrete environment.
+//
+// Replacing one resource does not coordinate deletion of other environment-specific resources. To consolidate several gates with the same service and identifier into one all-environments gate, first remove all conflicting environment-specific gates and apply. Then add the `env = "*"` gate and its rules in a second apply. This leaves an evaluation gap until the new gate and its rules are ready. If evaluations must continue during migration, create the all-environments gate with a new identifier first, update evaluation callers to use it, and then remove the old gates.
+//
 // ## Import
 //
 // The `pulumi import` command can be used, for example:
@@ -84,7 +130,7 @@ type DeploymentGate struct {
 	CreatedAt pulumi.StringOutput `pulumi:"createdAt"`
 	// Enable Dry Run to test gate behavior without impacting deployments. The evaluation of a dry run gate always responds with a pass status, but the in-app result is the real status based on rules evaluation. This is particularly useful when performing an initial evaluation of the gate behavior without impacting the deployment pipeline.
 	DryRun pulumi.BoolOutput `pulumi:"dryRun"`
-	// The target environment (example: dev).
+	// The target environment (example: dev). Use `*` to apply this gate to all environments. A gate for all environments cannot coexist with environment-specific gates for the same service and identifier. Changing env replaces the gate.
 	Env pulumi.StringOutput `pulumi:"env"`
 	// Unique name for multiple gates on the same service/environment.
 	Identifier pulumi.StringOutput `pulumi:"identifier"`
@@ -136,7 +182,7 @@ type deploymentGateState struct {
 	CreatedAt *string `pulumi:"createdAt"`
 	// Enable Dry Run to test gate behavior without impacting deployments. The evaluation of a dry run gate always responds with a pass status, but the in-app result is the real status based on rules evaluation. This is particularly useful when performing an initial evaluation of the gate behavior without impacting the deployment pipeline.
 	DryRun *bool `pulumi:"dryRun"`
-	// The target environment (example: dev).
+	// The target environment (example: dev). Use `*` to apply this gate to all environments. A gate for all environments cannot coexist with environment-specific gates for the same service and identifier. Changing env replaces the gate.
 	Env *string `pulumi:"env"`
 	// Unique name for multiple gates on the same service/environment.
 	Identifier *string `pulumi:"identifier"`
@@ -153,7 +199,7 @@ type DeploymentGateState struct {
 	CreatedAt pulumi.StringPtrInput
 	// Enable Dry Run to test gate behavior without impacting deployments. The evaluation of a dry run gate always responds with a pass status, but the in-app result is the real status based on rules evaluation. This is particularly useful when performing an initial evaluation of the gate behavior without impacting the deployment pipeline.
 	DryRun pulumi.BoolPtrInput
-	// The target environment (example: dev).
+	// The target environment (example: dev). Use `*` to apply this gate to all environments. A gate for all environments cannot coexist with environment-specific gates for the same service and identifier. Changing env replaces the gate.
 	Env pulumi.StringPtrInput
 	// Unique name for multiple gates on the same service/environment.
 	Identifier pulumi.StringPtrInput
@@ -178,7 +224,7 @@ func DeploymentGateExists(ctx *pulumi.Context,
 type deploymentGateArgs struct {
 	// Enable Dry Run to test gate behavior without impacting deployments. The evaluation of a dry run gate always responds with a pass status, but the in-app result is the real status based on rules evaluation. This is particularly useful when performing an initial evaluation of the gate behavior without impacting the deployment pipeline.
 	DryRun *bool `pulumi:"dryRun"`
-	// The target environment (example: dev).
+	// The target environment (example: dev). Use `*` to apply this gate to all environments. A gate for all environments cannot coexist with environment-specific gates for the same service and identifier. Changing env replaces the gate.
 	Env string `pulumi:"env"`
 	// Unique name for multiple gates on the same service/environment.
 	Identifier *string `pulumi:"identifier"`
@@ -192,7 +238,7 @@ type deploymentGateArgs struct {
 type DeploymentGateArgs struct {
 	// Enable Dry Run to test gate behavior without impacting deployments. The evaluation of a dry run gate always responds with a pass status, but the in-app result is the real status based on rules evaluation. This is particularly useful when performing an initial evaluation of the gate behavior without impacting the deployment pipeline.
 	DryRun pulumi.BoolPtrInput
-	// The target environment (example: dev).
+	// The target environment (example: dev). Use `*` to apply this gate to all environments. A gate for all environments cannot coexist with environment-specific gates for the same service and identifier. Changing env replaces the gate.
 	Env pulumi.StringInput
 	// Unique name for multiple gates on the same service/environment.
 	Identifier pulumi.StringPtrInput
@@ -299,7 +345,7 @@ func (o DeploymentGateOutput) DryRun() pulumi.BoolOutput {
 	return o.ApplyT(func(v *DeploymentGate) pulumi.BoolOutput { return v.DryRun }).(pulumi.BoolOutput)
 }
 
-// The target environment (example: dev).
+// The target environment (example: dev). Use `*` to apply this gate to all environments. A gate for all environments cannot coexist with environment-specific gates for the same service and identifier. Changing env replaces the gate.
 func (o DeploymentGateOutput) Env() pulumi.StringOutput {
 	return o.ApplyT(func(v *DeploymentGate) pulumi.StringOutput { return v.Env }).(pulumi.StringOutput)
 }

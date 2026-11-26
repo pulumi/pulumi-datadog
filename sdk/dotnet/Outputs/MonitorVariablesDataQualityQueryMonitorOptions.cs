@@ -14,6 +14,10 @@ namespace Pulumi.Datadog.Outputs
     public sealed class MonitorVariablesDataQualityQueryMonitorOptions
     {
         /// <summary>
+        /// Number of consecutive runs that must breach before a `data-jobs alert` job duration monitor alerts. Defaults to `1`.
+        /// </summary>
+        public readonly int? ConsecutiveRuns;
+        /// <summary>
         /// Crontab expression to override the default schedule.
         /// </summary>
         public readonly string? CrontabOverride;
@@ -25,6 +29,10 @@ namespace Pulumi.Datadog.Outputs
         /// Custom WHERE clause for the query.
         /// </summary>
         public readonly string? CustomWhere;
+        /// <summary>
+        /// How a `data-jobs alert` job duration monitor detects a breach. Must match the `.detection()` call in the monitor query. Valid values are `Static`, `Anomaly`. Required for job duration monitors.
+        /// </summary>
+        public readonly string? DetectionType;
         /// <summary>
         /// Columns to group results by.
         /// </summary>
@@ -48,11 +56,15 @@ namespace Pulumi.Datadog.Outputs
 
         [OutputConstructor]
         private MonitorVariablesDataQualityQueryMonitorOptions(
+            int? consecutiveRuns,
+
             string? crontabOverride,
 
             string? customSql,
 
             string? customWhere,
+
+            string? detectionType,
 
             ImmutableArray<string> groupByColumns,
 
@@ -64,9 +76,11 @@ namespace Pulumi.Datadog.Outputs
 
             Outputs.MonitorVariablesDataQualityQueryMonitorOptionsSourceToTargetConfig? sourceToTargetConfig)
         {
+            ConsecutiveRuns = consecutiveRuns;
             CrontabOverride = crontabOverride;
             CustomSql = customSql;
             CustomWhere = customWhere;
+            DetectionType = detectionType;
             GroupByColumns = groupByColumns;
             ModelConfiguration = modelConfiguration;
             ModelTypeOverride = modelTypeOverride;

@@ -99,6 +99,11 @@ namespace Pulumi.Datadog
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "apiKeys",
+                    "applicationKeys",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -145,7 +150,11 @@ namespace Pulumi.Datadog
         public InputList<Inputs.ChildOrganizationApiKeyGetArgs> ApiKeys
         {
             get => _apiKeys ?? (_apiKeys = new InputList<Inputs.ChildOrganizationApiKeyGetArgs>());
-            set => _apiKeys = value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(ImmutableArray.Create<Inputs.ChildOrganizationApiKeyGetArgs>());
+                _apiKeys = Output.All(value, emptySecret).Apply(v => v[0]);
+            }
         }
 
         [Input("applicationKeys")]
@@ -157,7 +166,11 @@ namespace Pulumi.Datadog
         public InputList<Inputs.ChildOrganizationApplicationKeyGetArgs> ApplicationKeys
         {
             get => _applicationKeys ?? (_applicationKeys = new InputList<Inputs.ChildOrganizationApplicationKeyGetArgs>());
-            set => _applicationKeys = value;
+            set
+            {
+                var emptySecret = Output.CreateSecret(ImmutableArray.Create<Inputs.ChildOrganizationApplicationKeyGetArgs>());
+                _applicationKeys = Output.All(value, emptySecret).Apply(v => v[0]);
+            }
         }
 
         /// <summary>

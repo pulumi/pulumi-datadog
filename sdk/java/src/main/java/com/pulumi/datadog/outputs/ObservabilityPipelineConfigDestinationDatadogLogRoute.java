@@ -29,6 +29,11 @@ public final class ObservabilityPipelineConfigDestinationDatadogLogRoute {
      */
     private String include;
     /**
+     * @return A human-readable name for this route.
+     * 
+     */
+    private @Nullable String name;
+    /**
      * @return Unique identifier for this route within the destination.
      * 
      */
@@ -62,6 +67,13 @@ public final class ObservabilityPipelineConfigDestinationDatadogLogRoute {
         return this.include;
     }
     /**
+     * @return A human-readable name for this route.
+     * 
+     */
+    public Optional<String> name() {
+        return Optional.ofNullable(this.name);
+    }
+    /**
      * @return Unique identifier for this route within the destination.
      * 
      */
@@ -88,6 +100,7 @@ public final class ObservabilityPipelineConfigDestinationDatadogLogRoute {
         private String apiKeyKey;
         private @Nullable ObservabilityPipelineConfigDestinationDatadogLogRouteBuffer buffer;
         private String include;
+        private @Nullable String name;
         private String routeId;
         private String site;
         public Builder() {}
@@ -96,6 +109,7 @@ public final class ObservabilityPipelineConfigDestinationDatadogLogRoute {
     	      this.apiKeyKey = defaults.apiKeyKey;
     	      this.buffer = defaults.buffer;
     	      this.include = defaults.include;
+    	      this.name = defaults.name;
     	      this.routeId = defaults.routeId;
     	      this.site = defaults.site;
         }
@@ -123,6 +137,12 @@ public final class ObservabilityPipelineConfigDestinationDatadogLogRoute {
             return this;
         }
         @CustomType.Setter
+        public Builder name(@Nullable String name) {
+
+            this.name = name;
+            return this;
+        }
+        @CustomType.Setter
         public Builder routeId(String routeId) {
             if (routeId == null) {
               throw new MissingRequiredPropertyException("ObservabilityPipelineConfigDestinationDatadogLogRoute", "routeId");
@@ -143,6 +163,7 @@ public final class ObservabilityPipelineConfigDestinationDatadogLogRoute {
             _resultValue.apiKeyKey = apiKeyKey;
             _resultValue.buffer = buffer;
             _resultValue.include = include;
+            _resultValue.name = name;
             _resultValue.routeId = routeId;
             _resultValue.site = site;
             return _resultValue;

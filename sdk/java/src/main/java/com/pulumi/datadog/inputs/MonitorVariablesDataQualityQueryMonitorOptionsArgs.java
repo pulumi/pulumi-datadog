@@ -8,6 +8,7 @@ import com.pulumi.core.annotations.Import;
 import com.pulumi.datadog.inputs.MonitorVariablesDataQualityQueryMonitorOptionsModelConfigurationArgs;
 import com.pulumi.datadog.inputs.MonitorVariablesDataQualityQueryMonitorOptionsSourceToTargetConfigArgs;
 import java.lang.Double;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -18,6 +19,21 @@ import javax.annotation.Nullable;
 public final class MonitorVariablesDataQualityQueryMonitorOptionsArgs extends com.pulumi.resources.ResourceArgs {
 
     public static final MonitorVariablesDataQualityQueryMonitorOptionsArgs Empty = new MonitorVariablesDataQualityQueryMonitorOptionsArgs();
+
+    /**
+     * Number of consecutive runs that must breach before a `data-jobs alert` job duration monitor alerts. Defaults to `1`.
+     * 
+     */
+    @Import(name="consecutiveRuns")
+    private @Nullable Output<Integer> consecutiveRuns;
+
+    /**
+     * @return Number of consecutive runs that must breach before a `data-jobs alert` job duration monitor alerts. Defaults to `1`.
+     * 
+     */
+    public Optional<Output<Integer>> consecutiveRuns() {
+        return Optional.ofNullable(this.consecutiveRuns);
+    }
 
     /**
      * Crontab expression to override the default schedule.
@@ -62,6 +78,21 @@ public final class MonitorVariablesDataQualityQueryMonitorOptionsArgs extends co
      */
     public Optional<Output<String>> customWhere() {
         return Optional.ofNullable(this.customWhere);
+    }
+
+    /**
+     * How a `data-jobs alert` job duration monitor detects a breach. Must match the `.detection()` call in the monitor query. Valid values are `static`, `anomaly`. Required for job duration monitors.
+     * 
+     */
+    @Import(name="detectionType")
+    private @Nullable Output<String> detectionType;
+
+    /**
+     * @return How a `data-jobs alert` job duration monitor detects a breach. Must match the `.detection()` call in the monitor query. Valid values are `static`, `anomaly`. Required for job duration monitors.
+     * 
+     */
+    public Optional<Output<String>> detectionType() {
+        return Optional.ofNullable(this.detectionType);
     }
 
     /**
@@ -142,9 +173,11 @@ public final class MonitorVariablesDataQualityQueryMonitorOptionsArgs extends co
     private MonitorVariablesDataQualityQueryMonitorOptionsArgs() {}
 
     private MonitorVariablesDataQualityQueryMonitorOptionsArgs(MonitorVariablesDataQualityQueryMonitorOptionsArgs $) {
+        this.consecutiveRuns = $.consecutiveRuns;
         this.crontabOverride = $.crontabOverride;
         this.customSql = $.customSql;
         this.customWhere = $.customWhere;
+        this.detectionType = $.detectionType;
         this.groupByColumns = $.groupByColumns;
         this.modelConfiguration = $.modelConfiguration;
         this.modelTypeOverride = $.modelTypeOverride;
@@ -168,6 +201,27 @@ public final class MonitorVariablesDataQualityQueryMonitorOptionsArgs extends co
 
         public Builder(MonitorVariablesDataQualityQueryMonitorOptionsArgs defaults) {
             $ = new MonitorVariablesDataQualityQueryMonitorOptionsArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @param consecutiveRuns Number of consecutive runs that must breach before a `data-jobs alert` job duration monitor alerts. Defaults to `1`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder consecutiveRuns(@Nullable Output<Integer> consecutiveRuns) {
+            $.consecutiveRuns = consecutiveRuns;
+            return this;
+        }
+
+        /**
+         * @param consecutiveRuns Number of consecutive runs that must breach before a `data-jobs alert` job duration monitor alerts. Defaults to `1`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder consecutiveRuns(Integer consecutiveRuns) {
+            return consecutiveRuns(Output.of(consecutiveRuns));
         }
 
         /**
@@ -231,6 +285,27 @@ public final class MonitorVariablesDataQualityQueryMonitorOptionsArgs extends co
          */
         public Builder customWhere(String customWhere) {
             return customWhere(Output.of(customWhere));
+        }
+
+        /**
+         * @param detectionType How a `data-jobs alert` job duration monitor detects a breach. Must match the `.detection()` call in the monitor query. Valid values are `static`, `anomaly`. Required for job duration monitors.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder detectionType(@Nullable Output<String> detectionType) {
+            $.detectionType = detectionType;
+            return this;
+        }
+
+        /**
+         * @param detectionType How a `data-jobs alert` job duration monitor detects a breach. Must match the `.detection()` call in the monitor query. Valid values are `static`, `anomaly`. Required for job duration monitors.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder detectionType(String detectionType) {
+            return detectionType(Output.of(detectionType));
         }
 
         /**

@@ -13,6 +13,162 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyle struct {
+	// How to order series. Valid values are `tags`, `values`.
+	OrderBy *string `pulumi:"orderBy"`
+	// A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+	Palette *string `pulumi:"palette"`
+}
+
+// PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleInput is an input type that accepts PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleArgs and PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleInput` via:
+//
+//	PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleArgs{...}
+type PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput() PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput
+	ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutputWithContext(context.Context) PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput
+}
+
+type PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleArgs struct {
+	// How to order series. Valid values are `tags`, `values`.
+	OrderBy pulumi.StringPtrInput `pulumi:"orderBy"`
+	// A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+	Palette pulumi.StringPtrInput `pulumi:"palette"`
+}
+
+func (PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyle)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleArgs) ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput() PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput {
+	return i.ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleArgs) ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutputWithContext(ctx context.Context) PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput)
+}
+
+func (i PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleArgs) ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput() PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput {
+	return i.ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleArgs) ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput).ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutputWithContext(ctx)
+}
+
+// PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrInput is an input type that accepts PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleArgs, PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtr and PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrInput` via:
+//
+//	        PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput() PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput
+	ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutputWithContext(context.Context) PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput
+}
+
+type powerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrType PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleArgs
+
+func PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtr(v *PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleArgs) PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrInput {
+	return (*powerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrType)(v)
+}
+
+func (*powerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyle)(nil)).Elem()
+}
+
+func (i *powerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrType) ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput() PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput {
+	return i.ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrType) ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput)
+}
+
+type PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyle)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput) ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput() PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput) ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutputWithContext(ctx context.Context) PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput) ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput() PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput {
+	return o.ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput) ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyle) *PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyle {
+		return &v
+	}).(PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput)
+}
+
+// How to order series. Valid values are `tags`, `values`.
+func (o PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput) OrderBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyle) *string { return v.OrderBy }).(pulumi.StringPtrOutput)
+}
+
+// A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+func (o PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput) Palette() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyle) *string { return v.Palette }).(pulumi.StringPtrOutput)
+}
+
+type PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyle)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput) ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput() PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput) ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput) Elem() PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyle) PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyle {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyle
+		return ret
+	}).(PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput)
+}
+
+// How to order series. Valid values are `tags`, `values`.
+func (o PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput) OrderBy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyle) *string {
+		if v == nil {
+			return nil
+		}
+		return v.OrderBy
+	}).(pulumi.StringPtrOutput)
+}
+
+// A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
+func (o PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput) Palette() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyle) *string {
+		if v == nil {
+			return nil
+		}
+		return v.Palette
+	}).(pulumi.StringPtrOutput)
+}
+
 type PowerpackV2WidgetWildcardDefinitionSpecification struct {
 	// The Vega or Vega-Lite specification as a JSON string. Use `jsonencode()` to encode the specification.
 	Contents string `pulumi:"contents"`
@@ -89340,167 +89496,9 @@ func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitPtrOutp
 	}).(PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput)
 }
 
-type PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical struct {
-	// per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
-	PerUnitName *string `pulumi:"perUnitName"`
-	// Unit name. It should be in singular form ('megabyte' and not 'megabytes')
-	UnitName string `pulumi:"unitName"`
-}
-
-// PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalArgs and PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput values.
-// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalInput` via:
-//
-//	PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalArgs{...}
-type PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalInput interface {
-	pulumi.Input
-
-	ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput
-	ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput
-}
-
-type PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalArgs struct {
-	// per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
-	PerUnitName pulumi.StringPtrInput `pulumi:"perUnitName"`
-	// Unit name. It should be in singular form ('megabyte' and not 'megabytes')
-	UnitName pulumi.StringInput `pulumi:"unitName"`
-}
-
-func (PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical)(nil)).Elem()
-}
-
-func (i PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput {
-	return i.ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutputWithContext(context.Background())
-}
-
-func (i PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput)
-}
-
-func (i PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
-	return i.ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput).ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(ctx)
-}
-
-// PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalArgs, PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtr and PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput values.
-// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput` via:
-//
-//	        PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput interface {
-	pulumi.Input
-
-	ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput
-	ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput
-}
-
-type powerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrType PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalArgs
-
-func PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtr(v *PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput {
-	return (*powerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrType)(v)
-}
-
-func (*powerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical)(nil)).Elem()
-}
-
-func (i *powerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrType) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
-	return i.ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrType) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput)
-}
-
-type PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput struct{ *pulumi.OutputState }
-
-func (PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical)(nil)).Elem()
-}
-
-func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput {
-	return o
-}
-
-func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput {
-	return o
-}
-
-func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
-	return o.ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical) *PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical {
-		return &v
-	}).(PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput)
-}
-
-// per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
-func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) PerUnitName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical) *string {
-		return v.PerUnitName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Unit name. It should be in singular form ('megabyte' and not 'megabytes')
-func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) UnitName() pulumi.StringOutput {
-	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical) string {
-		return v.UnitName
-	}).(pulumi.StringOutput)
-}
-
-type PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical)(nil)).Elem()
-}
-
-func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
-	return o
-}
-
-func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
-	return o
-}
-
-func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) Elem() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput {
-	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical
-		return ret
-	}).(PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput)
-}
-
-// per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
-func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) PerUnitName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical) *string {
-		if v == nil {
-			return nil
-		}
-		return v.PerUnitName
-	}).(pulumi.StringPtrOutput)
-}
-
-// Unit name. It should be in singular form ('megabyte' and not 'megabytes')
-func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) UnitName() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.UnitName
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleInput)(nil)).Elem(), PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrInput)(nil)).Elem(), PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetWildcardDefinitionSpecificationInput)(nil)).Elem(), PowerpackV2WidgetWildcardDefinitionSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetWildcardDefinitionSpecificationPtrInput)(nil)).Elem(), PowerpackV2WidgetWildcardDefinitionSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetWildcardDefinitionTimeInput)(nil)).Elem(), PowerpackV2WidgetWildcardDefinitionTimeArgs{})
@@ -90497,8 +90495,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatPtrInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitPtrInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalArgs{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetWildcardDefinitionSpecificationOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetWildcardDefinitionSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetWildcardDefinitionTimeOutput{})
@@ -91495,6 +91493,4 @@ func init() {
 	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput{})
-	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput{})
 }

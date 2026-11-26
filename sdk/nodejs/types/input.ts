@@ -63656,21 +63656,36 @@ export interface MonitorVariablesCloudCostQuery {
 
 export interface MonitorVariablesDataJobsQuery {
     /**
-     * The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
+     * The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`, `adf.pipeline`. The `aastra` dialect also accepts `airflow.job`, `dbt.model`, `dbt.test`. Custom job types are supported with the `custom.ol.` prefix.
      */
     jobType: pulumi.Input<string>;
     /**
-     * Filter expression used to select the jobs to monitor.
+     * Filter expression used to select the jobs to monitor. A metric tag filter such as `job_name:smoke*` with the `metric` dialect, or an Aastra entity search such as ` search for databricksJob where  `@team:data-eng`` with the `aastra` dialect.
      */
     jobsQuery: pulumi.Input<string>;
+    /**
+     * Monitor configuration options for data jobs queries.
+     */
+    monitorOptions?: pulumi.Input<inputs.MonitorVariablesDataJobsQueryMonitorOptions | undefined>;
     /**
      * Name of the query for use in formulas. Must be `runQuery`.
      */
     name: pulumi.Input<string>;
     /**
-     * Query dialect for data jobs queries. Currently only `metric` is supported.
+     * Query dialect for data jobs queries. Valid values are `metric` and `aastra`.
      */
     queryDialect: pulumi.Input<string>;
+    /**
+     * Filter on individual runs, using metrics filter syntax, for example `env:prod`. Only supported with the `aastra` query dialect.
+     */
+    runFilter?: pulumi.Input<string | undefined>;
+}
+
+export interface MonitorVariablesDataJobsQueryMonitorOptions {
+    /**
+     * Alert separately for each failed run instead of on the count of trailing failures. Only supported for `failedRuns` monitors with the `aastra` query dialect, a `> 0` threshold with no warning threshold, an evaluation window of at most two days, and renotification disabled.
+     */
+    alertOnEveryFailure?: pulumi.Input<boolean | undefined>;
 }
 
 export interface MonitorVariablesDataQualityQuery {
@@ -63679,7 +63694,7 @@ export interface MonitorVariablesDataQualityQuery {
      */
     dataSource: pulumi.Input<string>;
     /**
-     * Filter expression used to match on data entities. Uses AAstra query syntax.
+     * Filter expression used to match on data entities. Uses Aastra query syntax.
      */
     filter: pulumi.Input<string>;
     /**
@@ -63687,7 +63702,7 @@ export interface MonitorVariablesDataQualityQuery {
      */
     groupBies?: pulumi.Input<pulumi.Input<string>[] | undefined>;
     /**
-     * The measure to query. Common values include `bytes`, `cardinality`, `custom`, `freshness`, `max`, `mean`, `min`, `nullness`, `percentNegative`, `percentZero`, `rowCount`, `stddev`, `sum`, `uniqueness`. Additional values may be supported.
+     * The measure to query. Common values include `bytes`, `cardinality`, `custom`, `freshness`, `max`, `mean`, `min`, `nullness`, `percentNegative`, `percentZero`, `rowCount`, `stddev`, `sum`, `uniqueness`. `data-jobs alert` job duration monitors use `duration`. Additional values may be supported.
      */
     measure: pulumi.Input<string>;
     /**
@@ -63698,6 +63713,10 @@ export interface MonitorVariablesDataQualityQuery {
      * The name of the query for use in formulas.
      */
     name: pulumi.Input<string>;
+    /**
+     * Filter on individual runs, using metrics filter syntax, for example `env:prod`. Only supported by `data-jobs alert` job duration monitors.
+     */
+    runFilter?: pulumi.Input<string | undefined>;
     /**
      * Schema version for the data quality query.
      */
@@ -63710,6 +63729,10 @@ export interface MonitorVariablesDataQualityQuery {
 
 export interface MonitorVariablesDataQualityQueryMonitorOptions {
     /**
+     * Number of consecutive runs that must breach before a `data-jobs alert` job duration monitor alerts. Defaults to `1`.
+     */
+    consecutiveRuns?: pulumi.Input<number | undefined>;
+    /**
      * Crontab expression to override the default schedule.
      */
     crontabOverride?: pulumi.Input<string | undefined>;
@@ -63721,6 +63744,10 @@ export interface MonitorVariablesDataQualityQueryMonitorOptions {
      * Custom WHERE clause for the query.
      */
     customWhere?: pulumi.Input<string | undefined>;
+    /**
+     * How a `data-jobs alert` job duration monitor detects a breach. Must match the `.detection()` call in the monitor query. Valid values are `static`, `anomaly`. Required for job duration monitors.
+     */
+    detectionType?: pulumi.Input<string | undefined>;
     /**
      * Columns to group results by.
      */
@@ -65226,6 +65253,10 @@ export interface ObservabilityPipelineConfigDestinationDatadogLogRoute {
      * A Datadog search query that determines which logs are forwarded using this route.
      */
     include: pulumi.Input<string>;
+    /**
+     * A human-readable name for this route.
+     */
+    name?: pulumi.Input<string | undefined>;
     /**
      * Unique identifier for this route within the destination.
      */
@@ -67248,6 +67279,10 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorCustomProcess
      */
     name: pulumi.Input<string>;
     /**
+     * A sample event used to test the VRL script in the pipeline editor.
+     */
+    sample?: pulumi.Input<string | undefined>;
+    /**
      * The VRL script source code that defines the transformation logic.
      */
     source: pulumi.Input<string>;
@@ -67754,6 +67789,10 @@ export interface ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncl
      * A list of Grok parsing rules that define how to extract fields. Each rule must contain a name and a valid Grok pattern.
      */
     matchRules: pulumi.Input<pulumi.Input<inputs.ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleMatchRule>[]>;
+    /**
+     * Optional name identifying this Grok rule in worker diagnostics. Names must be unique within the processor.
+     */
+    name?: pulumi.Input<string | undefined>;
     /**
      * A list of helper Grok rules that can be referenced by the parsing rules.
      */
@@ -103515,6 +103554,128 @@ export interface WorkflowAutomationRunAs {
      */
     type?: pulumi.Input<string | undefined>;
 }
+export namespace anthropic {
+    export interface IntegrationUsageAndCostsAccountAuthentication {
+        /**
+         * The bearer token authentication method configured on the account.
+         */
+        anthropicUsageAndCostsIntegrationAccountBearerTokenAuth?: pulumi.Input<inputs.anthropic.IntegrationUsageAndCostsAccountAuthenticationAnthropicUsageAndCostsIntegrationAccountBearerTokenAuth | undefined>;
+    }
+
+    export interface IntegrationUsageAndCostsAccountAuthenticationAnthropicUsageAndCostsIntegrationAccountBearerTokenAuth {
+        /**
+         * The authentication method type. Valid values are `bearerToken`. Defaults to `"bearerToken"`.
+         */
+        authType?: pulumi.Input<string | undefined>;
+        /**
+         * Anthropic Admin API key with permission to read usage and cost data, or an Analytics API key with the `read:analytics` scope. Generate an Admin API key in the Anthropic Console under **Settings > Admin Keys**. Exactly one of `token` or `tokenWo` must be set. Prefer `tokenWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+         */
+        token?: pulumi.Input<string | undefined>;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Anthropic Admin API key with permission to read usage and cost data, or an Analytics API key with the `read:analytics` scope. Generate an Admin API key in the Anthropic Console under **Settings > Admin Keys**. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+         */
+        tokenWo?: pulumi.Input<string | undefined>;
+        /**
+         * Version trigger for tokenWo rotation. String length must be at least 1.
+         */
+        tokenWoVersion?: pulumi.Input<string | undefined>;
+    }
+
+    export interface IntegrationUsageAndCostsAccountDataflows {
+        /**
+         * Anthropic costs by model, workspace, and service tier, in [Cloud Cost Management](https://docs.datadoghq.com/cloud_cost_management/). Requires Cloud Cost Management on your Datadog organization. Without it, this dataflow collects no data.
+         */
+        anthropicCloudCostMetrics?: pulumi.Input<inputs.anthropic.IntegrationUsageAndCostsAccountDataflowsAnthropicCloudCostMetrics | undefined>;
+        /**
+         * Anthropic usage metrics, such as input, output, and cache token consumption by model, workspace, and service tier. With an Analytics API key, usage is also broken down by user, product, context window, inference geography, and speed. This dataflow is always on and cannot be turned off, which is why it appears in responses only.
+         */
+        anthropicUsageMetrics?: pulumi.Input<inputs.anthropic.IntegrationUsageAndCostsAccountDataflowsAnthropicUsageMetrics | undefined>;
+        /**
+         * Daily Claude usage data used for DORA Metrics. This dataflow is always on and cannot be turned off, which is why it appears in responses only.
+         */
+        claudeDailyUsageDoraMetrics?: pulumi.Input<inputs.anthropic.IntegrationUsageAndCostsAccountDataflowsClaudeDailyUsageDoraMetrics | undefined>;
+    }
+
+    export interface IntegrationUsageAndCostsAccountDataflowsAnthropicCloudCostMetrics {
+        /**
+         * Whether Datadog collects this data.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Read-only collection status of a dataflow.
+         */
+        status?: pulumi.Input<inputs.anthropic.IntegrationUsageAndCostsAccountDataflowsAnthropicCloudCostMetricsStatus | undefined>;
+    }
+
+    export interface IntegrationUsageAndCostsAccountDataflowsAnthropicCloudCostMetricsStatus {
+        /**
+         * Collection health of a single dataflow.
+         */
+        health?: pulumi.Input<string | undefined>;
+        /**
+         * Human-readable detail, populated when the dataflow is not healthy.
+         */
+        message?: pulumi.Input<string | undefined>;
+        /**
+         * Time the status was last computed.
+         */
+        updatedAt?: pulumi.Input<string | undefined>;
+    }
+
+    export interface IntegrationUsageAndCostsAccountDataflowsAnthropicUsageMetrics {
+        /**
+         * Whether Datadog collects this data. Always `true`, because this collection cannot be turned off.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Read-only collection status of a dataflow.
+         */
+        status?: pulumi.Input<inputs.anthropic.IntegrationUsageAndCostsAccountDataflowsAnthropicUsageMetricsStatus | undefined>;
+    }
+
+    export interface IntegrationUsageAndCostsAccountDataflowsAnthropicUsageMetricsStatus {
+        /**
+         * Collection health of a single dataflow.
+         */
+        health?: pulumi.Input<string | undefined>;
+        /**
+         * Human-readable detail, populated when the dataflow is not healthy.
+         */
+        message?: pulumi.Input<string | undefined>;
+        /**
+         * Time the status was last computed.
+         */
+        updatedAt?: pulumi.Input<string | undefined>;
+    }
+
+    export interface IntegrationUsageAndCostsAccountDataflowsClaudeDailyUsageDoraMetrics {
+        /**
+         * Whether Datadog collects this data. Always `true`, because this collection cannot be turned off.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Read-only collection status of a dataflow.
+         */
+        status?: pulumi.Input<inputs.anthropic.IntegrationUsageAndCostsAccountDataflowsClaudeDailyUsageDoraMetricsStatus | undefined>;
+    }
+
+    export interface IntegrationUsageAndCostsAccountDataflowsClaudeDailyUsageDoraMetricsStatus {
+        /**
+         * Collection health of a single dataflow.
+         */
+        health?: pulumi.Input<string | undefined>;
+        /**
+         * Human-readable detail, populated when the dataflow is not healthy.
+         */
+        message?: pulumi.Input<string | undefined>;
+        /**
+         * Time the status was last computed.
+         */
+        updatedAt?: pulumi.Input<string | undefined>;
+    }
+}
+
 export namespace aws {
     export interface IntegrationAccountAuthConfig {
         /**
@@ -103758,7 +103919,233 @@ export namespace azure {
     }
 }
 
+export namespace chatgpt {
+    export interface IntegrationEnterpriseAccountAuthentication {
+        /**
+         * The bearer token authentication method configured on the account.
+         */
+        chatGptEnterpriseIntegrationAccountBearerTokenAuth?: pulumi.Input<inputs.chatgpt.IntegrationEnterpriseAccountAuthenticationChatGptEnterpriseIntegrationAccountBearerTokenAuth | undefined>;
+    }
+
+    export interface IntegrationEnterpriseAccountAuthenticationChatGptEnterpriseIntegrationAccountBearerTokenAuth {
+        /**
+         * The authentication method type. Valid values are `bearerToken`. Defaults to `"bearerToken"`.
+         */
+        authType?: pulumi.Input<string | undefined>;
+        /**
+         * ChatGPT Enterprise admin API key with the **Costs** permission set to **Read** and every other permission category set to **None**. Create it in the [OpenAI Admin Console](https://admin.openai.com/credentials?tab=admin-keys) of your ChatGPT Enterprise workspace, not in the API Platform admin-key console. Exactly one of `token` or `tokenWo` must be set. Prefer `tokenWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+         */
+        token?: pulumi.Input<string | undefined>;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * ChatGPT Enterprise admin API key with the **Costs** permission set to **Read** and every other permission category set to **None**. Create it in the [OpenAI Admin Console](https://admin.openai.com/credentials?tab=admin-keys) of your ChatGPT Enterprise workspace, not in the API Platform admin-key console. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+         */
+        tokenWo?: pulumi.Input<string | undefined>;
+        /**
+         * Version trigger for tokenWo rotation. String length must be at least 1.
+         */
+        tokenWoVersion?: pulumi.Input<string | undefined>;
+    }
+
+    export interface IntegrationEnterpriseAccountDataflows {
+        /**
+         * Activity, token consumption, credits, and estimated usage costs across ChatGPT Chat, ChatGPT Work, and Codex, shown in Agent Console with breakdowns by product, model, and user where OpenAI provides them.
+         */
+        chatgptEnterpriseAgentConsole?: pulumi.Input<inputs.chatgpt.IntegrationEnterpriseAccountDataflowsChatgptEnterpriseAgentConsole | undefined>;
+        /**
+         * ChatGPT Enterprise costs from the OpenAI Costs API, which you can analyze in [Cloud Cost Management](https://docs.datadoghq.com/cloud_cost_management/). These costs are excluded from Cloud Cost Management spend-monitored billing. Reported costs are estimates, not final invoice amounts.
+         */
+        chatgptEnterpriseCloudCostData?: pulumi.Input<inputs.chatgpt.IntegrationEnterpriseAccountDataflowsChatgptEnterpriseCloudCostData | undefined>;
+    }
+
+    export interface IntegrationEnterpriseAccountDataflowsChatgptEnterpriseAgentConsole {
+        /**
+         * Whether Datadog collects this data.
+         */
+        enabled: pulumi.Input<boolean>;
+        /**
+         * Read-only collection status of a dataflow.
+         */
+        status?: pulumi.Input<inputs.chatgpt.IntegrationEnterpriseAccountDataflowsChatgptEnterpriseAgentConsoleStatus | undefined>;
+    }
+
+    export interface IntegrationEnterpriseAccountDataflowsChatgptEnterpriseAgentConsoleStatus {
+        /**
+         * Collection health of a single dataflow.
+         */
+        health?: pulumi.Input<string | undefined>;
+        /**
+         * Human-readable detail, populated when the dataflow is not healthy.
+         */
+        message?: pulumi.Input<string | undefined>;
+        /**
+         * Time the status was last computed.
+         */
+        updatedAt?: pulumi.Input<string | undefined>;
+    }
+
+    export interface IntegrationEnterpriseAccountDataflowsChatgptEnterpriseCloudCostData {
+        /**
+         * Whether Datadog collects this data.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Read-only collection status of a dataflow.
+         */
+        status?: pulumi.Input<inputs.chatgpt.IntegrationEnterpriseAccountDataflowsChatgptEnterpriseCloudCostDataStatus | undefined>;
+    }
+
+    export interface IntegrationEnterpriseAccountDataflowsChatgptEnterpriseCloudCostDataStatus {
+        /**
+         * Collection health of a single dataflow.
+         */
+        health?: pulumi.Input<string | undefined>;
+        /**
+         * Human-readable detail, populated when the dataflow is not healthy.
+         */
+        message?: pulumi.Input<string | undefined>;
+        /**
+         * Time the status was last computed.
+         */
+        updatedAt?: pulumi.Input<string | undefined>;
+    }
+
+    export interface IntegrationEnterpriseAccountSettings {
+        /**
+         * OpenAI API Platform organization ID (`org-...`) that the Costs API uses for your Enterprise usage. This is not the ChatGPT workspace UUID or your Datadog organization ID. A value that does not match `^org-[A-Za-z0-9]+$` is rejected with a `422` response.
+         */
+        openaiOrgId: pulumi.Input<string>;
+    }
+}
+
+export namespace claude {
+    export interface IntegrationComplianceAccountAuthentication {
+        /**
+         * The bearer token authentication method configured on the account.
+         */
+        claudeComplianceIntegrationAccountBearerTokenAuth?: pulumi.Input<inputs.claude.IntegrationComplianceAccountAuthenticationClaudeComplianceIntegrationAccountBearerTokenAuth | undefined>;
+    }
+
+    export interface IntegrationComplianceAccountAuthenticationClaudeComplianceIntegrationAccountBearerTokenAuth {
+        /**
+         * The authentication method type. Valid values are `bearerToken`. Defaults to `"bearerToken"`.
+         */
+        authType?: pulumi.Input<string | undefined>;
+        /**
+         * Anthropic Admin API key (prefix `sk-ant-admin01-`) with the `read:compliance_activities` scope, or a dedicated Compliance Access key (prefix `sk-ant-api01-`). Generate an Admin API key in the Anthropic Console under **Organization settings > API keys**. Exactly one of `token` or `tokenWo` must be set. Prefer `tokenWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+         */
+        token?: pulumi.Input<string | undefined>;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Anthropic Admin API key (prefix `sk-ant-admin01-`) with the `read:compliance_activities` scope, or a dedicated Compliance Access key (prefix `sk-ant-api01-`). Generate an Admin API key in the Anthropic Console under **Organization settings > API keys**. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+         */
+        tokenWo?: pulumi.Input<string | undefined>;
+        /**
+         * Version trigger for tokenWo rotation. String length must be at least 1.
+         */
+        tokenWoVersion?: pulumi.Input<string | undefined>;
+    }
+
+    export interface IntegrationComplianceAccountDataflows {
+        /**
+         * Audit activity logs from the Anthropic Compliance API, such as SSO sign-ins, API key lifecycle events, member and role changes, and Claude chat and file access. [Cloud SIEM](https://docs.datadoghq.com/security/cloud_siem/) uses these logs to detect security-sensitive activity. Requires an Anthropic Enterprise plan with the Compliance API enabled in the organization's Data and privacy settings. Without it, this dataflow collects no data. This dataflow is always on and cannot be turned off, so it appears in responses only.
+         */
+        anthropicComplianceLogs?: pulumi.Input<inputs.claude.IntegrationComplianceAccountDataflowsAnthropicComplianceLogs | undefined>;
+    }
+
+    export interface IntegrationComplianceAccountDataflowsAnthropicComplianceLogs {
+        /**
+         * Whether Datadog collects this data. Always `true`, because this collection cannot be turned off.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Read-only collection status of a dataflow.
+         */
+        status?: pulumi.Input<inputs.claude.IntegrationComplianceAccountDataflowsAnthropicComplianceLogsStatus | undefined>;
+    }
+
+    export interface IntegrationComplianceAccountDataflowsAnthropicComplianceLogsStatus {
+        /**
+         * Collection health of a single dataflow.
+         */
+        health?: pulumi.Input<string | undefined>;
+        /**
+         * Human-readable detail, populated when the dataflow is not healthy.
+         */
+        message?: pulumi.Input<string | undefined>;
+        /**
+         * Time the status was last computed.
+         */
+        updatedAt?: pulumi.Input<string | undefined>;
+    }
+}
+
 export namespace config {
+}
+
+export namespace coreweave {
+    export interface IntegrationCloudAccountAuthentication {
+        /**
+         * The API token authentication method configured on the account.
+         */
+        coreWeaveCloudIntegrationAccountApiTokenAuth?: pulumi.Input<inputs.coreweave.IntegrationCloudAccountAuthenticationCoreWeaveCloudIntegrationAccountApiTokenAuth | undefined>;
+    }
+
+    export interface IntegrationCloudAccountAuthenticationCoreWeaveCloudIntegrationAccountApiTokenAuth {
+        /**
+         * Secret CoreWeave API access token used to authenticate with CoreWeave. Values that do not start with `CW-SECRET-` are rejected with a `422` response. Exactly one of `apiToken` or `apiTokenWo` must be set. Prefer `apiTokenWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+         */
+        apiToken?: pulumi.Input<string | undefined>;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Secret CoreWeave API access token used to authenticate with CoreWeave. Values that do not start with `CW-SECRET-` are rejected with a `422` response. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+         */
+        apiTokenWo?: pulumi.Input<string | undefined>;
+        /**
+         * Version trigger for api*token*wo rotation. String length must be at least 1.
+         */
+        apiTokenWoVersion?: pulumi.Input<string | undefined>;
+        /**
+         * The authentication method type. Valid values are `coreweaveApiToken`. Defaults to `"coreweaveApiToken"`.
+         */
+        authType?: pulumi.Input<string | undefined>;
+    }
+
+    export interface IntegrationCloudAccountDataflows {
+        /**
+         * Service logs for CoreWeave-managed components in each CoreWeave region: the CKS control plane (such as `kube-apiserver` and `etcd`), CoreWeave add-on services in the `cw-*` and `kube-system` namespaces, SUNK, and node system logs such as `kubelet` and `containerd`. Logs from your own workloads and Kubernetes audit logs are not collected. Logs are sent with `source:coreweave`, with CoreWeave log labels such as `namespace`, `app`, and `systemdUnit` added as tags.
+         */
+        coreweaveCloudLogs?: pulumi.Input<inputs.coreweave.IntegrationCloudAccountDataflowsCoreweaveCloudLogs | undefined>;
+        /**
+         * Metrics from your CoreWeave organization: CoreWeave service metrics collected through its PromQL-compatible Prometheus endpoint, plus the `coreweave.*` namespaces from CoreWeave products such as Kubernetes, Database, Distributed File Storage, Inference, and Object Storage. Compute metrics (`coreweave.bare_metal`, `coreweave.gpu`, `coreweave.nccl`, and `coreweave.node`) are in Preview. Container metrics are not collected; install the Datadog Agent on your clusters for those.
+         */
+        coreweaveCloudMetrics?: pulumi.Input<inputs.coreweave.IntegrationCloudAccountDataflowsCoreweaveCloudMetrics | undefined>;
+    }
+
+    export interface IntegrationCloudAccountDataflowsCoreweaveCloudLogs {
+        /**
+         * Whether Datadog collects this data. Absent when the dataflow has never been configured, in which case the documented default applies.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface IntegrationCloudAccountDataflowsCoreweaveCloudMetrics {
+        /**
+         * Whether Datadog collects this data. Absent when the dataflow has never been configured, in which case the documented default applies.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface IntegrationCloudAccountSettings {
+        /**
+         * Tags added to all data collected from this CoreWeave account.
+         */
+        accountTags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Tag-filter rules limiting metric collection to matching clusters. Absent when no filters are configured.
+         */
+        clusterFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
 }
 
 export namespace databricks {
@@ -104271,6 +104658,374 @@ export namespace gcp {
     export interface IntegrationStsMonitoredResourceConfig {
         filters: pulumi.Input<pulumi.Input<string>[]>;
         type: pulumi.Input<string>;
+    }
+}
+
+export namespace github {
+    export interface IntegrationCostsAccountAuthentication {
+        /**
+         * The bearer token authentication method configured on the account.
+         */
+        gitHubCostsIntegrationAccountBearerTokenAuth?: pulumi.Input<inputs.github.IntegrationCostsAccountAuthenticationGitHubCostsIntegrationAccountBearerTokenAuth | undefined>;
+    }
+
+    export interface IntegrationCostsAccountAuthenticationGitHubCostsIntegrationAccountBearerTokenAuth {
+        /**
+         * The authentication method type. Valid values are `bearerToken`. Defaults to `"bearerToken"`.
+         */
+        authType?: pulumi.Input<string | undefined>;
+        /**
+         * For an enterprise, a personal access token (classic) from an Enterprise Admin user with the `manage_billing:enterprise` and `read:org` scopes. For an organization, a fine-grained personal access token owned by that organization and created by an organization owner, with the `Administration` organization permission set to read-only. Exactly one of `token` or `tokenWo` must be set. Prefer `tokenWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+         */
+        token?: pulumi.Input<string | undefined>;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * For an enterprise, a personal access token (classic) from an Enterprise Admin user with the `manage_billing:enterprise` and `read:org` scopes. For an organization, a fine-grained personal access token owned by that organization and created by an organization owner, with the `Administration` organization permission set to read-only. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+         */
+        tokenWo?: pulumi.Input<string | undefined>;
+        /**
+         * Version trigger for tokenWo rotation. String length must be at least 1.
+         */
+        tokenWoVersion?: pulumi.Input<string | undefined>;
+    }
+
+    export interface IntegrationCostsAccountDataflows {
+        /**
+         * GitHub costs, including Actions, storage, and Copilot, which you can analyze in [Cloud Cost Management](https://docs.datadoghq.com/cloud_cost_management/). Reported costs are estimates based on list prices and usage data and include discounts when available, but not negotiated rates. Requires Cloud Cost Management on your Datadog organization and a GitHub account on the enhanced billing platform. Without them, this dataflow collects no data. This dataflow is always on and cannot be turned off, so it appears in responses only.
+         */
+        githubCloudCostMetrics?: pulumi.Input<inputs.github.IntegrationCostsAccountDataflowsGithubCloudCostMetrics | undefined>;
+    }
+
+    export interface IntegrationCostsAccountDataflowsGithubCloudCostMetrics {
+        /**
+         * Whether Datadog collects this data. Always `true`, because this collection cannot be turned off.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Read-only collection status of a dataflow.
+         */
+        status?: pulumi.Input<inputs.github.IntegrationCostsAccountDataflowsGithubCloudCostMetricsStatus | undefined>;
+    }
+
+    export interface IntegrationCostsAccountDataflowsGithubCloudCostMetricsStatus {
+        /**
+         * Collection health of a single dataflow.
+         */
+        health?: pulumi.Input<string | undefined>;
+        /**
+         * Human-readable detail, populated when the dataflow is not healthy.
+         */
+        message?: pulumi.Input<string | undefined>;
+        /**
+         * Time the status was last computed.
+         */
+        updatedAt?: pulumi.Input<string | undefined>;
+    }
+
+    export interface IntegrationCostsAccountSettings {
+        /**
+         * Slug of the GitHub enterprise, as in `https://github.com/enterprises/<enterprise-name>`, or login of a GitHub organization, as in `https://github.com/<organization-name>`.
+         */
+        enterpriseName: pulumi.Input<string>;
+        /**
+         * Comma-separated list of custom tags for this GitHub Costs account.
+         */
+        tags?: pulumi.Input<string | undefined>;
+    }
+}
+
+export namespace nebius {
+    export interface IntegrationCloudAccountAuthentication {
+        /**
+         * The service-account key pair authentication method configured on the account.
+         */
+        nebiusCloudIntegrationAccountServiceAccountAuth?: pulumi.Input<inputs.nebius.IntegrationCloudAccountAuthenticationNebiusCloudIntegrationAccountServiceAccountAuth | undefined>;
+    }
+
+    export interface IntegrationCloudAccountAuthenticationNebiusCloudIntegrationAccountServiceAccountAuth {
+        /**
+         * The authentication method type. Valid values are `nebiusServiceAccount`. Defaults to `"nebiusServiceAccount"`.
+         */
+        authType?: pulumi.Input<string | undefined>;
+        /**
+         * The private key of the authorized key pair, in PEM format. Required when log, resource, or service-quota collection is enabled; a request that enables one of them without it is rejected with a `422` response. Conflicts with `privateKeyWo`. Prefer `privateKeyWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+         */
+        privateKey?: pulumi.Input<string | undefined>;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * The private key of the authorized key pair, in PEM format. Required when log, resource, or service-quota collection is enabled; a request that enables one of them without it is rejected with a `422` response. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+         */
+        privateKeyWo?: pulumi.Input<string | undefined>;
+        /**
+         * Version trigger for private*key*wo rotation. String length must be at least 1.
+         */
+        privateKeyWoVersion?: pulumi.Input<string | undefined>;
+        /**
+         * ID of the public key half of the authorized key pair. Omitted when unset.
+         */
+        publicKeyId?: pulumi.Input<string | undefined>;
+        /**
+         * ID of the Nebius service account the account authenticates as.
+         */
+        serviceAccountId: pulumi.Input<string>;
+        /**
+         * Nebius static API key with the OBSERVABILITY scope, used to query logs. Required when log, resource, or service-quota collection is enabled; a request that enables one of them without it is rejected with a `422` response. Conflicts with `staticApiKeyWo`. Prefer `staticApiKeyWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+         */
+        staticApiKey?: pulumi.Input<string | undefined>;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Nebius static API key with the OBSERVABILITY scope, used to query logs. Required when log, resource, or service-quota collection is enabled; a request that enables one of them without it is rejected with a `422` response. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+         */
+        staticApiKeyWo?: pulumi.Input<string | undefined>;
+        /**
+         * Version trigger for static*api*key_wo rotation. String length must be at least 1.
+         */
+        staticApiKeyWoVersion?: pulumi.Input<string | undefined>;
+    }
+
+    export interface IntegrationCloudAccountDataflows {
+        /**
+         * Cloud cost data read from a Nebius Object Storage bucket export and used by [Cloud Cost Management](https://docs.datadoghq.com/cloud_cost_management/). Requires a bucket holding your cost export and a Nebius access key pair that can read it; without both this dataflow collects no data.
+         */
+        nebiusCloudCostCollection?: pulumi.Input<inputs.nebius.IntegrationCloudAccountDataflowsNebiusCloudCostCollection | undefined>;
+        /**
+         * Logs from your Nebius tenant: Kubernetes control plane and audit logs, tenant-level audit events, compute serial console logs, cloud apps and AI inference logs, PostgreSQL logs, and MLflow logs, collected from the services named in `settings.enabled_services`.
+         */
+        nebiusCloudLogs?: pulumi.Input<inputs.nebius.IntegrationCloudAccountDataflowsNebiusCloudLogs | undefined>;
+        /**
+         * Metadata about resources in your Nebius tenant, such as compute instances and Kubernetes clusters.
+         */
+        nebiusCloudResources?: pulumi.Input<inputs.nebius.IntegrationCloudAccountDataflowsNebiusCloudResources | undefined>;
+        /**
+         * Usage metrics tracked against your Nebius service quotas, such as `nebius_cloud.servicequota.percentage_used` and `nebius_cloud.servicequota.limit`.
+         */
+        nebiusCloudServiceQuotaCollection?: pulumi.Input<inputs.nebius.IntegrationCloudAccountDataflowsNebiusCloudServiceQuotaCollection | undefined>;
+    }
+
+    export interface IntegrationCloudAccountDataflowsNebiusCloudCostCollection {
+        /**
+         * Whether Datadog collects this data. Absent when the dataflow has never been configured.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Settings of the Cloud Cost Management dataflow.
+         */
+        settings?: pulumi.Input<inputs.nebius.IntegrationCloudAccountDataflowsNebiusCloudCostCollectionSettings | undefined>;
+    }
+
+    export interface IntegrationCloudAccountDataflowsNebiusCloudCostCollectionSettings {
+        /**
+         * ID of the Nebius Object Storage access key used to read the cost export bucket.
+         */
+        accessKeyId?: pulumi.Input<string | undefined>;
+        /**
+         * Secret access key for the access key ID. Required when this dataflow is enabled. Omit it on update to keep the stored one; an empty string is rejected with a `422` response. Conflicts with `accessKeySecretWo`. Prefer `accessKeySecretWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+         */
+        accessKeySecret?: pulumi.Input<string | undefined>;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Secret access key for the access key ID. Required when this dataflow is enabled. Omit it on update to keep the stored one; an empty string is rejected with a `422` response. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+         */
+        accessKeySecretWo?: pulumi.Input<string | undefined>;
+        /**
+         * Version trigger for access*key*secret_wo rotation. String length must be at least 1.
+         */
+        accessKeySecretWoVersion?: pulumi.Input<string | undefined>;
+        /**
+         * Name of the Nebius Object Storage bucket holding the cost export.
+         */
+        bucketName?: pulumi.Input<string | undefined>;
+        /**
+         * Prefix path within the bucket that locates the cost export.
+         */
+        bucketPrefixPath?: pulumi.Input<string | undefined>;
+        /**
+         * Region of the Nebius Object Storage bucket, such as `eu-north1`.
+         */
+        bucketRegion?: pulumi.Input<string | undefined>;
+    }
+
+    export interface IntegrationCloudAccountDataflowsNebiusCloudLogs {
+        /**
+         * Whether Datadog collects logs. Absent when no service is enabled.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Settings of the logs dataflow.
+         */
+        settings?: pulumi.Input<inputs.nebius.IntegrationCloudAccountDataflowsNebiusCloudLogsSettings | undefined>;
+    }
+
+    export interface IntegrationCloudAccountDataflowsNebiusCloudLogsSettings {
+        /**
+         * Nebius log integrations collected, such as `nebius-cloud-compute` and `default`. Absent when no service is enabled.
+         */
+        enabledServices?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+
+    export interface IntegrationCloudAccountDataflowsNebiusCloudResources {
+        /**
+         * Whether Datadog collects this data. Absent when the dataflow has never been configured, in which case collection runs when `authentication.public_key_id` is set.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface IntegrationCloudAccountDataflowsNebiusCloudServiceQuotaCollection {
+        /**
+         * Whether Datadog collects this data. Absent when the dataflow has never been configured.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+    }
+
+    export interface IntegrationCloudAccountSettings {
+        /**
+         * Tags applied to all data collected from this Nebius Cloud account.
+         */
+        accountTags?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+        /**
+         * Metric collection settings configured on the Nebius Cloud integration account. Absent or empty when no filters are configured.
+         */
+        metricsConfig?: pulumi.Input<inputs.nebius.IntegrationCloudAccountSettingsMetricsConfig | undefined>;
+        /**
+         * ID of the Nebius tenant being monitored.
+         */
+        tenantId: pulumi.Input<string>;
+    }
+
+    export interface IntegrationCloudAccountSettingsMetricsConfig {
+        /**
+         * Tag-filter rules limiting metric collection to matching Kubernetes clusters.
+         */
+        clusterFilters?: pulumi.Input<pulumi.Input<string>[] | undefined>;
+    }
+}
+
+export namespace openai {
+    export interface IntegrationCodexAccountAuthentication {
+        /**
+         * The bearer token authentication method configured on the account.
+         */
+        openAiCodexIntegrationAccountBearerTokenAuth?: pulumi.Input<inputs.openai.IntegrationCodexAccountAuthenticationOpenAiCodexIntegrationAccountBearerTokenAuth | undefined>;
+    }
+
+    export interface IntegrationCodexAccountAuthenticationOpenAiCodexIntegrationAccountBearerTokenAuth {
+        /**
+         * The authentication method type. Valid values are `bearerToken`. Defaults to `"bearerToken"`.
+         */
+        authType?: pulumi.Input<string | undefined>;
+        /**
+         * Workspace-scoped OpenAI Admin key with the `codex.enterprise.analytics.read` scope. To collect turn metrics, also grant `chatgpt.enterprise.compliance_logs_platform.workspace_analytics.read` to the same key. Exactly one of `token` or `tokenWo` must be set. Prefer `tokenWo`, which Terraform 1.11+ keeps out of state; this attribute is stored in Terraform state.
+         */
+        token?: pulumi.Input<string | undefined>;
+        /**
+         * **NOTE:** This field is write-only and its value will not be updated in state as part of read operations.
+         * Workspace-scoped OpenAI Admin key with the `codex.enterprise.analytics.read` scope. To collect turn metrics, also grant `chatgpt.enterprise.compliance_logs_platform.workspace_analytics.read` to the same key. This write-only value is not stored in Terraform state. Requires Terraform 1.11+.
+         */
+        tokenWo?: pulumi.Input<string | undefined>;
+        /**
+         * Version trigger for tokenWo rotation. String length must be at least 1.
+         */
+        tokenWoVersion?: pulumi.Input<string | undefined>;
+    }
+
+    export interface IntegrationCodexAccountDataflows {
+        /**
+         * A daily per-engineer engagement signal that [AI Impact](https://docs.datadoghq.com/delivery_performance/ai_impact/) uses to attribute AI-assisted pull requests.
+         */
+        openaiCodexDora?: pulumi.Input<inputs.openai.IntegrationCodexAccountDataflowsOpenaiCodexDora | undefined>;
+        /**
+         * Daily Codex analytics metrics under the `openai.codex.*` namespace: usage totals, token counts by model, thread and turn counts by client, lines of code attributable to Codex, and code reviews. This dataflow is always on and cannot be turned off, so it appears only in responses.
+         */
+        openaiCodexMetrics?: pulumi.Input<inputs.openai.IntegrationCodexAccountDataflowsOpenaiCodexMetrics | undefined>;
+        /**
+         * Hourly turn-level metrics from the OpenAI Compliance Logs Platform, including turn and session identity, Work Insights classification, token usage, credits, estimated cost, duration, and activity for skills, plugins, and artifacts. Turn cost is a provider estimate and can differ from invoiced charges. Requires the `chatgpt.enterprise.compliance_logs_platform.workspace_analytics.read` scope on the key in `authentication`. Without this scope, the dataflow collects no data.
+         */
+        openaiCodexTurnMetrics?: pulumi.Input<inputs.openai.IntegrationCodexAccountDataflowsOpenaiCodexTurnMetrics | undefined>;
+    }
+
+    export interface IntegrationCodexAccountDataflowsOpenaiCodexDora {
+        /**
+         * Whether Datadog collects this data.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Read-only collection status of a dataflow.
+         */
+        status?: pulumi.Input<inputs.openai.IntegrationCodexAccountDataflowsOpenaiCodexDoraStatus | undefined>;
+    }
+
+    export interface IntegrationCodexAccountDataflowsOpenaiCodexDoraStatus {
+        /**
+         * Collection health of a single dataflow.
+         */
+        health?: pulumi.Input<string | undefined>;
+        /**
+         * Human-readable detail, populated when the dataflow is not healthy.
+         */
+        message?: pulumi.Input<string | undefined>;
+        /**
+         * Time the status was last computed.
+         */
+        updatedAt?: pulumi.Input<string | undefined>;
+    }
+
+    export interface IntegrationCodexAccountDataflowsOpenaiCodexMetrics {
+        /**
+         * Whether Datadog collects this data. Always `true`, because this collection cannot be turned off.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Read-only collection status of a dataflow.
+         */
+        status?: pulumi.Input<inputs.openai.IntegrationCodexAccountDataflowsOpenaiCodexMetricsStatus | undefined>;
+    }
+
+    export interface IntegrationCodexAccountDataflowsOpenaiCodexMetricsStatus {
+        /**
+         * Collection health of a single dataflow.
+         */
+        health?: pulumi.Input<string | undefined>;
+        /**
+         * Human-readable detail, populated when the dataflow is not healthy.
+         */
+        message?: pulumi.Input<string | undefined>;
+        /**
+         * Time the status was last computed.
+         */
+        updatedAt?: pulumi.Input<string | undefined>;
+    }
+
+    export interface IntegrationCodexAccountDataflowsOpenaiCodexTurnMetrics {
+        /**
+         * Whether Datadog collects this data.
+         */
+        enabled?: pulumi.Input<boolean | undefined>;
+        /**
+         * Read-only collection status of a dataflow.
+         */
+        status?: pulumi.Input<inputs.openai.IntegrationCodexAccountDataflowsOpenaiCodexTurnMetricsStatus | undefined>;
+    }
+
+    export interface IntegrationCodexAccountDataflowsOpenaiCodexTurnMetricsStatus {
+        /**
+         * Collection health of a single dataflow.
+         */
+        health?: pulumi.Input<string | undefined>;
+        /**
+         * Human-readable detail, populated when the dataflow is not healthy.
+         */
+        message?: pulumi.Input<string | undefined>;
+        /**
+         * Time the status was last computed.
+         */
+        updatedAt?: pulumi.Input<string | undefined>;
+    }
+
+    export interface IntegrationCodexAccountSettings {
+        /**
+         * ID of the Codex workspace to collect data from.
+         */
+        codexWorkspaceId: pulumi.Input<string>;
     }
 }
 

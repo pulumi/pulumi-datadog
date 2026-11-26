@@ -68,6 +68,48 @@ namespace Pulumi.Datadog
     /// });
     /// ```
     /// 
+    /// ### Gate for all environments
+    /// 
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Datadog = Pulumi.Datadog;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var allEnvironments = new Datadog.DeploymentGate("all_environments", new()
+    ///     {
+    ///         Service = "my-service",
+    ///         Identifier = "my-gate",
+    ///         Env = "*",
+    ///         Rules = new[]
+    ///         {
+    ///             new Datadog.Inputs.DeploymentGateRuleArgs
+    ///             {
+    ///                 Name = "monitor",
+    ///                 Type = "monitor",
+    ///                 Options = new[]
+    ///                 {
+    ///                     
+    ///                     {
+    ///                         { "query", "service:my-service" },
+    ///                         { "duration", 300 },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// 
+    /// ## Changing the environment
+    /// 
+    /// `Env` is required. Set it to a concrete environment for an environment-specific gate or to `"*"` for a gate that applies to all environments. A gate with `env = "*"` cannot coexist with environment-specific gates for the same service and identifier. Evaluations still use a concrete environment.
+    /// 
+    /// Replacing one resource does not coordinate deletion of other environment-specific resources. To consolidate several gates with the same service and identifier into one all-environments gate, first remove all conflicting environment-specific gates and apply. Then add the `env = "*"` gate and its rules in a second apply. This leaves an evaluation gap until the new gate and its rules are ready. If evaluations must continue during migration, create the all-environments gate with a new identifier first, update evaluation callers to use it, and then remove the old gates.
+    /// 
     /// ## Import
     /// 
     /// The `pulumi import` command can be used, for example:
@@ -92,7 +134,7 @@ namespace Pulumi.Datadog
         public Output<bool> DryRun { get; private set; } = null!;
 
         /// <summary>
-        /// The target environment (example: dev).
+        /// The target environment (example: dev). Use `*` to apply this gate to all environments. A gate for all environments cannot coexist with environment-specific gates for the same service and identifier. Changing env replaces the gate.
         /// </summary>
         [Output("env")]
         public Output<string> Env { get; private set; } = null!;
@@ -174,7 +216,7 @@ namespace Pulumi.Datadog
         public Input<bool>? DryRun { get; set; }
 
         /// <summary>
-        /// The target environment (example: dev).
+        /// The target environment (example: dev). Use `*` to apply this gate to all environments. A gate for all environments cannot coexist with environment-specific gates for the same service and identifier. Changing env replaces the gate.
         /// </summary>
         [Input("env", required: true)]
         public Input<string> Env { get; set; } = null!;
@@ -224,7 +266,7 @@ namespace Pulumi.Datadog
         public Input<bool>? DryRun { get; set; }
 
         /// <summary>
-        /// The target environment (example: dev).
+        /// The target environment (example: dev). Use `*` to apply this gate to all environments. A gate for all environments cannot coexist with environment-specific gates for the same service and identifier. Changing env replaces the gate.
         /// </summary>
         [Input("env")]
         public Input<string>? Env { get; set; }

@@ -103,7 +103,7 @@ export class MetricTagConfiguration extends pulumi.CustomResource {
      */
     declare public readonly metricName: pulumi.Output<string>;
     /**
-     * The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
+     * The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`, `exponentialHistogram`, `explicitHistogram`.
      */
     declare public readonly metricType: pulumi.Output<string>;
     /**
@@ -176,7 +176,7 @@ export interface MetricTagConfigurationState {
      */
     metricName?: pulumi.Input<string | undefined>;
     /**
-     * The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
+     * The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`, `exponentialHistogram`, `explicitHistogram`.
      */
     metricType?: pulumi.Input<string | undefined>;
     /**
@@ -208,7 +208,7 @@ export interface MetricTagConfigurationArgs {
      */
     metricName: pulumi.Input<string>;
     /**
-     * The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
+     * The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`, `exponentialHistogram`, `explicitHistogram`.
      */
     metricType: pulumi.Input<string>;
     /**

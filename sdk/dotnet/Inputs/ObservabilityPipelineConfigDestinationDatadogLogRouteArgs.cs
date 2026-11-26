@@ -31,6 +31,12 @@ namespace Pulumi.Datadog.Inputs
         public Input<string> Include { get; set; } = null!;
 
         /// <summary>
+        /// A human-readable name for this route.
+        /// </summary>
+        [Input("name")]
+        public Input<string>? Name { get; set; }
+
+        /// <summary>
         /// Unique identifier for this route within the destination.
         /// </summary>
         [Input("routeId", required: true)]

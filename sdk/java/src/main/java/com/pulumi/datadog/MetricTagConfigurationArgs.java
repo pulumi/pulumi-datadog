@@ -86,14 +86,14 @@ public final class MetricTagConfigurationArgs extends com.pulumi.resources.Resou
     }
 
     /**
-     * The metric&#39;s type. This field can&#39;t be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
+     * The metric&#39;s type. This field can&#39;t be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`, `exponentialHistogram`, `explicitHistogram`.
      * 
      */
     @Import(name="metricType", required=true)
     private Output<String> metricType;
 
     /**
-     * @return The metric&#39;s type. This field can&#39;t be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
+     * @return The metric&#39;s type. This field can&#39;t be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`, `exponentialHistogram`, `explicitHistogram`.
      * 
      */
     public Output<String> metricType() {
@@ -248,7 +248,7 @@ public final class MetricTagConfigurationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param metricType The metric&#39;s type. This field can&#39;t be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
+         * @param metricType The metric&#39;s type. This field can&#39;t be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`, `exponentialHistogram`, `explicitHistogram`.
          * 
          * @return builder
          * 
@@ -259,7 +259,7 @@ public final class MetricTagConfigurationArgs extends com.pulumi.resources.Resou
         }
 
         /**
-         * @param metricType The metric&#39;s type. This field can&#39;t be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
+         * @param metricType The metric&#39;s type. This field can&#39;t be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`, `exponentialHistogram`, `explicitHistogram`.
          * 
          * @return builder
          * 

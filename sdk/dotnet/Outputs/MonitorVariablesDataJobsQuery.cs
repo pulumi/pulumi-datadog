@@ -14,21 +14,29 @@ namespace Pulumi.Datadog.Outputs
     public sealed class MonitorVariablesDataJobsQuery
     {
         /// <summary>
-        /// The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
+        /// The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`, `adf.pipeline`. The `Aastra` dialect also accepts `airflow.job`, `dbt.model`, `dbt.test`. Custom job types are supported with the `custom.ol.` prefix.
         /// </summary>
         public readonly string JobType;
         /// <summary>
-        /// Filter expression used to select the jobs to monitor.
+        /// Filter expression used to select the jobs to monitor. A metric tag filter such as `job_name:smoke*` with the `Metric` dialect, or an Aastra entity search such as ` search for DatabricksJob where  `@team:data-eng`` with the `Aastra` dialect.
         /// </summary>
         public readonly string JobsQuery;
+        /// <summary>
+        /// Monitor configuration options for data jobs queries.
+        /// </summary>
+        public readonly Outputs.MonitorVariablesDataJobsQueryMonitorOptions? MonitorOptions;
         /// <summary>
         /// Name of the query for use in formulas. Must be `RunQuery`.
         /// </summary>
         public readonly string Name;
         /// <summary>
-        /// Query dialect for data jobs queries. Currently only `Metric` is supported.
+        /// Query dialect for data jobs queries. Valid values are `Metric` and `Aastra`.
         /// </summary>
         public readonly string QueryDialect;
+        /// <summary>
+        /// Filter on individual runs, using metrics filter syntax, for example `env:prod`. Only supported with the `Aastra` query dialect.
+        /// </summary>
+        public readonly string? RunFilter;
 
         [OutputConstructor]
         private MonitorVariablesDataJobsQuery(
@@ -36,14 +44,20 @@ namespace Pulumi.Datadog.Outputs
 
             string jobsQuery,
 
+            Outputs.MonitorVariablesDataJobsQueryMonitorOptions? monitorOptions,
+
             string name,
 
-            string queryDialect)
+            string queryDialect,
+
+            string? runFilter)
         {
             JobType = jobType;
             JobsQuery = jobsQuery;
+            MonitorOptions = monitorOptions;
             Name = name;
             QueryDialect = queryDialect;
+            RunFilter = runFilter;
         }
     }
 }

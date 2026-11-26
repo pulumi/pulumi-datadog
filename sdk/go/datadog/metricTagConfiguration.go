@@ -80,7 +80,7 @@ type MetricTagConfiguration struct {
 	IncludePercentiles pulumi.BoolPtrOutput `pulumi:"includePercentiles"`
 	// The metric name for this resource.
 	MetricName pulumi.StringOutput `pulumi:"metricName"`
-	// The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
+	// The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`, `exponentialHistogram`, `explicitHistogram`.
 	MetricType pulumi.StringOutput `pulumi:"metricType"`
 	// A list of tag keys that will be queryable for your metric.
 	Tags pulumi.StringArrayOutput `pulumi:"tags"`
@@ -135,7 +135,7 @@ type metricTagConfigurationState struct {
 	IncludePercentiles *bool `pulumi:"includePercentiles"`
 	// The metric name for this resource.
 	MetricName *string `pulumi:"metricName"`
-	// The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
+	// The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`, `exponentialHistogram`, `explicitHistogram`.
 	MetricType *string `pulumi:"metricType"`
 	// A list of tag keys that will be queryable for your metric.
 	Tags []string `pulumi:"tags"`
@@ -152,7 +152,7 @@ type MetricTagConfigurationState struct {
 	IncludePercentiles pulumi.BoolPtrInput
 	// The metric name for this resource.
 	MetricName pulumi.StringPtrInput
-	// The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
+	// The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`, `exponentialHistogram`, `explicitHistogram`.
 	MetricType pulumi.StringPtrInput
 	// A list of tag keys that will be queryable for your metric.
 	Tags pulumi.StringArrayInput
@@ -179,7 +179,7 @@ type metricTagConfigurationArgs struct {
 	IncludePercentiles *bool `pulumi:"includePercentiles"`
 	// The metric name for this resource.
 	MetricName string `pulumi:"metricName"`
-	// The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
+	// The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`, `exponentialHistogram`, `explicitHistogram`.
 	MetricType string `pulumi:"metricType"`
 	// A list of tag keys that will be queryable for your metric.
 	Tags []string `pulumi:"tags"`
@@ -197,7 +197,7 @@ type MetricTagConfigurationArgs struct {
 	IncludePercentiles pulumi.BoolPtrInput
 	// The metric name for this resource.
 	MetricName pulumi.StringInput
-	// The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
+	// The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`, `exponentialHistogram`, `explicitHistogram`.
 	MetricType pulumi.StringInput
 	// A list of tag keys that will be queryable for your metric.
 	Tags pulumi.StringArrayInput
@@ -312,7 +312,7 @@ func (o MetricTagConfigurationOutput) MetricName() pulumi.StringOutput {
 	return o.ApplyT(func(v *MetricTagConfiguration) pulumi.StringOutput { return v.MetricName }).(pulumi.StringOutput)
 }
 
-// The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
+// The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`, `exponentialHistogram`, `explicitHistogram`.
 func (o MetricTagConfigurationOutput) MetricType() pulumi.StringOutput {
 	return o.ApplyT(func(v *MetricTagConfiguration) pulumi.StringOutput { return v.MetricType }).(pulumi.StringOutput)
 }

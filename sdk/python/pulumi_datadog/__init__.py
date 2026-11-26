@@ -262,16 +262,24 @@ from . import outputs
 
 # Make subpackages available:
 if typing.TYPE_CHECKING:
+    import pulumi_datadog.anthropic as __anthropic
+    anthropic = __anthropic
     import pulumi_datadog.aws as __aws
     aws = __aws
     import pulumi_datadog.azure as __azure
     azure = __azure
+    import pulumi_datadog.chatgpt as __chatgpt
+    chatgpt = __chatgpt
+    import pulumi_datadog.claude as __claude
+    claude = __claude
     import pulumi_datadog.cloudflare as __cloudflare
     cloudflare = __cloudflare
     import pulumi_datadog.config as __config
     config = __config
     import pulumi_datadog.confluent as __confluent
     confluent = __confluent
+    import pulumi_datadog.coreweave as __coreweave
+    coreweave = __coreweave
     import pulumi_datadog.databricks as __databricks
     databricks = __databricks
     import pulumi_datadog.elastic as __elastic
@@ -280,8 +288,14 @@ if typing.TYPE_CHECKING:
     fastly = __fastly
     import pulumi_datadog.gcp as __gcp
     gcp = __gcp
+    import pulumi_datadog.github as __github
+    github = __github
     import pulumi_datadog.ms as __ms
     ms = __ms
+    import pulumi_datadog.nebius as __nebius
+    nebius = __nebius
+    import pulumi_datadog.openai as __openai
+    openai = __openai
     import pulumi_datadog.opsgenie as __opsgenie
     opsgenie = __opsgenie
     import pulumi_datadog.pagerduty as __pagerduty
@@ -293,16 +307,23 @@ if typing.TYPE_CHECKING:
     import pulumi_datadog.twilio as __twilio
     twilio = __twilio
 else:
+    anthropic = _utilities.lazy_import('pulumi_datadog.anthropic')
     aws = _utilities.lazy_import('pulumi_datadog.aws')
     azure = _utilities.lazy_import('pulumi_datadog.azure')
+    chatgpt = _utilities.lazy_import('pulumi_datadog.chatgpt')
+    claude = _utilities.lazy_import('pulumi_datadog.claude')
     cloudflare = _utilities.lazy_import('pulumi_datadog.cloudflare')
     config = _utilities.lazy_import('pulumi_datadog.config')
     confluent = _utilities.lazy_import('pulumi_datadog.confluent')
+    coreweave = _utilities.lazy_import('pulumi_datadog.coreweave')
     databricks = _utilities.lazy_import('pulumi_datadog.databricks')
     elastic = _utilities.lazy_import('pulumi_datadog.elastic')
     fastly = _utilities.lazy_import('pulumi_datadog.fastly')
     gcp = _utilities.lazy_import('pulumi_datadog.gcp')
+    github = _utilities.lazy_import('pulumi_datadog.github')
     ms = _utilities.lazy_import('pulumi_datadog.ms')
+    nebius = _utilities.lazy_import('pulumi_datadog.nebius')
+    openai = _utilities.lazy_import('pulumi_datadog.openai')
     opsgenie = _utilities.lazy_import('pulumi_datadog.opsgenie')
     pagerduty = _utilities.lazy_import('pulumi_datadog.pagerduty')
     slack = _utilities.lazy_import('pulumi_datadog.slack')
@@ -312,6 +333,14 @@ else:
 _utilities.register(
     resource_modules="""
 [
+ {
+  "pkg": "datadog",
+  "mod": "anthropic/integrationUsageAndCostsAccount",
+  "fqn": "pulumi_datadog.anthropic",
+  "classes": {
+   "datadog:anthropic/integrationUsageAndCostsAccount:IntegrationUsageAndCostsAccount": "IntegrationUsageAndCostsAccount"
+  }
+ },
  {
   "pkg": "datadog",
   "mod": "aws/integrationAccount",
@@ -354,6 +383,22 @@ _utilities.register(
  },
  {
   "pkg": "datadog",
+  "mod": "chatgpt/integrationEnterpriseAccount",
+  "fqn": "pulumi_datadog.chatgpt",
+  "classes": {
+   "datadog:chatgpt/integrationEnterpriseAccount:IntegrationEnterpriseAccount": "IntegrationEnterpriseAccount"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "claude/integrationComplianceAccount",
+  "fqn": "pulumi_datadog.claude",
+  "classes": {
+   "datadog:claude/integrationComplianceAccount:IntegrationComplianceAccount": "IntegrationComplianceAccount"
+  }
+ },
+ {
+  "pkg": "datadog",
   "mod": "cloudflare/integrationAccount",
   "fqn": "pulumi_datadog.cloudflare",
   "classes": {
@@ -374,6 +419,14 @@ _utilities.register(
   "fqn": "pulumi_datadog.confluent",
   "classes": {
    "datadog:confluent/integrationResource:IntegrationResource": "IntegrationResource"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "coreweave/integrationCloudAccount",
+  "fqn": "pulumi_datadog.coreweave",
+  "classes": {
+   "datadog:coreweave/integrationCloudAccount:IntegrationCloudAccount": "IntegrationCloudAccount"
   }
  },
  {
@@ -422,6 +475,14 @@ _utilities.register(
   "fqn": "pulumi_datadog.gcp",
   "classes": {
    "datadog:gcp/integrationSts:IntegrationSts": "IntegrationSts"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "github/integrationCostsAccount",
+  "fqn": "pulumi_datadog.github",
+  "classes": {
+   "datadog:github/integrationCostsAccount:IntegrationCostsAccount": "IntegrationCostsAccount"
   }
  },
  {
@@ -1766,6 +1827,22 @@ _utilities.register(
   "fqn": "pulumi_datadog.ms",
   "classes": {
    "datadog:ms/integrationTeamsWorkflowsWebhookHandle:IntegrationTeamsWorkflowsWebhookHandle": "IntegrationTeamsWorkflowsWebhookHandle"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "nebius/integrationCloudAccount",
+  "fqn": "pulumi_datadog.nebius",
+  "classes": {
+   "datadog:nebius/integrationCloudAccount:IntegrationCloudAccount": "IntegrationCloudAccount"
+  }
+ },
+ {
+  "pkg": "datadog",
+  "mod": "openai/integrationCodexAccount",
+  "fqn": "pulumi_datadog.openai",
+  "classes": {
+   "datadog:openai/integrationCodexAccount:IntegrationCodexAccount": "IntegrationCodexAccount"
   }
  },
  {

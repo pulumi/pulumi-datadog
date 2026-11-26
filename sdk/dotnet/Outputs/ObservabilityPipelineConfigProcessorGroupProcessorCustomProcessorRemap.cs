@@ -30,6 +30,10 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string Name;
         /// <summary>
+        /// A sample event used to test the VRL script in the pipeline editor.
+        /// </summary>
+        public readonly string? Sample;
+        /// <summary>
         /// The VRL script source code that defines the transformation logic.
         /// </summary>
         public readonly string Source;
@@ -44,12 +48,15 @@ namespace Pulumi.Datadog.Outputs
 
             string name,
 
+            string? sample,
+
             string source)
         {
             DropOnError = dropOnError;
             Enabled = enabled;
             Include = include;
             Name = name;
+            Sample = sample;
             Source = source;
         }
     }

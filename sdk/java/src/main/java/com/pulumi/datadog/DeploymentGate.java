@@ -77,6 +77,56 @@ import javax.annotation.Nullable;
  * }
  * </pre>
  * 
+ * ### Gate for all environments
+ * 
+ * <pre>
+ * {@code
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.datadog.DeploymentGate;
+ * import com.pulumi.datadog.DeploymentGateArgs;
+ * import com.pulumi.datadog.inputs.DeploymentGateRuleArgs;
+ * import java.util.ArrayList;
+ * import java.util.Arrays;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var allEnvironments = new DeploymentGate("allEnvironments", DeploymentGateArgs.builder()
+ *             .service("my-service")
+ *             .identifier("my-gate")
+ *             .env("*")
+ *             .rules(DeploymentGateRuleArgs.builder()
+ *                 .name("monitor")
+ *                 .type("monitor")
+ *                 .options(com.pulumi.datadog.inputs.DeploymentGateRuleOptionsArgs.builder()
+ *                     .query("service:my-service")
+ *                     .duration(300)
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * }
+ * </pre>
+ * 
+ * ## Changing the environment
+ * 
+ * `env` is required. Set it to a concrete environment for an environment-specific gate or to `&#34;*&#34;` for a gate that applies to all environments. A gate with `env = &#34;*&#34;` cannot coexist with environment-specific gates for the same service and identifier. Evaluations still use a concrete environment.
+ * 
+ * Replacing one resource does not coordinate deletion of other environment-specific resources. To consolidate several gates with the same service and identifier into one all-environments gate, first remove all conflicting environment-specific gates and apply. Then add the `env = &#34;*&#34;` gate and its rules in a second apply. This leaves an evaluation gap until the new gate and its rules are ready. If evaluations must continue during migration, create the all-environments gate with a new identifier first, update evaluation callers to use it, and then remove the old gates.
+ * 
  * ## Import
  * 
  * The `pulumi import` command can be used, for example:
@@ -117,14 +167,14 @@ public class DeploymentGate extends com.pulumi.resources.CustomResource {
         return this.dryRun;
     }
     /**
-     * The target environment (example: dev).
+     * The target environment (example: dev). Use `*` to apply this gate to all environments. A gate for all environments cannot coexist with environment-specific gates for the same service and identifier. Changing env replaces the gate.
      * 
      */
     @Export(name="env", refs={String.class}, tree="[0]")
     private Output<String> env;
 
     /**
-     * @return The target environment (example: dev).
+     * @return The target environment (example: dev). Use `*` to apply this gate to all environments. A gate for all environments cannot coexist with environment-specific gates for the same service and identifier. Changing env replaces the gate.
      * 
      */
     public Output<String> env() {

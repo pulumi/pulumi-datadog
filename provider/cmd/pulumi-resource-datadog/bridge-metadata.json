@@ -61163,6 +61163,10 @@
                 "current": "datadog:index/incidentUserDefinedRole:IncidentUserDefinedRole",
                 "majorVersion": 5
             },
+            "datadog_integration_anthropic_usage_and_costs_account": {
+                "current": "datadog:anthropic/integrationUsageAndCostsAccount:IntegrationUsageAndCostsAccount",
+                "majorVersion": 5
+            },
             "datadog_integration_aws_account": {
                 "current": "datadog:aws/integrationAccount:IntegrationAccount",
                 "majorVersion": 5,
@@ -61295,6 +61299,14 @@
                     }
                 }
             },
+            "datadog_integration_chatgpt_enterprise_account": {
+                "current": "datadog:chatgpt/integrationEnterpriseAccount:IntegrationEnterpriseAccount",
+                "majorVersion": 5
+            },
+            "datadog_integration_claude_compliance_account": {
+                "current": "datadog:claude/integrationComplianceAccount:IntegrationComplianceAccount",
+                "majorVersion": 5
+            },
             "datadog_integration_cloudflare_account": {
                 "current": "datadog:cloudflare/integrationAccount:IntegrationAccount",
                 "majorVersion": 5,
@@ -61319,6 +61331,22 @@
                 "fields": {
                     "tags": {
                         "maxItemsOne": false
+                    }
+                }
+            },
+            "datadog_integration_coreweave_cloud_account": {
+                "current": "datadog:coreweave/integrationCloudAccount:IntegrationCloudAccount",
+                "majorVersion": 5,
+                "fields": {
+                    "settings": {
+                        "fields": {
+                            "account_tags": {
+                                "maxItemsOne": false
+                            },
+                            "cluster_filters": {
+                                "maxItemsOne": false
+                            }
+                        }
                     }
                 }
             },
@@ -61400,12 +61428,55 @@
                     }
                 }
             },
+            "datadog_integration_github_costs_account": {
+                "current": "datadog:github/integrationCostsAccount:IntegrationCostsAccount",
+                "majorVersion": 5
+            },
             "datadog_integration_ms_teams_tenant_based_handle": {
                 "current": "datadog:ms/integrationTeamsTenantBasedHandle:IntegrationTeamsTenantBasedHandle",
                 "majorVersion": 5
             },
             "datadog_integration_ms_teams_workflows_webhook_handle": {
                 "current": "datadog:ms/integrationTeamsWorkflowsWebhookHandle:IntegrationTeamsWorkflowsWebhookHandle",
+                "majorVersion": 5
+            },
+            "datadog_integration_nebius_cloud_account": {
+                "current": "datadog:nebius/integrationCloudAccount:IntegrationCloudAccount",
+                "majorVersion": 5,
+                "fields": {
+                    "dataflows": {
+                        "fields": {
+                            "nebius_cloud_logs": {
+                                "fields": {
+                                    "settings": {
+                                        "fields": {
+                                            "enabled_services": {
+                                                "maxItemsOne": false
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "settings": {
+                        "fields": {
+                            "account_tags": {
+                                "maxItemsOne": false
+                            },
+                            "metrics_config": {
+                                "fields": {
+                                    "cluster_filters": {
+                                        "maxItemsOne": false
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "datadog_integration_openai_codex_account": {
+                "current": "datadog:openai/integrationCodexAccount:IntegrationCodexAccount",
                 "majorVersion": 5
             },
             "datadog_integration_opsgenie_service_object": {
@@ -62463,7 +62534,14 @@
                                     "maxItemsOne": false
                                 },
                                 "data_jobs_query": {
-                                    "maxItemsOne": false
+                                    "maxItemsOne": false,
+                                    "elem": {
+                                        "fields": {
+                                            "monitor_options": {
+                                                "maxItemsOne": true
+                                            }
+                                        }
+                                    }
                                 },
                                 "data_quality_query": {
                                     "maxItemsOne": false,
@@ -94769,22 +94847,29 @@
             "datadog_incident_type": {},
             "datadog_incident_user_defined_field": {},
             "datadog_incident_user_defined_role": {},
+            "datadog_integration_anthropic_usage_and_costs_account": {},
             "datadog_integration_aws_account": {},
             "datadog_integration_aws_account_ccm_config": {},
             "datadog_integration_aws_event_bridge": {},
             "datadog_integration_aws_external_id": {},
             "datadog_integration_azure": {},
+            "datadog_integration_chatgpt_enterprise_account": {},
+            "datadog_integration_claude_compliance_account": {},
             "datadog_integration_cloudflare_account": {},
             "datadog_integration_confluent_account": {},
             "datadog_integration_confluent_resource": {},
+            "datadog_integration_coreweave_cloud_account": {},
             "datadog_integration_databricks_account": {},
             "datadog_integration_elastic_cloud_account": {},
             "datadog_integration_fastly_account": {},
             "datadog_integration_fastly_service": {},
             "datadog_integration_gcp": {},
             "datadog_integration_gcp_sts": {},
+            "datadog_integration_github_costs_account": {},
             "datadog_integration_ms_teams_tenant_based_handle": {},
             "datadog_integration_ms_teams_workflows_webhook_handle": {},
+            "datadog_integration_nebius_cloud_account": {},
+            "datadog_integration_openai_codex_account": {},
             "datadog_integration_snowflake_account": {},
             "datadog_integration_twilio_account": {},
             "datadog_ip_allowlist": {},
@@ -94878,20 +94963,25 @@
     },
     "mux": {
         "resources": {
+            "datadog:anthropic/integrationUsageAndCostsAccount:IntegrationUsageAndCostsAccount": 1,
             "datadog:aws/integrationAccount:IntegrationAccount": 1,
             "datadog:aws/integrationAccountCcmConfig:IntegrationAccountCcmConfig": 1,
             "datadog:aws/integrationEventBridge:IntegrationEventBridge": 1,
             "datadog:aws/integrationExternalId:IntegrationExternalId": 1,
             "datadog:azure/integration:Integration": 1,
+            "datadog:chatgpt/integrationEnterpriseAccount:IntegrationEnterpriseAccount": 1,
+            "datadog:claude/integrationComplianceAccount:IntegrationComplianceAccount": 1,
             "datadog:cloudflare/integrationAccount:IntegrationAccount": 1,
             "datadog:confluent/integrationAccount:IntegrationAccount": 1,
             "datadog:confluent/integrationResource:IntegrationResource": 1,
+            "datadog:coreweave/integrationCloudAccount:IntegrationCloudAccount": 1,
             "datadog:databricks/integrationAccount:IntegrationAccount": 1,
             "datadog:elastic/integrationCloudAccount:IntegrationCloudAccount": 1,
             "datadog:fastly/integrationAccount:IntegrationAccount": 1,
             "datadog:fastly/integrationService:IntegrationService": 1,
             "datadog:gcp/integration:Integration": 1,
             "datadog:gcp/integrationSts:IntegrationSts": 1,
+            "datadog:github/integrationCostsAccount:IntegrationCostsAccount": 1,
             "datadog:index/actionConnection:ActionConnection": 1,
             "datadog:index/actionExecutionPolicy:ActionExecutionPolicy": 1,
             "datadog:index/agentlessScanningAwsScanOptions:AgentlessScanningAwsScanOptions": 1,
@@ -95060,6 +95150,8 @@
             "datadog:index/workflowAutomation:WorkflowAutomation": 1,
             "datadog:ms/integrationTeamsTenantBasedHandle:IntegrationTeamsTenantBasedHandle": 1,
             "datadog:ms/integrationTeamsWorkflowsWebhookHandle:IntegrationTeamsWorkflowsWebhookHandle": 1,
+            "datadog:nebius/integrationCloudAccount:IntegrationCloudAccount": 1,
+            "datadog:openai/integrationCodexAccount:IntegrationCodexAccount": 1,
             "datadog:opsgenie/serviceObject:ServiceObject": 0,
             "datadog:pagerduty/integration:Integration": 0,
             "datadog:pagerduty/serviceObject:ServiceObject": 0,

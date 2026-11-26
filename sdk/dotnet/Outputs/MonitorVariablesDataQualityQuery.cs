@@ -18,7 +18,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly string DataSource;
         /// <summary>
-        /// Filter expression used to match on data entities. Uses AAstra query syntax.
+        /// Filter expression used to match on data entities. Uses Aastra query syntax.
         /// </summary>
         public readonly string Filter;
         /// <summary>
@@ -26,7 +26,7 @@ namespace Pulumi.Datadog.Outputs
         /// </summary>
         public readonly ImmutableArray<string> GroupBies;
         /// <summary>
-        /// The measure to query. Common values include `Bytes`, `Cardinality`, `Custom`, `Freshness`, `Max`, `Mean`, `Min`, `Nullness`, `PercentNegative`, `PercentZero`, `RowCount`, `Stddev`, `Sum`, `Uniqueness`. Additional values may be supported.
+        /// The measure to query. Common values include `Bytes`, `Cardinality`, `Custom`, `Freshness`, `Max`, `Mean`, `Min`, `Nullness`, `PercentNegative`, `PercentZero`, `RowCount`, `Stddev`, `Sum`, `Uniqueness`. `data-jobs alert` job duration monitors use `Duration`. Additional values may be supported.
         /// </summary>
         public readonly string Measure;
         /// <summary>
@@ -37,6 +37,10 @@ namespace Pulumi.Datadog.Outputs
         /// The name of the query for use in formulas.
         /// </summary>
         public readonly string Name;
+        /// <summary>
+        /// Filter on individual runs, using metrics filter syntax, for example `env:prod`. Only supported by `data-jobs alert` job duration monitors.
+        /// </summary>
+        public readonly string? RunFilter;
         /// <summary>
         /// Schema version for the data quality query.
         /// </summary>
@@ -60,6 +64,8 @@ namespace Pulumi.Datadog.Outputs
 
             string name,
 
+            string? runFilter,
+
             string? schemaVersion,
 
             string? scope)
@@ -70,6 +76,7 @@ namespace Pulumi.Datadog.Outputs
             Measure = measure;
             MonitorOptions = monitorOptions;
             Name = name;
+            RunFilter = runFilter;
             SchemaVersion = schemaVersion;
             Scope = scope;
         }

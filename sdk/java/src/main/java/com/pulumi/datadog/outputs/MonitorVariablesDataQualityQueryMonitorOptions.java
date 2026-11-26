@@ -7,6 +7,7 @@ import com.pulumi.core.annotations.CustomType;
 import com.pulumi.datadog.outputs.MonitorVariablesDataQualityQueryMonitorOptionsModelConfiguration;
 import com.pulumi.datadog.outputs.MonitorVariablesDataQualityQueryMonitorOptionsSourceToTargetConfig;
 import java.lang.Double;
+import java.lang.Integer;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -15,6 +16,11 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class MonitorVariablesDataQualityQueryMonitorOptions {
+    /**
+     * @return Number of consecutive runs that must breach before a `data-jobs alert` job duration monitor alerts. Defaults to `1`.
+     * 
+     */
+    private @Nullable Integer consecutiveRuns;
     /**
      * @return Crontab expression to override the default schedule.
      * 
@@ -30,6 +36,11 @@ public final class MonitorVariablesDataQualityQueryMonitorOptions {
      * 
      */
     private @Nullable String customWhere;
+    /**
+     * @return How a `data-jobs alert` job duration monitor detects a breach. Must match the `.detection()` call in the monitor query. Valid values are `static`, `anomaly`. Required for job duration monitors.
+     * 
+     */
+    private @Nullable String detectionType;
     /**
      * @return Columns to group results by.
      * 
@@ -58,6 +69,13 @@ public final class MonitorVariablesDataQualityQueryMonitorOptions {
 
     private MonitorVariablesDataQualityQueryMonitorOptions() {}
     /**
+     * @return Number of consecutive runs that must breach before a `data-jobs alert` job duration monitor alerts. Defaults to `1`.
+     * 
+     */
+    public Optional<Integer> consecutiveRuns() {
+        return Optional.ofNullable(this.consecutiveRuns);
+    }
+    /**
      * @return Crontab expression to override the default schedule.
      * 
      */
@@ -77,6 +95,13 @@ public final class MonitorVariablesDataQualityQueryMonitorOptions {
      */
     public Optional<String> customWhere() {
         return Optional.ofNullable(this.customWhere);
+    }
+    /**
+     * @return How a `data-jobs alert` job duration monitor detects a breach. Must match the `.detection()` call in the monitor query. Valid values are `static`, `anomaly`. Required for job duration monitors.
+     * 
+     */
+    public Optional<String> detectionType() {
+        return Optional.ofNullable(this.detectionType);
     }
     /**
      * @return Columns to group results by.
@@ -123,9 +148,11 @@ public final class MonitorVariablesDataQualityQueryMonitorOptions {
     }
     @CustomType.Builder
     public static final class Builder {
+        private @Nullable Integer consecutiveRuns;
         private @Nullable String crontabOverride;
         private @Nullable String customSql;
         private @Nullable String customWhere;
+        private @Nullable String detectionType;
         private @Nullable List<String> groupByColumns;
         private @Nullable MonitorVariablesDataQualityQueryMonitorOptionsModelConfiguration modelConfiguration;
         private @Nullable String modelTypeOverride;
@@ -134,9 +161,11 @@ public final class MonitorVariablesDataQualityQueryMonitorOptions {
         public Builder() {}
         public Builder(MonitorVariablesDataQualityQueryMonitorOptions defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.consecutiveRuns = defaults.consecutiveRuns;
     	      this.crontabOverride = defaults.crontabOverride;
     	      this.customSql = defaults.customSql;
     	      this.customWhere = defaults.customWhere;
+    	      this.detectionType = defaults.detectionType;
     	      this.groupByColumns = defaults.groupByColumns;
     	      this.modelConfiguration = defaults.modelConfiguration;
     	      this.modelTypeOverride = defaults.modelTypeOverride;
@@ -144,6 +173,12 @@ public final class MonitorVariablesDataQualityQueryMonitorOptions {
     	      this.sourceToTargetConfig = defaults.sourceToTargetConfig;
         }
 
+        @CustomType.Setter
+        public Builder consecutiveRuns(@Nullable Integer consecutiveRuns) {
+
+            this.consecutiveRuns = consecutiveRuns;
+            return this;
+        }
         @CustomType.Setter
         public Builder crontabOverride(@Nullable String crontabOverride) {
 
@@ -160,6 +195,12 @@ public final class MonitorVariablesDataQualityQueryMonitorOptions {
         public Builder customWhere(@Nullable String customWhere) {
 
             this.customWhere = customWhere;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder detectionType(@Nullable String detectionType) {
+
+            this.detectionType = detectionType;
             return this;
         }
         @CustomType.Setter
@@ -197,9 +238,11 @@ public final class MonitorVariablesDataQualityQueryMonitorOptions {
         }
         public MonitorVariablesDataQualityQueryMonitorOptions build() {
             final var _resultValue = new MonitorVariablesDataQualityQueryMonitorOptions();
+            _resultValue.consecutiveRuns = consecutiveRuns;
             _resultValue.crontabOverride = crontabOverride;
             _resultValue.customSql = customSql;
             _resultValue.customWhere = customWhere;
+            _resultValue.detectionType = detectionType;
             _resultValue.groupByColumns = groupByColumns;
             _resultValue.modelConfiguration = modelConfiguration;
             _resultValue.modelTypeOverride = modelTypeOverride;

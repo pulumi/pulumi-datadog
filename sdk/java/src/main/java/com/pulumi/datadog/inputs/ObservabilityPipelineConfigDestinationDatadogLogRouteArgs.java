@@ -63,6 +63,21 @@ public final class ObservabilityPipelineConfigDestinationDatadogLogRouteArgs ext
     }
 
     /**
+     * A human-readable name for this route.
+     * 
+     */
+    @Import(name="name")
+    private @Nullable Output<String> name;
+
+    /**
+     * @return A human-readable name for this route.
+     * 
+     */
+    public Optional<Output<String>> name() {
+        return Optional.ofNullable(this.name);
+    }
+
+    /**
      * Unique identifier for this route within the destination.
      * 
      */
@@ -98,6 +113,7 @@ public final class ObservabilityPipelineConfigDestinationDatadogLogRouteArgs ext
         this.apiKeyKey = $.apiKeyKey;
         this.buffer = $.buffer;
         this.include = $.include;
+        this.name = $.name;
         this.routeId = $.routeId;
         this.site = $.site;
     }
@@ -181,6 +197,27 @@ public final class ObservabilityPipelineConfigDestinationDatadogLogRouteArgs ext
          */
         public Builder include(String include) {
             return include(Output.of(include));
+        }
+
+        /**
+         * @param name A human-readable name for this route.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder name(@Nullable Output<String> name) {
+            $.name = name;
+            return this;
+        }
+
+        /**
+         * @param name A human-readable name for this route.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder name(String name) {
+            return name(Output.of(name));
         }
 
         /**

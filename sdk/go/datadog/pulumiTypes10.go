@@ -13,6 +13,166 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical struct {
+	// per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+	PerUnitName *string `pulumi:"perUnitName"`
+	// Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+	UnitName string `pulumi:"unitName"`
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalArgs and PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalInput` via:
+//
+//	PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalArgs{...}
+type PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalArgs struct {
+	// per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+	PerUnitName pulumi.StringPtrInput `pulumi:"perUnitName"`
+	// Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+	UnitName pulumi.StringInput `pulumi:"unitName"`
+}
+
+func (PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical)(nil)).Elem()
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput)
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput).ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(ctx)
+}
+
+// PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput is an input type that accepts PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalArgs, PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtr and PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput values.
+// You can construct a concrete instance of `PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput` via:
+//
+//	        PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput
+	ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput
+}
+
+type powerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrType PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalArgs
+
+func PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtr(v *PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalArgs) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput {
+	return (*powerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrType)(v)
+}
+
+func (*powerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical)(nil)).Elem()
+}
+
+func (i *powerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrType) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
+	return i.ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrType) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
+	return o.ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical) *PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical {
+		return &v
+	}).(PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput)
+}
+
+// per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) PerUnitName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical) *string {
+		return v.PerUnitName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput) UnitName() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical) string {
+		return v.UnitName
+	}).(pulumi.StringOutput)
+}
+
+type PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical)(nil)).Elem()
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) ToPowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutputWithContext(ctx context.Context) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput {
+	return o
+}
+
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) Elem() PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical) PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical
+		return ret
+	}).(PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput)
+}
+
+// per unit name. If you want to represent megabytes/s, you set 'unit*name' = 'megabyte' and 'per*unit_name = 'second'
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) PerUnitName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical) *string {
+		if v == nil {
+			return nil
+		}
+		return v.PerUnitName
+	}).(pulumi.StringPtrOutput)
+}
+
+// Unit name. It should be in singular form ('megabyte' and not 'megabytes')
+func (o PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput) UnitName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonical) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.UnitName
+	}).(pulumi.StringPtrOutput)
+}
+
 type PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustom struct {
 	// Unit label
 	Label string `pulumi:"label"`
@@ -81948,113 +82108,9 @@ func (o GetSyntheticsTestMobileOptionsListArrayOutput) Index(i pulumi.IntInput) 
 	}).(GetSyntheticsTestMobileOptionsListOutput)
 }
 
-type GetSyntheticsTestMobileOptionsListBinding struct {
-	// List of principals for the binding.
-	Principals []string `pulumi:"principals"`
-	// The relation restriction for the binding.
-	Relation string `pulumi:"relation"`
-}
-
-// GetSyntheticsTestMobileOptionsListBindingInput is an input type that accepts GetSyntheticsTestMobileOptionsListBindingArgs and GetSyntheticsTestMobileOptionsListBindingOutput values.
-// You can construct a concrete instance of `GetSyntheticsTestMobileOptionsListBindingInput` via:
-//
-//	GetSyntheticsTestMobileOptionsListBindingArgs{...}
-type GetSyntheticsTestMobileOptionsListBindingInput interface {
-	pulumi.Input
-
-	ToGetSyntheticsTestMobileOptionsListBindingOutput() GetSyntheticsTestMobileOptionsListBindingOutput
-	ToGetSyntheticsTestMobileOptionsListBindingOutputWithContext(context.Context) GetSyntheticsTestMobileOptionsListBindingOutput
-}
-
-type GetSyntheticsTestMobileOptionsListBindingArgs struct {
-	// List of principals for the binding.
-	Principals pulumi.StringArrayInput `pulumi:"principals"`
-	// The relation restriction for the binding.
-	Relation pulumi.StringInput `pulumi:"relation"`
-}
-
-func (GetSyntheticsTestMobileOptionsListBindingArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSyntheticsTestMobileOptionsListBinding)(nil)).Elem()
-}
-
-func (i GetSyntheticsTestMobileOptionsListBindingArgs) ToGetSyntheticsTestMobileOptionsListBindingOutput() GetSyntheticsTestMobileOptionsListBindingOutput {
-	return i.ToGetSyntheticsTestMobileOptionsListBindingOutputWithContext(context.Background())
-}
-
-func (i GetSyntheticsTestMobileOptionsListBindingArgs) ToGetSyntheticsTestMobileOptionsListBindingOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListBindingOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestMobileOptionsListBindingOutput)
-}
-
-// GetSyntheticsTestMobileOptionsListBindingArrayInput is an input type that accepts GetSyntheticsTestMobileOptionsListBindingArray and GetSyntheticsTestMobileOptionsListBindingArrayOutput values.
-// You can construct a concrete instance of `GetSyntheticsTestMobileOptionsListBindingArrayInput` via:
-//
-//	GetSyntheticsTestMobileOptionsListBindingArray{ GetSyntheticsTestMobileOptionsListBindingArgs{...} }
-type GetSyntheticsTestMobileOptionsListBindingArrayInput interface {
-	pulumi.Input
-
-	ToGetSyntheticsTestMobileOptionsListBindingArrayOutput() GetSyntheticsTestMobileOptionsListBindingArrayOutput
-	ToGetSyntheticsTestMobileOptionsListBindingArrayOutputWithContext(context.Context) GetSyntheticsTestMobileOptionsListBindingArrayOutput
-}
-
-type GetSyntheticsTestMobileOptionsListBindingArray []GetSyntheticsTestMobileOptionsListBindingInput
-
-func (GetSyntheticsTestMobileOptionsListBindingArray) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSyntheticsTestMobileOptionsListBinding)(nil)).Elem()
-}
-
-func (i GetSyntheticsTestMobileOptionsListBindingArray) ToGetSyntheticsTestMobileOptionsListBindingArrayOutput() GetSyntheticsTestMobileOptionsListBindingArrayOutput {
-	return i.ToGetSyntheticsTestMobileOptionsListBindingArrayOutputWithContext(context.Background())
-}
-
-func (i GetSyntheticsTestMobileOptionsListBindingArray) ToGetSyntheticsTestMobileOptionsListBindingArrayOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListBindingArrayOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(GetSyntheticsTestMobileOptionsListBindingArrayOutput)
-}
-
-type GetSyntheticsTestMobileOptionsListBindingOutput struct{ *pulumi.OutputState }
-
-func (GetSyntheticsTestMobileOptionsListBindingOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*GetSyntheticsTestMobileOptionsListBinding)(nil)).Elem()
-}
-
-func (o GetSyntheticsTestMobileOptionsListBindingOutput) ToGetSyntheticsTestMobileOptionsListBindingOutput() GetSyntheticsTestMobileOptionsListBindingOutput {
-	return o
-}
-
-func (o GetSyntheticsTestMobileOptionsListBindingOutput) ToGetSyntheticsTestMobileOptionsListBindingOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListBindingOutput {
-	return o
-}
-
-// List of principals for the binding.
-func (o GetSyntheticsTestMobileOptionsListBindingOutput) Principals() pulumi.StringArrayOutput {
-	return o.ApplyT(func(v GetSyntheticsTestMobileOptionsListBinding) []string { return v.Principals }).(pulumi.StringArrayOutput)
-}
-
-// The relation restriction for the binding.
-func (o GetSyntheticsTestMobileOptionsListBindingOutput) Relation() pulumi.StringOutput {
-	return o.ApplyT(func(v GetSyntheticsTestMobileOptionsListBinding) string { return v.Relation }).(pulumi.StringOutput)
-}
-
-type GetSyntheticsTestMobileOptionsListBindingArrayOutput struct{ *pulumi.OutputState }
-
-func (GetSyntheticsTestMobileOptionsListBindingArrayOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*[]GetSyntheticsTestMobileOptionsListBinding)(nil)).Elem()
-}
-
-func (o GetSyntheticsTestMobileOptionsListBindingArrayOutput) ToGetSyntheticsTestMobileOptionsListBindingArrayOutput() GetSyntheticsTestMobileOptionsListBindingArrayOutput {
-	return o
-}
-
-func (o GetSyntheticsTestMobileOptionsListBindingArrayOutput) ToGetSyntheticsTestMobileOptionsListBindingArrayOutputWithContext(ctx context.Context) GetSyntheticsTestMobileOptionsListBindingArrayOutput {
-	return o
-}
-
-func (o GetSyntheticsTestMobileOptionsListBindingArrayOutput) Index(i pulumi.IntInput) GetSyntheticsTestMobileOptionsListBindingOutput {
-	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetSyntheticsTestMobileOptionsListBinding {
-		return vs[0].([]GetSyntheticsTestMobileOptionsListBinding)[vs[1].(int)]
-	}).(GetSyntheticsTestMobileOptionsListBindingOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleInput)(nil)).Elem(), PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleArgs{})
@@ -83037,8 +83093,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetStatusPagesStatusPageArrayInput)(nil)).Elem(), GetStatusPagesStatusPageArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListArrayInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListBindingInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListBindingArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*GetSyntheticsTestMobileOptionsListBindingArrayInput)(nil)).Elem(), GetSyntheticsTestMobileOptionsListBindingArray{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalOutput{})
+	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCanonicalPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitCustomPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackWidgetTimeseriesDefinitionRequestFormulaNumberFormatUnitScaleOutput{})
@@ -84021,6 +84077,4 @@ func init() {
 	pulumi.RegisterOutputType(GetStatusPagesStatusPageArrayOutput{})
 	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListOutput{})
 	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListArrayOutput{})
-	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListBindingOutput{})
-	pulumi.RegisterOutputType(GetSyntheticsTestMobileOptionsListBindingArrayOutput{})
 }

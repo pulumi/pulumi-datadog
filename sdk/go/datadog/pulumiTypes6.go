@@ -36470,14 +36470,18 @@ func (o MonitorVariablesCloudCostQueryArrayOutput) Index(i pulumi.IntInput) Moni
 }
 
 type MonitorVariablesDataJobsQuery struct {
-	// The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
+	// The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`, `adf.pipeline`. The `aastra` dialect also accepts `airflow.job`, `dbt.model`, `dbt.test`. Custom job types are supported with the `custom.ol.` prefix.
 	JobType string `pulumi:"jobType"`
-	// Filter expression used to select the jobs to monitor.
+	// Filter expression used to select the jobs to monitor. A metric tag filter such as `job_name:smoke*` with the `metric` dialect, or an Aastra entity search such as ` search for databricksJob where  `@team:data-eng`` with the `aastra` dialect.
 	JobsQuery string `pulumi:"jobsQuery"`
+	// Monitor configuration options for data jobs queries.
+	MonitorOptions *MonitorVariablesDataJobsQueryMonitorOptions `pulumi:"monitorOptions"`
 	// Name of the query for use in formulas. Must be `runQuery`.
 	Name string `pulumi:"name"`
-	// Query dialect for data jobs queries. Currently only `metric` is supported.
+	// Query dialect for data jobs queries. Valid values are `metric` and `aastra`.
 	QueryDialect string `pulumi:"queryDialect"`
+	// Filter on individual runs, using metrics filter syntax, for example `env:prod`. Only supported with the `aastra` query dialect.
+	RunFilter *string `pulumi:"runFilter"`
 }
 
 // MonitorVariablesDataJobsQueryInput is an input type that accepts MonitorVariablesDataJobsQueryArgs and MonitorVariablesDataJobsQueryOutput values.
@@ -36492,14 +36496,18 @@ type MonitorVariablesDataJobsQueryInput interface {
 }
 
 type MonitorVariablesDataJobsQueryArgs struct {
-	// The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
+	// The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`, `adf.pipeline`. The `aastra` dialect also accepts `airflow.job`, `dbt.model`, `dbt.test`. Custom job types are supported with the `custom.ol.` prefix.
 	JobType pulumi.StringInput `pulumi:"jobType"`
-	// Filter expression used to select the jobs to monitor.
+	// Filter expression used to select the jobs to monitor. A metric tag filter such as `job_name:smoke*` with the `metric` dialect, or an Aastra entity search such as ` search for databricksJob where  `@team:data-eng`` with the `aastra` dialect.
 	JobsQuery pulumi.StringInput `pulumi:"jobsQuery"`
+	// Monitor configuration options for data jobs queries.
+	MonitorOptions MonitorVariablesDataJobsQueryMonitorOptionsPtrInput `pulumi:"monitorOptions"`
 	// Name of the query for use in formulas. Must be `runQuery`.
 	Name pulumi.StringInput `pulumi:"name"`
-	// Query dialect for data jobs queries. Currently only `metric` is supported.
+	// Query dialect for data jobs queries. Valid values are `metric` and `aastra`.
 	QueryDialect pulumi.StringInput `pulumi:"queryDialect"`
+	// Filter on individual runs, using metrics filter syntax, for example `env:prod`. Only supported with the `aastra` query dialect.
+	RunFilter pulumi.StringPtrInput `pulumi:"runFilter"`
 }
 
 func (MonitorVariablesDataJobsQueryArgs) ElementType() reflect.Type {
@@ -36553,14 +36561,21 @@ func (o MonitorVariablesDataJobsQueryOutput) ToMonitorVariablesDataJobsQueryOutp
 	return o
 }
 
-// The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`. Custom job types are supported with the `custom.ol.` prefix.
+// The type of job being monitored. Valid values include `databricks.job`, `spark.application`, `airflow.dag`, `dbt.job`, `glue.job`, `adf.pipeline`. The `aastra` dialect also accepts `airflow.job`, `dbt.model`, `dbt.test`. Custom job types are supported with the `custom.ol.` prefix.
 func (o MonitorVariablesDataJobsQueryOutput) JobType() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorVariablesDataJobsQuery) string { return v.JobType }).(pulumi.StringOutput)
 }
 
-// Filter expression used to select the jobs to monitor.
+// Filter expression used to select the jobs to monitor. A metric tag filter such as `job_name:smoke*` with the `metric` dialect, or an Aastra entity search such as ` search for databricksJob where  `@team:data-eng“ with the `aastra` dialect.
 func (o MonitorVariablesDataJobsQueryOutput) JobsQuery() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorVariablesDataJobsQuery) string { return v.JobsQuery }).(pulumi.StringOutput)
+}
+
+// Monitor configuration options for data jobs queries.
+func (o MonitorVariablesDataJobsQueryOutput) MonitorOptions() MonitorVariablesDataJobsQueryMonitorOptionsPtrOutput {
+	return o.ApplyT(func(v MonitorVariablesDataJobsQuery) *MonitorVariablesDataJobsQueryMonitorOptions {
+		return v.MonitorOptions
+	}).(MonitorVariablesDataJobsQueryMonitorOptionsPtrOutput)
 }
 
 // Name of the query for use in formulas. Must be `runQuery`.
@@ -36568,9 +36583,14 @@ func (o MonitorVariablesDataJobsQueryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorVariablesDataJobsQuery) string { return v.Name }).(pulumi.StringOutput)
 }
 
-// Query dialect for data jobs queries. Currently only `metric` is supported.
+// Query dialect for data jobs queries. Valid values are `metric` and `aastra`.
 func (o MonitorVariablesDataJobsQueryOutput) QueryDialect() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorVariablesDataJobsQuery) string { return v.QueryDialect }).(pulumi.StringOutput)
+}
+
+// Filter on individual runs, using metrics filter syntax, for example `env:prod`. Only supported with the `aastra` query dialect.
+func (o MonitorVariablesDataJobsQueryOutput) RunFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitorVariablesDataJobsQuery) *string { return v.RunFilter }).(pulumi.StringPtrOutput)
 }
 
 type MonitorVariablesDataJobsQueryArrayOutput struct{ *pulumi.OutputState }
@@ -36593,19 +36613,158 @@ func (o MonitorVariablesDataJobsQueryArrayOutput) Index(i pulumi.IntInput) Monit
 	}).(MonitorVariablesDataJobsQueryOutput)
 }
 
+type MonitorVariablesDataJobsQueryMonitorOptions struct {
+	// Alert separately for each failed run instead of on the count of trailing failures. Only supported for `failedRuns` monitors with the `aastra` query dialect, a `> 0` threshold with no warning threshold, an evaluation window of at most two days, and renotification disabled.
+	AlertOnEveryFailure *bool `pulumi:"alertOnEveryFailure"`
+}
+
+// MonitorVariablesDataJobsQueryMonitorOptionsInput is an input type that accepts MonitorVariablesDataJobsQueryMonitorOptionsArgs and MonitorVariablesDataJobsQueryMonitorOptionsOutput values.
+// You can construct a concrete instance of `MonitorVariablesDataJobsQueryMonitorOptionsInput` via:
+//
+//	MonitorVariablesDataJobsQueryMonitorOptionsArgs{...}
+type MonitorVariablesDataJobsQueryMonitorOptionsInput interface {
+	pulumi.Input
+
+	ToMonitorVariablesDataJobsQueryMonitorOptionsOutput() MonitorVariablesDataJobsQueryMonitorOptionsOutput
+	ToMonitorVariablesDataJobsQueryMonitorOptionsOutputWithContext(context.Context) MonitorVariablesDataJobsQueryMonitorOptionsOutput
+}
+
+type MonitorVariablesDataJobsQueryMonitorOptionsArgs struct {
+	// Alert separately for each failed run instead of on the count of trailing failures. Only supported for `failedRuns` monitors with the `aastra` query dialect, a `> 0` threshold with no warning threshold, an evaluation window of at most two days, and renotification disabled.
+	AlertOnEveryFailure pulumi.BoolPtrInput `pulumi:"alertOnEveryFailure"`
+}
+
+func (MonitorVariablesDataJobsQueryMonitorOptionsArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorVariablesDataJobsQueryMonitorOptions)(nil)).Elem()
+}
+
+func (i MonitorVariablesDataJobsQueryMonitorOptionsArgs) ToMonitorVariablesDataJobsQueryMonitorOptionsOutput() MonitorVariablesDataJobsQueryMonitorOptionsOutput {
+	return i.ToMonitorVariablesDataJobsQueryMonitorOptionsOutputWithContext(context.Background())
+}
+
+func (i MonitorVariablesDataJobsQueryMonitorOptionsArgs) ToMonitorVariablesDataJobsQueryMonitorOptionsOutputWithContext(ctx context.Context) MonitorVariablesDataJobsQueryMonitorOptionsOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorVariablesDataJobsQueryMonitorOptionsOutput)
+}
+
+func (i MonitorVariablesDataJobsQueryMonitorOptionsArgs) ToMonitorVariablesDataJobsQueryMonitorOptionsPtrOutput() MonitorVariablesDataJobsQueryMonitorOptionsPtrOutput {
+	return i.ToMonitorVariablesDataJobsQueryMonitorOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i MonitorVariablesDataJobsQueryMonitorOptionsArgs) ToMonitorVariablesDataJobsQueryMonitorOptionsPtrOutputWithContext(ctx context.Context) MonitorVariablesDataJobsQueryMonitorOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorVariablesDataJobsQueryMonitorOptionsOutput).ToMonitorVariablesDataJobsQueryMonitorOptionsPtrOutputWithContext(ctx)
+}
+
+// MonitorVariablesDataJobsQueryMonitorOptionsPtrInput is an input type that accepts MonitorVariablesDataJobsQueryMonitorOptionsArgs, MonitorVariablesDataJobsQueryMonitorOptionsPtr and MonitorVariablesDataJobsQueryMonitorOptionsPtrOutput values.
+// You can construct a concrete instance of `MonitorVariablesDataJobsQueryMonitorOptionsPtrInput` via:
+//
+//	        MonitorVariablesDataJobsQueryMonitorOptionsArgs{...}
+//
+//	or:
+//
+//	        nil
+type MonitorVariablesDataJobsQueryMonitorOptionsPtrInput interface {
+	pulumi.Input
+
+	ToMonitorVariablesDataJobsQueryMonitorOptionsPtrOutput() MonitorVariablesDataJobsQueryMonitorOptionsPtrOutput
+	ToMonitorVariablesDataJobsQueryMonitorOptionsPtrOutputWithContext(context.Context) MonitorVariablesDataJobsQueryMonitorOptionsPtrOutput
+}
+
+type monitorVariablesDataJobsQueryMonitorOptionsPtrType MonitorVariablesDataJobsQueryMonitorOptionsArgs
+
+func MonitorVariablesDataJobsQueryMonitorOptionsPtr(v *MonitorVariablesDataJobsQueryMonitorOptionsArgs) MonitorVariablesDataJobsQueryMonitorOptionsPtrInput {
+	return (*monitorVariablesDataJobsQueryMonitorOptionsPtrType)(v)
+}
+
+func (*monitorVariablesDataJobsQueryMonitorOptionsPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitorVariablesDataJobsQueryMonitorOptions)(nil)).Elem()
+}
+
+func (i *monitorVariablesDataJobsQueryMonitorOptionsPtrType) ToMonitorVariablesDataJobsQueryMonitorOptionsPtrOutput() MonitorVariablesDataJobsQueryMonitorOptionsPtrOutput {
+	return i.ToMonitorVariablesDataJobsQueryMonitorOptionsPtrOutputWithContext(context.Background())
+}
+
+func (i *monitorVariablesDataJobsQueryMonitorOptionsPtrType) ToMonitorVariablesDataJobsQueryMonitorOptionsPtrOutputWithContext(ctx context.Context) MonitorVariablesDataJobsQueryMonitorOptionsPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(MonitorVariablesDataJobsQueryMonitorOptionsPtrOutput)
+}
+
+type MonitorVariablesDataJobsQueryMonitorOptionsOutput struct{ *pulumi.OutputState }
+
+func (MonitorVariablesDataJobsQueryMonitorOptionsOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*MonitorVariablesDataJobsQueryMonitorOptions)(nil)).Elem()
+}
+
+func (o MonitorVariablesDataJobsQueryMonitorOptionsOutput) ToMonitorVariablesDataJobsQueryMonitorOptionsOutput() MonitorVariablesDataJobsQueryMonitorOptionsOutput {
+	return o
+}
+
+func (o MonitorVariablesDataJobsQueryMonitorOptionsOutput) ToMonitorVariablesDataJobsQueryMonitorOptionsOutputWithContext(ctx context.Context) MonitorVariablesDataJobsQueryMonitorOptionsOutput {
+	return o
+}
+
+func (o MonitorVariablesDataJobsQueryMonitorOptionsOutput) ToMonitorVariablesDataJobsQueryMonitorOptionsPtrOutput() MonitorVariablesDataJobsQueryMonitorOptionsPtrOutput {
+	return o.ToMonitorVariablesDataJobsQueryMonitorOptionsPtrOutputWithContext(context.Background())
+}
+
+func (o MonitorVariablesDataJobsQueryMonitorOptionsOutput) ToMonitorVariablesDataJobsQueryMonitorOptionsPtrOutputWithContext(ctx context.Context) MonitorVariablesDataJobsQueryMonitorOptionsPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v MonitorVariablesDataJobsQueryMonitorOptions) *MonitorVariablesDataJobsQueryMonitorOptions {
+		return &v
+	}).(MonitorVariablesDataJobsQueryMonitorOptionsPtrOutput)
+}
+
+// Alert separately for each failed run instead of on the count of trailing failures. Only supported for `failedRuns` monitors with the `aastra` query dialect, a `> 0` threshold with no warning threshold, an evaluation window of at most two days, and renotification disabled.
+func (o MonitorVariablesDataJobsQueryMonitorOptionsOutput) AlertOnEveryFailure() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v MonitorVariablesDataJobsQueryMonitorOptions) *bool { return v.AlertOnEveryFailure }).(pulumi.BoolPtrOutput)
+}
+
+type MonitorVariablesDataJobsQueryMonitorOptionsPtrOutput struct{ *pulumi.OutputState }
+
+func (MonitorVariablesDataJobsQueryMonitorOptionsPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**MonitorVariablesDataJobsQueryMonitorOptions)(nil)).Elem()
+}
+
+func (o MonitorVariablesDataJobsQueryMonitorOptionsPtrOutput) ToMonitorVariablesDataJobsQueryMonitorOptionsPtrOutput() MonitorVariablesDataJobsQueryMonitorOptionsPtrOutput {
+	return o
+}
+
+func (o MonitorVariablesDataJobsQueryMonitorOptionsPtrOutput) ToMonitorVariablesDataJobsQueryMonitorOptionsPtrOutputWithContext(ctx context.Context) MonitorVariablesDataJobsQueryMonitorOptionsPtrOutput {
+	return o
+}
+
+func (o MonitorVariablesDataJobsQueryMonitorOptionsPtrOutput) Elem() MonitorVariablesDataJobsQueryMonitorOptionsOutput {
+	return o.ApplyT(func(v *MonitorVariablesDataJobsQueryMonitorOptions) MonitorVariablesDataJobsQueryMonitorOptions {
+		if v != nil {
+			return *v
+		}
+		var ret MonitorVariablesDataJobsQueryMonitorOptions
+		return ret
+	}).(MonitorVariablesDataJobsQueryMonitorOptionsOutput)
+}
+
+// Alert separately for each failed run instead of on the count of trailing failures. Only supported for `failedRuns` monitors with the `aastra` query dialect, a `> 0` threshold with no warning threshold, an evaluation window of at most two days, and renotification disabled.
+func (o MonitorVariablesDataJobsQueryMonitorOptionsPtrOutput) AlertOnEveryFailure() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *MonitorVariablesDataJobsQueryMonitorOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.AlertOnEveryFailure
+	}).(pulumi.BoolPtrOutput)
+}
+
 type MonitorVariablesDataQualityQuery struct {
 	// The data source for data quality queries. Valid value is `dataQualityMetrics`. Valid values are `dataQualityMetrics`.
 	DataSource string `pulumi:"dataSource"`
-	// Filter expression used to match on data entities. Uses AAstra query syntax.
+	// Filter expression used to match on data entities. Uses Aastra query syntax.
 	Filter string `pulumi:"filter"`
 	// Optional grouping fields for aggregation.
 	GroupBies []string `pulumi:"groupBies"`
-	// The measure to query. Common values include `bytes`, `cardinality`, `custom`, `freshness`, `max`, `mean`, `min`, `nullness`, `percentNegative`, `percentZero`, `rowCount`, `stddev`, `sum`, `uniqueness`. Additional values may be supported.
+	// The measure to query. Common values include `bytes`, `cardinality`, `custom`, `freshness`, `max`, `mean`, `min`, `nullness`, `percentNegative`, `percentZero`, `rowCount`, `stddev`, `sum`, `uniqueness`. `data-jobs alert` job duration monitors use `duration`. Additional values may be supported.
 	Measure string `pulumi:"measure"`
 	// Monitor configuration options for data quality queries.
 	MonitorOptions *MonitorVariablesDataQualityQueryMonitorOptions `pulumi:"monitorOptions"`
 	// The name of the query for use in formulas.
 	Name string `pulumi:"name"`
+	// Filter on individual runs, using metrics filter syntax, for example `env:prod`. Only supported by `data-jobs alert` job duration monitors.
+	RunFilter *string `pulumi:"runFilter"`
 	// Schema version for the data quality query.
 	SchemaVersion *string `pulumi:"schemaVersion"`
 	// Optional scoping expression to further filter metrics.
@@ -36626,16 +36785,18 @@ type MonitorVariablesDataQualityQueryInput interface {
 type MonitorVariablesDataQualityQueryArgs struct {
 	// The data source for data quality queries. Valid value is `dataQualityMetrics`. Valid values are `dataQualityMetrics`.
 	DataSource pulumi.StringInput `pulumi:"dataSource"`
-	// Filter expression used to match on data entities. Uses AAstra query syntax.
+	// Filter expression used to match on data entities. Uses Aastra query syntax.
 	Filter pulumi.StringInput `pulumi:"filter"`
 	// Optional grouping fields for aggregation.
 	GroupBies pulumi.StringArrayInput `pulumi:"groupBies"`
-	// The measure to query. Common values include `bytes`, `cardinality`, `custom`, `freshness`, `max`, `mean`, `min`, `nullness`, `percentNegative`, `percentZero`, `rowCount`, `stddev`, `sum`, `uniqueness`. Additional values may be supported.
+	// The measure to query. Common values include `bytes`, `cardinality`, `custom`, `freshness`, `max`, `mean`, `min`, `nullness`, `percentNegative`, `percentZero`, `rowCount`, `stddev`, `sum`, `uniqueness`. `data-jobs alert` job duration monitors use `duration`. Additional values may be supported.
 	Measure pulumi.StringInput `pulumi:"measure"`
 	// Monitor configuration options for data quality queries.
 	MonitorOptions MonitorVariablesDataQualityQueryMonitorOptionsPtrInput `pulumi:"monitorOptions"`
 	// The name of the query for use in formulas.
 	Name pulumi.StringInput `pulumi:"name"`
+	// Filter on individual runs, using metrics filter syntax, for example `env:prod`. Only supported by `data-jobs alert` job duration monitors.
+	RunFilter pulumi.StringPtrInput `pulumi:"runFilter"`
 	// Schema version for the data quality query.
 	SchemaVersion pulumi.StringPtrInput `pulumi:"schemaVersion"`
 	// Optional scoping expression to further filter metrics.
@@ -36698,7 +36859,7 @@ func (o MonitorVariablesDataQualityQueryOutput) DataSource() pulumi.StringOutput
 	return o.ApplyT(func(v MonitorVariablesDataQualityQuery) string { return v.DataSource }).(pulumi.StringOutput)
 }
 
-// Filter expression used to match on data entities. Uses AAstra query syntax.
+// Filter expression used to match on data entities. Uses Aastra query syntax.
 func (o MonitorVariablesDataQualityQueryOutput) Filter() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorVariablesDataQualityQuery) string { return v.Filter }).(pulumi.StringOutput)
 }
@@ -36708,7 +36869,7 @@ func (o MonitorVariablesDataQualityQueryOutput) GroupBies() pulumi.StringArrayOu
 	return o.ApplyT(func(v MonitorVariablesDataQualityQuery) []string { return v.GroupBies }).(pulumi.StringArrayOutput)
 }
 
-// The measure to query. Common values include `bytes`, `cardinality`, `custom`, `freshness`, `max`, `mean`, `min`, `nullness`, `percentNegative`, `percentZero`, `rowCount`, `stddev`, `sum`, `uniqueness`. Additional values may be supported.
+// The measure to query. Common values include `bytes`, `cardinality`, `custom`, `freshness`, `max`, `mean`, `min`, `nullness`, `percentNegative`, `percentZero`, `rowCount`, `stddev`, `sum`, `uniqueness`. `data-jobs alert` job duration monitors use `duration`. Additional values may be supported.
 func (o MonitorVariablesDataQualityQueryOutput) Measure() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorVariablesDataQualityQuery) string { return v.Measure }).(pulumi.StringOutput)
 }
@@ -36723,6 +36884,11 @@ func (o MonitorVariablesDataQualityQueryOutput) MonitorOptions() MonitorVariable
 // The name of the query for use in formulas.
 func (o MonitorVariablesDataQualityQueryOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v MonitorVariablesDataQualityQuery) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// Filter on individual runs, using metrics filter syntax, for example `env:prod`. Only supported by `data-jobs alert` job duration monitors.
+func (o MonitorVariablesDataQualityQueryOutput) RunFilter() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitorVariablesDataQualityQuery) *string { return v.RunFilter }).(pulumi.StringPtrOutput)
 }
 
 // Schema version for the data quality query.
@@ -36756,12 +36922,16 @@ func (o MonitorVariablesDataQualityQueryArrayOutput) Index(i pulumi.IntInput) Mo
 }
 
 type MonitorVariablesDataQualityQueryMonitorOptions struct {
+	// Number of consecutive runs that must breach before a `data-jobs alert` job duration monitor alerts. Defaults to `1`.
+	ConsecutiveRuns *int `pulumi:"consecutiveRuns"`
 	// Crontab expression to override the default schedule.
 	CrontabOverride *string `pulumi:"crontabOverride"`
 	// Custom SQL query for the monitor.
 	CustomSql *string `pulumi:"customSql"`
 	// Custom WHERE clause for the query.
 	CustomWhere *string `pulumi:"customWhere"`
+	// How a `data-jobs alert` job duration monitor detects a breach. Must match the `.detection()` call in the monitor query. Valid values are `static`, `anomaly`. Required for job duration monitors.
+	DetectionType *string `pulumi:"detectionType"`
 	// Columns to group results by.
 	GroupByColumns []string `pulumi:"groupByColumns"`
 	// Tuning options for the anomaly detection model used by the monitor.
@@ -36786,12 +36956,16 @@ type MonitorVariablesDataQualityQueryMonitorOptionsInput interface {
 }
 
 type MonitorVariablesDataQualityQueryMonitorOptionsArgs struct {
+	// Number of consecutive runs that must breach before a `data-jobs alert` job duration monitor alerts. Defaults to `1`.
+	ConsecutiveRuns pulumi.IntPtrInput `pulumi:"consecutiveRuns"`
 	// Crontab expression to override the default schedule.
 	CrontabOverride pulumi.StringPtrInput `pulumi:"crontabOverride"`
 	// Custom SQL query for the monitor.
 	CustomSql pulumi.StringPtrInput `pulumi:"customSql"`
 	// Custom WHERE clause for the query.
 	CustomWhere pulumi.StringPtrInput `pulumi:"customWhere"`
+	// How a `data-jobs alert` job duration monitor detects a breach. Must match the `.detection()` call in the monitor query. Valid values are `static`, `anomaly`. Required for job duration monitors.
+	DetectionType pulumi.StringPtrInput `pulumi:"detectionType"`
 	// Columns to group results by.
 	GroupByColumns pulumi.StringArrayInput `pulumi:"groupByColumns"`
 	// Tuning options for the anomaly detection model used by the monitor.
@@ -36881,6 +37055,11 @@ func (o MonitorVariablesDataQualityQueryMonitorOptionsOutput) ToMonitorVariables
 	}).(MonitorVariablesDataQualityQueryMonitorOptionsPtrOutput)
 }
 
+// Number of consecutive runs that must breach before a `data-jobs alert` job duration monitor alerts. Defaults to `1`.
+func (o MonitorVariablesDataQualityQueryMonitorOptionsOutput) ConsecutiveRuns() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v MonitorVariablesDataQualityQueryMonitorOptions) *int { return v.ConsecutiveRuns }).(pulumi.IntPtrOutput)
+}
+
 // Crontab expression to override the default schedule.
 func (o MonitorVariablesDataQualityQueryMonitorOptionsOutput) CrontabOverride() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorVariablesDataQualityQueryMonitorOptions) *string { return v.CrontabOverride }).(pulumi.StringPtrOutput)
@@ -36894,6 +37073,11 @@ func (o MonitorVariablesDataQualityQueryMonitorOptionsOutput) CustomSql() pulumi
 // Custom WHERE clause for the query.
 func (o MonitorVariablesDataQualityQueryMonitorOptionsOutput) CustomWhere() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v MonitorVariablesDataQualityQueryMonitorOptions) *string { return v.CustomWhere }).(pulumi.StringPtrOutput)
+}
+
+// How a `data-jobs alert` job duration monitor detects a breach. Must match the `.detection()` call in the monitor query. Valid values are `static`, `anomaly`. Required for job duration monitors.
+func (o MonitorVariablesDataQualityQueryMonitorOptionsOutput) DetectionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v MonitorVariablesDataQualityQueryMonitorOptions) *string { return v.DetectionType }).(pulumi.StringPtrOutput)
 }
 
 // Columns to group results by.
@@ -36949,6 +37133,16 @@ func (o MonitorVariablesDataQualityQueryMonitorOptionsPtrOutput) Elem() MonitorV
 	}).(MonitorVariablesDataQualityQueryMonitorOptionsOutput)
 }
 
+// Number of consecutive runs that must breach before a `data-jobs alert` job duration monitor alerts. Defaults to `1`.
+func (o MonitorVariablesDataQualityQueryMonitorOptionsPtrOutput) ConsecutiveRuns() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *MonitorVariablesDataQualityQueryMonitorOptions) *int {
+		if v == nil {
+			return nil
+		}
+		return v.ConsecutiveRuns
+	}).(pulumi.IntPtrOutput)
+}
+
 // Crontab expression to override the default schedule.
 func (o MonitorVariablesDataQualityQueryMonitorOptionsPtrOutput) CrontabOverride() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *MonitorVariablesDataQualityQueryMonitorOptions) *string {
@@ -36976,6 +37170,16 @@ func (o MonitorVariablesDataQualityQueryMonitorOptionsPtrOutput) CustomWhere() p
 			return nil
 		}
 		return v.CustomWhere
+	}).(pulumi.StringPtrOutput)
+}
+
+// How a `data-jobs alert` job duration monitor detects a breach. Must match the `.detection()` call in the monitor query. Valid values are `static`, `anomaly`. Required for job duration monitors.
+func (o MonitorVariablesDataQualityQueryMonitorOptionsPtrOutput) DetectionType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MonitorVariablesDataQualityQueryMonitorOptions) *string {
+		if v == nil {
+			return nil
+		}
+		return v.DetectionType
 	}).(pulumi.StringPtrOutput)
 }
 
@@ -51427,6 +51631,8 @@ type ObservabilityPipelineConfigDestinationDatadogLogRoute struct {
 	Buffer *ObservabilityPipelineConfigDestinationDatadogLogRouteBuffer `pulumi:"buffer"`
 	// A Datadog search query that determines which logs are forwarded using this route.
 	Include string `pulumi:"include"`
+	// A human-readable name for this route.
+	Name *string `pulumi:"name"`
 	// Unique identifier for this route within the destination.
 	RouteId string `pulumi:"routeId"`
 	// Datadog site where matching logs are sent (for example, `us1`).
@@ -51451,6 +51657,8 @@ type ObservabilityPipelineConfigDestinationDatadogLogRouteArgs struct {
 	Buffer ObservabilityPipelineConfigDestinationDatadogLogRouteBufferPtrInput `pulumi:"buffer"`
 	// A Datadog search query that determines which logs are forwarded using this route.
 	Include pulumi.StringInput `pulumi:"include"`
+	// A human-readable name for this route.
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Unique identifier for this route within the destination.
 	RouteId pulumi.StringInput `pulumi:"routeId"`
 	// Datadog site where matching logs are sent (for example, `us1`).
@@ -51523,6 +51731,11 @@ func (o ObservabilityPipelineConfigDestinationDatadogLogRouteOutput) Buffer() Ob
 // A Datadog search query that determines which logs are forwarded using this route.
 func (o ObservabilityPipelineConfigDestinationDatadogLogRouteOutput) Include() pulumi.StringOutput {
 	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationDatadogLogRoute) string { return v.Include }).(pulumi.StringOutput)
+}
+
+// A human-readable name for this route.
+func (o ObservabilityPipelineConfigDestinationDatadogLogRouteOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigDestinationDatadogLogRoute) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // Unique identifier for this route within the destination.
@@ -71632,6 +71845,8 @@ type ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemap stru
 	Include string `pulumi:"include"`
 	// A descriptive name for this remap rule.
 	Name string `pulumi:"name"`
+	// A sample event used to test the VRL script in the pipeline editor.
+	Sample *string `pulumi:"sample"`
 	// The VRL script source code that defines the transformation logic.
 	Source string `pulumi:"source"`
 }
@@ -71656,6 +71871,8 @@ type ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemapArgs 
 	Include pulumi.StringInput `pulumi:"include"`
 	// A descriptive name for this remap rule.
 	Name pulumi.StringInput `pulumi:"name"`
+	// A sample event used to test the VRL script in the pipeline editor.
+	Sample pulumi.StringPtrInput `pulumi:"sample"`
 	// The VRL script source code that defines the transformation logic.
 	Source pulumi.StringInput `pulumi:"source"`
 }
@@ -71733,6 +71950,13 @@ func (o ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemapOu
 // A descriptive name for this remap rule.
 func (o ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemapOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemap) string { return v.Name }).(pulumi.StringOutput)
+}
+
+// A sample event used to test the VRL script in the pipeline editor.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemapOutput) Sample() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorCustomProcessorRemap) *string {
+		return v.Sample
+	}).(pulumi.StringPtrOutput)
 }
 
 // The VRL script source code that defines the transformation logic.
@@ -77096,6 +77320,8 @@ type ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRule stru
 	Include string `pulumi:"include"`
 	// A list of Grok parsing rules that define how to extract fields. Each rule must contain a name and a valid Grok pattern.
 	MatchRules []ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleMatchRule `pulumi:"matchRules"`
+	// Optional name identifying this Grok rule in worker diagnostics. Names must be unique within the processor.
+	Name *string `pulumi:"name"`
 	// A list of helper Grok rules that can be referenced by the parsing rules.
 	SupportRules []ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleSupportRule `pulumi:"supportRules"`
 }
@@ -77116,6 +77342,8 @@ type ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleArgs 
 	Include pulumi.StringInput `pulumi:"include"`
 	// A list of Grok parsing rules that define how to extract fields. Each rule must contain a name and a valid Grok pattern.
 	MatchRules ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleMatchRuleArrayInput `pulumi:"matchRules"`
+	// Optional name identifying this Grok rule in worker diagnostics. Names must be unique within the processor.
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// A list of helper Grok rules that can be referenced by the parsing rules.
 	SupportRules ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleSupportRuleArrayInput `pulumi:"supportRules"`
 }
@@ -77183,6 +77411,11 @@ func (o ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleOu
 	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRule) []ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleMatchRule {
 		return v.MatchRules
 	}).(ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleMatchRuleArrayOutput)
+}
+
+// Optional name identifying this Grok rule in worker diagnostics. Names must be unique within the processor.
+func (o ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRuleOutput) Name() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorParseGrokIncludeRule) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
 // A list of helper Grok rules that can be referenced by the parsing rules.
@@ -82901,145 +83134,6 @@ func (o ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPer
 	}).(ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitPerTagLimitOutput)
 }
 
-type ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode struct {
-	// The cardinality tracking algorithm to use. One of `exactFingerprint`, `probabilistic`. Valid values are `exactFingerprint`, `probabilistic`.
-	Mode string `pulumi:"mode"`
-}
-
-// ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeInput is an input type that accepts ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs and ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput values.
-// You can construct a concrete instance of `ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeInput` via:
-//
-//	ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs{...}
-type ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeInput interface {
-	pulumi.Input
-
-	ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput() ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput
-	ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutputWithContext(context.Context) ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput
-}
-
-type ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs struct {
-	// The cardinality tracking algorithm to use. One of `exactFingerprint`, `probabilistic`. Valid values are `exactFingerprint`, `probabilistic`.
-	Mode pulumi.StringInput `pulumi:"mode"`
-}
-
-func (ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode)(nil)).Elem()
-}
-
-func (i ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs) ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput() ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput {
-	return i.ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutputWithContext(context.Background())
-}
-
-func (i ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs) ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput)
-}
-
-func (i ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs) ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput {
-	return i.ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutputWithContext(context.Background())
-}
-
-func (i ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs) ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput).ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutputWithContext(ctx)
-}
-
-// ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrInput is an input type that accepts ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs, ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtr and ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput values.
-// You can construct a concrete instance of `ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrInput` via:
-//
-//	        ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs{...}
-//
-//	or:
-//
-//	        nil
-type ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrInput interface {
-	pulumi.Input
-
-	ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput
-	ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutputWithContext(context.Context) ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput
-}
-
-type observabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrType ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs
-
-func ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtr(v *ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs) ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrInput {
-	return (*observabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrType)(v)
-}
-
-func (*observabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode)(nil)).Elem()
-}
-
-func (i *observabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrType) ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput {
-	return i.ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutputWithContext(context.Background())
-}
-
-func (i *observabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrType) ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput)
-}
-
-type ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput struct{ *pulumi.OutputState }
-
-func (ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode)(nil)).Elem()
-}
-
-func (o ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput) ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput() ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput) ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput) ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput {
-	return o.ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutputWithContext(context.Background())
-}
-
-func (o ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput) ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode) *ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode {
-		return &v
-	}).(ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput)
-}
-
-// The cardinality tracking algorithm to use. One of `exactFingerprint`, `probabilistic`. Valid values are `exactFingerprint`, `probabilistic`.
-func (o ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput) Mode() pulumi.StringOutput {
-	return o.ApplyT(func(v ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode) string {
-		return v.Mode
-	}).(pulumi.StringOutput)
-}
-
-type ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput struct{ *pulumi.OutputState }
-
-func (ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode)(nil)).Elem()
-}
-
-func (o ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput) ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput() ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput) ToObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutputWithContext(ctx context.Context) ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput {
-	return o
-}
-
-func (o ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput) Elem() ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode) ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode {
-		if v != nil {
-			return *v
-		}
-		var ret ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode
-		return ret
-	}).(ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput)
-}
-
-// The cardinality tracking algorithm to use. One of `exactFingerprint`, `probabilistic`. Valid values are `exactFingerprint`, `probabilistic`.
-func (o ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput) Mode() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingMode) *string {
-		if v == nil {
-			return nil
-		}
-		return &v.Mode
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalInput)(nil)).Elem(), DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrInput)(nil)).Elem(), DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalArgs{})
@@ -83462,6 +83556,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorVariablesCloudCostQueryArrayInput)(nil)).Elem(), MonitorVariablesCloudCostQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorVariablesDataJobsQueryInput)(nil)).Elem(), MonitorVariablesDataJobsQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorVariablesDataJobsQueryArrayInput)(nil)).Elem(), MonitorVariablesDataJobsQueryArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorVariablesDataJobsQueryMonitorOptionsInput)(nil)).Elem(), MonitorVariablesDataJobsQueryMonitorOptionsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*MonitorVariablesDataJobsQueryMonitorOptionsPtrInput)(nil)).Elem(), MonitorVariablesDataJobsQueryMonitorOptionsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorVariablesDataQualityQueryInput)(nil)).Elem(), MonitorVariablesDataQualityQueryArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorVariablesDataQualityQueryArrayInput)(nil)).Elem(), MonitorVariablesDataQualityQueryArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MonitorVariablesDataQualityQueryMonitorOptionsInput)(nil)).Elem(), MonitorVariablesDataQualityQueryMonitorOptionsArgs{})
@@ -84021,8 +84117,6 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitArrayInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitPerTagLimitInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitPerTagLimitArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitPerTagLimitArrayInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitPerTagLimitArray{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrInput)(nil)).Elem(), ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeArgs{})
 	pulumi.RegisterOutputType(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalOutput{})
 	pulumi.RegisterOutputType(DashboardWidgetWildcardDefinitionRequestTreemapRequestQueryRetentionQuerySearchReturnCriteriaTimeIntervalPtrOutput{})
 	pulumi.RegisterOutputType(DashboardWidgetWildcardDefinitionRequestTreemapRequestQuerySloQueryOutput{})
@@ -84444,6 +84538,8 @@ func init() {
 	pulumi.RegisterOutputType(MonitorVariablesCloudCostQueryArrayOutput{})
 	pulumi.RegisterOutputType(MonitorVariablesDataJobsQueryOutput{})
 	pulumi.RegisterOutputType(MonitorVariablesDataJobsQueryArrayOutput{})
+	pulumi.RegisterOutputType(MonitorVariablesDataJobsQueryMonitorOptionsOutput{})
+	pulumi.RegisterOutputType(MonitorVariablesDataJobsQueryMonitorOptionsPtrOutput{})
 	pulumi.RegisterOutputType(MonitorVariablesDataQualityQueryOutput{})
 	pulumi.RegisterOutputType(MonitorVariablesDataQualityQueryArrayOutput{})
 	pulumi.RegisterOutputType(MonitorVariablesDataQualityQueryMonitorOptionsOutput{})
@@ -85003,6 +85099,4 @@ func init() {
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitArrayOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitPerTagLimitOutput{})
 	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitPerMetricLimitPerTagLimitArrayOutput{})
-	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModeOutput{})
-	pulumi.RegisterOutputType(ObservabilityPipelineConfigProcessorGroupProcessorTagCardinalityLimitTrackingModePtrOutput{})
 }

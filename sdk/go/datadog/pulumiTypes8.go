@@ -13,6 +13,166 @@ import (
 
 var _ = internal.GetEnvOrDefault
 
+type PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeys struct {
+	// Primary join key.
+	Primary string `pulumi:"primary"`
+	// Secondary join keys.
+	Secondaries []string `pulumi:"secondaries"`
+}
+
+// PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysInput is an input type that accepts PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysArgs and PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysInput` via:
+//
+//	PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysArgs{...}
+type PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput
+	ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutputWithContext(context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput
+}
+
+type PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysArgs struct {
+	// Primary join key.
+	Primary pulumi.StringInput `pulumi:"primary"`
+	// Secondary join keys.
+	Secondaries pulumi.StringArrayInput `pulumi:"secondaries"`
+}
+
+func (PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeys)(nil)).Elem()
+}
+
+func (i PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysArgs) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput {
+	return i.ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysArgs) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutputWithContext(ctx context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput)
+}
+
+func (i PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysArgs) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput {
+	return i.ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutputWithContext(context.Background())
+}
+
+func (i PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysArgs) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput).ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutputWithContext(ctx)
+}
+
+// PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrInput is an input type that accepts PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysArgs, PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtr and PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput values.
+// You can construct a concrete instance of `PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrInput` via:
+//
+//	        PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysArgs{...}
+//
+//	or:
+//
+//	        nil
+type PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrInput interface {
+	pulumi.Input
+
+	ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput
+	ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutputWithContext(context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput
+}
+
+type powerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrType PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysArgs
+
+func PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtr(v *PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysArgs) PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrInput {
+	return (*powerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrType)(v)
+}
+
+func (*powerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeys)(nil)).Elem()
+}
+
+func (i *powerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrType) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput {
+	return i.ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutputWithContext(context.Background())
+}
+
+func (i *powerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrType) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput)
+}
+
+type PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeys)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutputWithContext(ctx context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput {
+	return o.ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutputWithContext(context.Background())
+}
+
+func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeys) *PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeys {
+		return &v
+	}).(PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput)
+}
+
+// Primary join key.
+func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput) Primary() pulumi.StringOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeys) string {
+		return v.Primary
+	}).(pulumi.StringOutput)
+}
+
+// Secondary join keys.
+func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput) Secondaries() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeys) []string {
+		return v.Secondaries
+	}).(pulumi.StringArrayOutput)
+}
+
+type PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput struct{ *pulumi.OutputState }
+
+func (PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeys)(nil)).Elem()
+}
+
+func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput() PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput) ToPowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutputWithContext(ctx context.Context) PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput {
+	return o
+}
+
+func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput) Elem() PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeys) PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeys {
+		if v != nil {
+			return *v
+		}
+		var ret PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeys
+		return ret
+	}).(PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput)
+}
+
+// Primary join key.
+func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput) Primary() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeys) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Primary
+	}).(pulumi.StringPtrOutput)
+}
+
+// Secondary join keys.
+func (o PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput) Secondaries() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeys) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Secondaries
+	}).(pulumi.StringArrayOutput)
+}
+
 type PowerpackV2WidgetProductAnalyticsFunnelDefinitionTime struct {
 	// A fixed time range with explicit start and end times.
 	Fixed *PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixed `pulumi:"fixed"`
@@ -85823,163 +85983,9 @@ func (o PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestSortOrderByGroup
 	}).(pulumi.StringPtrOutput)
 }
 
-type PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyle struct {
-	// How to order series. Valid values are `tags`, `values`.
-	OrderBy *string `pulumi:"orderBy"`
-	// A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
-	Palette *string `pulumi:"palette"`
-}
-
-// PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleInput is an input type that accepts PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleArgs and PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleInput` via:
-//
-//	PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleArgs{...}
-type PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput() PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput
-	ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutputWithContext(context.Context) PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput
-}
-
-type PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleArgs struct {
-	// How to order series. Valid values are `tags`, `values`.
-	OrderBy pulumi.StringPtrInput `pulumi:"orderBy"`
-	// A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
-	Palette pulumi.StringPtrInput `pulumi:"palette"`
-}
-
-func (PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleArgs) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyle)(nil)).Elem()
-}
-
-func (i PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleArgs) ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput() PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput {
-	return i.ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleArgs) ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutputWithContext(ctx context.Context) PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput)
-}
-
-func (i PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleArgs) ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput() PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput {
-	return i.ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutputWithContext(context.Background())
-}
-
-func (i PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleArgs) ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput).ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutputWithContext(ctx)
-}
-
-// PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrInput is an input type that accepts PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleArgs, PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtr and PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput values.
-// You can construct a concrete instance of `PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrInput` via:
-//
-//	        PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleArgs{...}
-//
-//	or:
-//
-//	        nil
-type PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrInput interface {
-	pulumi.Input
-
-	ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput() PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput
-	ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutputWithContext(context.Context) PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput
-}
-
-type powerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrType PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleArgs
-
-func PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtr(v *PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleArgs) PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrInput {
-	return (*powerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrType)(v)
-}
-
-func (*powerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrType) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyle)(nil)).Elem()
-}
-
-func (i *powerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrType) ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput() PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput {
-	return i.ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutputWithContext(context.Background())
-}
-
-func (i *powerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrType) ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput {
-	return pulumi.ToOutputWithContext(ctx, i).(PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput)
-}
-
-type PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((*PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyle)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput) ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput() PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput) ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutputWithContext(ctx context.Context) PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput) ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput() PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput {
-	return o.ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutputWithContext(context.Background())
-}
-
-func (o PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput) ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput {
-	return o.ApplyTWithContext(ctx, func(_ context.Context, v PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyle) *PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyle {
-		return &v
-	}).(PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput)
-}
-
-// How to order series. Valid values are `tags`, `values`.
-func (o PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput) OrderBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyle) *string { return v.OrderBy }).(pulumi.StringPtrOutput)
-}
-
-// A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
-func (o PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput) Palette() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyle) *string { return v.Palette }).(pulumi.StringPtrOutput)
-}
-
-type PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput struct{ *pulumi.OutputState }
-
-func (PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput) ElementType() reflect.Type {
-	return reflect.TypeOf((**PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyle)(nil)).Elem()
-}
-
-func (o PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput) ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput() PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput) ToPowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutputWithContext(ctx context.Context) PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput {
-	return o
-}
-
-func (o PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput) Elem() PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyle) PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyle {
-		if v != nil {
-			return *v
-		}
-		var ret PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyle
-		return ret
-	}).(PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput)
-}
-
-// How to order series. Valid values are `tags`, `values`.
-func (o PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput) OrderBy() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyle) *string {
-		if v == nil {
-			return nil
-		}
-		return v.OrderBy
-	}).(pulumi.StringPtrOutput)
-}
-
-// A color palette to apply to the widget. The available options are available at: https://docs.datadoghq.com/dashboards/widgets/timeseries/#appearance.
-func (o PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput) Palette() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyle) *string {
-		if v == nil {
-			return nil
-		}
-		return v.Palette
-	}).(pulumi.StringPtrOutput)
-}
-
 func init() {
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysInput)(nil)).Elem(), PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrInput)(nil)).Elem(), PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeInput)(nil)).Elem(), PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrInput)(nil)).Elem(), PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedInput)(nil)).Elem(), PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedArgs{})
@@ -86968,8 +86974,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestSortOrderByFormulaSortPtrInput)(nil)).Elem(), PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestSortOrderByFormulaSortArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestSortOrderByGroupSortInput)(nil)).Elem(), PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestSortOrderByGroupSortArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestSortOrderByGroupSortPtrInput)(nil)).Elem(), PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestSortOrderByGroupSortArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleInput)(nil)).Elem(), PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleArgs{})
-	pulumi.RegisterInputType(reflect.TypeOf((*PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrInput)(nil)).Elem(), PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleArgs{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysOutput{})
+	pulumi.RegisterOutputType(PowerpackV2WidgetProductAnalyticsFunnelDefinitionRequestQuerySearchJoinKeysPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimePtrOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetProductAnalyticsFunnelDefinitionTimeFixedOutput{})
@@ -87958,6 +87964,4 @@ func init() {
 	pulumi.RegisterOutputType(PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestSortOrderByFormulaSortPtrOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestSortOrderByGroupSortOutput{})
 	pulumi.RegisterOutputType(PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestSortOrderByGroupSortPtrOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStyleOutput{})
-	pulumi.RegisterOutputType(PowerpackV2WidgetWildcardDefinitionRequestTreemapRequestStylePtrOutput{})
 }

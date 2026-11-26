@@ -31,7 +31,7 @@ class MetricTagConfigurationArgs:
         The set of arguments for constructing a MetricTagConfiguration resource.
 
         :param pulumi.Input[_builtins.str] metric_name: The metric name for this resource.
-        :param pulumi.Input[_builtins.str] metric_type: The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
+        :param pulumi.Input[_builtins.str] metric_type: The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`, `exponential_histogram`, `explicit_histogram`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tag keys that will be queryable for your metric.
         :param pulumi.Input[Sequence[pulumi.Input['MetricTagConfigurationAggregationArgs']]] aggregations: A list of queryable aggregation combinations for a count, rate, or gauge metric. By default, count and rate metrics require the (time: sum, space: sum) aggregation and gauge metrics require the (time: avg, space: avg) aggregation. Can only be applied to metrics that have a `metric_type` of count, rate, or gauge. **Deprecated.** The 'aggregations' field is no longer supported by the Datadog API and will be ignored. This field will be removed in a future version of the provider.
         :param pulumi.Input[_builtins.bool] exclude_tags_mode: Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
@@ -66,7 +66,7 @@ class MetricTagConfigurationArgs:
     @pulumi.getter(name="metricType")
     def metric_type(self) -> pulumi.Input[_builtins.str]:
         """
-        The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
+        The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`, `exponential_histogram`, `explicit_histogram`.
         """
         return pulumi.get(self, "metric_type")
 
@@ -140,7 +140,7 @@ class _MetricTagConfigurationState:
         :param pulumi.Input[_builtins.bool] exclude_tags_mode: Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] include_percentiles: Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
         :param pulumi.Input[_builtins.str] metric_name: The metric name for this resource.
-        :param pulumi.Input[_builtins.str] metric_type: The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
+        :param pulumi.Input[_builtins.str] metric_type: The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`, `exponential_histogram`, `explicit_histogram`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tag keys that will be queryable for your metric.
         """
         if aggregations is not None:
@@ -212,7 +212,7 @@ class _MetricTagConfigurationState:
     @pulumi.getter(name="metricType")
     def metric_type(self) -> pulumi.Input[Optional[_builtins.str]]:
         """
-        The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
+        The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`, `exponential_histogram`, `explicit_histogram`.
         """
         return pulumi.get(self, "metric_type")
 
@@ -290,7 +290,7 @@ class MetricTagConfiguration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] exclude_tags_mode: Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] include_percentiles: Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
         :param pulumi.Input[_builtins.str] metric_name: The metric name for this resource.
-        :param pulumi.Input[_builtins.str] metric_type: The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
+        :param pulumi.Input[_builtins.str] metric_type: The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`, `exponential_histogram`, `explicit_histogram`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tag keys that will be queryable for your metric.
         """
         ...
@@ -406,7 +406,7 @@ class MetricTagConfiguration(pulumi.CustomResource):
         :param pulumi.Input[_builtins.bool] exclude_tags_mode: Toggle to include/exclude tags as queryable for your metric. Can only be applied to metrics that have one or more tags configured. Defaults to `false`.
         :param pulumi.Input[_builtins.bool] include_percentiles: Toggle to include/exclude percentiles for a distribution metric. Defaults to false. Can only be applied to metrics that have a `metric_type` of distribution.
         :param pulumi.Input[_builtins.str] metric_name: The metric name for this resource.
-        :param pulumi.Input[_builtins.str] metric_type: The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
+        :param pulumi.Input[_builtins.str] metric_type: The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`, `exponential_histogram`, `explicit_histogram`.
         :param pulumi.Input[Sequence[pulumi.Input[_builtins.str]]] tags: A list of tag keys that will be queryable for your metric.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
@@ -476,7 +476,7 @@ class MetricTagConfiguration(pulumi.CustomResource):
     @pulumi.getter(name="metricType")
     def metric_type(self) -> pulumi.Output[_builtins.str]:
         """
-        The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`.
+        The metric's type. This field can't be updated after creation. Valid values are `gauge`, `count`, `rate`, `distribution`, `exponential_histogram`, `explicit_histogram`.
         """
         return pulumi.get(self, "metric_type")
 
